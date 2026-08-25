@@ -93,6 +93,22 @@ function skillLine(stat: SaveStat, bundle: ItemStatPresentationBundle): DisplayS
   };
 }
 
+function displayedSkillLine(stat: SaveStat, bundle: ItemStatPresentationBundle): DisplayStatLine | null {
+  const metadata = bundle.Stats[stat.name];
+  const key = metadata?.PositiveKey;
+  const skill = bundle.Skills[String(stat.layer)];
+  if (!key || !skill) return keyedLine(stat, bundle);
+
+  const value = valueOf(stat, bundle);
+  const aura = metadata.Function === 16;
+  return {
+    keyed: { key, args: [value, skill.NameKey] },
+    fallback: aura
+      ? `Level ${value} ${skill.FallbackName} Aura When Equipped`
+      : `+${value} to ${skill.FallbackName} (oskill)`
+  };
+}
+
 export function isHiddenItemStat(
   stat: SaveStat,
   bundle?: ItemStatPresentationBundle
@@ -132,6 +148,19 @@ export function displayStatLines(
 ): DisplayStatLine[] {
   const consumed = new Set<number>();
   const replacements = new Map<number, DisplayStatLine>();
+
+  // Reimagined pairs the real item_nonclassskill record with a descfunc 28 display-only
+  // record. Render the latter with its skill layer and suppress only the matching hidden
+  // backing stat, otherwise the tooltip shows the same oskill twice (once as class-only).
+  stats.forEach((stat, index) => {
+    if (stat.name !== 'item_nonclassskill_display') return;
+    const backingIndex = stats.findIndex((candidate, candidateIndex) =>
+      candidateIndex !== index
+      && candidate.name === 'item_nonclassskill'
+      && candidate.layer === stat.layer
+      && candidate.value === stat.value);
+    if (backingIndex >= 0) consumed.add(backingIndex);
+  });
 
   for (const [minimumName, maximumName, compositeName] of damagePairs) {
     const minimumIndex = stats.findIndex((stat, index) => !consumed.has(index) && stat.name === minimumName);
@@ -177,6 +206,8 @@ export function displayStatLines(
     if (stat.name === 'poison_count') continue;
     const line = stat.name === 'item_nonclassskill' || stat.name === 'item_singleskill'
       ? skillLine(stat, bundle)
+      : bundle.Stats[stat.name]?.Function === 16 || bundle.Stats[stat.name]?.Function === 28
+        ? displayedSkillLine(stat, bundle)
       : bundle.Stats[stat.name]?.Function === 15
         ? eventSkillLine(stat, bundle)
         : keyedLine(stat, bundle);

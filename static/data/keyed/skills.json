@@ -80,7 +80,8 @@
                       44,
                       45
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkill39",
@@ -179,7 +180,8 @@
                       829,
                       867
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -300,7 +302,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-0.webp"
+            "Icon": "sprites/skills/ama-0.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 3,
+                "3": 1,
+                "8": 10
+              },
+              "Calcs": {
+                "1": "min(par1+lvl/par2, 9)",
+                "2": "par3",
+                "3": "3"
+              },
+              "ElementalDamage": "(skill('Strafe'.blvl))*par8"
+            }
           },
           {
             "Id": 7,
@@ -465,7 +481,8 @@
                       946,
                       988
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -597,7 +614,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-2.webp"
+            "Icon": "sprites/skills/ama-2.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 3,
+                "3": 1,
+                "8": 9
+              },
+              "Calcs": {
+                "1": "min(par1+lvl/par2, 9)",
+                "2": "par3",
+                "3": "3"
+              },
+              "ElementalDamage": "(skill('Exploding Arrow'.blvl)+skill('Meteoric Arrow'.blvl))*par8"
+            }
           },
           {
             "Id": 11,
@@ -687,7 +718,8 @@
                       8,
                       9
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill6",
@@ -786,7 +818,8 @@
                       854,
                       892
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -918,7 +951,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-10.webp"
+            "Icon": "sprites/skills/ama-10.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 3,
+                "3": 1,
+                "8": 10
+              },
+              "Calcs": {
+                "1": "min(par1+lvl/par2, 9)",
+                "2": "par3",
+                "3": "3"
+              },
+              "ElementalDamage": "(skill('Freezing Arrow'.blvl)+skill('Glacial Orb Arrow'.blvl))*par8"
+            }
           },
           {
             "Id": 12,
@@ -1049,7 +1096,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-12.webp"
+            "Icon": "sprites/skills/ama-12.webp",
+            "Calculation": {
+              "Params": {
+                "1": 2,
+                "2": 1,
+                "3": 1,
+                "4": 12
+              },
+              "Calcs": {
+                "1": "min(ln12,24)",
+                "2": "par3",
+                "3": "2",
+                "5": "skill('Guided Arrow'.blvl) * par4"
+              }
+            }
           },
           {
             "Id": 16,
@@ -1216,7 +1277,8 @@
                       996,
                       1031
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -1344,7 +1406,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-20.webp"
+            "Icon": "sprites/skills/ama-20.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 10,
+                "3": 1,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "min(par1+lvl/par2, 3)",
+                "2": "par3",
+                "3": "1"
+              },
+              "ElementalDamage": "(skill('Fire Arrow'.blvl)+skill('Meteoric Arrow'.blvl))*par8"
+            }
           },
           {
             "Id": 21,
@@ -1436,7 +1512,8 @@
                       3.3,
                       3.6
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill6",
@@ -1535,7 +1612,8 @@
                       990,
                       1020
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -1673,7 +1751,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-30.webp"
+            "Icon": "sprites/skills/ama-30.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 10,
+                "3": 1,
+                "8": 9
+              },
+              "Calcs": {
+                "1": "min(par1+lvl/par2, 3)",
+                "2": "par3",
+                "3": "1"
+              },
+              "ElementalDamage": "(skill('Cold Arrow'.blvl)+skill('Glacial Orb Arrow'.blvl))*par8"
+            }
           },
           {
             "Id": 22,
@@ -1805,7 +1897,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-32.webp"
+            "Icon": "sprites/skills/ama-32.webp",
+            "Calculation": {
+              "Params": {
+                "4": 7,
+                "8": 12
+              },
+              "Calcs": {
+                "1": "ln34 + (skill('Multiple Shot'.blvl)*par8)"
+              }
+            }
           },
           {
             "Id": 26,
@@ -1972,7 +2073,8 @@
                       829,
                       867
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill86",
@@ -2092,7 +2194,25 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-40.webp"
+            "Icon": "sprites/skills/ama-40.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 5,
+                "3": 4,
+                "4": 10,
+                "5": 35,
+                "6": 50,
+                "8": 10,
+                "9": 5
+              },
+              "Calcs": {
+                "1": "min(par3 + lvl - 1, par4)",
+                "2": "ln12+(skill('Guided Arrow'.blvl)*par8)+(skill('Multiple Shot'.blvl)*par9)",
+                "3": "2+lvl/4"
+              },
+              "ElementalDamage": "(skill('Magic Arrow'.blvl))*par9"
+            }
           },
           {
             "Id": 27,
@@ -2259,7 +2379,8 @@
                       996,
                       1031
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -2346,7 +2467,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-42.webp"
+            "Icon": "sprites/skills/ama-42.webp",
+            "Calculation": {
+              "Params": {
+                "1": 6,
+                "3": 75,
+                "8": 8
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Fire Arrow'.blvl)+skill('Exploding Arrow'.blvl))*par8"
+            }
           },
           {
             "Id": 31,
@@ -2423,7 +2553,8 @@
                     [
                       4
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill6",
@@ -2522,7 +2653,8 @@
                       1238,
                       1274
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -2619,7 +2751,14 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-50.webp"
+            "Icon": "sprites/skills/ama-50.webp",
+            "Calculation": {
+              "Params": {
+                "8": 9
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Cold Arrow'.blvl)+skill('Freezing Arrow'.blvl))*par8"
+            }
           }
         ]
       },
@@ -2744,7 +2883,8 @@
                       -3015,
                       -3115
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "PhysDamageResist",
@@ -2820,7 +2960,19 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ama-4.webp"
+            "Icon": "sprites/skills/ama-4.webp",
+            "Calculation": {
+              "Params": {
+                "1": 40,
+                "2": 25,
+                "3": 200,
+                "4": 100,
+                "5": 27
+              },
+              "Calcs": {
+                "1": "0-(5+lvl)"
+              }
+            }
           },
           {
             "Id": 9,
@@ -2892,7 +3044,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ama-6.webp"
+            "Icon": "sprites/skills/ama-6.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 2,
+                "3": 2,
+                "4": 18
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 13,
@@ -2964,7 +3125,17 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ama-14.webp"
+            "Icon": "sprites/skills/ama-14.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 2,
+                "3": 3,
+                "4": 22,
+                "8": 2
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 17,
@@ -3109,7 +3280,18 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ama-22.webp"
+            "Icon": "sprites/skills/ama-22.webp",
+            "Calculation": {
+              "Params": {
+                "1": 25,
+                "2": 75,
+                "3": 300,
+                "4": 150,
+                "5": 27,
+                "8": 40
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 23,
@@ -3183,7 +3365,14 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ama-34.webp"
+            "Icon": "sprites/skills/ama-34.webp",
+            "Calculation": {
+              "Params": {
+                "1": 35,
+                "2": 10
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 29,
@@ -3257,7 +3446,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ama-46.webp"
+            "Icon": "sprites/skills/ama-46.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 2,
+                "3": 3,
+                "4": 22
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 33,
@@ -3331,7 +3529,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ama-54.webp"
+            "Icon": "sprites/skills/ama-54.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 2,
+                "3": 2,
+                "4": 18
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 32,
@@ -3618,7 +3825,23 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-52.webp"
+            "Icon": "sprites/skills/ama-52.webp",
+            "Calculation": {
+              "Params": {
+                "1": 20,
+                "2": 25,
+                "3": 10,
+                "4": 12,
+                "5": 25,
+                "6": 3,
+                "7": 2,
+                "8": 20
+              },
+              "Calcs": {
+                "1": "par1*(lvl-1)+blvl*par8",
+                "2": "ln56"
+              }
+            }
           },
           {
             "Id": 18,
@@ -3747,7 +3970,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-24.webp"
+            "Icon": "sprites/skills/ama-24.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 2,
+                "3": 2,
+                "4": 18,
+                "5": -10,
+                "6": -35
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 28,
@@ -3987,7 +4221,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-44.webp"
+            "Icon": "sprites/skills/ama-44.webp",
+            "Calculation": {
+              "Params": {
+                "1": -25,
+                "2": -50,
+                "3": 5,
+                "4": 2,
+                "5": 4,
+                "6": -10,
+                "7": -25
+              },
+              "Calcs": {}
+            }
           }
         ]
       },
@@ -4262,7 +4508,8 @@
                       207,
                       215
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -4301,7 +4548,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-8.webp"
+            "Icon": "sprites/skills/ama-8.webp",
+            "Calculation": {
+              "Params": {
+                "3": 10,
+                "4": 8,
+                "6": 10
+              },
+              "Calcs": {
+                "1": "ln34+(skill('Impale'.blvl)+skill('Fend'.blvl))*par6",
+                "4": "0"
+              },
+              "PhysicalDamage": "(skill('Impale'.blvl)+skill('Fend'.blvl))*par6"
+            }
           },
           {
             "Id": 15,
@@ -4376,7 +4635,8 @@
                     [
                       2
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill8",
@@ -4475,7 +4735,8 @@
                       3350,
                       3500
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [],
@@ -4510,7 +4771,14 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-18.webp"
+            "Icon": "sprites/skills/ama-18.webp",
+            "Calculation": {
+              "Params": {
+                "8": 7
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Plague Javelin'.blvl)+skill('Toxic Whirl'.blvl))*par8"
+            }
           },
           {
             "Id": 20,
@@ -4631,7 +4899,8 @@
                       2132,
                       2220
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -4782,7 +5051,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-28.webp"
+            "Icon": "sprites/skills/ama-28.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 25,
+                "3": 1,
+                "8": 2
+              },
+              "Calcs": {
+                "1": "par1+(skill('Lightning Fury'.blvl)==par2)+(skill('Charged Strike'.blvl)==par2)",
+                "2": "par3",
+                "3": "1"
+              },
+              "ElementalDamage": "(skill('Lightning Strike'.blvl)+skill('Charged Strike'.blvl)+skill('Lightning Fury'.blvl))*par8"
+            }
           },
           {
             "Id": 25,
@@ -4859,7 +5142,8 @@
                     [
                       6
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill8",
@@ -4958,7 +5242,8 @@
                       9225,
                       9600
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -5055,7 +5340,14 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-38.webp"
+            "Icon": "sprites/skills/ama-38.webp",
+            "Calculation": {
+              "Params": {
+                "8": 6
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Poison Javelin'.blvl)+skill('Toxic Whirl'.blvl))*par8"
+            }
           },
           {
             "Id": 35,
@@ -5178,7 +5470,8 @@
                       1760,
                       1810
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkillReleasesBolts",
@@ -5275,7 +5568,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-58.webp"
+            "Icon": "sprites/skills/ama-58.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3,
+                "2": 4,
+                "3": 12,
+                "8": 1
+              },
+              "Calcs": {
+                "1": "min(par1+(lvl/par2), 24)"
+              },
+              "ElementalDamage": "(skill('Charged Strike'.blvl)+skill('Lightning Bolt'.blvl)+skill('Lightning Strike'.blvl)) * par8"
+            }
           },
           {
             "Id": 19,
@@ -5494,7 +5799,8 @@
                       283,
                       295
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkill22",
@@ -5590,7 +5896,23 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-26.webp"
+            "Icon": "sprites/skills/ama-26.webp",
+            "Calculation": {
+              "Params": {
+                "1": 70,
+                "2": 10,
+                "6": 6,
+                "8": 30,
+                "9": 30
+              },
+              "Calcs": {
+                "1": "ln12+(skill('Jab'.blvl)+skill('Fend'.blvl))*par6",
+                "2": "0",
+                "3": "0",
+                "4": "0"
+              },
+              "PhysicalDamage": "(skill('Jab'.blvl)+skill('Fend'.blvl))*par6"
+            }
           },
           {
             "Id": 14,
@@ -5665,7 +5987,8 @@
                     [
                       3
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill8",
@@ -5764,7 +6087,8 @@
                       5057,
                       5264
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -5851,7 +6175,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-16.webp"
+            "Icon": "sprites/skills/ama-16.webp",
+            "Calculation": {
+              "Params": {
+                "8": 14
+              },
+              "Calcs": {
+                "1": "1"
+              },
+              "ElementalDamage": "(skill('Poison Javelin'.blvl)+skill('Plague Javelin'.blvl))*par8"
+            }
           },
           {
             "Id": 34,
@@ -5920,7 +6253,8 @@
                       1057,
                       1092
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill11",
@@ -6027,7 +6361,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-56.webp"
+            "Icon": "sprites/skills/ama-56.webp",
+            "Calculation": {
+              "Params": {
+                "1": 22,
+                "3": 2,
+                "4": 5,
+                "8": 12
+              },
+              "Calcs": {
+                "1": "par1",
+                "2": "par3+(lvl/par4)",
+                "4": "0"
+              },
+              "ElementalDamage": "(skill('Charged Strike'.blvl)+skill('Lightning Bolt'.blvl)+skill('Lightning Fury'.blvl)) * par8"
+            }
           },
           {
             "Id": 30,
@@ -6194,7 +6542,8 @@
                       283,
                       295
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkill22",
@@ -6290,7 +6639,26 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-48.webp"
+            "Icon": "sprites/skills/ama-48.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 25,
+                "3": 35,
+                "4": 5,
+                "5": 15,
+                "6": 1,
+                "7": 6,
+                "8": 4
+              },
+              "Calcs": {
+                "1": "par1",
+                "2": "par2",
+                "4": "0",
+                "5": "ln34+(skill('Jab'.blvl)+skill('Impale'.blvl))*par8"
+              },
+              "PhysicalDamage": "(skill('Jab'.blvl)+skill('Impale'.blvl))*par8"
+            }
           },
           {
             "Id": 24,
@@ -6413,7 +6781,8 @@
                       954,
                       982
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill72",
@@ -6511,7 +6880,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ama-36.webp"
+            "Icon": "sprites/skills/ama-36.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3,
+                "2": 5,
+                "8": 14
+              },
+              "Calcs": {
+                "1": "min(par1+(lvl/par2), 24)",
+                "4": "0"
+              },
+              "ElementalDamage": "(skill('Lightning Strike'.blvl)+skill('Lightning Bolt'.blvl)+skill('Lightning Fury'.blvl))*par8"
+            }
           }
         ]
       }
@@ -6637,7 +7018,8 @@
                       578,
                       606
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill120",
@@ -6722,7 +7104,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-0.webp"
+            "Icon": "sprites/skills/sor-0.webp",
+            "Calculation": {
+              "Params": {
+                "1": 2,
+                "3": 5,
+                "4": 5,
+                "8": 14
+              },
+              "Calcs": {
+                "1": "min(1+(skill('Fire Bolt'.blvl)/par4), par3)",
+                "2": "par2",
+                "3": "0"
+              },
+              "ElementalDamage": "(skill('Fire Ball'.blvl)+skill('Meteor'.blvl))*par8"
+            }
           },
           {
             "Id": 37,
@@ -6864,7 +7260,14 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-2.webp"
+            "Icon": "sprites/skills/sor-2.webp",
+            "Calculation": {
+              "Params": {
+                "1": 15,
+                "2": 15
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 41,
@@ -6986,7 +7389,8 @@
                       264,
                       271
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill120",
@@ -7082,7 +7486,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-10.webp"
+            "Icon": "sprites/skills/sor-10.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 5,
+                "3": 1,
+                "8": 10
+              },
+              "Calcs": {
+                "1": "max(lvl/par2, par1)",
+                "2": "par3",
+                "3": "0",
+                "5": "par4"
+              },
+              "ElementalDamage": "(skill('Warmth'.blvl)+skill('Fire Wall'.blvl))*par8"
+            }
           },
           {
             "Id": 46,
@@ -7354,7 +7773,8 @@
                       2517,
                       2620
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [],
@@ -7378,7 +7798,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-20.webp"
+            "Icon": "sprites/skills/sor-20.webp",
+            "Calculation": {
+              "Params": {
+                "1": 50,
+                "2": 500,
+                "3": 2,
+                "4": 2,
+                "8": 6
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Warmth'.blvl))*par8"
+            }
           },
           {
             "Id": 47,
@@ -7545,7 +7976,8 @@
                       751,
                       778
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill120",
@@ -7631,7 +8063,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-22.webp"
+            "Icon": "sprites/skills/sor-22.webp",
+            "Calculation": {
+              "Params": {
+                "1": 2,
+                "3": 3,
+                "4": 10,
+                "8": 12
+              },
+              "Calcs": {
+                "1": "min(1+(skill('Fire Ball'.blvl)/par4), par3)",
+                "2": "par2",
+                "3": "0"
+              },
+              "ElementalDamage": "(skill('Fire Bolt'.blvl)+skill('Meteor'.blvl))*par8"
+            }
           },
           {
             "Id": 51,
@@ -7798,7 +8244,8 @@
                       4420,
                       4565
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -7843,7 +8290,17 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-30.webp"
+            "Icon": "sprites/skills/sor-30.webp",
+            "Calculation": {
+              "Params": {
+                "7": 1,
+                "8": 3
+              },
+              "Calcs": {
+                "1": "par1"
+              },
+              "ElementalDamage": "(skill('Warmth'.blvl)*par8)+(skill('Inferno'.blvl)*par7)"
+            }
           },
           {
             "Id": 52,
@@ -8064,7 +8521,8 @@
                       300,
                       310
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -8140,7 +8598,17 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-32.webp"
+            "Icon": "sprites/skills/sor-32.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3600,
+                "2": 600,
+                "3": 33,
+                "8": 4
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Warmth'.blvl))*par8"
+            }
           },
           {
             "Id": 56,
@@ -8308,7 +8776,8 @@
                       2947,
                       3032
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -8373,7 +8842,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-40.webp"
+            "Icon": "sprites/skills/sor-40.webp",
+            "Calculation": {
+              "Params": {
+                "1": 6,
+                "3": 30,
+                "4": 15,
+                "8": 5
+              },
+              "Calcs": {
+                "1": "ln12"
+              },
+              "ElementalDamage": "(skill('Fire Bolt'.blvl)+skill('Fire Ball'.blvl))*par8"
+            }
           },
           {
             "Id": 61,
@@ -8497,7 +8978,18 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/sor-50.webp"
+            "Icon": "sprites/skills/sor-50.webp",
+            "Calculation": {
+              "Params": {
+                "1": 6,
+                "2": 2,
+                "3": 150,
+                "4": 1,
+                "5": 3,
+                "6": 25
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 62,
@@ -8664,7 +9156,8 @@
                       602,
                       624
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -8709,7 +9202,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-52.webp"
+            "Icon": "sprites/skills/sor-52.webp",
+            "Calculation": {
+              "Params": {
+                "1": 250,
+                "3": 18,
+                "8": 4
+              },
+              "Calcs": {
+                "1": "ln12"
+              },
+              "ElementalDamage": "(skill('Fire Bolt'.blvl) + skill('Fire Ball'.blvl))*par8"
+            }
           }
         ]
       },
@@ -8880,7 +9384,8 @@
                       128,
                       133
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill27",
@@ -8944,7 +9449,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-4.webp"
+            "Icon": "sprites/skills/sor-4.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3,
+                "2": 1,
+                "8": 6
+              },
+              "Calcs": {
+                "1": "min(24,ln12)"
+              },
+              "ElementalDamage": "(skill('Lightning'.blvl)+skill('Chain Lightning'.blvl))*par8"
+            }
           },
           {
             "Id": 42,
@@ -9078,7 +9594,20 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/sor-12.webp"
+            "Icon": "sprites/skills/sor-12.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 1,
+                "4": 10,
+                "5": 5,
+                "6": 3
+              },
+              "Calcs": {
+                "1": "par4+blvl/par5*par6",
+                "2": "par3"
+              }
+            }
           },
           {
             "Id": 43,
@@ -9191,7 +9720,8 @@
                       45,
                       46
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -9206,7 +9736,16 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/sor-14.webp"
+            "Icon": "sprites/skills/sor-14.webp",
+            "Calculation": {
+              "Params": {
+                "1": 25,
+                "2": 35
+              },
+              "Calcs": {
+                "1": "par2"
+              }
+            }
           },
           {
             "Id": 48,
@@ -9373,7 +9912,8 @@
                       616,
                       640
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [],
@@ -9408,7 +9948,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-24.webp"
+            "Icon": "sprites/skills/sor-24.webp",
+            "Calculation": {
+              "Params": {
+                "8": 5
+              },
+              "Calcs": {
+                "1": "0"
+              },
+              "ElementalDamage": "(skill('Static Field'.blvl)+skill('Thunder Storm'.blvl))*par8"
+            }
           },
           {
             "Id": 49,
@@ -9575,7 +10124,8 @@
                       1328,
                       1376
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [],
@@ -9610,7 +10160,14 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-26.webp"
+            "Icon": "sprites/skills/sor-26.webp",
+            "Calculation": {
+              "Params": {
+                "8": 14
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Charged Bolt'.blvl)+skill('Chain Lightning'.blvl))*par8"
+            }
           },
           {
             "Id": 53,
@@ -9777,7 +10334,8 @@
                       1122,
                       1162
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill11",
@@ -9864,7 +10422,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-34.webp"
+            "Icon": "sprites/skills/sor-34.webp",
+            "Calculation": {
+              "Params": {
+                "1": 20,
+                "3": 26,
+                "4": 1,
+                "5": 5,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "ln34/par5"
+              },
+              "ElementalDamage": "(skill('Charged Bolt'.blvl)+skill('Lightning'.blvl))*par8"
+            }
           },
           {
             "Id": 54,
@@ -10086,7 +10657,8 @@
                       718,
                       739
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -10139,7 +10711,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-42.webp"
+            "Icon": "sprites/skills/sor-42.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3600,
+                "2": 600,
+                "3": 20,
+                "4": 100,
+                "6": 100,
+                "7": 17,
+                "8": 8
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Static Field'.blvl)+skill('Nova'.blvl))*par8"
+            }
           },
           {
             "Id": 58,
@@ -10251,7 +10836,8 @@
                       89,
                       90
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -10281,7 +10867,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-44.webp"
+            "Icon": "sprites/skills/sor-44.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3600,
+                "2": 1500,
+                "4": 90,
+                "5": 35
+              },
+              "Calcs": {
+                "1": "min(edmn,par4)",
+                "2": "par5-skill('Telekinesis'.blvl)"
+              }
+            }
           },
           {
             "Id": 63,
@@ -10405,7 +11003,18 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/sor-54.webp"
+            "Icon": "sprites/skills/sor-54.webp",
+            "Calculation": {
+              "Params": {
+                "1": 6,
+                "2": 2,
+                "3": 150,
+                "4": 1,
+                "5": 3,
+                "6": 25
+              },
+              "Calcs": {}
+            }
           }
         ]
       },
@@ -10478,7 +11087,8 @@
                       66.2,
                       67.6
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill6",
@@ -10577,7 +11187,8 @@
                       484,
                       507
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill120",
@@ -10662,7 +11273,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-6.webp"
+            "Icon": "sprites/skills/sor-6.webp",
+            "Calculation": {
+              "Params": {
+                "1": 2,
+                "3": 5,
+                "4": 5,
+                "8": 12
+              },
+              "Calcs": {
+                "1": "min(1+(skill('Ice Bolt'.blvl)/par4), par3)",
+                "2": "par2",
+                "3": "0"
+              },
+              "ElementalDamage": "(skill('Frost Nova'.blvl)+skill('Frozen Orb'.blvl))*par8"
+            }
           },
           {
             "Id": 40,
@@ -10938,7 +11563,24 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-8.webp"
+            "Icon": "sprites/skills/sor-8.webp",
+            "Calculation": {
+              "Params": {
+                "1": 15,
+                "2": 3,
+                "3": 3600,
+                "4": 300,
+                "5": 30,
+                "6": 3,
+                "7": 250,
+                "8": 5,
+                "9": 5,
+                "10": 1
+              },
+              "Calcs": {
+                "1": "ln56*(100+((skill('Shiver Armor'.blvl)+skill('Chilling Armor'.blvl))*par8))/100"
+              }
+            }
           },
           {
             "Id": 45,
@@ -11059,7 +11701,8 @@
                       11.6,
                       11.8
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill6",
@@ -11158,7 +11801,8 @@
                       958,
                       992
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill120",
@@ -11234,7 +11878,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-18.webp"
+            "Icon": "sprites/skills/sor-18.webp",
+            "Calculation": {
+              "Params": {
+                "1": 2,
+                "3": 5,
+                "4": 5,
+                "7": 10,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "min(1+(skill('Ice Blast'.blvl)/par4), par3)",
+                "2": "par2",
+                "3": "0"
+              },
+              "ElementalDamage": "(skill('Glacial Spike'.blvl)+skill('Blizzard'.blvl))*par8"
+            }
           },
           {
             "Id": 44,
@@ -11355,7 +12014,8 @@
                       51,
                       52
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill6",
@@ -11454,7 +12114,8 @@
                       272,
                       281
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [],
@@ -11489,7 +12150,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-16.webp"
+            "Icon": "sprites/skills/sor-16.webp",
+            "Calculation": {
+              "Params": {
+                "8": 10
+              },
+              "Calcs": {
+                "1": "0"
+              },
+              "ElementalDamage": "(skill('Ice Bolt'.blvl)+skill('Frozen Orb'.blvl))*par8"
+            }
           },
           {
             "Id": 50,
@@ -11611,7 +12281,8 @@
                       68,
                       70
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill6",
@@ -11710,7 +12381,8 @@
                       260,
                       268
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill21",
@@ -11866,7 +12538,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-28.webp"
+            "Icon": "sprites/skills/sor-28.webp",
+            "Calculation": {
+              "Params": {
+                "1": 20,
+                "2": 4,
+                "3": 3600,
+                "4": 300,
+                "7": 250,
+                "8": 9,
+                "9": 5,
+                "10": 1
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Frozen Armor'.blvl)+skill('Chilling Armor'.blvl))*par8"
+            }
           },
           {
             "Id": 55,
@@ -12033,7 +12719,8 @@
                       720,
                       744
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill120",
@@ -12126,7 +12813,25 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-38.webp"
+            "Icon": "sprites/skills/sor-38.webp",
+            "Calculation": {
+              "Params": {
+                "1": 2,
+                "3": 3,
+                "4": 8,
+                "5": 5,
+                "7": 1,
+                "8": 10,
+                "9": 50,
+                "10": 1
+              },
+              "Calcs": {
+                "1": "min(1+(skill('Glacial Spike'.blvl)/par4), par3)",
+                "2": "par2",
+                "3": "0"
+              },
+              "ElementalDamage": "(skill('Ice Blast'.blvl)+skill('Blizzard'.blvl))*par8"
+            }
           },
           {
             "Id": 59,
@@ -12293,7 +12998,8 @@
                       2263,
                       2339
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -12338,7 +13044,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-46.webp"
+            "Icon": "sprites/skills/sor-46.webp",
+            "Calculation": {
+              "Params": {
+                "1": 7,
+                "3": 4,
+                "8": 4
+              },
+              "Calcs": {
+                "1": "par1",
+                "2": "par3"
+              },
+              "ElementalDamage": "(skill('Ice Blast'.blvl)+skill('Glacial Spike'.blvl))*par8"
+            }
           },
           {
             "Id": 60,
@@ -12506,7 +13224,8 @@
                       305,
                       314
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill21",
@@ -12662,7 +13381,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-48.webp"
+            "Icon": "sprites/skills/sor-48.webp",
+            "Calculation": {
+              "Params": {
+                "1": 25,
+                "2": 5,
+                "3": 3600,
+                "4": 300,
+                "7": 250,
+                "8": 10,
+                "9": 5,
+                "10": 1
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Frozen Armor'.blvl)+skill('Shiver Armor'.blvl))*par8"
+            }
           },
           {
             "Id": 64,
@@ -12783,7 +13516,8 @@
                       51,
                       52
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill6",
@@ -12882,7 +13616,8 @@
                       600,
                       618
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -12927,7 +13662,15 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/sor-56.webp"
+            "Icon": "sprites/skills/sor-56.webp",
+            "Calculation": {
+              "Params": {
+                "5": 5,
+                "8": 3
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Ice Bolt'.blvl)+skill('Frost Nova'.blvl))*par8"
+            }
           },
           {
             "Id": 65,
@@ -13051,7 +13794,18 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/sor-58.webp"
+            "Icon": "sprites/skills/sor-58.webp",
+            "Calculation": {
+              "Params": {
+                "1": 6,
+                "2": 2,
+                "3": 150,
+                "4": 1,
+                "5": 3,
+                "6": 25
+              },
+              "Calcs": {}
+            }
           }
         ]
       }
@@ -13241,7 +13995,19 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-30.webp"
+            "Icon": "sprites/skills/nec-30.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3,
+                "2": 5,
+                "3": 127,
+                "4": 2
+              },
+              "Calcs": {
+                "5": "par1+lvl/par2",
+                "6": "max(par3-lvl*par4,16)"
+              }
+            }
           },
           {
             "Id": 66,
@@ -13384,7 +14150,18 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-0.webp"
+            "Icon": "sprites/skills/nec-0.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3,
+                "2": 1,
+                "3": 200,
+                "4": 75,
+                "5": 20,
+                "6": 2
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 71,
@@ -13482,7 +14259,16 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-10.webp"
+            "Icon": "sprites/skills/nec-10.webp",
+            "Calculation": {
+              "Params": {
+                "1": 4,
+                "2": 1,
+                "3": 175,
+                "4": 50
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 72,
@@ -13679,7 +14465,20 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-12.webp"
+            "Icon": "sprites/skills/nec-12.webp",
+            "Calculation": {
+              "Params": {
+                "1": 9,
+                "2": 1,
+                "3": 350,
+                "4": 60,
+                "5": -10,
+                "6": -1,
+                "7": -15,
+                "8": -2
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 76,
@@ -13782,7 +14581,22 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-20.webp"
+            "Icon": "sprites/skills/nec-20.webp",
+            "Calculation": {
+              "Params": {
+                "1": 7,
+                "3": 300,
+                "4": 60,
+                "5": 200,
+                "6": 25
+              },
+              "Calcs": {
+                "1": "ln56",
+                "2": "ln56/4",
+                "3": "ln56/4",
+                "4": "0"
+              }
+            }
           },
           {
             "Id": 77,
@@ -13841,7 +14655,17 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-22.webp"
+            "Icon": "sprites/skills/nec-22.webp",
+            "Calculation": {
+              "Params": {
+                "1": 4,
+                "3": 200,
+                "4": 25,
+                "5": 24,
+                "6": 2
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 82,
@@ -13986,7 +14810,20 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-32.webp"
+            "Icon": "sprites/skills/nec-32.webp",
+            "Calculation": {
+              "Params": {
+                "1": 4,
+                "2": 1,
+                "3": 400,
+                "4": 60,
+                "5": 3,
+                "6": 5
+              },
+              "Calcs": {
+                "1": "par5+(lvl/par6)"
+              }
+            }
           },
           {
             "Id": 86,
@@ -14036,7 +14873,15 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-40.webp"
+            "Icon": "sprites/skills/nec-40.webp",
+            "Calculation": {
+              "Params": {
+                "1": 9,
+                "3": 300,
+                "4": 90
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 87,
@@ -14142,7 +14987,16 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-42.webp"
+            "Icon": "sprites/skills/nec-42.webp",
+            "Calculation": {
+              "Params": {
+                "1": 6,
+                "3": 100,
+                "4": 15,
+                "5": -25
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 91,
@@ -14285,7 +15139,18 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-50.webp"
+            "Icon": "sprites/skills/nec-50.webp",
+            "Calculation": {
+              "Params": {
+                "1": 7,
+                "2": 1,
+                "3": 500,
+                "4": 50,
+                "5": 25,
+                "6": 70
+              },
+              "Calcs": {}
+            }
           }
         ]
       },
@@ -14366,7 +15231,8 @@
                     [
                       3
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill8",
@@ -14465,7 +15331,8 @@
                       2517,
                       2610
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -14552,7 +15419,17 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-14.webp"
+            "Icon": "sprites/skills/nec-14.webp",
+            "Calculation": {
+              "Params": {
+                "8": 15
+              },
+              "Calcs": {
+                "1": "0",
+                "4": "0"
+              },
+              "ElementalDamage": "(skill('Poison Explosion'.blvl)+skill('Poison Nova'.blvl))*par8"
+            }
           },
           {
             "Id": 67,
@@ -14717,7 +15594,8 @@
                       717,
                       744
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill28",
@@ -14825,7 +15703,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-2.webp"
+            "Icon": "sprites/skills/nec-2.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3,
+                "2": 1,
+                "7": 2,
+                "8": 10
+              },
+              "Calcs": {
+                "1": "min(ln12,24)",
+                "2": "par3",
+                "3": "0"
+              },
+              "ElementalDamage": "(stat('energy'.accr)/par7)+((skill('Bone Wall'.blvl)+skill('Bone Prison'.blvl)+skill('Bone Spirit'.blvl)+skill('Bone Spear'.blvl))*par8)"
+            }
           },
           {
             "Id": 68,
@@ -15041,7 +15933,17 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-4.webp"
+            "Icon": "sprites/skills/nec-4.webp",
+            "Calculation": {
+              "Params": {
+                "1": 20,
+                "2": 20,
+                "3": 50,
+                "4": 50,
+                "8": 15
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 74,
@@ -15180,7 +16082,21 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-16.webp"
+            "Icon": "sprites/skills/nec-16.webp",
+            "Calculation": {
+              "Params": {
+                "1": 70,
+                "2": 120,
+                "3": 8,
+                "4": 1,
+                "5": 50
+              },
+              "Calcs": {
+                "1": "par1",
+                "2": "par2",
+                "3": "par5"
+              }
+            }
           },
           {
             "Id": 78,
@@ -15301,7 +16217,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-24.webp"
+            "Icon": "sprites/skills/nec-24.webp",
+            "Calculation": {
+              "Params": {
+                "1": 25,
+                "2": 250,
+                "3": 8,
+                "8": 10
+              },
+              "Calcs": {
+                "1": "(par1 * (lvl-1)) + ((skill('Bone Armor'.blvl)+skill('Bone Prison'.blvl))*par8)",
+                "2": "ln34"
+              }
+            }
           },
           {
             "Id": 83,
@@ -15326,7 +16254,8 @@
                     [
                       2
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill8",
@@ -15425,7 +16354,8 @@
                       1796,
                       1856
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -15641,7 +16571,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-34.webp"
+            "Icon": "sprites/skills/nec-34.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 15,
+                "3": 1,
+                "5": 6,
+                "8": 15
+              },
+              "Calcs": {
+                "1": "1+min(((lvl-1)/par5),4)",
+                "2": "par3",
+                "3": "3"
+              },
+              "ElementalDamage": "(skill('Poison Dagger'.blvl)+skill('Poison Nova'.blvl))*par8"
+            }
           },
           {
             "Id": 84,
@@ -15808,7 +16753,8 @@
                       1076,
                       1114
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [],
@@ -15887,7 +16833,17 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-36.webp"
+            "Icon": "sprites/skills/nec-36.webp",
+            "Calculation": {
+              "Params": {
+                "7": 2,
+                "8": 10
+              },
+              "Calcs": {
+                "1": "1 + stat('extra_bonespears'.accr)"
+              },
+              "ElementalDamage": "(stat('energy'.accr)/par7)+((skill('Bone Wall'.blvl)+skill('Bone Prison'.blvl)+skill('Bone Spirit'.blvl)+skill('Teeth'.blvl))*par8)"
+            }
           },
           {
             "Id": 88,
@@ -16035,7 +16991,17 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-44.webp"
+            "Icon": "sprites/skills/nec-44.webp",
+            "Calculation": {
+              "Params": {
+                "1": 25,
+                "2": 250,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "(par1 * (lvl-1)) + ((skill('Bone Armor'.blvl)+skill('Bone Wall'.blvl))*par8)"
+              }
+            }
           },
           {
             "Id": 92,
@@ -16060,7 +17026,8 @@
                     [
                       2
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill8",
@@ -16159,7 +17126,8 @@
                       1765,
                       1821
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -16203,7 +17171,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-52.webp"
+            "Icon": "sprites/skills/nec-52.webp",
+            "Calculation": {
+              "Params": {
+                "8": 13
+              },
+              "Calcs": {
+                "1": "0"
+              },
+              "ElementalDamage": "(skill('Poison Dagger'.blvl)+skill('Poison Explosion'.blvl))*par8"
+            }
           },
           {
             "Id": 93,
@@ -16370,7 +17347,8 @@
                       1330,
                       1372
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [],
@@ -16449,7 +17427,17 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-54.webp"
+            "Icon": "sprites/skills/nec-54.webp",
+            "Calculation": {
+              "Params": {
+                "7": 1,
+                "8": 10
+              },
+              "Calcs": {
+                "1": "0"
+              },
+              "ElementalDamage": "(stat('energy'.accr)/par7)+((skill('Bone Wall'.blvl)+skill('Bone Prison'.blvl)+skill('Teeth'.blvl)+skill('Bone Spear'.blvl))*par8)"
+            }
           }
         ]
       },
@@ -16792,7 +17780,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-6.webp"
+            "Icon": "sprites/skills/nec-6.webp",
+            "Calculation": {
+              "Params": {
+                "1": 12,
+                "4": 10
+              },
+              "Calcs": {
+                "3": "blvl/5"
+              }
+            }
           },
           {
             "Id": 70,
@@ -17143,7 +18140,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-8.webp"
+            "Icon": "sprites/skills/nec-8.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 75,
+                "3": 6,
+                "4": 15,
+                "5": 15,
+                "7": 4,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "max(lvl-9,0)*par2",
+                "2": "par1"
+              }
+            }
           },
           {
             "Id": 75,
@@ -17509,7 +18521,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-18.webp"
+            "Icon": "sprites/skills/nec-18.webp",
+            "Calculation": {
+              "Params": {
+                "1": 10,
+                "2": 20,
+                "3": 25,
+                "7": 10,
+                "8": 20
+              },
+              "Calcs": {
+                "1": "skill('Golem Mastery'.ln12) + (lvl*par7) * par1"
+              },
+              "PhysicalDamage": "(skill('Golem Mastery'.blvl))*(skill('Golem Mastery'.par7))"
+            }
           },
           {
             "Id": 79,
@@ -17739,7 +18764,18 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-26.webp"
+            "Icon": "sprites/skills/nec-26.webp",
+            "Calculation": {
+              "Params": {
+                "1": 20,
+                "2": 20,
+                "4": 40,
+                "5": 25,
+                "6": 25,
+                "7": 5
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 80,
@@ -17972,7 +19008,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-28.webp"
+            "Icon": "sprites/skills/nec-28.webp",
+            "Calculation": {
+              "Params": {
+                "2": 20,
+                "5": 10,
+                "11": 5,
+                "12": 10
+              },
+              "Calcs": {
+                "1": "max(lvl-9,0)*par2"
+              }
+            }
           },
           {
             "Id": 85,
@@ -18427,7 +19474,26 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-38.webp"
+            "Icon": "sprites/skills/nec-38.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 1,
+                "3": 1,
+                "4": 15,
+                "6": 25,
+                "7": 10,
+                "8": 10,
+                "9": 10,
+                "10": 1
+              },
+              "Calcs": {
+                "1": "skill('Golem Mastery'.ln12) + (lvl*par7)",
+                "2": "ln12",
+                "3": "par3"
+              },
+              "PhysicalDamage": "(skill('Golem Mastery'.blvl))*(skill('Golem Mastery'.par7))"
+            }
           },
           {
             "Id": 89,
@@ -18501,7 +19567,19 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/nec-46.webp"
+            "Icon": "sprites/skills/nec-46.webp",
+            "Calculation": {
+              "Params": {
+                "1": 20,
+                "2": 75,
+                "3": 5,
+                "4": 1,
+                "5": 2
+              },
+              "Calcs": {
+                "1": "(par3+blvl*par4)+(lvl-blvl)/par5"
+              }
+            }
           },
           {
             "Id": 90,
@@ -18896,7 +19974,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-48.webp"
+            "Icon": "sprites/skills/nec-48.webp",
+            "Calculation": {
+              "Params": {
+                "1": 150,
+                "2": 15,
+                "3": 10,
+                "7": 10,
+                "8": 35
+              },
+              "Calcs": {
+                "1": "skill('Golem Mastery'.ln12) + (lvl*par7)"
+              },
+              "PhysicalDamage": "(skill('Golem Mastery'.blvl))*(skill('Golem Mastery'.par7))"
+            }
           },
           {
             "Id": 94,
@@ -19267,7 +20358,27 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-56.webp"
+            "Icon": "sprites/skills/nec-56.webp",
+            "Calculation": {
+              "Params": {
+                "1": 25,
+                "2": 100,
+                "3": 100,
+                "4": 15,
+                "5": 1,
+                "6": 1,
+                "7": 10,
+                "8": 4
+              },
+              "Calcs": {
+                "1": "skill('Golem Mastery'.ln12) + (lvl*par7)",
+                "2": "100",
+                "3": "100",
+                "4": "6",
+                "5": "lvl"
+              },
+              "ElementalDamage": "(skill('Golem Mastery'.blvl))*(skill('Golem Mastery'.par7))"
+            }
           },
           {
             "Id": 95,
@@ -19471,7 +20582,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/nec-58.webp"
+            "Icon": "sprites/skills/nec-58.webp",
+            "Calculation": {
+              "Params": {
+                "1": 100,
+                "2": 5,
+                "3": 5,
+                "5": 100
+              },
+              "Calcs": {
+                "1": "par1"
+              },
+              "PhysicalDamage": "(skill('Skeleton Mastery'.blvl))*(skill('Skeleton Mastery'.par4))"
+            }
           }
         ]
       }
@@ -19701,7 +20824,8 @@
                       359,
                       375
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -19785,7 +20909,23 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-0.webp"
+            "Icon": "sprites/skills/pal-0.webp",
+            "Calculation": {
+              "Params": {
+                "1": 75,
+                "2": 25,
+                "3": 3,
+                "5": 10,
+                "8": 15,
+                "9": 10
+              },
+              "Calcs": {
+                "1": "ln12+(skill('Zeal'.blvl)+skill('Redemption'.blvl))*par8",
+                "2": "max(par6, par5-lvl/par3)",
+                "4": "0"
+              },
+              "PhysicalDamage": "(skill('Zeal'.blvl)+skill('Redemption'.blvl))*par8"
+            }
           },
           {
             "Id": 97,
@@ -19922,7 +21062,20 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-2.webp"
+            "Icon": "sprites/skills/pal-2.webp",
+            "Calculation": {
+              "Params": {
+                "1": 15,
+                "2": 5,
+                "3": 15,
+                "4": 15
+              },
+              "Calcs": {
+                "1": "ln34",
+                "2": "min(ln12,250)",
+                "4": "0"
+              }
+            }
           },
           {
             "Id": 101,
@@ -20087,7 +21240,8 @@
                       1124,
                       1170
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [],
@@ -20122,7 +21276,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-10.webp"
+            "Icon": "sprites/skills/pal-10.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 2,
+                "3": 6,
+                "4": 4,
+                "7": 15,
+                "8": 30
+              },
+              "Calcs": {
+                "1": "1 + stat('extra_holybolt'.accr)"
+              },
+              "ElementalDamage": "(skill('Blessed Hammer'.blvl)+skill('Fist of the Heavens'.blvl))*par8"
+            }
           },
           {
             "Id": 107,
@@ -20341,7 +21509,8 @@
                       283,
                       295
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -20385,7 +21554,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-22.webp"
+            "Icon": "sprites/skills/pal-22.webp",
+            "Calculation": {
+              "Params": {
+                "1": 150,
+                "3": 100,
+                "4": 25,
+                "8": 20
+              },
+              "Calcs": {
+                "1": "ln34+(skill('Vigor'.blvl)+skill('Might'.blvl))*par8",
+                "2": "par1",
+                "4": "0"
+              },
+              "PhysicalDamage": "(skill('Vigor'.blvl)+skill('Might'.blvl))*par8"
+            }
           },
           {
             "Id": 116,
@@ -20552,7 +21735,8 @@
                       747,
                       781
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkill11",
@@ -20639,7 +21823,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-30.webp"
+            "Icon": "sprites/skills/pal-30.webp",
+            "Calculation": {
+              "Params": {
+                "1": 14,
+                "3": 16,
+                "4": 1,
+                "5": 5,
+                "8": 10
+              },
+              "Calcs": {
+                "1": "ln34/par5"
+              },
+              "PhysicalDamage": "(skill('Holy Shield'.blvl)+skill('Smite'.blvl))*par8+stat('damagepercent'.accr)"
+            }
           },
           {
             "Id": 106,
@@ -20869,7 +22066,8 @@
                       207,
                       215
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -20902,7 +22100,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-20.webp"
+            "Icon": "sprites/skills/pal-20.webp",
+            "Calculation": {
+              "Params": {
+                "2": 100,
+                "4": 6,
+                "5": 2,
+                "6": 5,
+                "8": 12
+              },
+              "Calcs": {
+                "1": "min((par5 + lvl -1), par6)",
+                "2": "((lvl < 5) ? 0 : ((lvl-4) * par4) )+skill('Sacrifice'.blvl)*par8",
+                "4": "0"
+              },
+              "PhysicalDamage": "skill('Sacrifice'.blvl)*par8"
+            }
           },
           {
             "Id": 112,
@@ -21069,7 +22282,8 @@
                       526,
                       540
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -21113,7 +22327,17 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-32.webp"
+            "Icon": "sprites/skills/pal-32.webp",
+            "Calculation": {
+              "Params": {
+                "1": 4,
+                "8": 14
+              },
+              "Calcs": {
+                "1": "par1"
+              },
+              "ElementalDamage": "(skill('Holy Bolt'.blvl)+skill('Prayer'.blvl))*par8"
+            }
           },
           {
             "Id": 111,
@@ -21296,7 +22520,8 @@
                     [
                       0
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "TriEleWeapDamsk",
@@ -21360,7 +22585,23 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-40.webp"
+            "Icon": "sprites/skills/pal-40.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 16,
+                "3": 20,
+                "4": 5,
+                "7": 4,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "par1",
+                "2": "par2",
+                "4": "0",
+                "5": "ln34+(skill('Holy Fire'.blvl) + skill('Holy Shock'.blvl) + skill('Holy Freeze'.blvl))*par7+skill('Conviction'.blvl)*par8"
+              }
+            }
           },
           {
             "Id": 117,
@@ -21633,7 +22874,8 @@
                       404,
                       418
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "strModMagicDamage",
@@ -21721,7 +22963,25 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-42.webp"
+            "Icon": "sprites/skills/pal-42.webp",
+            "Calculation": {
+              "Params": {
+                "1": 750,
+                "2": 625,
+                "3": 25,
+                "4": 15,
+                "5": 10,
+                "6": 40,
+                "7": 25,
+                "8": 15,
+                "9": 3,
+                "10": 6
+              },
+              "Calcs": {
+                "1": "par3 + blvl*par4 + min((lvl-blvl)*par9,225) +skill('Defiance'.blvl)*par8"
+              },
+              "PhysicalDamage": "skill('Shield Throw'.blvl)*pa10"
+            }
           },
           {
             "Id": 121,
@@ -21836,7 +23096,8 @@
                       2945,
                       3030
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -21889,7 +23150,24 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-50.webp"
+            "Icon": "sprites/skills/pal-50.webp",
+            "Calculation": {
+              "Params": {
+                "1": 6,
+                "2": 1,
+                "3": 1,
+                "4": 2,
+                "5": 6,
+                "6": 2,
+                "8": 15
+              },
+              "Calcs": {
+                "1": "ln34",
+                "2": "ln56",
+                "4": "ln12"
+              },
+              "ElementalDamage": "skill('Blessed Hammer'.blvl)*par8"
+            }
           }
         ]
       },
@@ -22020,7 +23298,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-4.webp"
+            "Icon": "sprites/skills/pal-4.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 2,
+                "3": 40,
+                "4": 10
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 102,
@@ -22166,7 +23453,8 @@
                       296,
                       306
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkillFireDamageToYourAttack",
@@ -22304,7 +23592,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-12.webp"
+            "Icon": "sprites/skills/pal-12.webp",
+            "Calculation": {
+              "Params": {
+                "1": 6,
+                "2": 1,
+                "5": 4,
+                "6": 100,
+                "7": 8,
+                "8": 16
+              },
+              "Calcs": {},
+              "ElementalDamage": "skill('Resist Fire'.blvl)*par8+skill('Salvation'.blvl)*par7"
+            }
           },
           {
             "Id": 103,
@@ -22429,7 +23729,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-14.webp"
+            "Icon": "sprites/skills/pal-14.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 2,
+                "3": 250,
+                "4": 40
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 108,
@@ -22608,7 +23917,17 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-24.webp"
+            "Icon": "sprites/skills/pal-24.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 2,
+                "3": 75,
+                "4": 15,
+                "8": 5
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 113,
@@ -22744,7 +24063,17 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-34.webp"
+            "Icon": "sprites/skills/pal-34.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 2,
+                "3": 60,
+                "4": 15,
+                "5": 20
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 114,
@@ -22944,7 +24273,8 @@
                       294,
                       304
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkillColdDamageToYourAttack",
@@ -23082,7 +24412,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-36.webp"
+            "Icon": "sprites/skills/pal-36.webp",
+            "Calculation": {
+              "Params": {
+                "1": 6,
+                "2": 1,
+                "3": 5,
+                "4": 1,
+                "5": 4,
+                "6": 100,
+                "7": 6,
+                "8": 14
+              },
+              "Calcs": {},
+              "ElementalDamage": "skill('Resist Cold'.blvl)*par8+skill('Salvation'.blvl)*par7"
+            }
           },
           {
             "Id": 118,
@@ -23186,7 +24530,8 @@
                       976,
                       1006
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "strEskilllighttoattack",
@@ -23241,7 +24586,8 @@
                       1952,
                       2012
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -23280,7 +24626,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-44.webp"
+            "Icon": "sprites/skills/pal-44.webp",
+            "Calculation": {
+              "Params": {
+                "1": 6,
+                "2": 1,
+                "5": 4,
+                "6": 100,
+                "7": 4,
+                "8": 12
+              },
+              "Calcs": {},
+              "ElementalDamage": "skill('Resist Lightning'.blvl)*par8+skill('Salvation'.blvl)*par7"
+            }
           },
           {
             "Id": 119,
@@ -23448,7 +24806,8 @@
                       536,
                       550
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkillDamageToUndead",
@@ -23580,7 +24939,23 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-46.webp"
+            "Icon": "sprites/skills/pal-46.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 1,
+                "3": 150,
+                "4": 30,
+                "5": 100,
+                "6": 50,
+                "7": 100,
+                "8": 7,
+                "9": 10,
+                "10": 1
+              },
+              "Calcs": {},
+              "ElementalDamage": "skill('Cleansing'.blvl)*par8"
+            }
           },
           {
             "Id": 122,
@@ -23863,7 +25238,18 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-52.webp"
+            "Icon": "sprites/skills/pal-52.webp",
+            "Calculation": {
+              "Params": {
+                "1": 11,
+                "2": 1,
+                "3": 10,
+                "4": 40,
+                "5": 50,
+                "6": 17
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 123,
@@ -23990,7 +25376,18 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-56.webp"
+            "Icon": "sprites/skills/pal-56.webp",
+            "Calculation": {
+              "Params": {
+                "1": 20,
+                "3": 30,
+                "4": 2,
+                "5": 15,
+                "6": 1,
+                "7": 5
+              },
+              "Calcs": {}
+            }
           }
         ]
       },
@@ -24123,13 +25520,21 @@
                       89,
                       92
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-6.webp"
+            "Icon": "sprites/skills/pal-6.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 2
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 100,
@@ -24359,7 +25764,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-8.webp"
+            "Icon": "sprites/skills/pal-8.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 2,
+                "3": 35,
+                "4": 150
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 104,
@@ -24484,7 +25898,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-16.webp"
+            "Icon": "sprites/skills/pal-16.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 2,
+                "3": 70,
+                "4": 10
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 105,
@@ -24714,7 +26137,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-18.webp"
+            "Icon": "sprites/skills/pal-18.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 2,
+                "3": 35,
+                "4": 150
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 109,
@@ -24848,7 +26280,8 @@
                     [
                       0
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Synergies": [
@@ -24863,7 +26296,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-38.webp"
+            "Icon": "sprites/skills/pal-38.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 2,
+                "3": 30,
+                "4": 90
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 110,
@@ -25093,7 +26535,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-28.webp"
+            "Icon": "sprites/skills/pal-28.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 2,
+                "3": 35,
+                "4": 150
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 115,
@@ -25325,7 +26776,18 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-26.webp"
+            "Icon": "sprites/skills/pal-26.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 3,
+                "3": 50,
+                "4": 25,
+                "5": 7,
+                "6": 50
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 120,
@@ -25459,7 +26921,8 @@
                     [
                       0
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Synergies": [
@@ -25474,7 +26937,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/pal-48.webp"
+            "Icon": "sprites/skills/pal-48.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 2,
+                "3": 300,
+                "4": 25
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 124,
@@ -25610,7 +27082,21 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-54.webp"
+            "Icon": "sprites/skills/pal-54.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "3": 10,
+                "4": 100,
+                "5": 25,
+                "6": 5
+              },
+              "Calcs": {
+                "1": "dm34",
+                "2": "ln56",
+                "3": "ln56"
+              }
+            }
           },
           {
             "Id": 125,
@@ -25735,7 +27221,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/pal-58.webp"
+            "Icon": "sprites/skills/pal-58.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 2,
+                "3": 50,
+                "4": 120
+              },
+              "Calcs": {}
+            }
           }
         ]
       }
@@ -25973,7 +27468,8 @@
                       283,
                       295
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -26017,7 +27513,24 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-0.webp"
+            "Icon": "sprites/skills/bar-0.webp",
+            "Calculation": {
+              "Params": {
+                "1": 50,
+                "2": 5,
+                "3": 1,
+                "4": 1,
+                "7": 5,
+                "8": 5
+              },
+              "Calcs": {
+                "1": "ln12+skill('Stun'.blvl)*par8",
+                "2": "ln34",
+                "3": "0",
+                "4": "0"
+              },
+              "PhysicalDamage": "skill('Stun'.blvl)*par8"
+            }
           },
           {
             "Id": 133,
@@ -26190,7 +27703,8 @@
                       207,
                       215
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -26234,7 +27748,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-14.webp"
+            "Icon": "sprites/skills/bar-14.webp",
+            "Calculation": {
+              "Params": {
+                "1": 50,
+                "5": 50,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "(skill('Double Throw'.blvl)+skill('Frenzy'.blvl))*par8",
+                "2": "0",
+                "3": "par5"
+              },
+              "PhysicalDamage": "(skill('Double Throw'.blvl)+skill('Frenzy'.blvl))*par8"
+            }
           },
           {
             "Id": 132,
@@ -26439,7 +27966,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-12.webp"
+            "Icon": "sprites/skills/bar-12.webp",
+            "Calculation": {
+              "Params": {
+                "1": 8,
+                "2": 30,
+                "3": 4,
+                "4": 1,
+                "5": 8,
+                "7": 175,
+                "8": 5
+              },
+              "Calcs": {
+                "1": "ln34",
+                "2": "par7+skill('Leap'.blvl)*par8"
+              }
+            }
           },
           {
             "Id": 139,
@@ -26606,7 +28148,8 @@
                       393,
                       409
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkillDamagePercent",
@@ -26691,7 +28234,23 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-26.webp"
+            "Icon": "sprites/skills/bar-26.webp",
+            "Calculation": {
+              "Params": {
+                "1": 8,
+                "2": 25,
+                "3": 85,
+                "4": 15,
+                "8": 15
+              },
+              "Calcs": {
+                "1": "par1",
+                "2": "par2",
+                "4": "0",
+                "5": "ln34+skill('Bash'.blvl)*par8"
+              },
+              "PhysicalDamage": "skill('Bash'.blvl)*par8"
+            }
           },
           {
             "Id": 140,
@@ -26910,7 +28469,8 @@
                       207,
                       215
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -26943,7 +28503,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-28.webp"
+            "Icon": "sprites/skills/bar-28.webp",
+            "Calculation": {
+              "Params": {
+                "1": 16,
+                "2": 8,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "ln12+skill('Double Swing'.blvl)*par8"
+              },
+              "PhysicalDamage": "skill('Double Swing'.blvl)*par8"
+            }
           },
           {
             "Id": 143,
@@ -27162,7 +28733,8 @@
                       1180,
                       1220
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkillRadiusSingular",
@@ -27234,7 +28806,23 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-34.webp"
+            "Icon": "sprites/skills/bar-34.webp",
+            "Calculation": {
+              "Params": {
+                "3": 200,
+                "4": 30,
+                "5": 12,
+                "7": 175,
+                "8": 10,
+                "9": 1
+              },
+              "Calcs": {
+                "1": "ln34+(skill('Leap'.blvl)+skill('Whirlwind'.blvl))*par8",
+                "2": "par7+skill('Leap'.blvl)*par9",
+                "4": "0"
+              },
+              "PhysicalDamage": "(skill('Leap'.blvl)+skill('Whirlwind'.blvl))*par8"
+            }
           },
           {
             "Id": 144,
@@ -27401,7 +28989,8 @@
                       393,
                       409
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkillDamagePercent",
@@ -27549,7 +29138,23 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-36.webp"
+            "Icon": "sprites/skills/bar-36.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 25,
+                "3": 100,
+                "4": 10,
+                "8": 10
+              },
+              "Calcs": {
+                "1": "par1",
+                "2": "par2",
+                "4": "0",
+                "5": "ln34+(skill('Berserk'.blvl)+skill('Bash'.blvl))*par8"
+              },
+              "PhysicalDamage": "(skill('Berserk'.blvl)+skill('Bash'.blvl))*par8"
+            }
           },
           {
             "Id": 147,
@@ -27878,7 +29483,8 @@
                       207,
                       215
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -27994,7 +29600,24 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-42.webp"
+            "Icon": "sprites/skills/bar-42.webp",
+            "Calculation": {
+              "Params": {
+                "1": 90,
+                "2": 5,
+                "3": 20,
+                "4": 200,
+                "6": 50,
+                "7": 150,
+                "8": 15,
+                "9": 10
+              },
+              "Calcs": {
+                "1": "ln12+skill('Double Swing'.blvl)*par8",
+                "4": "skill('Double Throw'.blvl)"
+              },
+              "PhysicalDamage": "skill('Double Swing'.blvl)*par8"
+            }
           },
           {
             "Id": 151,
@@ -28266,7 +29889,8 @@
                       393,
                       409
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [],
@@ -28301,7 +29925,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-50.webp"
+            "Icon": "sprites/skills/bar-50.webp",
+            "Calculation": {
+              "Params": {
+                "1": 30,
+                "2": 10,
+                "8": 5
+              },
+              "Calcs": {
+                "1": "ln12+(skill('Leap Attack'.blvl)+skill('Concentrate'.blvl))*par8"
+              },
+              "PhysicalDamage": "(skill('Leap Attack'.blvl)+skill('Concentrate'.blvl))*par8"
+            }
           },
           {
             "Id": 152,
@@ -28564,7 +30199,8 @@
                       393,
                       409
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -28608,7 +30244,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-52.webp"
+            "Icon": "sprites/skills/bar-52.webp",
+            "Calculation": {
+              "Params": {
+                "1": 150,
+                "2": 15,
+                "3": 25,
+                "4": 75,
+                "8": 10
+              },
+              "Calcs": {
+                "1": "ln12+(skill('Bash'.blvl)+skill('Concentrate'.blvl))*par8",
+                "2": "par4-min(((110*lvl)/(lvl+6)*(par4-par3)/100),(par4-par3))",
+                "4": "100"
+              }
+            }
           }
         ]
       },
@@ -28704,7 +30354,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-2.webp"
+            "Icon": "sprites/skills/bar-2.webp",
+            "Calculation": {
+              "Params": {
+                "1": 40,
+                "2": 8,
+                "3": 28,
+                "4": 5,
+                "5": 10,
+                "6": 1
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 135,
@@ -28727,7 +30388,20 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/bar-18.webp"
+            "Icon": "sprites/skills/bar-18.webp",
+            "Calculation": {
+              "Params": {
+                "1": 44,
+                "2": 8,
+                "3": 28,
+                "4": 6,
+                "6": 35,
+                "8": 55,
+                "10": 66,
+                "11": 1
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 134,
@@ -28895,7 +30569,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-16.webp"
+            "Icon": "sprites/skills/bar-16.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 5,
+                "3": 8,
+                "4": 11,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "par1+par2*min(max(0,lvl-1),13)+par3*min(max(0,lvl-14),10)+par4*max(0,lvl-24)+(skill('Unstoppable Force'.blvl)+skill('Winters Gambit'.blvl)+skill('Chasm Break'.blvl)+skill('Korlics Fury'.blvl)-blvl)*par8"
+              }
+            }
           },
           {
             "Id": 128,
@@ -29019,7 +30705,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/bar-30.webp"
+            "Icon": "sprites/skills/bar-30.webp",
+            "Calculation": {
+              "Params": {
+                "1": 10,
+                "2": 40,
+                "3": 10,
+                "4": 40
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 136,
@@ -29140,7 +30835,8 @@
                       8.8,
                       9
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkillColdDamageToYourAttack",
@@ -29239,7 +30935,8 @@
                       271,
                       281
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -29395,7 +31092,24 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-20.webp"
+            "Icon": "sprites/skills/bar-20.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3,
+                "2": 6,
+                "3": 1,
+                "4": 2,
+                "5": 14,
+                "6": 12,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "min(par1+lvl/par2,par6)",
+                "2": "par3",
+                "3": "par4"
+              },
+              "ElementalDamage": "(skill('Unstoppable Force'.blvl)+skill('Winters Gambit'.blvl)+skill('Chasm Break'.blvl)+skill('Korlics Fury'.blvl)-blvl)*par8"
+            }
           },
           {
             "Id": 145,
@@ -29488,7 +31202,15 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-38.webp"
+            "Icon": "sprites/skills/bar-38.webp",
+            "Calculation": {
+              "Params": {
+                "1": 10,
+                "2": 10,
+                "3": 3
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 148,
@@ -29560,7 +31282,14 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/bar-44.webp"
+            "Icon": "sprites/skills/bar-44.webp",
+            "Calculation": {
+              "Params": {
+                "1": 7,
+                "2": 50
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 141,
@@ -29796,7 +31525,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-4.webp"
+            "Icon": "sprites/skills/bar-4.webp",
+            "Calculation": {
+              "Params": {
+                "1": 50,
+                "2": 5,
+                "5": 35,
+                "8": 5
+              },
+              "Calcs": {
+                "2": "par5",
+                "4": "0",
+                "5": "ln12+(skill('Unstoppable Force'.blvl)+skill('Winters Gambit'.blvl)+skill('Chasm Break'.blvl)+skill('Korlics Fury'.blvl)-blvl)*par8"
+              }
+            }
           },
           {
             "Id": 153,
@@ -29870,7 +31612,13 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/bar-54.webp"
+            "Icon": "sprites/skills/bar-54.webp",
+            "Calculation": {
+              "Params": {
+                "2": 50
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 150,
@@ -29947,7 +31695,8 @@
                     [
                       2
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkillColdDamageToYourAttack",
@@ -30046,7 +31795,8 @@
                       462,
                       474
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "ModStrPlayerThrowDmgPercent",
@@ -30196,7 +31946,15 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-6.webp"
+            "Icon": "sprites/skills/bar-6.webp",
+            "Calculation": {
+              "Params": {
+                "8": 8,
+                "12": 1
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Unstoppable Force'.blvl)+skill('Winters Gambit'.blvl)+skill('Chasm Break'.blvl)+skill('Korlics Fury'.blvl)-blvl)*par8"
+            }
           }
         ]
       },
@@ -30315,7 +32073,8 @@
                       1427,
                       1493
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -30392,7 +32151,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-8.webp"
+            "Icon": "sprites/skills/bar-8.webp",
+            "Calculation": {
+              "Params": {
+                "8": 15
+              },
+              "Calcs": {
+                "1": "7",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "skill('Taunt'.blvl)+skill('Battle Cry'.blvl)+skill('War Cry'.blvl)+skill('Shout'.blvl)+skill('Battle Orders'.blvl)+skill('Battle Command'.blvl)"
+              },
+              "PhysicalDamage": "clc5*par8"
+            }
           },
           {
             "Id": 131,
@@ -30473,7 +32245,17 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/bar-10.webp"
+            "Icon": "sprites/skills/bar-10.webp",
+            "Calculation": {
+              "Params": {
+                "2": 100,
+                "3": 30,
+                "4": 10
+              },
+              "Calcs": {
+                "1": "dm12"
+              }
+            }
           },
           {
             "Id": 137,
@@ -30608,7 +32390,16 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/bar-22.webp"
+            "Icon": "sprites/skills/bar-22.webp",
+            "Calculation": {
+              "Params": {
+                "1": -5,
+                "2": -2,
+                "3": -5,
+                "4": -2
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 138,
@@ -30771,7 +32562,17 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-24.webp"
+            "Icon": "sprites/skills/bar-24.webp",
+            "Calculation": {
+              "Params": {
+                "1": 50,
+                "2": 5,
+                "3": 1500,
+                "4": 250,
+                "8": 125
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 142,
@@ -30872,7 +32673,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-32.webp"
+            "Icon": "sprites/skills/bar-32.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 60,
+                "3": 30,
+                "4": 5,
+                "8": 1
+              },
+              "Calcs": {
+                "1": "dm12+skill('Find Potion'.blvl)*par8"
+              }
+            }
           },
           {
             "Id": 146,
@@ -31069,7 +32882,18 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/bar-40.webp"
+            "Icon": "sprites/skills/bar-40.webp",
+            "Calculation": {
+              "Params": {
+                "1": 300,
+                "2": 60,
+                "3": -10,
+                "4": -1,
+                "5": -5,
+                "6": -1
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 149,
@@ -31350,7 +33174,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-46.webp"
+            "Icon": "sprites/skills/bar-46.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1500,
+                "2": 250,
+                "3": 10,
+                "4": 4,
+                "5": 2,
+                "8": 125
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 129,
@@ -31476,7 +33311,14 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/bar-48.webp"
+            "Icon": "sprites/skills/bar-48.webp",
+            "Calculation": {
+              "Params": {
+                "1": 25,
+                "2": 4
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 154,
@@ -31644,7 +33486,8 @@
                       1005,
                       1049
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkillBearWave",
@@ -31743,7 +33586,8 @@
                       502,
                       524
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [],
@@ -31767,7 +33611,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-56.webp"
+            "Icon": "sprites/skills/bar-56.webp",
+            "Calculation": {
+              "Params": {
+                "8": 15
+              },
+              "Calcs": {
+                "5": "skill('Taunt'.blvl)+skill('Battle Cry'.blvl)+skill('Howl'.blvl)+skill('Shout'.blvl)+skill('Battle Orders'.blvl)+skill('Battle Command'.blvl)"
+              },
+              "PhysicalDamage": "clc5*par8"
+            }
           },
           {
             "Id": 155,
@@ -31878,7 +33731,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/bar-58.webp"
+            "Icon": "sprites/skills/bar-58.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1500,
+                "2": 250,
+                "3": 1,
+                "8": 125
+              },
+              "Calcs": {}
+            }
           }
         ]
       }
@@ -32030,7 +33892,8 @@
                       730,
                       760
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -32112,7 +33975,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-0.webp"
+            "Icon": "sprites/skills/dru-0.webp",
+            "Calculation": {
+              "Params": {
+                "1": -2,
+                "2": 10,
+                "5": 5,
+                "8": 5
+              },
+              "Calcs": {
+                "1": "0",
+                "2": "ulvl + par1 + lvl",
+                "3": "ln56+stat('ravenhits'.accr)",
+                "5": "skill('Plague Poppy'.blvl)+skill('Oak Sage'.blvl)+skill('HoW'.blvl)+skill('Spirit of Barbs'.blvl)+skill('CoL'.blvl)+skill('Vines'.blvl)+skill('Summon Spirit Wolf'.blvl)+skill('Summon Fenris'.blvl)+skill('Summon Grizzly'.blvl)+skill('Raven'.blvl)"
+              },
+              "PhysicalDamage": "(clc5-blvl)*par8*(100+50*stat('ravendmg'.accr))/100"
+            }
           },
           {
             "Id": 222,
@@ -32135,7 +34013,8 @@
                     [
                       4
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill8",
@@ -32234,7 +34113,8 @@
                       1756,
                       1821
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill42",
@@ -32330,7 +34210,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-2.webp"
+            "Icon": "sprites/skills/dru-2.webp",
+            "Calculation": {
+              "Params": {
+                "3": 50,
+                "8": 13
+              },
+              "Calcs": {
+                "1": "par3 * (lvl-1)",
+                "2": "ulvl * 3 / 4 + lvl"
+              },
+              "ElementalDamage": "(skill('Hunger'.blvl)+skill('Rabies'.blvl))*par8"
+            }
           },
           {
             "Id": 226,
@@ -32559,7 +34450,20 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/dru-16.webp"
+            "Icon": "sprites/skills/dru-16.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 100,
+                "3": 25,
+                "7": 30,
+                "8": 2
+              },
+              "Calcs": {
+                "1": "(lvl-1)*par3",
+                "2": "ulvl"
+              }
+            }
           },
           {
             "Id": 227,
@@ -32787,7 +34691,8 @@
                       358,
                       374
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill42",
@@ -32938,7 +34843,8 @@
                       537,
                       561
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -33031,7 +34937,28 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-6.webp"
+            "Icon": "sprites/skills/dru-6.webp",
+            "Calculation": {
+              "Params": {
+                "1": 50,
+                "2": 25,
+                "3": 5,
+                "4": 7,
+                "5": 50,
+                "6": 10,
+                "7": 10,
+                "8": 5,
+                "9": 5,
+                "10": 100
+              },
+              "Calcs": {
+                "1": "skill('Summon Fenris'.par1)+(skill('Summon Fenris'.par2)+par7)*(lvl-1)",
+                "2": "ulvl",
+                "5": "skill('Summon Grizzly'.par1)+(skill('Summon Grizzly'.par2)*max(lvl-14,0)",
+                "6": "skill('Arctic Blast'.blvl)+skill('Twister'.blvl)+skill('Cyclone Armor'.blvl)+skill('Tornado'.blvl)+skill('Hurricane'.blvl)"
+              },
+              "ElementalDamage": "clc5+min(clc6+(skill('Raven'.clc5)-blvl),125)*par8"
+            }
           },
           {
             "Id": 231,
@@ -33164,7 +35091,20 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/dru-8.webp"
+            "Icon": "sprites/skills/dru-8.webp",
+            "Calculation": {
+              "Params": {
+                "3": 25,
+                "5": 5,
+                "6": 25,
+                "7": 5,
+                "8": 25
+              },
+              "Calcs": {
+                "1": "par3 * (lvl-1)",
+                "2": "ulvl * 3 / 4 + lvl"
+              }
+            }
           },
           {
             "Id": 236,
@@ -33539,7 +35479,25 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-10.webp"
+            "Icon": "sprites/skills/dru-10.webp",
+            "Calculation": {
+              "Params": {
+                "1": 25,
+                "2": 3,
+                "3": 25,
+                "4": 7,
+                "5": 15,
+                "6": 5,
+                "7": 30,
+                "8": 2,
+                "9": 6,
+                "10": 1
+              },
+              "Calcs": {
+                "1": "(lvl-1)*par1",
+                "2": "ulvl"
+              }
+            }
           },
           {
             "Id": 237,
@@ -33763,7 +35721,8 @@
                       413,
                       430
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill42",
@@ -33914,7 +35873,8 @@
                       1290,
                       1343
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -34007,7 +35967,26 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-12.webp"
+            "Icon": "sprites/skills/dru-12.webp",
+            "Calculation": {
+              "Params": {
+                "1": 50,
+                "2": 15,
+                "3": 3,
+                "6": 4,
+                "7": 10,
+                "8": 3,
+                "9": 5,
+                "10": 100
+              },
+              "Calcs": {
+                "1": "skill('Summon Fenris'.par1)+(skill('Summon Fenris'.par2)+par7)*(lvl-1)",
+                "2": "ulvl",
+                "5": "skill('Summon Grizzly'.par1)+(skill('Summon Grizzly'.par2)*max(lvl-14,0)",
+                "6": "skill('Firestorm'.blvl)+skill('Molten Boulder'.blvl)+skill('Eruption'.blvl)+skill('Volcano'.blvl)+skill('Armageddon'.blvl)+skill('Fire Claws'.blvl)"
+              },
+              "ElementalDamage": "clc5+min(clc6+(skill('Raven'.clc5)-blvl),pa10)*par8"
+            }
           },
           {
             "Id": 241,
@@ -34172,7 +36151,8 @@
                       1267,
                       1307
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkill42",
@@ -34245,7 +36225,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-14.webp"
+            "Icon": "sprites/skills/dru-14.webp",
+            "Calculation": {
+              "Params": {
+                "3": 50,
+                "8": 5
+              },
+              "Calcs": {
+                "1": "par3 * (lvl-1)",
+                "2": "ulvl * 3 / 4 + lvl"
+              },
+              "PhysicalDamage": "(skill('Raven'.clc5)-blvl)*par8"
+            }
           },
           {
             "Id": 246,
@@ -34526,7 +36517,20 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/dru-4.webp"
+            "Icon": "sprites/skills/dru-4.webp",
+            "Calculation": {
+              "Params": {
+                "1": 25,
+                "3": 6,
+                "4": 1,
+                "7": 30,
+                "8": 2
+              },
+              "Calcs": {
+                "1": "(lvl-1)*par1",
+                "2": "ulvl"
+              }
+            }
           },
           {
             "Id": 247,
@@ -34755,7 +36759,8 @@
                       2941,
                       3090
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkill42",
@@ -34906,7 +36911,8 @@
                       3676,
                       3862
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -34999,7 +37005,24 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-18.webp"
+            "Icon": "sprites/skills/dru-18.webp",
+            "Calculation": {
+              "Params": {
+                "1": 25,
+                "2": 10,
+                "3": 2,
+                "7": 10,
+                "8": 5,
+                "9": 5,
+                "10": 100
+              },
+              "Calcs": {
+                "1": "skill('Summon Fenris'.par1)+(skill('Summon Fenris'.par2)+par7)*(lvl-1)",
+                "2": "ulvl",
+                "5": "ln12",
+                "6": "skill('Wearbear'.blvl)+skill('Maul'.blvl)+skill('Shock Wave'.blvl)+skill('Fury'.blvl)+skill('Feral Rage'.blvl)+skill('Wearwolf'.blvl)"
+              }
+            }
           }
         ]
       },
@@ -35189,7 +37212,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-20.webp"
+            "Icon": "sprites/skills/dru-20.webp",
+            "Calculation": {
+              "Params": {
+                "1": 10,
+                "2": 80,
+                "3": 10,
+                "12": 1
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 224,
@@ -35314,7 +37346,21 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/dru-52.webp"
+            "Icon": "sprites/skills/dru-52.webp",
+            "Calculation": {
+              "Params": {
+                "1": 50,
+                "2": 50,
+                "3": 20,
+                "4": 5,
+                "5": 1,
+                "6": 1,
+                "7": 2,
+                "8": 2,
+                "9": 3
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 228,
@@ -35498,7 +37544,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-22.webp"
+            "Icon": "sprites/skills/dru-22.webp",
+            "Calculation": {
+              "Params": {
+                "1": 20,
+                "2": 10,
+                "3": 5,
+                "4": 50,
+                "5": 5,
+                "6": 2,
+                "7": 50,
+                "8": 100,
+                "12": 1
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 232,
@@ -35824,7 +37884,8 @@
                       283,
                       295
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -35866,7 +37927,24 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-54.webp"
+            "Icon": "sprites/skills/dru-54.webp",
+            "Calculation": {
+              "Params": {
+                "1": 500,
+                "2": 4,
+                "3": 10,
+                "4": 70,
+                "5": 50,
+                "6": 5,
+                "7": 2,
+                "8": 3
+              },
+              "Calcs": {
+                "1": "ln56",
+                "2": "lvl/par7 + par8",
+                "4": "0"
+              }
+            }
           },
           {
             "Id": 233,
@@ -36192,7 +38270,8 @@
                       283,
                       295
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -36234,7 +38313,23 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-56.webp"
+            "Icon": "sprites/skills/dru-56.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3,
+                "3": 30,
+                "4": 500,
+                "5": 10,
+                "6": 100,
+                "7": 2,
+                "8": 3
+              },
+              "Calcs": {
+                "1": "0",
+                "2": "lvl/par7 + par8",
+                "4": "0"
+              }
+            }
           },
           {
             "Id": 238,
@@ -36301,7 +38396,8 @@
                       21.2,
                       21.6
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill8",
@@ -36400,7 +38496,8 @@
                       7386,
                       7796
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -36504,7 +38601,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-24.webp"
+            "Icon": "sprites/skills/dru-24.webp",
+            "Calculation": {
+              "Params": {
+                "1": 20,
+                "8": 13
+              },
+              "Calcs": {
+                "1": "0",
+                "4": "0"
+              },
+              "ElementalDamage": "(skill('Hunger'.blvl)+skill('Plague Poppy'.blvl))*par8"
+            }
           },
           {
             "Id": 239,
@@ -36617,7 +38725,8 @@
                       1197,
                       1238
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -36757,7 +38866,17 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-26.webp"
+            "Icon": "sprites/skills/dru-26.webp",
+            "Calculation": {
+              "Params": {
+                "8": 20
+              },
+              "Calcs": {
+                "1": "1",
+                "4": "0"
+              },
+              "ElementalDamage": "(skill('Firestorm'.blvl)+skill('Molten Boulder'.blvl))*par8"
+            }
           },
           {
             "Id": 243,
@@ -36922,7 +39041,8 @@
                       283,
                       295
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkillDamagePercent",
@@ -37007,7 +39127,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-28.webp"
+            "Icon": "sprites/skills/dru-28.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 17,
+                "3": 50,
+                "4": 15,
+                "8": 15
+              },
+              "Calcs": {
+                "1": "par1",
+                "2": "par2",
+                "5": "ln34+skill('Maul'.blvl)*par8"
+              },
+              "PhysicalDamage": "skill('Maul'.blvl)*par8"
+            }
           },
           {
             "Id": 248,
@@ -37120,7 +39255,8 @@
                       207,
                       215
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkillDamagePercent",
@@ -37250,7 +39386,21 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/dru-30.webp"
+            "Icon": "sprites/skills/dru-30.webp",
+            "Calculation": {
+              "Params": {
+                "2": 70,
+                "3": 100,
+                "4": 17,
+                "5": 2,
+                "6": 5
+              },
+              "Calcs": {
+                "1": "min((par5 + lvl -1), par6)",
+                "2": "ln34",
+                "4": "0"
+              }
+            }
           },
           {
             "Id": 242,
@@ -37325,7 +39475,8 @@
                     [
                       2
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill8",
@@ -37424,7 +39575,8 @@
                       1828,
                       1893
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -37511,7 +39663,17 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-58.webp"
+            "Icon": "sprites/skills/dru-58.webp",
+            "Calculation": {
+              "Params": {
+                "8": 10
+              },
+              "Calcs": {
+                "1": "par1",
+                "4": "par4"
+              },
+              "ElementalDamage": "(skill('Rabies'.blvl)+skill('Plague Poppy'.blvl))*par8"
+            }
           }
         ]
       },
@@ -37630,7 +39792,8 @@
                       1005,
                       1048
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -37674,7 +39837,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-32.webp"
+            "Icon": "sprites/skills/dru-32.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3,
+                "2": 3,
+                "5": 11,
+                "8": 18
+              },
+              "Calcs": {
+                "1": "3+blvl/par2",
+                "5": "skill('Firestorm'.blvl)+skill('Armageddon'.blvl)+skill('Molten Boulder'.blvl)+skill('Eruption'.blvl)+skill('Volcano'.blvl)+skill('Arctic Blast'.blvl)+skill('Cyclone Armor'.blvl)+skill('Twister'.blvl)+skill('Tornado'.blvl)+skill('Hurricane'.blvl)"
+              },
+              "ElementalDamage": "(skill('Firestorm'.clc5)-blvl)*par8+skill('Summon Fenris'.blvl)*par5"
+            }
           },
           {
             "Id": 229,
@@ -37839,7 +40015,8 @@
                       1122,
                       1172
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill4",
@@ -37938,7 +40115,8 @@
                       1122,
                       1172
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [],
@@ -37995,7 +40173,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-34.webp"
+            "Icon": "sprites/skills/dru-34.webp",
+            "Calculation": {
+              "Params": {
+                "1": 7,
+                "5": 5,
+                "7": 10,
+                "8": 10
+              },
+              "Calcs": {},
+              "PhysicalDamage": "(skill('Firestorm'.clc5)-blvl)*par8+skill('Summon Fenris'.blvl)*par5",
+              "ElementalDamage": "(skill('Firestorm'.clc5)-blvl)*par8+skill('Summon Fenris'.blvl)*par5"
+            }
           },
           {
             "Id": 230,
@@ -38108,7 +40297,8 @@
                       933,
                       973
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkillColdLengthSingular",
@@ -38117,7 +40307,8 @@
                     [
                       0
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 }
               ],
               "Details": [
@@ -38205,7 +40396,17 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-36.webp"
+            "Icon": "sprites/skills/dru-36.webp",
+            "Calculation": {
+              "Params": {
+                "5": 7,
+                "8": 14
+              },
+              "Calcs": {
+                "3": "3"
+              },
+              "ElementalDamage": "(skill('Firestorm'.clc5)-skill('Arctic Blast'.blvl))*skill('Arctic Blast'.par8)+skill('Summon Spirit Wolf'.blvl)*skill('Arctic Blast'.par5)"
+            }
           },
           {
             "Id": 234,
@@ -38318,7 +40519,8 @@
                       1158,
                       1204
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -38406,7 +40608,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-38.webp"
+            "Icon": "sprites/skills/dru-38.webp",
+            "Calculation": {
+              "Params": {
+                "1": 7,
+                "2": 6,
+                "5": 5,
+                "8": 9
+              },
+              "Calcs": {
+                "1": "par1",
+                "2": "par2"
+              },
+              "ElementalDamage": "(skill('Firestorm'.clc5)-blvl)*par8+skill('Summon Fenris'.blvl)*par5"
+            }
           },
           {
             "Id": 235,
@@ -38548,7 +40763,15 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-40.webp"
+            "Icon": "sprites/skills/dru-40.webp",
+            "Calculation": {
+              "Params": {
+                "1": 40,
+                "2": 12,
+                "8": 7
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 240,
@@ -38571,7 +40794,8 @@
                     [
                       3
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill6",
@@ -38670,7 +40894,8 @@
                       1036,
                       1078
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -38767,7 +40992,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-42.webp"
+            "Icon": "sprites/skills/dru-42.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3,
+                "2": 10,
+                "3": 5,
+                "5": 4,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "par1+(blvl/par3)",
+                "2": "par2"
+              },
+              "ElementalDamage": "(skill('Firestorm'.clc5)-blvl)*par8+skill('Summon Spirit Wolf'.blvl)*par5"
+            }
           },
           {
             "Id": 244,
@@ -38880,7 +41119,8 @@
                       636,
                       664
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill4",
@@ -38979,7 +41219,8 @@
                       636,
                       664
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -39045,7 +41286,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-44.webp"
+            "Icon": "sprites/skills/dru-44.webp",
+            "Calculation": {
+              "Params": {
+                "1": 12,
+                "2": 2,
+                "5": 4,
+                "7": 8,
+                "8": 8
+              },
+              "Calcs": {
+                "4": "par2"
+              },
+              "PhysicalDamage": "(skill('Firestorm'.clc5)-blvl)*par8+skill('Summon Fenris'.blvl)*par5",
+              "ElementalDamage": "(skill('Firestorm'.clc5)-blvl)*par8+skill('Summon Fenris'.blvl)*par5"
+            }
           },
           {
             "Id": 245,
@@ -39068,7 +41323,8 @@
                     [
                       3
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill6",
@@ -39167,7 +41423,8 @@
                       1197,
                       1241
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -39255,7 +41512,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-46.webp"
+            "Icon": "sprites/skills/dru-46.webp",
+            "Calculation": {
+              "Params": {
+                "1": 12,
+                "2": 6,
+                "5": 4,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "1",
+                "4": "par1"
+              },
+              "ElementalDamage": "(skill('Firestorm'.clc5)-blvl)*par8+skill('Summon Spirit Wolf'.blvl)*par5"
+            }
           },
           {
             "Id": 249,
@@ -39368,7 +41638,8 @@
                       1285,
                       1329
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill4",
@@ -39467,7 +41738,8 @@
                       1285,
                       1329
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -39562,7 +41834,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-50.webp"
+            "Icon": "sprites/skills/dru-50.webp",
+            "Calculation": {
+              "Params": {
+                "1": 250,
+                "2": 75,
+                "3": 8,
+                "4": 6,
+                "5": 3,
+                "6": 6,
+                "7": 75,
+                "8": 6
+              },
+              "Calcs": {},
+              "PhysicalDamage": "(skill('Firestorm'.clc5)-blvl)*par8+skill('Summon Fenris'.blvl)*par5",
+              "ElementalDamage": "(skill('Firestorm'.clc5)-blvl)*par8+skill('Summon Fenris'.blvl)*par5"
+            }
           },
           {
             "Id": 250,
@@ -39585,7 +41872,8 @@
                     [
                       2
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill6",
@@ -39684,7 +41972,8 @@
                       701,
                       722
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -39757,7 +42046,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/dru-48.webp"
+            "Icon": "sprites/skills/dru-48.webp",
+            "Calculation": {
+              "Params": {
+                "1": 250,
+                "2": 75,
+                "3": 9,
+                "4": 20,
+                "5": 3,
+                "7": 75,
+                "8": 6
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Firestorm'.clc5)-blvl)*par8+skill('Summon Spirit Wolf'.blvl)*par5"
+            }
           }
         ]
       }
@@ -39883,7 +42185,8 @@
                       641,
                       671
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "ESkillSpikes",
@@ -40036,7 +42339,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-2.webp"
+            "Icon": "sprites/skills/ass-2.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 5,
+                "8": 20
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Charged Bolt Sentry'.blvl)+skill('Lightning Sentry'.blvl))*par8"
+            }
           },
           {
             "Id": 251,
@@ -40149,7 +42461,8 @@
                       521,
                       543
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill3",
@@ -40246,7 +42559,15 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-0.webp"
+            "Icon": "sprites/skills/ass-0.webp",
+            "Calculation": {
+              "Params": {
+                "1": 7,
+                "8": 20
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Wake of Fire Sentry'.blvl)+skill('Flameburst Sentry'.blvl))*par8"
+            }
           },
           {
             "Id": 253,
@@ -40411,7 +42732,8 @@
                       447,
                       465
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkillColdLengthSingular",
@@ -40420,7 +42742,8 @@
                     [
                       3
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill120",
@@ -40518,7 +42841,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-22.webp"
+            "Icon": "sprites/skills/ass-22.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 6,
+                "8": 15
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Snowlash Sentry'.blvl)+skill('Glacial Burst Sentry'.blvl))*par8"
+            }
           },
           {
             "Id": 261,
@@ -40633,7 +42965,8 @@
                       368,
                       381
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill3",
@@ -40819,7 +43152,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-6.webp"
+            "Icon": "sprites/skills/ass-6.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "3": 5,
+                "4": 1,
+                "5": 5,
+                "6": 5,
+                "8": 15
+              },
+              "Calcs": {
+                "1": "min(par3+(lvl/par5),10)",
+                "4": "par1+(blvl/par6)"
+              },
+              "ElementalDamage": "(skill('Shock Field'.blvl)+skill('Lightning Sentry'.blvl))*par8"
+            }
           },
           {
             "Id": 262,
@@ -40934,7 +43282,8 @@
                       572,
                       592
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill3",
@@ -41088,7 +43437,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-8.webp"
+            "Icon": "sprites/skills/ass-8.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "6": 5,
+                "8": 15
+              },
+              "Calcs": {
+                "4": "par1+(blvl/par6)"
+              },
+              "ElementalDamage": "(skill('Fire Trauma'.blvl) + skill('Flameburst Sentry'.blvl)) * par8"
+            }
           },
           {
             "Id": 264,
@@ -41203,7 +43563,8 @@
                       359,
                       371
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkillColdLengthSingular",
@@ -41212,7 +43573,8 @@
                     [
                       3
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill120",
@@ -41374,7 +43736,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-24.webp"
+            "Icon": "sprites/skills/ass-24.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 3,
+                "6": 5,
+                "8": 15
+              },
+              "Calcs": {
+                "4": "par1+(blvl/par6)"
+              },
+              "ElementalDamage": "(skill('Ice Barrage'.blvl)+skill('Glacial Burst Sentry'.blvl))*par8"
+            }
           },
           {
             "Id": 271,
@@ -41489,7 +43863,8 @@
                       922,
                       953
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill3",
@@ -41651,7 +44026,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-12.webp"
+            "Icon": "sprites/skills/ass-12.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "6": 5,
+                "8": 15
+              },
+              "Calcs": {
+                "4": "par1+(blvl/par6)"
+              },
+              "ElementalDamage": "(skill('Shock Field'.blvl) + skill('Charged Bolt Sentry'.blvl))*par8"
+            }
           },
           {
             "Id": 272,
@@ -41766,7 +44152,8 @@
                       339,
                       350
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill120",
@@ -41928,7 +44315,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-14.webp"
+            "Icon": "sprites/skills/ass-14.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "3": 40,
+                "6": 5,
+                "8": 15
+              },
+              "Calcs": {
+                "4": "par1+(blvl/par6)"
+              },
+              "ElementalDamage": "(skill('Fire Trauma'.blvl) + skill('Wake of Fire Sentry'.blvl))*par8"
+            }
           },
           {
             "Id": 273,
@@ -42043,7 +44442,8 @@
                       428,
                       442
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkillColdLengthSingular",
@@ -42052,7 +44452,8 @@
                     [
                       4
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill3",
@@ -42206,7 +44607,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-34.webp"
+            "Icon": "sprites/skills/ass-34.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "3": 40,
+                "6": 5,
+                "8": 15
+              },
+              "Calcs": {
+                "1": "6",
+                "4": "par1+(blvl/par6)"
+              },
+              "ElementalDamage": "(skill('Ice Barrage'.blvl)+skill('Snowlash Sentry'.blvl))*par8"
+            }
           },
           {
             "Id": 276,
@@ -42319,7 +44733,8 @@
                       1092,
                       1128
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill3",
@@ -42462,7 +44877,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-16.webp"
+            "Icon": "sprites/skills/ass-16.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "6": 5,
+                "8": 10
+              },
+              "Calcs": {
+                "1": "skill('Shock Field'.blvl)+skill('Charged Bolt Sentry'.blvl)+skill('Lightning Sentry'.blvl)",
+                "2": "skill('Fire Trauma'.blvl)+skill('Wake of Fire Sentry'.blvl)+skill('Flameburst Sentry'.blvl)",
+                "3": "skill('Ice Barrage'.blvl)+skill('Snowlash Sentry'.blvl)+skill('Glacial Burst Sentry'.blvl)",
+                "4": "par1+(blvl/par6)"
+              },
+              "ElementalDamage": "(clc1+clc2+clc3)*par8"
+            }
           }
         ]
       },
@@ -42481,7 +44910,17 @@
             "RequiredLevel": 1,
             "MaxLevel": 25,
             "PrerequisiteIds": [],
-            "Icon": "sprites/skills/ass-20.webp"
+            "Icon": "sprites/skills/ass-20.webp",
+            "Calculation": {
+              "Params": {
+                "1": 30,
+                "2": 10,
+                "3": 35,
+                "4": 4,
+                "6": 25
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 258,
@@ -42669,7 +45108,18 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ass-36.webp"
+            "Icon": "sprites/skills/ass-36.webp",
+            "Calculation": {
+              "Params": {
+                "1": 15,
+                "2": 70,
+                "3": 15,
+                "4": 60,
+                "5": 3000,
+                "6": 300
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 257,
@@ -42835,7 +45285,8 @@
                       420,
                       437
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -42940,7 +45391,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-4.webp"
+            "Icon": "sprites/skills/ass-4.webp",
+            "Calculation": {
+              "Params": {
+                "1": 100,
+                "2": 12,
+                "8": 10
+              },
+              "Calcs": {
+                "4": "ln12"
+              },
+              "PhysicalDamage": "(skill('Blade Fury'.blvl)+skill('Blade Shield'.blvl))*par8"
+            }
           },
           {
             "Id": 263,
@@ -43066,7 +45528,16 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ass-26.webp"
+            "Icon": "sprites/skills/ass-26.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 65,
+                "3": 50,
+                "4": 10
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 267,
@@ -43306,7 +45777,20 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ass-30.webp"
+            "Icon": "sprites/skills/ass-30.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 50,
+                "3": 5,
+                "4": 50,
+                "5": 3000,
+                "6": 300,
+                "7": 1,
+                "8": 1
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 268,
@@ -43546,7 +46030,17 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ass-38.webp"
+            "Icon": "sprites/skills/ass-38.webp",
+            "Calculation": {
+              "Params": {
+                "1": 15,
+                "2": 40,
+                "3": 12,
+                "5": 18,
+                "6": 2
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 266,
@@ -43713,7 +46207,8 @@
                       261,
                       268
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 },
                 {
                   "key": "StrSkill22",
@@ -43864,7 +46359,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-10.webp"
+            "Icon": "sprites/skills/ass-10.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 1,
+                "3": 12,
+                "4": 8,
+                "5": 2,
+                "8": 10
+              },
+              "Calcs": {
+                "1": "max(ln12/par4, par5)"
+              },
+              "PhysicalDamage": "(skill('Blade Sentinel'.blvl)+skill('Blade Shield'.blvl))*par8"
+            }
           },
           {
             "Id": 278,
@@ -43942,7 +46451,8 @@
                     [
                       0.4
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill8",
@@ -44041,7 +46551,8 @@
                       1235,
                       1270
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -44056,7 +46567,14 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ass-28.webp"
+            "Icon": "sprites/skills/ass-28.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3000,
+                "2": 300
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 279,
@@ -44250,7 +46768,18 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ass-32.webp"
+            "Icon": "sprites/skills/ass-32.webp",
+            "Calculation": {
+              "Params": {
+                "1": 15,
+                "2": 40,
+                "3": 5,
+                "4": 90,
+                "5": 24,
+                "6": 3
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 277,
@@ -44426,7 +46955,8 @@
                       385,
                       397
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [
@@ -44479,7 +47009,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-18.webp"
+            "Icon": "sprites/skills/ass-18.webp",
+            "Calculation": {
+              "Params": {
+                "1": 3000,
+                "2": 300,
+                "3": 15,
+                "4": 6,
+                "8": 10
+              },
+              "Calcs": {},
+              "PhysicalDamage": "(skill('Blade Sentinel'.blvl)+skill('Blade Fury'.blvl))*par8"
+            }
           }
         ]
       },
@@ -44730,7 +47271,18 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ass-40.webp"
+            "Icon": "sprites/skills/ass-40.webp",
+            "Calculation": {
+              "Params": {
+                "1": 100,
+                "2": 20,
+                "3": 750,
+                "4": 50
+              },
+              "Calcs": {
+                "1": "ln12"
+              }
+            }
           },
           {
             "Id": 255,
@@ -44913,7 +47465,24 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ass-42.webp"
+            "Icon": "sprites/skills/ass-42.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 7,
+                "3": 50,
+                "4": 100,
+                "5": 25,
+                "6": 99,
+                "8": 1
+              },
+              "Calcs": {
+                "1": "lvl/6+1",
+                "2": "dm34",
+                "3": "dm56",
+                "4": "dm56"
+              }
+            }
           },
           {
             "Id": 259,
@@ -45034,7 +47603,8 @@
                       1167,
                       1211
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -45127,7 +47697,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-44.webp"
+            "Icon": "sprites/skills/ass-44.webp",
+            "Calculation": {
+              "Params": {
+                "1": 4,
+                "2": 4,
+                "3": 750,
+                "4": 50,
+                "5": 1,
+                "8": 12
+              },
+              "Calcs": {
+                "1": "0"
+              },
+              "ElementalDamage": "(skill('Royal Strike'.blvl)) * par8"
+            }
           },
           {
             "Id": 260,
@@ -45280,7 +47864,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-46.webp"
+            "Icon": "sprites/skills/ass-46.webp",
+            "Calculation": {
+              "Params": {
+                "1": 50,
+                "2": 15,
+                "7": 4,
+                "8": 1
+              },
+              "Calcs": {
+                "1": "ln12 + skill('Claw Mastery'.blvl)*par7",
+                "4": "0"
+              }
+            }
           },
           {
             "Id": 265,
@@ -45527,7 +48123,18 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ass-50.webp"
+            "Icon": "sprites/skills/ass-50.webp",
+            "Calculation": {
+              "Params": {
+                "1": 40,
+                "2": 5,
+                "3": 750,
+                "4": 50
+              },
+              "Calcs": {
+                "1": "ln12"
+              }
+            }
           },
           {
             "Id": 269,
@@ -45598,7 +48205,8 @@
                       2980,
                       3080
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -45691,7 +48299,20 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-58.webp"
+            "Icon": "sprites/skills/ass-58.webp",
+            "Calculation": {
+              "Params": {
+                "1": 4,
+                "3": 750,
+                "4": 50,
+                "5": 1,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "0"
+              },
+              "ElementalDamage": "(skill('Royal Strike'.blvl)) * par8"
+            }
           },
           {
             "Id": 270,
@@ -45835,7 +48456,19 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ass-48.webp"
+            "Icon": "sprites/skills/ass-48.webp",
+            "Calculation": {
+              "Params": {
+                "1": 50,
+                "2": 20,
+                "3": 6,
+                "4": -40,
+                "8": 1
+              },
+              "Calcs": {
+                "1": "ln12"
+              }
+            }
           },
           {
             "Id": 274,
@@ -45903,7 +48536,8 @@
                       21.2,
                       21.6
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "Eskillbladesofice2",
@@ -46010,7 +48644,8 @@
                       1167,
                       1209
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -46103,7 +48738,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-52.webp"
+            "Icon": "sprites/skills/ass-52.webp",
+            "Calculation": {
+              "Params": {
+                "1": 6,
+                "2": 3,
+                "3": 750,
+                "4": 50,
+                "5": 1,
+                "8": 8
+              },
+              "Calcs": {
+                "1": "0"
+              },
+              "ElementalDamage": "(skill('Royal Strike'.blvl)) * par8"
+            }
           },
           {
             "Id": 275,
@@ -46238,7 +48887,18 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/ass-54.webp"
+            "Icon": "sprites/skills/ass-54.webp",
+            "Calculation": {
+              "Params": {
+                "1": 100,
+                "2": 35,
+                "7": 38,
+                "8": 1
+              },
+              "Calcs": {
+                "1": "ln12"
+              }
+            }
           },
           {
             "Id": 280,
@@ -46381,7 +49041,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/ass-56.webp"
+            "Icon": "sprites/skills/ass-56.webp",
+            "Calculation": {
+              "Params": {
+                "1": 8,
+                "2": 6,
+                "3": 30,
+                "4": 15,
+                "5": 16,
+                "6": 10,
+                "7": 25,
+                "9": 750
+              },
+              "Calcs": {
+                "1": "par2"
+              }
+            }
           }
         ]
       }
@@ -46632,7 +49307,24 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/war-0.webp"
+            "Icon": "sprites/skills/war-0.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 1,
+                "3": 8,
+                "4": 4,
+                "5": 25,
+                "6": 25,
+                "9": 5,
+                "10": 39,
+                "11": 10,
+                "12": 10
+              },
+              "Calcs": {
+                "1": "min(1+(skill('Summon Goatman'.lvl)+skill('Summon Tainted'.lvl)+skill('Summon Defiler'.lvl)+lvl)/par3,par4)"
+              }
+            }
           },
           {
             "Id": 373,
@@ -46997,7 +49689,26 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-2.webp"
+            "Icon": "sprites/skills/war-2.webp",
+            "Calculation": {
+              "Params": {
+                "1": 35,
+                "2": 1,
+                "5": 10,
+                "6": 5,
+                "7": 140,
+                "8": 40,
+                "9": 100,
+                "10": 20,
+                "11": 10,
+                "12": 1,
+                "13": 8
+              },
+              "Calcs": {
+                "1": "((par1 * (lvl - 1))+skill('Blood Oath'.ln56))"
+              },
+              "PhysicalDamage": "(skill('Engorge'.blvl))*pa13"
+            }
           },
           {
             "Id": 378,
@@ -47227,7 +49938,28 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/war-4.webp"
+            "Icon": "sprites/skills/war-4.webp",
+            "Calculation": {
+              "Params": {
+                "1": -1,
+                "2": 30,
+                "3": 10,
+                "4": 1,
+                "5": 50,
+                "6": 35,
+                "7": 3,
+                "8": 79,
+                "9": 1,
+                "10": 12,
+                "11": 25,
+                "12": 5,
+                "13": 50
+              },
+              "Calcs": {
+                "1": "dm12",
+                "2": "skill('Demonic Mastery'.clc1)"
+              }
+            }
           },
           {
             "Id": 375,
@@ -47520,7 +50252,23 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/war-6.webp"
+            "Icon": "sprites/skills/war-6.webp",
+            "Calculation": {
+              "Params": {
+                "1": -5,
+                "2": -2,
+                "3": 125,
+                "4": 13,
+                "5": -50,
+                "6": -35,
+                "7": 2,
+                "9": 38
+              },
+              "Calcs": {
+                "1": "1",
+                "2": "skill('Demonic Mastery'.clc1)"
+              }
+            }
           },
           {
             "Id": 376,
@@ -47736,7 +50484,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-8.webp"
+            "Icon": "sprites/skills/war-8.webp",
+            "Calculation": {
+              "Params": {
+                "1": 35,
+                "5": 1,
+                "6": 1,
+                "7": 75,
+                "8": 20,
+                "11": 10,
+                "12": 1
+              },
+              "Calcs": {
+                "1": "((par1 * (lvl - 1))+skill('Blood Oath'.ln56))"
+              }
+            }
           },
           {
             "Id": 380,
@@ -47939,7 +50701,8 @@
                       930,
                       960
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill4",
@@ -48038,7 +50801,8 @@
                       930,
                       960
                     ]
-                  ]
+                  ],
+                  "scale": "physical"
                 }
               ],
               "Details": [],
@@ -48062,7 +50826,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-14.webp"
+            "Icon": "sprites/skills/war-14.webp",
+            "Calculation": {
+              "Params": {
+                "1": 15,
+                "2": -1,
+                "8": 20
+              },
+              "Calcs": {
+                "1": "\"max(ln12, 5)\"",
+                "2": "\"max((ln12/2), 5)\"",
+                "3": "\"max((ln12/3), 5)\"",
+                "4": "3"
+              },
+              "PhysicalDamage": "(skill('Engorge'.blvl))*par8",
+              "ElementalDamage": "(skill('Blood Oath'.blvl))*par8"
+            }
           },
           {
             "Id": 377,
@@ -48240,7 +51019,19 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/war-10.webp"
+            "Icon": "sprites/skills/war-10.webp",
+            "Calculation": {
+              "Params": {
+                "1": 35,
+                "2": 10,
+                "5": 35,
+                "7": 125,
+                "8": 20
+              },
+              "Calcs": {
+                "1": "((par1 * (lvl - 1))+skill('Blood Oath'.ln56))"
+              }
+            }
           },
           {
             "Id": 379,
@@ -48553,7 +51344,23 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-12.webp"
+            "Icon": "sprites/skills/war-12.webp",
+            "Calculation": {
+              "Params": {
+                "1": 15,
+                "2": 1,
+                "3": 30,
+                "4": 1,
+                "5": 125,
+                "6": 75,
+                "7": 5,
+                "11": 15,
+                "12": 2
+              },
+              "Calcs": {
+                "1": "ln34"
+              }
+            }
           },
           {
             "Id": 381,
@@ -48791,7 +51598,20 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/war-16.webp"
+            "Icon": "sprites/skills/war-16.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1000,
+                "2": 500,
+                "3": 5,
+                "4": 1,
+                "5": 10,
+                "6": 46
+              },
+              "Calcs": {
+                "1": "100"
+              }
+            }
           },
           {
             "Id": 382,
@@ -49195,7 +52015,30 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-18.webp"
+            "Icon": "sprites/skills/war-18.webp",
+            "Calculation": {
+              "Params": {
+                "3": 12,
+                "4": 64,
+                "5": 75,
+                "6": 5,
+                "8": 100,
+                "9": 100,
+                "10": 5,
+                "11": 15,
+                "12": 10,
+                "13": 50,
+                "14": 25
+              },
+              "Calcs": {
+                "1": "0",
+                "2": "(lvl >= 5)?5:0",
+                "3": "(lvl >= 10)?6:0",
+                "4": "(lvl >= 15)?27:0",
+                "5": "(lvl >= 20)?30:0",
+                "7": "2"
+              }
+            }
           }
         ]
       },
@@ -49273,7 +52116,19 @@
               "Details": [],
               "Synergies": []
             },
-            "Icon": "sprites/skills/war-20.webp"
+            "Icon": "sprites/skills/war-20.webp",
+            "Calculation": {
+              "Params": {
+                "2": 35,
+                "3": 25,
+                "4": 4,
+                "5": 40,
+                "6": 5,
+                "7": 2,
+                "8": 2
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 385,
@@ -49401,7 +52256,8 @@
                     [
                       0
                     ]
-                  ]
+                  ],
+                  "scale": "elementalLength"
                 },
                 {
                   "key": "StrSkill39",
@@ -49500,7 +52356,8 @@
                       319,
                       330
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill22",
@@ -49655,7 +52512,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-24.webp"
+            "Icon": "sprites/skills/war-24.webp",
+            "Calculation": {
+              "Params": {
+                "3": 3600,
+                "4": 300,
+                "5": 30,
+                "6": 1,
+                "8": 50,
+                "9": 5,
+                "10": 35
+              },
+              "Calcs": {
+                "1": "150+(((skill('Eldritch Blast'.blvl)) *par9))"
+              },
+              "ElementalDamage": "(skill('Consume'.blvl)+skill('Hex Purge'.blvl)+skill('Mirrored Blades'.blvl))*pa10"
+            }
           },
           {
             "Id": 391,
@@ -49908,7 +52780,26 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-36.webp"
+            "Icon": "sprites/skills/war-36.webp",
+            "Calculation": {
+              "Params": {
+                "1": 20,
+                "2": 5,
+                "3": 10,
+                "4": 30,
+                "9": 10,
+                "10": 12
+              },
+              "Calcs": {
+                "1": "ln12+((skill('Mirrored Blades'.blvl)+skill('Hex Purge'.blvl)+skill('Eldritch Blast'.blvl))*par9)",
+                "2": "0",
+                "3": "dm34",
+                "4": "0",
+                "5": "min(lvl+10,30)",
+                "6": "30",
+                "7": "5"
+              }
+            }
           },
           {
             "Id": 388,
@@ -50048,7 +52939,28 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-30.webp"
+            "Icon": "sprites/skills/war-30.webp",
+            "Calculation": {
+              "Params": {
+                "1": 25,
+                "2": 5,
+                "3": 1,
+                "4": 5,
+                "5": 5,
+                "8": 5,
+                "10": 1,
+                "12": 1
+              },
+              "Calcs": {
+                "1": "(ln12+clc0)",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "max(min(par3+skill('Mirrored Blades'.blvl)/par4,par5),1)",
+                "6": "(100/clc5)/2",
+                "10": "(skill('Mirrored Blades'.blvl)+skill('Blade Warp'.blvl))*par8"
+              }
+            }
           },
           {
             "Id": 389,
@@ -50268,7 +53180,8 @@
                       625,
                       645
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 },
                 {
                   "key": "StrSkill106",
@@ -50503,7 +53416,29 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-32.webp"
+            "Icon": "sprites/skills/war-32.webp",
+            "Calculation": {
+              "Params": {
+                "1": 39,
+                "2": 5,
+                "3": 3600,
+                "4": 300,
+                "5": 10,
+                "6": 1,
+                "7": 400,
+                "8": 33,
+                "9": 10,
+                "10": 100,
+                "11": 6900,
+                "12": 50
+              },
+              "Calcs": {
+                "1": "150+(((skill('Eldritch Blast'.blvl)) *par2))",
+                "2": "(ln21+(skill('Sigil Death'.blvl) *pa10)) / 100",
+                "3": "\"min(1+(lvl/10),3)\""
+              },
+              "ElementalDamage": "(skill('Hex Bane'.blvl)+skill('Eldritch Blast'.blvl) )*par9"
+            }
           },
           {
             "Id": 390,
@@ -50626,7 +53561,8 @@
                       295,
                       303
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -50671,7 +53607,23 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-34.webp"
+            "Icon": "sprites/skills/war-34.webp",
+            "Calculation": {
+              "Params": {
+                "1": 4,
+                "3": 1,
+                "8": 24
+              },
+              "Calcs": {
+                "1": "0",
+                "2": "0",
+                "3": "0",
+                "4": "0",
+                "5": "1",
+                "6": "skill('Mirrored Blades'.clc6)"
+              },
+              "ElementalDamage": "(skill('Echoing Strike'.blvl)+skill('Mirrored Blades'.blvl))*par8"
+            }
           },
           {
             "Id": 387,
@@ -50879,7 +53831,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-22.webp"
+            "Icon": "sprites/skills/war-22.webp",
+            "Calculation": {
+              "Params": {
+                "1": 37,
+                "2": 85,
+                "3": 15,
+                "4": 10,
+                "8": 15
+              },
+              "Calcs": {
+                "1": "dm12"
+              }
+            }
           },
           {
             "Id": 384,
@@ -51092,7 +54056,8 @@
                       491,
                       508
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -51148,7 +54113,22 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-28.webp"
+            "Icon": "sprites/skills/war-28.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 1,
+                "3": 1000,
+                "4": 50,
+                "8": 50,
+                "9": 25
+              },
+              "Calcs": {
+                "1": "\"min(ln12, 20)\"",
+                "2": "\"min(ln12, 20)\""
+              },
+              "ElementalDamage": "(skill('Blade Warp'.blvl)+skill('Hex Purge'.blvl))*par8"
+            }
           },
           {
             "Id": 386,
@@ -51478,7 +54458,25 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-26.webp"
+            "Icon": "sprites/skills/war-26.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 1,
+                "3": 3600,
+                "4": 300,
+                "5": 1,
+                "6": 1,
+                "8": 5,
+                "9": 1,
+                "10": 1,
+                "11": 33,
+                "12": 3
+              },
+              "Calcs": {
+                "1": "150+(((skill('Eldritch Blast'.blvl)) *par8))"
+              }
+            }
           },
           {
             "Id": 392,
@@ -51732,7 +54730,28 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/war-38.webp"
+            "Icon": "sprites/skills/war-38.webp",
+            "Calculation": {
+              "Params": {
+                "1": 50,
+                "2": 120,
+                "3": 10,
+                "4": 30,
+                "11": 1
+              },
+              "Calcs": {
+                "1": "0",
+                "2": "0",
+                "3": "dm34",
+                "4": "0",
+                "5": "\"min((2 + (lvl / 5)), 5)\"",
+                "6": "dm12",
+                "7": "(lvl>15)?20:((lvl>10)?16:((lvl>5)?12:8))",
+                "8": "(lvl>15)?40:((lvl>10)?32:((lvl>5)?24:16))",
+                "9": "(lvl>15)?50:((lvl>10)?40:((lvl>5)?30:20))"
+              },
+              "PhysicalDamage": "(skill('Blade Warp'.blvl)+skill('Echoing Strike'.blvl))*par8"
+            }
           }
         ]
       },
@@ -51903,7 +54922,8 @@
                       211,
                       219
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -51969,7 +54989,23 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-46.webp"
+            "Icon": "sprites/skills/war-46.webp",
+            "Calculation": {
+              "Params": {
+                "1": 1,
+                "2": 5,
+                "3": 1,
+                "4": 5,
+                "8": 10,
+                "9": 20
+              },
+              "Calcs": {
+                "1": "min(par1+skill('Enhanced Entropy'.blvl)/par2,par4)",
+                "2": "par3",
+                "3": "0"
+              },
+              "ElementalDamage": "(skill('Miasma Chains'.blvl)+skill('Abyss'.blvl))*par8"
+            }
           },
           {
             "Id": 394,
@@ -52134,7 +55170,8 @@
                       949,
                       985
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [],
@@ -52169,7 +55206,18 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-42.webp"
+            "Icon": "sprites/skills/war-42.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "8": 10
+              },
+              "Calcs": {
+                "2": "((lvl>=10)?32:16)",
+                "3": "0"
+              },
+              "ElementalDamage": "(skill('Flame Wave'.blvl)+skill('Apocalypse'.blvl))*par8"
+            }
           },
           {
             "Id": 393,
@@ -52345,7 +55393,20 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/war-40.webp"
+            "Icon": "sprites/skills/war-40.webp",
+            "Calculation": {
+              "Params": {
+                "1": 7,
+                "3": 20,
+                "4": 1,
+                "5": -33,
+                "6": -1,
+                "7": -25
+              },
+              "Calcs": {
+                "3": "1"
+              }
+            }
           },
           {
             "Id": 396,
@@ -52515,7 +55576,20 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/war-44.webp"
+            "Icon": "sprites/skills/war-44.webp",
+            "Calculation": {
+              "Params": {
+                "1": 7,
+                "3": 50,
+                "4": 5,
+                "5": 5,
+                "6": 1
+              },
+              "Calcs": {
+                "1": "75",
+                "3": "1"
+              }
+            }
           },
           {
             "Id": 399,
@@ -52682,7 +55756,8 @@
                       217,
                       225
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [],
@@ -52739,7 +55814,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-52.webp"
+            "Icon": "sprites/skills/war-52.webp",
+            "Calculation": {
+              "Params": {
+                "3": 3,
+                "4": 12,
+                "8": 10,
+                "9": 20
+              },
+              "Calcs": {
+                "4": "dm34"
+              },
+              "ElementalDamage": "(skill('Miasma Bolt'.blvl)+skill('Abyss'.blvl))*par8"
+            }
           },
           {
             "Id": 398,
@@ -52958,7 +56045,8 @@
                       1123,
                       1160
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [],
@@ -53015,7 +56103,21 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-50.webp"
+            "Icon": "sprites/skills/war-50.webp",
+            "Calculation": {
+              "Params": {
+                "1": 4,
+                "2": 7,
+                "3": 17,
+                "8": 15,
+                "9": 10
+              },
+              "Calcs": {
+                "1": "dm12",
+                "2": "par3"
+              },
+              "ElementalDamage": "(skill('Ring of Fire'.blvl)+skill('Apocalypse'.blvl))*par8"
+            }
           },
           {
             "Id": 400,
@@ -53136,7 +56238,19 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/war-48.webp"
+            "Icon": "sprites/skills/war-48.webp",
+            "Calculation": {
+              "Params": {
+                "1": 13,
+                "3": 10,
+                "5": 7
+              },
+              "Calcs": {
+                "1": "ln12",
+                "2": "ln34",
+                "3": "1"
+              }
+            }
           },
           {
             "Id": 397,
@@ -53323,7 +56437,22 @@
               ],
               "Synergies": []
             },
-            "Icon": "sprites/skills/war-54.webp"
+            "Icon": "sprites/skills/war-54.webp",
+            "Calculation": {
+              "Params": {
+                "1": 2,
+                "2": 2,
+                "3": 5,
+                "4": 1,
+                "5": 2,
+                "6": 2,
+                "7": 2,
+                "8": 3,
+                "9": 2,
+                "10": 2
+              },
+              "Calcs": {}
+            }
           },
           {
             "Id": 401,
@@ -53561,7 +56690,8 @@
                       3535,
                       3650
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -53606,7 +56736,16 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-56.webp"
+            "Icon": "sprites/skills/war-56.webp",
+            "Calculation": {
+              "Params": {
+                "1": 5,
+                "2": 1,
+                "8": 10
+              },
+              "Calcs": {},
+              "ElementalDamage": "(skill('Ring of Fire'.blvl)+skill('Flame Wave'.blvl))*par8"
+            }
           },
           {
             "Id": 402,
@@ -53773,7 +56912,8 @@
                       828,
                       858
                     ]
-                  ]
+                  ],
+                  "scale": "elemental"
                 }
               ],
               "Details": [
@@ -53840,7 +56980,19 @@
                 }
               ]
             },
-            "Icon": "sprites/skills/war-58.webp"
+            "Icon": "sprites/skills/war-58.webp",
+            "Calculation": {
+              "Params": {
+                "1": 6,
+                "3": 2,
+                "8": 10,
+                "9": 20
+              },
+              "Calcs": {
+                "1": "ln12"
+              },
+              "ElementalDamage": "(skill('Miasma Bolt'.blvl)+skill('Miasma Chains'.blvl))*(skill('Abyss'.par8))"
+            }
           }
         ]
       }

@@ -1,10 +1,12 @@
 <script lang="ts">
   import { i18n } from '$lib/i18n';
+  import { applySkillSynergy, skillSynergyBonus } from '$lib/skill-calculation';
   import type { Skill, SkillDescriptionLine } from '$lib/types';
 
   let {
     skill,
     skills,
+    ranks,
     rank,
     available,
     increase,
@@ -13,6 +15,7 @@
   }: {
     skill: Skill | undefined;
     skills: Skill[];
+    ranks: Record<number, number>;
     rank: number;
     available: boolean;
     increase: (skill: Skill, amount?: number) => void;
@@ -46,7 +49,8 @@
   }
 
   function render(line: SkillDescriptionLine): string {
-    return $i18n.skillLine(line, previewLevel);
+    const bonus = skill && line.scale ? skillSynergyBonus(skill, line.scale, skills, ranks) : 0;
+    return $i18n.skillLine(line, previewLevel, (value) => applySkillSynergy(value, bonus));
   }
 
   // Clearing the number input yields '' — hold the current level rather than snapping to 1.

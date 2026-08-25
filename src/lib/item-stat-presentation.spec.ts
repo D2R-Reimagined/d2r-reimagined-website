@@ -17,6 +17,12 @@ const bundle: ItemStatPresentationBundle = {
     poison_count: { ValueShift: 0 },
     charm_weight: { PositiveKey: 'mod_weight', Function: 19, ValueShift: 0 },
     item_nonclassskill: { ValueShift: 0 },
+    item_nonclassskill_display: {
+      PositiveKey: 'ItemModifierNonClassSkill',
+      Function: 28,
+      ValueShift: 0
+    },
+    item_aura: { PositiveKey: 'ModitemAura', Function: 16, ValueShift: 0 },
     item_openwounds: { PositiveKey: 'ModStr3m', Function: 19, ValueShift: 0 },
     item_replenish_quantity: { PositiveKey: 'ModStre9v', Function: 19, ValueShift: 0 },
     maxhp: { PositiveKey: 'ModStr1u', Function: 19, ValueShift: 8 },
@@ -33,6 +39,18 @@ const bundle: ItemStatPresentationBundle = {
       NameKey: 'charmweight1',
       FallbackName: 'Hidden Charm Passive',
       LineKey: 'strSkillRandomFromSkill'
+    },
+    '9': {
+      NameKey: 'skillname9',
+      FallbackName: 'Critical Strike',
+      LineKey: 'strSkillRandomFromSkillClass',
+      ClassOnlyKey: 'AmaOnly'
+    },
+    '120': {
+      NameKey: 'skillname120',
+      FallbackName: 'Meditation',
+      LineKey: 'strSkillRandomFromSkillClass',
+      ClassOnlyKey: 'PalOnly'
     }
   },
   CompositeKeys: {
@@ -90,6 +108,19 @@ describe('displayStatLines', () => {
     expect(lines.map((line) => line.keyed)).toEqual([
       { key: 'ModStr1u', args: [8] },
       { key: 'ItemExpansiveChanc2', args: [27, 4, 'PsychicWardName'] }
+    ]);
+  });
+
+  it('resolves equipped aura and oskill display layers to their skill names', () => {
+    const lines = displayStatLines([
+      stat(97, 'item_nonclassskill', 4, 9),
+      stat(151, 'item_aura', 15, 120),
+      stat(387, 'item_nonclassskill_display', 4, 9)
+    ], bundle);
+
+    expect(lines.map((line) => line.keyed)).toEqual([
+      { key: 'ModitemAura', args: [15, 'skillname120'] },
+      { key: 'ItemModifierNonClassSkill', args: [4, 'skillname9'] }
     ]);
   });
 });

@@ -54,6 +54,7 @@
     <SkillDetails
       skill={selectedSkill}
       {skills}
+      {ranks}
       rank={selectedSkill ? ranks[selectedSkill.Id] ?? 0 : 0}
       available={selectedSkill ? canIncrease(selectedSkill) : false}
       {increase}

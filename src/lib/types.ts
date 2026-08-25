@@ -91,12 +91,29 @@ export interface CatalogDefinition {
  */
 export interface SkillDescriptionLine {
   key: string;
+  /** Damage family whose source skillcalc synergy percentage applies to this line. */
+  scale?: SkillDamageScale;
   /** Plural template, chosen whenever the rendered value is not exactly 1. */
   pluralKey?: string;
   /** Leading string arguments — translation keys, typically a bonus-granting skill name. */
   args?: string[];
   /** One table per numeric argument, each indexed by `level - 1`. */
   values?: number[][];
+}
+
+export type SkillDamageScale = 'physical' | 'elemental' | 'elementalLength';
+
+export interface SkillCalculation {
+  /** skills.txt Param1..Param20, parsed with the game's integer semantics. */
+  Params: Record<number, number>;
+  /** skills.txt Calc1..Calc10, retained for cross-skill clcN references. */
+  Calcs: Record<number, string>;
+  /** skills.txt DmgSymPerCalc. */
+  PhysicalDamage?: string;
+  /** skills.txt EDmgSymPerCalc. */
+  ElementalDamage?: string;
+  /** skills.txt ELenSymPerCalc. */
+  ElementalLength?: string;
 }
 
 export interface SkillDescriptionSet {
@@ -122,6 +139,7 @@ export interface Skill {
   RequiredLevel: number;
   MaxLevel: number;
   PrerequisiteIds: number[];
+  Calculation?: SkillCalculation;
   Descriptions?: SkillDescriptionSet;
 }
 

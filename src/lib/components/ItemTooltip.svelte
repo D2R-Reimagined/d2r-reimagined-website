@@ -1,5 +1,6 @@
 <script lang="ts">
   import { i18n } from '$lib/i18n';
+  import { isItemIdentified, itemDisplayLabel } from '$lib/item-identification';
   import { itemVariant, type ItemPresentation } from '$lib/item-presentation';
   import { displayStatLines, isHiddenItemStat, type DisplayStatLine, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
   import type { SaveItem, SaveStat } from '$lib/characters';
@@ -7,15 +8,18 @@
   let {
     item,
     presentation,
+    itemPresentations,
     statPresentation,
     runewordNameKey
   }: {
     item: SaveItem;
     presentation?: ItemPresentation;
+    itemPresentations: Map<string, ItemPresentation>;
     statPresentation?: ItemStatPresentationBundle;
     runewordNameKey?: string;
   } = $props();
-  let variant = $derived(presentation ? itemVariant(item, presentation) : null);
+  let variant = $derived(presentation ? itemVariant(item, presentation, itemPresentations) : null);
+  let identified = $derived(isItemIdentified(item));
 
   function words(value: string): string {
     return value
@@ -53,8 +57,8 @@
   }
 
   function displayName(): string {
-    if (variant?.NameKey) return $i18n.t(variant.NameKey);
-    return item.personalizedName || item.baseName || item.codeText;
+    const resolvedVariant = identified && variant?.NameKey ? $i18n.t(variant.NameKey) : null;
+    return itemDisplayLabel(item, resolvedVariant);
   }
 
   function scalarProperties(): Array<[string, string]> {
@@ -66,37 +70,43 @@
 
 <aside class="item-tooltip pointer-events-none w-full border border-parchment-300/45 bg-black/95 px-4 py-3 text-center shadow-2xl shadow-black/80" role="tooltip">
   <h3 class={`text-lg leading-tight ${qualityClass()}`}>{displayName()}</h3>
-  {#if displayName() !== (item.baseName || item.codeText)}
+  {#if identified && displayName() !== (item.baseName || item.codeText)}
     <p class="mt-0.5 text-sm text-parchment-200">{item.baseName || item.codeText}</p>
   {/if}
-  <p class="mt-1 text-xs text-parchment-300">{item.quality} · Item level {item.itemLevel}</p>
+  {#if identified}
+    <p class="mt-1 text-xs text-parchment-300">{item.quality} · Item level {item.itemLevel}</p>
+  {:else}
+    <p class="mt-1 text-sm text-red-500">{$i18n.t('ItemStats1b')}</p>
+  {/if}
 
   <div class="mt-2 space-y-0.5 text-sm text-parchment-100">
     {#if item.defense != null}<p>Defense: {item.defense}</p>{/if}
     {#if item.maximumDurability != null}<p>Durability: {item.durability ?? 0} of {item.maximumDurability}</p>{/if}
     {#if item.quantity != null}<p>Quantity: {item.quantity}</p>{/if}
     {#if item.advancedStashStackSize != null}<p>Stack size: {item.advancedStashStackSize}</p>{/if}
-    {#if item.runewordId != null}<p class="text-unique">{runewordNameKey ? $i18n.t(runewordNameKey) : 'Runeword'}</p>{/if}
+    {#if identified && item.runewordId != null}<p class="text-unique">{runewordNameKey ? $i18n.t(runewordNameKey) : 'Runeword'}</p>{/if}
   </div>
 
-  {#if item.stats.length}
+  {#if identified && item.stats.length}
     <div class="mt-2 border-t border-parchment-300/20 pt-2 text-sm text-magic">
       {#each statLines(item.stats) as line}<p>{renderedStatLine(line)}</p>{/each}
     </div>
   {/if}
-  {#if item.runewordStats?.length}
+  {#if identified && item.runewordStats?.length}
     <div class="mt-2 border-t border-parchment-300/20 pt-2 text-sm text-magic">
       {#each statLines(item.runewordStats) as line}<p>{renderedStatLine(line)}</p>{/each}
     </div>
   {/if}
-  {#each item.setBonusStats as group, index}
-    {#if group.length}
-      <div class="mt-2 border-t border-set/25 pt-2 text-sm text-set">
-        <p class="mb-1 text-xs uppercase tracking-wider">Set bonus {index + 1}</p>
-        {#each statLines(group) as line}<p>{renderedStatLine(line)}</p>{/each}
-      </div>
-    {/if}
-  {/each}
+  {#if identified}
+    {#each item.setBonusStats as group, index}
+      {#if group.length}
+        <div class="mt-2 border-t border-set/25 pt-2 text-sm text-set">
+          <p class="mb-1 text-xs uppercase tracking-wider">Set bonus {index + 1}</p>
+          {#each statLines(group) as line}<p>{renderedStatLine(line)}</p>{/each}
+        </div>
+      {/if}
+    {/each}
+  {/if}
 
   {#if item.sockets.length}
     <div class="mt-2 border-t border-parchment-300/20 pt-2 text-sm text-parchment-200">
@@ -107,7 +117,7 @@
     </div>
   {/if}
 
-  {#if scalarProperties().length}
+  {#if identified && scalarProperties().length}
     <div class="mt-2 border-t border-parchment-300/20 pt-2 text-xs text-parchment-300">
       {#each scalarProperties() as [label, value]}<p>{label}: {value}</p>{/each}
     </div>
