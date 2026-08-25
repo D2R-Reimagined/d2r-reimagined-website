@@ -17,22 +17,12 @@ export interface ItemPresentation {
 }
 
 let presentationPromise: Promise<Map<string, ItemPresentation>> | null = null;
-const variantIndexes = new WeakMap<Map<string, ItemPresentation>, {
-  unique: Map<number, ItemSpriteVariant>;
-  set: Map<number, ItemSpriteVariant>;
-}>();
 
-function variantIndex(presentations: Map<string, ItemPresentation>) {
-  let index = variantIndexes.get(presentations);
-  if (!index) {
-    index = { unique: new Map(), set: new Map() };
-    for (const presentation of presentations.values()) {
-      for (const variant of presentation.UniqueSprites) index.unique.set(variant.FileIndex, variant);
-      for (const variant of presentation.SetSprites) index.set.set(variant.FileIndex, variant);
-    }
-    variantIndexes.set(presentations, index);
-  }
-  return index;
+function variantQuality(item: SaveItem): 'unique' | 'set' | null {
+  const quality = item.quality.toLowerCase();
+  if (quality.includes('unique')) return 'unique';
+  if (quality.includes('set')) return 'set';
+  return null;
 }
 
 export function loadItemPresentation(): Promise<Map<string, ItemPresentation>> {
@@ -50,21 +40,26 @@ export function loadItemPresentation(): Promise<Map<string, ItemPresentation>> {
 export function itemVariant(
   item: SaveItem,
   presentation: ItemPresentation,
-  presentations?: Map<string, ItemPresentation>
+  _presentations?: Map<string, ItemPresentation>
 ): ItemSpriteVariant | null {
   const fileIndex = item.qualityData?.fileIndex;
   if (fileIndex === null || fileIndex === undefined) return null;
-  if (item.quality.toLowerCase().includes('unique')) {
-    return presentation.UniqueSprites.find((entry) => entry.FileIndex === fileIndex)
-      ?? (presentations ? variantIndex(presentations).unique.get(fileIndex) : undefined)
-      ?? null;
+  if (variantQuality(item) === 'unique') {
+    return presentation.UniqueSprites.find((entry) => entry.FileIndex === fileIndex) ?? null;
   }
-  if (item.quality.toLowerCase().includes('set')) {
-    return presentation.SetSprites.find((entry) => entry.FileIndex === fileIndex)
-      ?? (presentations ? variantIndex(presentations).set.get(fileIndex) : undefined)
-      ?? null;
+  if (variantQuality(item) === 'set') {
+    return presentation.SetSprites.find((entry) => entry.FileIndex === fileIndex) ?? null;
   }
   return null;
+}
+
+export function hasUnknownItemVariant(
+  item: SaveItem,
+  presentation?: ItemPresentation,
+  presentations?: Map<string, ItemPresentation>
+): boolean {
+  return variantQuality(item) !== null
+    && (!presentation || itemVariant(item, presentation, presentations) === null);
 }
 
 export function itemSprite(
@@ -73,6 +68,8 @@ export function itemSprite(
   presentations?: Map<string, ItemPresentation>
 ): string | null {
   if (!presentation) return null;
-  const path = itemVariant(item, presentation, presentations)?.Sprite ?? presentation.Sprite;
+  const variant = itemVariant(item, presentation, presentations);
+  if (variantQuality(item) !== null && !variant) return null;
+  const path = variant?.Sprite ?? presentation.Sprite;
   return path ? `/data/${path}` : null;
 }
