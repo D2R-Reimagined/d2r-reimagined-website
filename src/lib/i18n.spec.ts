@@ -34,3 +34,11 @@ describe('item skill localization', () => {
     })).toBe('+1-3 to Blizzard (Sorceress Only)');
   });
 });
+
+describe('keyed line localization', () => {
+  it('renders the numeric range carried by the label-only healperhit string', () => {
+    initializeI18n({ healperhit: 'Life Per Hit' });
+
+    expect(get(i18n).line({ key: 'healperhit', args: [2, 4] })).toBe('2-4 Life Per Hit');
+  });
+});

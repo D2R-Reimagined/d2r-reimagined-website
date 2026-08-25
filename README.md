@@ -54,7 +54,11 @@ The included `Dockerfile` and `compose.yml` provide the same Node SSR runtime in
 - `/` — project home
 - `/grail` — local Holy Grail tracker
 - `/profile` — registration, sign-in, profile details, and Steam account linking
+- `/admin/ladders` — Admin-only ladder scheduling and extension requirements
+- `/admin/users` — Admin-only staff-role management
 - `/data/*` — uniques, sets, runewords, bases, affixes, and cube recipes
 - `/robots.txt` and `/sitemap.xml` — SEO discovery endpoints
 
 Legacy catalog routes redirect permanently to their `/data/*` equivalents.
+
+The Admin link appears after the signed-in profile response includes the `Admin` role. `/admin` redirects to the ladder page, and the nested Admin layout provides left-hand navigation between Ladders and Users. The API refreshes authorization roles from Identity on each authenticated request, so role changes take effect immediately.

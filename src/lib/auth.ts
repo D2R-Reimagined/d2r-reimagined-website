@@ -11,6 +11,7 @@ export interface UserProfile {
   battleTag: string | null;
   battleNetId: string | null;
   steamId: string | null;
+  roles: string[];
   createdAtUtc: string;
 }
 

@@ -1,0 +1,19 @@
+9:26:46 AM [vite] (ssr) Re-optimizing dependencies because vite config has changed
+9:26:46 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+
+  VITE v8.2.1  ready in 1079 ms
+
+  ➜  Local:   http://127.0.0.1:9500/
+  ➜  press h + enter to show help
+9:27:50 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/0.js
+9:27:50 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/1.js
+9:27:50 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/2.js
+9:27:50 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/6.js
+9:27:50 AM [vite] (client) page reload .svelte-kit/generated/client/nodes/15.js
+9:27:50 AM [vite] (client) page reload .svelte-kit/generated/client/app.js
+9:27:50 AM [vite] (ssr) page reload .svelte-kit/generated/shared/error-template.js
+9:27:50 AM [vite] (ssr) page reload .svelte-kit/generated/server/internal.js
+9:27:50 AM [vite] (client) page reload .svelte-kit/generated/client/matchers.js
+9:27:50 AM [vite] (client) page reload .svelte-kit/generated/root.js
+9:27:50 AM [vite] (ssr) page reload .svelte-kit/generated/root.js
+9:27:50 AM [vite] (ssr) page reload .svelte-kit/generated/root.svelte
