@@ -15,6 +15,7 @@ const bundle: ItemStatPresentationBundle = {
     poisonmaxdam: { PositiveKey: 'ModStr4h', Function: 19, ValueShift: 0 },
     poisonlength: { ValueShift: 0 },
     poison_count: { ValueShift: 0 },
+    charm_weight: { PositiveKey: 'mod_weight', Function: 19, ValueShift: 0 },
     item_nonclassskill: { ValueShift: 0 },
     item_openwounds: { PositiveKey: 'ModStr3m', Function: 19, ValueShift: 0 },
     item_replenish_quantity: { PositiveKey: 'ModStre9v', Function: 19, ValueShift: 0 },
@@ -68,8 +69,9 @@ describe('displayStatLines', () => {
     ]);
   });
 
-  it('hides the internal charm-weight passive without hiding other granted skills', () => {
+  it('hides internal charm-weight stats without hiding other granted skills', () => {
     const lines = displayStatLines([
+      stat(359, 'charm_weight', 5),
       stat(97, 'item_nonclassskill', 1, 449),
       stat(97, 'item_nonclassskill', 1, 387)
     ], bundle);

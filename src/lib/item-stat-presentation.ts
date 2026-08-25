@@ -31,6 +31,7 @@ export interface DisplayStatLine {
 
 const hiddenSkillIds = new Set([449]);
 const hiddenSkillNameKeys = new Set(['charmweight1']);
+const hiddenStatNames = new Set(['charm_weight']);
 
 let presentationPromise: Promise<ItemStatPresentationBundle> | undefined;
 
@@ -96,6 +97,7 @@ export function isHiddenItemStat(
   stat: SaveStat,
   bundle?: ItemStatPresentationBundle
 ): boolean {
+  if (hiddenStatNames.has(stat.name)) return true;
   if (stat.name !== 'item_nonclassskill' && stat.name !== 'item_singleskill') return false;
   const skill = bundle?.Skills[String(stat.layer)];
   return hiddenSkillIds.has(stat.layer) || hiddenSkillNameKeys.has(skill?.NameKey.toLowerCase() ?? '');

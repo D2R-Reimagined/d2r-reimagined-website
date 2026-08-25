@@ -4,6 +4,8 @@
   import type { CharacterDetailsResponse, SaveItem } from '$lib/characters';
   import { loadItemPresentation, type ItemPresentation } from '$lib/item-presentation';
   import { loadItemStatPresentation, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
+  import { loadCatalog } from '$lib/catalog-sources';
+  import { buildRunewordNameMap, runewordNameKey } from '$lib/runeword-presentation';
   import { loadSkillClasses } from '$lib/skills';
   import type { SkillClass } from '$lib/types';
   import { onMount } from 'svelte';
@@ -11,6 +13,7 @@
   let { details }: { details: CharacterDetailsResponse } = $props();
   let presentations = $state(new Map<string, ItemPresentation>());
   let statPresentation = $state<ItemStatPresentationBundle>();
+  let runewordNames = $state(new Map<string, string>());
   let skillClasses = $state<SkillClass[]>([]);
   let artworkError = $state('');
   let tab = $state<'player' | 'mercenary'>('player');
@@ -39,6 +42,8 @@
   const inventoryTop = 817;
   const inventoryCellWidth = 98;
   const inventoryCellHeight = 98;
+  const inventoryColumns = 10;
+  const inventoryRows = 8;
 
   let save = $derived(details.save);
   let sourceItems = $derived(
@@ -47,7 +52,11 @@
   let equipped = $derived(sourceItems.filter((item) => item.position.mode === 'Equipped'));
   let inventory = $derived(
     tab === 'player'
-      ? sourceItems.filter((item) => item.position.mode === 'Stored' && item.position.storePage === 'Inventory')
+      ? sourceItems.filter((item) =>
+          item.position.mode === 'Stored'
+          && item.position.storePage === 'Inventory'
+          && fitsInventory(item)
+        )
       : []
   );
   let hasMercenary = $derived(Boolean(save?.character.mercenary.hasMercenary));
@@ -89,6 +98,26 @@
     return `left:${percent(x, canvasWidth)};top:${percent(y, canvasHeight)};width:${percent(width * inventoryCellWidth, canvasWidth)};height:${percent(height * inventoryCellHeight, canvasHeight)}`;
   }
 
+  function fitsInventory(item: SaveItem): boolean {
+    const itemPresentation = presentation(item);
+    const width = itemPresentation?.Width ?? 1;
+    const height = itemPresentation?.Height ?? 1;
+    return item.position.inventoryX >= 0
+      && item.position.inventoryY >= 0
+      && item.position.inventoryX + width <= inventoryColumns
+      && item.position.inventoryY + height <= inventoryRows;
+  }
+
+  function tooltipSide(item: SaveItem, itemPresentation?: ItemPresentation): 'left' | 'right' {
+    if (item.position.mode === 'Equipped') {
+      const location = item.position.bodyLocation.replace(/Secondary|Alternate|Swap/gi, '');
+      const rect = slotRects[location];
+      return rect && rect[0] + rect[2] / 2 > canvasWidth / 2 ? 'left' : 'right';
+    }
+    const width = itemPresentation?.Width ?? 1;
+    return item.position.inventoryX + width / 2 > 5 ? 'left' : 'right';
+  }
+
   function presentation(item: SaveItem): ItemPresentation | undefined {
     return presentations.get(item.codeText.toLowerCase());
   }
@@ -99,11 +128,16 @@
 
   onMount(async () => {
     try {
-      [presentations, statPresentation, skillClasses] = await Promise.all([
+      const [loadedPresentations, loadedStatPresentation, loadedSkillClasses, runewords] = await Promise.all([
         loadItemPresentation(),
         loadItemStatPresentation(),
-        loadSkillClasses()
+        loadSkillClasses(),
+        loadCatalog('runewords')
       ]);
+      presentations = loadedPresentations;
+      statPresentation = loadedStatPresentation;
+      skillClasses = loadedSkillClasses;
+      runewordNames = buildRunewordNameMap(runewords);
     } catch (value) {
       artworkError = value instanceof Error ? value.message : 'Item artwork could not be loaded.';
     }
@@ -185,10 +219,12 @@
         </div>
         {#each equipped as item}
           {@const style = equippedStyle(item)}
-          {#if style}<CharacterItem {item} presentation={presentation(item)} {statPresentation} {style} />{/if}
+          {@const itemPresentation = presentation(item)}
+          {#if style}<CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {statPresentation} runewordNameKey={runewordNameKey(item, runewordNames)} {style} tooltipSide={tooltipSide(item, itemPresentation)} />{/if}
         {/each}
         {#each inventory as item}
-          <CharacterItem {item} presentation={presentation(item)} {statPresentation} style={inventoryStyle(item, presentation(item))} />
+          {@const itemPresentation = presentation(item)}
+          <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {statPresentation} runewordNameKey={runewordNameKey(item, runewordNames)} style={inventoryStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} />
         {/each}
       </div>
     </div>

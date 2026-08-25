@@ -56,10 +56,16 @@ function lookup(s: I18nState, key: string): string {
 
 function prepareSpecial(key: string, template: string, args: ReadonlyArray<TemplateArg>) {
   if (key !== 'strSkillRandomFromSkillClass' || args.length < 2) return { template, args };
+  if (typeof args[0] !== 'number' || typeof args[1] !== 'number') {
+    return {
+      template: args.length < 3 ? template.replace(/\s*%s\s*$/, '') : template,
+      args
+    };
+  }
   const [min, max, ...rest] = args;
-  const numeric = typeof min === 'number' && typeof max === 'number'
-    ? Math.trunc(min) === Math.trunc(max) ? String(Math.trunc(min)) : `${Math.trunc(min)}-${Math.trunc(max)}`
-    : min;
+  const numeric = Math.trunc(min) === Math.trunc(max)
+    ? String(Math.trunc(min))
+    : `${Math.trunc(min)}-${Math.trunc(max)}`;
   return {
     template: rest.length < 2 ? template.replace(/\s*%s\s*$/, '') : template,
     args: [numeric, ...rest]
