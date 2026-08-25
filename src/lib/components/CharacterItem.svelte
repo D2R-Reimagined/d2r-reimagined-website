@@ -1,7 +1,7 @@
 <script lang="ts">
   import ItemTooltip from '$lib/components/ItemTooltip.svelte';
   import { isItemIdentified, itemDisplayLabel } from '$lib/item-identification';
-  import { itemSprite, itemVariant, type ItemPresentation } from '$lib/item-presentation';
+  import { hasUnknownItemVariant, itemSprite, itemVariant, type ItemPresentation } from '$lib/item-presentation';
   import type { ItemStatPresentationBundle } from '$lib/item-stat-presentation';
   import { i18n } from '$lib/i18n';
   import { rareItemName, type RareNamePresentation } from '$lib/rare-name-presentation';
@@ -30,12 +30,15 @@
   let open = $state(false);
   let sprite = $derived(itemSprite(item, presentation, itemPresentations));
   let variant = $derived(presentation ? itemVariant(item, presentation, itemPresentations) : null);
+  let unknownVariant = $derived(hasUnknownItemVariant(item, presentation, itemPresentations));
   let identified = $derived(isItemIdentified(item));
   let generatedRareName = $derived(
     identified ? rareItemName(item, rareNames, (key) => $i18n.t(key)) : null
   );
   let identifiedName = $derived(
-    generatedRareName ?? (variant?.NameKey ? $i18n.t(variant.NameKey) : null)
+    generatedRareName
+      ?? (variant?.NameKey ? $i18n.t(variant.NameKey) : null)
+      ?? (unknownVariant ? 'Unknown item' : null)
   );
   let label = $derived(itemDisplayLabel(item, identified ? identifiedName : null));
   let socketItems = $derived(item.sockets.filter((socket): socket is SaveItem => socket !== null));

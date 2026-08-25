@@ -2,7 +2,12 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { SaveItem } from '$lib/characters';
-import { itemSprite, itemVariant, type ItemPresentation } from './item-presentation';
+import {
+  hasUnknownItemVariant,
+  itemSprite,
+  itemVariant,
+  type ItemPresentation
+} from './item-presentation';
 
 function presentation(
   code: string,
@@ -132,5 +137,23 @@ describe('item presentation', () => {
     } as SaveItem;
 
     expect(itemVariant(item, ring, presentations)?.NameKey).toBe('Draven Coil');
+  });
+
+  it('does not borrow an unrelated unique when a future item reuses its file index', () => {
+    const labCharm = presentation('lab');
+    const arrows = presentation('aqv', 1482, 'Enfeeblement Arrows', 'sprites/items/arrows.webp');
+    const presentations = new Map([
+      [labCharm.Code, labCharm],
+      [arrows.Code, arrows]
+    ]);
+    const item = {
+      codeText: 'lab',
+      quality: 'Unique',
+      qualityData: { fileIndex: 1482 }
+    } as SaveItem;
+
+    expect(itemVariant(item, labCharm, presentations)).toBeNull();
+    expect(hasUnknownItemVariant(item, labCharm, presentations)).toBe(true);
+    expect(itemSprite(item, labCharm, presentations)).toBeNull();
   });
 });

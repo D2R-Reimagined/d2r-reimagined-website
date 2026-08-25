@@ -125,6 +125,29 @@ export interface CharacterDetailsResponse {
   save: CharacterSaveDetails | null;
 }
 
+export interface CharacterSkillAllocation {
+  skillId: number;
+  points: number;
+}
+
+export interface CharacterDirectoryEntry {
+  character: CharacterResponse;
+  skills: CharacterSkillAllocation[];
+}
+
+export interface CharacterDirectoryResponse {
+  items: CharacterDirectoryEntry[];
+  total: number;
+  skip: number;
+  count: number;
+}
+
+export interface CharacterDirectoryRequest {
+  skip?: number;
+  count?: number;
+  characterClass?: string;
+}
+
 function saveForm(file: File, isPublic?: boolean): FormData {
   validateCharacterSave(file);
   const form = new FormData();
@@ -135,6 +158,16 @@ function saveForm(file: File, isPublic?: boolean): FormData {
 
 export function getMyCharacters(): Promise<CharacterResponse[]> {
   return apiRequest<CharacterResponse[]>('/characters/mine', {}, true);
+}
+
+export function getCharacterDirectory(
+  request: CharacterDirectoryRequest = {}
+): Promise<CharacterDirectoryResponse> {
+  const parameters = new URLSearchParams();
+  parameters.set('skip', String(request.skip ?? 0));
+  parameters.set('count', String(request.count ?? 24));
+  if (request.characterClass) parameters.set('class', request.characterClass);
+  return apiRequest<CharacterDirectoryResponse>(`/characters?${parameters}`);
 }
 
 export function getCharacterDetails(id: string): Promise<CharacterDetailsResponse> {
