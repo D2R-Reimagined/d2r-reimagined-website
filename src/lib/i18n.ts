@@ -55,6 +55,14 @@ function lookup(s: I18nState, key: string): string {
 }
 
 function prepareSpecial(key: string, template: string, args: ReadonlyArray<TemplateArg>) {
+  // healperhit is a label-only synthetic string in every exported language,
+  // while its keyed catalog line still carries the numeric min/max pair.
+  // Give the shared formatter one numeric slot so it can render that range
+  // without replacing or hard-coding the localized label.
+  if (key === 'healperhit' && args.length > 0) {
+    return { template: `%d ${template}`, args };
+  }
+
   if (key !== 'strSkillRandomFromSkillClass' || args.length < 2) return { template, args };
   const [min, max, ...rest] = args;
   const numeric = typeof min === 'number' && typeof max === 'number'
