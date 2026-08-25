@@ -116,6 +116,7 @@ export interface Skill {
   NameKey: string;
   ShortDescriptionKey?: string;
   DescriptionKey?: string;
+  Icon?: string;
   Row: number;
   Column: number;
   RequiredLevel: number;

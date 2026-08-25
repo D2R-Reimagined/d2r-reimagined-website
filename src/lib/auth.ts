@@ -29,7 +29,7 @@ interface AuthState {
   user: UserProfile | null;
 }
 
-class ApiError extends Error {
+export class ApiError extends Error {
   constructor(
     message: string,
     readonly status: number
@@ -50,17 +50,20 @@ function accessToken(): string | null {
   return browser ? localStorage.getItem(tokenStorageKey) : null;
 }
 
-async function apiRequest<T>(
+export async function apiRequest<T>(
   path: string,
   init: RequestInit = {},
-  authenticated = false
+  authenticated: boolean | 'optional' = false
 ): Promise<T> {
   const headers = new Headers(init.headers);
-  if (init.body) headers.set('Content-Type', 'application/json');
+  const isFormData = typeof FormData !== 'undefined' && init.body instanceof FormData;
+  if (init.body && !isFormData && !headers.has('Content-Type')) {
+    headers.set('Content-Type', 'application/json');
+  }
   if (authenticated) {
     const token = accessToken();
-    if (!token) throw new ApiError('You need to sign in first.', 401);
-    headers.set('Authorization', `Bearer ${token}`);
+    if (!token && authenticated === true) throw new ApiError('You need to sign in first.', 401);
+    if (token) headers.set('Authorization', `Bearer ${token}`);
   }
 
   const response = await fetch(`${apiBaseUrl()}${path}`, {
@@ -75,6 +78,7 @@ async function apiRequest<T>(
     );
   }
 
+  if (response.status === 204) return undefined as T;
   return await response.json() as T;
 }
 

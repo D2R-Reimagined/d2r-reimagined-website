@@ -1,0 +1,5231 @@
+{
+  "Stats": {
+    "alignment": {
+      "ValueShift": 0
+    },
+    "armor_override_percent": {
+      "ValueShift": 0
+    },
+    "armorclass": {
+      "Priority": 71,
+      "Function": 19,
+      "PositiveKey": "ModStr1i",
+      "NegativeKey": "ModStr1i",
+      "ValueShift": 0
+    },
+    "armorclass_vs_hth": {
+      "Priority": 70,
+      "Function": 19,
+      "PositiveKey": "ModStr6b",
+      "NegativeKey": "ModStr6b",
+      "ValueShift": 0
+    },
+    "armorclass_vs_missile": {
+      "Priority": 69,
+      "Function": 19,
+      "PositiveKey": "ModStr6a",
+      "NegativeKey": "ModStr6a",
+      "ValueShift": 0
+    },
+    "attack_vs_montype": {
+      "Priority": 108,
+      "Function": 22,
+      "PositiveKey": "ModitemAttratvsM",
+      "NegativeKey": "ModitemAttratvsM",
+      "ValueShift": 0
+    },
+    "attackrate": {
+      "ValueShift": 0
+    },
+    "bonearmor": {
+      "ValueShift": 0
+    },
+    "bonearmormax": {
+      "ValueShift": 0
+    },
+    "bonus_maxdamage": {
+      "ValueShift": 0
+    },
+    "bonus_mindamage": {
+      "ValueShift": 0
+    },
+    "burningmax": {
+      "ValueShift": 0
+    },
+    "burningmin": {
+      "ValueShift": 0
+    },
+    "charm_weight": {
+      "Priority": 301,
+      "Function": 19,
+      "PositiveKey": "mod_weight",
+      "NegativeKey": "mod_weight",
+      "ValueShift": 0
+    },
+    "coldlength": {
+      "ValueShift": 0
+    },
+    "coldmaxdam": {
+      "Priority": 95,
+      "Function": 19,
+      "PositiveKey": "ModStr1s",
+      "NegativeKey": "ModStr1s",
+      "ValueShift": 0
+    },
+    "coldmindam": {
+      "Priority": 96,
+      "Function": 19,
+      "PositiveKey": "ModStr1t",
+      "NegativeKey": "ModStr1t",
+      "ValueShift": 0
+    },
+    "coldresist": {
+      "Priority": 40,
+      "Function": 19,
+      "PositiveKey": "ModStr1k",
+      "NegativeKey": "ModStr1k",
+      "ValueShift": 0
+    },
+    "conversion_level": {
+      "ValueShift": 0
+    },
+    "conversion_maxhp": {
+      "ValueShift": 0
+    },
+    "create_season": {
+      "ValueShift": 0
+    },
+    "curse_resistance": {
+      "ValueShift": 0
+    },
+    "customization_index": {
+      "ValueShift": 0
+    },
+    "damage_framerate": {
+      "ValueShift": 0
+    },
+    "damage_vs_montype": {
+      "Priority": 106,
+      "Function": 22,
+      "PositiveKey": "Moditemdamvsm",
+      "NegativeKey": "Moditemdamvsm",
+      "ValueShift": 0
+    },
+    "damageaura": {
+      "ValueShift": 0
+    },
+    "damagepercent": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "strModEnhancedDamage",
+      "NegativeKey": "strModEnhancedDamage",
+      "ValueShift": 0
+    },
+    "damageresist": {
+      "Priority": 22,
+      "Function": 19,
+      "PositiveKey": "ModStr2uPercent",
+      "NegativeKey": "ModStr2uPercent",
+      "ValueShift": 0
+    },
+    "dexterity": {
+      "Priority": 65,
+      "Function": 19,
+      "PositiveKey": "ModStr1b",
+      "NegativeKey": "ModStr1b",
+      "ValueShift": 0
+    },
+    "durability": {
+      "ValueShift": 0
+    },
+    "Dye_Black": {
+      "Priority": 999,
+      "Function": 3,
+      "ValueMode": 0,
+      "PositiveKey": "DyeBlack",
+      "NegativeKey": "DyeBlack",
+      "ValueShift": 0
+    },
+    "Dye_Blue": {
+      "Priority": 999,
+      "Function": 3,
+      "ValueMode": 0,
+      "PositiveKey": "DyeBlue",
+      "NegativeKey": "DyeBlue",
+      "ValueShift": 0
+    },
+    "Dye_Green": {
+      "Priority": 999,
+      "Function": 3,
+      "ValueMode": 0,
+      "PositiveKey": "DyeGreen",
+      "NegativeKey": "DyeGreen",
+      "ValueShift": 0
+    },
+    "Dye_Orange": {
+      "Priority": 999,
+      "Function": 3,
+      "ValueMode": 0,
+      "PositiveKey": "DyeOrange",
+      "NegativeKey": "DyeOrange",
+      "ValueShift": 0
+    },
+    "Dye_Purple": {
+      "Priority": 999,
+      "Function": 3,
+      "ValueMode": 0,
+      "PositiveKey": "DyePurple",
+      "NegativeKey": "DyePurple",
+      "ValueShift": 0
+    },
+    "Dye_Red": {
+      "Priority": 999,
+      "Function": 3,
+      "ValueMode": 0,
+      "PositiveKey": "DyeRed",
+      "NegativeKey": "DyeRed",
+      "ValueShift": 0
+    },
+    "Dye_Tracker": {
+      "ValueShift": 0
+    },
+    "Dye_White": {
+      "Priority": 999,
+      "Function": 3,
+      "ValueMode": 0,
+      "PositiveKey": "DyeWhite",
+      "NegativeKey": "DyeWhite",
+      "ValueShift": 0
+    },
+    "Dye_Yellow": {
+      "Priority": 999,
+      "Function": 3,
+      "ValueMode": 0,
+      "PositiveKey": "DyeYellow",
+      "NegativeKey": "DyeYellow",
+      "ValueShift": 0
+    },
+    "energy": {
+      "Priority": 61,
+      "Function": 19,
+      "PositiveKey": "ModStr1d",
+      "NegativeKey": "ModStr1d",
+      "ValueShift": 0
+    },
+    "experience": {
+      "ValueShift": 0
+    },
+    "extra_bonespears": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "extraspear",
+      "NegativeKey": "extraspear",
+      "ValueShift": 0
+    },
+    "extra_dire_wolves": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "extrasdirewolves",
+      "NegativeKey": "extrasdirewolves",
+      "ValueShift": 0
+    },
+    "extra_firegolems": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "extrafiregolems",
+      "NegativeKey": "extrafiregolems",
+      "ValueShift": 0
+    },
+    "extra_grizzly_bears": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "extra_grizzly_bears",
+      "NegativeKey": "extra_grizzly_bears",
+      "ValueShift": 0
+    },
+    "extra_holybolt": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "extraholybolt",
+      "NegativeKey": "extraholybolt",
+      "ValueShift": 0
+    },
+    "extra_ravens": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "extraravens",
+      "NegativeKey": "extraravens",
+      "ValueShift": 0
+    },
+    "extra_shadow_masters": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "extraShadowMasters",
+      "NegativeKey": "extraShadowMasters",
+      "ValueShift": 0
+    },
+    "extra_skelemages": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "extra_skele_mages",
+      "NegativeKey": "extra_skele_mages",
+      "ValueShift": 0
+    },
+    "extra_skelewarriors": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "extra_skele_warriors",
+      "NegativeKey": "extra_skele_warriors",
+      "ValueShift": 0
+    },
+    "extra_spirit_wolves": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "extraspiritwolves",
+      "NegativeKey": "extraspiritwolves",
+      "ValueShift": 0
+    },
+    "extra_traps": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "extratraps",
+      "NegativeKey": "extratraps",
+      "ValueShift": 0
+    },
+    "fade": {
+      "Priority": 1,
+      "Function": 19,
+      "PositiveKey": "fadeDescription",
+      "NegativeKey": "fadeDescription",
+      "ValueShift": 0
+    },
+    "firelength": {
+      "ValueShift": 0
+    },
+    "firemaxdam": {
+      "Priority": 101,
+      "Function": 19,
+      "PositiveKey": "ModStr1o",
+      "NegativeKey": "ModStr1o",
+      "ValueShift": 0
+    },
+    "firemindam": {
+      "Priority": 102,
+      "Function": 19,
+      "PositiveKey": "ModStr1p",
+      "NegativeKey": "ModStr1p",
+      "ValueShift": 0
+    },
+    "fireresist": {
+      "Priority": 36,
+      "Function": 19,
+      "PositiveKey": "ModStr1j",
+      "NegativeKey": "ModStr1j",
+      "ValueShift": 0
+    },
+    "gold": {
+      "ValueShift": 0
+    },
+    "goldbank": {
+      "ValueShift": 0
+    },
+    "goldlost": {
+      "ValueShift": 0
+    },
+    "heal_afterhit": {
+      "Priority": 16,
+      "Function": 1,
+      "ValueMode": 1,
+      "PositiveKey": "healperhit",
+      "NegativeKey": "healperhit",
+      "ValueShift": 0
+    },
+    "heraldtier": {
+      "ValueShift": 0
+    },
+    "hitpoints": {
+      "ValueShift": 8
+    },
+    "hpregen": {
+      "Priority": 56,
+      "Function": 19,
+      "PositiveKey": "ModStr2l",
+      "NegativeKey": "ModStr2w",
+      "ValueShift": 0
+    },
+    "hpregen_perlevel": {
+      "Priority": 56,
+      "Function": 19,
+      "PositiveKey": "ModStr2l",
+      "NegativeKey": "ModStr2w",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "ironmaiden_level": {
+      "ValueShift": 0
+    },
+    "item_absorb_cold_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStre9p",
+      "NegativeKey": "ModStre9p",
+      "ValueShift": 0
+    },
+    "item_absorb_cold_perlevel": {
+      "Priority": 32,
+      "Function": 19,
+      "PositiveKey": "ModStre9p",
+      "NegativeKey": "ModStre9p",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_absorb_crush": {
+      "ValueShift": 0
+    },
+    "item_absorb_crush_percent": {
+      "ValueShift": 0
+    },
+    "item_absorb_fire_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStre9o",
+      "NegativeKey": "ModStre9o",
+      "ValueShift": 0
+    },
+    "item_absorb_fire_perlevel": {
+      "Priority": 28,
+      "Function": 19,
+      "PositiveKey": "ModStre9o",
+      "NegativeKey": "ModStre9o",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_absorb_ltng_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStre9q",
+      "NegativeKey": "ModStre9q",
+      "ValueShift": 0
+    },
+    "item_absorb_ltng_perlevel": {
+      "Priority": 30,
+      "Function": 19,
+      "PositiveKey": "ModStre9q",
+      "NegativeKey": "ModStre9q",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_absorb_pois_bytime": {
+      "ValueShift": 0
+    },
+    "item_absorb_pois_perlevel": {
+      "ValueShift": 0
+    },
+    "item_absorb_slash": {
+      "ValueShift": 0
+    },
+    "item_absorb_slash_percent": {
+      "ValueShift": 0
+    },
+    "item_absorb_thrust": {
+      "ValueShift": 0
+    },
+    "item_absorb_thrust_percent": {
+      "ValueShift": 0
+    },
+    "item_absorbcold": {
+      "Priority": 31,
+      "Function": 19,
+      "PositiveKey": "ModStr5n",
+      "NegativeKey": "ModStr5n",
+      "ValueShift": 0
+    },
+    "item_absorbcold_percent": {
+      "Priority": 25,
+      "Function": 19,
+      "PositiveKey": "ModStr5m",
+      "NegativeKey": "ModStr5m",
+      "ValueShift": 0
+    },
+    "item_absorbfire": {
+      "Priority": 27,
+      "Function": 19,
+      "PositiveKey": "ModStr5h",
+      "NegativeKey": "ModStr5h",
+      "ValueShift": 0
+    },
+    "item_absorbfire_percent": {
+      "Priority": 23,
+      "Function": 19,
+      "PositiveKey": "ModStr5g",
+      "NegativeKey": "ModStr5g",
+      "ValueShift": 0
+    },
+    "item_absorblight": {
+      "Priority": 29,
+      "Function": 19,
+      "PositiveKey": "ModStr5j",
+      "NegativeKey": "ModStr5j",
+      "ValueShift": 0
+    },
+    "item_absorblight_percent": {
+      "Priority": 24,
+      "Function": 19,
+      "PositiveKey": "ModStr5i",
+      "NegativeKey": "ModStr5i",
+      "ValueShift": 0
+    },
+    "item_absorbmagic": {
+      "Priority": 33,
+      "Function": 19,
+      "PositiveKey": "ModStr5l",
+      "NegativeKey": "ModStr5l",
+      "ValueShift": 0
+    },
+    "item_absorbmagic_percent": {
+      "Priority": 26,
+      "Function": 19,
+      "PositiveKey": "ModStr5k",
+      "NegativeKey": "ModStr5k",
+      "ValueShift": 0
+    },
+    "item_ac_percent_vs_monster": {
+      "ValueShift": 0
+    },
+    "item_ac_vs_monster": {
+      "ValueShift": 0
+    },
+    "item_addclassskills": {
+      "Priority": 150,
+      "Function": 13,
+      "PositiveKey": "ModStr3a",
+      "NegativeKey": "ModStr3a",
+      "ValueShift": 0
+    },
+    "item_addexperience": {
+      "Priority": 11,
+      "Function": 19,
+      "PositiveKey": "Moditem2ExpG",
+      "NegativeKey": "Moditem2ExpG",
+      "ValueShift": 0
+    },
+    "item_addskill_tab": {
+      "Priority": 151,
+      "Function": 14,
+      "PositiveKey": "StrSklTabItem1",
+      "NegativeKey": "StrSklTabItem1",
+      "ValueShift": 0
+    },
+    "item_allskills": {
+      "Priority": 158,
+      "Function": 19,
+      "PositiveKey": "ModStr3k",
+      "NegativeKey": "ModStr3k",
+      "ValueShift": 0
+    },
+    "item_armor_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr1i",
+      "NegativeKey": "ModStr1i",
+      "ValueShift": 0
+    },
+    "item_armor_percent": {
+      "Priority": 74,
+      "Function": 19,
+      "PositiveKey": "Modstr2v",
+      "NegativeKey": "Modstr2v",
+      "ValueShift": 0
+    },
+    "item_armor_perlevel": {
+      "Priority": 72,
+      "Function": 19,
+      "PositiveKey": "ModStr1i",
+      "NegativeKey": "ModStr1i",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_armorpercent_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "Modstr2v",
+      "NegativeKey": "Modstr2v",
+      "ValueShift": 0
+    },
+    "item_armorpercent_perlevel": {
+      "Priority": 73,
+      "Function": 19,
+      "PositiveKey": "Modstr2v",
+      "NegativeKey": "Modstr2v",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_attackertakesdamage": {
+      "Priority": 13,
+      "Function": 19,
+      "PositiveKey": "ModStr1v",
+      "NegativeKey": "ModStr1v",
+      "ValueShift": 0
+    },
+    "item_attackertakeslightdamage": {
+      "Priority": 14,
+      "Function": 19,
+      "PositiveKey": "ModStr3j",
+      "NegativeKey": "ModStr3j",
+      "ValueShift": 0
+    },
+    "item_aura": {
+      "Priority": 159,
+      "Function": 16,
+      "ValueMode": 0,
+      "PositiveKey": "ModitemAura",
+      "NegativeKey": "ModitemAura",
+      "ValueShift": 0
+    },
+    "item_cannotbefrozen": {
+      "Priority": 20,
+      "Function": 19,
+      "PositiveKey": "ModStr5z",
+      "NegativeKey": "ModStr5z",
+      "ValueShift": 0
+    },
+    "item_charge_noconsume": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "ModStr6k",
+      "NegativeKey": "ModStr6k",
+      "ValueShift": 0
+    },
+    "item_charged_skill": {
+      "Priority": 3,
+      "Function": 24,
+      "PositiveKey": "ModStre10d",
+      "NegativeKey": "ModStre10d",
+      "ValueShift": 0
+    },
+    "item_cold_damagemax_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr1s",
+      "NegativeKey": "ModStr1s",
+      "ValueShift": 0
+    },
+    "item_cold_damagemax_perlevel": {
+      "Priority": 94,
+      "Function": 19,
+      "PositiveKey": "ModStr1s",
+      "NegativeKey": "ModStr1s",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_corrupted": {
+      "Priority": 300,
+      "Function": 20,
+      "ValueMode": 0,
+      "PositiveKey": "Corrupted",
+      "NegativeKey": "Corrupted",
+      "ValueShift": 0
+    },
+    "item_corruptedDummy": {
+      "ValueShift": 0
+    },
+    "item_crush_damage": {
+      "ValueShift": 0
+    },
+    "item_crush_damage_percent": {
+      "ValueShift": 0
+    },
+    "item_crushingblow": {
+      "Priority": 87,
+      "Function": 19,
+      "PositiveKey": "ModStr5c",
+      "NegativeKey": "ModStr5c",
+      "ValueShift": 0
+    },
+    "item_crushingblow_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr5c",
+      "NegativeKey": "ModStr5c",
+      "ValueShift": 0
+    },
+    "item_crushingblow_perlevel": {
+      "Priority": 86,
+      "Function": 19,
+      "PositiveKey": "ModStr5c",
+      "NegativeKey": "ModStr5c",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_damage_demon_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr4e",
+      "NegativeKey": "ModStr4e",
+      "ValueShift": 0
+    },
+    "item_damage_demon_perlevel": {
+      "Priority": 111,
+      "Function": 19,
+      "PositiveKey": "ModStr4e",
+      "NegativeKey": "ModStr4e",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_damage_percent_vs_monster": {
+      "ValueShift": 0
+    },
+    "item_damage_undead_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr4f",
+      "NegativeKey": "ModStr4f",
+      "ValueShift": 0
+    },
+    "item_damage_undead_perlevel": {
+      "Priority": 107,
+      "Function": 19,
+      "PositiveKey": "ModStr4f",
+      "NegativeKey": "ModStr4f",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_damage_vs_monster": {
+      "ValueShift": 0
+    },
+    "item_damagetargetac": {
+      "Priority": 75,
+      "Function": 19,
+      "PositiveKey": "ModStr4d",
+      "NegativeKey": "ModStr4d",
+      "ValueShift": 0
+    },
+    "item_damagetomana": {
+      "Priority": 11,
+      "Function": 19,
+      "PositiveKey": "ModStr3w",
+      "NegativeKey": "ModStr3w",
+      "ValueShift": 0
+    },
+    "item_deadlystrike": {
+      "Priority": 85,
+      "Function": 19,
+      "PositiveKey": "ModStr5q",
+      "NegativeKey": "ModStr5q",
+      "ValueShift": 0
+    },
+    "item_deadlystrike_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr5q",
+      "NegativeKey": "ModStr5q",
+      "ValueShift": 0
+    },
+    "item_deadlystrike_perlevel": {
+      "Priority": 84,
+      "Function": 19,
+      "PositiveKey": "ModStr5q",
+      "NegativeKey": "ModStr5q",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_demon_tohit": {
+      "Priority": 110,
+      "Function": 19,
+      "PositiveKey": "ModStr4j",
+      "NegativeKey": "ModStr4j",
+      "ValueShift": 0
+    },
+    "item_demondamage_percent": {
+      "Priority": 112,
+      "Function": 19,
+      "PositiveKey": "ModStr4e",
+      "NegativeKey": "ModStr4e",
+      "ValueShift": 0
+    },
+    "item_dexterity_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr1b",
+      "NegativeKey": "ModStr1b",
+      "ValueShift": 0
+    },
+    "item_dexterity_percent": {
+      "Priority": 67,
+      "Function": 19,
+      "PositiveKey": "ModAttDexPercent",
+      "NegativeKey": "ModAttDexPercent",
+      "ValueShift": 0
+    },
+    "item_dexterity_perlevel": {
+      "Priority": 64,
+      "Function": 19,
+      "PositiveKey": "ModStr1b",
+      "NegativeKey": "ModStr1b",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_doubleherbduration": {
+      "ValueShift": 0
+    },
+    "item_elemskill": {
+      "ValueShift": 0
+    },
+    "item_elemskillcold": {
+      "Priority": 157,
+      "Function": 19,
+      "PositiveKey": "ModStrcoldskill",
+      "NegativeKey": "ModStrcoldskill",
+      "ValueShift": 0
+    },
+    "item_elemskillfire": {
+      "Priority": 157,
+      "Function": 19,
+      "PositiveKey": "ModStr3i",
+      "NegativeKey": "ModStr3i",
+      "ValueShift": 0
+    },
+    "item_elemskilllight": {
+      "Priority": 157,
+      "Function": 19,
+      "PositiveKey": "ModStrlightningskill",
+      "NegativeKey": "ModStrlightningskill",
+      "ValueShift": 0
+    },
+    "item_elemskillmagic": {
+      "Priority": 157,
+      "Function": 19,
+      "PositiveKey": "ModStrmagicskill",
+      "NegativeKey": "ModStrmagicskill",
+      "ValueShift": 0
+    },
+    "item_elemskillpoison": {
+      "Priority": 157,
+      "Function": 19,
+      "PositiveKey": "ModStrpoisonskill",
+      "NegativeKey": "ModStrpoisonskill",
+      "ValueShift": 0
+    },
+    "item_energy_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr1d",
+      "NegativeKey": "ModStr1d",
+      "ValueShift": 0
+    },
+    "item_energy_percent": {
+      "Priority": 67,
+      "Function": 19,
+      "PositiveKey": "ModAttEnrPercent",
+      "NegativeKey": "ModAttEnrPercent",
+      "ValueShift": 0
+    },
+    "item_energy_perlevel": {
+      "Priority": 60,
+      "Function": 19,
+      "PositiveKey": "ModStr1d",
+      "NegativeKey": "ModStr1d",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_explosivearrow": {
+      "Priority": 133,
+      "Function": 19,
+      "PositiveKey": "ModStr6i",
+      "NegativeKey": "ModStr6i",
+      "ValueShift": 0
+    },
+    "item_extra_charges": {
+      "ValueShift": 0
+    },
+    "item_extra_stack": {
+      "Priority": 5,
+      "Function": 19,
+      "PositiveKey": "ModStre9i",
+      "NegativeKey": "ModStre9i",
+      "ValueShift": 0
+    },
+    "item_extrablood": {
+      "ValueShift": 0
+    },
+    "item_fasterattackrate": {
+      "Priority": 145,
+      "Function": 19,
+      "PositiveKey": "ModStr4m",
+      "NegativeKey": "ModStr4m",
+      "ValueShift": 0
+    },
+    "item_fasterblockrate": {
+      "Priority": 136,
+      "Function": 19,
+      "PositiveKey": "ModStr4y",
+      "NegativeKey": "ModStr4y",
+      "ValueShift": 0
+    },
+    "item_fastercastrate": {
+      "Priority": 142,
+      "Function": 19,
+      "PositiveKey": "ModStr4v",
+      "NegativeKey": "ModStr4v",
+      "ValueShift": 0
+    },
+    "item_fastergethitrate": {
+      "Priority": 139,
+      "Function": 19,
+      "PositiveKey": "ModStr4p",
+      "NegativeKey": "ModStr4p",
+      "ValueShift": 0
+    },
+    "item_fastermovevelocity": {
+      "Priority": 148,
+      "Function": 19,
+      "PositiveKey": "ModStr4s",
+      "NegativeKey": "ModStr4s",
+      "ValueShift": 0
+    },
+    "item_find_gems_bytime": {
+      "ValueShift": 0
+    },
+    "item_find_gems_perlevel": {
+      "ValueShift": 0
+    },
+    "item_find_gold_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr1w",
+      "NegativeKey": "ModStr1w",
+      "ValueShift": 0
+    },
+    "item_find_gold_perlevel": {
+      "Priority": 9,
+      "Function": 19,
+      "PositiveKey": "ModStr1w",
+      "NegativeKey": "ModStr1w",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_find_item": {
+      "ValueShift": 0
+    },
+    "item_find_magic_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr1x",
+      "NegativeKey": "ModStr1x",
+      "ValueShift": 0
+    },
+    "item_find_magic_perlevel": {
+      "Priority": 7,
+      "Function": 19,
+      "PositiveKey": "ModStr1x",
+      "NegativeKey": "ModStr1x",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_fire_damagemax_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr1o",
+      "NegativeKey": "ModStr1o",
+      "ValueShift": 0
+    },
+    "item_fire_damagemax_perlevel": {
+      "Priority": 100,
+      "Function": 19,
+      "PositiveKey": "ModStr1o",
+      "NegativeKey": "ModStr1o",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_fractionaltargetac": {
+      "Priority": 118,
+      "Function": 19,
+      "PositiveKey": "ModStr5o",
+      "NegativeKey": "ModStr5o",
+      "ValueShift": 0
+    },
+    "item_freeze": {
+      "Priority": 78,
+      "Function": 12,
+      "ValueMode": 2,
+      "PositiveKey": "ModStr3l",
+      "NegativeKey": "ModStr3l",
+      "ValueShift": 0
+    },
+    "item_goldbonus": {
+      "Priority": 10,
+      "Function": 19,
+      "PositiveKey": "ModStr1w",
+      "NegativeKey": "ModStr1w",
+      "ValueShift": 0
+    },
+    "item_halffreezeduration": {
+      "Priority": 19,
+      "Function": 19,
+      "PositiveKey": "ModStr4b",
+      "NegativeKey": "ModStr4b",
+      "ValueShift": 0
+    },
+    "item_healafterdemonkill": {
+      "Priority": 15,
+      "Function": 19,
+      "PositiveKey": "ModStr6c",
+      "NegativeKey": "ModStr6c",
+      "ValueShift": 0
+    },
+    "item_healafterkill": {
+      "Priority": 16,
+      "Function": 19,
+      "PositiveKey": "ModitemHPaK",
+      "NegativeKey": "ModitemHPaK",
+      "ValueShift": 0
+    },
+    "item_howl": {
+      "Priority": 79,
+      "Function": 5,
+      "PositiveKey": "ModStr3u",
+      "NegativeKey": "ModStr3u",
+      "ValueShift": 0
+    },
+    "item_hp_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr1u",
+      "NegativeKey": "ModStr1u",
+      "ValueShift": 0
+    },
+    "item_hp_perlevel": {
+      "Priority": 57,
+      "Function": 19,
+      "PositiveKey": "ModStr1u",
+      "NegativeKey": "ModStr1u",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 8
+    },
+    "item_ignoretargetac": {
+      "Priority": 119,
+      "Function": 19,
+      "PositiveKey": "ModStr3y",
+      "NegativeKey": "ModStr3y",
+      "ValueShift": 0
+    },
+    "item_indesctructible": {
+      "Priority": 160,
+      "Function": 19,
+      "PositiveKey": "ModStre9s",
+      "NegativeKey": "ModStre9s",
+      "ValueShift": 0
+    },
+    "item_kick_damage_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr5e",
+      "NegativeKey": "ModStr5e",
+      "ValueShift": 0
+    },
+    "item_kick_damage_perlevel": {
+      "Priority": 120,
+      "Function": 19,
+      "PositiveKey": "ModStr5e",
+      "NegativeKey": "ModStr5e",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_kickdamage": {
+      "Priority": 121,
+      "Function": 19,
+      "PositiveKey": "ModStr5e",
+      "NegativeKey": "ModStr5e",
+      "ValueShift": 0
+    },
+    "item_knockback": {
+      "Priority": 76,
+      "Function": 19,
+      "PositiveKey": "ModStr1y",
+      "NegativeKey": "ModStr1y",
+      "ValueShift": 0
+    },
+    "item_levelreq": {
+      "Priority": 2,
+      "Function": 19,
+      "PositiveKey": "ItemStats2p",
+      "NegativeKey": "ItemStats2p",
+      "ValueShift": 0
+    },
+    "item_levelreqpct": {
+      "ValueShift": 0
+    },
+    "item_lightcolor": {
+      "ValueShift": 0
+    },
+    "item_lightradius": {
+      "Priority": 6,
+      "Function": 19,
+      "PositiveKey": "ModStr3f",
+      "NegativeKey": "ModStr3f",
+      "ValueShift": 0
+    },
+    "item_ltng_damagemax_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr1q",
+      "NegativeKey": "ModStr1q",
+      "ValueShift": 0
+    },
+    "item_ltng_damagemax_perlevel": {
+      "Priority": 97,
+      "Function": 19,
+      "PositiveKey": "ModStr1q",
+      "NegativeKey": "ModStr1q",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_magic_damagemax_perlevel": {
+      "Priority": 100,
+      "Function": 19,
+      "PositiveKey": "MaxMagDmgPerLvl",
+      "NegativeKey": "MaxMagDmgPerLvl",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_magicarrow": {
+      "Priority": 131,
+      "Function": 19,
+      "PositiveKey": "ModStr6h",
+      "NegativeKey": "ModStr6h",
+      "ValueShift": 0
+    },
+    "item_magicbonus": {
+      "Priority": 8,
+      "Function": 19,
+      "PositiveKey": "ModStr1x",
+      "NegativeKey": "ModStr1x",
+      "ValueShift": 0
+    },
+    "item_mana_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr1e",
+      "NegativeKey": "ModStr1e",
+      "ValueShift": 0
+    },
+    "item_mana_perlevel": {
+      "Priority": 53,
+      "Function": 19,
+      "PositiveKey": "ModStr1e",
+      "NegativeKey": "ModStr1e",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 8
+    },
+    "item_manaafterkill": {
+      "Priority": 16,
+      "Function": 19,
+      "PositiveKey": "ModStr5f",
+      "NegativeKey": "ModStr5f",
+      "ValueShift": 0
+    },
+    "item_maxdamage_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr1f",
+      "NegativeKey": "ModStr1f",
+      "ValueShift": 0
+    },
+    "item_maxdamage_percent": {
+      "Priority": 129,
+      "Function": 19,
+      "PositiveKey": "ModStr2j",
+      "NegativeKey": "ModStr2j",
+      "ValueShift": 0
+    },
+    "item_maxdamage_percent_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr2j",
+      "NegativeKey": "ModStr2j",
+      "ValueShift": 0
+    },
+    "item_maxdamage_percent_perlevel": {
+      "Priority": 128,
+      "Function": 19,
+      "PositiveKey": "ModStr2j",
+      "NegativeKey": "ModStr2j",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_maxdamage_perlevel": {
+      "Priority": 125,
+      "Function": 19,
+      "PositiveKey": "ModStr1f",
+      "NegativeKey": "ModStr1f",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_maxdurability_percent": {
+      "Priority": 3,
+      "Function": 19,
+      "PositiveKey": "ModStr2i",
+      "NegativeKey": "ModStr2i",
+      "ValueShift": 0
+    },
+    "item_maxhp_percent": {
+      "Priority": 58,
+      "Function": 19,
+      "PositiveKey": "ModStr2g",
+      "NegativeKey": "ModStr2g",
+      "ValueShift": 0
+    },
+    "item_maxmana_percent": {
+      "Priority": 54,
+      "Function": 19,
+      "PositiveKey": "ModStr2h",
+      "NegativeKey": "ModStr2h",
+      "ValueShift": 0
+    },
+    "item_mindamage_percent": {
+      "Priority": 130,
+      "Function": 19,
+      "PositiveKey": "ModStr2k",
+      "NegativeKey": "ModStr2k",
+      "ValueShift": 0
+    },
+    "item_mindamage_perlvl": {
+      "Priority": 126,
+      "Function": 19,
+      "PositiveKey": "ModStr1g",
+      "NegativeKey": "ModStr1g",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_noconsume": {
+      "Priority": 4,
+      "Function": 19,
+      "PositiveKey": "ModStr6j",
+      "NegativeKey": "ModStr6j",
+      "ValueShift": 0
+    },
+    "item_nonclassskill": {
+      "ValueShift": 0
+    },
+    "item_nonclassskill_display": {
+      "Priority": 150,
+      "Function": 28,
+      "PositiveKey": "ItemModifierNonClassSkill",
+      "NegativeKey": "ItemModifierNonClassSkill",
+      "ValueShift": 0
+    },
+    "item_normaldamage": {
+      "Priority": 122,
+      "Function": 19,
+      "PositiveKey": "ModStr5b",
+      "NegativeKey": "ModStr5b",
+      "ValueShift": 0
+    },
+    "item_numsockets": {
+      "ValueShift": 0
+    },
+    "item_openwounds": {
+      "Priority": 83,
+      "Function": 19,
+      "PositiveKey": "ModStr3m",
+      "NegativeKey": "ModStr3m",
+      "ValueShift": 0
+    },
+    "item_openwounds_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr3m",
+      "NegativeKey": "ModStr3m",
+      "ValueShift": 0
+    },
+    "item_openwounds_perlevel": {
+      "Priority": 82,
+      "Function": 19,
+      "PositiveKey": "ModStr3m",
+      "NegativeKey": "ModStr3m",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_pierce": {
+      "Priority": 132,
+      "Function": 19,
+      "PositiveKey": "ModStr6g",
+      "NegativeKey": "ModStr6g",
+      "ValueShift": 0
+    },
+    "item_pierce_cold": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "Moditemenrescoldsk",
+      "NegativeKey": "Moditemenrescoldsk",
+      "ValueShift": 0
+    },
+    "item_pierce_cold_immunity": {
+      "Priority": 300,
+      "Function": 19,
+      "PositiveKey": "ModItemMonColdSunder",
+      "NegativeKey": "ModItemMonColdSunder",
+      "ValueShift": 0
+    },
+    "item_pierce_damage_immunity": {
+      "Priority": 300,
+      "Function": 19,
+      "PositiveKey": "ModItemMonPhysicalSunder",
+      "NegativeKey": "ModItemMonPhysicalSunder",
+      "ValueShift": 0
+    },
+    "item_pierce_fire": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "Moditemenresfiresk",
+      "NegativeKey": "Moditemenresfiresk",
+      "ValueShift": 0
+    },
+    "item_pierce_fire_immunity": {
+      "Priority": 300,
+      "Function": 19,
+      "PositiveKey": "ModItemMonFireSunder",
+      "NegativeKey": "ModItemMonFireSunder",
+      "ValueShift": 0
+    },
+    "item_pierce_light_immunity": {
+      "Priority": 300,
+      "Function": 19,
+      "PositiveKey": "ModItemMonLightSunder",
+      "NegativeKey": "ModItemMonLightSunder",
+      "ValueShift": 0
+    },
+    "item_pierce_ltng": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "Moditemenresltngsk",
+      "NegativeKey": "Moditemenresltngsk",
+      "ValueShift": 0
+    },
+    "item_pierce_magic_immunity": {
+      "Priority": 300,
+      "Function": 19,
+      "PositiveKey": "ModItemMonMagicSunder",
+      "NegativeKey": "ModItemMonMagicSunder",
+      "ValueShift": 0
+    },
+    "item_pierce_pois": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "Moditemenrespoissk",
+      "NegativeKey": "Moditemenrespoissk",
+      "ValueShift": 0
+    },
+    "item_pierce_poison_immunity": {
+      "Priority": 300,
+      "Function": 19,
+      "PositiveKey": "ModItemMonPoisonSunder",
+      "NegativeKey": "ModItemMonPoisonSunder",
+      "ValueShift": 0
+    },
+    "item_pois_damagemax_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr4h",
+      "NegativeKey": "ModStr4h",
+      "ValueShift": 0
+    },
+    "item_pois_damagemax_perlevel": {
+      "Priority": 90,
+      "Function": 19,
+      "PositiveKey": "ModStr4h",
+      "NegativeKey": "ModStr4h",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_poisonlengthresist": {
+      "Priority": 18,
+      "Function": 19,
+      "PositiveKey": "ModStr3r",
+      "NegativeKey": "ModStr3r",
+      "ValueShift": 0
+    },
+    "item_preventheal": {
+      "Priority": 81,
+      "Function": 19,
+      "PositiveKey": "ModStr4a",
+      "NegativeKey": "ModStr4a",
+      "ValueShift": 0
+    },
+    "item_reanimate": {
+      "Priority": 17,
+      "Function": 23,
+      "PositiveKey": "Moditemreanimas",
+      "NegativeKey": "Moditemreanimas",
+      "ValueShift": 0
+    },
+    "item_reducedprices": {
+      "Priority": 8,
+      "Function": 19,
+      "PositiveKey": "ModitemRedVendP",
+      "NegativeKey": "ModitemRedVendP",
+      "ValueShift": 0
+    },
+    "item_regenstamina_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr3v",
+      "NegativeKey": "ModStr3v",
+      "ValueShift": 0
+    },
+    "item_regenstamina_perlevel": {
+      "Priority": 47,
+      "Function": 19,
+      "PositiveKey": "ModStr3v",
+      "NegativeKey": "ModStr3v",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_replenish_durability": {
+      "Priority": 3,
+      "Function": 11,
+      "PositiveKey": "ModStre9t",
+      "NegativeKey": "ModStre9t",
+      "ValueShift": 0
+    },
+    "item_replenish_quantity": {
+      "Priority": 4,
+      "Function": 19,
+      "PositiveKey": "ModStre9v",
+      "NegativeKey": "ModStre9v",
+      "ValueShift": 0
+    },
+    "item_req_percent": {
+      "Priority": 2,
+      "Function": 19,
+      "PositiveKey": "ModStr3h2",
+      "NegativeKey": "ModStr3h",
+      "ValueShift": 0
+    },
+    "item_resist_cold_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr1k",
+      "NegativeKey": "ModStr1k",
+      "ValueShift": 0
+    },
+    "item_resist_cold_perlevel": {
+      "Priority": 39,
+      "Function": 19,
+      "PositiveKey": "ModStr1k",
+      "NegativeKey": "ModStr1k",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_resist_fire_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr1j",
+      "NegativeKey": "ModStr1j",
+      "ValueShift": 0
+    },
+    "item_resist_fire_perlevel": {
+      "Priority": 35,
+      "Function": 19,
+      "PositiveKey": "ModStr1j",
+      "NegativeKey": "ModStr1j",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_resist_ltng_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr1l",
+      "NegativeKey": "ModStr1l",
+      "ValueShift": 0
+    },
+    "item_resist_ltng_perlevel": {
+      "Priority": 37,
+      "Function": 19,
+      "PositiveKey": "ModStr1l",
+      "NegativeKey": "ModStr1l",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_resist_pois_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr1n",
+      "NegativeKey": "ModStr1n",
+      "ValueShift": 0
+    },
+    "item_resist_pois_perlevel": {
+      "Priority": 33,
+      "Function": 19,
+      "PositiveKey": "ModStr1n",
+      "NegativeKey": "ModStr1n",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_restinpeace": {
+      "Priority": 81,
+      "Function": 19,
+      "PositiveKey": "ModitemSMRIP",
+      "NegativeKey": "ModitemSMRIP",
+      "ValueShift": 0
+    },
+    "item_singleskill": {
+      "Priority": 81,
+      "Function": 27,
+      "PositiveKey": "ItemModifierClassSkill",
+      "NegativeKey": "ItemModifierClassSkill",
+      "ValueShift": 0
+    },
+    "item_skillonattack": {
+      "Priority": 160,
+      "Function": 15,
+      "PositiveKey": "ItemExpansiveChancX",
+      "NegativeKey": "ItemExpansiveChancX",
+      "ValueShift": 0
+    },
+    "item_skillondeath": {
+      "Priority": 160,
+      "Function": 15,
+      "PositiveKey": "Moditemskondeath",
+      "NegativeKey": "Moditemskondeath",
+      "ValueShift": 0
+    },
+    "item_skillongethit": {
+      "Priority": 160,
+      "Function": 15,
+      "PositiveKey": "ItemExpansiveChanc2",
+      "NegativeKey": "ItemExpansiveChanc2",
+      "ValueShift": 0
+    },
+    "item_skillonhit": {
+      "Priority": 160,
+      "Function": 15,
+      "PositiveKey": "ItemExpansiveChanc1",
+      "NegativeKey": "ItemExpansiveChanc1",
+      "ValueShift": 0
+    },
+    "item_skillonkill": {
+      "Priority": 160,
+      "Function": 15,
+      "PositiveKey": "ModitemskonKill",
+      "NegativeKey": "ModitemskonKill",
+      "ValueShift": 0
+    },
+    "item_skillonlevelup": {
+      "Priority": 160,
+      "Function": 15,
+      "PositiveKey": "ModitemskonLevel",
+      "NegativeKey": "ModitemskonLevel",
+      "ValueShift": 0
+    },
+    "item_slash_damage": {
+      "ValueShift": 0
+    },
+    "item_slash_damage_percent": {
+      "ValueShift": 0
+    },
+    "item_slow": {
+      "Priority": 77,
+      "Function": 19,
+      "PositiveKey": "ModStr5r",
+      "NegativeKey": "ModStr5r",
+      "ValueShift": 0
+    },
+    "item_splashonhit": {
+      "Priority": 160,
+      "Function": 15,
+      "ValueMode": 0,
+      "PositiveKey": "splash1",
+      "NegativeKey": "splash1",
+      "ValueShift": 0
+    },
+    "item_splashonhit_five": {
+      "Priority": 160,
+      "Function": 15,
+      "ValueMode": 0,
+      "PositiveKey": "splash3",
+      "NegativeKey": "splash3",
+      "ValueShift": 0
+    },
+    "item_splashonhit_four": {
+      "Priority": 160,
+      "Function": 15,
+      "ValueMode": 0,
+      "PositiveKey": "splash3",
+      "NegativeKey": "splash3",
+      "ValueShift": 0
+    },
+    "item_splashonhit_three": {
+      "Priority": 160,
+      "Function": 15,
+      "ValueMode": 0,
+      "PositiveKey": "splash2",
+      "NegativeKey": "splash2",
+      "ValueShift": 0
+    },
+    "item_splashonhit_two": {
+      "Priority": 160,
+      "Function": 15,
+      "ValueMode": 0,
+      "PositiveKey": "splash1",
+      "NegativeKey": "splash1",
+      "ValueShift": 0
+    },
+    "item_stamina_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr5d",
+      "NegativeKey": "ModStr5d",
+      "ValueShift": 0
+    },
+    "item_stamina_perlevel": {
+      "Priority": 50,
+      "Function": 19,
+      "PositiveKey": "ModStr5d",
+      "NegativeKey": "ModStr5d",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_staminadrainpct": {
+      "Priority": 49,
+      "Function": 19,
+      "PositiveKey": "ModStr6e",
+      "NegativeKey": "ModStr6e",
+      "ValueShift": 0
+    },
+    "item_strength_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr1a",
+      "NegativeKey": "ModStr1a",
+      "ValueShift": 0
+    },
+    "item_strength_percent": {
+      "Priority": 67,
+      "Function": 19,
+      "PositiveKey": "ModAttStrPercent",
+      "NegativeKey": "ModAttStrPercent",
+      "ValueShift": 0
+    },
+    "item_strength_perlevel": {
+      "Priority": 66,
+      "Function": 19,
+      "PositiveKey": "ModStr1a",
+      "NegativeKey": "ModStr1a",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_stupidity": {
+      "Priority": 80,
+      "Function": 12,
+      "ValueMode": 2,
+      "PositiveKey": "ModStr6d",
+      "NegativeKey": "ModStr6d",
+      "ValueShift": 0
+    },
+    "item_thorns_perlevel": {
+      "Priority": 12,
+      "Function": 19,
+      "PositiveKey": "ModStr1v",
+      "NegativeKey": "ModStr1v",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_throw_maxdamage": {
+      "ValueShift": 0
+    },
+    "item_throw_mindamage": {
+      "ValueShift": 0
+    },
+    "item_throwable": {
+      "Priority": 5,
+      "Function": 19,
+      "PositiveKey": "ModStr5a",
+      "NegativeKey": "ModStr5a",
+      "ValueShift": 0
+    },
+    "item_thrust_damage": {
+      "ValueShift": 0
+    },
+    "item_thrust_damage_percent": {
+      "ValueShift": 0
+    },
+    "item_timeduration": {
+      "ValueShift": 0
+    },
+    "item_tohit_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr1h",
+      "NegativeKey": "ModStr1h",
+      "ValueShift": 0
+    },
+    "item_tohit_demon_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr4j",
+      "NegativeKey": "ModStr4j",
+      "ValueShift": 0
+    },
+    "item_tohit_demon_perlevel": {
+      "Priority": 109,
+      "Function": 19,
+      "PositiveKey": "ModStr4j",
+      "NegativeKey": "ModStr4j",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_tohit_percent": {
+      "Priority": 117,
+      "Function": 19,
+      "PositiveKey": "ModStr4c",
+      "NegativeKey": "ModStr4c",
+      "ValueShift": 0
+    },
+    "item_tohit_percent_vs_monster": {
+      "ValueShift": 0
+    },
+    "item_tohit_perlevel": {
+      "Priority": 114,
+      "Function": 19,
+      "PositiveKey": "ModStr1h",
+      "NegativeKey": "ModStr1h",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_tohit_undead_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr4k",
+      "NegativeKey": "ModStr4k",
+      "ValueShift": 0
+    },
+    "item_tohit_undead_perlevel": {
+      "Priority": 105,
+      "Function": 19,
+      "PositiveKey": "ModStr4k",
+      "NegativeKey": "ModStr4k",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_tohit_vs_monster": {
+      "ValueShift": 0
+    },
+    "item_tohitpercent_bytime": {
+      "Priority": 180,
+      "Function": 18,
+      "PositiveKey": "ModStr4c",
+      "NegativeKey": "ModStr4c",
+      "ValueShift": 0
+    },
+    "item_tohitpercent_perlevel": {
+      "Priority": 116,
+      "Function": 19,
+      "PositiveKey": "ModStr4c",
+      "NegativeKey": "ModStr4c",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "item_undead_tohit": {
+      "Priority": 106,
+      "Function": 19,
+      "PositiveKey": "ModStr4k",
+      "NegativeKey": "ModStr4k",
+      "ValueShift": 0
+    },
+    "item_undeaddamage_percent": {
+      "Priority": 108,
+      "Function": 19,
+      "PositiveKey": "ModStr4f",
+      "NegativeKey": "ModStr4f",
+      "ValueShift": 0
+    },
+    "item_vitality_bytime": {
+      "Priority": 180,
+      "Function": 17,
+      "PositiveKey": "ModStr1c",
+      "NegativeKey": "ModStr1c",
+      "ValueShift": 0
+    },
+    "item_vitality_percent": {
+      "Priority": 67,
+      "Function": 19,
+      "PositiveKey": "ModAttVitPercent",
+      "NegativeKey": "ModAttVitPercent",
+      "ValueShift": 0
+    },
+    "item_vitality_perlevel": {
+      "Priority": 62,
+      "Function": 19,
+      "PositiveKey": "ModStr1c",
+      "NegativeKey": "ModStr1c",
+      "SecondaryKey": "increaseswithplaylevelX",
+      "ValueShift": 0
+    },
+    "last_sent_hp_pct": {
+      "ValueShift": 0
+    },
+    "lastblockframe": {
+      "ValueShift": 0
+    },
+    "lastexp": {
+      "ValueShift": 0
+    },
+    "lasthitreactframe": {
+      "ValueShift": 0
+    },
+    "level": {
+      "ValueShift": 0
+    },
+    "lifedrainmaxdam": {
+      "ValueShift": 0
+    },
+    "lifedrainmindam": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "ModStr2z",
+      "NegativeKey": "ModStr2z",
+      "ValueShift": 0
+    },
+    "lifetap_level": {
+      "ValueShift": 0
+    },
+    "lightmaxdam": {
+      "Priority": 98,
+      "Function": 19,
+      "PositiveKey": "ModStr1q",
+      "NegativeKey": "ModStr1q",
+      "ValueShift": 0
+    },
+    "lightmindam": {
+      "Priority": 99,
+      "Function": 19,
+      "PositiveKey": "ModStr1r",
+      "NegativeKey": "ModStr1r",
+      "ValueShift": 0
+    },
+    "lightresist": {
+      "Priority": 38,
+      "Function": 19,
+      "PositiveKey": "ModStr1l",
+      "NegativeKey": "ModStr1l",
+      "ValueShift": 0
+    },
+    "magic_damage_reduction": {
+      "Priority": 21,
+      "Function": 19,
+      "PositiveKey": "ModStr2t",
+      "NegativeKey": "ModStr2t",
+      "ValueShift": 0
+    },
+    "magicmaxdam": {
+      "Priority": 103,
+      "Function": 19,
+      "PositiveKey": "strModMagicDamage",
+      "NegativeKey": "strModMagicDamage",
+      "ValueShift": 0
+    },
+    "magicmindam": {
+      "Priority": 104,
+      "Function": 19,
+      "PositiveKey": "strModMagicDamage",
+      "NegativeKey": "strModMagicDamage",
+      "ValueShift": 0
+    },
+    "magicresist": {
+      "Priority": 41,
+      "Function": 19,
+      "PositiveKey": "ModStr1m",
+      "NegativeKey": "ModStr1m",
+      "ValueShift": 0
+    },
+    "mana": {
+      "ValueShift": 8
+    },
+    "mana_control": {
+      "Priority": 2,
+      "Function": 19,
+      "PositiveKey": "weightsystem",
+      "NegativeKey": "weightsystem",
+      "ValueShift": 0
+    },
+    "manadrainmaxdam": {
+      "ValueShift": 0
+    },
+    "manadrainmindam": {
+      "Priority": 89,
+      "Function": 19,
+      "PositiveKey": "ModStr2y",
+      "NegativeKey": "ModStr2y",
+      "ValueShift": 0
+    },
+    "manarecovery": {
+      "ValueShift": 0
+    },
+    "manarecoverybonus": {
+      "Priority": 52,
+      "Function": 19,
+      "PositiveKey": "ModStr4g",
+      "NegativeKey": "ModStr4g",
+      "ValueShift": 0
+    },
+    "maxcoldresist": {
+      "Priority": 44,
+      "Function": 19,
+      "PositiveKey": "ModStr5v",
+      "NegativeKey": "ModStr5v",
+      "ValueShift": 0
+    },
+    "maxdamage": {
+      "Priority": 126,
+      "Function": 19,
+      "PositiveKey": "ModStr1f",
+      "NegativeKey": "ModStr1f",
+      "ValueShift": 0
+    },
+    "maxdurability": {
+      "ValueShift": 0
+    },
+    "maxfireresist": {
+      "Priority": 42,
+      "Function": 19,
+      "PositiveKey": "ModStr5u",
+      "NegativeKey": "ModStr5u",
+      "ValueShift": 0
+    },
+    "maxhp": {
+      "Priority": 59,
+      "Function": 19,
+      "PositiveKey": "ModStr1u",
+      "NegativeKey": "ModStr1u",
+      "ValueShift": 8
+    },
+    "maxlightresist": {
+      "Priority": 43,
+      "Function": 19,
+      "PositiveKey": "ModStr5w",
+      "NegativeKey": "ModStr5w",
+      "ValueShift": 0
+    },
+    "maxmagicresist": {
+      "Priority": 46,
+      "Function": 19,
+      "PositiveKey": "ModStr5x",
+      "NegativeKey": "ModStr5x",
+      "ValueShift": 0
+    },
+    "maxmana": {
+      "Priority": 55,
+      "Function": 19,
+      "PositiveKey": "ModStr1e",
+      "NegativeKey": "ModStr1e",
+      "ValueShift": 8
+    },
+    "maxpoisonresist": {
+      "Priority": 45,
+      "Function": 19,
+      "PositiveKey": "ModStr5y",
+      "NegativeKey": "ModStr5y",
+      "ValueShift": 0
+    },
+    "maxstamina": {
+      "Priority": 51,
+      "Function": 19,
+      "PositiveKey": "ModStr5d",
+      "NegativeKey": "ModStr5d",
+      "ValueShift": 8
+    },
+    "mindamage": {
+      "Priority": 127,
+      "Function": 19,
+      "PositiveKey": "ModStr1g",
+      "NegativeKey": "ModStr1g",
+      "ValueShift": 0
+    },
+    "missile_thorns_percent": {
+      "ValueShift": 0
+    },
+    "modifierlist_castid": {
+      "ValueShift": 0
+    },
+    "modifierlist_level": {
+      "ValueShift": 0
+    },
+    "modifierlist_skill": {
+      "ValueShift": 0
+    },
+    "monster_playercount": {
+      "ValueShift": 0
+    },
+    "newskills": {
+      "ValueShift": 0
+    },
+    "nextexp": {
+      "ValueShift": 0
+    },
+    "normal_damage_reduction": {
+      "Priority": 22,
+      "Function": 19,
+      "PositiveKey": "ModStr2u",
+      "NegativeKey": "ModStr2u",
+      "ValueShift": 0
+    },
+    "other_animrate": {
+      "ValueShift": 0
+    },
+    "passive_avoid": {
+      "ValueShift": 0
+    },
+    "passive_cold_mastery": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "ModitemdamColdsk",
+      "NegativeKey": "ModitemdamColdsk",
+      "ValueShift": 0
+    },
+    "passive_cold_pierce": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "Moditemenrescoldsk",
+      "NegativeKey": "Moditemenrescoldsk",
+      "ValueShift": 0
+    },
+    "passive_critical_strike": {
+      "ValueShift": 0
+    },
+    "passive_dmg_pierce": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "ModStrDamPierce",
+      "NegativeKey": "ModStrDamPierce",
+      "ValueShift": 0
+    },
+    "passive_dodge": {
+      "ValueShift": 0
+    },
+    "passive_evade": {
+      "ValueShift": 0
+    },
+    "passive_fire_mastery": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "ModitemdamFiresk",
+      "NegativeKey": "ModitemdamFiresk",
+      "ValueShift": 0
+    },
+    "passive_fire_pierce": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "Moditemenresfiresk",
+      "NegativeKey": "Moditemenresfiresk",
+      "ValueShift": 0
+    },
+    "passive_ltng_mastery": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "ModitemdamLtngsk",
+      "NegativeKey": "ModitemdamLtngsk",
+      "ValueShift": 0
+    },
+    "passive_ltng_pierce": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "Moditemenresltngsk",
+      "NegativeKey": "Moditemenresltngsk",
+      "ValueShift": 0
+    },
+    "passive_mag_mastery": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "ModStrMagMastery",
+      "NegativeKey": "ModStrMagMastery",
+      "ValueShift": 0
+    },
+    "passive_mag_pierce": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "ModStrMagPierce",
+      "NegativeKey": "ModStrMagPierce",
+      "ValueShift": 0
+    },
+    "passive_mastery_attack_speed": {
+      "ValueShift": 0
+    },
+    "passive_mastery_gethit_rate": {
+      "ValueShift": 0
+    },
+    "passive_mastery_item_level_req_percent": {
+      "ValueShift": 0
+    },
+    "passive_mastery_item_req_percent": {
+      "ValueShift": 0
+    },
+    "passive_mastery_melee_crit": {
+      "ValueShift": 0
+    },
+    "passive_mastery_melee_dmg": {
+      "ValueShift": 0
+    },
+    "passive_mastery_melee_th": {
+      "ValueShift": 0
+    },
+    "passive_mastery_noconsume": {
+      "ValueShift": 0
+    },
+    "passive_mastery_replenish_oncrit": {
+      "ValueShift": 0
+    },
+    "passive_mastery_throw_crit": {
+      "ValueShift": 0
+    },
+    "passive_mastery_throw_dmg": {
+      "ValueShift": 0
+    },
+    "passive_mastery_throw_th": {
+      "ValueShift": 0
+    },
+    "passive_pois_mastery": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "ModitemdamPoissk",
+      "NegativeKey": "ModitemdamPoissk",
+      "ValueShift": 0
+    },
+    "passive_pois_pierce": {
+      "Priority": 88,
+      "Function": 19,
+      "PositiveKey": "Moditemenrespoissk",
+      "NegativeKey": "Moditemenrespoissk",
+      "ValueShift": 0
+    },
+    "passive_summon_resist": {
+      "ValueShift": 0
+    },
+    "passive_warmth": {
+      "ValueShift": 0
+    },
+    "passive_weaponblock": {
+      "ValueShift": 0
+    },
+    "pierce_idx": {
+      "ValueShift": 0
+    },
+    "pl_maxdamage_percent": {
+      "Priority": 129,
+      "Function": 19,
+      "PositiveKey": "ModStrPlayerMaxDmgPercent",
+      "NegativeKey": "ModStrPlayerMaxDmgPercent",
+      "ValueShift": 0
+    },
+    "pl_maxthrowdmg_percent": {
+      "Priority": 129,
+      "Function": 19,
+      "PositiveKey": "ModStrPlayerMinThrowDmgPercent",
+      "NegativeKey": "ModStrPlayerMinThrowDmgPercent",
+      "ValueShift": 0
+    },
+    "pl_mindamage_percent": {
+      "Priority": 130,
+      "Function": 19,
+      "PositiveKey": "ModStrPlayerMinDmgPercent",
+      "NegativeKey": "ModStrPlayerMinDmgPercent",
+      "ValueShift": 0
+    },
+    "pl_minthrowdmg_percent": {
+      "Priority": 130,
+      "Function": 19,
+      "PositiveKey": "ModStrPlayerMaxThrowDmgPercent",
+      "NegativeKey": "ModStrPlayerMaxThrowDmgPercent",
+      "ValueShift": 0
+    },
+    "poison_count": {
+      "ValueShift": 0
+    },
+    "poisonlength": {
+      "ValueShift": 0
+    },
+    "poisonmaxdam": {
+      "Priority": 91,
+      "Function": 19,
+      "PositiveKey": "ModStr4h",
+      "NegativeKey": "ModStr4h",
+      "ValueShift": 0
+    },
+    "poisonmindam": {
+      "Priority": 92,
+      "Function": 19,
+      "PositiveKey": "ModStr4i",
+      "NegativeKey": "ModStr4i",
+      "ValueShift": 0
+    },
+    "poisonresist": {
+      "Priority": 34,
+      "Function": 19,
+      "PositiveKey": "ModStr1n",
+      "NegativeKey": "ModStr1n",
+      "ValueShift": 0
+    },
+    "progressive_cold": {
+      "ValueShift": 0
+    },
+    "progressive_damage": {
+      "ValueShift": 0
+    },
+    "progressive_fire": {
+      "ValueShift": 0
+    },
+    "progressive_lightning": {
+      "ValueShift": 0
+    },
+    "progressive_other": {
+      "ValueShift": 0
+    },
+    "progressive_steal": {
+      "ValueShift": 0
+    },
+    "progressive_tohit": {
+      "ValueShift": 0
+    },
+    "psychicward": {
+      "ValueShift": 0
+    },
+    "psychicwardmax": {
+      "ValueShift": 0
+    },
+    "quantity": {
+      "ValueShift": 0
+    },
+    "questitemdifficulty": {
+      "ValueShift": 0
+    },
+    "ravendmg": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "ravendmg",
+      "NegativeKey": "ravendmg",
+      "ValueShift": 0
+    },
+    "ravenhits": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "ravenhits",
+      "NegativeKey": "ravenhits",
+      "ValueShift": 0
+    },
+    "ravensetwolf": {
+      "Priority": 298,
+      "Function": 19,
+      "PositiveKey": "ravensetwolf",
+      "NegativeKey": "ravensetwolf",
+      "ValueShift": 0
+    },
+    "secondary_maxdamage": {
+      "Priority": 123,
+      "Function": 19,
+      "PositiveKey": "ModStr1f",
+      "NegativeKey": "ModStr1f",
+      "ValueShift": 0
+    },
+    "secondary_mindamage": {
+      "Priority": 124,
+      "Function": 19,
+      "PositiveKey": "ModStr1g",
+      "NegativeKey": "ModStr1g",
+      "ValueShift": 0
+    },
+    "shortparam1": {
+      "ValueShift": 0
+    },
+    "skill_armor_percent": {
+      "ValueShift": 0
+    },
+    "skill_bypass_beasts": {
+      "ValueShift": 0
+    },
+    "skill_bypass_demons": {
+      "ValueShift": 0
+    },
+    "skill_bypass_undead": {
+      "ValueShift": 0
+    },
+    "skill_channeling_tick": {
+      "ValueShift": 0
+    },
+    "skill_chillingarmor": {
+      "ValueShift": 0
+    },
+    "skill_concentration": {
+      "ValueShift": 0
+    },
+    "skill_conviction": {
+      "ValueShift": 0
+    },
+    "skill_cooldown": {
+      "ValueShift": 0
+    },
+    "skill_decrepify": {
+      "ValueShift": 0
+    },
+    "skill_enchant": {
+      "ValueShift": 0
+    },
+    "skill_frenzy": {
+      "ValueShift": 0
+    },
+    "skill_handofathena": {
+      "ValueShift": 0
+    },
+    "skill_missile_damage_scale": {
+      "ValueShift": 0
+    },
+    "skill_passive_staminapercent": {
+      "ValueShift": 0
+    },
+    "skill_pierce": {
+      "ValueShift": 0
+    },
+    "skill_poison_override_length": {
+      "ValueShift": 0
+    },
+    "skill_staminapercent": {
+      "ValueShift": 0
+    },
+    "soulstone_weight": {
+      "Priority": 2,
+      "Function": 19,
+      "PositiveKey": "uber_mod",
+      "NegativeKey": "uber_mod",
+      "ValueShift": 0
+    },
+    "source_unit_id": {
+      "ValueShift": 0
+    },
+    "source_unit_type": {
+      "ValueShift": 0
+    },
+    "stacked_destruction_key": {
+      "Priority": 56,
+      "Function": 19,
+      "ValueMode": 0,
+      "PositiveKey": "StackedDestructionKey",
+      "NegativeKey": "StackedDestructionKey",
+      "ValueShift": 0
+    },
+    "stacked_gem": {
+      "Priority": 56,
+      "Function": 19,
+      "ValueMode": 0,
+      "PositiveKey": "StackedGem",
+      "NegativeKey": "StackedGem",
+      "ValueShift": 0
+    },
+    "stacked_gem_amethyst": {
+      "Priority": 56,
+      "Function": 19,
+      "ValueMode": 0,
+      "PositiveKey": "StackedGemAmethyst",
+      "NegativeKey": "StackedGemAmethyst",
+      "ValueShift": 0
+    },
+    "stacked_gem_diamond": {
+      "Priority": 56,
+      "Function": 19,
+      "ValueMode": 0,
+      "PositiveKey": "StackedGemDiamond",
+      "NegativeKey": "StackedGemDiamond",
+      "ValueShift": 0
+    },
+    "stacked_gem_emerald": {
+      "Priority": 56,
+      "Function": 19,
+      "ValueMode": 0,
+      "PositiveKey": "StackedGemEmerald",
+      "NegativeKey": "StackedGemEmerald",
+      "ValueShift": 0
+    },
+    "stacked_gem_ruby": {
+      "Priority": 56,
+      "Function": 19,
+      "ValueMode": 0,
+      "PositiveKey": "StackedGemRuby",
+      "NegativeKey": "StackedGemRuby",
+      "ValueShift": 0
+    },
+    "stacked_gem_sapphire": {
+      "Priority": 56,
+      "Function": 19,
+      "ValueMode": 0,
+      "PositiveKey": "StackedGemSapphire",
+      "NegativeKey": "StackedGemSapphire",
+      "ValueShift": 0
+    },
+    "stacked_gem_skull": {
+      "Priority": 56,
+      "Function": 19,
+      "ValueMode": 0,
+      "PositiveKey": "StackedGemSkull",
+      "NegativeKey": "StackedGemSkull",
+      "ValueShift": 0
+    },
+    "stacked_gem_topaz": {
+      "Priority": 56,
+      "Function": 19,
+      "ValueMode": 0,
+      "PositiveKey": "StackedGemTopaz",
+      "NegativeKey": "StackedGemTopaz",
+      "ValueShift": 0
+    },
+    "stacked_hate_key": {
+      "Priority": 56,
+      "Function": 19,
+      "ValueMode": 0,
+      "PositiveKey": "StackedHateKey",
+      "NegativeKey": "StackedHateKey",
+      "ValueShift": 0
+    },
+    "stacked_terror_key": {
+      "Priority": 56,
+      "Function": 19,
+      "ValueMode": 0,
+      "PositiveKey": "StackedTerrorKey",
+      "NegativeKey": "StackedTerrorKey",
+      "ValueShift": 0
+    },
+    "stamdrainmaxdam": {
+      "ValueShift": 0
+    },
+    "stamdrainmindam": {
+      "ValueShift": 0
+    },
+    "stamina": {
+      "ValueShift": 8
+    },
+    "staminarecoverybonus": {
+      "Priority": 48,
+      "Function": 19,
+      "PositiveKey": "ModStr3v",
+      "NegativeKey": "ModStr3v",
+      "ValueShift": 0
+    },
+    "state": {
+      "ValueShift": 0
+    },
+    "statpts": {
+      "ValueShift": 0
+    },
+    "strength": {
+      "Priority": 67,
+      "Function": 19,
+      "PositiveKey": "ModStr1a",
+      "NegativeKey": "ModStr1a",
+      "ValueShift": 0
+    },
+    "stunlength": {
+      "ValueShift": 0
+    },
+    "target0": {
+      "ValueShift": 0
+    },
+    "target1": {
+      "ValueShift": 0
+    },
+    "thorns_percent": {
+      "ValueShift": 0
+    },
+    "toblock": {
+      "Priority": 134,
+      "Function": 19,
+      "PositiveKey": "ModStr3g",
+      "NegativeKey": "ModStr3g",
+      "ValueShift": 0
+    },
+    "tohit": {
+      "Priority": 115,
+      "Function": 19,
+      "PositiveKey": "ModStr1h",
+      "NegativeKey": "ModStr1h",
+      "ValueShift": 0
+    },
+    "torch_weight": {
+      "Priority": 2,
+      "Function": 19,
+      "PositiveKey": "uber_mod",
+      "NegativeKey": "uber_mod",
+      "ValueShift": 0
+    },
+    "ua_defeated": {
+      "ValueShift": 0
+    },
+    "ua_escalation": {
+      "ValueShift": 0
+    },
+    "uber_control": {
+      "Priority": 2,
+      "Function": 19,
+      "PositiveKey": "uber_weight",
+      "NegativeKey": "uber_weight",
+      "ValueShift": 0
+    },
+    "unit_dooverlay": {
+      "ValueShift": 0
+    },
+    "unsentparam1": {
+      "ValueShift": 0
+    },
+    "upgrade_major": {
+      "Priority": 301,
+      "Function": 19,
+      "PositiveKey": "MajorUpgrades",
+      "NegativeKey": "MajorUpgrades",
+      "ValueShift": 0
+    },
+    "upgrade_medium": {
+      "Priority": 301,
+      "Function": 19,
+      "PositiveKey": "MediumUpgrades",
+      "NegativeKey": "MediumUpgrades",
+      "ValueShift": 0
+    },
+    "upgrade_minor": {
+      "Priority": 301,
+      "Function": 19,
+      "PositiveKey": "MinorUpgrades",
+      "NegativeKey": "MinorUpgrades",
+      "ValueShift": 0
+    },
+    "upgrade_uber": {
+      "Priority": 301,
+      "Function": 19,
+      "PositiveKey": "UberUpgrades",
+      "NegativeKey": "UberUpgrades",
+      "ValueShift": 0
+    },
+    "upgrade_uber_charm_large": {
+      "Priority": 301,
+      "Function": 19,
+      "PositiveKey": "UberCharmLargeUpgrades",
+      "NegativeKey": "UberCharmLargeUpgrades",
+      "ValueShift": 0
+    },
+    "upgrade_uber_charm_small": {
+      "Priority": 301,
+      "Function": 19,
+      "PositiveKey": "UberCharmSmallUpgrades",
+      "NegativeKey": "UberCharmSmallUpgrades",
+      "ValueShift": 0
+    },
+    "value": {
+      "ValueShift": 0
+    },
+    "velocitypercent": {
+      "ValueShift": 0
+    },
+    "vitality": {
+      "Priority": 63,
+      "Function": 19,
+      "PositiveKey": "ModStr1c",
+      "NegativeKey": "ModStr1c",
+      "ValueShift": 0
+    }
+  },
+  "Skills": {
+    "0": {
+      "NameKey": "skillname0",
+      "FallbackName": "Attack",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "1": {
+      "NameKey": "skillname1",
+      "FallbackName": "Kick",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "2": {
+      "NameKey": "skillname2",
+      "FallbackName": "Throw",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "3": {
+      "NameKey": "skillname3",
+      "FallbackName": "Unsummon",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "4": {
+      "NameKey": "skillname4",
+      "FallbackName": "Left Hand Throw",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "5": {
+      "NameKey": "skillname5",
+      "FallbackName": "Left Hand Swing",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "6": {
+      "NameKey": "skillname6",
+      "FallbackName": "Magic Arrow",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "7": {
+      "NameKey": "skillname7",
+      "FallbackName": "Fire Arrow",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "8": {
+      "NameKey": "skillname8",
+      "FallbackName": "Inner Sight",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "9": {
+      "NameKey": "skillname9",
+      "FallbackName": "Critical Strike",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "10": {
+      "NameKey": "skillname10",
+      "FallbackName": "Jab",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "11": {
+      "NameKey": "skillname11",
+      "FallbackName": "Cold Arrow",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "12": {
+      "NameKey": "skillname12",
+      "FallbackName": "Multiple Shot",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "13": {
+      "NameKey": "skillname13",
+      "FallbackName": "Dodge & Avoid",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "14": {
+      "NameKey": "skillname14",
+      "FallbackName": "Toxic Whirl",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "15": {
+      "NameKey": "skillname15",
+      "FallbackName": "Poison Javelin",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "16": {
+      "NameKey": "skillname16",
+      "FallbackName": "Exploding Arrow",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "17": {
+      "NameKey": "skillname17",
+      "FallbackName": "Slow Missiles",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "18": {
+      "NameKey": "skillname18",
+      "FallbackName": "Elemental Covenant",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "19": {
+      "NameKey": "skillname19",
+      "FallbackName": "Impale",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "20": {
+      "NameKey": "skillname20",
+      "FallbackName": "Lightning Bolt",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "21": {
+      "NameKey": "skillname31",
+      "FallbackName": "Freezing Arrow",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "22": {
+      "NameKey": "skillname22",
+      "FallbackName": "Guided Arrow",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "23": {
+      "NameKey": "skillname23",
+      "FallbackName": "Penetrate",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "24": {
+      "NameKey": "skillname24",
+      "FallbackName": "Charged Strike",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "25": {
+      "NameKey": "skillname25",
+      "FallbackName": "Plague Javelin",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "26": {
+      "NameKey": "skillname26",
+      "FallbackName": "Strafe",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "27": {
+      "NameKey": "skillname27",
+      "FallbackName": "Meteoric Arrow",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "28": {
+      "NameKey": "skillname28",
+      "FallbackName": "Titans Covenant",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "29": {
+      "NameKey": "skillname29",
+      "FallbackName": "Evade",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "30": {
+      "NameKey": "skillname30",
+      "FallbackName": "Fend",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "31": {
+      "NameKey": "skillname21",
+      "FallbackName": "Glacial Orb Arrow",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "32": {
+      "NameKey": "skillname32",
+      "FallbackName": "Valkyrie",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "33": {
+      "NameKey": "skillname33",
+      "FallbackName": "Pierce",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "34": {
+      "NameKey": "skillname34",
+      "FallbackName": "Lightning Strike",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "35": {
+      "NameKey": "skillname35",
+      "FallbackName": "Lightning Fury",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AmaOnly"
+    },
+    "36": {
+      "NameKey": "skillname36",
+      "FallbackName": "Fire Bolt",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "37": {
+      "NameKey": "skillname37",
+      "FallbackName": "Warmth",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "38": {
+      "NameKey": "skillname38",
+      "FallbackName": "Charged Bolt",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "39": {
+      "NameKey": "skillname39",
+      "FallbackName": "Ice Bolt",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "40": {
+      "NameKey": "skillname40",
+      "FallbackName": "Frozen Armor",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "41": {
+      "NameKey": "skillname41",
+      "FallbackName": "Inferno",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "42": {
+      "NameKey": "skillname42",
+      "FallbackName": "Static Field",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "43": {
+      "NameKey": "skillname43",
+      "FallbackName": "Telekinesis",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "44": {
+      "NameKey": "skillname44",
+      "FallbackName": "Frost Nova",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "45": {
+      "NameKey": "skillname45",
+      "FallbackName": "Ice Blast",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "46": {
+      "NameKey": "skillname46",
+      "FallbackName": "Blaze",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "47": {
+      "NameKey": "skillname47",
+      "FallbackName": "Fire Ball",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "48": {
+      "NameKey": "skillname48",
+      "FallbackName": "Nova",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "49": {
+      "NameKey": "skillname49",
+      "FallbackName": "Lightning",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "50": {
+      "NameKey": "skillname50",
+      "FallbackName": "Shiver Armor",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "51": {
+      "NameKey": "skillname51",
+      "FallbackName": "Fire Wall",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "52": {
+      "NameKey": "skillname52",
+      "FallbackName": "Enchant",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "53": {
+      "NameKey": "skillname53",
+      "FallbackName": "Chain Lightning",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "54": {
+      "NameKey": "skillname54",
+      "FallbackName": "Teleport",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "55": {
+      "NameKey": "skillname55",
+      "FallbackName": "Glacial Spike",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "56": {
+      "NameKey": "skillname56",
+      "FallbackName": "Meteor",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "57": {
+      "NameKey": "skillname57",
+      "FallbackName": "Thunder Storm",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "58": {
+      "NameKey": "skillname58",
+      "FallbackName": "Energy Shield",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "59": {
+      "NameKey": "skillname59",
+      "FallbackName": "Blizzard",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "60": {
+      "NameKey": "skillname60",
+      "FallbackName": "Chilling Armor",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "61": {
+      "NameKey": "skillsname61",
+      "FallbackName": "Fire Mastery",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "62": {
+      "NameKey": "skillname62",
+      "FallbackName": "Hydra",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "63": {
+      "NameKey": "skillname63",
+      "FallbackName": "Lightning Mastery",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "64": {
+      "NameKey": "skillname64",
+      "FallbackName": "Frozen Orb",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "65": {
+      "NameKey": "skillname65",
+      "FallbackName": "Cold Mastery",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "SorOnly"
+    },
+    "66": {
+      "NameKey": "skillname66",
+      "FallbackName": "Amplify Damage",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "67": {
+      "NameKey": "skillname67",
+      "FallbackName": "Teeth",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "68": {
+      "NameKey": "skillname68",
+      "FallbackName": "Bone Armor",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "69": {
+      "NameKey": "skillname69",
+      "FallbackName": "Skeleton Mastery",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "70": {
+      "NameKey": "skillname70",
+      "FallbackName": "Raise Skeleton",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "71": {
+      "NameKey": "skillname71",
+      "FallbackName": "Dim Vision",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "72": {
+      "NameKey": "skillname72",
+      "FallbackName": "Weaken",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "73": {
+      "NameKey": "skillname73",
+      "FallbackName": "Poison Strike",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "74": {
+      "NameKey": "skillname74",
+      "FallbackName": "Corpse Explosion",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "75": {
+      "NameKey": "skillname75",
+      "FallbackName": "Clay Golem",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "76": {
+      "NameKey": "skillname76",
+      "FallbackName": "Iron Maiden",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "77": {
+      "NameKey": "skillname77",
+      "FallbackName": "Terror",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "78": {
+      "NameKey": "skillname78",
+      "FallbackName": "Bone Wall",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "79": {
+      "NameKey": "skillname79",
+      "FallbackName": "Golem Mastery",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "80": {
+      "NameKey": "skillname80",
+      "FallbackName": "Raise Skeletal Mage",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "81": {
+      "NameKey": "skillname81",
+      "FallbackName": "Corpse Field",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "82": {
+      "NameKey": "skillname82",
+      "FallbackName": "Life Tap",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "83": {
+      "NameKey": "skillname83",
+      "FallbackName": "Poison Volley",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "84": {
+      "NameKey": "skillname84",
+      "FallbackName": "Bone Spear",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "85": {
+      "NameKey": "skillname85",
+      "FallbackName": "Blood Golem",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "86": {
+      "NameKey": "skillname86",
+      "FallbackName": "Attract",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "87": {
+      "NameKey": "skillname87",
+      "FallbackName": "Decrepify",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "88": {
+      "NameKey": "skillname88",
+      "FallbackName": "Bone Prison",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "89": {
+      "NameKey": "skillname89",
+      "FallbackName": "Summon Resist",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "90": {
+      "NameKey": "skillname90",
+      "FallbackName": "Iron Golem",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "91": {
+      "NameKey": "skillname91",
+      "FallbackName": "Lower Resist",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "92": {
+      "NameKey": "skillname92",
+      "FallbackName": "Poison Nova",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "93": {
+      "NameKey": "skillname93",
+      "FallbackName": "Bone Spirit",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "94": {
+      "NameKey": "skillname94",
+      "FallbackName": "Fire Golem",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "95": {
+      "NameKey": "skillname95",
+      "FallbackName": "Revive",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "NecOnly"
+    },
+    "96": {
+      "NameKey": "skillname96",
+      "FallbackName": "Sacrifice",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "97": {
+      "NameKey": "skillname97",
+      "FallbackName": "Smite",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "98": {
+      "NameKey": "skillname98",
+      "FallbackName": "Might",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "99": {
+      "NameKey": "skillname99",
+      "FallbackName": "Prayer",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "100": {
+      "NameKey": "skillname100",
+      "FallbackName": "Resist Fire",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "101": {
+      "NameKey": "skillname101",
+      "FallbackName": "Holy Bolt",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "102": {
+      "NameKey": "skillname102",
+      "FallbackName": "Holy Fire",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "103": {
+      "NameKey": "skillname103",
+      "FallbackName": "Thorns",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "104": {
+      "NameKey": "skillname104",
+      "FallbackName": "Defiance",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "105": {
+      "NameKey": "skillname105",
+      "FallbackName": "Resist Cold",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "106": {
+      "NameKey": "skillname106",
+      "FallbackName": "Zeal",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "107": {
+      "NameKey": "skillname107",
+      "FallbackName": "Charge",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "108": {
+      "NameKey": "skillname108",
+      "FallbackName": "Blessed Aim",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "109": {
+      "NameKey": "skillname109",
+      "FallbackName": "Cleansing",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "110": {
+      "NameKey": "skillname110",
+      "FallbackName": "Resist Lightning",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "111": {
+      "NameKey": "skillname111",
+      "FallbackName": "Vengeance",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "112": {
+      "NameKey": "skillname112",
+      "FallbackName": "Blessed Hammer",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "113": {
+      "NameKey": "skillname113",
+      "FallbackName": "Concentration",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "114": {
+      "NameKey": "skillname114",
+      "FallbackName": "Holy Freeze",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "115": {
+      "NameKey": "skillname115",
+      "FallbackName": "Vigor",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "116": {
+      "NameKey": "skillname116",
+      "FallbackName": "Shield Throw",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "117": {
+      "NameKey": "skillname117",
+      "FallbackName": "Holy Shield",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "118": {
+      "NameKey": "skillname118",
+      "FallbackName": "Holy Shock",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "119": {
+      "NameKey": "skillname119",
+      "FallbackName": "Sanctuary",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "120": {
+      "NameKey": "skillname120",
+      "FallbackName": "Meditation",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "121": {
+      "NameKey": "skillname121",
+      "FallbackName": "Fist of the Heavens",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "122": {
+      "NameKey": "skillname122",
+      "FallbackName": "Fanaticism",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "123": {
+      "NameKey": "skillname123",
+      "FallbackName": "Conviction",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "124": {
+      "NameKey": "skillname124",
+      "FallbackName": "Redemption",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "125": {
+      "NameKey": "skillname125",
+      "FallbackName": "Salvation",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "PalOnly"
+    },
+    "126": {
+      "NameKey": "skillname126",
+      "FallbackName": "Bash",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "127": {
+      "NameKey": "skillname127",
+      "FallbackName": "Melee Mastery",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "128": {
+      "NameKey": "skillname128",
+      "FallbackName": "Shield Mastery",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "129": {
+      "NameKey": "skillname129",
+      "FallbackName": "Deadly Treasures",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "130": {
+      "NameKey": "skillname130",
+      "FallbackName": "Howl",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "131": {
+      "NameKey": "skillname131",
+      "FallbackName": "Find Potion",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "132": {
+      "NameKey": "skillname132",
+      "FallbackName": "Leap",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "133": {
+      "NameKey": "skillname133",
+      "FallbackName": "Double Swing",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "134": {
+      "NameKey": "skillname134",
+      "FallbackName": "Unstoppable Force",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "135": {
+      "NameKey": "skillname135",
+      "FallbackName": "Throwing Mastery",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "136": {
+      "NameKey": "skillname136",
+      "FallbackName": "Winter's Gambit",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "137": {
+      "NameKey": "skillname137",
+      "FallbackName": "Taunt",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "138": {
+      "NameKey": "skillname138",
+      "FallbackName": "Shout",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "139": {
+      "NameKey": "skillname139",
+      "FallbackName": "Tectonic Slam",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "140": {
+      "NameKey": "skillname140",
+      "FallbackName": "Double Throw",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "141": {
+      "NameKey": "skillname141",
+      "FallbackName": "Chasm Break",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "142": {
+      "NameKey": "skillname142",
+      "FallbackName": "Find Item",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "143": {
+      "NameKey": "skillname143",
+      "FallbackName": "Leap Attack",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "144": {
+      "NameKey": "skillname144",
+      "FallbackName": "Carnage",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "145": {
+      "NameKey": "skillname145",
+      "FallbackName": "Iron Skin",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "146": {
+      "NameKey": "skillname146",
+      "FallbackName": "Battle Cry",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "147": {
+      "NameKey": "skillname147",
+      "FallbackName": "Frenzy",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "148": {
+      "NameKey": "skillname148",
+      "FallbackName": "Increased Speed",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "149": {
+      "NameKey": "skillname149",
+      "FallbackName": "Battle Orders",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "150": {
+      "NameKey": "skillname150",
+      "FallbackName": "Korlic's Fury",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "151": {
+      "NameKey": "skillname151",
+      "FallbackName": "Whirlwind",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "152": {
+      "NameKey": "skillname152",
+      "FallbackName": "Berserk",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "153": {
+      "NameKey": "skillname153",
+      "FallbackName": "Natural Resistance",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "154": {
+      "NameKey": "skillname154",
+      "FallbackName": "War Cry",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "155": {
+      "NameKey": "skillname155",
+      "FallbackName": "Battle Command",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "BarOnly"
+    },
+    "156": {
+      "NameKey": "Fire Hit",
+      "FallbackName": "Fire Hit",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "157": {
+      "NameKey": "UnHolyBolt",
+      "FallbackName": "UnHolyBolt",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "158": {
+      "NameKey": "SkeletonRaise",
+      "FallbackName": "SkeletonRaise",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "159": {
+      "NameKey": "MaggotEgg",
+      "FallbackName": "MaggotEgg",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "160": {
+      "NameKey": "ShamanFire",
+      "FallbackName": "ShamanFire",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "161": {
+      "NameKey": "MagottUp",
+      "FallbackName": "MagottUp",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "162": {
+      "NameKey": "MagottDown",
+      "FallbackName": "MagottDown",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "163": {
+      "NameKey": "MagottLay",
+      "FallbackName": "MagottLay",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "164": {
+      "NameKey": "AndarielSpray",
+      "FallbackName": "AndarielSpray",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "165": {
+      "NameKey": "Jump",
+      "FallbackName": "Jump",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "166": {
+      "NameKey": "Swarm Move",
+      "FallbackName": "Swarm Move",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "167": {
+      "NameKey": "Nest",
+      "FallbackName": "Nest",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "168": {
+      "NameKey": "Quick Strike",
+      "FallbackName": "Quick Strike",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "169": {
+      "NameKey": "VampireFireball",
+      "FallbackName": "VampireFireball",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "170": {
+      "NameKey": "VampireFirewall",
+      "FallbackName": "VampireFirewall",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "171": {
+      "NameKey": "VampireMeteor",
+      "FallbackName": "VampireMeteor",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "172": {
+      "NameKey": "GargoyleTrap",
+      "FallbackName": "Gargoyle Trap",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "173": {
+      "NameKey": "SpiderLay",
+      "FallbackName": "SpiderLay",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "174": {
+      "NameKey": "VampireHeal",
+      "FallbackName": "VampireHeal",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "175": {
+      "NameKey": "VampireRaise",
+      "FallbackName": "VampireRaise",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "176": {
+      "NameKey": "Submerge",
+      "FallbackName": "Submerge",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "177": {
+      "NameKey": "FetishAura",
+      "FallbackName": "FetishAura",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "178": {
+      "NameKey": "FetishInferno",
+      "FallbackName": "FetishInferno",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "179": {
+      "NameKey": "ZakarumHeal",
+      "FallbackName": "ZakarumHeal",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "180": {
+      "NameKey": "Emerge",
+      "FallbackName": "Emerge",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "181": {
+      "NameKey": "Resurrect",
+      "FallbackName": "Resurrect",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "182": {
+      "NameKey": "Bestow",
+      "FallbackName": "Bestow",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "183": {
+      "NameKey": "MissileSkill1",
+      "FallbackName": "MissileSkill1",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "184": {
+      "NameKey": "MonTeleport",
+      "FallbackName": "MonTeleport",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "185": {
+      "NameKey": "PrimeLightning",
+      "FallbackName": "PrimeLightning",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "186": {
+      "NameKey": "PrimeBolt",
+      "FallbackName": "PrimeBolt",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "187": {
+      "NameKey": "PrimeBlaze",
+      "FallbackName": "PrimeBlaze",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "188": {
+      "NameKey": "PrimeFirewall",
+      "FallbackName": "PrimeFirewall",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "189": {
+      "NameKey": "PrimeSpike",
+      "FallbackName": "PrimeSpike",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "190": {
+      "NameKey": "PrimeIceNova",
+      "FallbackName": "PrimeIceNova",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "191": {
+      "NameKey": "PrimePoisonball",
+      "FallbackName": "PrimePoisonball",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "192": {
+      "NameKey": "PrimePoisonNova",
+      "FallbackName": "PrimePoisonNova",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "193": {
+      "NameKey": "DiabLight",
+      "FallbackName": "DiabLight",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "194": {
+      "NameKey": "DiabCold",
+      "FallbackName": "DiabCold",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "195": {
+      "NameKey": "DiabFire",
+      "FallbackName": "DiabFire",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "196": {
+      "NameKey": "FingerMageSpider",
+      "FallbackName": "FingerMageSpider",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "197": {
+      "NameKey": "Skillname226",
+      "FallbackName": "Firestorm",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "198": {
+      "NameKey": "DiabRun",
+      "FallbackName": "DiabRun",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "199": {
+      "NameKey": "DiabPrison",
+      "FallbackName": "DiabPrison",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "200": {
+      "NameKey": "PoisonBallTrap",
+      "FallbackName": "PoisonBallTrap",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "201": {
+      "NameKey": "AndyPoisonBolt",
+      "FallbackName": "AndyPoisonBolt",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "202": {
+      "NameKey": "HireableMissile",
+      "FallbackName": "HireableMissile",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "203": {
+      "NameKey": "DesertTurret",
+      "FallbackName": "DesertTurret",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "204": {
+      "NameKey": "ArcaneTower",
+      "FallbackName": "ArcaneTower",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "205": {
+      "NameKey": "MonBlizzard",
+      "FallbackName": "MonBlizzard",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "206": {
+      "NameKey": "Mosquito",
+      "FallbackName": "Mosquito",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "207": {
+      "NameKey": "CursedBallTrapRight",
+      "FallbackName": "CursedBallTrapRight",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "208": {
+      "NameKey": "CursedBallTrapLeft",
+      "FallbackName": "CursedBallTrapLeft",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "209": {
+      "NameKey": "MonFrozenArmor",
+      "FallbackName": "MonFrozenArmor",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "210": {
+      "NameKey": "MonBoneArmor",
+      "FallbackName": "MonBoneArmor",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "211": {
+      "NameKey": "MonBoneSpirit",
+      "FallbackName": "MonBoneSpirit",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "212": {
+      "NameKey": "MonCurseCast",
+      "FallbackName": "MonCurseCast",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "213": {
+      "NameKey": "HellMeteor",
+      "FallbackName": "HellMeteor",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "214": {
+      "NameKey": "RegurgitatorEat",
+      "FallbackName": "RegurgitatorEat",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "215": {
+      "NameKey": "MonFrenzy",
+      "FallbackName": "MonFrenzy",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "216": {
+      "NameKey": "QueenDeath",
+      "FallbackName": "QueenDeath",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "217": {
+      "NameKey": "skillname217",
+      "FallbackName": "Scroll of Identify",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "218": {
+      "NameKey": "skillname218",
+      "FallbackName": "Tome of Identify",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "219": {
+      "NameKey": "skillname219",
+      "FallbackName": "Scroll of Town Portal",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "220": {
+      "NameKey": "skillname220",
+      "FallbackName": "Tome of Town Portal",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "221": {
+      "NameKey": "Skillname222",
+      "FallbackName": "Raven",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "222": {
+      "NameKey": "Skillname223",
+      "FallbackName": "Poison Creeper",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "223": {
+      "NameKey": "Skillname224",
+      "FallbackName": "Werewolf",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "224": {
+      "NameKey": "Skillname225",
+      "FallbackName": "Lycanthropy",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "225": {
+      "NameKey": "Skillname226",
+      "FallbackName": "Firestorm",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "226": {
+      "NameKey": "Skillname227",
+      "FallbackName": "Oak Sage",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "227": {
+      "NameKey": "Skillname228",
+      "FallbackName": "Summon Spirit Wolf",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "228": {
+      "NameKey": "Skillname229",
+      "FallbackName": "Werebear",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "229": {
+      "NameKey": "Skillname230",
+      "FallbackName": "Molten Boulder",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "230": {
+      "NameKey": "Skillname231",
+      "FallbackName": "Arctic Blast",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "231": {
+      "NameKey": "Skillname232",
+      "FallbackName": "Carrion Vine",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "232": {
+      "NameKey": "Skillname233",
+      "FallbackName": "Feral Rage",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "233": {
+      "NameKey": "Skillname234",
+      "FallbackName": "Maul",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "234": {
+      "NameKey": "Skillname235",
+      "FallbackName": "Fissure",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "235": {
+      "NameKey": "Skillname236",
+      "FallbackName": "Cyclone Armor",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "236": {
+      "NameKey": "Skillname237",
+      "FallbackName": "Heart of Wolverine",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "237": {
+      "NameKey": "Skillname238",
+      "FallbackName": "Summon Dire Wolf",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "238": {
+      "NameKey": "Skillname239",
+      "FallbackName": "Rabies",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "239": {
+      "NameKey": "Skillname240",
+      "FallbackName": "Fire Claws",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "240": {
+      "NameKey": "Skillname241",
+      "FallbackName": "Twister",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "241": {
+      "NameKey": "Skillname242",
+      "FallbackName": "Solar Creeper",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "242": {
+      "NameKey": "Skillname243",
+      "FallbackName": "Toxic Fangs",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "243": {
+      "NameKey": "Skillname244",
+      "FallbackName": "Shock Wave",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "244": {
+      "NameKey": "Skillname245",
+      "FallbackName": "Volcano",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "245": {
+      "NameKey": "Skillname246",
+      "FallbackName": "Tornado",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "246": {
+      "NameKey": "Skillname247",
+      "FallbackName": "Spirit of Barbs",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "247": {
+      "NameKey": "Skillname248",
+      "FallbackName": "Summon Grizzly",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "248": {
+      "NameKey": "Skillname249",
+      "FallbackName": "Fury",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "249": {
+      "NameKey": "Skillname250",
+      "FallbackName": "Armageddon",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "250": {
+      "NameKey": "Skillname251",
+      "FallbackName": "Hurricane",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "DruOnly"
+    },
+    "251": {
+      "NameKey": "Skillname252",
+      "FallbackName": "Fire Blast",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "252": {
+      "NameKey": "Skillname253",
+      "FallbackName": "Claw Mastery",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "253": {
+      "NameKey": "Skillname254",
+      "FallbackName": "Ice Barrage",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "254": {
+      "NameKey": "Skillname255",
+      "FallbackName": "Tiger Strike",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "255": {
+      "NameKey": "Skillname256",
+      "FallbackName": "Dragon Talon",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "256": {
+      "NameKey": "Skillname257",
+      "FallbackName": "Shock Web",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "257": {
+      "NameKey": "Skillname258",
+      "FallbackName": "Blade Sentinel",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "258": {
+      "NameKey": "Skillname259",
+      "FallbackName": "Burst of Speed",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "259": {
+      "NameKey": "Skillname260",
+      "FallbackName": "Fists of Fire",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "260": {
+      "NameKey": "Skillname261",
+      "FallbackName": "Dragon Claw",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "261": {
+      "NameKey": "Skillname262",
+      "FallbackName": "Charged Bolt Sentry",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "262": {
+      "NameKey": "Skillname263",
+      "FallbackName": "Wake of Fire",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "263": {
+      "NameKey": "Skillname264",
+      "FallbackName": "Weapon Block",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "264": {
+      "NameKey": "Skillname265",
+      "FallbackName": "Snowlash Sentry",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "265": {
+      "NameKey": "Skillname266",
+      "FallbackName": "Cobra Strike",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "266": {
+      "NameKey": "Skillname267",
+      "FallbackName": "Blade Fury",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "267": {
+      "NameKey": "Skillname268",
+      "FallbackName": "Fade",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "268": {
+      "NameKey": "Skillname269",
+      "FallbackName": "Shadow Warrior",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "269": {
+      "NameKey": "Skillname270",
+      "FallbackName": "Claws of Thunder",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "270": {
+      "NameKey": "Skillname271",
+      "FallbackName": "Dragon Tail",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "271": {
+      "NameKey": "Skillname272",
+      "FallbackName": "Lightning Sentry",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "272": {
+      "NameKey": "Skillname273",
+      "FallbackName": "Flameburst Sentry",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "273": {
+      "NameKey": "Skillname274",
+      "FallbackName": "Glacial Burst Sentry",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "274": {
+      "NameKey": "Skillname275",
+      "FallbackName": "Blades of Ice",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "275": {
+      "NameKey": "Skillname276",
+      "FallbackName": "Dragon Flight",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "276": {
+      "NameKey": "Skillname277",
+      "FallbackName": "Death Sentry",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "277": {
+      "NameKey": "Skillname278",
+      "FallbackName": "Blade Shield",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "278": {
+      "NameKey": "Skillname279",
+      "FallbackName": "Venom",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "279": {
+      "NameKey": "Skillname280",
+      "FallbackName": "Shadow Master",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "280": {
+      "NameKey": "Skillname281",
+      "FallbackName": "Phoenix Strike",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "AssOnly"
+    },
+    "281": {
+      "NameKey": "Wake Of Destruction Sentry",
+      "FallbackName": "Wake Of Destruction Sentry",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "282": {
+      "NameKey": "Imp Inferno",
+      "FallbackName": "Imp Inferno",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "283": {
+      "NameKey": "Imp Fireball",
+      "FallbackName": "Imp Fireball",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "284": {
+      "NameKey": "Baal Taunt",
+      "FallbackName": "Baal",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "285": {
+      "NameKey": "Baal Corpse Explode",
+      "FallbackName": "Baal Corpse Explode",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "286": {
+      "NameKey": "Baal Monster Spawn",
+      "FallbackName": "Baal Monster Spawn",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "287": {
+      "NameKey": "Catapult Charged Ball",
+      "FallbackName": "Catapult Charged Ball",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "288": {
+      "NameKey": "Catapult Spike Ball",
+      "FallbackName": "Catapult Spike Ball",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "289": {
+      "NameKey": "Suck Blood",
+      "FallbackName": "Suck Blood",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "290": {
+      "NameKey": "Cry Help",
+      "FallbackName": "Cry Help",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "291": {
+      "NameKey": "Healing Vortex",
+      "FallbackName": "Healing Vortex",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "292": {
+      "NameKey": "Teleport 2",
+      "FallbackName": "Teleport 2",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "293": {
+      "NameKey": "Self-resurrect",
+      "FallbackName": "Self-resurrect",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "294": {
+      "NameKey": "Vine Attack",
+      "FallbackName": "Vine Attack",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "295": {
+      "NameKey": "Overseer Whip",
+      "FallbackName": "Overseer Whip",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "296": {
+      "NameKey": "Barbs Aura",
+      "FallbackName": "Barbs Aura",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "297": {
+      "NameKey": "Wolverine Aura",
+      "FallbackName": "Wolverine Aura",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "298": {
+      "NameKey": "Oak Sage Aura",
+      "FallbackName": "Oak Sage Aura",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "299": {
+      "NameKey": "Imp Fire Missile",
+      "FallbackName": "Imp Fire Missile",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "300": {
+      "NameKey": "Impregnate",
+      "FallbackName": "Impregnate",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "301": {
+      "NameKey": "Siege Beast Stomp",
+      "FallbackName": "Siege Beast Stomp",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "302": {
+      "NameKey": "MinionSpawner",
+      "FallbackName": "Demon Portal",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "303": {
+      "NameKey": "CatapultBlizzard",
+      "FallbackName": "CatapultBlizzard",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "304": {
+      "NameKey": "CatapultPlague",
+      "FallbackName": "CatapultPlague",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "305": {
+      "NameKey": "CatapultMeteor",
+      "FallbackName": "CatapultMeteor",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "306": {
+      "NameKey": "BoltSentry",
+      "FallbackName": "BoltSentry",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "307": {
+      "NameKey": "CorpseCycler",
+      "FallbackName": "CorpseCycler",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "308": {
+      "NameKey": "DeathMaul",
+      "FallbackName": "DeathMaul",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "309": {
+      "NameKey": "Defense Curse",
+      "FallbackName": "Defense Curse",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "310": {
+      "NameKey": "Blood Mana",
+      "FallbackName": "Blood Mana",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "311": {
+      "NameKey": "FlameburstSentry",
+      "FallbackName": "FlameburstSentry",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "312": {
+      "NameKey": "mon death sentry",
+      "FallbackName": "mon death sentry",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "313": {
+      "NameKey": "sentry lightning",
+      "FallbackName": "sentry lightning",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "314": {
+      "NameKey": "fenris rage",
+      "FallbackName": "fenris rage",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "315": {
+      "NameKey": "Baal Tentacle",
+      "FallbackName": "Festering Appendages",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "316": {
+      "NameKey": "Baal Nova",
+      "FallbackName": "Baal Nova",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "317": {
+      "NameKey": "Baal Inferno",
+      "FallbackName": "Baal Inferno",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "318": {
+      "NameKey": "Baal Cold Missiles",
+      "FallbackName": "Baal Cold Missiles",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "319": {
+      "NameKey": "MegademonInferno",
+      "FallbackName": "MegademonInferno",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "320": {
+      "NameKey": "EvilHutSpawner",
+      "FallbackName": "EvilHutSpawner",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "321": {
+      "NameKey": "CountessFirewall",
+      "FallbackName": "CountessFirewall",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "322": {
+      "NameKey": "ImpBolt",
+      "FallbackName": "ImpBolt",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "323": {
+      "NameKey": "Horror Arctic Blast",
+      "FallbackName": "Horror Arctic Blast",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "324": {
+      "NameKey": "death sentry ltng",
+      "FallbackName": "death sentry ltng",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "325": {
+      "NameKey": "VineCycler",
+      "FallbackName": "VineCycler",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "326": {
+      "NameKey": "BearSmite",
+      "FallbackName": "BearSmite",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "327": {
+      "NameKey": "Resurrect2",
+      "FallbackName": "Resurrect2",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "328": {
+      "NameKey": "BloodLordFrenzy",
+      "FallbackName": "BloodLordFrenzy",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "329": {
+      "NameKey": "Baal Teleport",
+      "FallbackName": "Baal Teleport",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "330": {
+      "NameKey": "Imp Teleport",
+      "FallbackName": "Imp Teleport",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "331": {
+      "NameKey": "Baal Clone Teleport",
+      "FallbackName": "Baal Clone Teleport",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "332": {
+      "NameKey": "ZakarumLightning",
+      "FallbackName": "ZakarumLightning",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "333": {
+      "NameKey": "VampireMissile",
+      "FallbackName": "VampireMissile",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "334": {
+      "NameKey": "MephistoMissile",
+      "FallbackName": "MephistoMissile",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "335": {
+      "NameKey": "DoomKnightMissile",
+      "FallbackName": "DoomKnightMissile",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "336": {
+      "NameKey": "RogueMissile",
+      "FallbackName": "RogueMissile",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "337": {
+      "NameKey": "HydraMissile",
+      "FallbackName": "HydraMissile",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "338": {
+      "NameKey": "NecromageMissile",
+      "FallbackName": "NecromageMissile",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "339": {
+      "NameKey": "MonBow",
+      "FallbackName": "MonBow",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "340": {
+      "NameKey": "MonFireArrow",
+      "FallbackName": "MonFireArrow",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "341": {
+      "NameKey": "MonColdArrow",
+      "FallbackName": "MonColdArrow",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "342": {
+      "NameKey": "MonExplodingArrow",
+      "FallbackName": "MonExplodingArrow",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "343": {
+      "NameKey": "MonFreezingArrow",
+      "FallbackName": "MonFreezingArrow",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "344": {
+      "NameKey": "MonPowerStrike",
+      "FallbackName": "MonPowerStrike",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "345": {
+      "NameKey": "SuccubusBolt",
+      "FallbackName": "SuccubusBolt",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "346": {
+      "NameKey": "MephFrostNova",
+      "FallbackName": "MephFrostNova",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "347": {
+      "NameKey": "MonIceSpear",
+      "FallbackName": "MonIceSpear",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "348": {
+      "NameKey": "ShamanIce",
+      "FallbackName": "ShamanIce",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "349": {
+      "NameKey": "Diablogeddon",
+      "FallbackName": "Diablogeddon",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "350": {
+      "NameKey": "Delirium",
+      "FallbackName": "Delirium",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "351": {
+      "NameKey": "NihlathakCorpseExplosion",
+      "FallbackName": "NihlathakCorpseExplosion",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "352": {
+      "NameKey": "SerpentCharge",
+      "FallbackName": "SerpentCharge",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "353": {
+      "NameKey": "Trap Nova",
+      "FallbackName": "Trap Nova",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "354": {
+      "NameKey": "UnHolyBoltEx",
+      "FallbackName": "UnHolyBoltEx",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "355": {
+      "NameKey": "ShamanFireEx",
+      "FallbackName": "ShamanFireEx",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "356": {
+      "NameKey": "Imp Fire Missile Ex",
+      "FallbackName": "Imp Fire Missile Ex",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "357": {
+      "NameKey": "SkillNameInteract",
+      "FallbackName": "Interact",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "358": {
+      "NameKey": "SkillNameLoot",
+      "FallbackName": "Loot",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "359": {
+      "NameKey": "skillname219",
+      "FallbackName": "Scroll of Town Portal",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "360": {
+      "NameKey": "SkillNameEmoteWheel",
+      "FallbackName": "EmoteWheel",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "361": {
+      "NameKey": "SkillNameSwapWeapons",
+      "FallbackName": "SwapWeapons",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "362": {
+      "NameKey": "SkillNameMap",
+      "FallbackName": "Map",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "363": {
+      "NameKey": "SkillNameShowItems",
+      "FallbackName": "ShowItems",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "364": {
+      "NameKey": "SkillNameRunToggle",
+      "FallbackName": "RunToggle",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "365": {
+      "NameKey": "MonHolyFreeze",
+      "FallbackName": "MonHolyFreeze",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "366": {
+      "NameKey": "MonLeap",
+      "FallbackName": "MonLeap",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "367": {
+      "NameKey": "MonLeapAttack",
+      "FallbackName": "MonLeapAttack",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "368": {
+      "NameKey": "MonHolyFire",
+      "FallbackName": "MonHolyFire",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "369": {
+      "NameKey": "MonHolyShock",
+      "FallbackName": "MonHolyShock",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "370": {
+      "NameKey": "SkillNameCubeLoot",
+      "FallbackName": "CubeLoot",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "371": {
+      "NameKey": "SkillnameMetamorphosisBear",
+      "FallbackName": "Mark of the Bear",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "372": {
+      "NameKey": "SkillnameMetamorphosisWolf",
+      "FallbackName": "Mark of the Wolf",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "373": {
+      "NameKey": "SummonGoatmanName",
+      "FallbackName": "Summon Goatman",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "374": {
+      "NameKey": "DemonicMasteryName",
+      "FallbackName": "Demonic Mastery",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "375": {
+      "NameKey": "DeathMarkName",
+      "FallbackName": "Death Mark",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "376": {
+      "NameKey": "SummonTaintedName",
+      "FallbackName": "Summon Tainted",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "377": {
+      "NameKey": "SummonDefilerName",
+      "FallbackName": "Summon Trickster",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "378": {
+      "NameKey": "BloodOathName",
+      "FallbackName": "Blood Oath",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "379": {
+      "NameKey": "EngorgeName",
+      "FallbackName": "Engorge",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "380": {
+      "NameKey": "BloodBoilName",
+      "FallbackName": "Blood Boil",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "381": {
+      "NameKey": "ConsumeName",
+      "FallbackName": "Consume",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "382": {
+      "NameKey": "BindDemonName",
+      "FallbackName": "Bind Demon",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "383": {
+      "NameKey": "LevitateName",
+      "FallbackName": "Levitation Mastery",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "384": {
+      "NameKey": "EldritchBlastName",
+      "FallbackName": "Eldritch Blast",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "385": {
+      "NameKey": "BaneHexName",
+      "FallbackName": "Hex: Bane",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "386": {
+      "NameKey": "SiphonHexName",
+      "FallbackName": "Hex: Siphon",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "387": {
+      "NameKey": "PsychicWardName",
+      "FallbackName": "Psychic Ward",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "388": {
+      "NameKey": "EchoingStrikeName",
+      "FallbackName": "Echoing Strike",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "389": {
+      "NameKey": "PurgeHexName",
+      "FallbackName": "Hex: Purge",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "390": {
+      "NameKey": "BladeWarpName",
+      "FallbackName": "Blade Warp",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "391": {
+      "NameKey": "CleaveName",
+      "FallbackName": "Cleave",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "392": {
+      "NameKey": "MirroredBladesName",
+      "FallbackName": "Mirrored Blades",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "393": {
+      "NameKey": "LethargySigilName",
+      "FallbackName": "Sigil: Lethargy",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "394": {
+      "NameKey": "RingOfFireName",
+      "FallbackName": "Ring of Fire",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "395": {
+      "NameKey": "MiasmaBoltName",
+      "FallbackName": "Miasma Bolt",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "396": {
+      "NameKey": "RancorSigilName",
+      "FallbackName": "Sigil: Rancor",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "397": {
+      "NameKey": "EnhancedEntropyName",
+      "FallbackName": "Enhanced Entropy",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "398": {
+      "NameKey": "FlameWaveName",
+      "FallbackName": "Flame Wave",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "399": {
+      "NameKey": "MiasmaChainName",
+      "FallbackName": "Miasma Chain",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "400": {
+      "NameKey": "DeathSigilName",
+      "FallbackName": "Sigil: Death",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "401": {
+      "NameKey": "ApocalypseName",
+      "FallbackName": "Apocalypse",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "402": {
+      "NameKey": "AbyssName",
+      "FallbackName": "Abyss",
+      "LineKey": "strSkillRandomFromSkillClass",
+      "ClassOnlyKey": "WarOnly"
+    },
+    "403": {
+      "NameKey": "Sigil Death Explosion",
+      "FallbackName": "Sigil Death Explosion",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "404": {
+      "NameKey": "Hex Purge Explosion",
+      "FallbackName": "Hex Purge Explosion",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "405": {
+      "NameKey": "Health Link",
+      "FallbackName": "Health Link",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "406": {
+      "NameKey": "Skillname235",
+      "FallbackName": "Fissure",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "407": {
+      "NameKey": "skillname143",
+      "FallbackName": "Leap Attack",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "408": {
+      "NameKey": "skillname52",
+      "FallbackName": "Enchant",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "409": {
+      "NameKey": "skillname52",
+      "FallbackName": "Enchant",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "410": {
+      "NameKey": "skillname151",
+      "FallbackName": "Whirlwind",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "411": {
+      "NameKey": "skillan219",
+      "FallbackName": "Town Portal",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "412": {
+      "NameKey": "Skillname241",
+      "FallbackName": "Twister",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "413": {
+      "NameKey": "Skillname245",
+      "FallbackName": "Volcano",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "414": {
+      "NameKey": "skillname57",
+      "FallbackName": "Thunder Storm",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "415": {
+      "NameKey": "UberAncientsHeal",
+      "FallbackName": "UberAncientsHeal",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "416": {
+      "NameKey": "skillname139",
+      "FallbackName": "Tectonic Slam",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "417": {
+      "NameKey": "Goatman Frenzy",
+      "FallbackName": "Goatman Frenzy",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "418": {
+      "NameKey": "skillname152",
+      "FallbackName": "Berserk",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "419": {
+      "NameKey": "CleaveName",
+      "FallbackName": "Cleave",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "420": {
+      "NameKey": "skillname100",
+      "FallbackName": "Resist Fire",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "421": {
+      "NameKey": "skillname36",
+      "FallbackName": "Fire Bolt",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "422": {
+      "NameKey": "skillname47",
+      "FallbackName": "Fire Ball",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "423": {
+      "NameKey": "skillname123",
+      "FallbackName": "Conviction",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "424": {
+      "NameKey": "skillname123",
+      "FallbackName": "Conviction",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "425": {
+      "NameKey": "skillname123",
+      "FallbackName": "Conviction",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "426": {
+      "NameKey": "Charged Bolt Disk",
+      "FallbackName": "Charged Bolt Disk",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "427": {
+      "NameKey": "skillname126",
+      "FallbackName": "Bash",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "428": {
+      "NameKey": "HeraldThorns",
+      "FallbackName": "HeraldThorns",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "429": {
+      "NameKey": "SkillNameWarp",
+      "FallbackName": "Warp",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "430": {
+      "NameKey": "splash1",
+      "FallbackName": "Splash 50%% of Melee Damage",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "431": {
+      "NameKey": "splash1",
+      "FallbackName": "Splash 50%% of Melee Damage",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "432": {
+      "NameKey": "splash1",
+      "FallbackName": "Splash 50%% of Melee Damage",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "433": {
+      "NameKey": "splash1",
+      "FallbackName": "Splash 50%% of Melee Damage",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "434": {
+      "NameKey": "splash3",
+      "FallbackName": "Splash 100%% of Melee Damage",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "435": {
+      "NameKey": "Dsum_Twister",
+      "FallbackName": "Dsum_Twister",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "436": {
+      "NameKey": "Dsum_Firestorm",
+      "FallbackName": "Dsum_Firestorm",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "437": {
+      "NameKey": "Dsum_Shockwave",
+      "FallbackName": "Dsum_Shockwave",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "438": {
+      "NameKey": "Dsum_RavenAttack",
+      "FallbackName": "Dsum_RavenAttack",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "439": {
+      "NameKey": "Solar_Vine_Attack",
+      "FallbackName": "Solar_Vine_Attack",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "440": {
+      "NameKey": "Carrion_Vine_Aura",
+      "FallbackName": "Carrion_Vine_Aura",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "441": {
+      "NameKey": "StygianExplosion",
+      "FallbackName": "StygianExplosion",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "442": {
+      "NameKey": "ZombiePoisonExplosion",
+      "FallbackName": "ZombiePoisonExplosion",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "443": {
+      "NameKey": "Summoner Glacial Spike",
+      "FallbackName": "Summoner Glacial Spike",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "444": {
+      "NameKey": "Summoner Frost Nova",
+      "FallbackName": "Summoner Frost Nova",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "445": {
+      "NameKey": "MadawcFrozenOrb",
+      "FallbackName": "MadawcFrozenOrb",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "446": {
+      "NameKey": "TalicNova",
+      "FallbackName": "TalicNova",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "447": {
+      "NameKey": "TalicStaticField",
+      "FallbackName": "TalicStaticField",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "448": {
+      "NameKey": "KorlicEruption",
+      "FallbackName": "KorlicEruption",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "449": {
+      "NameKey": "charmweight1",
+      "FallbackName": "Charm Weight Active",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "450": {
+      "NameKey": "BloodAura",
+      "FallbackName": "BloodAura",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "451": {
+      "NameKey": "FireGolemAura",
+      "FallbackName": "FireGolemAura",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "452": {
+      "NameKey": "MercFireTwister",
+      "FallbackName": "Fire Twisters",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "453": {
+      "NameKey": "skillname47",
+      "FallbackName": "Fire Ball",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "454": {
+      "NameKey": "skillname52",
+      "FallbackName": "Enchant",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "455": {
+      "NameKey": "MercLightNova",
+      "FallbackName": "Lightning Nova",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "456": {
+      "NameKey": "skillname52",
+      "FallbackName": "Enchant",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "457": {
+      "NameKey": "skillname53",
+      "FallbackName": "Chain Lightning",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "458": {
+      "NameKey": "MercIceWave",
+      "FallbackName": "Icicle Barrage",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "459": {
+      "NameKey": "skillname55",
+      "FallbackName": "Glacial Spike",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "460": {
+      "NameKey": "skillname52",
+      "FallbackName": "Enchant",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "461": {
+      "NameKey": "Skillname420",
+      "FallbackName": "Arctic Claws",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "462": {
+      "NameKey": "Skillname421",
+      "FallbackName": "Polar Bear",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "463": {
+      "NameKey": "Winter's Pulse",
+      "FallbackName": "Winter's Pulse",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "464": {
+      "NameKey": "SkillTriEleTwister",
+      "FallbackName": "King's Trinity",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "465": {
+      "NameKey": "SkillKingsCharisma",
+      "FallbackName": "King's Charisma",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "466": {
+      "NameKey": "Empowering Flame",
+      "FallbackName": "Empowering Flame",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "467": {
+      "NameKey": "Storm Shard",
+      "FallbackName": "Storm Shard",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "468": {
+      "NameKey": "Storm Pulse",
+      "FallbackName": "Storm Pulse",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "469": {
+      "NameKey": "Blightburst",
+      "FallbackName": "Blightburst",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "470": {
+      "NameKey": "Spine Piercer",
+      "FallbackName": "Spine Piercer",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "471": {
+      "NameKey": "Star of Bethlehem",
+      "FallbackName": "Star of Bethlehem",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "472": {
+      "NameKey": "Hailstorm",
+      "FallbackName": "Hailstorm",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "473": {
+      "NameKey": "Infernal Orb",
+      "FallbackName": "Infernal Orb",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "474": {
+      "NameKey": "Cinderstorm",
+      "FallbackName": "Cinderstorm",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "475": {
+      "NameKey": "Starfall",
+      "FallbackName": "Starfall",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "476": {
+      "NameKey": "Comet",
+      "FallbackName": "Comet",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "477": {
+      "NameKey": "Scorchveil",
+      "FallbackName": "Scorchveil",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "478": {
+      "NameKey": "Arc",
+      "FallbackName": "Arc",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "479": {
+      "NameKey": "Dust Devils",
+      "FallbackName": "Dust Devils",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "480": {
+      "NameKey": "skillname53",
+      "FallbackName": "Chain Lightning",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "481": {
+      "NameKey": "TrangOulsHellflareName",
+      "FallbackName": "Trang-Oul's Hellflare",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "482": {
+      "NameKey": "TrangOulsBurningShroudName",
+      "FallbackName": "Trang-Oul's Burning Shroud",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "483": {
+      "NameKey": "TrangOulsDoomfallName",
+      "FallbackName": "Trang-Oul's Doomfall",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "484": {
+      "NameKey": "splash1",
+      "FallbackName": "Splash 50%% of Melee Damage",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "485": {
+      "NameKey": "GlacialBurstSentry",
+      "FallbackName": "GlacialBurstSentry",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "486": {
+      "NameKey": "SnowlashSentry",
+      "FallbackName": "SnowlashSentry",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "487": {
+      "NameKey": "NovaExplosion",
+      "FallbackName": "NovaExplosion",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "488": {
+      "NameKey": "ApocalypseName",
+      "FallbackName": "Apocalypse",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "489": {
+      "NameKey": "skillname123",
+      "FallbackName": "Conviction",
+      "LineKey": "strSkillRandomFromSkill"
+    }
+  },
+  "CompositeKeys": {
+    "PhysicalDamage": "strModMinDamageRange",
+    "FireDamage": "strModFireDamageRange",
+    "ColdDamage": "strModColdDamageRange",
+    "LightningDamage": "strModLightningDamageRange",
+    "MagicDamage": "strModMagicDamageRange",
+    "PoisonDamage": "strModPoisonDamageRange"
+  }
+}

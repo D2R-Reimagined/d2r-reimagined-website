@@ -8,7 +8,8 @@
     rank,
     available,
     increase,
-    decrease
+    decrease,
+    readonly = false
   }: {
     skill: Skill | undefined;
     skills: Skill[];
@@ -16,12 +17,14 @@
     available: boolean;
     increase: (skill: Skill, amount?: number) => void;
     decrease: (skill: Skill, amount?: number) => void;
+    readonly?: boolean;
   } = $props();
 
   // The preview follows the points you have allocated, so the panel answers "what do I get
   // for this next point?" without any fiddling. Dragging the slider past that — into the
   // levels +skills gear grants — sticks until the allocation changes again.
   let previewOverride = $state<number | null>(null);
+  let failedIcon = $state('');
 
   let descriptions = $derived(skill?.Descriptions);
   let maxPreviewLevel = $derived(descriptions?.MaxLevel ?? skill?.MaxLevel ?? 20);
@@ -32,6 +35,7 @@
 
   // Reading both values inside the effect is what makes the override reset when either changes.
   let allocation = $derived(`${skill?.Id ?? ''}:${rank}`);
+  let icon = $derived(skill?.Icon ? `/data/${skill.Icon}` : '');
   $effect(() => {
     void allocation;
     previewOverride = null;
@@ -55,8 +59,14 @@
 
 <aside class="details panel rounded-lg" aria-live="polite">
   {#if skill}
-    <div class="details-portrait" aria-hidden="true">{$i18n.t(skill.NameKey).charAt(0).toUpperCase()}</div>
-    <p class="display-text mt-4 text-xs uppercase tracking-[0.22em] text-ember-400">Selected skill</p>
+    <div class="details-portrait" aria-hidden="true">
+      {#if icon && failedIcon !== icon}
+        <img src={icon} alt="" onerror={() => failedIcon = icon} />
+      {:else}
+        {$i18n.t(skill.NameKey).charAt(0).toUpperCase()}
+      {/if}
+    </div>
+    <p class="display-text mt-4 text-xs uppercase tracking-[0.22em] text-ember-400">{readonly ? 'Character skill' : 'Selected skill'}</p>
     <h2 class="display-text mt-2 text-2xl text-parchment-50">{$i18n.t(skill.NameKey)}</h2>
     {#if skill.DescriptionKey}
       <p class="mt-3 text-sm leading-6 text-parchment-200">{$i18n.t(skill.DescriptionKey)}</p>
@@ -75,36 +85,38 @@
 
     {#if hasDescription}
       <section class="mt-5">
-        <div class="level-control">
-          <label class="display-text text-xs uppercase tracking-wider text-parchment-300" for="skill-preview-level">
-            Preview at level
-          </label>
+        {#if !readonly}
+          <div class="level-control">
+            <label class="display-text text-xs uppercase tracking-wider text-parchment-300" for="skill-preview-level">
+              Preview at level
+            </label>
+            <input
+              id="skill-preview-level"
+              type="number"
+              min="1"
+              max={maxPreviewLevel}
+              value={previewLevel}
+              oninput={(event) => choosePreviewLevel(event.currentTarget.value)}
+              class="level-number"
+            />
+          </div>
           <input
-            id="skill-preview-level"
-            type="number"
+            type="range"
             min="1"
             max={maxPreviewLevel}
             value={previewLevel}
+            aria-label={`Preview ${$i18n.t(skill.NameKey)} at skill level`}
             oninput={(event) => choosePreviewLevel(event.currentTarget.value)}
-            class="level-number"
+            class="level-slider"
           />
-        </div>
-        <input
-          type="range"
-          min="1"
-          max={maxPreviewLevel}
-          value={previewLevel}
-          aria-label={`Preview ${$i18n.t(skill.NameKey)} at skill level`}
-          oninput={(event) => choosePreviewLevel(event.currentTarget.value)}
-          class="level-slider"
-        />
-        <p class="level-hint">
-          {#if previewLevel > (skill.MaxLevel || 20)}
-            +{previewLevel - (skill.MaxLevel || 20)} above the hard-point cap — reachable with +skills gear.
-          {:else}
-            Slide past {skill.MaxLevel || 20} to see what +skills gear adds.
-          {/if}
-        </p>
+          <p class="level-hint">
+            {#if previewLevel > (skill.MaxLevel || 20)}
+              +{previewLevel - (skill.MaxLevel || 20)} above the hard-point cap — reachable with +skills gear.
+            {:else}
+              Slide past {skill.MaxLevel || 20} to see what +skills gear adds.
+            {/if}
+          </p>
+        {/if}
 
         <ul class="stat-lines mt-4">
           {#each descriptions?.Stats ?? [] as line, index (index)}
@@ -135,14 +147,16 @@
       </div>
     {/if}
 
-    <div class="mt-5 grid grid-cols-2 gap-2">
-      <button type="button" onclick={() => decrease(skill)} disabled={rank === 0} class="planner-button">− Remove</button>
-      <button type="button" onclick={() => increase(skill)} disabled={!available} class="planner-button primary">+ Add</button>
-    </div>
-    {#if !available && rank < (skill.MaxLevel || 20)}
-      <p class="mt-3 text-xs text-requirement">Allocate every prerequisite before adding a point here.</p>
+    {#if !readonly}
+      <div class="mt-5 grid grid-cols-2 gap-2">
+        <button type="button" onclick={() => decrease(skill)} disabled={rank === 0} class="planner-button">− Remove</button>
+        <button type="button" onclick={() => increase(skill)} disabled={!available} class="planner-button primary">+ Add</button>
+      </div>
+      {#if !available && rank < (skill.MaxLevel || 20)}
+        <p class="mt-3 text-xs text-requirement">Allocate every prerequisite before adding a point here.</p>
+      {/if}
+      <p class="mt-5 text-xs leading-5 text-parchment-300">Click a skill to add one point; Ctrl-click adds five and Shift-click fills it to its maximum. Right-click removes points using the same modifiers.</p>
     {/if}
-    <p class="mt-5 text-xs leading-5 text-parchment-300">Click a skill to add one point; Ctrl-click adds five and Shift-click fills it to its maximum. Right-click removes points using the same modifiers.</p>
   {:else}
     <p class="text-parchment-300">Select a skill to preview it.</p>
   {/if}
@@ -163,6 +177,7 @@
     font-family: var(--font-display);
     font-size: 2.5rem;
   }
+  .details-portrait img { width: 100%; height: 100%; border-radius: 0.18rem; object-fit: cover; }
 
   .level-control {
     display: flex;

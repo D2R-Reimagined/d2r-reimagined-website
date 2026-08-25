@@ -2,6 +2,7 @@
   import { goto } from '$app/navigation';
   import { page } from '$app/state';
   import { onMount } from 'svelte';
+  import CharacterManager from '$lib/components/CharacterManager.svelte';
 
   import {
     authState,
@@ -342,6 +343,7 @@
         </div>
       </aside>
     </div>
+    <CharacterManager />
   {:else}
     <div class="grid gap-6 lg:grid-cols-[1fr_0.8fr]">
       <article class="panel rounded-lg p-6 sm:p-8">

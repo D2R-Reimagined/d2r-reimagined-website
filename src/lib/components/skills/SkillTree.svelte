@@ -10,7 +10,8 @@
     select,
     increase,
     decrease,
-    canIncrease
+    canIncrease,
+    readonly = false
   }: {
     tab: SkillTab;
     ranks: Record<number, number>;
@@ -19,6 +20,7 @@
     increase: (skill: Skill, amount?: number) => void;
     decrease: (skill: Skill, amount?: number) => void;
     canIncrease: (skill: Skill) => boolean;
+    readonly?: boolean;
   } = $props();
 
   const x = (column: number) => column * 100 - 50;
@@ -59,6 +61,7 @@
         {select}
         {increase}
         {decrease}
+        {readonly}
       />
     {/each}
   </div>
