@@ -10,13 +10,15 @@
     presentation,
     itemPresentations,
     statPresentation,
-    runewordNameKey
+    runewordNameKey,
+    identifiedName
   }: {
     item: SaveItem;
     presentation?: ItemPresentation;
     itemPresentations: Map<string, ItemPresentation>;
     statPresentation?: ItemStatPresentationBundle;
     runewordNameKey?: string;
+    identifiedName?: string | null;
   } = $props();
   let variant = $derived(presentation ? itemVariant(item, presentation, itemPresentations) : null);
   let identified = $derived(isItemIdentified(item));
@@ -58,11 +60,12 @@
 
   function displayName(): string {
     const resolvedVariant = identified && variant?.NameKey ? $i18n.t(variant.NameKey) : null;
-    return itemDisplayLabel(item, resolvedVariant);
+    return itemDisplayLabel(item, identifiedName ?? resolvedVariant);
   }
 
   function scalarProperties(): Array<[string, string]> {
     return Object.entries(item.qualityData?.properties ?? {})
+      .filter(([key]) => key !== 'rarePrefixId' && key !== 'rareSuffixId')
       .filter(([, value]) => ['string', 'number', 'boolean'].includes(typeof value))
       .map(([key, value]) => [words(key), String(value)]);
   }

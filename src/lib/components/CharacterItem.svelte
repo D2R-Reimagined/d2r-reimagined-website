@@ -3,6 +3,8 @@
   import { isItemIdentified, itemDisplayLabel } from '$lib/item-identification';
   import { itemSprite, itemVariant, type ItemPresentation } from '$lib/item-presentation';
   import type { ItemStatPresentationBundle } from '$lib/item-stat-presentation';
+  import { i18n } from '$lib/i18n';
+  import { rareItemName, type RareNamePresentation } from '$lib/rare-name-presentation';
   import type { SaveItem } from '$lib/characters';
 
   let {
@@ -10,6 +12,7 @@
     presentation,
     itemPresentations,
     statPresentation,
+    rareNames,
     runewordNameKey,
     style,
     tooltipSide = 'right'
@@ -18,6 +21,7 @@
     presentation?: ItemPresentation;
     itemPresentations: Map<string, ItemPresentation>;
     statPresentation?: ItemStatPresentationBundle;
+    rareNames?: RareNamePresentation;
     runewordNameKey?: string;
     style: string;
     tooltipSide?: 'left' | 'right';
@@ -27,7 +31,13 @@
   let sprite = $derived(itemSprite(item, presentation, itemPresentations));
   let variant = $derived(presentation ? itemVariant(item, presentation, itemPresentations) : null);
   let identified = $derived(isItemIdentified(item));
-  let label = $derived(itemDisplayLabel(item, identified ? variant?.NameKey : null));
+  let generatedRareName = $derived(
+    identified ? rareItemName(item, rareNames, (key) => $i18n.t(key)) : null
+  );
+  let identifiedName = $derived(
+    generatedRareName ?? (variant?.NameKey ? $i18n.t(variant.NameKey) : null)
+  );
+  let label = $derived(itemDisplayLabel(item, identified ? identifiedName : null));
   let socketItems = $derived(item.sockets.filter((socket): socket is SaveItem => socket !== null));
 
   function socketSprite(socket: SaveItem): string | null {
@@ -91,7 +101,7 @@
     <div
       class={`pointer-events-none absolute bottom-[calc(100%+0.4rem)] left-1/2 z-50 w-[min(23rem,82vw)] -translate-x-1/2 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 sm:translate-x-0 ${tooltipSide === 'left' ? 'sm:left-auto sm:right-[calc(100%+0.5rem)]' : 'sm:left-[calc(100%+0.5rem)]'}`}
     >
-      <ItemTooltip {item} {presentation} {itemPresentations} {statPresentation} {runewordNameKey} />
+      <ItemTooltip {item} {presentation} {itemPresentations} {statPresentation} {runewordNameKey} {identifiedName} />
     </div>
   {/if}
 </div>

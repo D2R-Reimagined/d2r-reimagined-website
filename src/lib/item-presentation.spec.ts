@@ -1,3 +1,5 @@
+import { existsSync, readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { SaveItem } from '$lib/characters';
 import { itemSprite, itemVariant, type ItemPresentation } from './item-presentation';
@@ -21,6 +23,30 @@ function presentation(
 }
 
 describe('item presentation', () => {
+  it('does not publish item sprite URLs without the corresponding static asset', () => {
+    const dataRoot = resolve('static/data');
+    const entries = JSON.parse(
+      readFileSync(resolve(dataRoot, 'keyed/item-presentation.json'), 'utf8')
+    ) as ItemPresentation[];
+    const missing: string[] = [];
+
+    for (const entry of entries) {
+      const sprites = [
+        entry.Sprite,
+        ...entry.UniqueSprites.map((variant) => variant.Sprite),
+        ...entry.SetSprites.map((variant) => variant.Sprite)
+      ];
+
+      for (const sprite of sprites) {
+        if (sprite && !existsSync(resolve(dataRoot, sprite))) {
+          missing.push(`${entry.Code}: ${sprite}`);
+        }
+      }
+    }
+
+    expect(missing).toEqual([]);
+  });
+
   it('resolves Skin of the Vipermagi by the save table ID instead of its raw row position', () => {
     const savedBase = presentation('xea', 210, 'Skin of the Vipermagi');
     const spiritShroud = presentation('xui', 209, 'The Spirit Shroud');
@@ -84,5 +110,27 @@ describe('item presentation', () => {
       .toBe('Duskwreath');
     expect(itemVariant(bootsItem, boots, presentations)?.NameKey)
       .toBe("Asheara's Slippers");
+  });
+
+  it('resolves set names for miscellaneous bases such as rings', () => {
+    const ring: ItemPresentation = {
+      Code: 'rin',
+      NameKey: 'rin',
+      Width: 1,
+      Height: 1,
+      UniqueSprites: [],
+      SetSprites: [
+        { FileIndex: 52, NameKey: 'Angelic Halo' },
+        { FileIndex: 307, NameKey: 'Draven Coil' }
+      ]
+    };
+    const presentations = new Map([[ring.Code, ring]]);
+    const item = {
+      codeText: 'rin',
+      quality: 'Set',
+      qualityData: { fileIndex: 307 }
+    } as SaveItem;
+
+    expect(itemVariant(item, ring, presentations)?.NameKey).toBe('Draven Coil');
   });
 });

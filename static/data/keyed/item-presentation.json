@@ -26,7 +26,7 @@
       {
         "FileIndex": 24,
         "NameKey": "Milabrega's Robe",
-        "Sprite": "sprites/items/armor-armor-victors_silk.webp"
+        "Sprite": "sprites/items/armor-armor-ancient_armor.webp"
       },
       {
         "FileIndex": 177,
@@ -386,7 +386,7 @@
       {
         "FileIndex": 34,
         "NameKey": "Tancred's Skull",
-        "Sprite": "sprites/items/armor-helmet-wormskull.webp"
+        "Sprite": "sprites/items/armor-helmet-bone_helm.webp"
       },
       {
         "FileIndex": 172,
@@ -422,7 +422,7 @@
       {
         "FileIndex": 15,
         "NameKey": "Isenhart's Case",
-        "Sprite": "sprites/items/armor-armor-isenharts_case.webp"
+        "Sprite": "sprites/items/armor-armor-breast_plate.webp"
       },
       {
         "FileIndex": 181,
@@ -530,7 +530,7 @@
       {
         "FileIndex": 123,
         "NameKey": "Sander's Paragon",
-        "Sprite": "sprites/items/armor-helmet-war_bonnet.webp"
+        "Sprite": "sprites/items/armor-helmet-cap_hat.webp"
       }
     ]
   },
@@ -1090,7 +1090,7 @@
       {
         "FileIndex": 16,
         "NameKey": "Isenhart's Horns",
-        "Sprite": "sprites/items/armor-helmet-isenharts_horns.webp"
+        "Sprite": "sprites/items/armor-helmet-full_helm.webp"
       },
       {
         "FileIndex": 167,
@@ -1157,12 +1157,12 @@
       {
         "FileIndex": 31,
         "NameKey": "Tancred's Spine",
-        "Sprite": "sprites/items/armor-armor-goldskin.webp"
+        "Sprite": "sprites/items/armor-armor-full_plate_mail.webp"
       },
       {
         "FileIndex": 129,
         "NameKey": "Warlord's Mantle",
-        "Sprite": "sprites/items/armor-glove-heavy_gloves.webp"
+        "Sprite": "sprites/items/armor-armor-full_plate_mail.webp"
       },
       {
         "FileIndex": 170,
@@ -1203,7 +1203,7 @@
       {
         "FileIndex": 128,
         "NameKey": "Warlord's Lust",
-        "Sprite": "sprites/items/armor-boot-heavy_boots.webp"
+        "Sprite": "sprites/items/armor-helmet-great_helm.webp"
       },
       {
         "FileIndex": 178,
@@ -1270,7 +1270,7 @@
       {
         "FileIndex": 14,
         "NameKey": "Isenhart's Parry",
-        "Sprite": "sprites/items/armor-shield-the_ward.webp"
+        "Sprite": "sprites/items/armor-shield-gothic_shield.webp"
       }
     ]
   },
@@ -1306,7 +1306,7 @@
       {
         "FileIndex": 131,
         "NameKey": "Warlord's Authority",
-        "Sprite": "sprites/items/armor-grimoires-ars_torbaalos.webp"
+        "Sprite": "sprites/items/armor-belt-girdle_h.webp"
       },
       {
         "FileIndex": 174,
@@ -1351,7 +1351,8 @@
       },
       {
         "FileIndex": 130,
-        "NameKey": "Warlord's Crushers"
+        "NameKey": "Warlord's Crushers",
+        "Sprite": "sprites/items/armor-boot-plate_boots.webp"
       },
       {
         "FileIndex": 179,
@@ -1397,7 +1398,7 @@
       {
         "FileIndex": 127,
         "NameKey": "Warlord's Conquest",
-        "Sprite": "sprites/items/armor-helmet-war_bonnet.webp"
+        "Sprite": "sprites/items/armor-glove-gaunlets_h.webp"
       },
       {
         "FileIndex": 163,
@@ -1438,7 +1439,7 @@
       {
         "FileIndex": 133,
         "NameKey": "Bane's Wraithskin",
-        "Sprite": "sprites/items/armor-glove-gloves_l.webp"
+        "Sprite": "sprites/items/armor-armor-hard_leather_armor.webp"
       },
       {
         "FileIndex": 146,
@@ -1474,7 +1475,7 @@
       {
         "FileIndex": 44,
         "NameKey": "Berserker's Headgear",
-        "Sprite": "sprites/items/armor-helmet-coif_of_glory.webp"
+        "Sprite": "sprites/items/armor-helmet-helm.webp"
       }
     ]
   },
@@ -1505,7 +1506,7 @@
       {
         "FileIndex": 21,
         "NameKey": "Milabrega's Orb",
-        "Sprite": "sprites/items/armor-shield-steelclash.webp"
+        "Sprite": "sprites/items/armor-shield-kite_shield.webp"
       }
     ]
   },
@@ -1680,7 +1681,7 @@
       {
         "FileIndex": 0,
         "NameKey": "Civerb's Ward",
-        "Sprite": "sprites/items/armor-shield-stormguild.webp"
+        "Sprite": "sprites/items/armor-shield-large_shield.webp"
       },
       {
         "FileIndex": 154,
@@ -1829,7 +1830,7 @@
       {
         "FileIndex": 141,
         "NameKey": "Jakira's Braces",
-        "Sprite": "sprites/items/armor-armor-full_plate_mail.webp"
+        "Sprite": "sprites/items/armor-glove-bracers_m.webp"
       }
     ]
   },
@@ -2685,7 +2686,7 @@
       {
         "FileIndex": 142,
         "NameKey": "Jakira's Hood",
-        "Sprite": "sprites/items/armor-boot-plate_boots.webp"
+        "Sprite": "sprites/items/armor-helmet-skull_cap.webp"
       }
     ]
   },
@@ -2716,7 +2717,7 @@
       {
         "FileIndex": 7,
         "NameKey": "Cleglaw's Claw",
-        "Sprite": "sprites/items/armor-shield-umbral_disk.webp"
+        "Sprite": "sprites/items/armor-shield-small_shield.webp"
       }
     ]
   },
@@ -2814,7 +2815,7 @@
       {
         "FileIndex": 143,
         "NameKey": "Jakira's Leather Jerkin",
-        "Sprite": "sprites/items/armor-belt-girdle_h.webp"
+        "Sprite": "sprites/items/armor-armor-studded_leather.webp"
       }
     ]
   },
@@ -2968,7 +2969,7 @@
       {
         "FileIndex": 40,
         "NameKey": "Sigon's Guard",
-        "Sprite": "sprites/items/armor-shield-bverrit_keep.webp"
+        "Sprite": "sprites/items/armor-shield-tower_shield.webp"
       }
     ]
   },
@@ -3025,7 +3026,7 @@
       {
         "FileIndex": 71,
         "NameKey": "Immortal King's Soul Cage",
-        "Sprite": "sprites/items/armor-armor-victors_silk.webp"
+        "Sprite": "sprites/items/armor-armor-ancient_armor.webp"
       },
       {
         "FileIndex": 242,
@@ -3123,7 +3124,7 @@
       {
         "FileIndex": 85,
         "NameKey": "Trang-Oul's Guise",
-        "Sprite": "sprites/items/armor-helmet-wormskull.webp"
+        "Sprite": "sprites/items/armor-helmet-bone_helm.webp"
       },
       {
         "FileIndex": 286,
@@ -3293,7 +3294,7 @@
       {
         "FileIndex": 103,
         "NameKey": "Ondal's Almighty",
-        "Sprite": "sprites/items/armor-helmet-ondals_almighty.webp"
+        "Sprite": "sprites/items/armor-helmet-great_helm.webp"
       },
       {
         "FileIndex": 373,
@@ -4026,7 +4027,7 @@
       {
         "FileIndex": 135,
         "NameKey": "Horazon's Countenance",
-        "Sprite": "sprites/items/armor-helmet-horazons_countenance.webp"
+        "Sprite": "sprites/items/armor-helmet-mask.webp"
       },
       {
         "FileIndex": 278,
@@ -4072,7 +4073,7 @@
       {
         "FileIndex": 138,
         "NameKey": "Horazon's Legacy",
-        "Sprite": "sprites/items/armor-belt-light_belt.webp"
+        "Sprite": "sprites/items/armor-boot-light_plate_boots.webp"
       },
       {
         "FileIndex": 277,
@@ -4252,7 +4253,7 @@
       {
         "FileIndex": 101,
         "NameKey": "Taebaek's Glory",
-        "Sprite": "sprites/items/armor-shield-heavens_taebaek.webp"
+        "Sprite": "sprites/items/armor-shield-gothic_shield.webp"
       }
     ]
   },
@@ -4530,7 +4531,7 @@
       {
         "FileIndex": 134,
         "NameKey": "Bane's Authority",
-        "Sprite": "sprites/items/armor-armor-splint_mail.webp"
+        "Sprite": "sprites/items/armor-belt-light_belt.webp"
       },
       {
         "FileIndex": 159,
@@ -4888,7 +4889,7 @@
       {
         "FileIndex": 139,
         "NameKey": "Horazon's Secrets",
-        "Sprite": "sprites/items/armor-glove-gaunlets_h.webp"
+        "Sprite": "sprites/items/armor-grimoires-codex.webp"
       }
     ]
   },
@@ -5000,7 +5001,7 @@
       {
         "FileIndex": 82,
         "NameKey": "Griswold's Heart",
-        "Sprite": "sprites/items/armor-armor-corpsemourn.webp"
+        "Sprite": "sprites/items/armor-armor-ancient_armor.webp"
       },
       {
         "FileIndex": 371,
@@ -5118,7 +5119,7 @@
       {
         "FileIndex": 62,
         "NameKey": "Natalya's Totem",
-        "Sprite": "sprites/items/armor-helmet-wormskull.webp"
+        "Sprite": "sprites/items/armor-helmet-bone_helm.webp"
       },
       {
         "FileIndex": 225,
@@ -5226,7 +5227,7 @@
       {
         "FileIndex": 114,
         "NameKey": "Sazabi's Mental Sheath",
-        "Sprite": "sprites/items/armor-helmet-duskdeep.webp"
+        "Sprite": "sprites/items/armor-helmet-full_helm.webp"
       },
       {
         "FileIndex": 361,
@@ -5518,7 +5519,7 @@
       {
         "FileIndex": 137,
         "NameKey": "Horazon's Hold",
-        "Sprite": "sprites/items/armor-armor-hard_leather_armor.webp"
+        "Sprite": "sprites/items/armor-glove-gloves_l.webp"
       },
       {
         "FileIndex": 216,
@@ -5713,7 +5714,7 @@
       {
         "FileIndex": 107,
         "NameKey": "Whitstan's Guard",
-        "Sprite": "sprites/items/armor-shield-mosers_blessed_circle.webp"
+        "Sprite": "sprites/items/armor-shield-small_shield.webp"
       }
     ]
   },
@@ -5851,7 +5852,8 @@
     "SetSprites": [
       {
         "FileIndex": 136,
-        "NameKey": "Horazon's Dominion"
+        "NameKey": "Horazon's Dominion",
+        "Sprite": "sprites/items/armor-armor-splint_mail.webp"
       },
       {
         "FileIndex": 295,
@@ -5923,7 +5925,7 @@
       {
         "FileIndex": 108,
         "NameKey": "Hwanin's Splendor",
-        "Sprite": "sprites/items/armor-helmet-crown_of_thieves.webp"
+        "Sprite": "sprites/items/armor-helmet-crown.webp"
       },
       {
         "FileIndex": 196,
@@ -5959,7 +5961,7 @@
       {
         "FileIndex": 102,
         "NameKey": "Haemosu's Adamant",
-        "Sprite": "sprites/items/armor-armor-haemosus_adament.webp"
+        "Sprite": "sprites/items/armor-armor-breast_plate.webp"
       }
     ]
   },
@@ -6784,7 +6786,7 @@
       {
         "FileIndex": 120,
         "NameKey": "Naj's Puzzler",
-        "Sprite": "sprites/items/weapon-staff-lazarus_spire.webp"
+        "Sprite": "sprites/items/weapon-staff-gnarled_staff.webp"
       }
     ]
   },
@@ -7953,7 +7955,7 @@
       {
         "FileIndex": 112,
         "NameKey": "Sazabi's Cobalt Redeemer",
-        "Sprite": "sprites/items/weapon-sword-hellplague.webp"
+        "Sprite": "sprites/items/weapon-sword-long_sword.webp"
       }
     ]
   },
@@ -8025,7 +8027,7 @@
       {
         "FileIndex": 100,
         "NameKey": "Dangoon's Teaching",
-        "Sprite": "sprites/items/weapon-mace-dangoons_teaching.webp"
+        "Sprite": "sprites/items/weapon-mace-mace.webp"
       }
     ]
   },
@@ -8183,7 +8185,7 @@
       {
         "FileIndex": 63,
         "NameKey": "Natalya's Mark",
-        "Sprite": "sprites/items/weapon-h2h-natalyas_mark.webp"
+        "Sprite": "sprites/items/weapon-h2h-scissors_katar.webp"
       }
     ]
   },
@@ -11424,7 +11426,8 @@
     "SetSprites": [
       {
         "FileIndex": 140,
-        "NameKey": "Jakira's Strike"
+        "NameKey": "Jakira's Strike",
+        "Sprite": "sprites/items/weapon-h2h-hatchet_hands.webp"
       }
     ]
   },
@@ -11600,7 +11603,7 @@
       {
         "FileIndex": 13,
         "NameKey": "Isenhart's Lightbrand",
-        "Sprite": "sprites/items/weapon-sword-griswolds_edge.webp"
+        "Sprite": "sprites/items/weapon-sword-broad_sword.webp"
       }
     ]
   },
@@ -11737,7 +11740,7 @@
       {
         "FileIndex": 126,
         "NameKey": "Sander's Superstition",
-        "Sprite": "sprites/items/weapon-wand-gravenspine.webp"
+        "Sprite": "sprites/items/weapon-wand-bone_wand.webp"
       },
       {
         "FileIndex": 149,
@@ -12470,7 +12473,8 @@
     "SetSprites": [
       {
         "FileIndex": 132,
-        "NameKey": "Bane's Oathmaker"
+        "NameKey": "Bane's Oathmaker",
+        "Sprite": "sprites/items/weapon-knife-kriss.webp"
       }
     ]
   },
@@ -12611,7 +12615,7 @@
       {
         "FileIndex": 6,
         "NameKey": "Cleglaw's Tooth",
-        "Sprite": "sprites/items/weapon-sword-hellplague.webp"
+        "Sprite": "sprites/items/weapon-sword-long_sword.webp"
       }
     ]
   },
@@ -12768,7 +12772,7 @@
       {
         "FileIndex": 30,
         "NameKey": "Tancred's Crowbill",
-        "Sprite": "sprites/items/weapon-axe-mindrend.webp"
+        "Sprite": "sprites/items/weapon-axe-military_pick.webp"
       }
     ]
   },
@@ -14343,7 +14347,108 @@
         "Sprite": "sprites/items/misc-amulet-amulet.webp"
       }
     ],
-    "SetSprites": []
+    "SetSprites": [
+      {
+        "FileIndex": 1,
+        "NameKey": "Civerb's Icon",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 9,
+        "NameKey": "Iratha's Collar",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 20,
+        "NameKey": "Vidala's Snare",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 28,
+        "NameKey": "Cathan's Sigil",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 33,
+        "NameKey": "Tancred's Weird",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 53,
+        "NameKey": "Angelic Wings",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 58,
+        "NameKey": "Arcanna's Sign",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 77,
+        "NameKey": "Tal Rasha's Adjudication",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 95,
+        "NameKey": "Telling of Beads",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 157,
+        "NameKey": "Sheena's Choker",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 176,
+        "NameKey": "Diamond Necklace",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 189,
+        "NameKey": "Brother Laz' Holy Symbol",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 221,
+        "NameKey": "Redemption Denied",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 261,
+        "NameKey": "Soulstone of Power",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 279,
+        "NameKey": "Eternal Sleep",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 318,
+        "NameKey": "Legacy in Blood",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 336,
+        "NameKey": "Ser'Angreal Necklace",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 346,
+        "NameKey": "Dominion's Thesis",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 429,
+        "NameKey": "Baal's Cryptic Amulet",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      },
+      {
+        "FileIndex": 433,
+        "NameKey": "Temptation's Death",
+        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+      }
+    ]
   },
   {
     "Code": "aqv",
@@ -16450,7 +16555,103 @@
         "Sprite": "sprites/items/misc-uniquering-constricting_ring.webp"
       }
     ],
-    "SetSprites": []
+    "SetSprites": [
+      {
+        "FileIndex": 29,
+        "NameKey": "Cathan's Seal",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 52,
+        "NameKey": "Angelic Halo",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 144,
+        "NameKey": "Peace Ring",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 175,
+        "NameKey": "Ruby Ring",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 194,
+        "NameKey": "Vampire's Crusade",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 208,
+        "NameKey": "Warder's Bond",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 219,
+        "NameKey": "Fall From Grace",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 220,
+        "NameKey": "Tyrael's Grief",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 269,
+        "NameKey": "Chiad's Halo",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 290,
+        "NameKey": "Char's Annulus of Obscurity",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 291,
+        "NameKey": "Char's Blessed Reflection",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 296,
+        "NameKey": "Kingpin's Signet",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 307,
+        "NameKey": "Draven Coil",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 335,
+        "NameKey": "Ter'Angreal Ring",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 384,
+        "NameKey": "Holy Ring of Amaunator",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 426,
+        "NameKey": "Seraphim",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 428,
+        "NameKey": "Diablo's Soulstone Ring",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 431,
+        "NameKey": "Demonic Chuckle",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      },
+      {
+        "FileIndex": 432,
+        "NameKey": "Evil Humor",
+        "Sprite": "sprites/items/misc-ring-ring.webp"
+      }
+    ]
   },
   {
     "Code": "rpl",

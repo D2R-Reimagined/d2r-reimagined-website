@@ -6,6 +6,7 @@
   import { loadItemStatPresentation, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
   import { loadCatalog } from '$lib/catalog-sources';
   import { buildRunewordNameMap, runewordNameKey } from '$lib/runeword-presentation';
+  import { loadRareNamePresentation, type RareNamePresentation } from '$lib/rare-name-presentation';
   import { loadSkillClasses } from '$lib/skills';
   import type { SkillClass } from '$lib/types';
   import { onMount } from 'svelte';
@@ -14,6 +15,7 @@
   let presentations = $state(new Map<string, ItemPresentation>());
   let statPresentation = $state<ItemStatPresentationBundle>();
   let runewordNames = $state(new Map<string, string>());
+  let rareNames = $state<RareNamePresentation>();
   let skillClasses = $state<SkillClass[]>([]);
   let artworkError = $state('');
   let tab = $state<'player' | 'mercenary'>('player');
@@ -128,16 +130,18 @@
 
   onMount(async () => {
     try {
-      const [loadedPresentations, loadedStatPresentation, loadedSkillClasses, runewords] = await Promise.all([
+      const [loadedPresentations, loadedStatPresentation, loadedSkillClasses, runewords, loadedRareNames] = await Promise.all([
         loadItemPresentation(),
         loadItemStatPresentation(),
         loadSkillClasses(),
-        loadCatalog('runewords')
+        loadCatalog('runewords'),
+        loadRareNamePresentation()
       ]);
       presentations = loadedPresentations;
       statPresentation = loadedStatPresentation;
       skillClasses = loadedSkillClasses;
       runewordNames = buildRunewordNameMap(runewords);
+      rareNames = loadedRareNames;
     } catch (value) {
       artworkError = value instanceof Error ? value.message : 'Item artwork could not be loaded.';
     }
@@ -220,11 +224,11 @@
         {#each equipped as item}
           {@const style = equippedStyle(item)}
           {@const itemPresentation = presentation(item)}
-          {#if style}<CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {statPresentation} runewordNameKey={runewordNameKey(item, runewordNames)} {style} tooltipSide={tooltipSide(item, itemPresentation)} />{/if}
+          {#if style}<CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {statPresentation} {rareNames} runewordNameKey={runewordNameKey(item, runewordNames)} {style} tooltipSide={tooltipSide(item, itemPresentation)} />{/if}
         {/each}
         {#each inventory as item}
           {@const itemPresentation = presentation(item)}
-          <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {statPresentation} runewordNameKey={runewordNameKey(item, runewordNames)} style={inventoryStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} />
+          <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {statPresentation} {rareNames} runewordNameKey={runewordNameKey(item, runewordNames)} style={inventoryStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} />
         {/each}
       </div>
     </div>
