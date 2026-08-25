@@ -110,10 +110,14 @@ function makeTools(s: I18nState) {
 
   // A skill line is a template plus one value table per numeric argument. The exporter
   // trims each table's constant tail, so reading past the end means "it stopped scaling".
-  const skillLine = (value: SkillDescriptionLine | undefined | null, level: number): string => {
+  const skillLine = (
+    value: SkillDescriptionLine | undefined | null,
+    level: number,
+    transform: (value: number) => number = (number) => number
+  ): string => {
     if (!value) return '';
     const numbers = (value.values ?? []).map(
-      (table) => table[Math.min(Math.max(level, 1) - 1, table.length - 1)]
+      (table) => transform(table[Math.min(Math.max(level, 1) - 1, table.length - 1)])
     );
     const key = value.pluralKey && numbers[0] !== 1 ? value.pluralKey : value.key;
     const template = lookup(s, key);

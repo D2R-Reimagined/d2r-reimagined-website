@@ -1,5 +1,6 @@
 <script lang="ts">
   import ItemTooltip from '$lib/components/ItemTooltip.svelte';
+  import { isItemIdentified, itemDisplayLabel } from '$lib/item-identification';
   import { itemSprite, itemVariant, type ItemPresentation } from '$lib/item-presentation';
   import type { ItemStatPresentationBundle } from '$lib/item-stat-presentation';
   import type { SaveItem } from '$lib/characters';
@@ -23,13 +24,14 @@
   } = $props();
 
   let open = $state(false);
-  let sprite = $derived(itemSprite(item, presentation));
-  let variant = $derived(presentation ? itemVariant(item, presentation) : null);
-  let label = $derived(variant?.NameKey || item.baseName || item.codeText);
+  let sprite = $derived(itemSprite(item, presentation, itemPresentations));
+  let variant = $derived(presentation ? itemVariant(item, presentation, itemPresentations) : null);
+  let identified = $derived(isItemIdentified(item));
+  let label = $derived(itemDisplayLabel(item, identified ? variant?.NameKey : null));
   let socketItems = $derived(item.sockets.filter((socket): socket is SaveItem => socket !== null));
 
   function socketSprite(socket: SaveItem): string | null {
-    return itemSprite(socket, itemPresentations.get(socket.codeText.toLowerCase()));
+    return itemSprite(socket, itemPresentations.get(socket.codeText.toLowerCase()), itemPresentations);
   }
 </script>
 
@@ -89,7 +91,7 @@
     <div
       class={`pointer-events-none absolute bottom-[calc(100%+0.4rem)] left-1/2 z-50 w-[min(23rem,82vw)] -translate-x-1/2 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 sm:translate-x-0 ${tooltipSide === 'left' ? 'sm:left-auto sm:right-[calc(100%+0.5rem)]' : 'sm:left-[calc(100%+0.5rem)]'}`}
     >
-      <ItemTooltip {item} {presentation} {statPresentation} {runewordNameKey} />
+      <ItemTooltip {item} {presentation} {itemPresentations} {statPresentation} {runewordNameKey} />
     </div>
   {/if}
 </div>
