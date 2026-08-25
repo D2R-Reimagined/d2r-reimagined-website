@@ -104,6 +104,9 @@
       <div class="flex flex-col gap-1 lg:flex-row lg:items-center">
         <a href="/" onclick={closeMenus} class={navClass('/')}>Home</a>
         <a href="/grail" onclick={closeMenus} class={navClass('/grail')}>Holy Grail</a>
+        {#if $authState.user?.roles.includes('Admin')}
+          <a href="/admin/ladders" onclick={closeMenus} class={navClass('/admin')}>Admin</a>
+        {/if}
 
         <div class="relative">
           <button type="button" onclick={toggleDataMenu} class={`flex w-full items-center justify-between gap-2 ${navClass('/data')}`} aria-expanded={dataOpen}>
