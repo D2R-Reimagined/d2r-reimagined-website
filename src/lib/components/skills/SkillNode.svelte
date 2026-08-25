@@ -9,7 +9,8 @@
     available,
     select,
     increase,
-    decrease
+    decrease,
+    readonly = false
   }: {
     skill: Skill;
     rank: number;
@@ -18,10 +19,13 @@
     select: (skill: Skill) => void;
     increase: (skill: Skill, amount?: number) => void;
     decrease: (skill: Skill, amount?: number) => void;
+    readonly?: boolean;
   } = $props();
 
   let name = $derived($i18n.t(skill.NameKey));
   let initial = $derived(name.trim().charAt(0).toUpperCase() || '?');
+  let failedIcon = $state('');
+  let icon = $derived(skill.Icon ? `/data/${skill.Icon}` : '');
 
   function addPointAmount(event: MouseEvent): number {
     if (event.shiftKey) return (skill.MaxLevel || 20) - rank;
@@ -37,11 +41,13 @@
 
   function addPoint(event: MouseEvent): void {
     select(skill);
+    if (readonly) return;
     increase(skill, addPointAmount(event));
   }
 
   function removePoint(event: MouseEvent): void {
     select(skill);
+    if (readonly) return;
     decrease(skill, removePointAmount(event));
   }
 </script>
@@ -55,19 +61,23 @@
     class="skill-node"
     aria-label={`${name}: ${rank} of ${skill.MaxLevel || 20} points`}
     aria-pressed={rank > 0}
-    aria-disabled={!available && rank === 0}
-    title={`${name} — click: +1; Ctrl-click: +5; Shift-click: max. Right-click removes using the same modifiers.`}
+    aria-disabled={readonly ? undefined : !available && rank === 0}
+    title={readonly ? `${name} — ${rank} of ${skill.MaxLevel || 20} points` : `${name} — click: +1; Ctrl-click: +5; Shift-click: max. Right-click removes using the same modifiers.`}
     onclick={addPoint}
     onmousedown={(event) => {
-      if (event.button !== 2) return;
+      if (readonly || event.button !== 2) return;
       event.preventDefault();
       removePoint(event);
     }}
     onfocus={() => select(skill)}
     onmouseenter={() => select(skill)}
-    oncontextmenu={(event) => event.preventDefault()}
+    oncontextmenu={(event) => { if (!readonly) event.preventDefault(); }}
   >
-    <span class="skill-initial" aria-hidden="true">{initial}</span>
+    {#if icon && failedIcon !== icon}
+      <img src={icon} alt="" class="skill-icon" onerror={() => failedIcon = icon} />
+    {:else}
+      <span class="skill-initial" aria-hidden="true">{initial}</span>
+    {/if}
     <span class="skill-rank">{rank}/{skill.MaxLevel || 20}</span>
   </button>
   <span class="skill-name">{name}</span>
@@ -123,6 +133,14 @@
   }
 
   .skill-node:hover { filter: brightness(1.22); }
+  .skill-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.18rem;
+    object-fit: cover;
+  }
+  .skill-node:not(.allocated):not(.available) .skill-icon { filter: saturate(0.45) brightness(0.58); }
+  .skill-node.available:not(.allocated) .skill-icon { filter: saturate(0.8) brightness(0.82); }
   .skill-initial { font-family: var(--font-display); font-size: 1.65rem; }
 
   .skill-rank {

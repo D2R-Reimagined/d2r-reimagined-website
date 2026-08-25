@@ -3,21 +3,17 @@
 
   import { i18n } from '$lib/i18n';
   import type { Skill, SkillClass } from '$lib/types';
-  import SkillDetails from './SkillDetails.svelte';
-  import SkillTree from './SkillTree.svelte';
+  import SkillTreeView from './SkillTreeView.svelte';
 
   let { classes }: { classes: SkillClass[] } = $props();
 
   const storageKey = 'd2r-reimagined-skill-planner-v1';
   let activeClassCode = $state('');
-  let selectedSkillId = $state<number | null>(null);
   let ranks = $state<Record<number, number>>({});
   let hydrated = $state(false);
 
   let activeClass = $derived(classes.find((entry) => entry.ClassCode === activeClassCode) ?? classes[0]);
   let activeSkills = $derived(activeClass?.Tabs.flatMap((tab) => tab.Skills) ?? []);
-  let selectedSkill = $derived(activeSkills.find((skill) => skill.Id === selectedSkillId) ?? activeSkills[0]);
-  let effectiveSelectedSkillId = $derived(selectedSkill?.Id ?? null);
   let totalPoints = $derived(activeSkills.reduce((total, skill) => total + (ranks[skill.Id] ?? 0), 0));
 
   onMount(() => {
@@ -43,11 +39,6 @@
 
   function chooseClass(skillClass: SkillClass): void {
     activeClassCode = skillClass.ClassCode;
-    selectedSkillId = skillClass.Tabs[0]?.Skills[0]?.Id ?? null;
-  }
-
-  function select(skill: Skill): void {
-    selectedSkillId = skill.Id;
   }
 
   function canIncrease(skill: Skill): boolean {
@@ -57,14 +48,12 @@
   }
 
   function increase(skill: Skill, amount = 1): void {
-    selectedSkillId = skill.Id;
     if (!canIncrease(skill)) return;
     const rank = ranks[skill.Id] ?? 0;
     ranks = { ...ranks, [skill.Id]: Math.min(rank + amount, skill.MaxLevel || 20) };
   }
 
   function decrease(skill: Skill, amount = 1): void {
-    selectedSkillId = skill.Id;
     const rank = ranks[skill.Id] ?? 0;
     if (rank === 0) return;
     const hasAllocatedDependent = activeSkills.some((candidate) =>
@@ -103,42 +92,13 @@
     <button type="button" onclick={resetClass} disabled={totalPoints === 0} class="reset-button">Reset class</button>
   </div>
 
-  {#each classes as skillClass}
-    <section
-      class:hidden={activeClass?.ClassCode !== skillClass.ClassCode}
-      aria-hidden={activeClass?.ClassCode !== skillClass.ClassCode}
-      class="planner-layout mt-6"
-    >
-      <div class="tree-scroll" aria-label={`${$i18n.t(skillClass.NameKey)} skill trees`}>
-        <div class="tree-row">
-          {#each skillClass.Tabs as tab (tab.Page)}
-            <SkillTree
-              {tab}
-              {ranks}
-              selectedSkillId={effectiveSelectedSkillId}
-              {select}
-              {increase}
-              {decrease}
-              {canIncrease}
-            />
-          {/each}
-        </div>
-      </div>
-
-      {#if activeClass?.ClassCode === skillClass.ClassCode}
-        <div class="details-column">
-          <SkillDetails
-            skill={selectedSkill}
-            skills={activeSkills}
-            rank={selectedSkill ? ranks[selectedSkill.Id] ?? 0 : 0}
-            available={selectedSkill ? canIncrease(selectedSkill) : false}
-            {increase}
-            {decrease}
-          />
-        </div>
-      {/if}
-    </section>
-  {/each}
+  {#if activeClass}
+    <div class="mt-6">
+      {#key activeClass.ClassCode}
+        <SkillTreeView skillClass={activeClass} {ranks} {increase} {decrease} {canIncrease} />
+      {/key}
+    </div>
+  {/if}
 </section>
 
 <style>
@@ -188,27 +148,9 @@
   .reset-button:hover:not(:disabled) { color: white; background: #7b1d18; }
   .reset-button:disabled { opacity: 0.35; }
 
-  .planner-layout { display: grid; min-width: 0; gap: 1rem; }
-  .planner-layout.hidden { display: none; }
-  .tree-scroll { min-width: 0; overflow-x: auto; padding: 0.25rem 0.25rem 1rem; }
-  .tree-row { display: flex; width: max-content; gap: 0.8rem; margin: 0 auto; }
-  .details-column { min-width: 0; }
-
   @media (min-width: 768px) {
     .class-tabs { grid-template-columns: repeat(8, minmax(0, 1fr)); }
     .class-tab { flex-direction: column; }
-  }
-
-  @media (min-width: 1280px) {
-    .planner-layout { grid-template-columns: minmax(0, 1fr) 19rem; align-items: start; }
-    .details-column {
-      position: sticky;
-      top: 5.5rem;
-      /* The panel grew past the viewport once it started listing per-level stats and
-         synergies; scroll it internally so the allocate buttons stay reachable. */
-      max-height: calc(100vh - 7rem);
-      overflow-y: auto;
-    }
   }
 
   @media (max-width: 520px) {

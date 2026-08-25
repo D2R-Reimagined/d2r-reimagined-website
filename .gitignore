@@ -37,3 +37,4 @@ node_modules
 /.junie
 /.svelte-kit
 /build
+/artifacts
