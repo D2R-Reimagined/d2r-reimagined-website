@@ -159,7 +159,7 @@
   }
 
   function logOut(): void {
-    signOut();
+    void signOut();
     notice = 'You have been signed out.';
   }
 

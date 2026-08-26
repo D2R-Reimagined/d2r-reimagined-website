@@ -42,6 +42,7 @@ export class ApiError extends Error {
 export const authState = writable<AuthState>({ ready: false, user: null });
 
 let initialization: Promise<void> | null = null;
+let refreshRequest: Promise<boolean> | null = null;
 
 function apiBaseUrl(): string {
   return (env.PUBLIC_API_BASE_URL || 'http://localhost:5000').replace(/\/$/, '');
@@ -51,10 +52,11 @@ function accessToken(): string | null {
   return browser ? localStorage.getItem(tokenStorageKey) : null;
 }
 
-export async function apiRequest<T>(
+async function executeApiRequest<T>(
   path: string,
   init: RequestInit = {},
-  authenticated: boolean | 'optional' = false
+  authenticated: boolean | 'optional',
+  allowRefresh: boolean
 ): Promise<T> {
   const headers = new Headers(init.headers);
   const isFormData = typeof FormData !== 'undefined' && init.body instanceof FormData;
@@ -62,15 +64,22 @@ export async function apiRequest<T>(
     headers.set('Content-Type', 'application/json');
   }
   if (authenticated) {
-    const token = accessToken();
+    let token = accessToken();
+    if (!token && authenticated === true && allowRefresh && await refreshAccessToken()) {
+      token = accessToken();
+    }
     if (!token && authenticated === true) throw new ApiError('You need to sign in first.', 401);
     if (token) headers.set('Authorization', `Bearer ${token}`);
   }
 
   const response = await fetch(`${apiBaseUrl()}${path}`, {
     ...init,
+    credentials: init.credentials ?? 'include',
     headers
   });
+  if (response.status === 401 && authenticated && allowRefresh && await refreshAccessToken()) {
+    return await executeApiRequest<T>(path, init, authenticated, false);
+  }
   if (!response.ok) {
     const problem = await response.json().catch(() => null) as { detail?: string; title?: string } | null;
     throw new ApiError(
@@ -83,10 +92,45 @@ export async function apiRequest<T>(
   return await response.json() as T;
 }
 
+export function apiRequest<T>(
+  path: string,
+  init: RequestInit = {},
+  authenticated: boolean | 'optional' = false
+): Promise<T> {
+  return executeApiRequest<T>(path, init, authenticated, true);
+}
+
 function storeSession(response: AuthResponse): UserProfile {
   localStorage.setItem(tokenStorageKey, response.accessToken);
   authState.set({ ready: true, user: response.user });
   return response.user;
+}
+
+function clearStoredSession(): void {
+  if (browser) localStorage.removeItem(tokenStorageKey);
+  authState.set({ ready: true, user: null });
+}
+
+async function refreshAccessToken(): Promise<boolean> {
+  if (!browser) return false;
+  if (refreshRequest) return await refreshRequest;
+
+  refreshRequest = (async () => {
+    const response = await fetch(`${apiBaseUrl()}/auth/refresh`, {
+      method: 'POST',
+      credentials: 'include'
+    });
+    if (!response.ok) {
+      if (response.status === 401) clearStoredSession();
+      return false;
+    }
+
+    storeSession(await response.json() as AuthResponse);
+    return true;
+  })().finally(() => {
+    refreshRequest = null;
+  });
+  return await refreshRequest;
 }
 
 export function initializeAuth(): Promise<void> {
@@ -95,7 +139,14 @@ export function initializeAuth(): Promise<void> {
 
   initialization = (async () => {
     if (!accessToken()) {
-      authState.set({ ready: true, user: null });
+      try {
+        if (await refreshAccessToken()) return;
+      } catch {
+        authState.update((state) => ({ ...state, ready: true }));
+        return;
+      }
+
+      clearStoredSession();
       return;
     }
 
@@ -103,8 +154,7 @@ export function initializeAuth(): Promise<void> {
       await refreshProfile();
     } catch (error) {
       if (error instanceof ApiError && error.status === 401) {
-        localStorage.removeItem(tokenStorageKey);
-        authState.set({ ready: true, user: null });
+        clearStoredSession();
         return;
       }
 
@@ -167,9 +217,15 @@ export async function updateProfile(email: string, displayName: string): Promise
   return user;
 }
 
-export function signOut(): void {
-  if (browser) localStorage.removeItem(tokenStorageKey);
-  authState.set({ ready: true, user: null });
+export async function signOut(): Promise<void> {
+  try {
+    await fetch(`${apiBaseUrl()}/auth/logout`, {
+      method: 'POST',
+      credentials: 'include'
+    });
+  } finally {
+    clearStoredSession();
+  }
 }
 
 export function beginSteamSignIn(returnUrl: string): void {
