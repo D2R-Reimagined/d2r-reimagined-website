@@ -7,7 +7,9 @@
     skill,
     skills,
     ranks,
+    synergyRanks = ranks,
     rank,
+    baseRank = rank,
     available,
     increase,
     decrease,
@@ -16,7 +18,9 @@
     skill: Skill | undefined;
     skills: Skill[];
     ranks: Record<number, number>;
+    synergyRanks?: Record<number, number>;
     rank: number;
+    baseRank?: number;
     available: boolean;
     increase: (skill: Skill, amount?: number) => void;
     decrease: (skill: Skill, amount?: number) => void;
@@ -49,7 +53,7 @@
   }
 
   function render(line: SkillDescriptionLine): string {
-    const bonus = skill && line.scale ? skillSynergyBonus(skill, line.scale, skills, ranks) : 0;
+    const bonus = skill && line.scale ? skillSynergyBonus(skill, line.scale, skills, synergyRanks) : 0;
     return $i18n.skillLine(line, previewLevel, (value) => applySkillSynergy(value, bonus));
   }
 
@@ -79,7 +83,13 @@
     <dl class="mt-5 grid grid-cols-2 gap-2 border-y border-parchment-300/15 py-4 text-sm">
       <div>
         <dt class="text-parchment-300">Skill rank</dt>
-        <dd class="mt-1 text-parchment-50">{rank} / {skill.MaxLevel || 20}</dd>
+        <dd class="mt-1 text-parchment-50">
+          {#if readonly && rank !== baseRank}
+            {rank} current <span class="text-parchment-300">({baseRank} base)</span>
+          {:else}
+            {rank} / {skill.MaxLevel || 20}
+          {/if}
+        </dd>
       </div>
       <div>
         <dt class="text-parchment-300">Required level</dt>

@@ -4896,5 +4896,6 @@
   "Rule": "[fs]Comandante[ms]Comandante[fp]Comandantes[mp]Comandantes",
   "Warp": "[fs]Distorcida[ms]Distorcido[fp]Distorcidas[mp]Distorcidos",
   "Rift": "[ms]Fendido[mp]Fendidos[fs]Fendida[fp]Fendidas",
-  "Corruption": "[fs]Corrupta[ms]Corrupto[fp]Corruptas[mp]Corruptos"
+  "Corruption": "[fs]Corrupta[ms]Corrupto[fp]Corruptas[mp]Corruptos",
+  "uber_mod": "O peso do mal..."
 }

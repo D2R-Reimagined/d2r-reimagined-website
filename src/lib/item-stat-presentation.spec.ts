@@ -26,7 +26,18 @@ const bundle: ItemStatPresentationBundle = {
     item_openwounds: { PositiveKey: 'ModStr3m', Function: 19, ValueShift: 0 },
     item_replenish_quantity: { PositiveKey: 'ModStre9v', Function: 19, ValueShift: 0 },
     maxhp: { PositiveKey: 'ModStr1u', Function: 19, ValueShift: 8 },
-    item_skillongethit: { PositiveKey: 'ItemExpansiveChanc2', Function: 15, ValueShift: 0 }
+    item_skillongethit: { PositiveKey: 'ItemExpansiveChanc2', Function: 15, ValueShift: 0 },
+    hpregen_perlevel: {
+      Priority: 56,
+      PositiveKey: 'ModStr2l',
+      NegativeKey: 'ModStr2w',
+      Function: 19,
+      ValueShift: 0
+    },
+    item_allskills: { Priority: 158, PositiveKey: 'ModStr3k', Function: 19, ValueShift: 0 },
+    item_corrupted: { Priority: 300, PositiveKey: 'Corrupted', Function: 20, ValueShift: 0 },
+    upgrade_medium: { Priority: 301, PositiveKey: 'MediumUpgrades', Function: 19, ValueShift: 0 },
+    soulstone_weight: { Priority: 2, PositiveKey: 'uber_mod', Function: 19, ValueShift: 0 }
   },
   Skills: {
     '387': {
@@ -122,5 +133,40 @@ describe('displayStatLines', () => {
       { key: 'ModitemAura', args: [15, 'skillname120'] },
       { key: 'ItemModifierNonClassSkill', args: [4, 'skillname9'] }
     ]);
+  });
+
+  it('sorts stats by the game priority and exposes their in-game color role', () => {
+    const lines = displayStatLines([
+      stat(127, 'item_allskills', 1),
+      stat(395, 'item_corrupted', -2),
+      stat(394, 'upgrade_medium', 3)
+    ], bundle);
+
+    expect(lines.map((line) => [line.keyed?.key, line.tone])).toEqual([
+      ['MediumUpgrades', 'enchantment'],
+      ['Corrupted', 'corrupted'],
+      ['ModStr3k', 'magic']
+    ]);
+  });
+
+  it('renders flavor-only weight text without exposing the backing value', () => {
+    const [line] = displayStatLines([stat(398, 'soulstone_weight', 1)], bundle);
+
+    expect(line.keyed).toEqual({ key: 'uber_mod', args: [1] });
+    expect(line.tone).toBe('flavor');
+  });
+
+  it('applies per-level save encoding at the character level', () => {
+    const [line] = displayStatLines(
+      [stat(74, 'hpregen_perlevel', -12)],
+      bundle,
+      { characterLevel: 99 }
+    );
+
+    expect(line.keyed).toEqual({
+      key: 'ModStr2w',
+      args: [-297],
+      perLevel: true
+    });
   });
 });

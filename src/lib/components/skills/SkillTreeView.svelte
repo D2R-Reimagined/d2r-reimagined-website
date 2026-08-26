@@ -6,6 +6,7 @@
   let {
     skillClass,
     ranks,
+    baseRanks = ranks,
     readonly = false,
     increase = () => undefined,
     decrease = () => undefined,
@@ -13,6 +14,7 @@
   }: {
     skillClass: SkillClass;
     ranks: Record<number, number>;
+    baseRanks?: Record<number, number>;
     readonly?: boolean;
     increase?: (skill: Skill, amount?: number) => void;
     decrease?: (skill: Skill, amount?: number) => void;
@@ -39,6 +41,7 @@
         <SkillTree
           {tab}
           {ranks}
+          {baseRanks}
           selectedSkillId={selectedSkill?.Id ?? null}
           {select}
           {increase}
@@ -55,7 +58,9 @@
       skill={selectedSkill}
       {skills}
       {ranks}
+      synergyRanks={baseRanks}
       rank={selectedSkill ? ranks[selectedSkill.Id] ?? 0 : 0}
+      baseRank={selectedSkill ? baseRanks[selectedSkill.Id] ?? 0 : 0}
       available={selectedSkill ? canIncrease(selectedSkill) : false}
       {increase}
       {decrease}

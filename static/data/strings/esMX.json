@@ -4896,5 +4896,6 @@
   "Rule": "[ms]de orden[fs]de orden[mp]de orden[fp]de orden",
   "Warp": "[ms]distorsionado[fs]distorsionada[mp]distorsionados[fp]distorsionadas",
   "Rift": "[ms]agrietado[fs]agrietada[mp]agrietados[fp]agrietadas",
-  "Corruption": "[ms]corrupto[fs]corrupta[mp]corruptos[fp]corruptas"
+  "Corruption": "[ms]corrupto[fs]corrupta[mp]corruptos[fp]corruptas",
+  "uber_mod": "El peso del mal..."
 }
