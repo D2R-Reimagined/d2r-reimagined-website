@@ -39,6 +39,7 @@ describe('formatTemplate', () => {
         // Fire Bolt's mana cost is 640/256 — truncating it to 2 would misstate the skill.
         expect(formatTemplate('Mana Cost: %d', [2.5])).toBe('Mana Cost: 2.5');
         expect(formatTemplate('Cold Length: %d seconds', [4.8])).toBe('Cold Length: 4.8 seconds');
+        expect(formatTemplate('Casting Delay: %d seconds', [0.6])).toBe('Casting Delay: 0.6 seconds');
         expect(formatTemplate('%+d%% Damage Reduction', [-1.5])).toBe('-1.5% Damage Reduction');
         // Whole numbers are unchanged, so every item property renders as before.
         expect(formatTemplate('Mana Cost: %d', [7])).toBe('Mana Cost: 7');

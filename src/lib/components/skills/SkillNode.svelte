@@ -5,6 +5,7 @@
   let {
     skill,
     rank,
+    baseRank = rank,
     selected,
     available,
     select,
@@ -14,6 +15,7 @@
   }: {
     skill: Skill;
     rank: number;
+    baseRank?: number;
     selected: boolean;
     available: boolean;
     select: (skill: Skill) => void;
@@ -59,10 +61,16 @@
     class:selected
     class:available
     class="skill-node"
-    aria-label={`${name}: ${rank} of ${skill.MaxLevel || 20} points`}
+    aria-label={readonly && rank !== baseRank
+      ? `${name}: current level ${rank}, ${baseRank} base points`
+      : `${name}: ${rank} of ${skill.MaxLevel || 20} points`}
     aria-pressed={rank > 0}
     aria-disabled={readonly ? undefined : !available && rank === 0}
-    title={readonly ? `${name} — ${rank} of ${skill.MaxLevel || 20} points` : `${name} — click: +1; Ctrl-click: +5; Shift-click: max. Right-click removes using the same modifiers.`}
+    title={readonly
+      ? rank !== baseRank
+        ? `${name} — current level ${rank} (${baseRank} base)`
+        : `${name} — current level ${rank}`
+      : `${name} — click: +1; Ctrl-click: +5; Shift-click: max. Right-click removes using the same modifiers.`}
     onclick={addPoint}
     onmousedown={(event) => {
       if (readonly || event.button !== 2) return;
@@ -78,7 +86,7 @@
     {:else}
       <span class="skill-initial" aria-hidden="true">{initial}</span>
     {/if}
-    <span class="skill-rank">{rank}/{skill.MaxLevel || 20}</span>
+    <span class="skill-rank">{readonly ? rank : `${rank}/${skill.MaxLevel || 20}`}</span>
   </button>
   <span class="skill-name">{name}</span>
 </div>

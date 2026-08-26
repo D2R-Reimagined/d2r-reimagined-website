@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { tick } from 'svelte';
   import ItemTooltip from '$lib/components/ItemTooltip.svelte';
   import { isItemIdentified, itemDisplayLabel } from '$lib/item-identification';
   import { hasUnknownItemVariant, itemSprite, itemVariant, type ItemPresentation } from '$lib/item-presentation';
@@ -14,6 +15,7 @@
     statPresentation,
     rareNames,
     runewordNameKey,
+    characterLevel,
     style,
     tooltipSide = 'right'
   }: {
@@ -23,11 +25,15 @@
     statPresentation?: ItemStatPresentationBundle;
     rareNames?: RareNamePresentation;
     runewordNameKey?: string;
+    characterLevel?: number;
     style: string;
     tooltipSide?: 'left' | 'right';
   } = $props();
 
   let open = $state(false);
+  let itemElement: HTMLDivElement | undefined = $state();
+  let tooltipElement: HTMLDivElement | undefined = $state();
+  let tooltipStyle = $state('left:0;top:0;visibility:hidden');
   let sprite = $derived(itemSprite(item, presentation, itemPresentations));
   let variant = $derived(presentation ? itemVariant(item, presentation, itemPresentations) : null);
   let unknownVariant = $derived(hasUnknownItemVariant(item, presentation, itemPresentations));
@@ -46,9 +52,65 @@
   function socketSprite(socket: SaveItem): string | null {
     return itemSprite(socket, itemPresentations.get(socket.codeText.toLowerCase()), itemPresentations);
   }
+
+  function positionTooltip() {
+    if (!itemElement || !tooltipElement) return;
+
+    const margin = 8;
+    const gap = 8;
+    const anchor = itemElement.getBoundingClientRect();
+    const tooltip = tooltipElement.getBoundingClientRect();
+    const availableWidth = window.innerWidth - (margin * 2);
+    const width = Math.min(tooltip.width, availableWidth);
+    let left: number;
+    let top: number;
+
+    if (window.innerWidth < 640) {
+      left = anchor.left + (anchor.width / 2) - (width / 2);
+      top = anchor.top - tooltip.height - gap;
+      if (top < margin) top = anchor.bottom + gap;
+    } else {
+      const preferredLeft = tooltipSide === 'left'
+        ? anchor.left - width - gap
+        : anchor.right + gap;
+      const alternateLeft = tooltipSide === 'left'
+        ? anchor.right + gap
+        : anchor.left - width - gap;
+      const preferredFits = preferredLeft >= margin && preferredLeft + width <= window.innerWidth - margin;
+      left = preferredFits ? preferredLeft : alternateLeft;
+      top = anchor.top + (anchor.height / 2) - (tooltip.height / 2);
+    }
+
+    left = Math.max(margin, Math.min(left, window.innerWidth - width - margin));
+    top = Math.max(margin, Math.min(top, window.innerHeight - tooltip.height - margin));
+    tooltipStyle = `left:${left}px;top:${top}px;width:${width}px;visibility:visible`;
+  }
+
+  async function showTooltip() {
+    open = true;
+    tooltipStyle = 'left:0;top:0;visibility:hidden';
+    await tick();
+    positionTooltip();
+  }
+
+  function hideTooltip() {
+    open = false;
+  }
+
+  $effect(() => {
+    if (!open) return;
+    const reposition = () => positionTooltip();
+    window.addEventListener('resize', reposition);
+    window.addEventListener('scroll', reposition, true);
+    return () => {
+      window.removeEventListener('resize', reposition);
+      window.removeEventListener('scroll', reposition, true);
+    };
+  });
 </script>
 
 <div
+  bind:this={itemElement}
   class="character-item absolute flex cursor-help items-center justify-center p-[0.3%] focus:outline-none"
   class:z-40={open}
   class:z-10={!open}
@@ -56,17 +118,17 @@
   tabindex="0"
   role="button"
   aria-label={`Inspect ${label}`}
-  onmouseenter={() => open = true}
-  onmouseleave={() => open = false}
-  onfocus={() => open = true}
-  onblur={() => open = false}
-  onclick={() => open = true}
+  onmouseenter={showTooltip}
+  onmouseleave={hideTooltip}
+  onfocus={showTooltip}
+  onblur={hideTooltip}
+  onclick={showTooltip}
   onkeydown={(event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      open = true;
+      showTooltip();
     } else if (event.key === 'Escape') {
-      open = false;
+      hideTooltip();
     }
   }}
 >
@@ -102,9 +164,11 @@
   {/if}
   {#if open}
     <div
-      class={`pointer-events-none absolute bottom-[calc(100%+0.4rem)] left-1/2 z-50 w-[min(23rem,82vw)] -translate-x-1/2 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 sm:translate-x-0 ${tooltipSide === 'left' ? 'sm:left-auto sm:right-[calc(100%+0.5rem)]' : 'sm:left-[calc(100%+0.5rem)]'}`}
+      bind:this={tooltipElement}
+      class="pointer-events-auto fixed z-[100] max-h-[calc(100vh-1rem)] w-[min(23rem,calc(100vw-1rem))] overflow-y-auto overscroll-contain"
+      style={tooltipStyle}
     >
-      <ItemTooltip {item} {presentation} {itemPresentations} {statPresentation} {runewordNameKey} {identifiedName} />
+      <ItemTooltip {item} {presentation} {itemPresentations} {statPresentation} {runewordNameKey} {identifiedName} {characterLevel} />
     </div>
   {/if}
 </div>

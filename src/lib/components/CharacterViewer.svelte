@@ -1,6 +1,7 @@
 <script lang="ts">
   import CharacterItem from '$lib/components/CharacterItem.svelte';
   import SkillTreeView from '$lib/components/skills/SkillTreeView.svelte';
+  import { characterSkillRanks } from '$lib/character-skill-ranks';
   import type { CharacterDetailsResponse, SaveItem } from '$lib/characters';
   import { loadItemPresentation, type ItemPresentation } from '$lib/item-presentation';
   import { loadItemStatPresentation, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
@@ -70,6 +71,11 @@
   );
   let skillRanks = $derived(
     Object.fromEntries((save?.skills.entries ?? []).map((skill) => [skill.id, skill.points]))
+  );
+  let displayedSkillRanks = $derived(
+    save && skillClass
+      ? characterSkillRanks(save, skillClass, skillClasses).effective
+      : skillRanks
   );
   let allocatedSkillPoints = $derived(
     Object.values(skillRanks).reduce((total, points) => total + points, 0)
@@ -224,11 +230,11 @@
         {#each equipped as item}
           {@const style = equippedStyle(item)}
           {@const itemPresentation = presentation(item)}
-          {#if style}<CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {statPresentation} {rareNames} runewordNameKey={runewordNameKey(item, runewordNames)} {style} tooltipSide={tooltipSide(item, itemPresentation)} />{/if}
+          {#if style}<CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} {style} tooltipSide={tooltipSide(item, itemPresentation)} />{/if}
         {/each}
         {#each inventory as item}
           {@const itemPresentation = presentation(item)}
-          <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {statPresentation} {rareNames} runewordNameKey={runewordNameKey(item, runewordNames)} style={inventoryStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} />
+          <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} style={inventoryStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} />
         {/each}
       </div>
     </div>
@@ -247,7 +253,7 @@
         </div>
         <p class="text-sm text-parchment-300"><span class="text-parchment-50">{allocatedSkillPoints}</span> hard points allocated</p>
       </div>
-      <SkillTreeView {skillClass} ranks={skillRanks} readonly />
+      <SkillTreeView {skillClass} ranks={displayedSkillRanks} baseRanks={skillRanks} readonly />
     </section>
   {/if}
 {/if}

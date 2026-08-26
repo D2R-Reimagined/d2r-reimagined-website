@@ -6,6 +6,7 @@
   let {
     tab,
     ranks,
+    baseRanks = ranks,
     selectedSkillId,
     select,
     increase,
@@ -15,6 +16,7 @@
   }: {
     tab: SkillTab;
     ranks: Record<number, number>;
+    baseRanks?: Record<number, number>;
     selectedSkillId: number | null;
     select: (skill: Skill) => void;
     increase: (skill: Skill, amount?: number) => void;
@@ -56,6 +58,7 @@
       <SkillNode
         {skill}
         rank={ranks[skill.Id] ?? 0}
+        baseRank={baseRanks[skill.Id] ?? 0}
         selected={selectedSkillId === skill.Id}
         available={canIncrease(skill)}
         {select}

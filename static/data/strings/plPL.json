@@ -4896,5 +4896,6 @@
   "Rule": "[fs]Aksjomatyczna[ms]Aksjomatyczny[nl]Aksjomatyczne",
   "Warp": "[fs]Spaczona[ms]Spaczony[nl]Spaczone",
   "Rift": "[fs]Rozszczepiona[ms]Rozszczepiony[nl]Rozszczepione",
-  "Corruption": "[fs]Zdeprawowana[ms]Zdeprawowany[nl]Zdeprawowane"
+  "Corruption": "[fs]Zdeprawowana[ms]Zdeprawowany[nl]Zdeprawowane",
+  "uber_mod": "Ciężar zła..."
 }

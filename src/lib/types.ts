@@ -131,6 +131,7 @@ export interface Skill {
   Id: number;
   Code: string;
   NameKey: string;
+  ElementType?: string;
   ShortDescriptionKey?: string;
   DescriptionKey?: string;
   Icon?: string;

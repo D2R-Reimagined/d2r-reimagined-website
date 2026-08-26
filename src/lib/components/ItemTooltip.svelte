@@ -10,6 +10,7 @@
     presentation,
     itemPresentations,
     statPresentation,
+    characterLevel,
     runewordNameKey,
     identifiedName
   }: {
@@ -17,6 +18,7 @@
     presentation?: ItemPresentation;
     itemPresentations: Map<string, ItemPresentation>;
     statPresentation?: ItemStatPresentationBundle;
+    characterLevel?: number;
     runewordNameKey?: string;
     identifiedName?: string | null;
   } = $props();
@@ -45,8 +47,15 @@
   function statLines(stats: SaveStat[]): DisplayStatLine[] {
     const visibleStats = stats.filter((stat) => !isHiddenItemStat(stat, statPresentation));
     return statPresentation
-      ? displayStatLines(visibleStats, statPresentation)
+      ? displayStatLines(visibleStats, statPresentation, { characterLevel })
       : visibleStats.map((stat) => ({ fallback: fallbackStatLine(stat) }));
+  }
+
+  function statToneClass(line: DisplayStatLine): string {
+    if (line.tone === 'enchantment') return 'text-purple-400';
+    if (line.tone === 'corrupted') return 'text-red-400';
+    if (line.tone === 'flavor') return 'text-parchment-300';
+    return 'text-magic';
   }
 
   function qualityClass(): string {
@@ -91,13 +100,13 @@
   </div>
 
   {#if identified && item.stats.length}
-    <div class="mt-2 border-t border-parchment-300/20 pt-2 text-sm text-magic">
-      {#each statLines(item.stats) as line}<p>{renderedStatLine(line)}</p>{/each}
+    <div class="mt-2 border-t border-parchment-300/20 pt-2 text-sm">
+      {#each statLines(item.stats) as line}<p class={statToneClass(line)}>{renderedStatLine(line)}</p>{/each}
     </div>
   {/if}
   {#if identified && item.runewordStats?.length}
-    <div class="mt-2 border-t border-parchment-300/20 pt-2 text-sm text-magic">
-      {#each statLines(item.runewordStats) as line}<p>{renderedStatLine(line)}</p>{/each}
+    <div class="mt-2 border-t border-parchment-300/20 pt-2 text-sm">
+      {#each statLines(item.runewordStats) as line}<p class={statToneClass(line)}>{renderedStatLine(line)}</p>{/each}
     </div>
   {/if}
   {#if identified}
