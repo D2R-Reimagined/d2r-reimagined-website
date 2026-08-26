@@ -54,6 +54,7 @@ The included `Dockerfile` and `compose.yml` provide the same Node SSR runtime in
 - `/` — project home
 - `/grail` — local Holy Grail tracker
 - `/profile` — registration, sign-in, profile details, and Steam account linking
+- `/launcher/authorize` — authenticated PKCE approval flow for the desktop launcher
 - `/admin/ladders` — Admin-only ladder scheduling and extension requirements
 - `/admin/users` — Admin-only staff-role management
 - `/data/*` — uniques, sets, runewords, bases, affixes, and cube recipes

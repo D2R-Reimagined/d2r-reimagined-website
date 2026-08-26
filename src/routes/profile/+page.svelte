@@ -3,6 +3,7 @@
   import { page } from '$app/state';
   import { onMount } from 'svelte';
   import CharacterManager from '$lib/components/CharacterManager.svelte';
+  import { safeInternalReturnTo } from '$lib/launcher-auth';
 
   import {
     authState,
@@ -34,7 +35,21 @@
   let notice = $state('');
 
   function profileUrl(): string {
-    return `${window.location.origin}/profile`;
+    const url = new URL(window.location.href);
+    url.searchParams.delete('steam');
+    url.searchParams.delete('battlenet');
+    return url.href;
+  }
+
+  function launcherReturnTo(): string | null {
+    return safeInternalReturnTo(page.url.searchParams.get('returnTo'));
+  }
+
+  async function continueAfterSignIn(): Promise<boolean> {
+    const returnTo = launcherReturnTo();
+    if (!returnTo) return false;
+    await goto(returnTo, { replaceState: true });
+    return true;
   }
 
   function message(value: unknown): string {
@@ -56,9 +71,11 @@
     try {
       if (mode === 'register') {
         await register(email, password, displayName, battleTag);
+        if (await continueAfterSignIn()) return;
         notice = 'Your account is ready.';
       } else {
         await signIn(email, password);
+        if (await continueAfterSignIn()) return;
         notice = 'Welcome back.';
       }
     } catch (value) {
@@ -166,6 +183,7 @@
   onMount(async () => {
     const steamStatus = page.url.searchParams.get('steam');
     const battleNetStatus = page.url.searchParams.get('battlenet');
+    const returnTo = launcherReturnTo();
     try {
       if (steamStatus === 'signed-in') {
         busy = true;
@@ -183,11 +201,16 @@
           notice = 'Battle.net linking was cancelled.';
         }
       }
+
+      if ($authState.user && returnTo) {
+        await goto(returnTo, { replaceState: true });
+        return;
+      }
     } catch (value) {
       error = message(value);
     } finally {
       busy = false;
-      if (steamStatus || battleNetStatus) {
+      if ((steamStatus || battleNetStatus) && !returnTo) {
         await goto('/profile', { replaceState: true, noScroll: true });
       }
     }

@@ -25,6 +25,10 @@ interface AccountLinkTicketResponse {
   url: string;
 }
 
+interface LauncherAuthorizationResponse {
+  redirectUrl: string;
+}
+
 interface AuthState {
   ready: boolean;
   user: UserProfile | null;
@@ -274,6 +278,22 @@ export async function beginBattleNetLink(returnUrl: string): Promise<void> {
 export async function unlinkBattleNet(): Promise<UserProfile> {
   await apiRequest('/auth/battlenet/link', { method: 'DELETE' }, true);
   return await refreshProfile();
+}
+
+export async function authorizeLauncher(
+  redirectUri: string,
+  codeChallenge: string,
+  state: string
+): Promise<string> {
+  const result = await apiRequest<LauncherAuthorizationResponse>(
+    '/auth/launcher/authorize',
+    {
+      method: 'POST',
+      body: JSON.stringify({ redirectUri, codeChallenge, state })
+    },
+    true
+  );
+  return result.redirectUrl;
 }
 
 export function currentUser(): UserProfile | null {
