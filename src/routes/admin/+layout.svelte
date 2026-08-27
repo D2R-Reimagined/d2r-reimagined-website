@@ -17,6 +17,11 @@
       href: '/admin/users',
       label: 'Users',
       detail: 'Admin and Moderator roles'
+    },
+    {
+      href: '/admin/announcements',
+      label: 'Announcements',
+      detail: 'Send live WebSocket messages'
     }
   ];
 
@@ -42,7 +47,7 @@
   <div class="mb-7 max-w-3xl">
     <p class="display-text text-sm uppercase tracking-[0.24em] text-ember-400">Administration</p>
     <h1 class="display-text mt-2 text-4xl text-parchment-50 sm:text-5xl">Admin dashboard</h1>
-    <p class="mt-3 text-parchment-300">Manage Reimagined ladders and staff access.</p>
+    <p class="mt-3 text-parchment-300">Manage Reimagined ladders, staff access, and live announcements.</p>
   </div>
 
   {#if !$authState.ready}

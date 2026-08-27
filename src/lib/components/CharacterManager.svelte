@@ -254,7 +254,7 @@
     <p class="mt-2 text-xs text-parchment-300">Reimagined .d2s files up to 4 MiB. The save itself determines the character name and stats.</p>
 
     <label class="mt-4 flex w-fit items-center gap-3 text-sm text-parchment-200">
-      <input type="checkbox" bind:checked={uploadPublicly} disabled={busy} class="h-4 w-4 rounded border-parchment-300/40 bg-black/40 text-ember-500" />
+      <input type="checkbox" bind:checked={uploadPublicly} disabled={busy} class="checkbox" />
       Show this character publicly and on applicable leaderboards
     </label>
   </form>

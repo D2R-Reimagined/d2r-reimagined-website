@@ -173,7 +173,7 @@
     </div>
     <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_auto_auto_auto]">
       <input class="field" type="search" placeholder="Search this collection…" bind:value={search} />
-      <label class="flex items-center gap-3 rounded-md border border-parchment-300/20 bg-black/20 px-4 py-2"><input type="checkbox" bind:checked={hideFound} class="rounded border-gray-600 bg-gray-900 text-ember-500" /> Hide found</label>
+      <label class="flex items-center gap-3 rounded-md border border-parchment-300/20 bg-black/20 px-4 py-2"><input type="checkbox" bind:checked={hideFound} class="checkbox" /> Hide found</label>
       <button type="button" onclick={openTransfer} class="rounded-md border border-parchment-300/25 px-4 py-2 hover:border-ember-400">Import / export</button>
       <button type="button" onclick={resetCategory} class="rounded-md border border-ember-500/55 px-4 py-2 text-ember-400 hover:bg-ember-700 hover:text-white">Reset category</button>
     </div>

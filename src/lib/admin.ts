@@ -8,6 +8,7 @@ export interface LadderAllowedExtension {
   fileName: string;
   sha256: string;
   kind: LadderExtensionKind;
+  isRequired: boolean;
 }
 
 export interface Ladder {
@@ -23,6 +24,7 @@ export interface LadderAllowedExtensionInput {
   fileName: string;
   sha256: string;
   kind: LadderExtensionKind;
+  isRequired: boolean;
 }
 
 export interface LadderInput {
@@ -38,6 +40,18 @@ export interface AdminUser {
   displayName: string;
   roles: string[];
   createdAtUtc: string;
+}
+
+export interface Announcement {
+  id: string;
+  type: 'announcement';
+  message: string;
+  sentAtUtc: string;
+}
+
+export interface SendAnnouncementResponse {
+  announcement: Announcement;
+  recipientCount: number;
 }
 
 export function getLadders(): Promise<Ladder[]> {
@@ -70,5 +84,12 @@ export function updateUserRoles(id: string, roles: string[]): Promise<AdminUser>
   return apiRequest<AdminUser>(`/admin/users/${id}/roles`, {
     method: 'PUT',
     body: JSON.stringify({ roles })
+  }, true);
+}
+
+export function sendAnnouncement(message: string): Promise<SendAnnouncementResponse> {
+  return apiRequest<SendAnnouncementResponse>('/admin/announcements', {
+    method: 'POST',
+    body: JSON.stringify({ message })
   }, true);
 }

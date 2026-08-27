@@ -223,8 +223,7 @@
 
             {#if ['affixes', 'runewords'].includes(slug) && typeOptions.length}
                 <label class="compact-control flex min-h-12 items-center gap-3 self-end rounded-md border border-parchment-300/20 bg-black/20 px-3 py-2">
-                    <input type="checkbox" bind:checked={exactType}
-                           class="rounded border-gray-600 bg-gray-900 text-ember-500 focus:ring-ember-500"/>
+                    <input type="checkbox" bind:checked={exactType} class="checkbox"/>
                     <span>{$i18n.t('filter_exact')}</span>
                 </label>
             {/if}
@@ -250,8 +249,7 @@
 
             {#if ['uniques', 'sets', 'runewords'].includes(slug)}
                 <label class="compact-control flex min-h-12 items-center gap-3 self-end rounded-md border border-parchment-300/20 bg-black/20 px-3 py-2">
-                    <input type="checkbox" bind:checked={hideVanilla}
-                           class="rounded border-gray-600 bg-gray-900 text-ember-500 focus:ring-ember-500"/>
+                    <input type="checkbox" bind:checked={hideVanilla} class="checkbox"/>
                     <span>{$i18n.t('filter_hide_vanilla')}</span>
                 </label>
             {/if}

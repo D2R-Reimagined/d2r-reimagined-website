@@ -12,6 +12,7 @@
         type LadderInput
     } from '$lib/admin';
     import {ApiError} from '$lib/auth';
+    import {isSha256, normalizeSha256} from '$lib/sha256';
 
     interface LadderDraft {
         name: string;
@@ -67,7 +68,8 @@
                 name: extension.name,
                 fileName: extension.fileName,
                 sha256: extension.sha256,
-                kind: extension.kind
+                kind: extension.kind,
+                isRequired: extension.isRequired ?? false
             }))
         };
         error = '';
@@ -75,7 +77,7 @@
     }
 
     function addRequirement(kind: LadderExtensionKind): void {
-        draft.allowedExtensions.push({name: '', fileName: '', sha256: '', kind});
+        draft.allowedExtensions.push({name: '', fileName: '', sha256: '', kind, isRequired: false});
     }
 
     function removeRequirement(index: number): void {
@@ -102,8 +104,9 @@
             allowedExtensions: draft.allowedExtensions.map((extension) => ({
                 name: extension.name.trim(),
                 fileName: extension.fileName.trim(),
-                sha256: extension.sha256.trim(),
-                kind: extension.kind
+                sha256: normalizeSha256(extension.sha256),
+                kind: extension.kind,
+                isRequired: extension.isRequired
             }))
         };
     }
@@ -111,6 +114,15 @@
     async function saveLadder(): Promise<void> {
         error = '';
         notice = '';
+        for (const extension of draft.allowedExtensions) {
+            extension.sha256 = normalizeSha256(extension.sha256);
+            if (!isSha256(extension.sha256)) {
+                const name = extension.name.trim() || extension.fileName.trim() || extension.kind;
+                error = `${name}'s SHA-256 must contain exactly 64 hexadecimal characters. The current value contains ${extension.sha256.length}.`;
+                return;
+            }
+        }
+
         saving = true;
         const wasUpdate = selectedId !== null;
         try {
@@ -188,7 +200,10 @@
                         <span class="block text-parchment-50">{ladder.name}</span>
                         <span class="mt-1 block text-xs text-parchment-300">{new Date(ladder.startDateUtc).toLocaleString()}
                             – {new Date(ladder.endDateUtc).toLocaleString()}</span>
-                        <span class="mt-1 block text-xs text-rarity">{ladder.allowedExtensions.length} approved requirement{ladder.allowedExtensions.length === 1 ? '' : 's'}</span>
+                        <span class="mt-1 block text-xs text-rarity">
+                            {ladder.allowedExtensions.filter((extension) => extension.isRequired).length} required,
+                            {ladder.allowedExtensions.filter((extension) => !extension.isRequired).length} optional
+                        </span>
                     </button>
                 {:else}
                     <p class="rounded border border-dashed border-parchment-300/25 p-4 text-sm text-parchment-300">No
@@ -228,9 +243,10 @@
             <div class="mt-8 border-t border-parchment-300/15 pt-6">
                 <div class="flex flex-wrap items-center justify-between gap-3">
                     <div>
-                        <h3 class="display-text text-xl">Approved plugins and patches</h3>
-                        <p class="mt-1 text-sm text-parchment-300">The launcher requires an exact kind, filename, and
-                            SHA-256 match.</p>
+                        <h3 class="display-text text-xl">Ladder plugins and patches</h3>
+                        <p class="mt-1 text-sm text-parchment-300">Optional extensions may be selected by players.
+                            Required extensions are enforced by the launcher. Both require an exact kind, filename,
+                            and SHA-256 match.</p>
                     </div>
                     <div class="flex gap-2">
                         <button class="rounded border border-magic/50 px-3 py-2 text-sm text-magic hover:bg-magic/10"
@@ -269,8 +285,20 @@
                             </div>
                             <label class="mt-3 block">
                                 <span class="mb-1 block text-xs text-parchment-300">SHA-256</span>
-                                <input class="field font-mono text-sm" required minlength="64" maxlength="64"
-                                       pattern="[A-Fa-f0-9]{64}" bind:value={extension.sha256}/>
+                                <input class="field hash-field text-sm" required value={extension.sha256}
+                                       autocomplete="off" autocapitalize="characters" spellcheck="false"
+                                       oninput={(event) => {
+                                           const normalized = normalizeSha256(event.currentTarget.value);
+                                           extension.sha256 = normalized;
+                                           event.currentTarget.value = normalized;
+                                       }}/>
+                            </label>
+                            <label class="mt-3 flex items-start gap-3 rounded border border-parchment-300/20 p-3">
+                                <input class="checkbox mt-1" type="checkbox" bind:checked={extension.isRequired}/>
+                                <span>
+                                    <span class="block text-sm text-parchment-50">Required for this ladder</span>
+                                    <span class="mt-1 block text-xs text-parchment-300">Players cannot disable this extension, and Ladder launch is blocked unless its exact file and hash are installed.</span>
+                                </span>
                             </label>
                         </div>
                     {:else}
