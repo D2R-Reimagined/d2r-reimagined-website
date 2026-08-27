@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
+  import { DiscordSolid } from 'flowbite-svelte-icons';
   import { onMount } from 'svelte';
 
   import { authState, initializeAuth } from '$lib/auth';
@@ -85,6 +86,17 @@
     <a href="/" class="display-text truncate text-lg text-parchment-50 transition hover:text-ember-400">D2R Reimagined</a>
 
     <div class="ml-auto flex items-center gap-2 lg:order-3 lg:ml-2">
+      <a
+        href="https://discord.gg/ZvQD4MARxz"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Join the D2R Reimagined Discord"
+        title="Join our Discord"
+        class="flex h-10 w-10 items-center justify-center rounded text-parchment-200 transition hover:bg-white/5 hover:text-white"
+      >
+        <DiscordSolid class="h-5 w-5" aria-hidden="true" />
+      </a>
+
       {#if $authState.user}
         <a href="/profile" onclick={closeMenus} aria-label={`Open ${$authState.user.displayName}'s profile`} class="display-text flex h-10 w-10 items-center justify-center rounded-full border border-ember-400/55 bg-ember-700/25 text-parchment-50 transition hover:border-ember-400 hover:bg-ember-700/40">
           {$authState.user.displayName.slice(0, 1).toUpperCase()}
