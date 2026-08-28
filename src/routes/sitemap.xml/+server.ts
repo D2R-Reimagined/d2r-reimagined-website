@@ -2,6 +2,7 @@ import type { RequestHandler } from './$types';
 
 const routes = [
   '/',
+  '/download',
   '/characters',
   '/grail',
   '/data',

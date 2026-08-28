@@ -115,6 +115,7 @@
     <div class:hidden={!mobileOpen} class="absolute left-0 right-0 top-16 border-b border-parchment-300/20 bg-abyss-950 p-4 lg:static lg:order-2 lg:ml-auto lg:flex lg:items-center lg:gap-1 lg:border-0 lg:bg-transparent lg:p-0">
       <div class="flex flex-col gap-1 lg:flex-row lg:items-center">
         <a href="/" onclick={closeMenus} class={navClass('/')}>Home</a>
+        <a href="/download" onclick={closeMenus} class={navClass('/download')}>Download</a>
         <a href="/characters" onclick={closeMenus} class={navClass('/characters')}>Characters</a>
         <a href="/grail" onclick={closeMenus} class={navClass('/grail')}>Holy Grail</a>
         {#if $authState.user?.roles.includes('Admin')}
