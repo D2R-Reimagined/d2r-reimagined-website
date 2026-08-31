@@ -3,29 +3,33 @@
     "private": true,
     "version": "0.2.0",
     "type": "module",
-    "packageManager": "pnpm@10.33.2",
+    "packageManager": "pnpm@10.34.5",
     "scripts": {
-        "dev": "vite dev --port 9500",
         "build": "vite build",
-        "preview": "vite preview --port 9500",
-        "prepare": "svelte-kit sync || echo ''",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "dependencies:check": "pnpm dlx npm-check-updates",
+        "dependencies:update": "pnpm dlx npm-check-updates -u",
+        "dependencies:update:minor": "pnpm dlx npm-check-updates -u --target minor",
+        "dependencies:update:patch": "pnpm dlx npm-check-updates -u --target patch",
+        "dev": "vite dev --port 9500",
+        "prepare": "svelte-kit sync || echo ''",
+        "preview": "vite preview --port 9500",
         "test": "vitest run",
         "test:watch": "vitest"
     },
     "devDependencies": {
         "@sveltejs/adapter-node": "^5.5.7",
-        "@sveltejs/kit": "^2.63.0",
-        "@sveltejs/vite-plugin-svelte": "^7.1.2",
+        "@sveltejs/kit": "^2.70.3",
+        "@sveltejs/vite-plugin-svelte": "^7.3.0",
         "@tailwindcss/vite": "^4.3.3",
         "flowbite": "^4.0.2",
         "flowbite-svelte": "^1.33.1",
         "flowbite-svelte-icons": "^3.1.0",
-        "svelte": "^5.56.1",
-        "svelte-check": "^4.6.0",
+        "svelte": "^5.57.0",
+        "svelte-check": "^4.7.6",
         "tailwindcss": "^4.3.3",
         "typescript": "^6.0.3",
-        "vite": "^8.0.16",
-        "vitest": "^3.0.0"
+        "vite": "^8.2.2",
+        "vitest": "^3.2.7"
     }
 }

@@ -106,7 +106,7 @@
     {#if item.ClassSpecific}<p class="requirement-line">{String(item.ClassSpecific)}</p>{/if}
     <p class="mb-2 text-sm text-parchment-300">{(item.Types ?? []).map((value) => $i18n.t(typeName(value))).join(', ')}</p>
     <KeyedLines lines={item.Lines} />
-  {:else if slug === 'cube-recipes'}
+  {:else if slug === 'cube-recipes' || slug === 'orbs'}
     <div class="space-y-3 text-left">
       <div>
         <h3 class="display-text text-xs uppercase tracking-widest text-parchment-300">Inputs</h3>

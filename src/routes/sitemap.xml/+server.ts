@@ -12,7 +12,8 @@ const routes = [
   '/data/runewords',
   '/data/bases',
   '/data/affixes',
-  '/data/cube-recipes'
+  '/data/cube-recipes',
+  '/data/orbs'
 ];
 
 export const GET: RequestHandler = () => {

@@ -18,7 +18,8 @@
     { href: '/data/runewords', label: 'Runewords', detail: 'Rune orders and properties' },
     { href: '/data/bases', label: 'Bases', detail: 'Weapons and armor' },
     { href: '/data/affixes', label: 'Affixes', detail: 'Prefixes and suffixes' },
-    { href: '/data/cube-recipes', label: 'Cube Recipes', detail: 'Inputs and outputs' }
+    { href: '/data/cube-recipes', label: 'Cube Recipes', detail: 'Inputs and outputs' },
+    { href: '/data/orbs', label: 'Orbs', detail: 'Cube orbs and corruption outcomes' }
   ];
 
   const fonts = [
@@ -41,6 +42,23 @@
     dataOpen = false;
     languageOpen = false;
     fontOpen = false;
+  }
+
+  function closeDropdowns(): void {
+    dataOpen = false;
+    languageOpen = false;
+    fontOpen = false;
+  }
+
+  function handleWindowClick(event: MouseEvent): void {
+    if (!dataOpen && !languageOpen && !fontOpen) return;
+    const target = event.target as Element | null;
+    if (target?.closest('[data-nav-dropdown]')) return;
+    closeDropdowns();
+  }
+
+  function handleWindowKeydown(event: KeyboardEvent): void {
+    if (event.key === 'Escape') closeDropdowns();
   }
 
   function toggleDataMenu(): void {
@@ -80,6 +98,8 @@
     void initializeAuth();
   });
 </script>
+
+<svelte:window onclick={handleWindowClick} onkeydown={handleWindowKeydown} />
 
 <header class="sticky top-0 z-50 border-b border-parchment-300/20 bg-abyss-950">
   <nav class="mx-auto flex min-h-16 max-w-screen-2xl items-center justify-between gap-4 px-4" aria-label="Primary navigation">
@@ -122,7 +142,7 @@
           <a href="/admin/ladders" onclick={closeMenus} class={navClass('/admin')}>Admin</a>
         {/if}
 
-        <div class="relative">
+        <div class="relative" data-nav-dropdown>
           <button type="button" onclick={toggleDataMenu} class={`flex w-full items-center justify-between gap-2 ${navClass('/data')}`} aria-expanded={dataOpen}>
             Data <span aria-hidden="true" class="text-xs">▾</span>
           </button>
@@ -142,7 +162,7 @@
 
         <div class="my-2 h-px bg-parchment-300/15 lg:mx-2 lg:my-0 lg:h-7 lg:w-px"></div>
 
-        <div class="relative">
+        <div class="relative" data-nav-dropdown>
           <button type="button" aria-label="Choose language" aria-expanded={languageOpen} onclick={toggleLanguageMenu} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">◎ <span class="lg:hidden">Language</span></button>
           {#if languageOpen}
             <div class="mt-1 max-h-80 min-w-56 overflow-y-auto rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl lg:absolute lg:right-0 lg:top-full">
@@ -155,7 +175,7 @@
           {/if}
         </div>
 
-        <div class="relative">
+        <div class="relative" data-nav-dropdown>
           <button type="button" aria-label="Choose font" aria-expanded={fontOpen} onclick={toggleFontMenu} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">Aa <span class="lg:hidden">Font</span></button>
           {#if fontOpen}
             <div class="mt-1 min-w-44 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl lg:absolute lg:right-0 lg:top-full">
