@@ -3,6 +3,7 @@
   import ItemTooltip from '$lib/components/ItemTooltip.svelte';
   import { isItemIdentified, itemDisplayLabel } from '$lib/item-identification';
   import { hasUnknownItemVariant, itemSprite, itemVariant, type ItemPresentation } from '$lib/item-presentation';
+  import type { ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
   import type { ItemStatPresentationBundle } from '$lib/item-stat-presentation';
   import { i18n } from '$lib/i18n';
   import { rareItemName, type RareNamePresentation } from '$lib/rare-name-presentation';
@@ -12,6 +13,7 @@
     item,
     presentation,
     itemPresentations,
+    upgradeTiers,
     statPresentation,
     rareNames,
     runewordNameKey,
@@ -22,6 +24,7 @@
     item: SaveItem;
     presentation?: ItemPresentation;
     itemPresentations: Map<string, ItemPresentation>;
+    upgradeTiers: ItemUpgradeTiers;
     statPresentation?: ItemStatPresentationBundle;
     rareNames?: RareNamePresentation;
     runewordNameKey?: string;
@@ -34,9 +37,9 @@
   let itemElement: HTMLDivElement | undefined = $state();
   let tooltipElement: HTMLDivElement | undefined = $state();
   let tooltipStyle = $state('left:0;top:0;visibility:hidden');
-  let sprite = $derived(itemSprite(item, presentation, itemPresentations));
-  let variant = $derived(presentation ? itemVariant(item, presentation, itemPresentations) : null);
-  let unknownVariant = $derived(hasUnknownItemVariant(item, presentation, itemPresentations));
+  let sprite = $derived(itemSprite(item, presentation, itemPresentations, upgradeTiers));
+  let variant = $derived(itemVariant(item, presentation, itemPresentations, upgradeTiers));
+  let unknownVariant = $derived(hasUnknownItemVariant(item, presentation, itemPresentations, upgradeTiers));
   let identified = $derived(isItemIdentified(item));
   let generatedRareName = $derived(
     identified ? rareItemName(item, rareNames, (key) => $i18n.t(key)) : null
@@ -50,7 +53,7 @@
   let socketItems = $derived(item.sockets.filter((socket): socket is SaveItem => socket !== null));
 
   function socketSprite(socket: SaveItem): string | null {
-    return itemSprite(socket, itemPresentations.get(socket.codeText.toLowerCase()), itemPresentations);
+    return itemSprite(socket, itemPresentations.get(socket.codeText.toLowerCase()), itemPresentations, upgradeTiers);
   }
 
   function positionTooltip() {
@@ -112,7 +115,7 @@
 <div
   bind:this={itemElement}
   class="character-item absolute flex cursor-help items-center justify-center p-[0.3%] focus:outline-none"
-  class:z-40={open}
+  class:z-60={open}
   class:z-10={!open}
   style={style}
   tabindex="0"
@@ -165,10 +168,10 @@
   {#if open}
     <div
       bind:this={tooltipElement}
-      class="pointer-events-auto fixed z-[100] max-h-[calc(100vh-1rem)] w-[min(23rem,calc(100vw-1rem))] overflow-y-auto overscroll-contain"
+      class="pointer-events-auto fixed z-[100] pointer-fine:pointer-events-none max-h-[calc(100vh-1rem)] w-[min(23rem,calc(100vw-1rem))] overflow-y-auto overscroll-contain"
       style={tooltipStyle}
     >
-      <ItemTooltip {item} {presentation} {itemPresentations} {statPresentation} {runewordNameKey} {identifiedName} {characterLevel} />
+      <ItemTooltip {item} {presentation} {itemPresentations} {upgradeTiers} {statPresentation} {runewordNameKey} {identifiedName} {characterLevel} />
     </div>
   {/if}
 </div>

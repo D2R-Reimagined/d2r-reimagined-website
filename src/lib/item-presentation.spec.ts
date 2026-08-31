@@ -2,12 +2,18 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { SaveItem } from '$lib/characters';
+import { buildItemUpgradeTiers } from './item-upgrade-tiers';
 import {
   hasUnknownItemVariant,
   itemSprite,
   itemVariant,
   type ItemPresentation
 } from './item-presentation';
+
+const circletTiers = buildItemUpgradeTiers([
+  { NameKey: 'ci1', NormCode: 'ci1', UberCode: 'ci2', UltraCode: 'ci3' },
+  { NameKey: 'ci3', NormCode: 'ci1', UberCode: 'ci2', UltraCode: 'ci3' }
+]);
 
 function presentation(
   code: string,
@@ -155,5 +161,80 @@ describe('item presentation', () => {
     expect(itemVariant(item, labCharm, presentations)).toBeNull();
     expect(hasUnknownItemVariant(item, labCharm, presentations)).toBe(true);
     expect(itemSprite(item, labCharm, presentations)).toBeNull();
+  });
+  it('keeps a unique upgraded onto an elite base named after its original row', () => {
+    const coronet = presentation(
+      'ci1',
+      1015,
+      "Sorcerer's Cache",
+      'sprites/items/armor-circlet-coronet.webp'
+    );
+    coronet.Sprite = 'sprites/items/armor-circlet-coronet.webp';
+    const diadem = presentation('ci3');
+    diadem.Sprite = 'sprites/items/armor-circlet-diadem.webp';
+    const presentations = new Map([coronet, diadem].map((entry) => [entry.Code, entry]));
+    const item = {
+      codeText: 'ci3',
+      quality: 'Unique',
+      qualityData: { fileIndex: 1015 }
+    } as SaveItem;
+
+    expect(itemVariant(item, diadem, presentations, circletTiers)?.NameKey)
+      .toBe("Sorcerer's Cache");
+    expect(hasUnknownItemVariant(item, diadem, presentations, circletTiers)).toBe(false);
+    // The row it was upgraded from carries no artwork of its own, so the elite base wins.
+    expect(itemSprite(item, diadem, presentations, circletTiers))
+      .toBe('/data/sprites/items/armor-circlet-diadem.webp');
+  });
+
+  it('carries bespoke unique artwork across an upgrade', () => {
+    const coronet = presentation(
+      'ci1',
+      1015,
+      "Sorcerer's Cache",
+      'sprites/items/armor-circlet-sorcerers_cache.webp'
+    );
+    coronet.Sprite = 'sprites/items/armor-circlet-coronet.webp';
+    const diadem = presentation('ci3');
+    diadem.Sprite = 'sprites/items/armor-circlet-diadem.webp';
+    const presentations = new Map([coronet, diadem].map((entry) => [entry.Code, entry]));
+    const item = {
+      codeText: 'ci3',
+      quality: 'Unique',
+      qualityData: { fileIndex: 1015 }
+    } as SaveItem;
+
+    expect(itemSprite(item, diadem, presentations, circletTiers))
+      .toBe('/data/sprites/items/armor-circlet-sorcerers_cache.webp');
+  });
+
+  it('does not borrow a unique from a base outside the upgrade family', () => {
+    const diadem = presentation('ci3');
+    diadem.Sprite = 'sprites/items/armor-circlet-diadem.webp';
+    const arrows = presentation('aqv', 1015, 'Enfeeblement Arrows', 'sprites/items/arrows.webp');
+    const presentations = new Map([diadem, arrows].map((entry) => [entry.Code, entry]));
+    const item = {
+      codeText: 'ci3',
+      quality: 'Unique',
+      qualityData: { fileIndex: 1015 }
+    } as SaveItem;
+
+    expect(itemVariant(item, diadem, presentations, circletTiers)).toBeNull();
+    expect(hasUnknownItemVariant(item, diadem, presentations, circletTiers)).toBe(true);
+  });
+
+  it('falls back to the base sprite when the unique row cannot be resolved at all', () => {
+    const diadem = presentation('ci3');
+    diadem.Sprite = 'sprites/items/armor-circlet-diadem.webp';
+    const presentations = new Map([[diadem.Code, diadem]]);
+    const item = {
+      codeText: 'ci3',
+      quality: 'Unique',
+      qualityData: { fileIndex: 9999 }
+    } as SaveItem;
+
+    expect(hasUnknownItemVariant(item, diadem, presentations, circletTiers)).toBe(true);
+    expect(itemSprite(item, diadem, presentations, circletTiers))
+      .toBe('/data/sprites/items/armor-circlet-diadem.webp');
   });
 });
