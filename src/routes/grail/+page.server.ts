@@ -6,6 +6,7 @@ import type { CatalogItem } from '$lib/types';
 function grailUnique(item: CatalogItem): CatalogItem {
   return {
     Index: item.Index,
+    Rarity: item.Rarity,
     Lines: item.Lines,
     Equipment: item.Equipment ? { NameKey: item.Equipment.NameKey } : undefined
   };
@@ -14,6 +15,7 @@ function grailUnique(item: CatalogItem): CatalogItem {
 function grailSetItem(item: CatalogItem): CatalogItem {
   return {
     Index: item.Index,
+    Rarity: item.Rarity,
     Lines: item.Lines,
     Equipment: item.Equipment ? { NameKey: item.Equipment.NameKey } : undefined
   };

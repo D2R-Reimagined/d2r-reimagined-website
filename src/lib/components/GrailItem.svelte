@@ -17,6 +17,7 @@
   <input type="checkbox" checked={found} onchange={(event) => onchange(event.currentTarget.checked)} aria-label={`Mark ${$i18n.t(itemKey)} as found`} class="checkbox mt-1" />
   <span class="min-w-0">
     <span class:unique-line={tone === 'unique'} class:set-line={tone === 'set'} class="display-text block text-lg">{$i18n.t(itemKey)}</span>
+    {#if item.Rarity}<span class="rarity-line block text-sm">{$i18n.t('label_rarity', [item.Rarity])}</span>{/if}
     {#if item.Equipment?.NameKey}<span class="base-line block">{$i18n.t(item.Equipment.NameKey)}</span>{/if}
     {#if item.Runes?.length}<span class="block text-parchment-200">{item.Runes.map((rune) => $i18n.t(rune.NameKey)).join(' + ')}</span>{/if}
     <KeyedLines lines={(item.Lines ?? []).slice(0, 2)} class="property-line mt-1 text-sm" />

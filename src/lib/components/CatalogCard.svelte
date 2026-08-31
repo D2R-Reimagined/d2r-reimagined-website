@@ -49,6 +49,9 @@
     <h2 class:unique-line={slug !== 'sets'} class:set-line={slug === 'sets'} class="display-text text-xl">
       {$i18n.t(itemTitle(item, slug))}
     </h2>
+    {#if item.Rarity}
+      <p class="rarity-line mt-1 text-base">{$i18n.t('label_rarity', [item.Rarity])}</p>
+    {/if}
     <div class="mt-2 flex flex-wrap justify-center gap-2 text-xs">
       {#if item.Vanilla}
         <Badge color={item.Vanilla === 'Y' ? 'gray' : 'red'}>{item.Vanilla === 'Y' ? 'Vanilla' : 'Reimagined'}</Badge>
@@ -65,6 +68,9 @@
       {#each item.SetItems ?? [] as setItem}
         <section>
           <h3 class="set-line text-lg">{$i18n.t(setItem.Index)}</h3>
+          {#if setItem.Rarity}
+            <p class="rarity-line text-sm">{$i18n.t('label_rarity', [setItem.Rarity])}</p>
+          {/if}
           <p class="base-line">{$i18n.t(setItem.Equipment?.NameKey)}</p>
           <KeyedLines lines={byKeys(setItem.Equipment?.Lines, equipmentEarly)} class="base-line" />
           {#each setItem.Equipment?.DamageTypes ?? [] as damage}
