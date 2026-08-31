@@ -117,6 +117,7 @@
         <a href="/" onclick={closeMenus} class={navClass('/')}>Home</a>
         <a href="/download" onclick={closeMenus} class={navClass('/download')}>Download</a>
         <a href="/characters" onclick={closeMenus} class={navClass('/characters')}>Characters</a>
+        <a href="/leaderboard" onclick={closeMenus} class={navClass('/leaderboard')}>Leaderboard</a>
         <a href="/grail" onclick={closeMenus} class={navClass('/grail')}>Holy Grail</a>
         {#if $authState.user?.roles.includes('Admin')}
           <a href="/admin/ladders" onclick={closeMenus} class={navClass('/admin')}>Admin</a>

@@ -1,5 +1,8 @@
 import { apiRequest } from '$lib/auth';
 import { validateCharacterSave } from '$lib/character-save';
+import type { CharacterSource } from '$lib/leaderboard-entries';
+
+export type { CharacterSource };
 
 export interface CharacterResponse {
   id: string;
@@ -24,6 +27,14 @@ export interface CharacterResponse {
   lastTrackedAtUtc: string;
   createdAtUtc: string;
   updatedAtUtc: string;
+  source: CharacterSource;
+  sourceFileName: string | null;
+  saveRemovedAtUtc: string | null;
+}
+
+/** True when the API lets its owner re-upload or delete this character. */
+export function isOwnerEditable(character: CharacterResponse): boolean {
+  return character.source === 'Manual';
 }
 
 export interface ParsedCharacterSave {

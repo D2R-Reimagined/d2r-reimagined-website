@@ -7,6 +7,7 @@
     createCharacter,
     deleteCharacter,
     getMyCharacters,
+    isOwnerEditable,
     parseCharacterSave,
     updateCharacter,
     type CharacterResponse
@@ -29,6 +30,13 @@
   let uploadInput: HTMLInputElement | undefined = $state();
 
   let busy = $derived(workingId !== null);
+
+  // Characters the owner uploaded, and characters the server derived from their
+  // ladder saves. The split is not cosmetic: the API refuses an owner-initiated
+  // write to a projected character, so offering Update or Delete on one would be
+  // offering a button that can only fail.
+  let uploadedCharacters = $derived(characters.filter(isOwnerEditable));
+  let ladderCharacters = $derived(characters.filter((character) => !isOwnerEditable(character)));
 
   function message(value: unknown): string {
     return value instanceof Error ? value.message : 'Something went wrong. Please try again.';
@@ -73,7 +81,7 @@
     try {
       validateCharacterSave(selectedFile);
       const parsed = await parseCharacterSave(selectedFile);
-      const existing = characters.find((character) =>
+      const existing = uploadedCharacters.find((character) =>
         sameCharacterName(character.name, parsed.character.name)
       );
 
@@ -90,7 +98,7 @@
       } catch (value) {
         if (value instanceof ApiError && value.status === 409) {
           await loadCharacters(false);
-          const conflicted = characters.find((character) =>
+          const conflicted = uploadedCharacters.find((character) =>
             sameCharacterName(character.name, parsed.character.name)
           );
           if (conflicted) {
@@ -196,6 +204,49 @@
   });
 </script>
 
+{#snippet characterDetails(character: CharacterResponse)}
+            <div class="min-w-0">
+              <div class="flex flex-wrap items-center gap-2">
+                <h3 class="display-text truncate text-xl text-parchment-50">{character.name}</h3>
+                {#if character.isHardcore}
+                  <span class="rounded border border-red-500/45 bg-red-950/45 px-2 py-0.5 text-xs text-red-200">Hardcore</span>
+                {/if}
+                {#if character.isDead}
+                  <span class="rounded border border-parchment-300/35 bg-black/40 px-2 py-0.5 text-xs text-parchment-300">Dead</span>
+                {/if}
+                {#if character.saveRemovedAtUtc}
+                  <span class="rounded border border-parchment-300/35 bg-black/40 px-2 py-0.5 text-xs text-parchment-300">Save removed</span>
+                {/if}
+                <span class={`rounded border px-2 py-0.5 text-xs ${character.isPublic ? 'border-set/35 bg-green-950/25 text-green-200' : 'border-parchment-300/30 bg-black/30 text-parchment-300'}`}>
+                  {character.isPublic ? 'Public' : 'Private'}
+                </span>
+              </div>
+
+              <dl class="mt-3 grid grid-cols-2 gap-x-6 gap-y-3 text-sm sm:grid-cols-4">
+                <div>
+                  <dt class="text-xs uppercase tracking-wider text-parchment-300">Class</dt>
+                  <dd class="mt-1 text-parchment-50">{character.class}</dd>
+                </div>
+                <div>
+                  <dt class="text-xs uppercase tracking-wider text-parchment-300">Level</dt>
+                  <dd class="mt-1 text-parchment-50">{character.level}</dd>
+                </div>
+                <div>
+                  <dt class="text-xs uppercase tracking-wider text-parchment-300">Experience</dt>
+                  <dd class="mt-1 text-parchment-50">{formatNumber(character.experience)}</dd>
+                </div>
+                <div>
+                  <dt class="text-xs uppercase tracking-wider text-parchment-300">Mode</dt>
+                  <dd class="mt-1 text-parchment-50">{character.ladderName || (character.isLadder ? 'Ladder' : 'Standard')}</dd>
+                </div>
+              </dl>
+
+              <p class="mt-3 text-xs text-parchment-300">
+                Last played {formatDate(character.lastPlayedAtUtc)} · Synced {formatDate(character.lastTrackedAtUtc)}
+              </p>
+            </div>
+{/snippet}
+
 <section class="mt-6 panel rounded-lg p-6 sm:p-8" aria-labelledby="tracked-characters-heading">
   <div class="flex flex-col gap-4 border-b border-parchment-300/15 pb-6 sm:flex-row sm:items-end sm:justify-between">
     <div>
@@ -283,53 +334,17 @@
       <div class="rounded border border-parchment-300/15 px-5 py-8 text-center text-parchment-300">
         Loading your characters…
       </div>
-    {:else if characters.length === 0}
+    {:else if uploadedCharacters.length === 0}
       <div class="rounded border border-dashed border-parchment-300/25 px-5 py-10 text-center">
-        <p class="font-semibold text-parchment-100">No tracked characters yet</p>
+        <p class="font-semibold text-parchment-100">No uploaded characters yet</p>
         <p class="mt-2 text-sm text-parchment-300">Upload your first Reimagined save above.</p>
       </div>
     {:else}
       <div class="space-y-4">
-        {#each characters as character (character.id)}
+        {#each uploadedCharacters as character (character.id)}
           <article class="rounded border border-parchment-300/20 bg-black/20 p-4 sm:p-5">
             <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-              <div class="min-w-0">
-                <div class="flex flex-wrap items-center gap-2">
-                  <h3 class="display-text truncate text-xl text-parchment-50">{character.name}</h3>
-                  {#if character.isHardcore}
-                    <span class="rounded border border-red-500/45 bg-red-950/45 px-2 py-0.5 text-xs text-red-200">Hardcore</span>
-                  {/if}
-                  {#if character.isDead}
-                    <span class="rounded border border-parchment-300/35 bg-black/40 px-2 py-0.5 text-xs text-parchment-300">Dead</span>
-                  {/if}
-                  <span class={`rounded border px-2 py-0.5 text-xs ${character.isPublic ? 'border-set/35 bg-green-950/25 text-green-200' : 'border-parchment-300/30 bg-black/30 text-parchment-300'}`}>
-                    {character.isPublic ? 'Public' : 'Private'}
-                  </span>
-                </div>
-
-                <dl class="mt-3 grid grid-cols-2 gap-x-6 gap-y-3 text-sm sm:grid-cols-4">
-                  <div>
-                    <dt class="text-xs uppercase tracking-wider text-parchment-300">Class</dt>
-                    <dd class="mt-1 text-parchment-50">{character.class}</dd>
-                  </div>
-                  <div>
-                    <dt class="text-xs uppercase tracking-wider text-parchment-300">Level</dt>
-                    <dd class="mt-1 text-parchment-50">{character.level}</dd>
-                  </div>
-                  <div>
-                    <dt class="text-xs uppercase tracking-wider text-parchment-300">Experience</dt>
-                    <dd class="mt-1 text-parchment-50">{formatNumber(character.experience)}</dd>
-                  </div>
-                  <div>
-                    <dt class="text-xs uppercase tracking-wider text-parchment-300">Mode</dt>
-                    <dd class="mt-1 text-parchment-50">{character.ladderName || (character.isLadder ? 'Ladder' : 'Standard')}</dd>
-                  </div>
-                </dl>
-
-                <p class="mt-3 text-xs text-parchment-300">
-                  Last played {formatDate(character.lastPlayedAtUtc)} · Synced {formatDate(character.lastTrackedAtUtc)}
-                </p>
-              </div>
+              {@render characterDetails(character)}
 
               <div class="flex shrink-0 flex-wrap gap-3">
                 <a
@@ -377,4 +392,48 @@
       </div>
     {/if}
   </div>
+
+  {#if !loading && ladderCharacters.length > 0}
+    <div class="mt-8 border-t border-parchment-300/15 pt-6">
+      <div class="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="text-xs uppercase tracking-[0.22em] text-ember-400">Ladder saves</p>
+          <h3 class="display-text mt-2 text-xl text-parchment-50 sm:text-2xl">Ladder characters</h3>
+          <p class="mt-2 max-w-2xl text-sm leading-6 text-parchment-300">
+            Tracked from the saves the server holds for you, and updated every time you play. They
+            follow the save file rather than an upload, so they cannot be replaced or deleted here.
+          </p>
+        </div>
+        <p class="text-sm text-parchment-300">
+          {ladderCharacters.length}
+          {ladderCharacters.length === 1 ? 'character' : 'characters'}
+        </p>
+      </div>
+
+      <div class="mt-5 space-y-4">
+        {#each ladderCharacters as character (character.id)}
+          <article class="rounded border border-parchment-300/20 bg-black/20 p-4 sm:p-5">
+            <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+              {@render characterDetails(character)}
+
+              <div class="flex shrink-0 flex-wrap gap-3">
+                <a
+                  href={`/characters/${character.id}`}
+                  class="rounded border border-parchment-300/35 px-4 py-2 text-sm text-parchment-100 transition hover:border-parchment-200/60 hover:bg-white/5 hover:text-white"
+                >
+                  View character
+                </a>
+                <a
+                  href={`/leaderboard${character.ladderId ? `?ladderId=${character.ladderId}` : ''}`}
+                  class="rounded border border-ember-400/50 bg-ember-700/20 px-4 py-2 text-sm text-parchment-50 transition hover:bg-ember-700/35"
+                >
+                  View standings
+                </a>
+              </div>
+            </div>
+          </article>
+        {/each}
+      </div>
+    </div>
+  {/if}
 </section>
