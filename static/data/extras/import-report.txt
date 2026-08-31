@@ -1,1 +1,72 @@
-No errors.
+=== Import Report: 1 error(s), 66 warning(s) ===
+
+--- SkillDescription ---
+  [WARN] [SkillDescription] Meteoric Arrow: Skipped 'StrSkillFireDurationSingular' (function 36): could not evaluate 'miss('immo_meteorfire'.rang) / 25'.
+  [WARN] [SkillDescription] Meteoric Arrow: Skipped 'StrSkillFireDamageAveragePerSecond' (function 75): could not evaluate 'm1eo*25*3*(mael+100)/100/256 / m1ey*25*3*(mael+100)/100/256'.
+  [WARN] [SkillDescription] Inferno: Skipped 'StrSkillManaCostPerSecond' (function 74): could not evaluate 'mps'.
+  [WARN] [SkillDescription] Blaze: Skipped 'StrSkillFireDurationSingular' (function 36): could not evaluate 'miss('blaze'.rang) / 25'.
+  [WARN] [SkillDescription] Fire Wall: Skipped 'StrSkillRangeSingular' (function 36): could not evaluate 'm1rn*2 / 3'.
+  [WARN] [SkillDescription] Fire Wall: Skipped 'StrSkillFireDurationSingular' (function 36): could not evaluate 'miss('firewall'.rang) / 25'.
+  [WARN] [SkillDescription] Glacial Spike: Skipped 'StrSkillFreezeLengthSingular' (function 36): could not evaluate 'len / 25'.
+  [WARN] [SkillDescription] Meteor: Skipped 'StrSkillFireDamageAveragePerSecond' (function 75): could not evaluate 'm1eo*25*3*(mael+100)/100/256 / m1ey*25*3*(mael+100)/100/256'.
+  [WARN] [SkillDescription] Energy Shield: Skipped 'StrSkillManaConsumedSynergy' (function 76): could not evaluate '-6.25'.
+  [WARN] [SkillDescription] Blizzard: Skipped 'StrSkillDurationSingular' (function 36): could not evaluate 'miss('blizzardcenter'.rang) / 25'.
+  [WARN] [SkillDescription] Raise Skeletal Mage: Skipped 'StrSkill7' (function 75): could not evaluate 'm2en / m2ex'.
+  [WARN] [SkillDescription] Raise Skeletal Mage: Skipped 'SKillMageDmgPFC' (function 75): could not evaluate 'm1en / m1ex'.
+  [WARN] [SkillDescription] FireGolem: Skipped 'StrSkillGolemFireDamageRange' (function 75): could not evaluate 'sklvl('FireGolemAura'.lvl.enma) / sklvl('FireGolemAura'.lvl.exma)'.
+  [WARN] [SkillDescription] Sacrifice: Skipped 'strSubStrRange' (function 77): could not evaluate 'miss('pala_bloodsplash'.damn) / miss('pala_bloodsplash'.damx)'.
+  [WARN] [SkillDescription] Thorns: Skipped 'ModStr1v' (function 74): could not evaluate 'ast1'.
+  [WARN] [SkillDescription] Fist of the Heavens: Skipped 'StrSkill91' (function 75): could not evaluate 'm1en*(100+stat('passive_mag_mastery'.accr))/100 / m1ex*(100+stat('passive_mag_mastery'.accr))/100'.
+  [WARN] [SkillDescription] Melee Mastery: Skipped 'StrSkillDamagePercent' (function 74): could not evaluate 'madm'.
+  [WARN] [SkillDescription] Melee Mastery: Skipped 'StrSkill22' (function 74): could not evaluate 'math'.
+  [WARN] [SkillDescription] Throwing Mastery: Skipped 'StrSkillNoConsumeChance' (function 74): could not evaluate 'manc'.
+  [WARN] [SkillDescription] Throwing Mastery: Skipped 'StrSkillPiercingChance' (function 74): could not evaluate 'mapi'.
+  [WARN] [SkillDescription] Throwing Mastery: Skipped 'eskillincasemasteryX' (function 74): could not evaluate 'macr'.
+  [WARN] [SkillDescription] Throwing Mastery: Skipped 'StrSkillDamagePercent' (function 74): could not evaluate 'madm'.
+  [WARN] [SkillDescription] Throwing Mastery: Skipped 'StrSkill22' (function 74): could not evaluate 'math'.
+  [WARN] [SkillDescription] Molten Boulder: Skipped 'StrSkillFireDamageAveragePerSecond' (function 75): could not evaluate 'm1eo*25*3*(mael+100)/100/256 / m1ey*25*3*(mael+100)/100/256'.
+  [WARN] [SkillDescription] Eruption: Skipped 'StrSkillDurationSingular' (function 36): could not evaluate 'miss('eruption center'.rang) / 25'.
+  [WARN] [SkillDescription] Armageddon: Skipped 'StrSkillFireDamageAveragePerSecond' (function 75): could not evaluate 'm1eo*25*3*(mael+100)/100/256 / m1ey*25*3*(mael+100)/100/256'.
+  [WARN] [SkillDescription] Claw Mastery: Skipped 'eskillincasemasteryX' (function 74): could not evaluate 'macr'.
+  [WARN] [SkillDescription] Claw Mastery: Skipped 'StrSkillDamagePercent' (function 74): could not evaluate 'madm'.
+  [WARN] [SkillDescription] Claw Mastery: Skipped 'StrSkill22' (function 74): could not evaluate 'math'.
+  [WARN] [SkillDescription] Shock Field: Skipped 'StrSkillDurationSingular' (function 36): could not evaluate 'miss('shock field on ground'.rang) / 25'.
+  [WARN] [SkillDescription] Fists of Fire: Skipped 'Eskillfistsoffire3' (function 75): could not evaluate 'm1eo*50/256 / m1ey*50/256'.
+  [WARN] [SkillDescription] Claws of Thunder: Skipped 'Eskillthunder3' (function 75): could not evaluate 'm3en / m3ex'.
+  [WARN] [SkillDescription] Claws of Thunder: Skipped 'Eskillthunder2' (function 75): could not evaluate 'm2en / m2ex'.
+  [WARN] [SkillDescription] Royal Strike: Skipped 'Eskillphoenix3' (function 75): could not evaluate 'm3en / m3ex'.
+  [WARN] [SkillDescription] Royal Strike: Skipped 'Eskillphoenix2' (function 75): could not evaluate 'm2en / m2ex'.
+  [WARN] [SkillDescription] Royal Strike: Skipped 'StrSkillFireDamageAveragePerSecond' (function 75): could not evaluate 'miss('royalstrikemeteorfire'.edns)*3*25*(mael+100)/100/256 / miss('royalstrikemeteorfire'.edxs)*3*25*(mael+100)/100/256'.
+  [WARN] [SkillDescription] Royal Strike: Skipped 'Eskillphoenix1' (function 75): could not evaluate 'm1en / m1ex'.
+  [WARN] [SkillDescription] Summon Goatman: Skipped 'strGoatFrenzyStuff' (function 75): could not evaluate 'sklvl('Goatman Frenzy'.lvl.len)/25 / sklvl('Goatman Frenzy'.lvl.ast1)'.
+  [WARN] [SkillDescription] Summon Goatman: Skipped 'StrSkillCleaveArcRadius' (function 74): could not evaluate 'sklvl('Goatman Cleave'.lvl.clc5)*skill('Goatman Cleave'.pa10)'.
+  [WARN] [SkillDescription] Summon Goatman: Skipped 'StrSkillOpenWounds' (function 74): could not evaluate 'pst9'.
+  [WARN] [SkillDescription] Summon Tainted: Skipped 'StrSkill5' (function 75): could not evaluate 'sklvl('Tainted Fire Ball'.lvl.edmn)*(100+pst2)/100 / sklvl('Tainted Fire Ball'.lvl.edmx)*(100+pst2)/100'.
+  [WARN] [SkillDescription] Summon Tainted: Skipped 'StrSkill51' (function 74): could not evaluate 'sklvl('Tainted Resist Fire'.lvl.dm34)'.
+  [WARN] [SkillDescription] Summon Defiler: Skipped 'StrSkillHealthLinkDamageSharePercent' (function 74): could not evaluate '((110 *sklvl('Summon Defiler'.lvl.lvl) * (sklvl('Health Link'.lvl.par2) - sklvl('Health Link'.lvl.par1))) / (100 * (sklvl('Summon Defiler'.lvl.lvl) + 6)) + sklvl('Health Link'.lvl.par1)'.
+  [WARN] [SkillDescription] Summon Defiler: Skipped 'StrSkillBindSouls' (function 74): could not evaluate '((110 *sklvl('Summon Defiler'.lvl.lvl) * (sklvl('Health Link'.lvl.par4) - sklvl('Health Link'.lvl.par3))) / (100 * (sklvl('Summon Defiler'.lvl.lvl) + 6)) + sklvl('Health Link'.lvl.par3)'.
+  [WARN] [SkillDescription] Bind Demon: Skipped 'StrSkillManaCostPerSecond' (function 36): could not evaluate 'mps'.
+  [WARN] [SkillDescription] Levitate: Skipped 'StrSkillRequirements' (function 74): could not evaluate 'mair'.
+  [WARN] [SkillDescription] Levitate: Skipped 'StrSkill22' (function 74): could not evaluate 'math'.
+  [WARN] [SkillDescription] Levitate: Skipped 'StrSkillDamagePercent' (function 75): could not evaluate 'madm'.
+  [WARN] [SkillDescription] Echoing Strike: Skipped 'StrSkillDamagePercentage' (function 74): could not evaluate 'ln12+clc0'.
+  [WARN] [SkillDescription] Blade Warp: Skipped 'StrSkill18' (function 74): could not evaluate 'len'.
+  [WARN] [SkillDescription] Sigil Lethargy: Skipped 'StrSkillDurationSingular' (function 36): could not evaluate 'miss('sigillethargysmall'.rang) / 25'.
+  [WARN] [SkillDescription] Ring of Fire: Skipped 'StrSkillRingOfFireDamagePerFrameBonus' (function 74): could not evaluate 'miss('ringoffire'.par1)'.
+  [WARN] [SkillDescription] Miasma Bolt: Skipped 'StrSkillMagicDamageAveragePerSecond' (function 75): could not evaluate 'm1nm / m1xm'.
+  [WARN] [SkillDescription] Miasma Bolt: Skipped 'StrSkillDurationSingular' (function 36): could not evaluate '"miss('miasmaboltcloud'.par4) + min(((skill('Enhanced Entropy'.lvl) > 0) ? (skill('Enhanced Entropy'.lvl)*miss('miasmaboltcloud'.par5)) : 0),100)" / 25'.
+  [WARN] [SkillDescription] Miasma Bolt: Skipped 'ShadowMasteryMiasmaRangeIncrease' (function 36): could not evaluate 'miss('miasmaboltcloud'.rad) / 1'.
+  [WARN] [SkillDescription] Sigil Rancor: Skipped 'StrSkillDurationSingular' (function 36): could not evaluate 'miss('sigilrancorsmall'.rang) / 25'.
+  [WARN] [SkillDescription] Flame Wave: Skipped 'StrSkillDurationSingular' (function 36): could not evaluate 'miss('flamewavefire'.rang)+miss('flamewave'.par2) / 25'.
+  [WARN] [SkillDescription] Flame Wave: Skipped 'StrSkillFireDamageAveragePerSecond' (function 75): could not evaluate 'm1en / m1ex'.
+  [WARN] [SkillDescription] Miasma Chains: Skipped 'StrSkillMagicDamageAveragePerSecond' (function 75): could not evaluate 'm1nm / m1xm'.
+  [WARN] [SkillDescription] Miasma Chains: Skipped 'StrSkill11' (function 74): could not evaluate 'clc1'.
+  [WARN] [SkillDescription] Miasma Chains: Skipped 'StrSkillDurationSingular' (function 36): could not evaluate '"miss('miasmachainscloud'.par2) + min(((skill('Enhanced Entropy'.lvl) > 0) ? (skill('Enhanced Entropy'.lvl)*miss('miasmachainscloud'.par3)) : 0),100)" / 25'.
+  [WARN] [SkillDescription] Miasma Chains: Skipped 'ShadowMasteryMiasmaRangeIncrease' (function 36): could not evaluate 'miss('miasmachainscloud'.rad) / 1'.
+  [WARN] [SkillDescription] Sigil Death: Skipped 'StrSkillDurationSingular' (function 36): could not evaluate 'miss('sigildeathsmall'.rang) / 25'.
+  [WARN] [SkillDescription] Abyss: Skipped 'StrSkillMagicDamageAveragePerSecond' (function 75): could not evaluate '(m1nm*25)/miss('abysscenter'.par1) / (m1xm*25)/miss('abysscenter'.par1)'.
+  [WARN] [SkillDescription] Abyss: Skipped 'StrSkill18' (function 74): could not evaluate 'miss('abyssexplode'.sd34)+(sksrc('Enhanced Entropy'.lvl)/miss('abyssexplode'.par5))'.
+  [WARN] [SkillDescription] Abyss: Skipped 'StrSkillDurationSingular' (function 36): could not evaluate 'miss('abysscenter'.rang) / 25'.
+
+--- Export ---
+  [ERROR] [Export] keyed/*.json: Phase failed: Could not find a part of the path '/Users/collin.herber/Downloads/mods/Reimagined/Reimagined.mpq/data/global/hd/items/items.json'.

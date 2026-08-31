@@ -1,1 +1,5 @@
-=== Missing Translation Keys (0) ===
+=== Missing Translation Keys (2) ===
+Add these to your supplemental translation file to resolve them.
+
+  StrSkillRunWalkRange
+  skillnameskele

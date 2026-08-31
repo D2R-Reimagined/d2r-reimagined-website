@@ -12749,6 +12749,12 @@
         ]
       },
       {
+        "key": "ModStr6g",
+        "args": [
+          10
+        ]
+      },
+      {
         "key": "Modstr2v",
         "args": [
           80,
@@ -42485,16 +42491,17 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "ModStr6g",
+        "key": "ItemExpansiveChanc1",
         "args": [
-          20
+          20,
+          15,
+          "skillname101"
         ]
       },
       {
-        "key": "strModMinDamageRange",
+        "key": "ModStr6g",
         "args": [
-          10,
-          15
+          25
         ]
       },
       {
@@ -42505,10 +42512,9 @@
         ]
       },
       {
-        "key": "ModStrMagMastery",
+        "key": "ModStrMagPierce",
         "args": [
-          10,
-          15
+          10
         ]
       },
       {
@@ -43908,13 +43914,14 @@
       {
         "key": "ModStr6g",
         "args": [
-          33
+          25
         ]
       },
       {
         "key": "ModStr1f",
         "args": [
-          10
+          10,
+          15
         ]
       },
       {
@@ -43933,6 +43940,7 @@
       {
         "key": "ModStr1b",
         "args": [
+          10,
           15
         ]
       },
@@ -45736,13 +45744,6 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "StrSklTabItem3",
-        "args": [
-          3
-        ],
-        "classOnly": "AmaOnly"
-      },
-      {
         "key": "ModStr3i",
         "args": [
           2
@@ -45770,7 +45771,7 @@
       {
         "key": "ModStr6g",
         "args": [
-          50
+          25
         ]
       },
       {
@@ -45783,8 +45784,8 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
-          3,
-          3,
+          1,
+          2,
           "skillname27",
           "AmaOnly"
         ]
@@ -56792,7 +56793,7 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "ItemExpansiveChanc1",
+        "key": "ItemExpansiveChancX",
         "args": [
           10,
           10,
@@ -66134,9 +66135,10 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr6g",
         "args": [
-          10
+          10,
+          15
         ]
       },
       {
@@ -67778,6 +67780,13 @@
         ]
       },
       {
+        "key": "ModStr6g",
+        "args": [
+          15,
+          20
+        ]
+      },
+      {
         "key": "ModStr5r",
         "args": [
           15
@@ -67792,13 +67801,6 @@
       },
       {
         "key": "ModStr1l",
-        "args": [
-          20,
-          40
-        ]
-      },
-      {
-        "key": "ModStr1j",
         "args": [
           20,
           40
@@ -71787,64 +71789,6 @@
     }
   },
   {
-    "Type": "bowqitype",
-    "Vanilla": "N",
-    "Index": "Flames of Sanctuary",
-    "Enabled": true,
-    "Rarity": 2,
-    "ItemLevel": 43,
-    "RequiredLevel": 45,
-    "Code": "aqv",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "ModitemskonKill",
-        "args": [
-          10,
-          10,
-          "skillname46"
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "strModFireDamageRange",
-        "args": [
-          15,
-          50
-        ]
-      },
-      {
-        "key": "ModitemdamFiresk",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModStr1j",
-        "args": [
-          30,
-          50
-        ]
-      },
-      {
-        "key": "ModStre9v",
-        "args": []
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 2,
-      "NameKey": "aqv",
-      "RequiredClass": "",
-      "Lines": []
-    }
-  },
-  {
     "Type": "xboqitype",
     "Vanilla": "N",
     "Index": "Reaper Bolts",
@@ -71896,6 +71840,62 @@
     "Equipment": {
       "EquipmentType": 2,
       "NameKey": "cqv",
+      "RequiredClass": "",
+      "Lines": []
+    }
+  },
+  {
+    "Type": "bowqitype",
+    "Vanilla": "N",
+    "Index": "Enfeeblement Arrows",
+    "Enabled": true,
+    "Rarity": 2,
+    "ItemLevel": 43,
+    "RequiredLevel": 45,
+    "Code": "aqv",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          10,
+          10,
+          "skillname72"
+        ]
+      },
+      {
+        "key": "ModStr6g",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "strModMagicDamageRange",
+        "args": [
+          30,
+          60
+        ]
+      },
+      {
+        "key": "ModStrMagMastery",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr5r",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStre9v",
+        "args": []
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 2,
+      "NameKey": "aqv",
       "RequiredClass": "",
       "Lines": []
     }
@@ -78293,9 +78293,31 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "ModStr3k",
+        "key": "ModitemAura",
+        "args": [
+          3,
+          4,
+          "skillname124"
+        ]
+      },
+      {
+        "key": "StrSklTabItem7",
         "args": [
           2
+        ],
+        "classOnly": "NecOnly"
+      },
+      {
+        "key": "ModStr3c",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr4v",
+        "args": [
+          20,
+          30
         ]
       },
       {
@@ -78310,12 +78332,6 @@
         "args": [
           20,
           30
-        ]
-      },
-      {
-        "key": "ModitemSMRIP",
-        "args": [
-          1
         ]
       },
       {
@@ -105313,7 +105329,7 @@
         ]
       },
       {
-        "key": "ModStr3k",
+        "key": "ModStr3c",
         "args": [
           2
         ]
@@ -105340,8 +105356,17 @@
       {
         "key": "strSkillRandomClass",
         "args": [
-          3,
+          2,
           "Necromancer"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          2,
+          "skillname84",
+          "NecOnly"
         ]
       },
       {
@@ -107173,7 +107198,8 @@
       {
         "key": "ModStr6g",
         "args": [
-          15
+          20,
+          30
         ]
       },
       {
@@ -109869,6 +109895,21 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          15,
+          35,
+          "skillname14"
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          1,
+          2
+        ]
+      },
+      {
         "key": "ModStr4m",
         "args": [
           30,
@@ -109901,15 +109942,6 @@
         "args": [
           15,
           20
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          4,
-          6,
-          "skillname83",
-          "NecOnly"
         ]
       },
       {
@@ -112375,7 +112407,14 @@
             "key": "Moditemenrescoldsk",
             "args": [
               5,
-              10
+              15
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStrcoldskill",
+            "args": [
+              1
             ],
             "chance": 1
           }
@@ -112391,16 +112430,16 @@
           {
             "key": "ModStr1x",
             "args": [
-              14,
-              25
+              20,
+              30
             ],
             "chance": 1
           },
           {
             "key": "ModStr1w",
             "args": [
-              20,
-              55
+              40,
+              60
             ],
             "chance": 1
           }
@@ -112416,16 +112455,24 @@
           {
             "key": "ModStr1u",
             "args": [
-              10,
-              65
+              20,
+              50
             ],
             "chance": 1
           },
           {
             "key": "ModStr1e",
             "args": [
-              10,
-              75
+              20,
+              50
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr1i",
+            "args": [
+              50,
+              100
             ],
             "chance": 1
           }
@@ -112441,24 +112488,47 @@
           {
             "key": "ModStr4s",
             "args": [
-              5,
-              10
+              10,
+              20
             ],
             "chance": 1
           },
           {
             "key": "ModStr4p",
             "args": [
-              12,
-              24
+              15,
+              30
             ],
             "chance": 3
           },
           {
             "key": "Moditem2allattrib",
             "args": [
-              3,
-              8
+              5,
+              10
+            ],
+            "chance": 1
+          }
+        ]
+      },
+      {
+        "key": "",
+        "args": [],
+        "pickMode": "2",
+        "code": "Gelid-Affix5",
+        "nameKey": "strPropertyGroupsProperty",
+        "children": [
+          {
+            "key": "ModStr1k",
+            "args": [
+              70
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr1k",
+            "args": [
+              35
             ],
             "chance": 1
           }
@@ -112472,18 +112542,18 @@
         "nameKey": "strPropertyGroupsProperty",
         "children": [
           {
-            "key": "ModStr2t",
+            "key": "ModStr4m",
             "args": [
               5,
-              10
+              15
             ],
             "chance": 1
           },
           {
-            "key": "ModStr2u",
+            "key": "ModStr4v",
             "args": [
               5,
-              10
+              15
             ],
             "chance": 1
           }
@@ -112545,7 +112615,14 @@
             "key": "Moditemenresfiresk",
             "args": [
               5,
-              10
+              15
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr3i",
+            "args": [
+              1
             ],
             "chance": 1
           }
@@ -112561,16 +112638,16 @@
           {
             "key": "ModStr1x",
             "args": [
-              14,
-              25
+              20,
+              30
             ],
             "chance": 1
           },
           {
             "key": "ModStr1w",
             "args": [
-              20,
-              55
+              40,
+              60
             ],
             "chance": 1
           }
@@ -112586,16 +112663,24 @@
           {
             "key": "ModStr1u",
             "args": [
-              10,
-              65
+              20,
+              50
             ],
             "chance": 1
           },
           {
             "key": "ModStr1e",
             "args": [
-              10,
-              75
+              20,
+              50
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr1i",
+            "args": [
+              50,
+              100
             ],
             "chance": 1
           }
@@ -112611,24 +112696,47 @@
           {
             "key": "ModStr4s",
             "args": [
-              5,
-              10
+              10,
+              20
             ],
             "chance": 1
           },
           {
             "key": "ModStr4p",
             "args": [
-              12,
-              24
+              15,
+              30
             ],
             "chance": 3
           },
           {
             "key": "Moditem2allattrib",
             "args": [
-              3,
-              8
+              5,
+              10
+            ],
+            "chance": 1
+          }
+        ]
+      },
+      {
+        "key": "",
+        "args": [],
+        "pickMode": "2",
+        "code": "Incendiary-Affix5",
+        "nameKey": "strPropertyGroupsProperty",
+        "children": [
+          {
+            "key": "ModStr1j",
+            "args": [
+              70
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr1j",
+            "args": [
+              35
             ],
             "chance": 1
           }
@@ -112642,18 +112750,18 @@
         "nameKey": "strPropertyGroupsProperty",
         "children": [
           {
-            "key": "ModStr2t",
+            "key": "ModStr4m",
             "args": [
               5,
-              10
+              15
             ],
             "chance": 1
           },
           {
-            "key": "ModStr2u",
+            "key": "ModStr4v",
             "args": [
               5,
-              10
+              15
             ],
             "chance": 1
           }
@@ -112715,7 +112823,14 @@
             "key": "Moditemenresltngsk",
             "args": [
               5,
-              10
+              15
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStrlightningskill",
+            "args": [
+              1
             ],
             "chance": 1
           }
@@ -112731,16 +112846,16 @@
           {
             "key": "ModStr1x",
             "args": [
-              14,
-              25
+              20,
+              30
             ],
             "chance": 1
           },
           {
             "key": "ModStr1w",
             "args": [
-              20,
-              55
+              40,
+              60
             ],
             "chance": 1
           }
@@ -112756,16 +112871,24 @@
           {
             "key": "ModStr1u",
             "args": [
-              10,
-              65
+              20,
+              50
             ],
             "chance": 1
           },
           {
             "key": "ModStr1e",
             "args": [
-              10,
-              75
+              20,
+              50
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr1i",
+            "args": [
+              50,
+              100
             ],
             "chance": 1
           }
@@ -112781,24 +112904,47 @@
           {
             "key": "ModStr4s",
             "args": [
-              5,
-              10
+              10,
+              20
             ],
             "chance": 1
           },
           {
             "key": "ModStr4p",
             "args": [
-              12,
-              24
+              15,
+              30
             ],
             "chance": 3
           },
           {
             "key": "Moditem2allattrib",
             "args": [
-              3,
-              8
+              5,
+              10
+            ],
+            "chance": 1
+          }
+        ]
+      },
+      {
+        "key": "",
+        "args": [],
+        "pickMode": "2",
+        "code": "Magnetic-Affix5",
+        "nameKey": "strPropertyGroupsProperty",
+        "children": [
+          {
+            "key": "ModStr1l",
+            "args": [
+              70
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr1l",
+            "args": [
+              35
             ],
             "chance": 1
           }
@@ -112812,18 +112958,18 @@
         "nameKey": "strPropertyGroupsProperty",
         "children": [
           {
-            "key": "ModStr2t",
+            "key": "ModStr4m",
             "args": [
               5,
-              10
+              15
             ],
             "chance": 1
           },
           {
-            "key": "ModStr2u",
+            "key": "ModStr4v",
             "args": [
               5,
-              10
+              15
             ],
             "chance": 1
           }
@@ -112885,7 +113031,14 @@
             "key": "Moditemenrespoissk",
             "args": [
               5,
-              10
+              15
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStrpoisonskill",
+            "args": [
+              1
             ],
             "chance": 1
           }
@@ -112901,16 +113054,16 @@
           {
             "key": "ModStr1x",
             "args": [
-              14,
-              25
+              20,
+              30
             ],
             "chance": 1
           },
           {
             "key": "ModStr1w",
             "args": [
-              20,
-              55
+              40,
+              60
             ],
             "chance": 1
           }
@@ -112926,16 +113079,24 @@
           {
             "key": "ModStr1u",
             "args": [
-              10,
-              65
+              20,
+              50
             ],
             "chance": 1
           },
           {
             "key": "ModStr1e",
             "args": [
-              10,
-              75
+              20,
+              50
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr1i",
+            "args": [
+              50,
+              100
             ],
             "chance": 1
           }
@@ -112951,24 +113112,47 @@
           {
             "key": "ModStr4s",
             "args": [
-              5,
-              10
+              10,
+              20
             ],
             "chance": 1
           },
           {
             "key": "ModStr4p",
             "args": [
-              12,
-              24
+              15,
+              30
             ],
             "chance": 3
           },
           {
             "key": "Moditem2allattrib",
             "args": [
-              3,
-              8
+              5,
+              10
+            ],
+            "chance": 1
+          }
+        ]
+      },
+      {
+        "key": "",
+        "args": [],
+        "pickMode": "2",
+        "code": "Virulent-Affix5",
+        "nameKey": "strPropertyGroupsProperty",
+        "children": [
+          {
+            "key": "ModStr1n",
+            "args": [
+              70
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr1n",
+            "args": [
+              35
             ],
             "chance": 1
           }
@@ -112982,18 +113166,18 @@
         "nameKey": "strPropertyGroupsProperty",
         "children": [
           {
-            "key": "ModStr2t",
+            "key": "ModStr4m",
             "args": [
               5,
-              10
+              15
             ],
             "chance": 1
           },
           {
-            "key": "ModStr2u",
+            "key": "ModStr4v",
             "args": [
               5,
-              10
+              15
             ],
             "chance": 1
           }
@@ -113046,7 +113230,7 @@
           {
             "key": "strModEnhancedDamage",
             "args": [
-              75,
+              50,
               100
             ],
             "chance": 1
@@ -113055,7 +113239,14 @@
             "key": "ModStrDamPierce",
             "args": [
               5,
-              10
+              15
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr3k",
+            "args": [
+              1
             ],
             "chance": 1
           }
@@ -113071,16 +113262,16 @@
           {
             "key": "ModStr1x",
             "args": [
-              14,
-              25
+              20,
+              30
             ],
             "chance": 1
           },
           {
             "key": "ModStr1w",
             "args": [
-              20,
-              55
+              40,
+              60
             ],
             "chance": 1
           }
@@ -113096,16 +113287,24 @@
           {
             "key": "ModStr1u",
             "args": [
-              10,
-              65
+              20,
+              50
             ],
             "chance": 1
           },
           {
             "key": "ModStr1e",
             "args": [
-              10,
-              75
+              20,
+              50
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr1i",
+            "args": [
+              50,
+              100
             ],
             "chance": 1
           }
@@ -113121,24 +113320,47 @@
           {
             "key": "ModStr4s",
             "args": [
-              5,
-              10
+              10,
+              20
             ],
             "chance": 1
           },
           {
             "key": "ModStr4p",
             "args": [
-              12,
-              24
+              15,
+              30
             ],
             "chance": 3
           },
           {
             "key": "Moditem2allattrib",
             "args": [
-              3,
-              8
+              5,
+              10
+            ],
+            "chance": 1
+          }
+        ]
+      },
+      {
+        "key": "",
+        "args": [],
+        "pickMode": "2",
+        "code": "Breaching-Affix5",
+        "nameKey": "strPropertyGroupsProperty",
+        "children": [
+          {
+            "key": "ModStr2uPercent",
+            "args": [
+              20
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr2uPercent",
+            "args": [
+              10
             ],
             "chance": 1
           }
@@ -113152,18 +113374,18 @@
         "nameKey": "strPropertyGroupsProperty",
         "children": [
           {
-            "key": "ModStr2t",
+            "key": "ModStr4m",
             "args": [
               5,
-              10
+              15
             ],
             "chance": 1
           },
           {
-            "key": "ModStr2u",
+            "key": "ModStr4v",
             "args": [
               5,
-              10
+              15
             ],
             "chance": 1
           }
@@ -113216,7 +113438,7 @@
           {
             "key": "ModStrMagMastery",
             "args": [
-              10,
+              5,
               15
             ],
             "chance": 1
@@ -113225,7 +113447,14 @@
             "key": "ModStrMagPierce",
             "args": [
               5,
-              10
+              15
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStrmagicskill",
+            "args": [
+              1
             ],
             "chance": 1
           }
@@ -113241,16 +113470,16 @@
           {
             "key": "ModStr1x",
             "args": [
-              14,
-              25
+              20,
+              30
             ],
             "chance": 1
           },
           {
             "key": "ModStr1w",
             "args": [
-              20,
-              55
+              40,
+              60
             ],
             "chance": 1
           }
@@ -113266,16 +113495,24 @@
           {
             "key": "ModStr1u",
             "args": [
-              10,
-              65
+              20,
+              50
             ],
             "chance": 1
           },
           {
             "key": "ModStr1e",
             "args": [
-              10,
-              75
+              20,
+              50
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr1i",
+            "args": [
+              50,
+              100
             ],
             "chance": 1
           }
@@ -113291,24 +113528,47 @@
           {
             "key": "ModStr4s",
             "args": [
-              5,
-              10
+              10,
+              20
             ],
             "chance": 1
           },
           {
             "key": "ModStr4p",
             "args": [
-              12,
-              24
+              15,
+              30
             ],
             "chance": 3
           },
           {
             "key": "Moditem2allattrib",
             "args": [
-              3,
-              8
+              5,
+              10
+            ],
+            "chance": 1
+          }
+        ]
+      },
+      {
+        "key": "",
+        "args": [],
+        "pickMode": "2",
+        "code": "Mystical-Affix5",
+        "nameKey": "strPropertyGroupsProperty",
+        "children": [
+          {
+            "key": "ModStr1m",
+            "args": [
+              20
+            ],
+            "chance": 1
+          },
+          {
+            "key": "ModStr1m",
+            "args": [
+              10
             ],
             "chance": 1
           }
@@ -113322,18 +113582,18 @@
         "nameKey": "strPropertyGroupsProperty",
         "children": [
           {
-            "key": "ModStr2t",
+            "key": "ModStr4m",
             "args": [
               5,
-              10
+              15
             ],
             "chance": 1
           },
           {
-            "key": "ModStr2u",
+            "key": "ModStr4v",
             "args": [
               5,
-              10
+              15
             ],
             "chance": 1
           }
@@ -114455,7 +114715,7 @@
     "ItemLevel": 68,
     "RequiredLevel": 75,
     "Code": "uth",
-    "DamageArmorEnhanced": true,
+    "DamageArmorEnhanced": false,
     "Lines": [
       {
         "key": "ModStr4m",
@@ -114470,6 +114730,13 @@
         ]
       },
       {
+        "key": "ModStr6g",
+        "args": [
+          20,
+          25
+        ]
+      },
+      {
         "key": "strModMinDamageRange",
         "args": [
           15,
@@ -114477,23 +114744,36 @@
         ]
       },
       {
-        "key": "Modstr2v",
+        "key": "ModStrDamPierce",
         "args": [
-          120,
-          150
+          5,
+          15
+        ]
+      },
+      {
+        "key": "ModStr1y",
+        "args": [
+          1
         ]
       },
       {
         "key": "ModStr1i",
         "args": [
-          200,
-          300
+          400,
+          500
         ]
       },
       {
         "key": "Moditem2ExpG",
         "args": [
           15
+        ]
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          5,
+          20
         ]
       }
     ],
@@ -114505,8 +114785,8 @@
         {
           "key": "strDefenseRange",
           "args": [
-            1392,
-            1655
+            833,
+            1041
           ]
         },
         {
@@ -114517,9 +114797,10 @@
           ]
         },
         {
-          "key": "strRequiredStrength",
+          "key": "strRequiredStrengthRange",
           "args": [
-            208
+            166,
+            197
           ]
         }
       ]
@@ -114895,8 +115176,17 @@
       {
         "key": "strSkillRandomClass",
         "args": [
-          3,
+          2,
           "Necromancer"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          3,
+          "skillname84",
+          "NecOnly"
         ]
       },
       {
@@ -115592,7 +115882,7 @@
         "key": "ModitemskonKill",
         "args": [
           5,
-          1,
+          2,
           "Empowering Flame"
         ]
       },
@@ -115603,11 +115893,11 @@
         ]
       },
       {
-        "key": "StrSklTabItem3",
+        "key": "ItemModifierNonClassSkill",
         "args": [
-          2
-        ],
-        "classOnly": "AmaOnly"
+          3,
+          "skillname7"
+        ]
       },
       {
         "key": "ModStr4m",
@@ -119067,9 +119357,24 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          10,
+          2,
+          "Hailstorm"
+        ]
+      },
+      {
         "key": "ModStrcoldskill",
         "args": [
           3
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          3,
+          "skillname11"
         ]
       },
       {
@@ -119104,24 +119409,6 @@
         "args": [
           20,
           25
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          2,
-          4,
-          "skillname31",
-          "AmaOnly"
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          2,
-          4,
-          "skillname11",
-          "AmaOnly"
         ]
       }
     ],
@@ -123316,6 +123603,72 @@
     }
   },
   {
+    "Type": "xboqitype",
+    "Vanilla": "N",
+    "Index": "Flames of Sanctuary",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 65,
+    "RequiredLevel": 80,
+    "Code": "cqv",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "ModitemskonKill",
+        "args": [
+          10,
+          10,
+          "skillname46"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          5,
+          4,
+          "Scorchveil"
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          25
+        ]
+      },
+      {
+        "key": "strModFireDamageRange",
+        "args": [
+          50,
+          100
+        ]
+      },
+      {
+        "key": "ModitemdamFiresk",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "ModStr1j",
+        "args": [
+          45,
+          60
+        ]
+      },
+      {
+        "key": "ModStre9v",
+        "args": []
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 2,
+      "NameKey": "cqv",
+      "RequiredClass": "",
+      "Lines": []
+    }
+  },
+  {
     "Type": "sworitype",
     "Vanilla": "Y",
     "Index": "The Grandfather",
@@ -126550,8 +126903,8 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
-          3,
           5,
+          7,
           "skillname67",
           "NecOnly"
         ]
@@ -126570,16 +126923,16 @@
         "args": [
           3,
           5,
-          "skillname84",
+          "skillname93",
           "NecOnly"
         ]
       },
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          1,
           3,
-          5,
-          "skillname93",
+          "skillname84",
           "NecOnly"
         ]
       }
@@ -128043,6 +128396,15 @@
           2,
           3,
           "skillname97",
+          "PalOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          3,
+          "skillname116",
           "PalOnly"
         ]
       },
@@ -131727,9 +132089,9 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "ItemExpansiveChanc1",
+        "key": "ModitemskonKill",
         "args": [
-          5,
+          10,
           10,
           "skillname74"
         ]
@@ -131782,9 +132144,9 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "ItemExpansiveChanc1",
+        "key": "ModitemskonKill",
         "args": [
-          5,
+          10,
           10,
           "skillname74"
         ]
@@ -132259,7 +132621,7 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "ItemExpansiveChanc1",
+        "key": "ItemExpansiveChancX",
         "args": [
           15,
           30,
@@ -133622,10 +133984,25 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "ModStr3a",
+        "key": "ModitemAura",
         "args": [
-          2,
-          3
+          12,
+          18,
+          "skillname114"
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          1,
+          2
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          7,
+          "skillname31"
         ]
       },
       {
@@ -133652,8 +134029,8 @@
       {
         "key": "ModitemdamColdsk",
         "args": [
-          33,
-          43
+          23,
+          33
         ]
       },
       {
@@ -134700,17 +135077,17 @@
         ]
       },
       {
+        "key": "ModStr6g",
+        "args": [
+          35,
+          50
+        ]
+      },
+      {
         "key": "ModStr1h",
         "args": [
           100,
           130
-        ]
-      },
-      {
-        "key": "strModFireDamageRange",
-        "args": [
-          200,
-          375
         ]
       },
       {
@@ -134743,19 +135120,6 @@
                 100,
                 212,
                 265
-              ]
-            }
-          ]
-        },
-        {
-          "Type": 4,
-          "AverageDamage": 287.5,
-          "Lines": [
-            {
-              "key": "strElementalDamage",
-              "args": [
-                200,
-                375
               ]
             }
           ]
@@ -134928,12 +135292,14 @@
       {
         "key": "ModStr5f",
         "args": [
+          3,
           5
         ]
       },
       {
         "key": "ModitemHPaK",
         "args": [
+          3,
           5
         ]
       }

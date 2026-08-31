@@ -19328,7 +19328,7 @@
             "key": "StrSklTabItem9",
             "args": [
               1,
-              3
+              2
             ],
             "classOnly": "NecOnly"
           },
@@ -19350,7 +19350,25 @@
         "SetBonuses": [
           [
             {
-              "key": "ModStr1e",
+              "key": "ModStr3c",
+              "args": [
+                1
+              ],
+              "itemsRequired": 2
+            }
+          ],
+          [
+            {
+              "key": "ModStr2l",
+              "args": [
+                10
+              ],
+              "itemsRequired": 3
+            }
+          ],
+          [
+            {
+              "key": "ModStr4g",
               "args": [
                 50
               ],
@@ -19400,18 +19418,21 @@
         "DamageArmorEnhanced": false,
         "Lines": [
           {
-            "key": "ModStr3g",
+            "key": "ItemExpansiveChanc2",
             "args": [
               20,
-              30
+              20,
+              "skillname62"
             ]
           },
           {
-            "key": "ModStr1i",
+            "key": "strSkillRandomFromSkillClass",
             "args": [
-              2
-            ],
-            "perLevel": true
+              2,
+              2,
+              "skillname94",
+              "NecOnly"
+            ]
           },
           {
             "key": "ModStr1j",
@@ -19424,11 +19445,20 @@
         "SetBonuses": [
           [
             {
+              "key": "ModStr2u",
+              "args": [
+                5
+              ],
+              "itemsRequired": 2
+            }
+          ],
+          [
+            {
               "key": "ModStr2uPercent",
               "args": [
-                20
+                10
               ],
-              "itemsRequired": 4
+              "itemsRequired": 3
             }
           ]
         ],
@@ -19444,12 +19474,10 @@
               ]
             },
             {
-              "key": "strDefenseRangeRange",
+              "key": "strDefenseRange",
               "args": [
-                116,
-                244,
-                127,
-                255
+                44,
+                55
               ]
             },
             {
@@ -19492,28 +19520,38 @@
             ]
           },
           {
-            "key": "ModStr1e",
+            "key": "ModStr2l",
             "args": [
-              1
-            ],
-            "perLevel": true
+              10
+            ]
           },
           {
             "key": "ModStr4g",
             "args": [
-              50,
-              75
-            ]
-          },
-          {
-            "key": "strModAllResistances",
-            "args": [
-              8,
-              15
+              25
             ]
           }
         ],
-        "SetBonuses": [],
+        "SetBonuses": [
+          [
+            {
+              "key": "strModAllResistances",
+              "args": [
+                5
+              ],
+              "itemsRequired": 2
+            }
+          ],
+          [
+            {
+              "key": "strModAllResistances",
+              "args": [
+                10
+              ],
+              "itemsRequired": 4
+            }
+          ]
+        ],
         "Equipment": {
           "EquipmentType": 2,
           "NameKey": "rin",
@@ -19557,10 +19595,8 @@
           [
             {
               "key": "ModStr5z",
-              "args": [
-                1
-              ],
-              "itemsRequired": 5
+              "args": [],
+              "itemsRequired": 3
             }
           ]
         ],
@@ -19619,9 +19655,19 @@
             ]
           },
           {
+            "key": "strSkillRandomFromSkillClass",
+            "args": [
+              3,
+              3,
+              "skillname77",
+              "NecOnly"
+            ]
+          },
+          {
             "key": "Modstr2v",
             "args": [
-              100
+              25,
+              50
             ]
           },
           {
@@ -19635,6 +19681,15 @@
         "SetBonuses": [
           [
             {
+              "key": "ModStr1v",
+              "args": [
+                50
+              ],
+              "itemsRequired": 2
+            }
+          ],
+          [
+            {
               "key": "ModStr1w",
               "args": [
                 100
@@ -19646,7 +19701,7 @@
             {
               "key": "ModStr1x",
               "args": [
-                35
+                50
               ],
               "itemsRequired": 4
             }
@@ -19658,9 +19713,10 @@
           "RequiredClass": "",
           "Lines": [
             {
-              "key": "strDefense",
+              "key": "strDefenseRange",
               "args": [
-                228
+                142,
+                171
               ]
             },
             {
@@ -19682,18 +19738,19 @@
     ],
     "PartialBonuses": [
       {
-        "key": "ItemModifierNonClassSkill",
+        "key": "strSkillRandomFromSkillClass",
         "args": [
-          2,
-          "skillname95"
+          3,
+          3,
+          "skillname89",
+          "NecOnly"
         ],
         "itemsRequired": 2
       },
       {
-        "key": "ItemModifierNonClassSkill",
+        "key": "ModStr3c",
         "args": [
-          7,
-          "skillname69"
+          2
         ],
         "itemsRequired": 3
       },
@@ -19711,20 +19768,6 @@
         "key": "ModStr3c",
         "args": [
           2
-        ],
-        "fullSet": true
-      },
-      {
-        "key": "ModStr5m",
-        "args": [
-          20
-        ],
-        "fullSet": true
-      },
-      {
-        "key": "ModStr5i",
-        "args": [
-          20
         ],
         "fullSet": true
       },
@@ -36190,7 +36233,8 @@
           {
             "key": "ModStr6g",
             "args": [
-              50
+              25,
+              35
             ]
           },
           {
@@ -42485,7 +42529,7 @@
           {
             "key": "ModStr1x",
             "args": [
-              1.12
+              1.5
             ],
             "perLevel": true
           },
@@ -42496,7 +42540,35 @@
             ]
           }
         ],
-        "SetBonuses": [],
+        "SetBonuses": [
+          [
+            {
+              "key": "ModStr4e",
+              "args": [
+                100
+              ],
+              "itemsRequired": 2
+            }
+          ],
+          [
+            {
+              "key": "ModStr1m",
+              "args": [
+                10
+              ],
+              "itemsRequired": 3
+            }
+          ],
+          [
+            {
+              "key": "ModStr4e",
+              "args": [
+                100
+              ],
+              "itemsRequired": 4
+            }
+          ]
+        ],
         "Equipment": {
           "EquipmentType": 0,
           "NameKey": "uth",
@@ -42559,13 +42631,6 @@
             "key": "ModStr5q",
             "args": [
               15
-            ]
-          },
-          {
-            "key": "ModStr2w",
-            "args": [
-              -1,
-              -5
             ]
           }
         ],
@@ -42705,19 +42770,28 @@
             ]
           },
           {
-            "key": "ModStr2l",
+            "key": "ModStr5f",
             "args": [
-              6
+              5
             ]
           },
           {
-            "key": "ModStr5f",
+            "key": "ModitemHPaK",
             "args": [
-              7
+              5
             ]
           }
         ],
         "SetBonuses": [
+          [
+            {
+              "key": "ModStr4e",
+              "args": [
+                50
+              ],
+              "itemsRequired": 2
+            }
+          ],
           [
             {
               "key": "ModStr4g",
@@ -42731,16 +42805,16 @@
             {
               "key": "strModAllResistances",
               "args": [
-                10
+                25
               ],
               "itemsRequired": 4
             }
           ],
           [
             {
-              "key": "ModStr1x",
+              "key": "ModStr1m",
               "args": [
-                35
+                10
               ],
               "itemsRequired": 5
             }
@@ -42786,6 +42860,12 @@
         "DamageArmorEnhanced": true,
         "Lines": [
           {
+            "key": "ModStr3k",
+            "args": [
+              1
+            ]
+          },
+          {
             "key": "ModStr4s",
             "args": [
               50
@@ -42803,21 +42883,36 @@
               180,
               210
             ]
-          },
-          {
-            "key": "ModStr1b",
-            "args": [
-              -20
-            ]
-          },
-          {
-            "key": "ModStr3h",
-            "args": [
-              20
-            ]
           }
         ],
         "SetBonuses": [
+          [
+            {
+              "key": "ModStr3k",
+              "args": [
+                1
+              ],
+              "itemsRequired": 2
+            }
+          ],
+          [
+            {
+              "key": "ModStr4e",
+              "args": [
+                50
+              ],
+              "itemsRequired": 3
+            }
+          ],
+          [
+            {
+              "key": "ModStr4e",
+              "args": [
+                50
+              ],
+              "itemsRequired": 4
+            }
+          ],
           [
             {
               "key": "ModStr1a",
@@ -42857,7 +42952,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                130
+                163
               ]
             }
           ]
@@ -42881,18 +42976,18 @@
             ]
           },
           {
+            "key": "ModStr1f",
+            "args": [
+              0.5
+            ],
+            "perLevel": true
+          },
+          {
             "key": "ModStr1i",
             "args": [
               150,
               200
             ]
-          },
-          {
-            "key": "ModStr1d",
-            "args": [
-              0.5
-            ],
-            "perLevel": true
           },
           {
             "key": "ModStr1e",
@@ -42907,7 +43002,26 @@
             ]
           }
         ],
-        "SetBonuses": [],
+        "SetBonuses": [
+          [
+            {
+              "key": "ModStr4m",
+              "args": [
+                20
+              ],
+              "itemsRequired": 2
+            }
+          ],
+          [
+            {
+              "key": "strModAllResistances",
+              "args": [
+                10
+              ],
+              "itemsRequired": 4
+            }
+          ]
+        ],
         "Equipment": {
           "EquipmentType": 0,
           "NameKey": "ulm",
@@ -42971,16 +43085,28 @@
               1,
               2
             ]
-          },
-          {
-            "key": "ModitemRedVendP",
-            "args": [
-              5,
-              10
-            ]
           }
         ],
-        "SetBonuses": [],
+        "SetBonuses": [
+          [
+            {
+              "key": "ModStr4e",
+              "args": [
+                50
+              ],
+              "itemsRequired": 2
+            }
+          ],
+          [
+            {
+              "key": "ModStr4e",
+              "args": [
+                50
+              ],
+              "itemsRequired": 4
+            }
+          ]
+        ],
         "Equipment": {
           "EquipmentType": 2,
           "NameKey": "rin",
@@ -42991,23 +43117,23 @@
     ],
     "PartialBonuses": [
       {
-        "key": "ModStr1x",
+        "key": "ModStr4e",
         "args": [
-          20
+          50
         ],
         "itemsRequired": 2
       },
       {
-        "key": "ModStr1x",
+        "key": "ModStr2z",
         "args": [
-          25
+          10
         ],
         "itemsRequired": 3
       },
       {
         "key": "ModStr1x",
         "args": [
-          45
+          100
         ],
         "itemsRequired": 4
       },
@@ -43021,6 +43147,13 @@
     ],
     "FullBonuses": [
       {
+        "key": "strModEnhancedDamage",
+        "args": [
+          100
+        ],
+        "fullSet": true
+      },
+      {
         "key": "ModitemSMRIP",
         "args": [
           1
@@ -43030,7 +43163,7 @@
       {
         "key": "ModStr2l",
         "args": [
-          20
+          30
         ],
         "fullSet": true
       },
@@ -43038,6 +43171,13 @@
         "key": "strModAllResistances",
         "args": [
           40
+        ],
+        "fullSet": true
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          20
         ],
         "fullSet": true
       }
@@ -43716,7 +43856,7 @@
         "SetName": "Maadi's Paradox",
         "Rarity": 7,
         "ItemLevel": 63,
-        "RequiredLevel": 63,
+        "RequiredLevel": 65,
         "Code": "uh9",
         "DamageArmorEnhanced": true,
         "Lines": [
@@ -44014,11 +44154,17 @@
         "Index": "Maadi's Soul",
         "SetName": "Maadi's Paradox",
         "Rarity": 7,
-        "ItemLevel": 49,
-        "RequiredLevel": 49,
+        "ItemLevel": 75,
+        "RequiredLevel": 81,
         "Code": "ned",
         "DamageArmorEnhanced": true,
         "Lines": [
+          {
+            "key": "extraspear",
+            "args": [
+              1
+            ]
+          },
           {
             "key": "ModStr3k",
             "args": [
@@ -44061,17 +44207,7 @@
             ]
           }
         ],
-        "SetBonuses": [
-          [
-            {
-              "key": "extraspear",
-              "args": [
-                1
-              ],
-              "itemsRequired": 5
-            }
-          ]
-        ],
+        "SetBonuses": [],
         "Equipment": {
           "EquipmentType": 0,
           "NameKey": "ned",
@@ -44117,7 +44253,7 @@
       {
         "key": "strModAllResistances",
         "args": [
-          50
+          25
         ],
         "itemsRequired": 2
       },
@@ -44135,6 +44271,13 @@
         "key": "ModStr1u",
         "args": [
           200
+        ],
+        "itemsRequired": 4
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          25
         ],
         "itemsRequired": 4
       }
@@ -44214,9 +44357,18 @@
             {
               "key": "ModStr1k",
               "args": [
-                30
+                15
               ],
               "itemsRequired": 2
+            }
+          ],
+          [
+            {
+              "key": "ModStr1k",
+              "args": [
+                15
+              ],
+              "itemsRequired": 3
             }
           ],
           [
@@ -44271,7 +44423,7 @@
           {
             "key": "ModStr1i",
             "args": [
-              100
+              25
             ]
           },
           {
@@ -44300,9 +44452,9 @@
           ],
           [
             {
-              "key": "strModAllResistances",
+              "key": "ModStr1i",
               "args": [
-                20
+                75
               ],
               "itemsRequired": 3
             }
@@ -44316,8 +44468,8 @@
             {
               "key": "strDefenseRange",
               "args": [
-                108,
-                109
+                33,
+                34
               ]
             },
             {
@@ -44354,6 +44506,12 @@
         "Code": "xpk",
         "DamageArmorEnhanced": true,
         "Lines": [
+          {
+            "key": "ravenhits",
+            "args": [
+              2
+            ]
+          },
           {
             "key": "ModStr4s",
             "args": [
@@ -44407,18 +44565,9 @@
           ],
           [
             {
-              "key": "ModStr3k",
+              "key": "ModStr1k",
               "args": [
-                2
-              ],
-              "itemsRequired": 3
-            }
-          ],
-          [
-            {
-              "key": "ModStr5v",
-              "args": [
-                2
+                30
               ],
               "itemsRequired": 4
             }
@@ -44470,22 +44619,21 @@
         "Index": "The Raven's Beak",
         "SetName": "The Raven's Nest",
         "Rarity": 7,
-        "ItemLevel": 35,
-        "RequiredLevel": 45,
+        "ItemLevel": 55,
+        "RequiredLevel": 60,
         "Code": "9bl",
         "DamageArmorEnhanced": false,
         "Lines": [
           {
             "key": "ravenhits",
             "args": [
-              1,
               2
             ]
           },
           {
             "key": "ModStr3k",
             "args": [
-              1
+              2
             ]
           },
           {
@@ -44498,8 +44646,8 @@
           {
             "key": "ModStr4v",
             "args": [
-              20,
-              30
+              10,
+              20
             ]
           },
           {
@@ -44518,7 +44666,7 @@
           {
             "key": "ModStr6d",
             "args": [
-              1
+              2
             ]
           }
         ],
@@ -44527,18 +44675,9 @@
             {
               "key": "ModStr4v",
               "args": [
-                10
+                20
               ],
-              "itemsRequired": 2
-            }
-          ],
-          [
-            {
-              "key": "ravenhits",
-              "args": [
-                2
-              ],
-              "itemsRequired": 4
+              "itemsRequired": 3
             }
           ]
         ],
@@ -44590,11 +44729,17 @@
         "Index": "The Raven's Feathers",
         "SetName": "The Raven's Nest",
         "Rarity": 7,
-        "ItemLevel": 60,
-        "RequiredLevel": 60,
+        "ItemLevel": 75,
+        "RequiredLevel": 80,
         "Code": "uea",
         "DamageArmorEnhanced": true,
         "Lines": [
+          {
+            "key": "ModStr3k",
+            "args": [
+              1
+            ]
+          },
           {
             "key": "ItemModifierNonClassSkill",
             "args": [
@@ -44621,12 +44766,6 @@
             "args": [
               300,
               500
-            ]
-          },
-          {
-            "key": "ModStr1k",
-            "args": [
-              30
             ]
           },
           {
@@ -44667,7 +44806,7 @@
             {
               "key": "ModStr5v",
               "args": [
-                3
+                5
               ],
               "itemsRequired": 4
             }
@@ -44704,12 +44843,9 @@
     ],
     "PartialBonuses": [
       {
-        "key": "strSkillRandomFromSkillClass",
+        "key": "strModAllResistances",
         "args": [
-          5,
-          5,
-          "Skillname222",
-          "DruOnly"
+          20
         ],
         "itemsRequired": 2
       },
@@ -44721,11 +44857,21 @@
         "itemsRequired": 2
       },
       {
-        "key": "strModAllResistances",
+        "key": "strSkillRandomFromSkillClass",
         "args": [
-          40
+          5,
+          5,
+          "Skillname222",
+          "DruOnly"
         ],
         "itemsRequired": 3
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          20
+        ],
+        "itemsRequired": 4
       },
       {
         "key": "ravensetwolf",
@@ -44755,6 +44901,13 @@
         "key": "ModStr4v",
         "args": [
           30
+        ],
+        "fullSet": true
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          20
         ],
         "fullSet": true
       },
