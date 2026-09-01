@@ -1,22 +1,11 @@
 import { apiRequest } from '$lib/auth';
+import type { LadderExtensionKind, LadderSummary } from '$lib/ladders';
 
-export type LadderExtensionKind = 'Plugin' | 'Patch';
+// Re-exported so the admin pages keep importing these from one place.
+export type { LadderAllowedExtension, LadderExtensionKind } from '$lib/ladders';
 
-export interface LadderAllowedExtension {
-  id: string;
-  name: string;
-  fileName: string;
-  sha256: string;
-  kind: LadderExtensionKind;
-  isRequired: boolean;
-}
-
-export interface Ladder {
-  id: string;
-  name: string;
-  startDateUtc: string;
-  endDateUtc: string;
-  allowedExtensions: LadderAllowedExtension[];
+// The admin view is the public ladder plus the bundle only staff can act on.
+export interface Ladder extends LadderSummary {
   activeBundle: LadderBundle | null;
 }
 
