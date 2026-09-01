@@ -30,7 +30,6 @@ export interface PluginRelease {
   fileName: string;
   sha256: string;
   targetPath: string;
-  sourceCommit: string;
   kind: LadderExtensionKind;
   sizeBytes: number;
   isRevoked: boolean;
@@ -47,15 +46,18 @@ export interface LadderBundleCompatibility {
 }
 
 export interface LadderBundleFile {
-  pluginReleaseId: string;
-  pluginId: string;
-  name: string;
-  version: string;
-  kind: LadderExtensionKind;
-  isRequired: boolean;
   archivePath: string;
   targetPath: string;
   fileName: string;
+  sizeBytes: number;
+  sha256: string;
+}
+
+export interface LadderBundlePlugin {
+  pluginId: string;
+  name: string;
+  fileName: string;
+  targetPath: string;
   sizeBytes: number;
   sha256: string;
 }
@@ -64,15 +66,16 @@ export interface LadderBundle {
   id: string;
   ladderId: string;
   revision: number;
+  schemaVersion: number;
   status: LadderBundleStatus;
   artifactSha256: string;
   manifestSha256: string;
   manifestSignature: string;
   signingKeyId: string;
-  sourceCommit: string;
   artifactSizeBytes: number;
   compatibility: LadderBundleCompatibility;
   files: LadderBundleFile[];
+  plugins: LadderBundlePlugin[];
   createdAtUtc: string;
   publishedAtUtc: string | null;
   revokedAtUtc: string | null;
@@ -83,15 +86,16 @@ export interface PluginReleaseUpload {
   pluginId: string;
   name: string;
   version: string;
-  sourceCommit: string;
   targetPath: string;
   kind: LadderExtensionKind;
   file: File;
 }
 
-export interface CreateLadderBundleInput extends LadderBundleCompatibility {
-  sourceCommit: string;
-  components: Array<{ pluginReleaseId: string; isRequired: boolean }>;
+export interface CreateLadderBundleInput {
+  minimumLauncherVersion: string;
+  requiredD2RLoaderVersion: string;
+  supportedGameVersion: string;
+  archive: File;
 }
 
 export interface LadderAllowedExtensionInput {
@@ -192,7 +196,6 @@ export function publishPluginRelease(input: PluginReleaseUpload): Promise<Plugin
   body.set('pluginId', input.pluginId);
   body.set('name', input.name);
   body.set('version', input.version);
-  body.set('sourceCommit', input.sourceCommit);
   body.set('targetPath', input.targetPath);
   body.set('kind', input.kind);
   body.set('file', input.file, input.file.name);
@@ -207,9 +210,14 @@ export function createLadderBundle(
   ladderId: string,
   input: CreateLadderBundleInput
 ): Promise<LadderBundle> {
+  const body = new FormData();
+  body.set('minimumLauncherVersion', input.minimumLauncherVersion);
+  body.set('requiredD2RLoaderVersion', input.requiredD2RLoaderVersion);
+  body.set('supportedGameVersion', input.supportedGameVersion);
+  body.set('archive', input.archive, input.archive.name);
   return apiRequest<LadderBundle>(`/admin/ladders/${ladderId}/bundles`, {
     method: 'POST',
-    body: JSON.stringify(input)
+    body
   }, true);
 }
 

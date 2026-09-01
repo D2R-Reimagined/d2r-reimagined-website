@@ -1,7 +1,7 @@
 {
     "name": "d2r-reimagined-website",
     "private": true,
-    "version": "0.2.0",
+    "version": "0.3.0",
     "type": "module",
     "packageManager": "pnpm@11.25.0",
     "scripts": {
