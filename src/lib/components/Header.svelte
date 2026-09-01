@@ -176,7 +176,6 @@
         {#if tradeEnabled}
           <a href={tradeHref} onclick={closeMenus} class={`${navClass('/trade')} border border-ember-400/35 bg-ember-950/20`}>Trade</a>
         {/if}
-        <a href="/leaderboard" onclick={closeMenus} class={navClass('/leaderboard')}>Leaderboard</a>
         <a href="/grail" onclick={closeMenus} class={navClass('/grail')}>Holy Grail</a>
         {#if $authState.user?.roles.includes('Admin')}
           <a href="/admin/ladders" onclick={closeMenus} class={navClass('/admin')}>Admin</a>
