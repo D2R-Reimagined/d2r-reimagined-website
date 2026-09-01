@@ -52,9 +52,9 @@
     let deleteConfirmName = $state('');
     let deleting = $state(false);
     let bundleDraft = $state<BundleDraft>({
-        minimumLauncherVersion: '0.11.0',
-        requiredD2RLoaderVersion: '0.0.0',
-        supportedGameVersion: '3.2'
+        minimumLauncherVersion: '0.12.0',
+        requiredD2RLoaderVersion: '1.2.0',
+        supportedGameVersion: '3.3'
     });
 
     let selectedLadder = $derived(ladders.find((ladder) => ladder.id === selectedId) ?? null);
