@@ -112,6 +112,68 @@ export function apiRequest<T>(
   return executeApiRequest<T>(path, init, authenticated, true);
 }
 
+export interface ApiUploadProgress {
+  loadedBytes: number;
+  totalBytes: number | null;
+  percentage: number | null;
+}
+
+async function executeApiUploadRequest<T>(
+  path: string,
+  body: FormData,
+  onProgress: ((progress: ApiUploadProgress) => void) | undefined,
+  allowRefresh: boolean
+): Promise<T> {
+  let token = accessToken();
+  if (!token && allowRefresh && await refreshAccessToken()) token = accessToken();
+  if (!token) throw new ApiError('You need to sign in first.', 401);
+
+  const result = await new Promise<{ status: number; text: string }>((resolve, reject) => {
+    const request = new XMLHttpRequest();
+    request.open('POST', `${apiBaseUrl()}${path}`);
+    request.withCredentials = true;
+    request.setRequestHeader('Authorization', `Bearer ${token}`);
+    request.upload.onprogress = (event) => {
+      const totalBytes = event.lengthComputable ? event.total : null;
+      onProgress?.({
+        loadedBytes: event.loaded,
+        totalBytes,
+        percentage: totalBytes && totalBytes > 0 ? Math.min(100, event.loaded * 100 / totalBytes) : null
+      });
+    };
+    request.onload = () => resolve({ status: request.status, text: request.responseText });
+    request.onerror = () => reject(new ApiError('The upload connection failed.', 0));
+    request.onabort = () => reject(new ApiError('The upload was cancelled.', 0));
+    request.send(body);
+  });
+
+  if (result.status === 401 && allowRefresh && await refreshAccessToken()) {
+    return await executeApiUploadRequest<T>(path, body, onProgress, false);
+  }
+  if (result.status < 200 || result.status >= 300) {
+    let problem: { detail?: string; title?: string } | null = null;
+    try {
+      problem = JSON.parse(result.text) as { detail?: string; title?: string };
+    } catch {
+      // Gateways and proxies often return plain text or HTML.
+    }
+    throw new ApiError(
+      problem?.detail || problem?.title || `Request failed with status ${result.status}.`,
+      result.status
+    );
+  }
+
+  return JSON.parse(result.text) as T;
+}
+
+export function apiUploadRequest<T>(
+  path: string,
+  body: FormData,
+  onProgress?: (progress: ApiUploadProgress) => void
+): Promise<T> {
+  return executeApiUploadRequest<T>(path, body, onProgress, true);
+}
+
 function storeSession(response: AuthResponse): UserProfile {
   localStorage.setItem(tokenStorageKey, response.accessToken);
   authState.set({ ready: true, user: response.user });

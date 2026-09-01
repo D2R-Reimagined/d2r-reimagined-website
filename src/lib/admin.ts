@@ -1,4 +1,4 @@
-import { apiRequest } from '$lib/auth';
+import { apiRequest, apiUploadRequest, type ApiUploadProgress } from '$lib/auth';
 import type { LadderExtensionKind, LadderSummary } from '$lib/ladders';
 
 // Re-exported so the admin pages keep importing these from one place.
@@ -69,6 +69,42 @@ export interface LadderBundle {
   publishedAtUtc: string | null;
   revokedAtUtc: string | null;
   downloadPath: string;
+}
+
+export type LadderBundlePublishStatus = 'Queued' | 'Processing' | 'Completed' | 'Failed';
+export type LadderBundlePublishStage =
+  | 'Queued'
+  | 'DownloadingSource'
+  | 'ValidatingArchive'
+  | 'HashingFiles'
+  | 'SigningManifest'
+  | 'PackagingBundle'
+  | 'HashingBundle'
+  | 'UploadingBundle'
+  | 'SavingRevision'
+  | 'Completed'
+  | 'Failed';
+
+export interface LadderBundlePublishJob {
+  id: string;
+  ladderId: string;
+  bundleId: string | null;
+  status: LadderBundlePublishStatus;
+  stage: LadderBundlePublishStage;
+  progressPercent: number;
+  sourceFileName: string;
+  sourceSizeBytes: number;
+  message: string;
+  detail: string | null;
+  error: string | null;
+  processedFiles: number | null;
+  totalFiles: number | null;
+  processedBytes: number | null;
+  totalBytes: number | null;
+  createdAtUtc: string;
+  updatedAtUtc: string;
+  startedAtUtc: string | null;
+  completedAtUtc: string | null;
 }
 
 export interface PluginReleaseUpload {
@@ -197,17 +233,40 @@ export function getLadderBundles(ladderId: string): Promise<LadderBundle[]> {
 
 export function createLadderBundle(
   ladderId: string,
-  input: CreateLadderBundleInput
-): Promise<LadderBundle> {
+  input: CreateLadderBundleInput,
+  onProgress?: (progress: ApiUploadProgress) => void
+): Promise<LadderBundlePublishJob> {
   const body = new FormData();
   body.set('minimumLauncherVersion', input.minimumLauncherVersion);
   body.set('requiredD2RLoaderVersion', input.requiredD2RLoaderVersion);
   body.set('supportedGameVersion', input.supportedGameVersion);
   body.set('archive', input.archive, input.archive.name);
-  return apiRequest<LadderBundle>(`/admin/ladders/${ladderId}/bundles`, {
-    method: 'POST',
-    body
-  }, true);
+  return apiUploadRequest<LadderBundlePublishJob>(
+    `/admin/ladders/${ladderId}/bundles`,
+    body,
+    onProgress
+  );
+}
+
+export async function getLatestLadderBundlePublishJob(
+  ladderId: string
+): Promise<LadderBundlePublishJob | null> {
+  return await apiRequest<LadderBundlePublishJob | undefined>(
+    `/admin/ladders/${ladderId}/bundle-publish-jobs/latest`,
+    {},
+    true
+  ) ?? null;
+}
+
+export function getLadderBundlePublishJob(
+  ladderId: string,
+  jobId: string
+): Promise<LadderBundlePublishJob> {
+  return apiRequest<LadderBundlePublishJob>(
+    `/admin/ladders/${ladderId}/bundle-publish-jobs/${jobId}`,
+    {},
+    true
+  );
 }
 
 export function activateLadderBundle(ladderId: string, bundleId: string): Promise<LadderBundle> {

@@ -1,11 +1,13 @@
 <script lang="ts">
-    import {onMount} from 'svelte';
+    import {onDestroy, onMount} from 'svelte';
 
     import {
         activateLadderBundle,
         createLadderBundle,
         createLadder,
+        getLadderBundlePublishJob,
         getLadderBundles,
+        getLatestLadderBundlePublishJob,
         getLadders,
         revokeLadderBundle,
         startLadder,
@@ -14,6 +16,7 @@
         type Ladder,
         type LadderAllowedExtensionInput,
         type LadderBundle,
+        type LadderBundlePublishJob,
         type LadderExtensionKind,
         type LadderInput
     } from '$lib/admin';
@@ -43,6 +46,9 @@
     let ladderBundles = $state<LadderBundle[]>([]);
     let bundleArchive = $state<File | null>(null);
     let bundleBusy = $state(false);
+    let bundleJob = $state<LadderBundlePublishJob | null>(null);
+    let bundleUploadProgress = $state<{ loadedBytes: number; totalBytes: number | null; percentage: number | null } | null>(null);
+    let publishMonitorGeneration = 0;
     let deleteConfirmName = $state('');
     let deleting = $state(false);
     let bundleDraft = $state<BundleDraft>({
@@ -65,6 +71,7 @@
     }
 
     function resetDraft(): void {
+        publishMonitorGeneration++;
         const start = new Date();
         start.setSeconds(0, 0);
         const end = new Date(start);
@@ -78,9 +85,13 @@
         };
         error = '';
         notice = '';
+        bundleJob = null;
+        bundleUploadProgress = null;
+        bundleBusy = false;
     }
 
     function editLadder(ladder: Ladder): void {
+        publishMonitorGeneration++;
         selectedId = ladder.id;
         draft = {
             name: ladder.name,
@@ -97,6 +108,7 @@
         error = '';
         notice = '';
         void loadLadderBundles(ladder.id);
+        void recoverLatestPublishJob(ladder.id);
     }
 
     function addRequirement(kind: LadderExtensionKind): void {
@@ -128,6 +140,84 @@
         }
     }
 
+    function formatBytes(bytes: number): string {
+        const units = ['B', 'KiB', 'MiB', 'GiB'];
+        let value = Math.max(0, bytes);
+        let unit = 0;
+        while (value >= 1024 && unit < units.length - 1) {
+            value /= 1024;
+            unit++;
+        }
+        return unit === 0 ? `${value.toFixed(0)} ${units[unit]}` : `${value.toFixed(1)} ${units[unit]}`;
+    }
+
+    function stageLabel(job: LadderBundlePublishJob): string {
+        const labels: Record<LadderBundlePublishJob['stage'], string> = {
+            Queued: 'Queued',
+            DownloadingSource: 'Loading source',
+            ValidatingArchive: 'Validating archive',
+            HashingFiles: 'Hashing files',
+            SigningManifest: 'Signing manifest',
+            PackagingBundle: 'Building package',
+            HashingBundle: 'Verifying package',
+            UploadingBundle: 'Uploading to Spaces',
+            SavingRevision: 'Saving revision',
+            Completed: 'Completed',
+            Failed: 'Failed'
+        };
+        return labels[job.stage];
+    }
+
+    function delay(milliseconds: number): Promise<void> {
+        return new Promise((resolve) => setTimeout(resolve, milliseconds));
+    }
+
+    async function recoverLatestPublishJob(ladderId: string): Promise<void> {
+        try {
+            const latest = await getLatestLadderBundlePublishJob(ladderId);
+            if (selectedId !== ladderId) return;
+            bundleJob = latest;
+            if (latest?.status === 'Queued' || latest?.status === 'Processing') {
+                bundleBusy = true;
+                void monitorPublishJob(ladderId, latest.id);
+            }
+        } catch (value) {
+            if (selectedId === ladderId) error = problemMessage(value);
+        }
+    }
+
+    async function monitorPublishJob(ladderId: string, jobId: string): Promise<void> {
+        const generation = ++publishMonitorGeneration;
+        let failedPolls = 0;
+        while (generation === publishMonitorGeneration && selectedId === ladderId) {
+            try {
+                const current = await getLadderBundlePublishJob(ladderId, jobId);
+                if (generation !== publishMonitorGeneration || selectedId !== ladderId) return;
+                bundleJob = current;
+                failedPolls = 0;
+                if (current.status === 'Completed') {
+                    bundleBusy = false;
+                    await loadLadderBundles(ladderId);
+                    notice = current.message;
+                    return;
+                }
+                if (current.status === 'Failed') {
+                    bundleBusy = false;
+                    error = current.error || current.message;
+                    return;
+                }
+            } catch (value) {
+                failedPolls++;
+                if (failedPolls >= 3) {
+                    bundleBusy = false;
+                    error = `Publishing continues on the server, but progress could not be refreshed: ${problemMessage(value)}`;
+                    return;
+                }
+            }
+            await delay(1000);
+        }
+    }
+
     async function composeBundle(): Promise<void> {
         if (!selectedId || !bundleArchive) {
             error = 'Choose the complete Reimagined ZIP to upload.';
@@ -135,20 +225,27 @@
         }
 
         bundleBusy = true;
+        bundleJob = null;
+        bundleUploadProgress = {loadedBytes: 0, totalBytes: bundleArchive.size, percentage: 0};
         error = '';
         notice = '';
         try {
-            const bundle = await createLadderBundle(selectedId, {
+            const job = await createLadderBundle(selectedId, {
                 ...bundleDraft,
                 archive: bundleArchive
+            }, (progress) => {
+                bundleUploadProgress = progress;
             });
-            await loadLadderBundles(selectedId);
+            bundleJob = job;
+            bundleUploadProgress = null;
             bundleArchive = null;
-            notice = `Signed ladder package r${bundle.revision} contains ${bundle.files.length} files and ${bundle.plugins.length} plugins and is ready to activate.`;
+            notice = 'Source archive uploaded. Package processing will continue in the background.';
+            void monitorPublishJob(selectedId, job.id);
         } catch (value) {
             error = problemMessage(value);
-        } finally {
             bundleBusy = false;
+        } finally {
+            bundleUploadProgress = null;
         }
     }
 
@@ -286,6 +383,10 @@
     onMount(async () => {
         resetDraft();
         await loadLadders();
+    });
+
+    onDestroy(() => {
+        publishMonitorGeneration++;
     });
 </script>
 
@@ -508,9 +609,49 @@
                             <input class="field" required maxlength="32" bind:value={bundleDraft.supportedGameVersion}/>
                         </label>
                     </div>
+                    {#if bundleUploadProgress}
+                        <div class="mt-4 rounded-lg border border-ember-400/35 bg-abyss-950 p-4">
+                            <div class="flex flex-wrap items-center justify-between gap-2 text-sm">
+                                <span class="text-parchment-50">{bundleUploadProgress.percentage !== null && bundleUploadProgress.percentage >= 100 ? 'Upload received; staging source archive' : 'Uploading source archive'}</span>
+                                <span class="text-ember-300">{bundleUploadProgress.percentage === null ? 'Working…' : `${bundleUploadProgress.percentage.toFixed(1)}%`}</span>
+                            </div>
+                            <div class="mt-3 h-2 overflow-hidden rounded-full bg-parchment-300/15">
+                                <div class="h-full rounded-full bg-ember-500 transition-[width] duration-200"
+                                     style={`width: ${bundleUploadProgress.percentage ?? 5}%`}></div>
+                            </div>
+                            <p class="mt-2 text-xs text-parchment-300">
+                                {formatBytes(bundleUploadProgress.loadedBytes)}{bundleUploadProgress.totalBytes === null ? '' : ` of ${formatBytes(bundleUploadProgress.totalBytes)}`}
+                            </p>
+                        </div>
+                    {/if}
+                    {#if bundleJob}
+                        <div class={`mt-4 rounded-lg border p-4 ${bundleJob.status === 'Failed' ? 'border-requirement/50 bg-requirement/10' : bundleJob.status === 'Completed' ? 'border-set/45 bg-set/10' : 'border-ember-400/35 bg-abyss-950'}`}>
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <div>
+                                    <p class="text-sm text-parchment-50">{stageLabel(bundleJob)}</p>
+                                    <p class="mt-1 text-xs text-parchment-300">{bundleJob.message}</p>
+                                </div>
+                                <span class="text-sm text-ember-300">{bundleJob.progressPercent}%</span>
+                            </div>
+                            <div class="mt-3 h-2 overflow-hidden rounded-full bg-parchment-300/15">
+                                <div class={`h-full rounded-full transition-[width] duration-300 ${bundleJob.status === 'Failed' ? 'bg-requirement' : bundleJob.status === 'Completed' ? 'bg-set' : 'bg-ember-500'}`}
+                                     style={`width: ${bundleJob.progressPercent}%`}></div>
+                            </div>
+                            {#if bundleJob.detail}
+                                <p class="mt-2 text-xs text-parchment-300">{bundleJob.detail}</p>
+                            {/if}
+                            {#if bundleJob.processedFiles !== null && bundleJob.totalFiles !== null}
+                                <p class="mt-1 text-xs text-parchment-300">{bundleJob.processedFiles.toLocaleString()} of {bundleJob.totalFiles.toLocaleString()} files</p>
+                            {/if}
+                            {#if bundleJob.error}
+                                <p class="mt-2 text-sm text-requirement">{bundleJob.error}</p>
+                            {/if}
+                            <p class="mt-2 text-[0.7rem] text-parchment-300">Last updated {new Date(bundleJob.updatedAtUtc).toLocaleTimeString()}</p>
+                        </div>
+                    {/if}
                     <div class="mt-4 flex justify-end">
                         <button class="rounded bg-ember-700 px-4 py-2 text-parchment-50 hover:bg-ember-500 disabled:opacity-50"
-                                type="submit" disabled={bundleBusy || !bundleArchive}>{bundleBusy ? 'Uploading and hashing…' : 'Upload, hash, and sign package'}</button>
+                                type="submit" disabled={bundleBusy || !bundleArchive}>{bundleBusy ? 'Publishing package…' : 'Upload and publish package'}</button>
                     </div>
                 </form>
 
