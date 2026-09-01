@@ -48,6 +48,7 @@
     let bundleBusy = $state(false);
     let bundleJob = $state<LadderBundlePublishJob | null>(null);
     let bundleUploadProgress = $state<{ loadedBytes: number; totalBytes: number | null; percentage: number | null } | null>(null);
+    let publishPollProblem = $state<string | null>(null);
     let publishMonitorGeneration = 0;
     let deleteConfirmName = $state('');
     let deleting = $state(false);
@@ -87,6 +88,7 @@
         notice = '';
         bundleJob = null;
         bundleUploadProgress = null;
+        publishPollProblem = null;
         bundleBusy = false;
     }
 
@@ -107,6 +109,10 @@
         };
         error = '';
         notice = '';
+        bundleJob = null;
+        bundleUploadProgress = null;
+        bundleBusy = false;
+        publishPollProblem = null;
         void loadLadderBundles(ladder.id);
         void recoverLatestPublishJob(ladder.id);
     }
@@ -177,6 +183,7 @@
             const latest = await getLatestLadderBundlePublishJob(ladderId);
             if (selectedId !== ladderId) return;
             bundleJob = latest;
+            publishPollProblem = null;
             if (latest?.status === 'Queued' || latest?.status === 'Processing') {
                 bundleBusy = true;
                 void monitorPublishJob(ladderId, latest.id);
@@ -190,11 +197,13 @@
         const generation = ++publishMonitorGeneration;
         let failedPolls = 0;
         while (generation === publishMonitorGeneration && selectedId === ladderId) {
+            let nextPollDelay = 1000;
             try {
                 const current = await getLadderBundlePublishJob(ladderId, jobId);
                 if (generation !== publishMonitorGeneration || selectedId !== ladderId) return;
                 bundleJob = current;
                 failedPolls = 0;
+                publishPollProblem = null;
                 if (current.status === 'Completed') {
                     bundleBusy = false;
                     await loadLadderBundles(ladderId);
@@ -208,13 +217,10 @@
                 }
             } catch (value) {
                 failedPolls++;
-                if (failedPolls >= 3) {
-                    bundleBusy = false;
-                    error = `Publishing continues on the server, but progress could not be refreshed: ${problemMessage(value)}`;
-                    return;
-                }
+                publishPollProblem = `Publishing is still running, but the latest progress could not be loaded: ${problemMessage(value)} Reconnecting automatically…`;
+                nextPollDelay = Math.min(15_000, 1000 * 2 ** Math.min(failedPolls - 1, 4));
             }
-            await delay(1000);
+            await delay(nextPollDelay);
         }
     }
 
@@ -227,6 +233,7 @@
         bundleBusy = true;
         bundleJob = null;
         bundleUploadProgress = {loadedBytes: 0, totalBytes: bundleArchive.size, percentage: 0};
+        publishPollProblem = null;
         error = '';
         notice = '';
         try {
@@ -239,7 +246,7 @@
             bundleJob = job;
             bundleUploadProgress = null;
             bundleArchive = null;
-            notice = 'Source archive uploaded. Package processing will continue in the background.';
+            notice = 'Upload complete. Live publishing progress is shown below and updates automatically—no refresh is needed. You may safely leave this page; processing will continue and the status will reconnect when you return.';
             void monitorPublishJob(selectedId, job.id);
         } catch (value) {
             error = problemMessage(value);
@@ -625,7 +632,21 @@
                         </div>
                     {/if}
                     {#if bundleJob}
-                        <div class={`mt-4 rounded-lg border p-4 ${bundleJob.status === 'Failed' ? 'border-requirement/50 bg-requirement/10' : bundleJob.status === 'Completed' ? 'border-set/45 bg-set/10' : 'border-ember-400/35 bg-abyss-950'}`}>
+                        <div class={`mt-4 rounded-lg border p-4 ${bundleJob.status === 'Failed' ? 'border-requirement/50 bg-requirement/10' : bundleJob.status === 'Completed' ? 'border-set/45 bg-set/10' : 'border-ember-400/60 bg-abyss-950 shadow-[0_0_24px_rgba(217,119,6,0.08)]'}`}
+                             role="status" aria-live="polite">
+                            <div class="mb-3 flex flex-wrap items-center justify-between gap-2 border-b border-parchment-300/15 pb-3">
+                                <div>
+                                    <p class="text-xs uppercase tracking-[0.16em] text-ember-400">Live package publishing status</p>
+                                    {#if bundleJob.status === 'Queued' || bundleJob.status === 'Processing'}
+                                        <p class="mt-1 text-xs text-parchment-300">Updates automatically. No refresh is needed, and it is safe to leave this page.</p>
+                                    {:else if bundleJob.status === 'Completed'}
+                                        <p class="mt-1 text-xs text-parchment-300">Publishing finished. Review the new revision below, then activate it when ready.</p>
+                                    {:else}
+                                        <p class="mt-1 text-xs text-parchment-300">Publishing stopped. Review the error below before uploading again.</p>
+                                    {/if}
+                                </div>
+                                <span class={`rounded border px-2 py-1 text-xs uppercase tracking-wide ${bundleJob.status === 'Failed' ? 'border-requirement/60 text-requirement' : bundleJob.status === 'Completed' ? 'border-set/60 text-set' : 'border-ember-400/50 text-ember-300'}`}>{bundleJob.status}</span>
+                            </div>
                             <div class="flex flex-wrap items-center justify-between gap-2">
                                 <div>
                                     <p class="text-sm text-parchment-50">{stageLabel(bundleJob)}</p>
@@ -633,7 +654,8 @@
                                 </div>
                                 <span class="text-sm text-ember-300">{bundleJob.progressPercent}%</span>
                             </div>
-                            <div class="mt-3 h-2 overflow-hidden rounded-full bg-parchment-300/15">
+                            <div class="mt-3 h-2 overflow-hidden rounded-full bg-parchment-300/15"
+                                 role="progressbar" aria-label="Package publishing progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow={bundleJob.progressPercent}>
                                 <div class={`h-full rounded-full transition-[width] duration-300 ${bundleJob.status === 'Failed' ? 'bg-requirement' : bundleJob.status === 'Completed' ? 'bg-set' : 'bg-ember-500'}`}
                                      style={`width: ${bundleJob.progressPercent}%`}></div>
                             </div>
@@ -645,6 +667,14 @@
                             {/if}
                             {#if bundleJob.error}
                                 <p class="mt-2 text-sm text-requirement">{bundleJob.error}</p>
+                            {/if}
+                            {#if publishPollProblem}
+                                <p class="mt-3 rounded border border-ember-400/35 bg-ember-950/30 px-3 py-2 text-xs text-ember-200">{publishPollProblem}</p>
+                            {/if}
+                            {#if (bundleJob.status === 'Queued' || bundleJob.status === 'Processing') && Date.now() - new Date(bundleJob.updatedAtUtc).getTime() >= 45_000}
+                                <p class="mt-3 rounded border border-ember-400/35 bg-ember-950/30 px-3 py-2 text-xs text-ember-200">
+                                    No new progress has been reported recently. A large file may still be processing, or the API may be restarting. No action is needed—the server will resume this job automatically.
+                                </p>
                             {/if}
                             <p class="mt-2 text-[0.7rem] text-parchment-300">Last updated {new Date(bundleJob.updatedAtUtc).toLocaleTimeString()}</p>
                         </div>
