@@ -3,7 +3,7 @@
     "private": true,
     "version": "0.2.0",
     "type": "module",
-    "packageManager": "pnpm@10.34.5",
+    "packageManager": "pnpm@11.25.0",
     "scripts": {
         "build": "vite build",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -30,6 +30,6 @@
         "tailwindcss": "^4.3.3",
         "typescript": "^6.0.3",
         "vite": "^8.2.2",
-        "vitest": "^3.2.7"
+        "vitest": "^4.1.11"
     }
 }
