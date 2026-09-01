@@ -35,7 +35,6 @@
 </svelte:head>
 
 <div class="mb-6">
-  <p class="text-xs uppercase tracking-[0.18em] text-ember-400">Live messaging</p>
   <h2 class="display-text mt-1 text-3xl text-parchment-50">Announcements</h2>
   <p class="mt-2 text-parchment-300">Send a message to every client currently connected to the announcements WebSocket.</p>
 </div>
