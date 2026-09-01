@@ -1,15 +1,36 @@
 <script lang="ts">
+  import { browser } from '$app/environment';
+  import { goto } from '$app/navigation';
   import { page } from '$app/state';
   import { DiscordSolid } from 'flowbite-svelte-icons';
   import { onMount } from 'svelte';
 
   import { authState, initializeAuth } from '$lib/auth';
   import { i18n, languages, restoreSavedLanguage, setLanguage, type LanguageCode } from '$lib/i18n';
+  import {
+    lastTradeRealmStorageKey,
+    tradeLadderPath,
+    validStoredTradePath,
+    type TradeLadder
+  } from '$lib/trade-ladders';
+
+  let { tradeEnabled, ladders }: { tradeEnabled: boolean; ladders: TradeLadder[] } = $props();
 
   let mobileOpen = $state(false);
   let languageOpen = $state(false);
   let fontOpen = $state(false);
   let dataOpen = $state(false);
+  let tradeHref = $state('/trade');
+  let tradeRealmRestored = $state(false);
+
+  let currentTradePath = $derived.by(() => {
+    const path = page.url.pathname;
+    if (path === '/trade' || path === '/trade/standard') return path;
+    if (path === '/trade/list' || path === '/trade/mine') return null;
+    return ladders
+      .map(tradeLadderPath)
+      .find((ladderPath) => ladderPath.toLowerCase() === path.toLowerCase()) ?? null;
+  });
 
   const dataLinks = [
     { href: '/data/skills', label: 'Skills', detail: 'Class trees and build planner' },
@@ -94,8 +115,23 @@
   onMount(() => {
     const savedFont = localStorage.getItem('font') ?? 'font-resurrected';
     chooseFont(fonts.some((font) => font.value === savedFont) ? savedFont : 'font-resurrected');
+    try {
+      const savedTradePath = localStorage.getItem(lastTradeRealmStorageKey);
+      tradeHref = savedTradePath ? validStoredTradePath(savedTradePath, ladders) ?? '/trade' : '/trade';
+      if (page.url.pathname === '/trade' && tradeHref !== '/trade') {
+        void goto(tradeHref, { replaceState: true }).finally(() => tradeRealmRestored = true);
+      } else {
+        tradeRealmRestored = true;
+      }
+    } catch { tradeRealmRestored = true; }
     void restoreSavedLanguage();
     void initializeAuth();
+  });
+
+  $effect(() => {
+    if (!browser || !tradeRealmRestored || !currentTradePath) return;
+    tradeHref = currentTradePath;
+    try { localStorage.setItem(lastTradeRealmStorageKey, currentTradePath); } catch { /* storage is optional */ }
   });
 </script>
 
@@ -137,6 +173,9 @@
         <a href="/" onclick={closeMenus} class={navClass('/')}>Home</a>
         <a href="/download" onclick={closeMenus} class={navClass('/download')}>Download</a>
         <a href="/characters" onclick={closeMenus} class={navClass('/characters')}>Characters</a>
+        {#if tradeEnabled}
+          <a href={tradeHref} onclick={closeMenus} class={`${navClass('/trade')} border border-ember-400/35 bg-ember-950/20`}>Trade</a>
+        {/if}
         <a href="/grail" onclick={closeMenus} class={navClass('/grail')}>Holy Grail</a>
         {#if $authState.user?.roles.includes('Admin')}
           <a href="/admin/ladders" onclick={closeMenus} class={navClass('/admin')}>Admin</a>

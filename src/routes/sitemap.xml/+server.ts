@@ -4,6 +4,7 @@ const routes = [
   '/',
   '/download',
   '/characters',
+  '/trade',
   '/grail',
   '/data',
   '/data/skills',

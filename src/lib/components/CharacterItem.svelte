@@ -19,7 +19,9 @@
     runewordNameKey,
     characterLevel,
     style,
-    tooltipSide = 'right'
+    tooltipSide = 'right',
+    selected = false,
+    onselect
   }: {
     item: SaveItem;
     presentation?: ItemPresentation;
@@ -31,6 +33,8 @@
     characterLevel?: number;
     style: string;
     tooltipSide?: 'left' | 'right';
+    selected?: boolean;
+    onselect?: (item: SaveItem) => void;
   } = $props();
 
   let open = $state(false);
@@ -117,19 +121,23 @@
   class="character-item absolute flex cursor-help items-center justify-center p-[0.3%] focus:outline-none"
   class:z-60={open}
   class:z-10={!open}
+  class:ring-2={selected}
+  class:ring-ember-400={selected}
+  class:cursor-pointer={Boolean(onselect)}
   style={style}
   tabindex="0"
   role="button"
-  aria-label={`Inspect ${label}`}
+  aria-label={`${onselect ? 'Select' : 'Inspect'} ${label}`}
   onmouseenter={showTooltip}
   onmouseleave={hideTooltip}
   onfocus={showTooltip}
   onblur={hideTooltip}
-  onclick={showTooltip}
+  onclick={() => { onselect?.(item); void showTooltip(); }}
   onkeydown={(event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      showTooltip();
+      onselect?.(item);
+      void showTooltip();
     } else if (event.key === 'Escape') {
       hideTooltip();
     }

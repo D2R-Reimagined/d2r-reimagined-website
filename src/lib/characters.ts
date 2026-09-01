@@ -73,6 +73,7 @@ export interface SaveItem {
   position: SaveItemPosition;
   code: number;
   codeText: string;
+  seed: number;
   baseName: string | null;
   itemLevel: number;
   qualityId: number;

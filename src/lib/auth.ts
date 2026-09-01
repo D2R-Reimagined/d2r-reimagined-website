@@ -52,6 +52,14 @@ function apiBaseUrl(): string {
   return (env.PUBLIC_API_BASE_URL || 'http://localhost:5000').replace(/\/$/, '');
 }
 
+export function apiWebSocketUrl(path: string): string {
+  const url = new URL(path, `${apiBaseUrl()}/`);
+  url.protocol = url.protocol === 'https:' ? 'wss:' : 'ws:';
+  const token = accessToken();
+  if (token) url.searchParams.set('access_token', token);
+  return url.toString();
+}
+
 function accessToken(): string | null {
   return browser ? localStorage.getItem(tokenStorageKey) : null;
 }
