@@ -100,7 +100,36 @@ body.font-neutral { font-family: Verdana, Helvetica, Arial, sans-serif; }
   padding: 0.7rem 0.8rem;
 }
 
+.field::placeholder {
+  color: rgb(188 167 125 / 0.58);
+  opacity: 1;
+}
+
 .field:hover, .field:focus { border-color: rgb(228 90 53 / 0.7); }
+
+.trade-primary-button,
+.trade-secondary-button {
+  border-radius: 0.4rem;
+  padding: 0.68rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
+}
+
+.trade-primary-button {
+  border: 1px solid rgb(228 90 53 / 0.65);
+  background: rgb(123 29 24 / 0.4);
+  color: #f7f1e3;
+}
+.trade-primary-button:hover { background: rgb(123 29 24 / 0.62); }
+.trade-secondary-button {
+  border: 1px solid rgb(188 167 125 / 0.3);
+  background: rgb(0 0 0 / 0.25);
+  color: #d8c9a7;
+}
+.trade-secondary-button:hover { border-color: rgb(188 167 125 / 0.55); background: rgb(255 255 255 / 0.04); color: white; }
+.trade-primary-button:disabled, .trade-secondary-button:disabled { cursor: not-allowed; opacity: 0.45; }
+.trade-filter-label { font-size: 0.8rem; color: #bca77d; }
 
 .hash-field {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;

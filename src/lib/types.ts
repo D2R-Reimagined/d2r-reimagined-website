@@ -6,7 +6,8 @@ export const catalogSlugs = [
   'runewords',
   'bases',
   'affixes',
-  'cube-recipes'
+  'cube-recipes',
+  'orbs'
 ] as const;
 
 export type CatalogSlug = (typeof catalogSlugs)[number];
@@ -193,5 +194,10 @@ export const catalogDefinitions: Record<CatalogSlug, CatalogDefinition> = {
     slug: 'cube-recipes',
     title: 'Cube Recipes',
     description: 'Search the full Horadric Cube recipe catalog, including inputs, outputs, properties, and notes.'
+  },
+  orbs: {
+    slug: 'orbs',
+    title: 'Orbs',
+    description: 'What every Horadric Cube orb does, which items it takes, and every property an Orb of Corruption can roll.'
   }
 };

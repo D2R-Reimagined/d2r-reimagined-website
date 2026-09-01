@@ -2,7 +2,7 @@ import type { CatalogItem, CatalogSlug, KeyedLine } from './types';
 
 export function itemTitle(item: CatalogItem, slug: CatalogSlug): string | number {
   if (slug === 'bases' || slug === 'affixes') return item.NameKey ?? item.Index ?? 'Unknown';
-  if (slug === 'cube-recipes') return item.Description || `Recipe ${item.Index ?? ''}`;
+  if (slug === 'cube-recipes' || slug === 'orbs') return item.Description || `Recipe ${item.Index ?? ''}`;
   return item.Index ?? item.NameKey ?? 'Unknown';
 }
 

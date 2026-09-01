@@ -7,8 +7,6 @@
         createLadder,
         getLadderBundles,
         getLadders,
-        getPluginReleases,
-        publishPluginRelease,
         revokeLadderBundle,
         startLadder,
         deleteLadder,
@@ -17,8 +15,7 @@
         type LadderAllowedExtensionInput,
         type LadderBundle,
         type LadderExtensionKind,
-        type LadderInput,
-        type PluginRelease
+        type LadderInput
     } from '$lib/admin';
     import {ApiError} from '$lib/auth';
     import {isSha256, normalizeSha256} from '$lib/sha256';
@@ -30,22 +27,9 @@
         allowedExtensions: LadderAllowedExtensionInput[];
     }
 
-    interface ReleaseDraft {
-        pluginId: string;
-        name: string;
-        version: string;
-        sourceCommit: string;
-        targetPath: string;
-        kind: LadderExtensionKind;
-    }
-
     interface BundleDraft {
-        sourceCommit: string;
         minimumLauncherVersion: string;
         requiredD2RLoaderVersion: string;
-        requiredD2RLoaderSha256: string;
-        requiredD2RCoreSha256: string;
-        requiredModVersion: string;
         supportedGameVersion: string;
     }
 
@@ -56,29 +40,14 @@
     let saving = $state(false);
     let error = $state('');
     let notice = $state('');
-    let pluginReleases = $state<PluginRelease[]>([]);
     let ladderBundles = $state<LadderBundle[]>([]);
-    let selectedReleaseIds = $state<string[]>([]);
-    let optionalReleaseIds = $state<string[]>([]);
-    let releaseFile = $state<File | null>(null);
+    let bundleArchive = $state<File | null>(null);
     let bundleBusy = $state(false);
     let deleteConfirmName = $state('');
     let deleting = $state(false);
-    let releaseDraft = $state<ReleaseDraft>({
-        pluginId: '',
-        name: '',
-        version: '0.1.0',
-        sourceCommit: '',
-        targetPath: '',
-        kind: 'Plugin'
-    });
     let bundleDraft = $state<BundleDraft>({
-        sourceCommit: '',
         minimumLauncherVersion: '0.11.0',
         requiredD2RLoaderVersion: '0.0.0',
-        requiredD2RLoaderSha256: '',
-        requiredD2RCoreSha256: '',
-        requiredModVersion: '3.0.11',
         supportedGameVersion: '3.2'
     });
 
@@ -150,14 +119,6 @@
         }
     }
 
-    async function loadPluginReleaseCatalog(): Promise<void> {
-        try {
-            pluginReleases = await getPluginReleases();
-        } catch (value) {
-            error = problemMessage(value);
-        }
-    }
-
     async function loadLadderBundles(ladderId: string): Promise<void> {
         try {
             ladderBundles = await getLadderBundles(ladderId);
@@ -167,55 +128,10 @@
         }
     }
 
-    async function uploadPluginRelease(): Promise<void> {
-        if (!releaseFile) {
-            error = 'Choose a DLL or patch file to publish.';
-            return;
-        }
-
-        bundleBusy = true;
-        error = '';
-        notice = '';
-        try {
-            const published = await publishPluginRelease({...releaseDraft, file: releaseFile});
-            await loadPluginReleaseCatalog();
-            selectedReleaseIds = [...new Set([...selectedReleaseIds, published.id])];
-            releaseFile = null;
-            notice = `${published.name} ${published.version} was uploaded and hashed by the API.`;
-        } catch (value) {
-            error = problemMessage(value);
-        } finally {
-            bundleBusy = false;
-        }
-    }
-
-    function selectFullTestSet(): void {
-        const requiredIds = ['announcements', 'chat-relay', 'maps', 'server-saves'];
-        const selected = requiredIds
-            .map((pluginId) => pluginReleases.find((release) => release.pluginId === pluginId && !release.isRevoked))
-            .filter((release): release is PluginRelease => release !== undefined);
-        selectedReleaseIds = selected.map((release) => release.id);
-        optionalReleaseIds = [];
-        const missing = requiredIds.filter((pluginId) => !selected.some((release) => release.pluginId === pluginId));
-        notice = missing.length === 0
-            ? 'Selected announcements, chat relay, maps, and server saves as required. Hardcore-only remains excluded.'
-            : `Selected the available test releases. Still upload: ${missing.join(', ')}.`;
-    }
-
     async function composeBundle(): Promise<void> {
-        if (!selectedId || selectedReleaseIds.length === 0) {
-            error = 'Select at least one published plugin release.';
+        if (!selectedId || !bundleArchive) {
+            error = 'Choose the complete Reimagined ZIP to upload.';
             return;
-        }
-
-        for (const [label, hash] of [
-            ['D2RLoader', bundleDraft.requiredD2RLoaderSha256],
-            ['D2RCore', bundleDraft.requiredD2RCoreSha256]
-        ] as const) {
-            if (hash && !isSha256(hash)) {
-                error = `${label} SHA-256 must be blank or contain exactly 64 hexadecimal characters.`;
-                return;
-            }
         }
 
         bundleBusy = true;
@@ -224,15 +140,11 @@
         try {
             const bundle = await createLadderBundle(selectedId, {
                 ...bundleDraft,
-                requiredD2RLoaderSha256: normalizeSha256(bundleDraft.requiredD2RLoaderSha256),
-                requiredD2RCoreSha256: normalizeSha256(bundleDraft.requiredD2RCoreSha256),
-                components: selectedReleaseIds.map((pluginReleaseId) => ({
-                    pluginReleaseId,
-                    isRequired: !optionalReleaseIds.includes(pluginReleaseId)
-                }))
+                archive: bundleArchive
             });
             await loadLadderBundles(selectedId);
-            notice = `Signed ladder package r${bundle.revision} was composed and is ready to activate.`;
+            bundleArchive = null;
+            notice = `Signed ladder package r${bundle.revision} contains ${bundle.files.length} files and ${bundle.plugins.length} plugins and is ready to activate.`;
         } catch (value) {
             error = problemMessage(value);
         } finally {
@@ -373,7 +285,7 @@
 
     onMount(async () => {
         resetDraft();
-        await Promise.all([loadLadders(), loadPluginReleaseCatalog()]);
+        await loadLadders();
     });
 </script>
 
@@ -561,7 +473,7 @@
                     <div>
                         <p class="text-xs uppercase tracking-[0.18em] text-ember-400">Secure distribution</p>
                         <h3 class="display-text mt-1 text-2xl">Signed ladder packages</h3>
-                        <p class="mt-2 max-w-3xl text-sm text-parchment-300">Upload immutable plugin releases, choose the exact set this ladder requires, then compose and activate one signed package. Activating an older revision performs a rollback.</p>
+                        <p class="mt-2 max-w-3xl text-sm text-parchment-300">Upload one ZIP containing the complete Reimagined folder. The API inventories and hashes every file, detects D2RLoader plugins, and creates one signed package. Activating an older revision performs a rollback.</p>
                     </div>
                     <div class="rounded border border-parchment-300/20 px-4 py-3 text-sm">
                         <span class="block text-xs uppercase tracking-wide text-parchment-300">Active revision</span>
@@ -570,83 +482,18 @@
                 </div>
 
                 <form class="mt-7 rounded-lg border border-parchment-300/20 bg-abyss-900 p-4"
-                      onsubmit={(event) => { event.preventDefault(); void uploadPluginRelease(); }}>
-                    <h4 class="display-text text-xl">1. Publish a plugin release</h4>
-                    <p class="mt-1 text-sm text-parchment-300">The API calculates the SHA-256 and stores the uploaded bytes. Source paths on the admin computer are never trusted.</p>
-                    <div class="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-                        <label>
-                            <span class="mb-1 block text-xs text-parchment-300">Plugin ID</span>
-                            <input class="field" required maxlength="100" placeholder="server-saves" bind:value={releaseDraft.pluginId}/>
-                        </label>
-                        <label>
-                            <span class="mb-1 block text-xs text-parchment-300">Display name</span>
-                            <input class="field" required maxlength="100" placeholder="Server Saves" bind:value={releaseDraft.name}/>
-                        </label>
-                        <label>
-                            <span class="mb-1 block text-xs text-parchment-300">Version</span>
-                            <input class="field" required maxlength="64" bind:value={releaseDraft.version}/>
-                        </label>
-                        <label>
-                            <span class="mb-1 block text-xs text-parchment-300">Source commit</span>
-                            <input class="field hash-field" required minlength="7" maxlength="64" bind:value={releaseDraft.sourceCommit}/>
-                        </label>
-                        <label>
-                            <span class="mb-1 block text-xs text-parchment-300">Kind</span>
-                            <select class="field" bind:value={releaseDraft.kind}>
-                                <option value="Plugin">Plugin</option>
-                                <option value="Patch">Patch</option>
-                            </select>
-                        </label>
-                        <label>
-                            <span class="mb-1 block text-xs text-parchment-300">Target path (optional)</span>
-                            <input class="field" maxlength="512" placeholder="mods/Reimagined/d2rloader/plugins/..." bind:value={releaseDraft.targetPath}/>
-                        </label>
-                        <label class="md:col-span-2 xl:col-span-3">
-                            <span class="mb-1 block text-xs text-parchment-300">Artifact file</span>
-                            <input class="field" required type="file" accept=".dll,.mpq" onchange={(event) => releaseFile = event.currentTarget.files?.[0] ?? null}/>
-                        </label>
-                    </div>
-                    <div class="mt-4 flex justify-end">
-                        <button class="rounded bg-ember-700 px-4 py-2 text-parchment-50 hover:bg-ember-500 disabled:opacity-50"
-                                type="submit" disabled={bundleBusy}>{bundleBusy ? 'Uploading…' : 'Upload immutable release'}</button>
-                    </div>
-                </form>
-
-                <form class="mt-6 rounded-lg border border-parchment-300/20 bg-abyss-900 p-4"
                       onsubmit={(event) => { event.preventDefault(); void composeBundle(); }}>
-                    <div class="flex flex-wrap items-start justify-between gap-3">
-                        <div>
-                            <h4 class="display-text text-xl">2. Compose a signed package</h4>
-                            <p class="mt-1 text-sm text-parchment-300">Every selected release is placed in the manifest. Required releases cannot be disabled by players.</p>
-                        </div>
-                        <button class="rounded border border-set/50 px-3 py-2 text-sm text-set hover:bg-set/10"
-                                type="button" onclick={selectFullTestSet}>Select all except hardcore-only</button>
-                    </div>
-
-                    <div class="mt-4 grid gap-3">
-                        {#each pluginReleases as release}
-                            <div class="grid gap-3 rounded border border-parchment-300/15 p-3 md:grid-cols-[auto_1fr_auto] md:items-center">
-                                <input class="checkbox" type="checkbox" value={release.id} bind:group={selectedReleaseIds}
-                                       aria-label={`Include ${release.name}`}/>
-                                <div class="min-w-0">
-                                    <span class="block text-sm text-parchment-50">{release.name} {release.version}</span>
-                                    <span class="mt-1 block break-all text-xs text-parchment-300">{release.pluginId} · {release.fileName} · {release.sha256}</span>
-                                </div>
-                                <label class="flex items-center gap-2 text-xs text-parchment-200">
-                                    <input class="checkbox" type="checkbox" value={release.id} bind:group={optionalReleaseIds}
-                                           disabled={!selectedReleaseIds.includes(release.id)}/>
-                                    Optional
-                                </label>
-                            </div>
-                        {:else}
-                            <p class="rounded border border-dashed border-parchment-300/25 p-4 text-sm text-parchment-300">Upload plugin releases before composing a package.</p>
-                        {/each}
-                    </div>
+                    <h4 class="display-text text-xl">Upload and sign the complete package</h4>
+                    <p class="mt-1 text-sm text-parchment-300">The ZIP must have exactly one top-level <code>Reimagined/</code> folder. All files beneath it—including JSON and TXT data—become mandatory signed files. The mod version is read from <code>modinfo.json</code>; no hashes are entered manually.</p>
 
                     <div class="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-                        <label>
-                            <span class="mb-1 block text-xs text-parchment-300">Bundle source commit</span>
-                            <input class="field hash-field" required minlength="7" maxlength="64" bind:value={bundleDraft.sourceCommit}/>
+                        <label class="md:col-span-2 xl:col-span-3">
+                            <span class="mb-1 block text-xs text-parchment-300">Complete Reimagined ZIP</span>
+                            <input class="field" required type="file" accept=".zip,application/zip"
+                                   onchange={(event) => bundleArchive = event.currentTarget.files?.[0] ?? null}/>
+                            {#if bundleArchive}
+                                <span class="mt-1 block text-xs text-parchment-300">{bundleArchive.name} · {(bundleArchive.size / 1024 / 1024).toFixed(1)} MiB</span>
+                            {/if}
                         </label>
                         <label>
                             <span class="mb-1 block text-xs text-parchment-300">Minimum launcher</span>
@@ -657,32 +504,18 @@
                             <input class="field" required maxlength="32" bind:value={bundleDraft.requiredD2RLoaderVersion}/>
                         </label>
                         <label>
-                            <span class="mb-1 block text-xs text-parchment-300">Required mod version</span>
-                            <input class="field" required maxlength="32" bind:value={bundleDraft.requiredModVersion}/>
-                        </label>
-                        <label>
                             <span class="mb-1 block text-xs text-parchment-300">Supported game version</span>
                             <input class="field" required maxlength="32" bind:value={bundleDraft.supportedGameVersion}/>
-                        </label>
-                        <label class="md:col-span-2 xl:col-span-3">
-                            <span class="mb-1 block text-xs text-parchment-300">Required D2RLoader SHA-256 (optional during initial testing)</span>
-                            <input class="field hash-field text-sm" maxlength="64" value={bundleDraft.requiredD2RLoaderSha256}
-                                   oninput={(event) => { bundleDraft.requiredD2RLoaderSha256 = normalizeSha256(event.currentTarget.value); }}/>
-                        </label>
-                        <label class="md:col-span-2 xl:col-span-3">
-                            <span class="mb-1 block text-xs text-parchment-300">Required D2RCore SHA-256 (optional during initial testing)</span>
-                            <input class="field hash-field text-sm" maxlength="64" value={bundleDraft.requiredD2RCoreSha256}
-                                   oninput={(event) => { bundleDraft.requiredD2RCoreSha256 = normalizeSha256(event.currentTarget.value); }}/>
                         </label>
                     </div>
                     <div class="mt-4 flex justify-end">
                         <button class="rounded bg-ember-700 px-4 py-2 text-parchment-50 hover:bg-ember-500 disabled:opacity-50"
-                                type="submit" disabled={bundleBusy || selectedReleaseIds.length === 0}>{bundleBusy ? 'Composing…' : 'Compose and sign package'}</button>
+                                type="submit" disabled={bundleBusy || !bundleArchive}>{bundleBusy ? 'Uploading and hashing…' : 'Upload, hash, and sign package'}</button>
                     </div>
                 </form>
 
                 <div class="mt-6">
-                    <h4 class="display-text text-xl">3. Activate, roll back, or revoke</h4>
+                    <h4 class="display-text text-xl">Activate, roll back, or revoke</h4>
                     <div class="mt-3 grid gap-3">
                         {#each ladderBundles as bundle}
                             <div class="rounded-lg border border-parchment-300/20 bg-abyss-900 p-4">
@@ -692,7 +525,10 @@
                                             <span class="text-parchment-50">Revision {bundle.revision}</span>
                                             <span class="rounded border border-parchment-300/25 px-2 py-1 text-xs uppercase tracking-wide">{bundle.status}</span>
                                         </div>
-                                        <p class="mt-2 text-xs text-parchment-300">{bundle.files.length} files · key {bundle.signingKeyId} · {new Date(bundle.createdAtUtc).toLocaleString()}</p>
+                                        <p class="mt-2 text-xs text-parchment-300">{bundle.files.length} files · {bundle.plugins.length} plugins · mod {bundle.compatibility.requiredModVersion} · key {bundle.signingKeyId} · {new Date(bundle.createdAtUtc).toLocaleString()}</p>
+                                        {#if bundle.plugins.length > 0}
+                                            <p class="mt-1 text-xs text-parchment-300">{bundle.plugins.map((plugin) => plugin.name).join(', ')}</p>
+                                        {/if}
                                         <p class="mt-1 break-all font-mono text-[0.7rem] text-parchment-300">Artifact {bundle.artifactSha256}</p>
                                     </div>
                                     <div class="flex flex-wrap gap-2">

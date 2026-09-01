@@ -19,6 +19,15 @@ describe('catalog sources', () => {
     ]);
   });
 
+  it('splits one file between the catalogs that own its rows', () => {
+    const rows: CatalogItem[] = [
+      { Index: 1, Notes: [{ key: 'strCubeNoteOrbOfCorruption' }] },
+      { Index: 2, Notes: [{ key: 'strCubeNoteItemCrafting' }] }
+    ];
+    expect(buildCatalog('orbs', { 'cube-recipes': rows })).toEqual([rows[0]]);
+    expect(buildCatalog('cube-recipes', { 'cube-recipes': rows })).toEqual([rows[1]]);
+  });
+
   it('leaves single-file catalogs untagged', () => {
     const rows: CatalogItem[] = [{ Index: 'Gull' }];
     expect(buildCatalog('uniques', { uniques: rows })).toEqual(rows);

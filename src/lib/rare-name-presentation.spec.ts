@@ -45,6 +45,6 @@ describe('rare item names', () => {
     ) as Record<string, string>;
 
     expect(rareItemName(item('Rare', 164, 132), exported, (key) => strings[key] ?? key))
-      .toBe('Doom Heart');
+      .toBe('Doom heart');
   });
 });

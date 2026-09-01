@@ -55,7 +55,6 @@
 </svelte:head>
 
 <div class="mb-6">
-  <p class="text-xs uppercase tracking-[0.18em] text-ember-400">Identity</p>
   <h2 class="display-text mt-1 text-3xl text-parchment-50">Users</h2>
   <p class="mt-2 text-parchment-300">Assign Admin and Moderator access. Changes take effect immediately.</p>
 </div>

@@ -27,6 +27,12 @@ The development environment points authentication requests at `http://localhost:
 $env:PUBLIC_API_BASE_URL='https://api.d2r-reimagined.com'
 ```
 
+The Trade navigation link is hidden by default. Set the feature flag to the exact value `true` to show it:
+
+```powershell
+$env:TRADE_ENABLED='true'
+```
+
 The API must include the website origin in `Cors__AllowedOrigins` so credentialed Steam handoff requests are accepted.
 
 ## Validation

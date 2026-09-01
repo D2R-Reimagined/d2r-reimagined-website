@@ -2,6 +2,7 @@
   import { i18n } from '$lib/i18n';
   import { isItemIdentified, itemDisplayLabel } from '$lib/item-identification';
   import { itemVariant, type ItemPresentation } from '$lib/item-presentation';
+  import type { ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
   import { displayStatLines, isHiddenItemStat, type DisplayStatLine, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
   import type { SaveItem, SaveStat } from '$lib/characters';
 
@@ -9,6 +10,7 @@
     item,
     presentation,
     itemPresentations,
+    upgradeTiers,
     statPresentation,
     characterLevel,
     runewordNameKey,
@@ -17,12 +19,13 @@
     item: SaveItem;
     presentation?: ItemPresentation;
     itemPresentations: Map<string, ItemPresentation>;
+    upgradeTiers: ItemUpgradeTiers;
     statPresentation?: ItemStatPresentationBundle;
     characterLevel?: number;
     runewordNameKey?: string;
     identifiedName?: string | null;
   } = $props();
-  let variant = $derived(presentation ? itemVariant(item, presentation, itemPresentations) : null);
+  let variant = $derived(itemVariant(item, presentation, itemPresentations, upgradeTiers));
   let identified = $derived(isItemIdentified(item));
 
   function words(value: string): string {

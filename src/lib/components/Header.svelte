@@ -1,15 +1,36 @@
 <script lang="ts">
+  import { browser } from '$app/environment';
+  import { goto } from '$app/navigation';
   import { page } from '$app/state';
   import { DiscordSolid } from 'flowbite-svelte-icons';
   import { onMount } from 'svelte';
 
   import { authState, initializeAuth } from '$lib/auth';
   import { i18n, languages, restoreSavedLanguage, setLanguage, type LanguageCode } from '$lib/i18n';
+  import {
+    lastTradeRealmStorageKey,
+    tradeLadderPath,
+    validStoredTradePath,
+    type TradeLadder
+  } from '$lib/trade-ladders';
+
+  let { tradeEnabled, ladders }: { tradeEnabled: boolean; ladders: TradeLadder[] } = $props();
 
   let mobileOpen = $state(false);
   let languageOpen = $state(false);
   let fontOpen = $state(false);
   let dataOpen = $state(false);
+  let tradeHref = $state('/trade');
+  let tradeRealmRestored = $state(false);
+
+  let currentTradePath = $derived.by(() => {
+    const path = page.url.pathname;
+    if (path === '/trade' || path === '/trade/standard') return path;
+    if (path === '/trade/list' || path === '/trade/mine') return null;
+    return ladders
+      .map(tradeLadderPath)
+      .find((ladderPath) => ladderPath.toLowerCase() === path.toLowerCase()) ?? null;
+  });
 
   const dataLinks = [
     { href: '/data/skills', label: 'Skills', detail: 'Class trees and build planner' },
@@ -18,7 +39,8 @@
     { href: '/data/runewords', label: 'Runewords', detail: 'Rune orders and properties' },
     { href: '/data/bases', label: 'Bases', detail: 'Weapons and armor' },
     { href: '/data/affixes', label: 'Affixes', detail: 'Prefixes and suffixes' },
-    { href: '/data/cube-recipes', label: 'Cube Recipes', detail: 'Inputs and outputs' }
+    { href: '/data/cube-recipes', label: 'Cube Recipes', detail: 'Inputs and outputs' },
+    { href: '/data/orbs', label: 'Orbs', detail: 'Cube orbs and corruption outcomes' }
   ];
 
   const fonts = [
@@ -41,6 +63,23 @@
     dataOpen = false;
     languageOpen = false;
     fontOpen = false;
+  }
+
+  function closeDropdowns(): void {
+    dataOpen = false;
+    languageOpen = false;
+    fontOpen = false;
+  }
+
+  function handleWindowClick(event: MouseEvent): void {
+    if (!dataOpen && !languageOpen && !fontOpen) return;
+    const target = event.target as Element | null;
+    if (target?.closest('[data-nav-dropdown]')) return;
+    closeDropdowns();
+  }
+
+  function handleWindowKeydown(event: KeyboardEvent): void {
+    if (event.key === 'Escape') closeDropdowns();
   }
 
   function toggleDataMenu(): void {
@@ -76,10 +115,27 @@
   onMount(() => {
     const savedFont = localStorage.getItem('font') ?? 'font-resurrected';
     chooseFont(fonts.some((font) => font.value === savedFont) ? savedFont : 'font-resurrected');
+    try {
+      const savedTradePath = localStorage.getItem(lastTradeRealmStorageKey);
+      tradeHref = savedTradePath ? validStoredTradePath(savedTradePath, ladders) ?? '/trade' : '/trade';
+      if (page.url.pathname === '/trade' && tradeHref !== '/trade') {
+        void goto(tradeHref, { replaceState: true }).finally(() => tradeRealmRestored = true);
+      } else {
+        tradeRealmRestored = true;
+      }
+    } catch { tradeRealmRestored = true; }
     void restoreSavedLanguage();
     void initializeAuth();
   });
+
+  $effect(() => {
+    if (!browser || !tradeRealmRestored || !currentTradePath) return;
+    tradeHref = currentTradePath;
+    try { localStorage.setItem(lastTradeRealmStorageKey, currentTradePath); } catch { /* storage is optional */ }
+  });
 </script>
+
+<svelte:window onclick={handleWindowClick} onkeydown={handleWindowKeydown} />
 
 <header class="sticky top-0 z-50 border-b border-parchment-300/20 bg-abyss-950">
   <nav class="mx-auto flex min-h-16 max-w-screen-2xl items-center justify-between gap-4 px-4" aria-label="Primary navigation">
@@ -117,13 +173,16 @@
         <a href="/" onclick={closeMenus} class={navClass('/')}>Home</a>
         <a href="/download" onclick={closeMenus} class={navClass('/download')}>Download</a>
         <a href="/characters" onclick={closeMenus} class={navClass('/characters')}>Characters</a>
+        {#if tradeEnabled}
+          <a href={tradeHref} onclick={closeMenus} class={`${navClass('/trade')} border border-ember-400/35 bg-ember-950/20`}>Trade</a>
+        {/if}
         <a href="/leaderboard" onclick={closeMenus} class={navClass('/leaderboard')}>Leaderboard</a>
         <a href="/grail" onclick={closeMenus} class={navClass('/grail')}>Holy Grail</a>
         {#if $authState.user?.roles.includes('Admin')}
           <a href="/admin/ladders" onclick={closeMenus} class={navClass('/admin')}>Admin</a>
         {/if}
 
-        <div class="relative">
+        <div class="relative" data-nav-dropdown>
           <button type="button" onclick={toggleDataMenu} class={`flex w-full items-center justify-between gap-2 ${navClass('/data')}`} aria-expanded={dataOpen}>
             Data <span aria-hidden="true" class="text-xs">▾</span>
           </button>
@@ -143,7 +202,7 @@
 
         <div class="my-2 h-px bg-parchment-300/15 lg:mx-2 lg:my-0 lg:h-7 lg:w-px"></div>
 
-        <div class="relative">
+        <div class="relative" data-nav-dropdown>
           <button type="button" aria-label="Choose language" aria-expanded={languageOpen} onclick={toggleLanguageMenu} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">◎ <span class="lg:hidden">Language</span></button>
           {#if languageOpen}
             <div class="mt-1 max-h-80 min-w-56 overflow-y-auto rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl lg:absolute lg:right-0 lg:top-full">
@@ -156,7 +215,7 @@
           {/if}
         </div>
 
-        <div class="relative">
+        <div class="relative" data-nav-dropdown>
           <button type="button" aria-label="Choose font" aria-expanded={fontOpen} onclick={toggleFontMenu} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">Aa <span class="lg:hidden">Font</span></button>
           {#if fontOpen}
             <div class="mt-1 min-w-44 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl lg:absolute lg:right-0 lg:top-full">

@@ -4,6 +4,7 @@
   import Header from '$lib/components/Header.svelte';
   import BackToTop from '$lib/components/BackToTop.svelte';
   import RouteLoading from '$lib/components/RouteLoading.svelte';
+  import TradeChatDock from '$lib/components/TradeChatDock.svelte';
   import { initializeI18n } from '$lib/i18n';
   import '../app.css';
 
@@ -13,6 +14,7 @@
 
   let canonical = $derived(page.url.origin + page.url.pathname);
   let socialImage = $derived(new URL('/images/reimagined-hero.jpg', page.url.origin).toString());
+  let isTradeRoute = $derived(page.url.pathname === '/trade' || page.url.pathname.startsWith('/trade/'));
 </script>
 
 <svelte:head>
@@ -30,8 +32,9 @@
   <meta name="twitter:image" content={socialImage} />
 </svelte:head>
 
-<Header />
+<Header tradeEnabled={data.tradeEnabled} ladders={data.tradeLadders} />
 <RouteLoading />
 <main id="main-content">{@render children()}</main>
 <Footer />
 <BackToTop />
+{#if isTradeRoute}<TradeChatDock />{/if}
