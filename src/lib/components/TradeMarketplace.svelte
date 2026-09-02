@@ -29,6 +29,8 @@
     let {data}: { data: TradeMarketplacePageData } = $props();
 
     const pageSize = 24;
+    const listingLayoutStorageKey = 'trade-listing-layout';
+    type ListingLayout = 'columns' | 'rows';
     // svelte-ignore state_referenced_locally
     const initialListings = data.initialListings;
     let listings = $state<TradeListing[]>(initialListings?.items ?? []);
@@ -54,6 +56,7 @@
     let offerText = $state('');
     let offering = $state(false);
     let notice = $state('');
+    let listingLayout = $state<ListingLayout>('columns');
 
     let activeFilterCount = $derived(
         [quality, itemType, minLevel, maxLevel, minItemLevel, minSockets, maxSockets].filter(Boolean).length
@@ -125,6 +128,11 @@
         void load(0);
     }
 
+    function chooseListingLayout(layout: ListingLayout): void {
+        listingLayout = layout;
+        try { localStorage.setItem(listingLayoutStorageKey, layout); } catch { /* storage is optional */ }
+    }
+
     async function chooseTradeRealm(event: Event): Promise<void> {
         const path = (event.currentTarget as HTMLSelectElement).value;
         try { localStorage.setItem(lastTradeRealmStorageKey, path); } catch { /* storage is optional */ }
@@ -167,6 +175,10 @@
     }
 
     onMount(async () => {
+        try {
+            const savedLayout = localStorage.getItem(listingLayoutStorageKey);
+            if (savedLayout === 'columns' || savedLayout === 'rows') listingLayout = savedLayout;
+        } catch { /* storage is optional */ }
         void initializeAuth();
         const [uniques, sets] = await Promise.all([loadCatalog('uniques'), loadCatalog('sets')]);
         const setItems = sets.flatMap((set) => set.SetItems ?? []);
@@ -301,11 +313,21 @@
         <div>
             <h2 class="display-text mt-1 text-2xl text-parchment-50">Listings</h2>
         </div>
-        <p class="text-sm text-parchment-300">{loading ? 'Updating…' : `${total} active ${total === 1 ? 'listing' : 'listings'}`}</p>
+        <div class="flex flex-wrap items-center justify-end gap-3">
+            <p class="text-sm text-parchment-300">{loading ? 'Updating…' : `${total} active ${total === 1 ? 'listing' : 'listings'}`}</p>
+            <div class="inline-flex rounded border border-parchment-300/20 bg-black/25 p-1" role="group" aria-label="Listing layout">
+                <button type="button" aria-pressed={listingLayout === 'columns'} title="Show two columns"
+                        class={`flex items-center gap-2 rounded px-2.5 py-1.5 text-xs transition ${listingLayout === 'columns' ? 'bg-ember-700/35 text-white' : 'text-parchment-300 hover:text-white'}`}
+                        onclick={() => chooseListingLayout('columns')}><span aria-hidden="true">▦</span><span class="hidden sm:inline">Two columns</span></button>
+                <button type="button" aria-pressed={listingLayout === 'rows'} title="Show full-width rows"
+                        class={`flex items-center gap-2 rounded px-2.5 py-1.5 text-xs transition ${listingLayout === 'rows' ? 'bg-ember-700/35 text-white' : 'text-parchment-300 hover:text-white'}`}
+                        onclick={() => chooseListingLayout('rows')}><span aria-hidden="true">▤</span><span class="hidden sm:inline">Full row</span></button>
+            </div>
+        </div>
     </div>
 
     {#if loading && listings.length === 0}
-        <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div class={`mt-6 grid gap-4 ${listingLayout === 'columns' ? 'md:grid-cols-2' : ''}`}>
             {#each Array(6) as _}
                 <div class="panel h-56 animate-pulse rounded-lg"></div>
             {/each}
@@ -316,7 +338,7 @@
             <p class="mt-2 text-parchment-300">Try clearing a filter, or be the first to list one.</p><a
                     href="/trade/list" class="trade-primary-button mt-5 inline-block">List an item</a></div>
     {:else}
-        <div class:opacity-55={loading} class="mt-6 grid gap-4 transition-opacity md:grid-cols-2 xl:grid-cols-3"
+        <div class:opacity-55={loading} class={`mt-6 grid gap-4 transition-opacity ${listingLayout === 'columns' ? 'md:grid-cols-2' : ''}`}
              aria-busy={loading}>
             {#each listings as listing (listing.id)}
                 <TradeListingCard {listing} onoffer={makeOffer} onmessage={messageSeller}/>
