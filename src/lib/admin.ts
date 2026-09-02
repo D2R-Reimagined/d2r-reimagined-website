@@ -248,6 +248,17 @@ export function createLadderBundle(
   );
 }
 
+export function uploadOptionalExtension(ladderId: string, file: File,
+  onProgress?: (progress: ApiUploadProgress) => void): Promise<Ladder> {
+  const body = new FormData();
+  body.set('file', file, file.name);
+  return apiUploadRequest<Ladder>(`/admin/ladders/${ladderId}/optional-extensions`, body, onProgress);
+}
+
+export function removeOptionalExtension(ladderId: string, extensionId: string): Promise<Ladder> {
+  return apiRequest<Ladder>(`/admin/ladders/${ladderId}/optional-extensions/${extensionId}`, {method: 'DELETE'}, true);
+}
+
 export async function getLatestLadderBundlePublishJob(
   ladderId: string
 ): Promise<LadderBundlePublishJob | null> {

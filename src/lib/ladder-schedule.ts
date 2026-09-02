@@ -10,6 +10,8 @@ export interface LadderAllowedExtension {
   sha256: string;
   kind: LadderExtensionKind;
   isRequired: boolean;
+  sizeBytes?: number | null;
+  downloadPath?: string | null;
 }
 
 /**

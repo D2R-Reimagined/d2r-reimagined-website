@@ -14,11 +14,12 @@
         startLadder,
         deleteLadder,
         updateLadder,
+        uploadOptionalExtension,
+        removeOptionalExtension,
         type Ladder,
         type LadderAllowedExtensionInput,
         type LadderBundle,
         type LadderBundlePublishJob,
-        type LadderExtensionKind,
         type LadderInput
     } from '$lib/admin';
     import {ApiError} from '$lib/auth';
@@ -44,6 +45,9 @@
     let saving = $state(false);
     let error = $state('');
     let notice = $state('');
+    let optionalFile = $state<File | null>(null);
+    let optionalBusy = $state(false);
+    let optionalProgress = $state<number | null>(null);
     let ladderBundles = $state<LadderBundle[]>([]);
     let bundleArchive = $state<File | null>(null);
     let bundleBusy = $state(false);
@@ -61,6 +65,8 @@
     });
 
     let selectedLadder = $derived(ladders.find((ladder) => ladder.id === selectedId) ?? null);
+    let requiredFiles = $derived(selectedLadder?.activeBundle?.files.filter(file =>
+        /^mods\/Reimagined\/d2rloader\/(plugins\/[^/]+\.dll|patches\/[^/]+\.json)$/i.test(file.targetPath)) ?? []);
 
     function formatDateInput(date: Date): string {
         const offset = date.getTimezoneOffset() * 60_000;
@@ -121,12 +127,35 @@
         void recoverLatestPublishJob(ladder.id);
     }
 
-    function addRequirement(kind: LadderExtensionKind): void {
-        draft.allowedExtensions.push({name: '', fileName: '', sha256: '', kind, isRequired: false});
+    function applyExtensionUpdate(ladder: Ladder): void {
+        ladders = ladders.map(item => item.id === ladder.id ? ladder : item);
+        if (selectedId === ladder.id) draft.allowedExtensions = ladder.allowedExtensions.map(item => ({...item}));
     }
 
-    function removeRequirement(index: number): void {
-        draft.allowedExtensions.splice(index, 1);
+    async function uploadOptional(): Promise<void> {
+        if (!selectedId || !optionalFile || optionalBusy) return;
+        if (optionalFile.size > 16 * 1024 * 1024) { error = 'Optional files must be at most 16 MiB.'; return; }
+        const ladderId = selectedId;
+        optionalBusy = true;
+        optionalProgress = 0;
+        error = '';
+        notice = '';
+        try {
+            const updated = await uploadOptionalExtension(ladderId, optionalFile, progress => optionalProgress = progress.percentage);
+            applyExtensionUpdate(updated);
+            if (selectedId === ladderId) notice = 'Optional file validated and published. Players can select it in the launcher and click Update.';
+        } catch (value) { error = problemMessage(value); }
+        finally { optionalBusy = false; optionalProgress = null; }
+    }
+
+    async function removeOptional(extensionId: string, fileName: string): Promise<void> {
+        if (!selectedId || optionalBusy || !confirm(`Remove ${fileName} from this ladder's optional allowlist? Players will need to update to remove it.`)) return;
+        optionalBusy = true;
+        error = '';
+        notice = '';
+        try { applyExtensionUpdate(await removeOptionalExtension(selectedId, extensionId)); }
+        catch (value) { error = problemMessage(value); }
+        finally { optionalBusy = false; }
     }
 
     async function loadLadders(): Promise<void> {
@@ -328,7 +357,7 @@
             name: draft.name.trim(),
             startDateUtc: new Date(draft.startDate).toISOString(),
             endDateUtc: new Date(draft.endDate).toISOString(),
-            allowedExtensions: draft.allowedExtensions.map((extension) => ({
+            allowedExtensions: (selectedLadder?.allowedExtensions ?? []).map((extension) => ({
                 name: extension.name.trim(),
                 fileName: extension.fileName.trim(),
                 sha256: normalizeSha256(extension.sha256),
@@ -507,76 +536,61 @@
             </div>
 
             <div class="mt-8 border-t border-parchment-300/15 pt-6">
-                <div class="flex flex-wrap items-center justify-between gap-3">
-                    <div>
-                        <h3 class="display-text text-xl">Ladder plugins and patches</h3>
-                        <p class="mt-1 text-sm text-parchment-300">Legacy fallback policy for ladders without an active signed package. Once a package is active, compose and activate a new revision below to change the enforced files.</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <button class="rounded border border-magic/50 px-3 py-2 text-sm text-magic hover:bg-magic/10"
-                                type="button" onclick={() => addRequirement('Plugin')}>Add plugin
-                        </button>
-                        <button class="rounded border border-rarity/50 px-3 py-2 text-sm text-rarity hover:bg-rarity/10"
-                                type="button" onclick={() => addRequirement('Patch')}>Add patch
-                        </button>
-                    </div>
-                </div>
-
+                <h3 class="display-text text-xl">Required Plugins and Patches</h3>
+                <p class="mt-1 text-sm text-parchment-300">Included in the active signed ladder bundle. Publish and activate a bundle revision to change these files.</p>
                 <div class="mt-4 grid gap-3">
-                    {#each draft.allowedExtensions as extension, index}
-                        <div class="rounded-lg border border-parchment-300/20 bg-abyss-900 p-4">
-                            <div class="grid gap-3 lg:grid-cols-[9rem_1fr_1fr_auto]">
-                                <label>
-                                    <span class="mb-1 block text-xs text-parchment-300">Kind</span>
-                                    <select class="field" bind:value={extension.kind}>
-                                        <option value="Plugin">Plugin</option>
-                                        <option value="Patch">Patch</option>
-                                    </select>
-                                </label>
-                                <label>
-                                    <span class="mb-1 block text-xs text-parchment-300">Display name</span>
-                                    <input class="field" required minlength="2" maxlength="100"
-                                           bind:value={extension.name}/>
-                                </label>
-                                <label>
-                                    <span class="mb-1 block text-xs text-parchment-300">Exact filename</span>
-                                    <input class="field" required maxlength="255" bind:value={extension.fileName}/>
-                                </label>
-                                <button class="self-end rounded border border-requirement/45 px-3 py-3 text-requirement hover:bg-requirement/10"
-                                        type="button" aria-label={`Remove ${extension.name || extension.kind}`}
-                                        onclick={() => removeRequirement(index)}>Remove
-                                </button>
-                            </div>
-                            <label class="mt-3 block">
-                                <span class="mb-1 block text-xs text-parchment-300">SHA-256</span>
-                                <input class="field hash-field text-sm" required value={extension.sha256}
-                                       autocomplete="off" autocapitalize="characters" spellcheck="false"
-                                       oninput={(event) => {
-                                           const normalized = normalizeSha256(event.currentTarget.value);
-                                           extension.sha256 = normalized;
-                                           event.currentTarget.value = normalized;
-                                       }}/>
-                            </label>
-                            <label class="mt-3 flex items-start gap-3 rounded border border-parchment-300/20 p-3">
-                                <input class="checkbox mt-1" type="checkbox" bind:checked={extension.isRequired}/>
-                                <span>
-                                    <span class="block text-sm text-parchment-50">Required for this ladder</span>
-                                    <span class="mt-1 block text-xs text-parchment-300">Players cannot disable this extension, and Ladder launch is blocked unless its exact file and hash are installed.</span>
-                                </span>
-                            </label>
+                    {#each requiredFiles as file}
+                        <div class="min-w-0 rounded-lg border border-parchment-300/20 bg-abyss-900 p-4">
+                            <span class="break-all text-parchment-50">{file.fileName}</span>
+                            <span class="ml-2 text-xs text-rarity">Required · {formatBytes(file.sizeBytes)}</span>
                         </div>
                     {:else}
-                        <p class="rounded border border-dashed border-parchment-300/25 p-4 text-sm text-parchment-300">
-                            No extensions are approved. Ladder launches will disable every installed D2RLoader plugin
-                            and patch.</p>
+                        <p class="text-sm text-parchment-300">No required extensions in the active bundle.</p>
                     {/each}
                 </div>
+            </div>
+
+            <div class="mt-8 border-t border-parchment-300/15 pt-6">
+                <h3 class="display-text text-xl">Optional Plugins and Patches</h3>
+                <p class="mt-1 text-sm text-parchment-300">Upload a .dll plugin or .json patch (up to 16 MiB). The server validates the file and calculates its SHA-256. Uploading the same filename replaces its optional version. Required bundle files cannot be overridden.</p>
+                {#if selectedLadder}
+                    <div class="mt-4 grid min-w-0 gap-3">
+                        <label>
+                            <span class="mb-1 block text-xs text-parchment-300">Optional plugin or patch</span>
+                            <input class="field min-w-0 max-w-full" type="file" accept=".dll,.json" disabled={optionalBusy}
+                                   onchange={(event) => optionalFile = event.currentTarget.files?.[0] ?? null}/>
+                        </label>
+                        <button class="justify-self-start rounded bg-ember-700 px-4 py-2 text-parchment-50 disabled:opacity-50"
+                                type="button" disabled={optionalBusy || saving || !optionalFile} onclick={() => void uploadOptional()}>
+                            {optionalBusy ? optionalProgress === 100 ? 'Validating and publishing…' : `Uploading… ${optionalProgress?.toFixed(0) ?? ''}%` : 'Upload optional file'}
+                        </button>
+                    </div>
+                    <div class="mt-4 grid gap-3">
+                        {#each selectedLadder.allowedExtensions.filter(item => !item.isRequired) as extension}
+                            <div class="min-w-0 rounded-lg border border-parchment-300/20 bg-abyss-900 p-4">
+                                <div class="flex flex-wrap items-center justify-between gap-3">
+                                    <div class="min-w-0">
+                                        <span class="block break-all text-parchment-50">{extension.fileName}</span>
+                                        <span class="text-xs text-parchment-300">{extension.kind} · {extension.sizeBytes ? formatBytes(extension.sizeBytes) : 'Upload this file to enable downloads'}</span>
+                                    </div>
+                                    <button class="rounded border border-requirement/45 px-3 py-2 text-sm text-requirement disabled:opacity-50"
+                                            type="button" disabled={optionalBusy || saving} onclick={() => void removeOptional(extension.id, extension.fileName)}>Remove</button>
+                                </div>
+                                <p class="mt-2 break-all font-mono text-xs text-parchment-300">SHA-256: {extension.sha256}</p>
+                            </div>
+                        {:else}
+                            <p class="text-sm text-parchment-300">No optional files are approved yet.</p>
+                        {/each}
+                    </div>
+                {:else}
+                    <p class="mt-4 text-sm text-parchment-300">Create the ladder first, then upload optional files here.</p>
+                {/if}
             </div>
 
             <div class="mt-7 flex justify-end">
                 <button class="rounded bg-ember-700 px-5 py-3 text-parchment-50 hover:bg-ember-500 disabled:cursor-wait disabled:opacity-60"
                         type="submit"
-                        disabled={saving}>{saving ? 'Saving…' : selectedId ? 'Save ladder' : 'Create ladder'}</button>
+                        disabled={saving || optionalBusy}>{saving ? 'Saving…' : selectedId ? 'Save ladder' : 'Create ladder'}</button>
             </div>
         </form>
 
