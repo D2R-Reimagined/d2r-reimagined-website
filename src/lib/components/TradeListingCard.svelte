@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import TradeItemProperties from '$lib/components/TradeItemProperties.svelte';
   import type { SaveItem } from '$lib/characters';
   import { itemSprite, loadItemPresentation, type ItemPresentation } from '$lib/item-presentation';
   import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
@@ -72,6 +73,7 @@
         {#if listing.isCorrupted}<span class="trade-tag !border-red-500/35 !text-red-300">Corrupted</span>{/if}
         {#if listing.isLadder}<span class="trade-tag !border-set/30 !text-set">Ladder</span>{/if}
       </div>
+      <TradeItemProperties {item} unidentified={!listing.isIdentified} />
       <div class="mt-4 border-t border-parchment-300/10 pt-3">
         <p class="text-[0.68rem] uppercase tracking-[0.18em] text-parchment-300">Looking for</p>
         <p class="mt-1 line-clamp-2 text-sm text-parchment-50">{listing.price || 'Offers'}</p>
