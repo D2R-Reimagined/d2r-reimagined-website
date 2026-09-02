@@ -18,6 +18,7 @@ export interface TradeListing {
   itemName: string;
   description: string | null;
   itemData: string | null;
+  isIdentified: boolean;
   itemCode: string | null;
   itemQuality: string | null;
   itemType: string | null;

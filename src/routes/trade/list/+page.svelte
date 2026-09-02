@@ -7,6 +7,7 @@
   import { authState, initializeAuth } from '$lib/auth';
   import type { CharacterDetailsResponse, SaveItem } from '$lib/characters';
   import { i18n } from '$lib/i18n';
+  import { isItemIdentified, itemDisplayLabel } from '$lib/item-identification';
   import { itemVariant, loadItemPresentation, type ItemPresentation } from '$lib/item-presentation';
   import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
   import { loadCatalog } from '$lib/catalog-sources';
@@ -48,6 +49,7 @@
   let currentStash = $derived(inventory?.sharedStashes.find((stash) => stash.fileName === selectedStashFile) ?? null);
   let currentStashTab = $derived(currentStash?.tabs[selectedStashTab] ?? null);
   let selectedLadder = $derived(ladders.find((ladder) => ladder.id === selectedLadderId) ?? null);
+  let selectedItemIdentified = $derived(selectedItem ? isItemIdentified(selectedItem) : false);
   let matchingNameOptions = $derived.by(() => {
     const query = itemName.trim().toLowerCase();
     if (query.length < 3) return [];
@@ -74,18 +76,20 @@
   function itemLabel(item: SaveItem): string {
     const presentation = presentations.get(item.codeText.toLowerCase());
     const variant = itemVariant(item, presentation, presentations, upgradeTiers);
-    return variant?.NameKey ? $i18n.t(variant.NameKey) : item.personalizedName || item.baseName || item.codeText;
+    const identifiedName = variant?.NameKey ? $i18n.t(variant.NameKey) : item.personalizedName;
+    return itemDisplayLabel(item, identifiedName);
   }
 
   function chooseItem(item: SaveItem): void {
     selectedItem = structuredClone($state.snapshot(item));
     itemName = itemLabel(item);
-    title = `${itemName} for trade`;
+    const identified = isItemIdentified(item);
+    title = identified ? `${itemName} for trade` : `Unidentified ${itemName} for trade`;
     itemType = item.baseName || item.codeText;
-    quality = item.runewordId != null ? 'Runeword' : item.quality;
+    quality = identified ? (item.runewordId != null ? 'Runeword' : item.quality) : 'Unidentified';
     const catalog = catalogItems.find((entry) => String(entry.Index) === itemName)
       ?? catalogItems.find((entry) => String(entry.Code || '').toLowerCase() === item.codeText.toLowerCase());
-    requiredLevel = typeof catalog?.RequiredLevel === 'number' ? catalog.RequiredLevel : null;
+    requiredLevel = identified && typeof catalog?.RequiredLevel === 'number' ? catalog.RequiredLevel : null;
     description = '';
     requestAnimationFrame(() => document.getElementById('listing-details')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   }
@@ -240,21 +244,26 @@
         <div class="rounded-lg border border-dashed border-parchment-300/25 px-6 py-12 text-center text-parchment-300">Select an item above to prefill its listing.</div>
       {:else}
         <form class="panel rounded-lg p-5 sm:p-7" onsubmit={publish}>
+          {#if !selectedItemIdentified}
+            <div class="mb-6 rounded border border-red-500/25 bg-red-950/20 px-4 py-3 text-sm leading-6 text-parchment-200"><strong class="text-red-300">Unidentified item:</strong> only the base item and artwork are visible. Its decoded identity and all item data have been removed from the trade response and cannot be revealed to either player here.</div>
+          {/if}
           <div class="grid gap-5 lg:grid-cols-2">
-            <label class="text-sm text-parchment-200">Item name<input list={matchingNameOptions.length ? 'listing-item-names' : undefined} required maxlength="120" class="field mt-2" bind:value={itemName} />{#if matchingNameOptions.length}<datalist id="listing-item-names">{#each matchingNameOptions as name}<option value={name}></option>{/each}</datalist>{/if}</label>
-            <label class="text-sm text-parchment-200">Listing title<input required minlength="3" maxlength="120" class="field mt-2" bind:value={title} /></label>
-            <label class="text-sm text-parchment-200">Item type<input maxlength="120" class="field mt-2" bind:value={itemType} /></label>
-            <label class="text-sm text-parchment-200">Quality<select class="field mt-2" bind:value={quality}><option>Unique</option><option>Set</option><option>Runeword</option><option>Rare</option><option>Crafted</option><option>Magic</option><option>Normal</option></select></label>
-            <label class="text-sm text-parchment-200">Item level<input type="number" min="1" max="100" class="field mt-2" bind:value={selectedItem.itemLevel} /></label>
-            <label class="text-sm text-parchment-200">Required level<input type="number" min="0" max="100" class="field mt-2" bind:value={requiredLevel} /></label>
-            {#if selectedItem.defense != null}<label class="text-sm text-parchment-200">Defense<input type="number" min="0" class="field mt-2" bind:value={selectedItem.defense} /></label>{/if}
-            {#if selectedItem.maximumDurability != null}<label class="text-sm text-parchment-200">Maximum durability<input type="number" min="0" class="field mt-2" bind:value={selectedItem.maximumDurability} /></label>{/if}
-            {#if selectedItem.quantity != null}<label class="text-sm text-parchment-200">Quantity<input type="number" min="0" class="field mt-2" bind:value={selectedItem.quantity} /></label>{/if}
+            <label class="text-sm text-parchment-200">Item name<input list={selectedItemIdentified && matchingNameOptions.length ? 'listing-item-names' : undefined} required readonly={!selectedItemIdentified} maxlength="120" class="field mt-2" bind:value={itemName} />{#if selectedItemIdentified && matchingNameOptions.length}<datalist id="listing-item-names">{#each matchingNameOptions as name}<option value={name}></option>{/each}</datalist>{/if}</label>
+            <label class="text-sm text-parchment-200">Listing title<input required readonly={!selectedItemIdentified} minlength="3" maxlength="120" class="field mt-2" bind:value={title} /></label>
+            <label class="text-sm text-parchment-200">Item type<input readonly={!selectedItemIdentified} maxlength="120" class="field mt-2" bind:value={itemType} /></label>
+            <label class="text-sm text-parchment-200">Quality<select disabled={!selectedItemIdentified} class="field mt-2" bind:value={quality}><option>Unidentified</option><option>Unique</option><option>Set</option><option>Runeword</option><option>Rare</option><option>Crafted</option><option>Magic</option><option>Normal</option></select></label>
+            {#if selectedItemIdentified}
+              <label class="text-sm text-parchment-200">Item level<input type="number" min="1" max="100" class="field mt-2" bind:value={selectedItem.itemLevel} /></label>
+              <label class="text-sm text-parchment-200">Required level<input type="number" min="0" max="100" class="field mt-2" bind:value={requiredLevel} /></label>
+              {#if selectedItem.defense != null}<label class="text-sm text-parchment-200">Defense<input type="number" min="0" class="field mt-2" bind:value={selectedItem.defense} /></label>{/if}
+              {#if selectedItem.maximumDurability != null}<label class="text-sm text-parchment-200">Maximum durability<input type="number" min="0" class="field mt-2" bind:value={selectedItem.maximumDurability} /></label>{/if}
+              {#if selectedItem.quantity != null}<label class="text-sm text-parchment-200">Quantity<input type="number" min="0" class="field mt-2" bind:value={selectedItem.quantity} /></label>{/if}
+            {/if}
             <label class="text-sm text-parchment-200 lg:col-span-2">Price / what you want <span class="text-parchment-300">(free text)</span><input maxlength="500" class="field mt-2" placeholder="Examples: 2 Ber, Jah + offer, similar Sorceress gear" bind:value={price} /></label>
             <label class="text-sm text-parchment-200 lg:col-span-2">Notes<textarea rows="3" maxlength="4000" class="field mt-2 resize-y" placeholder="Anything the buyer should know…" bind:value={description}></textarea></label>
           </div>
 
-          {#if selectedItem.stats.length}
+          {#if selectedItemIdentified && selectedItem.stats.length}
             <fieldset class="mt-7 border-t border-parchment-300/15 pt-6"><legend class="display-text text-lg text-parchment-50">Item properties</legend><p class="mt-1 text-xs text-parchment-300">Prefilled from the save. Adjust a roll only when the decoded value needs correction.</p><div class="mt-4 grid gap-3 md:grid-cols-2">{#each selectedItem.stats as stat}<label class="grid grid-cols-[1fr_7rem] items-center gap-3 rounded border border-parchment-300/12 bg-black/20 px-3 py-2 text-sm text-parchment-200"><span>{stat.name}</span><input aria-label={`${stat.name} value`} type="number" class="field !py-1.5 text-right" bind:value={stat.value} /></label>{/each}</div></fieldset>
           {/if}
 

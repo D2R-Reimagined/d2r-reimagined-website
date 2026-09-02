@@ -132,10 +132,10 @@
     <div class="mt-6 grid gap-7 lg:grid-cols-[minmax(0,1fr)_22rem]">
       <main>
         <div class="flex flex-wrap items-start justify-between gap-4 border-b border-parchment-300/15 pb-5">
-          <div><p class="text-xs uppercase tracking-[0.22em] text-ember-400">{listing.itemQuality || 'Item'} listing</p><h1 class="display-text mt-2 text-3xl text-parchment-50 sm:text-4xl">{listing.itemName}</h1><p class="mt-2 text-parchment-300">{listing.title}</p></div>
+          <div><p class="text-xs uppercase tracking-[0.22em] text-ember-400">{listing.isIdentified ? (listing.itemQuality || 'Item') : 'Unidentified item'} listing</p><h1 class="display-text mt-2 text-3xl text-parchment-50 sm:text-4xl">{listing.itemName}</h1><p class="mt-2 text-parchment-300">{listing.title}</p></div>
           <span class={`rounded border px-3 py-1.5 text-xs uppercase tracking-wider ${listing.status === 'Active' ? 'border-set/30 text-set' : listing.status === 'Reserved' ? 'border-amber-400/30 text-amber-200' : 'border-parchment-300/25 text-parchment-300'}`}>{listing.status === 'Reserved' ? 'Pending trade' : listing.status}</span>
         </div>
-        <div class="panel mt-6 rounded-lg p-5 sm:p-7">{#if item}<TradeItemDetails {item} />{:else}<div class="py-12 text-center text-parchment-300">Detailed item data is unavailable for this listing.</div>{/if}</div>
+        <div class="panel mt-6 rounded-lg p-5 sm:p-7"><TradeItemDetails {item} itemCode={listing.itemCode} unidentified={!listing.isIdentified} label={listing.itemName} /></div>
         {#if listing.description}<section class="mt-6 panel rounded-lg p-5"><h2 class="display-text text-xl text-parchment-50">Seller notes</h2><p class="mt-3 whitespace-pre-wrap leading-7 text-parchment-200">{listing.description}</p></section>{/if}
 
         {#if isSeller}

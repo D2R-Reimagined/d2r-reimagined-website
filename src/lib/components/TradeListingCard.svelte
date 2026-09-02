@@ -21,10 +21,14 @@
     if (!listing.itemData) return null;
     try { return JSON.parse(listing.itemData) as SaveItem; } catch { return null; }
   });
-  let presentation = $derived(item ? presentations.get(item.codeText.toLowerCase()) : undefined);
-  let sprite = $derived(item ? itemSprite(item, presentation, presentations, tiers) : null);
+  let presentation = $derived(presentations.get((item?.codeText || listing.itemCode || '').toLowerCase()));
+  let sprite = $derived.by(() => {
+    if (item) return itemSprite(item, presentation, presentations, tiers);
+    return presentation?.Sprite ? `/data/${presentation.Sprite}` : null;
+  });
 
   function qualityClass(): string {
+    if (!listing.isIdentified) return 'text-red-400';
     const quality = (listing.itemQuality || '').toLowerCase();
     if (quality.includes('unique')) return 'text-unique';
     if (quality.includes('set')) return 'text-set';
@@ -48,8 +52,8 @@
 
 <article class="trade-listing-card scroll-card">
   <a href={`/trade/${listing.id}`} class="group flex min-w-0 flex-1 gap-4 p-4 sm:p-5">
-    <div class="grid h-24 w-20 shrink-0 place-items-center rounded border border-parchment-300/15 bg-black/45 p-2 shadow-inner shadow-black sm:h-28 sm:w-24">
-      {#if sprite}<img src={sprite} alt="" class="max-h-full max-w-full object-contain drop-shadow-[0_4px_5px_rgba(0,0,0,0.9)]" />{:else}<span class="display-text text-center text-xs text-parchment-300">{listing.itemCode || 'ITEM'}</span>{/if}
+    <div class="grid h-24 w-20 shrink-0 place-items-center overflow-hidden rounded border border-parchment-300/15 bg-black/45 p-2 shadow-inner shadow-black sm:h-28 sm:w-24">
+      {#if sprite}<span class="flex h-full min-h-0 w-full min-w-0 items-center justify-center overflow-hidden"><img src={sprite} alt="" class="block max-h-full max-w-full object-contain drop-shadow-[0_4px_5px_rgba(0,0,0,0.9)]" /></span>{:else}<span class="display-text text-center text-xs text-parchment-300">{listing.itemCode || 'ITEM'}</span>{/if}
     </div>
     <div class="min-w-0 flex-1">
       <div class="flex flex-wrap items-start justify-between gap-2">
@@ -60,7 +64,8 @@
         <span class="shrink-0 text-xs text-parchment-300">{age(listing.createdAtUtc)}</span>
       </div>
       <div class="mt-3 flex flex-wrap gap-1.5 text-[0.68rem] uppercase tracking-wider">
-        {#if listing.itemQuality}<span class="trade-tag">{listing.itemQuality}</span>{/if}
+        {#if !listing.isIdentified}<span class="trade-tag !border-red-500/35 !text-red-300">Unidentified</span>
+        {:else if listing.itemQuality}<span class="trade-tag">{listing.itemQuality}</span>{/if}
         {#if listing.requiredLevel != null}<span class="trade-tag">Req {listing.requiredLevel}</span>{/if}
         {#if listing.socketCount}<span class="trade-tag">{listing.socketCount} sockets</span>{/if}
         {#if listing.isEthereal}<span class="trade-tag !border-sky-400/30 !text-sky-200">Ethereal</span>{/if}
