@@ -5,18 +5,21 @@
   import type { Skill, SkillClass } from '$lib/types';
   import SkillTreeView from './SkillTreeView.svelte';
 
-  let { classes }: { classes: SkillClass[] } = $props();
+  let { classes, ranks = $bindable({}), classCode, persist = true, readonly = false, compact = false }: {
+    classes: SkillClass[]; ranks?: Record<number, number>; classCode?: string;
+    persist?: boolean; readonly?: boolean; compact?: boolean;
+  } = $props();
 
   const storageKey = 'd2r-reimagined-skill-planner-v1';
   let activeClassCode = $state('');
-  let ranks = $state<Record<number, number>>({});
   let hydrated = $state(false);
 
-  let activeClass = $derived(classes.find((entry) => entry.ClassCode === activeClassCode) ?? classes[0]);
+  let activeClass = $derived(classes.find((entry) => entry.ClassCode === (classCode ?? activeClassCode)) ?? classes[0]);
   let activeSkills = $derived(activeClass?.Tabs.flatMap((tab) => tab.Skills) ?? []);
   let totalPoints = $derived(activeSkills.reduce((total, skill) => total + (ranks[skill.Id] ?? 0), 0));
 
   onMount(() => {
+    if (!persist) { hydrated = true; return; }
     try {
       const saved = JSON.parse(localStorage.getItem(storageKey) ?? '{}') as Record<string, unknown>;
       const validIds = new Map(classes.flatMap((entry) => entry.Tabs.flatMap((tab) => tab.Skills)).map((skill) => [skill.Id, skill]));
@@ -33,7 +36,7 @@
   });
 
   $effect(() => {
-    if (!hydrated) return;
+    if (!hydrated || !persist || readonly) return;
     try { localStorage.setItem(storageKey, JSON.stringify(ranks)); } catch { /* storage is optional */ }
   });
 
@@ -42,6 +45,7 @@
   }
 
   function canIncrease(skill: Skill): boolean {
+    if (readonly) return false;
     const rank = ranks[skill.Id] ?? 0;
     return rank < (skill.MaxLevel || 20)
       && skill.PrerequisiteIds.every((id) => (ranks[id] ?? 0) > 0);
@@ -54,6 +58,7 @@
   }
 
   function decrease(skill: Skill, amount = 1): void {
+    if (readonly) return;
     const rank = ranks[skill.Id] ?? 0;
     if (rank === 0) return;
     const hasAllocatedDependent = activeSkills.some((candidate) =>
@@ -70,7 +75,8 @@
   }
 </script>
 
-<section class="mx-auto max-w-screen-2xl px-4 py-8 sm:px-5">
+<section class:compact class="mx-auto max-w-screen-2xl px-4 py-8 sm:px-5">
+  {#if !classCode}
   <div class="class-tabs panel rounded-lg p-2" role="tablist" aria-label="Character classes">
     {#each classes as skillClass}
       <button
@@ -86,22 +92,24 @@
       </button>
     {/each}
   </div>
+  {/if}
 
   <div class="mt-5 flex flex-wrap items-center justify-between gap-3 border-y border-parchment-300/15 py-3">
     <p class="text-parchment-300"><span class="text-parchment-50">{totalPoints}</span> skill points allocated to {$i18n.t(activeClass?.NameKey)}</p>
-    <button type="button" onclick={resetClass} disabled={totalPoints === 0} class="reset-button">Reset class</button>
+    {#if !readonly}<button type="button" onclick={resetClass} disabled={totalPoints === 0} class="reset-button">Reset class</button>{/if}
   </div>
 
   {#if activeClass}
     <div class="mt-6">
       {#key activeClass.ClassCode}
-        <SkillTreeView skillClass={activeClass} {ranks} {increase} {decrease} {canIncrease} />
+        <SkillTreeView skillClass={activeClass} {ranks} {increase} {decrease} {canIncrease} {readonly} />
       {/key}
     </div>
   {/if}
 </section>
 
 <style>
+  .compact { padding:0; }
   .class-tabs {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));

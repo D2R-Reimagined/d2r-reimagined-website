@@ -16,11 +16,13 @@
   let {
     details,
     inventoryOnly = false,
+    embedded = false,
     selectedItemSeed,
     onItemSelect
   }: {
     details: CharacterDetailsResponse;
     inventoryOnly?: boolean;
+    embedded?: boolean;
     selectedItemSeed?: number | null;
     onItemSelect?: (item: SaveItem) => void;
   } = $props();
@@ -33,6 +35,7 @@
   let artworkError = $state('');
   let tab = $state<'player' | 'mercenary'>('player');
   let weaponSwap = $state(false);
+  const equipmentHeadingId = $props.id();
 
   const slotRects: Record<string, [number, number, number, number]> = {
     RightArm: [97, 149, 219, 407],
@@ -176,7 +179,8 @@
     </p>
   </div>
 {:else}
-  <section aria-labelledby="equipment-heading">
+  <section aria-labelledby={equipmentHeadingId}>
+    {#if !embedded}
     <div class="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
       <div>
         <p class="text-xs uppercase tracking-[0.24em] text-ember-400">{details.character.ownerDisplayName}'s character</p>
@@ -192,6 +196,10 @@
       </div>
     </div>
 
+    {:else}
+      <p class="mb-4 text-sm text-parchment-300">{details.character.name} · {details.character.class} · Level {details.character.level} · Saved equipment snapshot</p>
+    {/if}
+
     <div class="flex flex-wrap items-center gap-3">
       <div class="inline-flex rounded-full border border-parchment-300/35 bg-black/30 p-1">
         <button type="button" class={`rounded-full px-5 py-2 text-sm transition ${tab === 'player' ? 'bg-slate-700 text-white' : 'text-parchment-300 hover:text-white'}`} onclick={() => tab = 'player'}>Player</button>
@@ -202,7 +210,7 @@
     {#if artworkError}<p role="alert" class="mt-4 text-sm text-red-300">{artworkError}</p>{/if}
 
     <div class="mx-auto mt-5 max-w-[780px] 2xl:max-w-[585px]">
-      <h2 id="equipment-heading" class="sr-only">Equipment and inventory</h2>
+      <h2 id={equipmentHeadingId} class="sr-only">Equipment and inventory</h2>
       <div class="relative aspect-[1162/1799] w-full bg-black bg-[url('/data/sprites/ui/inventory.webp')] bg-contain bg-no-repeat shadow-2xl shadow-black/70">
         {#if tab === 'player'}
           {#each weaponSetRects as [left, top, width, height]}
