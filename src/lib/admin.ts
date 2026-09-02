@@ -269,6 +269,17 @@ export function getLadderBundlePublishJob(
   );
 }
 
+export function cancelLadderBundlePublishJob(
+  ladderId: string,
+  jobId: string
+): Promise<LadderBundlePublishJob> {
+  return apiRequest<LadderBundlePublishJob>(
+    `/admin/ladders/${ladderId}/bundle-publish-jobs/${jobId}/cancel`,
+    { method: 'POST' },
+    true
+  );
+}
+
 export function activateLadderBundle(ladderId: string, bundleId: string): Promise<LadderBundle> {
   return apiRequest<LadderBundle>(`/admin/ladders/${ladderId}/bundles/${bundleId}/activate`, {
     method: 'POST'

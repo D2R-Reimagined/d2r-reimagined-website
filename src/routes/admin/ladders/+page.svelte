@@ -3,6 +3,7 @@
 
     import {
         activateLadderBundle,
+        cancelLadderBundlePublishJob,
         createLadderBundle,
         createLadder,
         getLadderBundlePublishJob,
@@ -49,6 +50,7 @@
     let bundleJob = $state<LadderBundlePublishJob | null>(null);
     let bundleUploadProgress = $state<{ loadedBytes: number; totalBytes: number | null; percentage: number | null } | null>(null);
     let publishPollProblem = $state<string | null>(null);
+    let cancellingBundleJob = $state(false);
     let publishMonitorGeneration = 0;
     let deleteConfirmName = $state('');
     let deleting = $state(false);
@@ -89,6 +91,7 @@
         bundleJob = null;
         bundleUploadProgress = null;
         publishPollProblem = null;
+        cancellingBundleJob = false;
         bundleBusy = false;
     }
 
@@ -113,6 +116,7 @@
         bundleUploadProgress = null;
         bundleBusy = false;
         publishPollProblem = null;
+        cancellingBundleJob = false;
         void loadLadderBundles(ladder.id);
         void recoverLatestPublishJob(ladder.id);
     }
@@ -253,6 +257,33 @@
             bundleBusy = false;
         } finally {
             bundleUploadProgress = null;
+        }
+    }
+
+    async function cancelBundlePublish(): Promise<void> {
+        if (!selectedId || !bundleJob || (bundleJob.status !== 'Queued' && bundleJob.status !== 'Processing')) return;
+
+        const ladderId = selectedId;
+        const jobId = bundleJob.id;
+        publishMonitorGeneration++;
+        cancellingBundleJob = true;
+        error = '';
+        notice = '';
+        try {
+            const cancelled = await cancelLadderBundlePublishJob(ladderId, jobId);
+            if (selectedId !== ladderId) return;
+            bundleJob = cancelled;
+            bundleBusy = false;
+            publishPollProblem = null;
+            notice = 'Publishing cancelled and the staged source archive was cleared. You can upload a new ZIP now.';
+        } catch (value) {
+            if (selectedId !== ladderId) return;
+            error = problemMessage(value);
+            if (bundleJob.status === 'Queued' || bundleJob.status === 'Processing') {
+                void monitorPublishJob(ladderId, jobId);
+            }
+        } finally {
+            cancellingBundleJob = false;
         }
     }
 
@@ -675,6 +706,15 @@
                                 <p class="mt-3 rounded border border-ember-400/35 bg-ember-950/30 px-3 py-2 text-xs text-ember-200">
                                     No new progress has been reported recently. A large file may still be processing, or the API may be restarting. No action is needed—the server will resume this job automatically.
                                 </p>
+                            {/if}
+                            {#if bundleJob.status === 'Queued' || bundleJob.status === 'Processing'}
+                                <div class="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-parchment-300/15 pt-3">
+                                    <p class="max-w-2xl text-xs text-parchment-300">Cancelling stops this publish attempt and deletes its staged ZIP. It does not affect any completed revision.</p>
+                                    <button class="rounded border border-requirement/60 px-3 py-2 text-sm text-requirement hover:bg-requirement/10 disabled:cursor-not-allowed disabled:opacity-50"
+                                            type="button" disabled={cancellingBundleJob} onclick={() => void cancelBundlePublish()}>
+                                        {cancellingBundleJob ? 'Cancelling…' : 'Cancel publishing and clear upload'}
+                                    </button>
+                                </div>
                             {/if}
                             <p class="mt-2 text-[0.7rem] text-parchment-300">Last updated {new Date(bundleJob.updatedAtUtc).toLocaleTimeString()}</p>
                         </div>

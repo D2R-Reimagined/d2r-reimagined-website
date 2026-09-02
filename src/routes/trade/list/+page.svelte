@@ -78,7 +78,7 @@
   }
 
   function chooseItem(item: SaveItem): void {
-    selectedItem = structuredClone(item);
+    selectedItem = structuredClone($state.snapshot(item));
     itemName = itemLabel(item);
     title = `${itemName} for trade`;
     itemType = item.baseName || item.codeText;
