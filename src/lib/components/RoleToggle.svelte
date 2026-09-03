@@ -17,6 +17,7 @@
 <label class:role-control--locked={disabled} class="role-control" title={note}>
   <input
     type="checkbox"
+    data-checkbox-appearance="switch"
     aria-label={label}
     {checked}
     {disabled}
