@@ -1,6 +1,7 @@
 <script lang="ts">
   import CharacterItem from '$lib/components/CharacterItem.svelte';
   import SkillTreeView from '$lib/components/skills/SkillTreeView.svelte';
+  import { formatLastLogged } from '$lib/character-activity';
   import { characterSkillRanks } from '$lib/character-skill-ranks';
   import type { CharacterDetailsResponse, SaveItem } from '$lib/characters';
   import { loadItemPresentation, type ItemPresentation } from '$lib/item-presentation';
@@ -35,6 +36,7 @@
   let artworkError = $state('');
   let tab = $state<'player' | 'mercenary'>('player');
   let weaponSwap = $state(false);
+  let relativeTimeNow = $state(Date.now());
   const equipmentHeadingId = $props.id();
 
   const slotRects: Record<string, [number, number, number, number]> = {
@@ -169,6 +171,12 @@
       artworkError = value instanceof Error ? value.message : 'Item artwork could not be loaded.';
     }
   });
+
+  onMount(() => {
+    relativeTimeNow = Date.now();
+    const timer = window.setInterval(() => relativeTimeNow = Date.now(), 60_000);
+    return () => window.clearInterval(timer);
+  });
 </script>
 
 {#if !save}
@@ -186,7 +194,7 @@
         <p class="text-xs uppercase tracking-[0.24em] text-ember-400">{details.character.ownerDisplayName}'s character</p>
         <h1 class="display-text mt-2 text-4xl text-parchment-50 sm:text-5xl">{details.character.name}</h1>
         <p class="mt-2 text-parchment-300">
-          {details.character.class} · level {details.character.level} · {formatNumber(details.character.experience)} experience
+          {details.character.class} · level {details.character.level} · {formatNumber(details.character.experience)} experience · Last Logged {formatLastLogged(details.character.lastPlayedAtUtc, relativeTimeNow)}
         </p>
       </div>
       <div class="flex flex-wrap gap-2 text-xs">
