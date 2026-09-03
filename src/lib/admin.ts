@@ -264,7 +264,7 @@ export async function getLatestLadderBundlePublishJob(
 ): Promise<LadderBundlePublishJob | null> {
   return await apiRequest<LadderBundlePublishJob | undefined>(
     `/admin/ladders/${ladderId}/bundle-publish-jobs/latest`,
-    {},
+    { cache: 'no-store' },
     true
   ) ?? null;
 }
@@ -275,7 +275,7 @@ export function getLadderBundlePublishJob(
 ): Promise<LadderBundlePublishJob> {
   return apiRequest<LadderBundlePublishJob>(
     `/admin/ladders/${ladderId}/bundle-publish-jobs/${jobId}`,
-    {},
+    { cache: 'no-store' },
     true
   );
 }

@@ -218,7 +218,7 @@
       </select>
 
       <label class="control flex items-center gap-2">
-        <input type="checkbox" bind:checked={hardcoreOnly} />
+        <input type="checkbox" class="checkbox" bind:checked={hardcoreOnly} />
         Hardcore only
       </label>
 

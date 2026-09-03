@@ -136,9 +136,12 @@ body.font-neutral { font-family: Verdana, Helvetica, Arial, sans-serif; }
   letter-spacing: 0.025em;
 }
 
-/* Flowbite colors checked controls with currentColor. Keep native checkboxes
-   visually consistent and ensure the white checkmark has a dark fill behind it. */
-.checkbox {
+/* Use one high-contrast checkbox treatment everywhere instead of relying on
+   browser/Flowbite accent rendering, which can produce a pale fill and tick. */
+input[type='checkbox']:not([data-checkbox-appearance='switch']) {
+  appearance: none;
+  display: inline-grid;
+  place-content: center;
   width: 1.15rem;
   height: 1.15rem;
   flex: none;
@@ -148,16 +151,32 @@ body.font-neutral { font-family: Verdana, Helvetica, Arial, sans-serif; }
   color: var(--color-ember-500);
   box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.55);
   cursor: pointer;
+  transition: border-color 140ms ease, background-color 140ms ease, box-shadow 140ms ease;
 }
 
-.checkbox:hover { border-color: var(--color-ember-400); }
-.checkbox:checked {
-  border-color: var(--color-ember-400) !important;
-  background-color: var(--color-ember-500) !important;
+input[type='checkbox']:not([data-checkbox-appearance='switch']):hover { border-color: var(--color-ember-400); }
+input[type='checkbox']:not([data-checkbox-appearance='switch']):checked {
+  /* Flowbite's important checked-state fill uses currentColor. */
+  color: var(--color-ember-500);
+  background-image: none !important;
+  box-shadow: inset 0 0 0 1px rgb(247 241 227 / 0.12), 0 0 0 1px rgb(228 90 53 / 0.18);
 }
-.checkbox:disabled {
+input[type='checkbox']:not([data-checkbox-appearance='switch']):checked::after {
+  width: 0.55rem;
+  height: 0.3rem;
+  border-bottom: 2px solid var(--color-parchment-50);
+  border-left: 2px solid var(--color-parchment-50);
+  content: '';
+  transform: translateY(-0.08rem) rotate(-45deg);
+}
+input[type='checkbox']:not([data-checkbox-appearance='switch']):disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+@media (forced-colors: active) {
+  input[type='checkbox']:not([data-checkbox-appearance='switch']) { appearance: auto; }
+  input[type='checkbox']:not([data-checkbox-appearance='switch']):checked::after { content: none; }
 }
 
 .property-line { color: var(--color-magic); }
