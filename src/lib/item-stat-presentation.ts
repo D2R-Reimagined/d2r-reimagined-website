@@ -38,6 +38,15 @@ export interface ItemStatDisplayContext {
 const hiddenSkillIds = new Set([449]);
 const hiddenSkillNameKeys = new Set(['charmweight1']);
 const hiddenStatNames = new Set(['charm_weight']);
+const classSkillLines = [
+  { key: 'ModStr3a', name: 'Amazon' },
+  { key: 'ModStr3d', name: 'Sorceress' },
+  { key: 'ModStr3c', name: 'Necromancer' },
+  { key: 'ModStr3b', name: 'Paladin' },
+  { key: 'ModStr3e', name: 'Barbarian' },
+  { key: 'ModStre8a', name: 'Druid' },
+  { key: 'ModStre8b', name: 'Assassin' }
+] as const;
 
 let presentationPromise: Promise<ItemStatPresentationBundle> | undefined;
 
@@ -112,6 +121,21 @@ function keyedLine(
       ...(perLevel ? { perLevel: true } : {})
     },
     fallback: fallback(stat, bundle, context)
+  };
+}
+
+function classSkillLine(
+  stat: SaveStat,
+  bundle: ItemStatPresentationBundle,
+  context: ItemStatDisplayContext
+): DisplayStatLine | null {
+  const classLine = classSkillLines[stat.layer];
+  if (!classLine) return { fallback: fallback(stat, bundle, context) };
+
+  const value = valueOf(stat, bundle, context);
+  return {
+    keyed: { key: classLine.key, args: [value] },
+    fallback: `${value > 0 ? '+' : ''}${value} to ${classLine.name} Skill Levels`
   };
 }
 
@@ -271,7 +295,9 @@ export function displayStatLines(
     const stat = stats[index];
     if (isHiddenItemStat(stat, bundle)) continue;
     if (stat.name === 'poison_count') continue;
-    const line = stat.name === 'item_nonclassskill' || stat.name === 'item_singleskill'
+    const line = stat.name === 'item_addclassskills'
+      ? classSkillLine(stat, bundle, context)
+      : stat.name === 'item_nonclassskill' || stat.name === 'item_singleskill'
       ? skillLine(stat, bundle, context)
       : bundle.Stats[stat.name]?.Function === 16 || bundle.Stats[stat.name]?.Function === 28
         ? displayedSkillLine(stat, bundle, context)

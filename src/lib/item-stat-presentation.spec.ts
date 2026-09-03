@@ -149,6 +149,41 @@ describe('displayStatLines', () => {
     ]);
   });
 
+  it('resolves class skill levels from the encoded class layer', () => {
+    const classBundle: ItemStatPresentationBundle = {
+      ...bundle,
+      Stats: {
+        ...bundle.Stats,
+        item_addclassskills: {
+          Priority: 150,
+          PositiveKey: 'ModStr3a',
+          Function: 13,
+          ValueShift: 0
+        }
+      }
+    };
+
+    const lines = displayStatLines([
+      stat(83, 'item_addclassskills', 1, 0),
+      stat(83, 'item_addclassskills', 1, 1),
+      stat(83, 'item_addclassskills', 1, 2),
+      stat(83, 'item_addclassskills', 1, 3),
+      stat(83, 'item_addclassskills', 1, 4),
+      stat(83, 'item_addclassskills', 1, 5),
+      stat(83, 'item_addclassskills', 1, 6)
+    ], classBundle);
+
+    expect(lines.map((line) => line.keyed)).toEqual([
+      { key: 'ModStr3a', args: [1] },
+      { key: 'ModStr3d', args: [1] },
+      { key: 'ModStr3c', args: [1] },
+      { key: 'ModStr3b', args: [1] },
+      { key: 'ModStr3e', args: [1] },
+      { key: 'ModStre8a', args: [1] },
+      { key: 'ModStre8b', args: [1] }
+    ]);
+  });
+
   it('renders flavor-only weight text without exposing the backing value', () => {
     const [line] = displayStatLines([stat(398, 'soulstone_weight', 1)], bundle);
 
