@@ -8,6 +8,7 @@ const routes = [
   '/grail',
   '/data',
   '/data/skills',
+  '/data/drop-calculator',
   '/data/uniques',
   '/data/sets',
   '/data/runewords',

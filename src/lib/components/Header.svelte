@@ -33,6 +33,7 @@
   });
 
   const dataLinks = [
+    { href: '/data/drop-calculator', label: 'Drop Calculator', detail: 'Find the best monsters to farm' },
     { href: '/data/skills', label: 'Skills', detail: 'Class trees and build planner' },
     { href: '/data/uniques', label: 'Uniques', detail: 'Distinctive named items' },
     { href: '/data/sets', label: 'Sets', detail: 'Pieces and set bonuses' },

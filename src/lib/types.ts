@@ -201,3 +201,5 @@ export const catalogDefinitions: Record<CatalogSlug, CatalogDefinition> = {
     description: 'What every Horadric Cube orb does, which items it takes, and every property an Orb of Corruption can roll.'
   }
 };
+
+export const dropCalculatorDefinition = { slug: "drop-calculator", title: "Drop Calculator", description: "Find where to farm unique items, set pieces, and runes with monster drop probabilities." } as const;

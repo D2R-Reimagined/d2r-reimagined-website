@@ -9,7 +9,7 @@
   import { loadCatalog } from '$lib/catalog-sources';
   import { debounced } from '$lib/debounce.svelte';
   import { i18n } from '$lib/i18n';
-  import { catalogDefinitions, catalogSlugs, skillPlannerDefinition, type CatalogItem, type CatalogSlug } from '$lib/types';
+  import { dropCalculatorDefinition, catalogDefinitions, catalogSlugs, skillPlannerDefinition, type CatalogItem, type CatalogSlug } from '$lib/types';
 
   type Status = 'idle' | 'loading' | 'ready' | 'error';
   type Group = { slug: CatalogSlug; title: string; busy: boolean; failed: boolean; matches: CatalogItem[] };
@@ -17,7 +17,7 @@
   /** Cards per section — enough to judge a hit, few enough that a broad query stays quick. */
   const preview = 6;
 
-  const definitions = [skillPlannerDefinition, ...Object.values(catalogDefinitions)];
+  const definitions = [dropCalculatorDefinition, skillPlannerDefinition, ...Object.values(catalogDefinitions)];
 
   let search = $state(page.url.searchParams.get('q') ?? '');
   let items = $state<Partial<Record<CatalogSlug, CatalogItem[]>>>({});

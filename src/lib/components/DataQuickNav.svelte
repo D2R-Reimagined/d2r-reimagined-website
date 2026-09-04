@@ -1,11 +1,11 @@
 <script lang="ts">
   import { page } from '$app/state';
 
-  import { catalogDefinitions, skillPlannerDefinition } from '$lib/types';
+  import { dropCalculatorDefinition, catalogDefinitions, skillPlannerDefinition } from '$lib/types';
 
   const links = [
     { href: '/data', label: 'All Data' },
-    ...[skillPlannerDefinition, ...Object.values(catalogDefinitions)].map((definition) => ({
+    ...[dropCalculatorDefinition, skillPlannerDefinition, ...Object.values(catalogDefinitions)].map((definition) => ({
       href: `/data/${definition.slug}`,
       label: definition.title
     }))
