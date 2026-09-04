@@ -1,11 +1,54 @@
 <script lang="ts">
-  import { sendAnnouncement } from '$lib/admin';
+  import { onMount } from 'svelte';
+
+  import { getAnnouncementListeners, sendAnnouncement, type AnnouncementListeners } from '$lib/admin';
   import { ApiError } from '$lib/auth';
 
   let message = $state('');
   let sending = $state(false);
   let error = $state('');
   let notice = $state('');
+
+  let audience = $state<AnnouncementListeners | null>(null);
+  let audienceFailed = $state(false);
+
+  // Never loaded and genuinely nobody look identical if only the number is
+  // kept, and they mean opposite things: one is "do not send yet", the other is
+  // "sending this reaches nobody".
+  let audienceKnown = $derived(audience !== null);
+  let reach = $derived(audience?.players ?? 0);
+
+  // Two sockets for one account is somebody playing twice, not two people. Only
+  // worth mentioning when the two numbers actually differ.
+  let extraClients = $derived(audience ? audience.listeners - audience.players : 0);
+
+  async function refreshAudience(): Promise<void> {
+    try {
+      audience = await getAnnouncementListeners();
+      audienceFailed = false;
+    } catch {
+      // The last known figure is kept. A failed refresh is not evidence that
+      // everybody left.
+      audienceFailed = true;
+    }
+  }
+
+  onMount(() => {
+    let cancelled = false;
+
+    void (async () => {
+      if (!cancelled) await refreshAudience();
+    })();
+
+    const timer = setInterval(() => {
+      if (!cancelled) void refreshAudience();
+    }, 15_000);
+
+    return () => {
+      cancelled = true;
+      clearInterval(timer);
+    };
+  });
 
   function problemMessage(value: unknown): string {
     return value instanceof ApiError || value instanceof Error
@@ -20,8 +63,11 @@
     try {
       const result = await sendAnnouncement(message);
       const recipients = result.recipientCount === 1 ? '1 connected client' : `${result.recipientCount} connected clients`;
-      notice = `Announcement sent to ${recipients}.`;
+      notice = result.recipientCount === 0
+        ? 'Announcement sent, but no clients were connected to receive it.'
+        : `Announcement sent to ${recipients}.`;
       message = '';
+      await refreshAudience();
     } catch (value) {
       error = problemMessage(value);
     } finally {
@@ -37,6 +83,40 @@
 <div class="mb-6">
   <h2 class="display-text mt-1 text-3xl text-parchment-50">Announcements</h2>
   <p class="mt-2 text-parchment-300">Send a message to every client currently connected to the announcements WebSocket.</p>
+</div>
+
+<div
+  class="mb-5 flex flex-wrap items-center gap-3 rounded-lg border p-4 {audienceKnown && reach === 0
+    ? 'border-requirement/45 bg-requirement/10'
+    : 'border-parchment-300/20 bg-abyss-900/60'}"
+>
+  <span
+    class="inline-block size-2.5 shrink-0 rounded-full {audienceKnown
+      ? reach > 0
+        ? 'bg-set'
+        : 'bg-requirement'
+      : 'bg-parchment-300/25'}"
+    aria-hidden="true"
+  ></span>
+  {#if !audienceKnown}
+    <p class="text-parchment-300">Checking who is connected…</p>
+  {:else if reach === 0}
+    <p class="text-parchment-200">
+      <span class="text-parchment-50">Nobody is connected.</span>
+      An announcement sent now would reach no one. Clients only appear here while the game is running with the
+      announcements plugin loaded.
+    </p>
+  {:else}
+    <p class="text-parchment-200">
+      This would reach <span class="text-parchment-50">{reach.toLocaleString()}</span>
+      {reach === 1 ? 'player' : 'players'}{#if extraClients > 0}<span class="text-parchment-300">
+          ({audience?.listeners.toLocaleString()} clients — someone has the game open more than once)</span
+        >{/if}.
+    </p>
+  {/if}
+  {#if audienceFailed}
+    <span class="text-xs text-parchment-300">Last count could not be refreshed.</span>
+  {/if}
 </div>
 
 {#if error}<div class="mb-5 rounded-lg border border-requirement/45 bg-requirement/10 p-4 text-requirement">{error}</div>{/if}
@@ -64,7 +144,11 @@
       class="rounded bg-ember-700 px-5 py-3 text-parchment-50 hover:bg-ember-500 disabled:cursor-wait disabled:opacity-60"
       type="submit"
       disabled={sending || message.trim().length === 0}
-    >{sending ? 'Sending…' : 'Send announcement'}</button>
+    >{sending
+        ? 'Sending…'
+        : audienceKnown && reach > 0
+          ? `Send to ${reach.toLocaleString()} ${reach === 1 ? 'player' : 'players'}`
+          : 'Send announcement'}</button>
   </div>
 </form>
 

@@ -158,6 +158,13 @@ export interface SendAnnouncementResponse {
   recipientCount: number;
 }
 
+export interface AnnouncementListeners {
+  /** Sockets attached. One player with the game open twice is two. */
+  listeners: number;
+  /** Distinct players those sockets represent. */
+  players: number;
+}
+
 export function getLadders(): Promise<Ladder[]> {
   return apiRequest<Ladder[]>('/ladders');
 }
@@ -301,6 +308,17 @@ export function revokeLadderBundle(ladderId: string, bundleId: string): Promise<
   return apiRequest<LadderBundle>(`/admin/ladders/${ladderId}/bundles/${bundleId}/revoke`, {
     method: 'POST'
   }, true);
+}
+
+/**
+ * Who would receive an announcement sent right now, without sending one.
+ *
+ * Worth checking before writing the message rather than after sending it: the
+ * recipient count on a send is the first and only feedback otherwise, and by
+ * then the announcement has already gone.
+ */
+export function getAnnouncementListeners(): Promise<AnnouncementListeners> {
+  return apiRequest<AnnouncementListeners>('/admin/announcements/listeners', {}, true);
 }
 
 export function sendAnnouncement(message: string): Promise<SendAnnouncementResponse> {
