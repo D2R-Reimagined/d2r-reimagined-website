@@ -1,5 +1,6 @@
 <script lang="ts">
   import { authState } from '$lib/auth';
+  import OnlinePlayers from '$lib/components/OnlinePlayers.svelte';
   import { debounced } from '$lib/debounce.svelte';
   import { isLadderRunning } from '$lib/ladder-schedule';
   import {
@@ -272,11 +273,14 @@
         {total === 1 ? 'character' : 'characters'} ranked
       {/if}
     </p>
-    {#if ladderId}
-      <p>Tracked automatically from ladder saves</p>
-    {:else}
-      <p>Sorted by level, highest first</p>
-    {/if}
+    <div class="flex flex-wrap items-center gap-3">
+      <OnlinePlayers />
+      {#if ladderId}
+        <p>Tracked automatically from ladder saves</p>
+      {:else}
+        <p>Sorted by level, highest first</p>
+      {/if}
+    </div>
   </div>
 
   {#if error}

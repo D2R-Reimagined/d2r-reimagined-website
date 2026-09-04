@@ -2,7 +2,6 @@
   import { onMount } from 'svelte';
 
   import { characterSkillTreeAllocations } from '$lib/character-directory';
-  import OnlinePlayers from '$lib/components/OnlinePlayers.svelte';
   import {
     getCharacterDirectory,
     type CharacterDirectoryEntry
@@ -126,10 +125,7 @@
         {selectedClass ? `playing ${selectedClass}` : 'across all classes'}
       {/if}
     </p>
-    <div class="flex items-center gap-3">
-      <OnlinePlayers />
-      <p>Sorted by level, highest first</p>
-    </div>
+    <p>Sorted by level, highest first</p>
   </div>
 
   {#if error}
