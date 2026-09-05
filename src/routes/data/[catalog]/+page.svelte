@@ -131,7 +131,8 @@
 
     const matches = data.items.filter((item: CatalogItem) => {
       if (hideVanilla && isVanilla(item)) return false;
-      if (!matchesItemType(typesFor(item), selectedType, exactType)) return false;
+      if (!matchesItemType(typesFor(item), selectedType, exactType,
+        data.definition.slug === 'runewords' || data.definition.slug === 'affixes')) return false;
       if (selectedClass && !classesFor(item).includes(selectedClass)) return false;
       if (selectedEquipment && !equipmentFor(item).includes(selectedEquipment)) return false;
       if (subtype && item.source !== subtype) return false;

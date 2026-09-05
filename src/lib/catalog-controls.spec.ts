@@ -37,6 +37,22 @@ describe('base filters', () => {
 });
 
 describe('item type filtering', () => {
+  it('keeps specific equipment selections from including ancestors or siblings', () => {
+    expect(matchesItemType(['peltitype'], 'peltitype', false)).toBe(true);
+    expect(matchesItemType(['helmitype'], 'peltitype', false)).toBe(false);
+    expect(matchesItemType(['phlmitype'], 'peltitype', false)).toBe(false);
+    expect(matchesItemType(['peltitype'], 'helmitype', false)).toBe(true);
+    expect(matchesItemType(['peltitype'], 'armoitype', false)).toBe(true);
+    expect(matchesItemType(['shlditype'], 'ashditype', false)).toBe(false);
+    expect(matchesItemType(['bowitype'], 'abowitype', false)).toBe(false);
+  });
+
+  it('preserves broad allowed types for runeword and affix applicability', () => {
+    expect(matchesItemType(['helmitype'], 'peltitype', false, true)).toBe(true);
+    expect(matchesItemType(['weapitype'], 'sworitype', false, true)).toBe(true);
+    expect(matchesItemType(['helmitype'], 'peltitype', true, true)).toBe(false);
+  });
+
   it('matches descendants for broad types unless Exact is enabled', () => {
     expect(matchesItemType(['sworitype'], 'weapitype', false)).toBe(true);
     expect(matchesItemType(['sworitype'], 'weapitype', true)).toBe(false);

@@ -113,10 +113,12 @@ function typeChain(code: string, seen = new Set<string>()): Set<string> {
   return seen;
 }
 
-export function matchesItemType(itemTypes: string[], selectedType: string, exact: boolean): boolean {
+export function matchesItemType(itemTypes: string[], selectedType: string, exact: boolean, applicability = false): boolean {
   if (!selectedType) return true;
   if (exact) return itemTypes.includes(selectedType);
-  const selectedChain = typeChain(selectedType);
+  // Only applicability lists (runewords/affixes) may match a selected subtype
+  // through a broader allowed type. A Helm item is not itself a Druid Pelt.
+  const selectedChain = applicability ? typeChain(selectedType) : new Set<string>();
   return itemTypes.some((itemType) => typeChain(itemType).has(selectedType) || selectedChain.has(itemType));
 }
 
