@@ -59,12 +59,16 @@
     let deleteConfirmName = $state('');
     let deleting = $state(false);
     let bundleDraft = $state<BundleDraft>({
-        minimumLauncherVersion: '0.12.0',
-        requiredD2RLoaderVersion: '1.2.0',
+        minimumLauncherVersion: '0.13.0',
+        requiredD2RLoaderVersion: '1.2.1',
         supportedGameVersion: '3.3'
     });
 
     let selectedLadder = $derived(ladders.find((ladder) => ladder.id === selectedId) ?? null);
+    // A job that has reported Completed or Failed is finished for good: the
+    // card drops the progress bar and the stage counters so a half-filled bar
+    // from the last progress write cannot read as work still in flight.
+    let publishJobRunning = $derived(bundleJob !== null && (bundleJob.status === 'Queued' || bundleJob.status === 'Processing'));
     let requiredFiles = $derived(selectedLadder?.activeBundle?.files.filter(file =>
         /^mods\/Reimagined\/d2rloader\/(plugins\/[^/]+\.dll|patches\/[^/]+\.json)$/i.test(file.targetPath)) ?? []);
 
@@ -130,6 +134,14 @@
     function applyExtensionUpdate(ladder: Ladder): void {
         ladders = ladders.map(item => item.id === ladder.id ? ladder : item);
         if (selectedId === ladder.id) draft.allowedExtensions = ladder.allowedExtensions.map(item => ({...item}));
+    }
+
+    function applySavedLadder(ladder: Ladder): void {
+        const exists = ladders.some(item => item.id === ladder.id);
+        ladders = exists
+            ? ladders.map(item => item.id === ladder.id ? ladder : item)
+            : [...ladders, ladder];
+        editLadder(ladder);
     }
 
     async function uploadOptional(): Promise<void> {
@@ -211,6 +223,13 @@
         return new Promise((resolve) => setTimeout(resolve, milliseconds));
     }
 
+    function dismissPublishJob(): void {
+        if (publishJobRunning) return;
+        publishMonitorGeneration++;
+        bundleJob = null;
+        publishPollProblem = null;
+    }
+
     async function recoverLatestPublishJob(ladderId: string): Promise<void> {
         try {
             const latest = await getLatestLadderBundlePublishJob(ladderId);
@@ -237,15 +256,18 @@
                 bundleJob = current;
                 failedPolls = 0;
                 publishPollProblem = null;
-                if (current.status === 'Completed') {
+                if (current.status === 'Completed' || current.status === 'Failed') {
+                    // Retire this generation so a poll still in flight from an
+                    // earlier monitor cannot write a stale in-progress snapshot
+                    // over the finished job.
+                    publishMonitorGeneration++;
                     bundleBusy = false;
-                    await loadLadderBundles(ladderId);
-                    notice = current.message;
-                    return;
-                }
-                if (current.status === 'Failed') {
-                    bundleBusy = false;
-                    error = current.error || current.message;
+                    if (current.status === 'Completed') {
+                        await loadLadderBundles(ladderId);
+                        notice = current.message;
+                    } else {
+                        error = current.error || current.message;
+                    }
                     return;
                 }
             } catch (value) {
@@ -385,8 +407,7 @@
             const saved = selectedId
                 ? await updateLadder(selectedId, requestFromDraft())
                 : await createLadder(requestFromDraft());
-            await loadLadders();
-            editLadder(ladders.find((ladder) => ladder.id === saved.id) ?? saved);
+            applySavedLadder(saved);
             notice = wasUpdate ? 'Ladder updated.' : 'Ladder created.';
         } catch (value) {
             error = problemMessage(value);
@@ -402,8 +423,7 @@
         saving = true;
         try {
             const started = await startLadder(selectedId);
-            await loadLadders();
-            editLadder(ladders.find((ladder) => ladder.id === started.id) ?? started);
+            applySavedLadder(started);
             notice = 'Ladder started. Its configured duration was preserved.';
         } catch (value) {
             error = problemMessage(value);
@@ -626,7 +646,7 @@
                     <div>
                         <p class="text-xs uppercase tracking-[0.18em] text-ember-400">Secure distribution</p>
                         <h3 class="display-text mt-1 text-2xl">Signed ladder packages</h3>
-                        <p class="mt-2 max-w-3xl text-sm text-parchment-300">Upload one ZIP containing the complete Reimagined folder. The API inventories and hashes every file, detects D2RLoader plugins, and creates one signed package. Activating an older revision performs a rollback.</p>
+                        <p class="mt-2 max-w-3xl text-sm text-parchment-300">Upload one ZIP containing one complete Reimagined or ReimaginedLadder folder. The API inventories and hashes every file, detects D2RLoader plugins, and creates one signed package. Activating an older revision performs a rollback.</p>
                     </div>
                     <div class="rounded border border-parchment-300/20 px-4 py-3 text-sm">
                         <span class="block text-xs uppercase tracking-wide text-parchment-300">Active revision</span>
@@ -692,23 +712,31 @@
                                 </div>
                                 <span class={`rounded border px-2 py-1 text-xs uppercase tracking-wide ${bundleJob.status === 'Failed' ? 'border-requirement/60 text-requirement' : bundleJob.status === 'Completed' ? 'border-set/60 text-set' : 'border-ember-400/50 text-ember-300'}`}>{bundleJob.status}</span>
                             </div>
-                            <div class="flex flex-wrap items-center justify-between gap-2">
-                                <div>
-                                    <p class="text-sm text-parchment-50">{stageLabel(bundleJob)}</p>
-                                    <p class="mt-1 text-xs text-parchment-300">{bundleJob.message}</p>
+                            {#if publishJobRunning}
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <div>
+                                        <p class="text-sm text-parchment-50">{stageLabel(bundleJob)}</p>
+                                        <p class="mt-1 text-xs text-parchment-300">{bundleJob.message}</p>
+                                    </div>
+                                    <span class="text-sm text-ember-300">{bundleJob.progressPercent}%</span>
                                 </div>
-                                <span class="text-sm text-ember-300">{bundleJob.progressPercent}%</span>
-                            </div>
-                            <div class="mt-3 h-2 overflow-hidden rounded-full bg-parchment-300/15"
-                                 role="progressbar" aria-label="Package publishing progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow={bundleJob.progressPercent}>
-                                <div class={`h-full rounded-full transition-[width] duration-300 ${bundleJob.status === 'Failed' ? 'bg-requirement' : bundleJob.status === 'Completed' ? 'bg-set' : 'bg-ember-500'}`}
-                                     style={`width: ${bundleJob.progressPercent}%`}></div>
-                            </div>
-                            {#if bundleJob.detail}
-                                <p class="mt-2 text-xs text-parchment-300">{bundleJob.detail}</p>
-                            {/if}
-                            {#if bundleJob.processedFiles !== null && bundleJob.totalFiles !== null}
-                                <p class="mt-1 text-xs text-parchment-300">{bundleJob.processedFiles.toLocaleString()} of {bundleJob.totalFiles.toLocaleString()} files</p>
+                                <div class="mt-3 h-2 overflow-hidden rounded-full bg-parchment-300/15"
+                                     role="progressbar" aria-label="Package publishing progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow={bundleJob.progressPercent}>
+                                    <div class="h-full rounded-full bg-ember-500 transition-[width] duration-300"
+                                         style={`width: ${bundleJob.progressPercent}%`}></div>
+                                </div>
+                                {#if bundleJob.detail}
+                                    <p class="mt-2 text-xs text-parchment-300">{bundleJob.detail}</p>
+                                {/if}
+                                {#if bundleJob.processedFiles !== null && bundleJob.totalFiles !== null}
+                                    <p class="mt-1 text-xs text-parchment-300">{bundleJob.processedFiles.toLocaleString()} of {bundleJob.totalFiles.toLocaleString()} files</p>
+                                {/if}
+                            {:else}
+                                <p class={`text-sm ${bundleJob.status === 'Failed' ? 'text-requirement' : 'text-set'}`}>{bundleJob.status === 'Failed' ? 'Publishing failed' : `Publishing complete${bundleJob.totalFiles === null ? '' : ` — ${bundleJob.totalFiles.toLocaleString()} files packaged`}`}</p>
+                                <p class="mt-1 text-xs text-parchment-300">{bundleJob.message}</p>
+                                {#if bundleJob.detail}
+                                    <p class="mt-1 text-xs text-parchment-300">{bundleJob.detail}</p>
+                                {/if}
                             {/if}
                             {#if bundleJob.error}
                                 <p class="mt-2 text-sm text-requirement">{bundleJob.error}</p>
@@ -716,18 +744,24 @@
                             {#if publishPollProblem}
                                 <p class="mt-3 rounded border border-ember-400/35 bg-ember-950/30 px-3 py-2 text-xs text-ember-200">{publishPollProblem}</p>
                             {/if}
-                            {#if (bundleJob.status === 'Queued' || bundleJob.status === 'Processing') && Date.now() - new Date(bundleJob.updatedAtUtc).getTime() >= 45_000}
+                            {#if publishJobRunning && Date.now() - new Date(bundleJob.updatedAtUtc).getTime() >= 45_000}
                                 <p class="mt-3 rounded border border-ember-400/35 bg-ember-950/30 px-3 py-2 text-xs text-ember-200">
                                     No new progress has been reported recently. A large file may still be processing, or the API may be restarting. No action is needed—the server will resume this job automatically.
                                 </p>
                             {/if}
-                            {#if bundleJob.status === 'Queued' || bundleJob.status === 'Processing'}
+                            {#if publishJobRunning}
                                 <div class="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-parchment-300/15 pt-3">
                                     <p class="max-w-2xl text-xs text-parchment-300">Cancelling stops this publish attempt and deletes its staged ZIP. It does not affect any completed revision.</p>
                                     <button class="rounded border border-requirement/60 px-3 py-2 text-sm text-requirement hover:bg-requirement/10 disabled:cursor-not-allowed disabled:opacity-50"
                                             type="button" disabled={cancellingBundleJob} onclick={() => void cancelBundlePublish()}>
                                         {cancellingBundleJob ? 'Cancelling…' : 'Cancel publishing and clear upload'}
                                     </button>
+                                </div>
+                            {:else}
+                                <div class="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-parchment-300/15 pt-3">
+                                    <p class="max-w-2xl text-xs text-parchment-300">{bundleJob.status === 'Failed' ? 'This attempt is finished. Dismiss it once you have read the error, then upload a new ZIP.' : 'This attempt is finished. Dismiss it once you have activated or reviewed the new revision below.'}</p>
+                                    <button class="rounded border border-parchment-300/35 px-3 py-2 text-sm text-parchment-100 hover:bg-parchment-300/10"
+                                            type="button" onclick={dismissPublishJob}>Dismiss</button>
                                 </div>
                             {/if}
                             <p class="mt-2 text-[0.7rem] text-parchment-300">Last updated {new Date(bundleJob.updatedAtUtc).toLocaleTimeString()}</p>
