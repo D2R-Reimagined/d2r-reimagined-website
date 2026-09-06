@@ -48,6 +48,13 @@ const classSkillLines = [
   { key: 'ModStre8b', name: 'Assassin' }
 ] as const;
 
+// CharStats StrSkillTab1..3, in save class order. Layers reserve eight slots
+// per class; the localized string numbers are not in class/page order.
+const skillTabStringIds = [
+  [3, 2, 1], [15, 14, 13], [8, 7, 9], [6, 5, 4],
+  [11, 12, 10], [16, 17, 18], [19, 20, 21], [24, 22, 23]
+] as const;
+
 let presentationPromise: Promise<ItemStatPresentationBundle> | undefined;
 
 export function loadItemStatPresentation(): Promise<ItemStatPresentationBundle> {
@@ -151,6 +158,22 @@ function skillLine(
   return {
     keyed: { key: skill.LineKey, args },
     fallback: `+${valueOf(stat, bundle, context)} to ${skill.FallbackName}${skill.ClassOnlyKey ? ' (Class Only)' : ''}`
+  };
+}
+
+function skillTabLine(
+  stat: SaveStat,
+  bundle: ItemStatPresentationBundle,
+  context: ItemStatDisplayContext
+): DisplayStatLine {
+  const stringId = Number.isInteger(stat.layer) && stat.layer >= 0
+    ? skillTabStringIds[Math.floor(stat.layer / 8)]?.[stat.layer % 8]
+    : undefined;
+  return {
+    ...(stringId !== undefined
+      ? { keyed: { key: `StrSklTabItem${stringId}`, args: [valueOf(stat, bundle, context)] } }
+      : {}),
+    fallback: fallback(stat, bundle, context)
   };
 }
 
@@ -297,6 +320,8 @@ export function displayStatLines(
     if (stat.name === 'poison_count') continue;
     const line = stat.name === 'item_addclassskills'
       ? classSkillLine(stat, bundle, context)
+      : stat.name === 'item_addskill_tab'
+      ? skillTabLine(stat, bundle, context)
       : stat.name === 'item_nonclassskill' || stat.name === 'item_singleskill'
       ? skillLine(stat, bundle, context)
       : bundle.Stats[stat.name]?.Function === 16 || bundle.Stats[stat.name]?.Function === 28

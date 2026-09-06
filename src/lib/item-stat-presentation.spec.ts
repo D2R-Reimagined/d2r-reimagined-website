@@ -1,4 +1,8 @@
 import { describe, expect, it } from 'vitest';
+import { get } from 'svelte/store';
+import { i18n, initializeI18n } from './i18n';
+import strings from '../../static/data/strings/enUS.json';
+import exportedBundle from '../../static/data/keyed/item-stat-presentation.json';
 
 import type { SaveStat } from './characters';
 import {
@@ -75,6 +79,32 @@ function stat(id: number, name: string, value: number, layer = 0): SaveStat {
 }
 
 describe('displayStatLines', () => {
+  it('renders Cold of Winter as +2 to Traps using the exported presentation and translations', () => {
+    initializeI18n(strings);
+    const [line] = displayStatLines([stat(188, 'item_addskill_tab', 2, 48)], exportedBundle);
+    expect(get(i18n).line(line.keyed)).toBe('+2 to Traps');
+  });
+
+  it.each([
+    [0, 3], [1, 2], [2, 1],
+    [8, 15], [9, 14], [10, 13],
+    [16, 8], [17, 7], [18, 9],
+    [24, 6], [25, 5], [26, 4],
+    [32, 11], [33, 12], [34, 10],
+    [40, 16], [41, 17], [42, 18],
+    [48, 19], [49, 20], [50, 21],
+    [56, 24], [57, 22], [58, 23]
+  ])('resolves skill-tree layer %i to localized string %i', (layer, stringId) => {
+    const [line] = displayStatLines([stat(188, 'item_addskill_tab', 2, layer)], exportedBundle);
+    expect(line.keyed).toEqual({ key: `StrSklTabItem${stringId}`, args: [2] });
+  });
+
+  it.each([3, 7, 51, 59, 64, -1, 1.5])('keeps unknown skill-tree layer %s explicit', (layer) => {
+    const [line] = displayStatLines([stat(188, 'item_addskill_tab', 2, layer)], exportedBundle);
+    expect(line.keyed).toBeUndefined();
+    expect(line.fallback).toContain(`Layer ${layer}`);
+  });
+
   it('formats and combines the decoded arrow properties using keyed game strings', () => {
     const lines = displayStatLines([
       stat(45, 'poisonresist', 9),
