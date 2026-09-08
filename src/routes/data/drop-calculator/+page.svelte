@@ -114,7 +114,6 @@
 
 <section class="border-b border-parchment-300/15 bg-black/25">
   <div class="data-page-hero mx-auto max-w-7xl px-5 py-10 text-center sm:py-12">
-    <p class="mb-3 text-xs uppercase tracking-[0.22em] text-parchment-300">Plan your next hunt</p>
     <h1 class="display-text text-4xl sm:text-6xl">Drop Calculator</h1>
     <p class="data-page-description mx-auto mt-4 max-w-3xl text-lg text-parchment-300">Choose an item. Find the monsters most likely to drop it.</p>
   </div>
