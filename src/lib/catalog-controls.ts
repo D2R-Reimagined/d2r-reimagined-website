@@ -1,4 +1,4 @@
-import type { CatalogItem, DamageType, KeyedLine } from './types';
+import type { CatalogItem, CatalogSlug, DamageType, KeyedLine } from './types';
 
 export interface SearchToken {
   term: string;
@@ -111,6 +111,19 @@ function typeChain(code: string, seen = new Set<string>()): Set<string> {
   seen.add(code);
   for (const parent of typeParents[code] ?? []) typeChain(parent, seen);
   return seen;
+}
+
+// Equipment records only name their specific type. Include the broad families
+// supported by the matcher so visitors can compare damage across weapon types.
+export function catalogTypeValues(itemTypes: string[], slug: CatalogSlug): string[] {
+  const values = new Set(itemTypes.filter(Boolean));
+  if (slug === 'bases' || slug === 'uniques' || slug === 'sets') {
+    const families = new Set(itemTypes.flatMap((type) => [...typeChain(type)]));
+    for (const type of ['weapitype', 'meleitype', 'missitype', 'throitype', 'armoitype']) {
+      if (families.has(type)) values.add(type);
+    }
+  }
+  return [...values];
 }
 
 export function matchesItemType(itemTypes: string[], selectedType: string, exact: boolean, applicability = false): boolean {

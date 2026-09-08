@@ -9,6 +9,7 @@
     affixPropertyOptions,
     baseHasSockets,
     baseTier,
+    catalogTypeValues,
     matchesSearch,
     matchesItemType,
     passesHandFilter,
@@ -29,7 +30,7 @@
   let { data } = $props();
   const initialFilters = untrack(() => normalizeFilters(
     readCatalogFilters(page.url.searchParams, page.params.catalog as CatalogSlug),
-    options(data.items.flatMap(typesFor)),
+    options(catalogTypeValues(data.items.flatMap(typesFor), data.definition.slug)),
     options(data.items.flatMap((item: CatalogItem) => item.Runes ?? []).map((rune: { NameKey?: string }) => rune.NameKey ?? ''))
   ));
   let search = $state(initialFilters.search);
@@ -94,7 +95,7 @@
     return source ? $i18n.line(source) : $i18n.t(key);
   }
 
-  let typeOptions = $derived(options(data.items.flatMap(typesFor)));
+  let typeOptions = $derived(options(catalogTypeValues(data.items.flatMap(typesFor), data.definition.slug)));
   let classOptions = $derived(options(data.items.flatMap(classesFor)));
   let equipmentOptions = $derived(options(data.items.flatMap(equipmentFor)));
   let propertyOptions = $derived(affixPropertyOptions

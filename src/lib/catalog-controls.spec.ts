@@ -4,6 +4,7 @@ import {
   affixMatchesProperty,
   baseHasSockets,
   baseTier,
+  catalogTypeValues,
   matchesSearch,
   matchesItemType,
   passesHandFilter,
@@ -37,6 +38,41 @@ describe('base filters', () => {
 });
 
 describe('item type filtering', () => {
+  it.each(['bases', 'uniques', 'sets'] as const)('offers broad equipment families in %s', (slug) => {
+    const values = catalogTypeValues(['sworitype', 'abowitype', 'taxeitype', 'peltitype'], slug);
+    expect(values).toEqual(expect.arrayContaining([
+      'sworitype', 'abowitype', 'taxeitype', 'peltitype',
+      'weapitype', 'meleitype', 'missitype', 'throitype', 'armoitype'
+    ]));
+    expect(new Set(values).size).toBe(values.length);
+  });
+
+  it('only offers families present in equipment and leaves applicability options intact', () => {
+    expect(catalogTypeValues(['peltitype'], 'uniques')).toEqual(['peltitype', 'armoitype']);
+    expect(catalogTypeValues([], 'bases')).toEqual([]);
+    expect(catalogTypeValues(['sworitype'], 'runewords')).toEqual(['sworitype']);
+    expect(catalogTypeValues(['sworitype'], 'affixes')).toEqual(['sworitype']);
+  });
+
+  it('combines broad weapon families with descending damage sorting', () => {
+    const items: CatalogItem[] = [
+      { Index: 'sword', Type: 'sworitype', DamageTypes: [{ Type: 1, AverageDamage: 80 }] },
+      { Index: 'axe', Type: 'axeitype', DamageTypes: [{ Type: 1, AverageDamage: 120 }] },
+      { Index: 'bow', Type: 'bowitype', DamageTypes: [{ Type: 1, AverageDamage: 90 }] },
+      { Index: 'amazon bow', Type: 'abowitype', DamageTypes: [{ Type: 1, AverageDamage: 150 }] },
+      { Index: 'helm', Type: 'helmitype' }
+    ];
+    const ranked = (type: string) => sortByWeaponDamage(
+      items.filter((item) => matchesItemType([item.Type as string], type, false)),
+      'avg-2h-phys-descending'
+    ).map((item) => item.Index);
+    expect(ranked('meleitype')).toEqual(['axe', 'sword']);
+    expect(ranked('missitype')).toEqual(['amazon bow', 'bow']);
+    expect(ranked('weapitype')).toEqual(['amazon bow', 'axe', 'bow', 'sword']);
+    expect(matchesItemType(['taxeitype'], 'throitype', false)).toBe(true);
+    expect(matchesItemType(['ajavitype'], 'throitype', false)).toBe(true);
+  });
+
   it('keeps specific equipment selections from including ancestors or siblings', () => {
     expect(matchesItemType(['peltitype'], 'peltitype', false)).toBe(true);
     expect(matchesItemType(['helmitype'], 'peltitype', false)).toBe(false);
