@@ -36,10 +36,10 @@
 </div>
 
 <style>
-  .guide-prose { color:#d2ccc0; line-height:1.8; overflow-wrap:anywhere; font-family:Arial,Helvetica,sans-serif; font-size:15px; }
+  .guide-prose { color:var(--color-parchment-200); line-height:1.8; overflow-wrap:anywhere;  font-size:15px; }
   .guide-prose :global(p), blockquote { white-space:pre-line; margin:0 0 1rem; }
-  .guide-prose :global(h3), .guide-prose :global(h4), .guide-prose :global(h5), .guide-prose :global(h6) { font-weight:600; color:#f7f1e3; margin:1.3rem 0 .6rem; font-size:1.15em; }
-  strong { color:#f6e6c4; } a { color:#e9ab74; text-decoration:underline; }
+  .guide-prose :global(h3), .guide-prose :global(h4), .guide-prose :global(h5), .guide-prose :global(h6) { font-weight:600; color:var(--color-parchment-50); margin:1.3rem 0 .6rem; font-size:1.15em; }
+  strong { color:var(--color-parchment-50); } a { color:var(--color-parchment-50); text-decoration:underline; }
   .font-color :global(strong), .font-color :global(a) { color:inherit; }
   ul,ol { padding-left:1.5rem; margin-bottom:1rem; } ul { list-style:disc; } ol { list-style:decimal; }
   li { padding-left:.3rem; margin:.3rem 0; }
@@ -49,5 +49,5 @@
   pre code { background:none; } hr { border-color:#ffffff20; margin:1.5rem 0; }
   .table-scroll { max-width:100%; overflow:auto; margin:1rem 0; }
   table { border-collapse:collapse; min-width:100%; } th,td { padding:.65rem .9rem; border:1px solid #ffffff20; text-align:left; min-width:100px; }
-  th { background:#ffffff08; color:#eddbb4; }
+  th { background:#ffffff08; color:var(--color-parchment-50); }
 </style>

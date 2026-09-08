@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Button } from 'flowbite-svelte';
     import {page} from '$app/state';
     import {buildClasses, buildCategories, buildBudgets} from '$lib/builds';
     import BuildCard from '$lib/components/builds/BuildCard.svelte';
@@ -26,13 +27,11 @@
 <div class="builds-page">
     <section class="library-hero">
         <div class="hero-copy">
-            <h1 class="build-title">Build Guides</h1>
-            <div class="hero-actions"><a href="/builds/new" class="primary">＋ Create a build</a><a href="/builds/mine"
-                                                                                                   class="secondary">My
-                builds</a></div>
+            <p class="eyebrow">COMMUNITY</p><h1 class="build-title">Build Guides</h1><p class="build-intro">Discover player-created setups, plan your skills, and share your next build.</p>
+            <div class="hero-actions"><Button href="/builds/new" color="red" size="sm">＋ Create a build</Button><Button href="/builds/mine"
+                                                                                                   color="alternative" size="sm">My
+                builds</Button></div>
         </div>
-        <div class="hero-note"><span class="ornament" aria-hidden="true">✧</span>
-            <p>THEORY. TEST. SHARE.</p></div>
     </section>
     <nav class="class-filter" aria-label="Filter builds by class"><a href={filtered('characterClass','')}
                                                                      class:active={!data.filters.characterClass}>All
@@ -45,32 +44,32 @@
         <div><h2>{data.filters.characterClass || 'Community'} builds</h2></div>
         <span>{data.serviceError ? 'Library unavailable' : `${data.results.total} ${data.results.total === 1 ? 'guide' : 'guides'}`}</span>
     </div>
-    <form class="filters" method="GET" action="/builds"><input type="hidden" name="characterClass"
+    <form class="filters panel" method="GET" action="/builds"><input type="hidden" name="characterClass"
                                                                value={data.filters.characterClass}/>
-        <label class="search">Search<input name="search" value={data.filters.search}
+        <label class="search">Search<input class="field" name="search" value={data.filters.search}
                                            placeholder="Build, skill, creator, or tag…" maxlength="100"/></label>
-        <label>Build focus<select name="category" value={data.filters.category}>
+        <label>Build focus<select class="field" name="category" value={data.filters.category}>
             <option value="">Any focus</option>
             {#each buildCategories as name}
                 <option>{name}</option>
             {/each}
         </select></label>
-        <label>Gear budget<select name="budget" value={data.filters.budget}>
+        <label>Gear budget<select class="field" name="budget" value={data.filters.budget}>
             <option value="">Any budget</option>
             {#each buildBudgets as name}
                 <option>{name}</option>
             {/each}
         </select></label>
-        <label>Sort by<select name="sort" value={data.filters.sort}>
+        <label>Sort by<select class="field" name="sort" value={data.filters.sort}>
             <option value="updated">Recently updated</option>
             <option value="rating">Top rated</option>
             <option value="newest">Newest guides</option>
         </select></label>
-        <button type="submit" class="secondary">Find builds</button>
+        <Button type="submit" color="alternative" size="sm">Find builds</Button>
         <details class="more-filters">
             <summary>More filters</summary>
-            <div><label>Game version / patch<input name="patch" value={data.filters.patch} maxlength="40"
-                                                   placeholder="Any patch"/></label><label>Exact tag<input name="tag"
+            <div><label>Game version / patch<input class="field" name="patch" value={data.filters.patch} maxlength="40"
+                                                   placeholder="Any patch"/></label><label>Exact tag<input class="field" name="tag"
                                                                                                            value={data.filters.tag}
                                                                                                            maxlength="24"
                                                                                                            placeholder="e.g. Hardcore"/></label><a
@@ -81,10 +80,10 @@
         <div class="alert" role="alert">{data.serviceError} <a href={page.url.pathname + page.url.search}>Retry</a>
         </div>
     {:else if !data.results.items.length}
-        <div class="empty"><p class="eyebrow">A NEW CHAPTER STARTS HERE</p>
+        <div class="empty panel"><p class="eyebrow">A NEW CHAPTER STARTS HERE</p>
             <h2>{Object.entries(data.filters).some(([key, value]) => key !== 'sort' && value) ? 'No builds match these filters.' : 'Be the first to share a build.'}</h2>
             <p>Bring your favorite setup to the community with equipment, interactive skill trees, and a guide written
-                your way.</p><a href="/builds/new" class="primary">Open the build workshop ↗</a><a href="/builds"
+                your way.</p><Button href="/builds/new" color="red" size="sm">Open the build workshop ↗</Button><a href="/builds"
                                                                                                    class="clear">Clear
                 filters</a></div>
     {:else}
@@ -94,20 +93,20 @@
             {/each}
         </div>
         <nav class="pager" aria-label="Build results pages">
-            {#if data.results.skip > 0}<a class="secondary"
+            {#if data.results.skip > 0}<Button color="alternative" size="sm"
                                           href={pageLink(Math.max(0,data.results.skip - data.results.count))}>←
-                Previous</a>{/if}<span>{data.results.skip + 1}
+                Previous</Button>{/if}<span>{data.results.skip + 1}
             –{Math.min(data.results.skip + data.results.count, data.results.total)} of {data.results.total}</span>
-            {#if data.results.skip + data.results.count < data.results.total}<a class="secondary"
+            {#if data.results.skip + data.results.count < data.results.total}<Button color="alternative" size="sm"
                                                                                 href={pageLink(data.results.skip + data.results.count)}>Next
-                →</a>{/if}
+                →</Button>{/if}
         </nav>
     {/if}
-    <aside class="creator-invite">
+    <aside class="creator-invite panel">
         <div><p class="eyebrow">GOT A SETUP WORTH SHARING?</p>
             <h2>Turn your experience into someone’s next adventure.</h2>
             <p>Flexible sections. Equipment snapshots. Skill trees. Your guide, your way.</p></div>
-        <a class="secondary" href="/builds/new">Start writing ↗</a></aside>
+        <Button color="alternative" size="sm" href="/builds/new">Start writing ↗</Button></aside>
 </div>
 <style>
     .library-hero {
@@ -123,40 +122,11 @@
         max-width: 830px;
     }
 
-    .build-title span {
-        color: #bda776;
-    }
-
     .hero-actions {
         display: flex;
         gap: .6rem;
         flex-wrap: wrap;
         margin-top: 1.5rem;
-    }
-
-    .hero-note {
-        margin-left: auto;
-        text-align: center;
-        min-width: 200px;
-    }
-
-    .ornament {
-        display: block;
-        font: 110px/1.2 Georgia, serif;
-        color: #b79b6540;
-        text-shadow: 0 0 65px #b3985230;
-    }
-
-    .hero-note p {
-        color: #b19a67;
-        font: 10px Arial, sans-serif;
-        letter-spacing: .2em;
-        margin: 1rem 0;
-    }
-
-    .hero-note > span:last-child {
-        color: #6d6453;
-        font: 11px/1.8 Arial, sans-serif;
     }
 
     .class-filter {
@@ -168,20 +138,20 @@
 
     .class-filter a {
         padding: .7rem .95rem;
-        color: #a19378;
-        font: 11px Arial, sans-serif;
+        color:var(--color-parchment-300);
+        font-size:12px; line-height:1.5;
         border: 1px solid #ffffff13;
         border-radius: 4px;
     }
 
     .class-filter a.active {
-        color: #edcd88;
-        border-color: #af955660;
-        background: #af955613;
+        color:var(--color-parchment-50);
+        border-color: var(--color-ember-400);
+        background: color-mix(in srgb,var(--color-ember-700) 25%,transparent);
     }
 
     .class-filter a:hover {
-        color: #edcd88;
+        color:var(--color-parchment-50);
     }
 
     .library-heading {
@@ -194,18 +164,12 @@
 
     .library-heading h2 {
         font: 1.5rem var(--font-display);
-        color: #e8dcc3;
-    }
-
-    .library-heading p {
-        font: 12px Arial, sans-serif;
-        color: #8d826e;
-        margin-top: .5rem;
+        color:var(--color-parchment-50);
     }
 
     .library-heading > span {
-        font: 11px Arial, sans-serif;
-        color: #82765f;
+        font-size:12px; line-height:1.5;
+        color:var(--color-parchment-300);
     }
 
     .filters {
@@ -213,35 +177,29 @@
         grid-template-columns:minmax(150px, 2fr) repeat(3, minmax(100px, 1fr)) auto;
         gap: .8rem;
         align-items: end;
-        border: 1px solid #b49a6420;
         border-radius: 6px;
         padding: 1rem;
-        background: #141311;
         margin-bottom: 1.5rem;
     }
 
     .filters label {
         display: grid;
         gap: .5rem;
-        font: 10px Arial, sans-serif;
-        color: #8d816b;
+        font-size:12px; line-height:1.5;
+        color:var(--color-parchment-300);
     }
 
     .filters input, .filters select {
         width: 100%;
         min-width: 0;
-        background: #0b0b0a;
-        border: 1px solid #b49a6430;
-        border-radius: 3px;
-        color: #d3c5aa;
-        padding: .75rem;
-        font: 12px Arial, sans-serif;
+
+
     }
 
     .more-filters {
         grid-column: 1/-1;
-        font: 11px Arial, sans-serif;
-        color: #9b8b6b;
+        font-size:12px; line-height:1.5;
+        color:var(--color-parchment-300);
     }
 
     .more-filters summary {
@@ -265,8 +223,8 @@
     .clear {
         display: block;
         margin-top: 1rem;
-        color: #a58d5d;
-        font: 12px Arial, sans-serif;
+        color:var(--color-parchment-300);
+        font-size:12px; line-height:1.5;
     }
 
     .alert a {
@@ -280,40 +238,27 @@
         gap: 2rem;
         margin-top: 4rem;
         padding: 2rem;
-        border: 1px solid #b3986230;
         border-radius: 7px;
-        background: linear-gradient(115deg, #b398620a, transparent);
     }
 
     .creator-invite h2 {
         font: 1.15rem/1.5 var(--font-display);
-        color: #dac8a2;
+        color:var(--color-parchment-200);
         margin: .8rem 0;
     }
 
     .creator-invite p:last-child {
-        font: 12px/1.7 Arial, sans-serif;
-        color: #8e826c;
-    }
-
-    .creator-invite a {
-        flex: none;
+        font-size:12px; line-height:1.7;
+        color:var(--color-parchment-300);
     }
 
     @media (max-width: 1000px) {
-        .hero-note {
-            display: none;
-        }
 
         .filters {
             grid-template-columns:repeat(2, minmax(0, 1fr));
         }
 
         .filters .search {
-            grid-column: 1/-1;
-        }
-
-        .filters > button {
             grid-column: 1/-1;
         }
     }
@@ -325,7 +270,7 @@
 
         .class-filter a {
             padding: .6rem .7rem;
-            font-size: 10px;
+            font-size:12px;
         }
 
         .creator-invite {

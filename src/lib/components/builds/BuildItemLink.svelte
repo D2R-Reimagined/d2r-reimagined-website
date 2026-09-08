@@ -49,9 +49,9 @@
 </span>
 
 <style>
-  .item-name { color:#dec589; text-decoration:underline dotted; text-underline-offset:4px; text-align:left; cursor:pointer; overflow-wrap:anywhere; }
-  .item-name:hover { color:#fff0c2; }
-  .item-popover { display:block; position:fixed; z-index:70; overflow:auto; background:#121110; border:1px solid #97774a; box-shadow:0 12px 50px #000c; border-radius:8px; font-family:Arial,sans-serif; text-align:left; }
+  .item-name { color:var(--color-parchment-200); text-decoration:underline dotted; text-underline-offset:4px; text-align:left; cursor:pointer; overflow-wrap:anywhere; }
+  .item-name:hover { color:var(--color-parchment-50); }
+  .item-popover { display:block; position:fixed; z-index:70; overflow:auto; background:var(--color-abyss-850); border:1px solid var(--color-parchment-300); box-shadow:0 12px 50px #000c; border-radius:8px; text-align:left; }
   .item-popover :global(.scroll-card) { content-visibility:visible; contain:none; }
   .close { position:sticky; top:0; float:right; z-index:1; background:#222; border-radius:3px; padding:2px 12px; font-size:24px; }
   .fallback { display:block; padding:2rem; }
