@@ -11,6 +11,10 @@ export interface UserProfile {
   battleTag: string | null;
   battleNetId: string | null;
   steamId: string | null;
+  discordId?: string | null;
+  discordUsername?: string | null;
+  discordSupporterTier?: string | null;
+  discordRolesSyncedAtUtc?: string | null;
   roles: string[];
   createdAtUtc: string;
 }
@@ -347,6 +351,23 @@ export async function beginBattleNetLink(returnUrl: string): Promise<void> {
 
 export async function unlinkBattleNet(): Promise<UserProfile> {
   await apiRequest('/auth/battlenet/link', { method: 'DELETE' }, true);
+  return await refreshProfile();
+}
+
+export async function beginDiscordLink(returnUrl: string): Promise<void> {
+  const result = await apiRequest<AccountLinkTicketResponse>('/auth/discord/link-ticket', {
+    method: 'POST', body: JSON.stringify({ returnUrl })
+  }, true);
+  window.location.assign(result.url);
+}
+
+export async function unlinkDiscord(): Promise<UserProfile> {
+  await apiRequest('/auth/discord/link', { method: 'DELETE' }, true);
+  return await refreshProfile();
+}
+
+export async function refreshDiscordRoles(): Promise<UserProfile> {
+  await apiRequest('/auth/discord/roles/refresh', { method: 'POST' }, true);
   return await refreshProfile();
 }
 

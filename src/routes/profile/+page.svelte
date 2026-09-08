@@ -8,6 +8,9 @@
   import {
     authState,
     beginBattleNetLink,
+    beginDiscordLink,
+    unlinkDiscord,
+    refreshDiscordRoles,
     beginSteamLink,
     beginSteamSignIn,
     completeSteamSignIn,
@@ -38,6 +41,8 @@
     const url = new URL(window.location.href);
     url.searchParams.delete('steam');
     url.searchParams.delete('battlenet');
+    url.searchParams.delete('discord');
+    for (const key of ['code', 'state', 'error', 'error_description']) url.searchParams.delete(key);
     return url.href;
   }
 
@@ -144,6 +149,28 @@
     }
   }
 
+  async function linkDiscord(): Promise<void> {
+    if (busy) return;
+    busy = true; error = ''; notice = '';
+    try { await beginDiscordLink(profileUrl()); }
+    catch (value) { error = message(value); busy = false; }
+  }
+
+  async function updateDiscord(unlink = false): Promise<void> {
+    if (busy) return;
+    busy = true; error = ''; notice = '';
+    try {
+      if (unlink) await unlinkDiscord(); else await refreshDiscordRoles();
+      notice = unlink ? 'Your Discord account has been unlinked.' : 'Your Discord roles and supporter tier have been refreshed.';
+    } catch (value) { error = message(value); }
+    finally { busy = false; }
+  }
+
+  function tierName(tier: string | null | undefined): string {
+    return ({ supporter: 'Supporter', 'pro-supporter': 'Pro Supporter',
+      'elite-supporter': 'Elite Supporter', 'ultimate-supporter': 'Ultimate Supporter' } as Record<string, string>)[tier ?? ''] ?? 'No supporter role';
+  }
+
   function startEditingProfile(): void {
     if (!$authState.user) return;
     editEmail = $authState.user.email;
@@ -183,6 +210,7 @@
   onMount(async () => {
     const steamStatus = page.url.searchParams.get('steam');
     const battleNetStatus = page.url.searchParams.get('battlenet');
+    const discordStatus = page.url.searchParams.get('discord');
     const returnTo = launcherReturnTo();
     try {
       if (steamStatus === 'signed-in') {
@@ -197,6 +225,13 @@
         } else if (battleNetStatus === 'linked') {
           await refreshProfile();
           notice = 'Your Battle.net account is linked.';
+        } else if (discordStatus === 'linked') {
+          await refreshProfile();
+          notice = 'Your Discord account is linked and supporter roles have been checked.';
+        } else if (discordStatus === 'denied') {
+          notice = 'Discord linking was cancelled.';
+        } else if (discordStatus === 'failed') {
+          error = 'Discord could not be linked. It may already be linked to another account, or Discord may be unavailable. Please try again.';
         } else if (battleNetStatus === 'denied') {
           notice = 'Battle.net linking was cancelled.';
         }
@@ -210,7 +245,7 @@
       error = message(value);
     } finally {
       busy = false;
-      if ((steamStatus || battleNetStatus) && !returnTo) {
+      if ((steamStatus || battleNetStatus || discordStatus) && !returnTo) {
         await goto('/profile', { replaceState: true, noScroll: true });
       }
     }
@@ -219,7 +254,7 @@
 
 <svelte:head>
   <title>Profile | D2R Reimagined</title>
-  <meta name="description" content="Manage your D2R Reimagined account and linked Steam and Battle.net identities." />
+  <meta name="description" content="Manage your D2R Reimagined account and linked Steam, Battle.net, and Discord identities." />
   <meta name="robots" content="noindex" />
 </svelte:head>
 
@@ -362,6 +397,23 @@
               <span aria-hidden="true" class="text-xl">◈</span>
               {busy ? 'Opening Battle.net…' : 'Link Battle.net account'}
             </button>
+          {/if}
+        </div>
+        <div class="mt-8 border-t border-parchment-300/15 pt-7">
+          <h2 class="display-text text-2xl text-parchment-50">Discord</h2>
+          <p class="mt-3 text-sm leading-6 text-parchment-300">Link Discord to unlock your supporter portals. Higher tiers include every lower-tier color.</p>
+          {#if $authState.user.discordId}
+            <p class="mt-4 font-semibold text-parchment-50">{$authState.user.discordUsername || 'Discord linked'}</p>
+            <p class="mt-1 text-sm text-parchment-200">{tierName($authState.user.discordSupporterTier)}</p>
+            {#if !$authState.user.discordSupporterTier}
+              <p class="mt-2 text-sm text-parchment-300">Join the community Discord and check that you have a supporter role, then refresh below.</p>
+            {/if}
+            <div class="mt-4 flex flex-wrap gap-3">
+              <button type="button" disabled={busy} onclick={() => updateDiscord()} class="rounded border border-parchment-300/35 px-4 py-2 text-parchment-50 transition hover:bg-white/10 disabled:opacity-60">Refresh Discord roles</button>
+              <button type="button" disabled={busy} onclick={() => updateDiscord(true)} class="rounded border border-red-500/35 px-4 py-2 text-red-200 transition hover:bg-red-950/40 disabled:opacity-60">Unlink Discord</button>
+            </div>
+          {:else}
+            <button type="button" disabled={busy} onclick={linkDiscord} class="mt-6 w-full rounded bg-[#5865f2] px-5 py-3 font-semibold text-white transition hover:bg-[#4752c4] disabled:opacity-60">{busy ? 'Please wait…' : 'Link Discord account'}</button>
           {/if}
         </div>
       </aside>

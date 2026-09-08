@@ -50,7 +50,7 @@
               <figure><img src={safeMediaUrl(block.url)!} alt={block.caption || block.title} loading="lazy" referrerpolicy="no-referrer" />
                 {#if block.caption}<figcaption>{block.caption}</figcaption>{/if}</figure>
             {:else if block.kind === 'video' && youtubeEmbedUrl(block.url)}
-              <iframe src={youtubeEmbedUrl(block.url)!} title={block.title} loading="lazy" referrerpolicy="no-referrer" allowfullscreen
+              <iframe src={youtubeEmbedUrl(block.url)!} title={block.title} loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
                 sandbox="allow-scripts allow-same-origin allow-presentation" allow="encrypted-media; picture-in-picture; fullscreen"></iframe>
               {#if block.caption}<p class="muted">{block.caption}</p>{/if}
             {/if}
