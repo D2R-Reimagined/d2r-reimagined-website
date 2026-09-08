@@ -35,6 +35,7 @@
   let skillError = $state('');
   let equipment = $state<Record<string, CharacterDetailsResponse>>({});
   let textareas: Record<string, HTMLTextAreaElement> = {};
+  let fontColor = $state('#e9ab74');
   let dirty = $derived(ready && JSON.stringify(content) !== baseline);
   let variant = $derived(content.document.variants.find(v => v.id === activeVariantId) ?? content.document.variants[0]);
   let skillClass = $derived(classes.find(c => c.Class === content.characterClass));
@@ -248,6 +249,8 @@
               {/if}
               <div class="format-toolbar" aria-label={`Formatting for ${block.title}`}>
                 <button type="button" title="Bold" onclick={() => insert(block, '**', '**')}>Bold</button><button type="button" title="Italic" onclick={() => insert(block, '*', '*')}>Italic</button>
+                <label class="color-picker">Font color<input type="color" bind:value={fontColor} /></label>
+                <button type="button" onclick={() => insert(block, `[color=${fontColor}]`, '[/color]')}>Apply color</button>
                 <button type="button" onclick={() => insert(block, '\n## ', '\n', 'Heading')}>Heading</button><button type="button" onclick={() => insert(block, '\n- ', '\n', 'List item')}>List</button>
                 <button type="button" onclick={() => insert(block, '\n1. ', '\n', 'Step')}>Steps</button><button type="button" onclick={() => insert(block, '[', '](https://example.com)', 'Link')}>Link</button>
                 <button type="button" onclick={() => insert(block, '\n| Stat | Target |\n| --- | --- |\n| ', ' |  |\n', 'Breakpoint')}>Table</button>
@@ -255,7 +258,7 @@
               </div>
               {#if pickerFor === block.id}<BuildItemPicker onchoose={reference => chooseItem(block, reference)} />{/if}
               <label>{['text','callout'].includes(block.kind) ? 'Section content' : 'Notes (optional)'}<textarea bind:this={textareas[block.id]} rows={['text','callout'].includes(block.kind) ? 7 : 3} maxlength="20000" bind:value={block.body} placeholder="Write your guide. Use the toolbar or Markdown to format it."></textarea></label>
-              <p class="hint">Markdown: **bold**, *italic*, headings, lists, tables, quotes, code, links, and inline item tooltips. HTML is displayed as text.</p>
+              <p class="hint">Markdown: **bold**, *italic*, headings, lists, tables, quotes, code, links, and inline item tooltips. Select text within a line and apply a font color. Remove the [color=…] and [/color] markers to reset it. HTML is displayed as text.</p>
             </div>
           {/each}
           <div class="add-section"><p>ADD A SECTION</p><div>{#each blockKinds as kind}<button type="button" disabled={variant.blocks.length >= 40} onclick={() => variant.blocks.push(newBlock(kind))}>＋ {blockLabels[kind]}</button>{/each}</div><small>{variant.blocks.length}/40 sections in this variant</small></div>
@@ -293,6 +296,7 @@
   .variant-tabs .active { background:#b49a641d; color:#e7c784; border-color:#b49a6480; }.variant-info { display:grid; grid-template-columns:1fr 2fr; gap:1rem; }.variant-tools { display:flex; gap:1rem; margin:1rem 0 1.5rem; font:11px Arial,sans-serif; color:#b4a485; }
   .block-editor { border:1px solid #ffffff17; border-radius:6px; padding:1.2rem; background:#0f0e0d; margin-bottom:1rem; min-width:0; }.block-editor > label { margin:.8rem 0; }.block-toolbar { display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }.block-type { text-transform:uppercase; letter-spacing:.1em; font:10px Arial,sans-serif; color:#b79b64; }.block-toolbar > div { display:flex; gap:.7rem; font:11px Arial,sans-serif; color:#ad9d80; }.remove { color:#cd8d7d; }
   .format-toolbar { display:flex; flex-wrap:wrap; gap:.3rem; margin-top:1rem; }.format-toolbar button { border:1px solid #ffffff15; border-radius:3px; padding:.45rem .6rem; font:11px Arial,sans-serif; color:#c6bba5; }.format-toolbar button:hover { background:#ffffff08; }
+  .color-picker { flex-direction:row; align-items:center; gap:.4rem; padding:0 .4rem; font-size:11px; }.color-picker input { width:2rem; height:1.8rem; padding:.15rem; cursor:pointer; }
   .hint { font:11px/1.7 Arial,sans-serif; color:#958a77; margin:.6rem 0; }.chosen-items { display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0; }.chosen-items > span { border:1px solid #ffffff15; padding:.5rem .8rem; border-radius:4px; font:13px Arial,sans-serif; }.chosen-items button { margin-left:.7rem; color:#bb8a78; }
   .add-section { padding:1.2rem; border:1px dashed #b49a6445; border-radius:5px; margin-top:1.5rem; }.add-section p { font:10px Arial,sans-serif; letter-spacing:.15em; color:#a99775; margin-bottom:1rem; }.add-section > div { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:.7rem; }.add-section button { border:1px solid #ffffff15; border-radius:4px; padding:.7rem; font:12px Arial,sans-serif; color:#c7b38c; }.add-section button:hover { border-color:#b49a6490; }
   .preview-heading { padding:2rem 0; }.preview-heading h2 { font-family:var(--font-display); font-size:2rem; margin:.8rem 0; overflow-wrap:anywhere; }.preview-heading p { color:#b9aa8f; font:15px/1.8 Arial,sans-serif; }

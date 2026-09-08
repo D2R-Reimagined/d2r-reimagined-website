@@ -1,6 +1,6 @@
 // A deliberately HTML-free Markdown subset. All text is rendered by Svelte,
 // never {@html}; item references remain real interactive components.
-export type InlineToken = { kind: 'text' | 'bold' | 'italic' | 'code' | 'strike' | 'link' | 'item'; text: string; href?: string; catalog?: string; key?: string };
+export type InlineToken = { kind: 'text' | 'bold' | 'italic' | 'code' | 'strike' | 'link' | 'item' | 'color'; text: string; href?: string; catalog?: string; key?: string; color?: string };
 export type MarkdownBlock = { kind: 'paragraph' | 'heading' | 'quote' | 'code' | 'list' | 'table' | 'rule'; text?: string; level?: number; ordered?: boolean; lines?: string[]; rows?: string[][] };
 
 export function safeLink(value: string): string | null {
@@ -11,7 +11,7 @@ export function safeLink(value: string): string | null {
 }
 export function inlineTokens(text: string): InlineToken[] {
   const tokens: InlineToken[] = [];
-  const expression = /\[\[item:(uniques|sets|runewords|bases):([^\]\n]{1,160})\]\]|\*\*([^*\n]+)\*\*|\*([^*\n]+)\*|`([^`\n]+)`|~~([^~\n]+)~~|\[([^\]\n]+)\]\(([^\s)]+)\)/g;
+  const expression = /\[\[item:(uniques|sets|runewords|bases):([^\]\n]{1,160})\]\]|\*\*([^*\n]+)\*\*|\*([^*\n]+)\*|`([^`\n]+)`|~~([^~\n]+)~~|\[([^\]\n]+)\]\(([^\s)]+)\)|\[color=(#[0-9a-fA-F]{6})\]([^\n]*?)\[\/color\]/g;
   let last = 0;
   for (const match of text.matchAll(expression)) {
     if (match.index! > last) tokens.push({ kind: 'text', text: text.slice(last, match.index) });
@@ -20,6 +20,7 @@ export function inlineTokens(text: string): InlineToken[] {
     else if (match[4]) tokens.push({ kind: 'italic', text: match[4] });
     else if (match[5]) tokens.push({ kind: 'code', text: match[5] });
     else if (match[6]) tokens.push({ kind: 'strike', text: match[6] });
+    else if (match[9]) tokens.push({ kind: 'color', text: match[10], color: match[9] });
     else {
       const href = safeLink(match[8]);
       tokens.push(href ? { kind: 'link', text: match[7], href } : { kind: 'text', text: match[0] });

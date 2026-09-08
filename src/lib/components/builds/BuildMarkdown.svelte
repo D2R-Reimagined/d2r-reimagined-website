@@ -7,9 +7,10 @@
 
 {#snippet inline(value: string)}
   {#each inlineTokens(value) as token}
-    {#if token.kind === 'bold'}<strong>{token.text}</strong>
-    {:else if token.kind === 'italic'}<em>{token.text}</em>
-    {:else if token.kind === 'strike'}<s>{token.text}</s>
+    {#if token.kind === 'bold'}<strong>{@render inline(token.text)}</strong>
+    {:else if token.kind === 'italic'}<em>{@render inline(token.text)}</em>
+    {:else if token.kind === 'strike'}<s>{@render inline(token.text)}</s>
+    {:else if token.kind === 'color'}<span class="font-color" style:color={token.color}>{@render inline(token.text)}</span>
     {:else if token.kind === 'code'}<code>{token.text}</code>
     {:else if token.kind === 'link'}<a href={token.href} rel="ugc noreferrer">{token.text}</a>
     {:else if token.kind === 'item'}<BuildItemLink reference={{ catalog: token.catalog as BuildItemReference['catalog'], key: token.key! }} />
@@ -39,6 +40,7 @@
   .guide-prose :global(p), blockquote { white-space:pre-line; margin:0 0 1rem; }
   .guide-prose :global(h3), .guide-prose :global(h4), .guide-prose :global(h5), .guide-prose :global(h6) { font-weight:600; color:#f7f1e3; margin:1.3rem 0 .6rem; font-size:1.15em; }
   strong { color:#f6e6c4; } a { color:#e9ab74; text-decoration:underline; }
+  .font-color :global(strong), .font-color :global(a) { color:inherit; }
   ul,ol { padding-left:1.5rem; margin-bottom:1rem; } ul { list-style:disc; } ol { list-style:decimal; }
   li { padding-left:.3rem; margin:.3rem 0; }
   blockquote { border-left:3px solid #b29354; padding:.5rem 1rem; background:#cda9590a; }

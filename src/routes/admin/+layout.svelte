@@ -8,6 +8,7 @@
   let { children } = $props();
 
   const links = [
+    { href: '/admin/portals', label: 'Portal rewards', detail: 'Individual grants and supporter packs' },
     {
       href: '/admin/ladders',
       label: 'Ladders',

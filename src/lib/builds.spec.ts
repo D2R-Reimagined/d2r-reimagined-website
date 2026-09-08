@@ -31,6 +31,23 @@ describe('Build documents', () => {
   });
 });
 describe('Safe guide rendering', () => {
+  it('preserves text around colored formatting and item references', () => {
+    const tokens = inlineTokens('Before [color=#aB12EF]**Damage** [[item:uniques:The Oculus]][/color] after');
+    expect(tokens).toEqual([
+      { kind: 'text', text: 'Before ' },
+      { kind: 'color', color: '#aB12EF', text: '**Damage** [[item:uniques:The Oculus]]' },
+      { kind: 'text', text: ' after' }
+    ]);
+    expect(inlineTokens(tokens[1].text).map(t => t.kind)).toEqual(['bold', 'text', 'item']);
+  });
+  it.each(['red', '#fff', '#123456;display:none', 'url(https://example.com)', '#123456" onclick="alert(1)'])('does not interpret unsafe or unsupported color %s', color => {
+    const text = `[color=${color}]Text[/color]`;
+    expect(inlineTokens(text)).toEqual([{ kind: 'text', text }]);
+  });
+  it('keeps color markup literal in inline code and leaves unclosed markers alone', () => {
+    expect(inlineTokens('`[color=#123456]Text[/color]`')).toEqual([{ kind: 'code', text: '[color=#123456]Text[/color]' }]);
+    expect(inlineTokens('[color=#123456]Text')).toEqual([{ kind: 'text', text: '[color=#123456]Text' }]);
+  });
   it.each(['javascript:alert(1)','data:text/html,test','//evil.test','https://user:password@example.com','/\\evil.test'])('rejects unsafe links %s', url => expect(safeLink(url)).toBeNull());
   it.each(['/data/uniques','#section-1','https://example.com'])('accepts safe links %s', url => expect(safeLink(url)).toBeTruthy());
   it('does not interpret author HTML', () => {
