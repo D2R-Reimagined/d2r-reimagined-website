@@ -203,3 +203,4 @@ export const catalogDefinitions: Record<CatalogSlug, CatalogDefinition> = {
 };
 
 export const dropCalculatorDefinition = { slug: "drop-calculator", title: "Drop Calculator", description: "Find where to farm unique items, set pieces, and runes with monster drop probabilities." } as const;
+export const iasCalculatorDefinition = { slug: 'ias-calculator', title: 'IAS Calculator', description: 'Find attack-speed breakpoints using Reimagined weapons, skills, and animations.' } as const;

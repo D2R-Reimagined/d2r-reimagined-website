@@ -20,6 +20,7 @@
   let languageOpen = $state(false);
   let fontOpen = $state(false);
   let dataOpen = $state(false);
+  let communityOpen = $state(false);
   let tradeHref = $state('/trade');
   let tradeRealmRestored = $state(false);
 
@@ -33,6 +34,7 @@
   });
 
   const dataLinks = [
+    { href: '/data/ias-calculator', label: 'IAS Calculator', detail: 'Attack speed and equipment breakpoints' },
     { href: '/data/drop-calculator', label: 'Drop Calculator', detail: 'Find the best monsters to farm' },
     { href: '/data/skills', label: 'Skills', detail: 'Class trees and build planner' },
     { href: '/data/uniques', label: 'Uniques', detail: 'Distinctive named items' },
@@ -60,6 +62,7 @@
   }
 
   function closeMenus(): void {
+    communityOpen = false;
     mobileOpen = false;
     dataOpen = false;
     languageOpen = false;
@@ -67,13 +70,14 @@
   }
 
   function closeDropdowns(): void {
+    communityOpen = false;
     dataOpen = false;
     languageOpen = false;
     fontOpen = false;
   }
 
   function handleWindowClick(event: MouseEvent): void {
-    if (!dataOpen && !languageOpen && !fontOpen) return;
+    if (!communityOpen && !dataOpen && !languageOpen && !fontOpen) return;
     const target = event.target as Element | null;
     if (target?.closest('[data-nav-dropdown]')) return;
     closeDropdowns();
@@ -84,18 +88,34 @@
   }
 
   function toggleDataMenu(): void {
+    communityOpen = false;
     dataOpen = !dataOpen;
     languageOpen = false;
     fontOpen = false;
   }
 
+  function openHoverMenu(event: PointerEvent, menu: 'community' | 'data'): void {
+    if (event.pointerType !== 'mouse') return;
+    closeDropdowns();
+    if (menu === 'community') communityOpen = true;
+    else dataOpen = true;
+  }
+
+  function closeHoverMenu(event: PointerEvent, menu: 'community' | 'data'): void {
+    if (event.pointerType !== 'mouse') return;
+    if (menu === 'community') communityOpen = false;
+    else dataOpen = false;
+  }
+
   function toggleLanguageMenu(): void {
+    communityOpen = false;
     languageOpen = !languageOpen;
     dataOpen = false;
     fontOpen = false;
   }
 
   function toggleFontMenu(): void {
+    communityOpen = false;
     fontOpen = !fontOpen;
     dataOpen = false;
     languageOpen = false;
@@ -173,7 +193,6 @@
       <div class="flex flex-col gap-1 lg:flex-row lg:items-center">
         <a href="/" onclick={closeMenus} class={navClass('/')}>Home</a>
         <a href="/download" onclick={closeMenus} class={navClass('/download')}>Download</a>
-        <a href="/characters" onclick={closeMenus} class={navClass('/characters')}>Characters</a>
         {#if tradeEnabled}
           <a href={tradeHref} onclick={closeMenus} class={`${navClass('/trade')} border border-ember-400/35 bg-ember-950/20`}>Trade</a>
         {/if}
@@ -182,18 +201,34 @@
           <a href="/admin/ladders" onclick={closeMenus} class={navClass('/admin')}>Admin</a>
         {/if}
 
-        <div class="relative" data-nav-dropdown>
+        <div class="relative" role="group" data-nav-dropdown onpointerenter={(event) => openHoverMenu(event, 'community')} onpointerleave={(event) => closeHoverMenu(event, 'community')}>
+          <button type="button" onclick={() => { const open = !communityOpen; closeDropdowns(); communityOpen = open; }} class={`flex w-full items-center justify-between gap-2 ${navClass(isActive('/builds') ? '/builds' : '/characters')}`} aria-expanded={communityOpen} aria-controls="community-links">
+            Community <span aria-hidden="true" class="text-xs">▾</span>
+          </button>
+          {#if communityOpen}
+            <div id="community-links" class="min-w-72 pt-1 lg:absolute lg:left-0 lg:top-full">
+              <div class="grid gap-1 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl">
+                <a href="/builds" onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5"><span class="block text-parchment-50">Builds</span><span class="block text-xs text-parchment-300">Guides from the community</span></a>
+                <a href="/characters" onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5"><span class="block text-parchment-50">Characters</span><span class="block text-xs text-parchment-300">Explore player equipment and skills</span></a>
+              </div>
+            </div>
+          {/if}
+        </div>
+
+        <div class="relative" role="group" data-nav-dropdown onpointerenter={(event) => openHoverMenu(event, 'data')} onpointerleave={(event) => closeHoverMenu(event, 'data')}>
           <button type="button" onclick={toggleDataMenu} class={`flex w-full items-center justify-between gap-2 ${navClass('/data')}`} aria-expanded={dataOpen}>
             Data <span aria-hidden="true" class="text-xs">▾</span>
           </button>
           {#if dataOpen}
-            <div class="mt-1 grid min-w-72 gap-1 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl lg:absolute lg:left-0 lg:top-full">
-              {#each dataLinks as link}
-                <a href={link.href} onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5">
-                  <span class="block text-parchment-50">{link.label}</span>
-                  <span class="block text-xs text-parchment-300">{link.detail}</span>
-                </a>
-              {/each}
+            <div class="min-w-72 pt-1 lg:absolute lg:left-0 lg:top-full">
+              <div class="grid gap-1 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl">
+                {#each dataLinks as link}
+                  <a href={link.href} onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5">
+                    <span class="block text-parchment-50">{link.label}</span>
+                    <span class="block text-xs text-parchment-300">{link.detail}</span>
+                  </a>
+                {/each}
+              </div>
             </div>
           {/if}
         </div>

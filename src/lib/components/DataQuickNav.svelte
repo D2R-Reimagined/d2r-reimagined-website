@@ -1,11 +1,11 @@
 <script lang="ts">
   import { page } from '$app/state';
 
-  import { dropCalculatorDefinition, catalogDefinitions, skillPlannerDefinition } from '$lib/types';
+  import { iasCalculatorDefinition, dropCalculatorDefinition, catalogDefinitions, skillPlannerDefinition } from '$lib/types';
 
   const links = [
     { href: '/data', label: 'All Data' },
-    ...[dropCalculatorDefinition, skillPlannerDefinition, ...Object.values(catalogDefinitions)].map((definition) => ({
+    ...[iasCalculatorDefinition, dropCalculatorDefinition, skillPlannerDefinition, ...Object.values(catalogDefinitions)].map((definition) => ({
       href: `/data/${definition.slug}`,
       label: definition.title
     }))
