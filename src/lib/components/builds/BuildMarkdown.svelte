@@ -2,6 +2,7 @@
   import { inlineTokens, markdownBlocks } from '$lib/build-markdown';
   import type { BuildItemReference } from '$lib/builds';
   import BuildItemLink from './BuildItemLink.svelte';
+  import BuildSkillLink from './BuildSkillLink.svelte';
   let { text }: { text: string } = $props();
 </script>
 
@@ -14,6 +15,7 @@
     {:else if token.kind === 'code'}<code>{token.text}</code>
     {:else if token.kind === 'link'}<a href={token.href} rel="ugc noreferrer">{token.text}</a>
     {:else if token.kind === 'item'}<BuildItemLink reference={{ catalog: token.catalog as BuildItemReference['catalog'], key: token.key! }} />
+    {:else if token.kind === 'skill'}<BuildSkillLink skillId={token.skillId!} rank={token.rank} />
     {:else}{token.text}{/if}
   {/each}
 {/snippet}

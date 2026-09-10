@@ -1,6 +1,6 @@
 // A deliberately HTML-free Markdown subset. All text is rendered by Svelte,
 // never {@html}; item references remain real interactive components.
-export type InlineToken = { kind: 'text' | 'bold' | 'italic' | 'code' | 'strike' | 'link' | 'item' | 'color'; text: string; href?: string; catalog?: string; key?: string; color?: string };
+export type InlineToken = { kind: 'text' | 'bold' | 'italic' | 'code' | 'strike' | 'link' | 'item' | 'skill' | 'color'; text: string; href?: string; catalog?: string; key?: string; color?: string; skillId?: number; rank?: number };
 export type MarkdownBlock = { kind: 'paragraph' | 'heading' | 'quote' | 'code' | 'list' | 'table' | 'rule'; text?: string; level?: number; ordered?: boolean; lines?: string[]; rows?: string[][] };
 
 export function safeLink(value: string): string | null {
@@ -11,11 +11,12 @@ export function safeLink(value: string): string | null {
 }
 export function inlineTokens(text: string): InlineToken[] {
   const tokens: InlineToken[] = [];
-  const expression = /\[\[item:(uniques|sets|runewords|bases|cube-recipes):([^\]\n]{1,160})\]\]|\*\*([^*\n]+)\*\*|\*([^*\n]+)\*|`([^`\n]+)`|~~([^~\n]+)~~|\[([^\]\n]+)\]\(([^\s)]+)\)|\[color=(#[0-9a-fA-F]{6})\]([^\n]*?)\[\/color\]/g;
+  const expression = /\[\[item:(uniques|sets|runewords|bases|cube-recipes):([^\]\n]{1,160})\]\]|\*\*([^*\n]+)\*\*|\*([^*\n]+)\*|`([^`\n]+)`|~~([^~\n]+)~~|\[([^\]\n]+)\]\(([^\s)]+)\)|\[color=(#[0-9a-fA-F]{6})\]([^\n]*?)\[\/color\]|\[\[skill:(\d{1,5})(?::([1-9]\d?))?\]\]/g;
   let last = 0;
   for (const match of text.matchAll(expression)) {
     if (match.index! > last) tokens.push({ kind: 'text', text: text.slice(last, match.index) });
     if (match[1]) tokens.push({ kind: 'item', text: match[2], catalog: match[1], key: match[2] });
+    else if (match[11]) tokens.push({ kind: 'skill', text: match[11], skillId: Number(match[11]), rank: Number(match[12] ?? 1) });
     else if (match[3]) tokens.push({ kind: 'bold', text: match[3] });
     else if (match[4]) tokens.push({ kind: 'italic', text: match[4] });
     else if (match[5]) tokens.push({ kind: 'code', text: match[5] });

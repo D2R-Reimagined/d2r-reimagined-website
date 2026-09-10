@@ -12,6 +12,8 @@
   import SkillPlanner from '$lib/components/skills/SkillPlanner.svelte';
   import BuildItemLink from './BuildItemLink.svelte';
   import BuildItemPicker from './BuildItemPicker.svelte';
+  import BuildSkillPicker from './BuildSkillPicker.svelte';
+  import { insertSkillReference } from '$lib/build-skills';
   import BuildRenderer from './BuildRenderer.svelte';
 
   let { id = null }: { id?: string | null } = $props();
@@ -29,6 +31,7 @@
   let activeVariantId = $state('');
   let preview = $state(false);
   let pickerFor = $state('');
+  let skillPickerFor = $state('');
   let confirmation = $state<'publish' | 'unpublish' | 'delete' | null>(null);
   let classes = $state<SkillClass[]>([]);
   let characters = $state<CharacterResponse[]>([]);
@@ -173,6 +176,14 @@
     } else insert(block, `[[item:${reference.catalog}:${reference.key}]]`, '', '');
     pickerFor = '';
   }
+  function chooseSkill(block: BuildBlock, id: number, rank: number) {
+    const element = textareas[block.id];
+    const start = element?.selectionStart ?? block.body.length;
+    const end = element?.selectionEnd ?? start;
+    block.body = insertSkillReference(block.body, start, end, id, rank);
+    skillPickerFor = '';
+    element?.focus();
+  }
 </script>
 
 <svelte:window onbeforeunload={beforeUnload} />
@@ -243,7 +254,7 @@
                 {#if equipment[block.id]}<p class="hint">Captured: {equipment[block.id].character.name}. Use preview to inspect equipment.</p><Button type="button" color="alternative" size="sm" onclick={() => { block.snapshotVersion++; notice = 'Equipment will be refreshed from the character when you save.'; }}>Refresh snapshot on next save</Button>{/if}
               {:else if block.kind === 'items'}
                 <div class="chosen-items">{#each block.items as reference, itemIndex}<span><BuildItemLink {reference} /><button type="button" aria-label={`Remove ${reference.key}`} onclick={() => block.items.splice(itemIndex, 1)}>×</button></span>{/each}</div>
-                <Button color="alternative" size="sm" type="button" onclick={() => pickerFor = pickerFor === block.id ? '' : block.id}>＋ Find an item</Button>
+                <Button color="alternative" size="sm" type="button" onclick={() => { pickerFor = pickerFor === block.id ? '' : block.id; skillPickerFor = ''; }}>＋ Find an item</Button>
               {:else if block.kind === 'image' || block.kind === 'video'}
                 <label>{block.kind === 'image' ? 'HTTPS image URL' : 'YouTube video URL'}<input class="field" type="url" maxlength="2000" bind:value={block.url} placeholder="https://…" /></label>
                 <label>{block.kind === 'image' ? 'Description / alt text' : 'Caption'}<input class="field" maxlength="400" bind:value={block.caption} /></label>
@@ -255,11 +266,13 @@
                 <button type="button" onclick={() => insert(block, '\n## ', '\n', 'Heading')}>Heading</button><button type="button" onclick={() => insert(block, '\n- ', '\n', 'List item')}>List</button>
                 <button type="button" onclick={() => insert(block, '\n1. ', '\n', 'Step')}>Steps</button><button type="button" onclick={() => insert(block, '[', '](https://example.com)', 'Link')}>Link</button>
                 <button type="button" onclick={() => insert(block, '\n| Stat | Target |\n| --- | --- |\n| ', ' |  |\n', 'Breakpoint')}>Table</button>
-                <button type="button" onclick={() => pickerFor = pickerFor === block.id ? '' : block.id}>Item tooltip</button>
+                <button type="button" onclick={() => { pickerFor = pickerFor === block.id ? '' : block.id; skillPickerFor = ''; }}>Item tooltip</button>
+                <button type="button" onclick={() => { skillPickerFor = skillPickerFor === block.id ? '' : block.id; pickerFor = ''; }}>Skill tooltip</button>
               </div>
               {#if pickerFor === block.id}<BuildItemPicker onchoose={reference => chooseItem(block, reference)} />{/if}
+              {#if skillPickerFor === block.id}<BuildSkillPicker characterClass={content.characterClass} onchoose={(id, rank) => chooseSkill(block, id, rank)} />{/if}
               <label>{['text','callout'].includes(block.kind) ? 'Section content' : 'Notes (optional)'}<textarea class="field" bind:this={textareas[block.id]} rows={['text','callout'].includes(block.kind) ? 7 : 3} maxlength="20000" bind:value={block.body} placeholder="Write your guide. Use the toolbar or Markdown to format it."></textarea></label>
-              <p class="hint">Markdown: **bold**, *italic*, headings, lists, tables, quotes, code, links, and inline item tooltips. Select text within a line and apply a font color. Remove the [color=…] and [/color] markers to reset it. HTML is displayed as text.</p>
+              <p class="hint">Markdown: **bold**, *italic*, headings, lists, tables, quotes, code, links, and inline item or skill tooltips. Select a skill name and use Skill tooltip to replace it with a hoverable link. Select text within a line and apply a font color. Remove the [color=…] and [/color] markers to reset it. HTML is displayed as text.</p>
             </div>
           {/each}
           <div class="add-section"><p>ADD A SECTION</p><div>{#each blockKinds as kind}<button type="button" disabled={variant.blocks.length >= 40} onclick={() => variant.blocks.push(newBlock(kind))}>＋ {blockLabels[kind]}</button>{/each}</div><small>{variant.blocks.length}/40 sections in this variant</small></div>

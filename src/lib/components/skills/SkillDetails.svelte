@@ -13,7 +13,8 @@
     available,
     increase,
     decrease,
-    readonly = false
+    readonly = false,
+    headingLabel
   }: {
     skill: Skill | undefined;
     skills: Skill[];
@@ -25,6 +26,7 @@
     increase: (skill: Skill, amount?: number) => void;
     decrease: (skill: Skill, amount?: number) => void;
     readonly?: boolean;
+    headingLabel?: string;
   } = $props();
 
   // The preview follows the points you have allocated, so the panel answers "what do I get
@@ -74,7 +76,7 @@
         {$i18n.t(skill.NameKey).charAt(0).toUpperCase()}
       {/if}
     </div>
-    <p class="display-text mt-4 text-xs uppercase tracking-[0.22em] text-ember-400">{readonly ? 'Character skill' : 'Selected skill'}</p>
+    <p class="display-text mt-4 text-xs uppercase tracking-[0.22em] text-ember-400">{headingLabel ?? (readonly ? 'Character skill' : 'Selected skill')}</p>
     <h2 class="display-text mt-2 text-2xl text-parchment-50">{$i18n.t(skill.NameKey)}</h2>
     {#if skill.DescriptionKey}
       <p class="mt-3 text-sm leading-6 text-parchment-200">{$i18n.t(skill.DescriptionKey)}</p>
