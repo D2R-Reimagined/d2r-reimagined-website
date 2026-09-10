@@ -1,6 +1,7 @@
 <script lang="ts">
   import { loadCatalog } from '$lib/catalog-sources';
-  import { itemTitle } from '$lib/catalog';
+  import { searchText } from '$lib/catalog';
+  import { buildItemTitle, isCraftRecipe } from '$lib/build-items';
   import { i18n } from '$lib/i18n';
   import type { CatalogItem } from '$lib/types';
   import type { BuildItemReference } from '$lib/builds';
@@ -17,13 +18,14 @@
       .finally(() => { if (active) loading = false; });
     return () => { active = false; };
   });
-  let results = $derived(items.filter(item => $i18n.t(itemTitle(item, catalog)).toLowerCase().includes(search.toLowerCase())).slice(0, 30));
+  let results = $derived(items.filter(item => (catalog !== 'cube-recipes' || isCraftRecipe(item))
+    && (catalog === 'cube-recipes' ? searchText(item, $i18n) : buildItemTitle(item, catalog, $i18n).toLowerCase()).includes(search.toLowerCase())).slice(0, 30));
 </script>
 <div class="picker panel">
-  <div class="picker-fields"><label>Catalog<select class="field" bind:value={catalog}><option value="uniques">Unique items</option><option value="sets">Sets</option><option value="runewords">Runewords</option><option value="bases">Item bases</option></select></label>
+  <div class="picker-fields"><label>Catalog<select class="field" bind:value={catalog}><option value="uniques">Unique items</option><option value="sets">Sets</option><option value="runewords">Runewords</option><option value="bases">Item bases</option><option value="cube-recipes">Crafts</option></select></label>
     <label>Find an item<input class="field" bind:value={search} placeholder="Search item names…" /></label></div>
   {#if error}<p role="alert">{error}</p>{:else if loading}<p>Loading catalog…</p>
-  {:else}<div class="results">{#each results as item}<button type="button" onclick={() => onchoose({ catalog, key: String(item.Index ?? item.NameKey ?? '') })}>{$i18n.t(itemTitle(item, catalog))}<span>＋</span></button>{/each}
+  {:else}<div class="results">{#each results as item}<button type="button" onclick={() => onchoose({ catalog, key: String(item.Index ?? item.NameKey ?? '') })}>{buildItemTitle(item, catalog, $i18n)}<span>＋</span></button>{/each}
     {#if !results.length}<p>No items found.</p>{/if}</div>{/if}
 </div>
 <style>

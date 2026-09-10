@@ -6,7 +6,7 @@ export const buildCategories = ['Leveling', 'Endgame', 'Farming', 'Bossing', 'Su
 export const buildBudgets = ['Starter', 'Budget', 'Midrange', 'High-end'];
 export const blockKinds = ['text', 'callout', 'items', 'skills', 'equipment', 'image', 'video'] as const;
 export type BlockKind = typeof blockKinds[number];
-export interface BuildItemReference { catalog: 'uniques' | 'sets' | 'runewords' | 'bases'; key: string }
+export interface BuildItemReference { catalog: 'uniques' | 'sets' | 'runewords' | 'bases' | 'cube-recipes'; key: string }
 export interface BuildBlock {
   id: string; kind: BlockKind; title: string; body: string; tone: 'tip' | 'warning' | 'pros' | 'cons';
   url: string; caption: string; items: BuildItemReference[]; ranks: Record<number, number>;

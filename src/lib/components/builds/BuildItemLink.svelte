@@ -1,6 +1,6 @@
 <script lang="ts">
   import { loadCatalog } from '$lib/catalog-sources';
-  import { itemTitle } from '$lib/catalog';
+  import { buildItemTitle } from '$lib/build-items';
   import { i18n } from '$lib/i18n';
   import type { CatalogItem } from '$lib/types';
   import type { BuildItemReference } from '$lib/builds';
@@ -37,7 +37,7 @@
 <span class="item-reference">
   <button type="button" bind:this={trigger} class="item-name" aria-expanded={open}
     onmouseenter={show} onfocus={show} onclick={() => { if (pinned) { open = false; pinned = false; } else { pinned = true; show(); } }}>
-    {item ? $i18n.t(itemTitle(item, reference.catalog)) : reference.key}
+    {item ? buildItemTitle(item, reference.catalog, $i18n) : reference.key}
   </button>
   {#if open}
     <span class="item-popover" role="dialog" aria-label={`Item details: ${reference.key}`} tabindex="-1"

@@ -11,7 +11,7 @@ export function safeLink(value: string): string | null {
 }
 export function inlineTokens(text: string): InlineToken[] {
   const tokens: InlineToken[] = [];
-  const expression = /\[\[item:(uniques|sets|runewords|bases):([^\]\n]{1,160})\]\]|\*\*([^*\n]+)\*\*|\*([^*\n]+)\*|`([^`\n]+)`|~~([^~\n]+)~~|\[([^\]\n]+)\]\(([^\s)]+)\)|\[color=(#[0-9a-fA-F]{6})\]([^\n]*?)\[\/color\]/g;
+  const expression = /\[\[item:(uniques|sets|runewords|bases|cube-recipes):([^\]\n]{1,160})\]\]|\*\*([^*\n]+)\*\*|\*([^*\n]+)\*|`([^`\n]+)`|~~([^~\n]+)~~|\[([^\]\n]+)\]\(([^\s)]+)\)|\[color=(#[0-9a-fA-F]{6})\]([^\n]*?)\[\/color\]/g;
   let last = 0;
   for (const match of text.matchAll(expression)) {
     if (match.index! > last) tokens.push({ kind: 'text', text: text.slice(last, match.index) });
