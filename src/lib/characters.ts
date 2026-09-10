@@ -133,6 +133,7 @@ export interface CharacterSaveDetails {
 }
 
 export interface CharacterDetailsResponse {
+  isPreDeathSnapshot?: boolean;
   character: CharacterResponse;
   save: CharacterSaveDetails | null;
 }

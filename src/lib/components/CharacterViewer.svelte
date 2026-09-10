@@ -208,6 +208,16 @@
       <p class="mb-4 text-sm text-parchment-300">{details.character.name} · {details.character.class} · Level {details.character.level} · Saved equipment snapshot</p>
     {/if}
 
+    {#if details.character.isHardcore && details.character.isDead}
+      <p class="mb-4 rounded border border-red-500/40 bg-red-950/40 px-4 py-3 text-sm text-red-200">
+        {#if details.isPreDeathSnapshot}
+          Fallen hero · Equipment and inventory shown are from the last living save synced before death. Changes after that sync may not appear.
+        {:else}
+          Fallen hero · No living snapshot was preserved. Showing the available save.
+        {/if}
+      </p>
+    {/if}
+
     <div class="flex flex-wrap items-center gap-3">
       <div class="inline-flex rounded-full border border-parchment-300/35 bg-black/30 p-1">
         <button type="button" class={`rounded-full px-5 py-2 text-sm transition ${tab === 'player' ? 'bg-slate-700 text-white' : 'text-parchment-300 hover:text-white'}`} onclick={() => tab = 'player'}>Player</button>
