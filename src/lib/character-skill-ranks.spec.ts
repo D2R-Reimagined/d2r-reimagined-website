@@ -55,6 +55,13 @@ function item(
   } as unknown as SaveItem;
 }
 
+// CharmInv's panel: stored page 6, which vanilla leaves unused.
+function charmPanelItem(stats: SaveStat[], codeText: string): SaveItem {
+  const panelled = item(stats, 'Stored', codeText, 'None');
+  panelled.position = { ...panelled.position, storePageId: 6, storePage: 'CharmInventory' };
+  return panelled;
+}
+
 function save(items: SaveItem[]): CharacterSaveDetails {
   return {
     character: { weaponSwitch: 0 },
@@ -90,6 +97,17 @@ describe('characterSkillRanks', () => {
 
     expect(result.effective[fire.Id]).toBe(6);
     expect(result.effective[cold.Id]).toBe(27);
+  });
+
+  it('includes charm panel items of any code and still ignores stored gear beside them', () => {
+    const result = characterSkillRanks(save([
+      charmPanelItem([stat('item_allskills', 2)], 'cm2'),
+      charmPanelItem([stat('item_allskills', 1)], 'cm5'),
+      item([stat('item_allskills', 50)], 'Stored', 'amu', 'None')
+    ]), sorceress, classes);
+
+    expect(result.effective[fire.Id]).toBe(7);
+    expect(result.effective[cold.Id]).toBe(28);
   });
 
   it('allows an oskill to grant an otherwise unlearned class skill', () => {

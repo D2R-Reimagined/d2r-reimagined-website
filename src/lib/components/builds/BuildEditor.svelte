@@ -15,6 +15,7 @@
   import BuildSkillPicker from './BuildSkillPicker.svelte';
   import { insertSkillReference } from '$lib/build-skills';
   import BuildRenderer from './BuildRenderer.svelte';
+  import BuildGear from './BuildGear.svelte';
 
   let { id = null }: { id?: string | null } = $props();
   let content = $state<BuildContent>(newBuild());
@@ -248,10 +249,15 @@
               {#if block.kind === 'skills'}
                 {#if skillClass}<SkillPlanner classes={[skillClass]} classCode={skillClass.ClassCode} bind:ranks={block.ranks} persist={false} compact />{:else}<p class="hint">{skillError || 'Loading skill planner…'}</p>{/if}
               {:else if block.kind === 'equipment'}
+                <label>Equipment source<select class="field" value={block.equipmentMode ?? 'character'} onchange={event => { block.equipmentMode = event.currentTarget.value as 'character' | 'manual'; block.manualGear ??= []; }}><option value="character">Character snapshot</option><option value="manual">Build gear manually</option></select></label>
+                {#if block.equipmentMode === 'manual'}
+                  <BuildGear bind:entries={block.manualGear} />
+                {:else}
                 <label>Character equipment snapshot<select class="field" bind:value={block.characterId}><option value={null}>Choose one of your characters…</option>{#each matchingCharacters as character}<option value={character.id}>{character.name} · Level {character.level}</option>{/each}</select></label>
                 <p class="hint">The server captures the equipment and inventory on save. Publishing shares this snapshot, including if the original character is private. Later character changes do not alter this guide.</p>
                 {#if characterError}<p class="alert">{characterError}</p>{:else if !matchingCharacters.length}<p class="hint">No matching characters. <a href="/profile">Upload a {content.characterClass} on your profile</a> first.</p>{/if}
                 {#if equipment[block.id]}<p class="hint">Captured: {equipment[block.id].character.name}. Use preview to inspect equipment.</p><Button type="button" color="alternative" size="sm" onclick={() => { block.snapshotVersion++; notice = 'Equipment will be refreshed from the character when you save.'; }}>Refresh snapshot on next save</Button>{/if}
+                {/if}
               {:else if block.kind === 'items'}
                 <div class="chosen-items">{#each block.items as reference, itemIndex}<span><BuildItemLink {reference} /><button type="button" aria-label={`Remove ${reference.key}`} onclick={() => block.items.splice(itemIndex, 1)}>×</button></span>{/each}</div>
                 <Button color="alternative" size="sm" type="button" onclick={() => { pickerFor = pickerFor === block.id ? '' : block.id; skillPickerFor = ''; }}>＋ Find an item</Button>

@@ -5,6 +5,22 @@ import { duplicateVariant, getBuild, newBlock, newBuild, publicationErrors, safe
 import { inlineTokens, markdownBlocks, safeLink } from './build-markdown';
 
 describe('Build documents', () => {
+  it('publishes manual equipment without a character and validates incomplete entries', () => {
+    const build = newBuild(); build.title = 'Guide'; build.summary = 'Summary';
+    const block = newBlock('equipment'); block.equipmentMode = 'manual';
+    build.document.variants[0].blocks = [block];
+    expect(publicationErrors(build)).toEqual(['Main setup / Equipment & inventory: add at least one gear or inventory item.']);
+    block.manualGear = [{ slot: 'head', item: { catalog: 'uniques', key: 'Harlequin Crest' }, name: '', notes: 'Socket with a ruby', quantity: 1 },
+      { slot: 'inventory', item: null, name: 'Life charm', notes: '+20 life', quantity: 5 }];
+    expect(publicationErrors(build)).toEqual([]);
+    const copy = duplicateVariant(build.document.variants[0]);
+    copy.blocks[0].manualGear![1].notes = 'Changed';
+    expect(block.manualGear[1].notes).toBe('+20 life');
+    block.manualGear[1].name = '';
+    expect(publicationErrors(build).join()).toContain('name your custom gear');
+    block.equipmentMode = 'character';
+    expect(publicationErrors(build).join()).toContain('choose a character');
+  });
   it('starts with a private-ready, versioned document', () => {
     const build = newBuild(); expect(build.document.version).toBe(1); expect(build.document.variants).toHaveLength(1);
     expect(publicationErrors(build)).toHaveLength(3);

@@ -8,6 +8,7 @@
   import SkillPlanner from '$lib/components/skills/SkillPlanner.svelte';
   import BuildMarkdown from './BuildMarkdown.svelte';
   import BuildItemLink from './BuildItemLink.svelte';
+  import BuildGear from './BuildGear.svelte';
 
   let { content, equipment = {}, activeVariantId = $bindable('') }: {
     content: BuildContent; equipment?: Record<string, CharacterDetailsResponse>; activeVariantId?: string;
@@ -42,7 +43,8 @@
               {#if skillClass}<SkillPlanner classes={[skillClass]} classCode={skillClass.ClassCode} ranks={block.ranks} persist={false} readonly compact />
               {:else}<p class="muted">{skillError || 'Loading skill trees…'}</p>{/if}
             {:else if block.kind === 'equipment'}
-              {#if equipment[block.id]}<CharacterViewer details={equipment[block.id]} inventoryOnly embedded />
+              {#if block.equipmentMode === 'manual'}<BuildGear entries={block.manualGear ?? []} readonly />
+              {:else if equipment[block.id]}<CharacterViewer details={equipment[block.id]} inventoryOnly embedded />
               {:else}<p class="muted">Select a character and save the draft to capture its equipment.</p>{/if}
             {:else if block.kind === 'items'}
               <div class="item-list">{#each block.items as reference}<span class="item-chip"><BuildItemLink {reference} /></span>{/each}</div>

@@ -1,4 +1,5 @@
 import type { CharacterSaveDetails, SaveItem, SaveStat } from '$lib/characters';
+import { isCharmInventoryItem } from '$lib/charm-inventory';
 import type { Skill, SkillClass } from '$lib/types';
 
 export interface CharacterSkillRanks {
@@ -22,6 +23,11 @@ function isActiveItem(item: SaveItem, weaponSwitch: number): boolean {
     const secondary = /secondary|alternate|swap/i.test(location);
     return secondary === (weaponSwitch !== 0);
   }
+
+  // Anything in the charm panel counts, whatever its code. CharmInv only lets
+  // charms in there, so the panel itself is the test - which is also how the
+  // unique charms the mod adds are picked up without listing every one of them.
+  if (isCharmInventoryItem(item)) return true;
 
   return item.position.mode === 'Stored'
     && item.position.storePage === 'Inventory'

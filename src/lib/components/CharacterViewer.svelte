@@ -1,9 +1,10 @@
-<script lang="ts">
+﻿<script lang="ts">
   import CharacterItem from '$lib/components/CharacterItem.svelte';
   import SkillTreeView from '$lib/components/skills/SkillTreeView.svelte';
   import { formatLastLogged } from '$lib/character-activity';
   import { characterSkillRanks } from '$lib/character-skill-ranks';
   import type { CharacterDetailsResponse, SaveItem } from '$lib/characters';
+  import { charmInventoryColumns, charmInventoryRows, isCharmInventoryItem } from '$lib/charm-inventory';
   import { loadItemPresentation, type ItemPresentation } from '$lib/item-presentation';
   import { loadItemStatPresentation, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
   import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
@@ -75,7 +76,15 @@
       ? sourceItems.filter((item) =>
           item.position.mode === 'Stored'
           && item.position.storePage === 'Inventory'
-          && fitsInventory(item)
+          && fitsGrid(item, inventoryColumns, inventoryRows)
+        )
+      : []
+  );
+  // A mercenary has no charm panel, so the grid belongs to the player tab only.
+  let charmInventory = $derived(
+    tab === 'player'
+      ? sourceItems.filter((item) =>
+          isCharmInventoryItem(item) && fitsGrid(item, charmInventoryColumns, charmInventoryRows)
         )
       : []
   );
@@ -123,14 +132,22 @@
     return `left:${percent(x, canvasWidth)};top:${percent(y, canvasHeight)};width:${percent(width * inventoryCellWidth, canvasWidth)};height:${percent(height * inventoryCellHeight, canvasHeight)}`;
   }
 
-  function fitsInventory(item: SaveItem): boolean {
+  // The charm panel is drawn in its own box whose coordinate space is the grid
+  // itself, so a cell is one column wide and one row tall by definition.
+  function charmStyle(item: SaveItem, itemPresentation?: ItemPresentation): string {
+    const width = itemPresentation?.Width ?? 1;
+    const height = itemPresentation?.Height ?? 1;
+    return `left:${percent(item.position.inventoryX, charmInventoryColumns)};top:${percent(item.position.inventoryY, charmInventoryRows)};width:${percent(width, charmInventoryColumns)};height:${percent(height, charmInventoryRows)}`;
+  }
+
+  function fitsGrid(item: SaveItem, columns: number, rows: number): boolean {
     const itemPresentation = presentation(item);
     const width = itemPresentation?.Width ?? 1;
     const height = itemPresentation?.Height ?? 1;
     return item.position.inventoryX >= 0
       && item.position.inventoryY >= 0
-      && item.position.inventoryX + width <= inventoryColumns
-      && item.position.inventoryY + height <= inventoryRows;
+      && item.position.inventoryX + width <= columns
+      && item.position.inventoryY + height <= rows;
   }
 
   function tooltipSide(item: SaveItem, itemPresentation?: ItemPresentation): 'left' | 'right' {
@@ -194,7 +211,7 @@
         <p class="text-xs uppercase tracking-[0.24em] text-ember-400">{details.character.ownerDisplayName}'s character</p>
         <h1 class="display-text mt-2 text-4xl text-parchment-50 sm:text-5xl">{details.character.name}</h1>
         <p class="mt-2 text-parchment-300">
-          {details.character.class} · level {details.character.level} · {formatNumber(details.character.experience)} experience · Last Logged {formatLastLogged(details.character.lastPlayedAtUtc, relativeTimeNow)}
+          {details.character.class} Â· level {details.character.level} Â· {formatNumber(details.character.experience)} experience Â· Last Logged {formatLastLogged(details.character.lastPlayedAtUtc, relativeTimeNow)}
         </p>
       </div>
       <div class="flex flex-wrap gap-2 text-xs">
@@ -205,15 +222,15 @@
     </div>
 
     {:else}
-      <p class="mb-4 text-sm text-parchment-300">{details.character.name} · {details.character.class} · Level {details.character.level} · Saved equipment snapshot</p>
+      <p class="mb-4 text-sm text-parchment-300">{details.character.name} Â· {details.character.class} Â· Level {details.character.level} Â· Saved equipment snapshot</p>
     {/if}
 
     {#if details.character.isHardcore && details.character.isDead}
       <p class="mb-4 rounded border border-red-500/40 bg-red-950/40 px-4 py-3 text-sm text-red-200">
         {#if details.isPreDeathSnapshot}
-          Fallen hero · Equipment and inventory shown are from the last living save synced before death. Changes after that sync may not appear.
+          Fallen hero Â· Equipment and inventory shown are from the last living save synced before death. Changes after that sync may not appear.
         {:else}
-          Fallen hero · No living snapshot was preserved. Showing the available save.
+          Fallen hero Â· No living snapshot was preserved. Showing the available save.
         {/if}
       </p>
     {/if}
@@ -227,56 +244,87 @@
 
     {#if artworkError}<p role="alert" class="mt-4 text-sm text-red-300">{artworkError}</p>{/if}
 
-    <div class="mx-auto mt-5 max-w-[780px] 2xl:max-w-[585px]">
+    <div class="mx-auto mt-5 flex max-w-[780px] flex-col items-center gap-6 xl:max-w-[1160px] xl:flex-row xl:items-start xl:justify-center">
       <h2 id={equipmentHeadingId} class="sr-only">Equipment and inventory</h2>
-      <div class="relative aspect-[1162/1799] w-full bg-black bg-[url('/data/sprites/ui/inventory.webp')] bg-contain bg-no-repeat shadow-2xl shadow-black/70">
-        {#if tab === 'player'}
-          {#each weaponSetRects as [left, top, width, height]}
-            <div
-              class="absolute z-20 grid grid-cols-2 overflow-hidden text-[clamp(0.55rem,1.4vw,0.9rem)] font-semibold text-parchment-300"
-              style={`left:${percent(left, canvasWidth)};top:${percent(top, canvasHeight)};width:${percent(width, canvasWidth)};height:${percent(height, canvasHeight)};`}
-              role="group"
-              aria-label="Weapon set"
-            >
-              <button
-                type="button"
-                aria-label="Equip weapon set I"
-                aria-pressed={!weaponSwap}
-                class={`relative border-r border-parchment-300/20 transition hover:bg-white/5 hover:text-parchment-50 ${!weaponSwap ? 'bg-sky-950/35 text-parchment-50' : ''}`}
-                onclick={() => weaponSwap = false}
+      <div class="w-full max-w-[780px] xl:w-[600px] xl:shrink-0 2xl:w-[585px]">
+        <div class="relative aspect-[1162/1799] w-full bg-black bg-[url('/data/sprites/ui/inventory.webp')] bg-contain bg-no-repeat shadow-2xl shadow-black/70">
+          {#if tab === 'player'}
+            {#each weaponSetRects as [left, top, width, height]}
+              <div
+                class="absolute z-20 grid grid-cols-2 overflow-hidden text-[clamp(0.55rem,1.4vw,0.9rem)] font-semibold text-parchment-300"
+                style={`left:${percent(left, canvasWidth)};top:${percent(top, canvasHeight)};width:${percent(width, canvasWidth)};height:${percent(height, canvasHeight)};`}
+                role="group"
+                aria-label="Weapon set"
               >
-                I
-                {#if !weaponSwap}<span class="absolute bottom-[8%] left-1/2 h-[clamp(0.18rem,0.45vw,0.3rem)] w-[clamp(0.18rem,0.45vw,0.3rem)] -translate-x-1/2 rotate-45 bg-sky-400 shadow-[0_0_5px_rgba(56,189,248,0.95)]"></span>{/if}
-              </button>
-              <button
-                type="button"
-                aria-label="Equip weapon set II"
-                aria-pressed={weaponSwap}
-                class={`relative transition hover:bg-white/5 hover:text-parchment-50 ${weaponSwap ? 'bg-sky-950/35 text-parchment-50' : ''}`}
-                onclick={() => weaponSwap = true}
-              >
-                II
-                {#if weaponSwap}<span class="absolute bottom-[8%] left-1/2 h-[clamp(0.18rem,0.45vw,0.3rem)] w-[clamp(0.18rem,0.45vw,0.3rem)] -translate-x-1/2 rotate-45 bg-sky-400 shadow-[0_0_5px_rgba(56,189,248,0.95)]"></span>{/if}
-              </button>
-            </div>
+                <button
+                  type="button"
+                  aria-label="Equip weapon set I"
+                  aria-pressed={!weaponSwap}
+                  class={`relative border-r border-parchment-300/20 transition hover:bg-white/5 hover:text-parchment-50 ${!weaponSwap ? 'bg-sky-950/35 text-parchment-50' : ''}`}
+                  onclick={() => weaponSwap = false}
+                >
+                  I
+                  {#if !weaponSwap}<span class="absolute bottom-[8%] left-1/2 h-[clamp(0.18rem,0.45vw,0.3rem)] w-[clamp(0.18rem,0.45vw,0.3rem)] -translate-x-1/2 rotate-45 bg-sky-400 shadow-[0_0_5px_rgba(56,189,248,0.95)]"></span>{/if}
+                </button>
+                <button
+                  type="button"
+                  aria-label="Equip weapon set II"
+                  aria-pressed={weaponSwap}
+                  class={`relative transition hover:bg-white/5 hover:text-parchment-50 ${weaponSwap ? 'bg-sky-950/35 text-parchment-50' : ''}`}
+                  onclick={() => weaponSwap = true}
+                >
+                  II
+                  {#if weaponSwap}<span class="absolute bottom-[8%] left-1/2 h-[clamp(0.18rem,0.45vw,0.3rem)] w-[clamp(0.18rem,0.45vw,0.3rem)] -translate-x-1/2 rotate-45 bg-sky-400 shadow-[0_0_5px_rgba(56,189,248,0.95)]"></span>{/if}
+                </button>
+              </div>
+            {/each}
+          {/if}
+          <div
+            class="pointer-events-none absolute z-20 flex items-center justify-center text-[clamp(0.6rem,1.5vw,0.95rem)] font-semibold tabular-nums text-yellow-300 drop-shadow-[0_1px_2px_rgba(0,0,0,1)]"
+            style={`left:${percent(goldRect[0], canvasWidth)};top:${percent(goldRect[1], canvasHeight)};width:${percent(goldRect[2], canvasWidth)};height:${percent(goldRect[3], canvasHeight)};`}
+          >
+            <span class="sr-only">Gold: </span>{formatNumber(carriedGold)}
+          </div>
+          {#each equipped as item}
+            {@const style = equippedStyle(item)}
+            {@const itemPresentation = presentation(item)}
+            {#if style}<CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} {style} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />{/if}
           {/each}
-        {/if}
-        <div
-          class="pointer-events-none absolute z-20 flex items-center justify-center text-[clamp(0.6rem,1.5vw,0.95rem)] font-semibold tabular-nums text-yellow-300 drop-shadow-[0_1px_2px_rgba(0,0,0,1)]"
-          style={`left:${percent(goldRect[0], canvasWidth)};top:${percent(goldRect[1], canvasHeight)};width:${percent(goldRect[2], canvasWidth)};height:${percent(goldRect[3], canvasHeight)};`}
-        >
-          <span class="sr-only">Gold: </span>{formatNumber(carriedGold)}
+          {#each inventory as item}
+            {@const itemPresentation = presentation(item)}
+            <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} style={inventoryStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />
+          {/each}
         </div>
-        {#each equipped as item}
-          {@const style = equippedStyle(item)}
-          {@const itemPresentation = presentation(item)}
-          {#if style}<CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} {style} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />{/if}
-        {/each}
-        {#each inventory as item}
-          {@const itemPresentation = presentation(item)}
-          <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} style={inventoryStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />
-        {/each}
       </div>
+
+      {#if tab === 'player'}
+        <!--
+          The charm panel has no artwork of its own the way the inventory does, so
+          its slots are ruled in CSS. The width is 84.3% of the character panel
+          because that panel is 1162 units wide with 98-unit cells: ten of those
+          cells is 843 of the same units, which keeps a charm the size it is next
+          to it at every breakpoint.
+        -->
+        <div class="w-[84.3%] max-w-[658px] xl:w-[506px] xl:shrink-0 2xl:w-[493px]">
+          <h3 class="mb-2 text-center text-xs uppercase tracking-[0.24em] text-ember-400 xl:text-left">
+            Charm inventory
+          </h3>
+          <div
+            class="relative aspect-[980/392] w-full border border-parchment-300/25 bg-black/80 shadow-2xl shadow-black/70"
+            style="background-image:linear-gradient(to right,rgba(188,167,125,0.18) 1px,transparent 1px),linear-gradient(to bottom,rgba(188,167,125,0.18) 1px,transparent 1px);background-size:10% 100%,100% 25%;"
+          >
+            {#each charmInventory as item}
+              {@const itemPresentation = presentation(item)}
+              <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} style={charmStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />
+            {/each}
+            {#if !charmInventory.length}
+              <p class="absolute inset-0 z-10 flex items-center justify-center text-center text-sm text-parchment-300">
+                No charms stored
+              </p>
+            {/if}
+          </div>
+        </div>
+      {/if}
     </div>
 
     <p class="mt-5 text-center text-sm text-parchment-300">

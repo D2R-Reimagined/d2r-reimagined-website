@@ -1,5 +1,6 @@
 import { apiRequest } from '$lib/auth';
 import type { CharacterDetailsResponse } from '$lib/characters';
+import { gearErrors, type BuildGearEntry } from './build-gear';
 
 export const buildClasses = ['Amazon', 'Assassin', 'Barbarian', 'Druid', 'Necromancer', 'Paladin', 'Sorceress', 'Warlock'];
 export const buildCategories = ['Leveling', 'Endgame', 'Farming', 'Bossing', 'Support', 'PvP'];
@@ -11,6 +12,7 @@ export interface BuildBlock {
   id: string; kind: BlockKind; title: string; body: string; tone: 'tip' | 'warning' | 'pros' | 'cons';
   url: string; caption: string; items: BuildItemReference[]; ranks: Record<number, number>;
   characterId: string | null; snapshotVersion: number; snapshotSourceId?: string | null;
+  equipmentMode?: 'character' | 'manual'; manualGear?: BuildGearEntry[];
 }
 export interface BuildVariant { id: string; name: string; description: string; blocks: BuildBlock[] }
 export interface BuildContent {
@@ -62,7 +64,10 @@ export function publicationErrors(content: BuildContent): string[] {
       if (['text', 'callout'].includes(block.kind) && !block.body.trim()) errors.push(`${label}: add text.`);
       if (block.kind === 'items' && !block.items.length) errors.push(`${label}: choose an item.`);
       if (block.kind === 'skills' && !Object.values(block.ranks).some(n => n > 0)) errors.push(`${label}: allocate skill points.`);
-      if (block.kind === 'equipment' && !block.characterId) errors.push(`${label}: choose a character.`);
+      if (block.kind === 'equipment') {
+        if (block.equipmentMode === 'manual') errors.push(...gearErrors(block.manualGear ?? []).map(error => `${label}: ${error}`));
+        else if (!block.characterId) errors.push(`${label}: choose a character.`);
+      }
       if (block.kind === 'image' && !safeMediaUrl(block.url)) errors.push(`${label}: enter an HTTPS image URL.`);
       if (block.kind === 'video' && !youtubeEmbedUrl(block.url)) errors.push(`${label}: enter a valid YouTube video URL.`);
     }
