@@ -7,6 +7,7 @@ import exportedBundle from '../../static/data/keyed/item-stat-presentation.json'
 import type { SaveStat } from './characters';
 import {
   displayStatLines,
+  socketedItemStats,
   type ItemStatPresentationBundle
 } from './item-stat-presentation';
 
@@ -82,21 +83,21 @@ describe('displayStatLines', () => {
   it('renders Cold of Winter as +2 to Traps using the exported presentation and translations', () => {
     initializeI18n(strings);
     const [line] = displayStatLines([stat(188, 'item_addskill_tab', 2, 48)], exportedBundle);
-    expect(get(i18n).line(line.keyed)).toBe('+2 to Traps');
+    expect(get(i18n).line(line.keyed)).toBe('+2 to Traps (Assassin Only)');
   });
 
   it.each([
-    [0, 3], [1, 2], [2, 1],
-    [8, 15], [9, 14], [10, 13],
-    [16, 8], [17, 7], [18, 9],
-    [24, 6], [25, 5], [26, 4],
-    [32, 11], [33, 12], [34, 10],
-    [40, 16], [41, 17], [42, 18],
-    [48, 19], [49, 20], [50, 21],
-    [56, 24], [57, 22], [58, 23]
-  ])('resolves skill-tree layer %i to localized string %i', (layer, stringId) => {
+    [0, 3, 'AmaOnly'], [1, 2, 'AmaOnly'], [2, 1, 'AmaOnly'],
+    [8, 15, 'SorOnly'], [9, 14, 'SorOnly'], [10, 13, 'SorOnly'],
+    [16, 8, 'NecOnly'], [17, 7, 'NecOnly'], [18, 9, 'NecOnly'],
+    [24, 6, 'PalOnly'], [25, 5, 'PalOnly'], [26, 4, 'PalOnly'],
+    [32, 11, 'BarOnly'], [33, 12, 'BarOnly'], [34, 10, 'BarOnly'],
+    [40, 16, 'DruOnly'], [41, 17, 'DruOnly'], [42, 18, 'DruOnly'],
+    [48, 19, 'AssOnly'], [49, 20, 'AssOnly'], [50, 21, 'AssOnly'],
+    [56, 24, 'WarOnly'], [57, 22, 'WarOnly'], [58, 23, 'WarOnly']
+  ])('resolves skill-tree layer %i to localized string %i', (layer, stringId, classOnly) => {
     const [line] = displayStatLines([stat(188, 'item_addskill_tab', 2, layer)], exportedBundle);
-    expect(line.keyed).toEqual({ key: `StrSklTabItem${stringId}`, args: [2] });
+    expect(line.keyed).toEqual({ key: `StrSklTabItem${stringId}`, args: [2], classOnly });
   });
 
   it.each([3, 7, 51, 59, 64, -1, 1.5])('keeps unknown skill-tree layer %s explicit', (layer) => {
@@ -233,5 +234,34 @@ describe('displayStatLines', () => {
       args: [-297],
       perLevel: true
     });
+  });
+});
+
+describe('socketedItemStats', () => {
+  const jewel = (...stats: SaveStat[]) => ({ stats, sockets: [] });
+
+  it('returns the item stats untouched when nothing is socketed', () => {
+    const stats = [stat(127, 'item_allskills', 2)];
+    expect(socketedItemStats({ stats, sockets: [null, null] })).toBe(stats);
+  });
+
+  it('folds socketed jewel stats into the host and sums matching stat layers', () => {
+    const host = {
+      stats: [stat(127, 'item_allskills', 2), stat(188, 'item_addskill_tab', 3, 18)],
+      sockets: [
+        jewel(stat(127, 'item_allskills', 1), stat(39, 'fireresist', 10)),
+        jewel(stat(127, 'item_allskills', 1)),
+        null,
+        jewel(stat(127, 'item_allskills', 2), stat(39, 'fireresist', 5), stat(188, 'item_addskill_tab', 1, 16))
+      ]
+    };
+
+    expect(socketedItemStats(host)).toEqual([
+      stat(127, 'item_allskills', 6),
+      stat(188, 'item_addskill_tab', 3, 18),
+      stat(39, 'fireresist', 15),
+      stat(188, 'item_addskill_tab', 1, 16)
+    ]);
+    expect(host.stats[0].value).toBe(2);
   });
 });

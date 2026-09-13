@@ -54,6 +54,10 @@ const skillTabStringIds = [
   [3, 2, 1], [15, 14, 13], [8, 7, 9], [6, 5, 4],
   [11, 12, 10], [16, 17, 18], [19, 20, 21], [24, 22, 23]
 ] as const;
+// The tab strings carry no class name; the game appends the class-only suffix itself.
+const skillTabClassOnlyKeys = [
+  'AmaOnly', 'SorOnly', 'NecOnly', 'PalOnly', 'BarOnly', 'DruOnly', 'AssOnly', 'WarOnly'
+] as const;
 
 let presentationPromise: Promise<ItemStatPresentationBundle> | undefined;
 
@@ -166,12 +170,20 @@ function skillTabLine(
   bundle: ItemStatPresentationBundle,
   context: ItemStatDisplayContext
 ): DisplayStatLine {
+  const classIndex = Math.floor(stat.layer / 8);
   const stringId = Number.isInteger(stat.layer) && stat.layer >= 0
-    ? skillTabStringIds[Math.floor(stat.layer / 8)]?.[stat.layer % 8]
+    ? skillTabStringIds[classIndex]?.[stat.layer % 8]
     : undefined;
+  const classOnly = skillTabClassOnlyKeys[classIndex];
   return {
     ...(stringId !== undefined
-      ? { keyed: { key: `StrSklTabItem${stringId}`, args: [valueOf(stat, bundle, context)] } }
+      ? {
+        keyed: {
+          key: `StrSklTabItem${stringId}`,
+          args: [valueOf(stat, bundle, context)],
+          ...(classOnly ? { classOnly } : {})
+        }
+      }
       : {}),
     fallback: fallback(stat, bundle, context)
   };
@@ -195,6 +207,39 @@ function displayedSkillLine(
       ? `Level ${value} ${skill.FallbackName} Aura When Equipped`
       : `+${value} to ${skill.FallbackName} (oskill)`
   };
+}
+
+/**
+ * The stats a tooltip shows for an item: its own list plus everything socketed
+ * into it, the way the game folds jewel and gem stats into the host. Matching
+ * stat/layer pairs sum, so four "+1 to All Skills" jewels in a "+2" diadem read
+ * as "+6" rather than as five separate lines.
+ */
+export interface SocketedStats {
+  stats: SaveStat[];
+  sockets: ReadonlyArray<SocketedStats | null>;
+}
+
+export function socketedItemStats(item: SocketedStats): SaveStat[] {
+  if (!item.sockets.some(Boolean)) return item.stats;
+
+  const merged: SaveStat[] = item.stats.map((stat) => ({ ...stat }));
+  const byKey = new Map(merged.map((stat) => [`${stat.name}:${stat.layer}`, stat]));
+  for (const socket of item.sockets) {
+    if (!socket) continue;
+    for (const stat of socketedItemStats(socket)) {
+      const key = `${stat.name}:${stat.layer}`;
+      const existing = byKey.get(key);
+      if (existing) {
+        existing.value += stat.value;
+      } else {
+        const copy = { ...stat };
+        byKey.set(key, copy);
+        merged.push(copy);
+      }
+    }
+  }
+  return merged;
 }
 
 export function isHiddenItemStat(

@@ -5,6 +5,7 @@
   import {
     displayStatLines,
     loadItemStatPresentation,
+    socketedItemStats,
     type DisplayStatLine,
     type ItemStatPresentationBundle
   } from '$lib/item-stat-presentation';
@@ -18,7 +19,7 @@
   } = $props();
 
   let presentation = $state<ItemStatPresentationBundle>();
-  let baseLines = $derived(lines(item?.stats ?? []));
+  let baseLines = $derived(lines(item ? socketedItemStats(item) : []));
   let runewordLines = $derived(lines(item?.runewordStats ?? []));
   let setBonusLines = $derived((item?.setBonusStats ?? []).map(lines).filter((group) => group.length));
   let scalars = $derived.by(() => {

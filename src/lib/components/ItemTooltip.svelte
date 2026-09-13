@@ -3,7 +3,7 @@
   import { isItemIdentified, itemDisplayLabel } from '$lib/item-identification';
   import { itemVariant, type ItemPresentation } from '$lib/item-presentation';
   import type { ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
-  import { displayStatLines, isHiddenItemStat, type DisplayStatLine, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
+  import { displayStatLines, isHiddenItemStat, socketedItemStats, type DisplayStatLine, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
   import type { SaveItem, SaveStat } from '$lib/characters';
 
   let {
@@ -27,6 +27,7 @@
   } = $props();
   let variant = $derived(itemVariant(item, presentation, itemPresentations, upgradeTiers));
   let identified = $derived(isItemIdentified(item));
+  let itemStats = $derived(socketedItemStats(item));
 
   function words(value: string): string {
     return value
@@ -102,9 +103,9 @@
     {#if identified && item.runewordId != null}<p class="text-unique">{runewordNameKey ? $i18n.t(runewordNameKey) : 'Runeword'}</p>{/if}
   </div>
 
-  {#if identified && item.stats.length}
+  {#if identified && itemStats.length}
     <div class="mt-2 border-t border-parchment-300/20 pt-2 text-sm">
-      {#each statLines(item.stats) as line}<p class={statToneClass(line)}>{renderedStatLine(line)}</p>{/each}
+      {#each statLines(itemStats) as line}<p class={statToneClass(line)}>{renderedStatLine(line)}</p>{/each}
     </div>
   {/if}
   {#if identified && item.runewordStats?.length}
