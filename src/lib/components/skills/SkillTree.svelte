@@ -72,7 +72,7 @@
 
 <style>
   .skill-tree {
-    width: 21rem;
+    width: var(--skill-tree-width, 21rem);
     flex: 0 0 21rem;
     overflow: hidden;
     border: 1px solid #665735;

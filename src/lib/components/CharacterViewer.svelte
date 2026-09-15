@@ -297,7 +297,7 @@
         </div>
       </div>
 
-      {#if tab === 'player'}
+      {#if tab === 'player' && charmInventory.length > 0}
         <!--
           The charm panel has no artwork of its own the way the inventory does, so
           its slots are ruled in CSS. The width is 84.3% of the character panel
@@ -317,11 +317,6 @@
               {@const itemPresentation = presentation(item)}
               <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} style={charmStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />
             {/each}
-            {#if !charmInventory.length}
-              <p class="absolute inset-0 z-10 flex items-center justify-center text-center text-sm text-parchment-300">
-                No charms stored
-              </p>
-            {/if}
           </div>
         </div>
       {/if}

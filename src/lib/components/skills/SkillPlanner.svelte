@@ -102,7 +102,7 @@
   {#if activeClass}
     <div class="mt-6">
       {#key activeClass.ClassCode}
-        <SkillTreeView skillClass={activeClass} {ranks} {increase} {decrease} {canIncrease} {readonly} />
+        <SkillTreeView skillClass={activeClass} {ranks} {increase} {decrease} {canIncrease} {readonly} floatDetails={compact && readonly} />
       {/key}
     </div>
   {/if}

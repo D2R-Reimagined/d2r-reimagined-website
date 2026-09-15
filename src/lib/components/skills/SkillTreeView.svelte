@@ -8,6 +8,7 @@
     ranks,
     baseRanks = ranks,
     readonly = false,
+    floatDetails = false,
     increase = () => undefined,
     decrease = () => undefined,
     canIncrease = () => false
@@ -16,6 +17,7 @@
     ranks: Record<number, number>;
     baseRanks?: Record<number, number>;
     readonly?: boolean;
+    floatDetails?: boolean;
     increase?: (skill: Skill, amount?: number) => void;
     decrease?: (skill: Skill, amount?: number) => void;
     canIncrease?: (skill: Skill) => boolean;
@@ -34,7 +36,7 @@
   }
 </script>
 
-<div class="tree-view-layout">
+<div class="tree-view-layout" class:float-details={floatDetails}>
   <div class="tree-scroll" aria-label={`${skillClass.Class} skill trees`}>
     <div class="tree-row">
       {#each skillClass.Tabs as tab (tab.Page)}
@@ -75,9 +77,33 @@
   .tree-row { display: flex; width: max-content; gap: 0.8rem; margin: 0 auto; }
   .details-column { min-width: 0; }
 
+  .float-details .tree-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(18rem, 1fr));
+    width: 100%;
+    min-width: 55.6rem;
+    --skill-tree-width: 100%;
+  }
+
   @media (min-width: 1280px) {
     .tree-view-layout { grid-template-columns: minmax(0, 1fr) 19rem; align-items: start; }
     .details-column {
+      position: sticky;
+      top: 5.5rem;
+      max-height: calc(100vh - 7rem);
+      overflow-y: auto;
+    }
+    .float-details { grid-template-columns: minmax(0, 1fr); }
+    .float-details .details-column { position: static; max-height: none; overflow-y: visible; }
+  }
+
+  /* The build reader is 80rem wide; leave room for the details in its right gutter. */
+  @media (min-width: 1920px) {
+    .float-details {
+      width: calc(100% + 20rem);
+      grid-template-columns: minmax(0, 1fr) 19rem;
+    }
+    .float-details .details-column {
       position: sticky;
       top: 5.5rem;
       max-height: calc(100vh - 7rem);
