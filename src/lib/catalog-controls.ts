@@ -135,6 +135,53 @@ export function matchesItemType(itemTypes: string[], selectedType: string, exact
   return itemTypes.some((itemType) => typeChain(itemType).has(selectedType) || selectedChain.has(itemType));
 }
 
+/** Only equipment belonging to the chosen item family should be offered. */
+export function equipmentNamesForType(items: CatalogItem[], selectedType: string): string[] {
+  const names = new Set<string>();
+  for (const item of items) {
+    for (const piece of item.SetItems?.length ? item.SetItems : [item]) {
+      const type = typeof piece.Type === 'string' ? piece.Type : piece.Type?.Index ?? piece.Type?.Name ?? '';
+      const name = piece.Equipment?.NameKey;
+      if (name && matchesItemType([type], selectedType, false)) names.add(name);
+    }
+  }
+  return [...names];
+}
+
+export interface BaseGroup {
+  type: string;
+  families: Array<{ key: string; items: CatalogItem[] }>;
+}
+
+export function baseFamilyKey(item: CatalogItem): string {
+  const codes = [item.NormCode ?? '', item.UberCode ?? '', item.UltraCode ?? ''];
+  return [item.source ?? '', ...(codes.some(Boolean) ? codes : [String(item.NameKey ?? item.Code ?? '')])].join('|');
+}
+
+/** Keep each N → X → E family together under its concrete item type. */
+export function groupBases(items: CatalogItem[]): BaseGroup[] {
+  const types = new Map<string, Map<string, { items: CatalogItem[]; first: number }>>();
+  items.forEach((item, index) => {
+    const type = typeof item.Type === 'string' ? item.Type : item.Type?.Index ?? item.Type?.Name ?? '';
+    const familyKey = baseFamilyKey(item);
+    const key = familyKey === `${item.source ?? ''}|` ? `${familyKey}${index}` : familyKey;
+    const families = types.get(type) ?? new Map();
+    if (!types.has(type)) types.set(type, families);
+    const family = families.get(key) ?? { items: [], first: index };
+    if (!families.has(key)) families.set(key, family);
+    family.items.push(item);
+  });
+  const tierOrder = { Normal: 0, Exceptional: 1, Elite: 2 };
+  return [...types].map(([type, families]) => ({
+    type,
+    families: [...families].sort((a, b) => a[1].first - b[1].first).map(([key, family]) => ({
+      key,
+      items: family.items.sort((a, b) =>
+        (tierOrder[baseTier(a) as keyof typeof tierOrder] ?? 3) - (tierOrder[baseTier(b) as keyof typeof tierOrder] ?? 3))
+    }))
+  }));
+}
+
 export function tokenizeSearch(input: string | undefined | null): SearchGroups {
   const raw = (input ?? '').trim().toLowerCase();
   if (!raw) return [];

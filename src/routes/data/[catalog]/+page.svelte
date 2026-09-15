@@ -8,7 +8,10 @@
     affixMatchesProperty,
     affixPropertyOptions,
     baseHasSockets,
+    baseFamilyKey,
     baseTier,
+    equipmentNamesForType,
+    groupBases,
     catalogTypeValues,
     matchesSearch,
     matchesItemType,
@@ -50,7 +53,7 @@
   let selectedRunes = $state<string[]>(initialFilters.selectedRunes);
   let weaponSort = $state<WeaponSortMode>(initialFilters.weaponSort);
   let handFilter = $state(initialFilters.handFilter);
-  let visibleCount = $state(48);
+  let visibleCount = $state(untrack(() => data.definition.slug === 'bases' ? 16 : 48));
   let routerReady = $state(false);
   let navigationInProgress = $state(false);
 
@@ -95,9 +98,11 @@
     return source ? $i18n.line(source) : $i18n.t(key);
   }
 
-  let typeOptions = $derived(options(catalogTypeValues(data.items.flatMap(typesFor), data.definition.slug)));
+  let typeOptions = $derived(options(catalogTypeValues(
+    data.items.filter((item: CatalogItem) => data.definition.slug !== 'bases' || !subtype || item.source === subtype)
+      .flatMap(typesFor), data.definition.slug)));
   let classOptions = $derived(options(data.items.flatMap(classesFor)));
-  let equipmentOptions = $derived(options(data.items.flatMap(equipmentFor)));
+  let equipmentOptions = $derived(options(equipmentNamesForType(data.items, selectedType)));
   let propertyOptions = $derived(affixPropertyOptions
     .map((value) => ({ value, label: $i18n.t(value) }))
     .sort((a, b) => a.label.localeCompare(b.label)));
@@ -127,6 +132,10 @@
 
   let filtered = $derived.by(() => {
     const searchGroups = tokenizeSearch(query);
+    const matchingBaseFamilies = data.definition.slug === 'bases' && searchGroups.length
+      ? new Set<string>(data.items.filter((item: CatalogItem) =>
+          matchesSearch(searchText(item, $i18n), searchGroups)).map(baseFamilyKey))
+      : null;
     const minimum = minLevel ? Number(minLevel) : undefined;
     const maximum = maxLevel ? Number(maxLevel) : undefined;
 
@@ -150,7 +159,8 @@
       if (recipeType && !recipeTypesFor(item).includes(recipeType)) return false;
       if (handFilter && !passesHandFilter(item, handFilter)) return false;
       // Guarded so an unsearched page never pays for flattening every item.
-      if (searchGroups.length && !matchesSearch(searchText(item, $i18n), searchGroups)) return false;
+      if (searchGroups.length && !matchesSearch(searchText(item, $i18n), searchGroups)
+        && !matchingBaseFamilies?.has(baseFamilyKey(item))) return false;
       if (String(item.Index ?? '').toLowerCase().includes('grabber')) return false;
       return true;
     });
@@ -159,12 +169,37 @@
   });
 
   let visible = $derived(filtered.slice(0, visibleCount));
+  let baseGroups = $derived(data.definition.slug === 'bases'
+    ? groupBases(filtered).sort((a, b) => $i18n.t(a.type).localeCompare($i18n.t(b.type)))
+    : []);
+  let baseFamilyCount = $derived(baseGroups.reduce((count, group) => count + group.families.length, 0));
+  let visibleBaseGroups = $derived.by(() => {
+    let remaining = visibleCount;
+    return baseGroups.map((group) => {
+      const families = group.families.slice(0, remaining);
+      remaining -= families.length;
+      return { ...group, families };
+    }).filter((group) => group.families.length);
+  });
+
+  $effect(() => {
+    // A saved equipment choice must not silently hold the result list at zero
+    // when a visitor changes to a different item family.
+    if (selectedEquipment && !equipmentOptions.some((option) => option.value === selectedEquipment)) {
+      selectedEquipment = '';
+    }
+  });
+
+  $effect(() => {
+    if (data.definition.slug === 'bases' && selectedType
+      && !typeOptions.some((option) => option.value === selectedType)) selectedType = '';
+  });
 
   $effect(() => {
     query; selectedType; selectedClass; subtype; hideVanilla; runeCount;
     selectedEquipment; selectedTier; selectedSockets; propertyType; minLevel;
     maxLevel; exactType; recipeType; selectedRunes; weaponSort; handFilter;
-    visibleCount = 48;
+    visibleCount = data.definition.slug === 'bases' ? 16 : 48;
   });
 
   $effect(() => {
@@ -286,7 +321,28 @@
 
   <p class="mb-5 text-center text-parchment-300" aria-live="polite"><span class="rarity-line">{filtered.length.toLocaleString()}</span> results</p>
 
-  {#if visible.length}
+  {#if filtered.length}
+    {#if data.definition.slug === 'bases'}
+      {#each visibleBaseGroups as group (group.type)}
+        <section class="mb-8" aria-label={$i18n.t(group.type)}>
+          <h2 class="display-text mb-3 border-b border-parchment-300/20 pb-2 text-center text-2xl">{$i18n.t(group.type)}</h2>
+          <div class="space-y-4">
+            {#each group.families as family (family.key)}
+              <div class="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+                {#each family.items as item, index (`${String(item.Index ?? item.NameKey ?? index)}-${index}`)}
+                  <CatalogCard {item} slug={data.definition.slug} />
+                {/each}
+              </div>
+            {/each}
+          </div>
+        </section>
+      {/each}
+      {#if visibleCount < baseFamilyCount}
+        <div class="mt-8 text-center">
+          <button type="button" onclick={() => visibleCount += 16} class="rounded-md border border-ember-500/60 px-6 py-3 text-ember-400 hover:bg-ember-700 hover:text-white">Load more base families</button>
+        </div>
+      {/if}
+    {:else}
     <div class="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
       {#each visible as item, index (`${String(item.Index ?? item.NameKey ?? index)}-${index}`)}
         <CatalogCard {item} slug={data.definition.slug} />
@@ -296,6 +352,7 @@
       <div class="mt-8 text-center">
         <button type="button" onclick={() => visibleCount += 48} class="rounded-md border border-ember-500/60 px-6 py-3 text-ember-400 hover:bg-ember-700 hover:text-white">Load 48 more</button>
       </div>
+    {/if}
     {/if}
   {:else}
     <div class="panel mx-auto max-w-xl rounded-lg p-10 text-center">

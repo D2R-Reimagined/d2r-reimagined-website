@@ -2,6 +2,7 @@
     import type {CatalogSlug} from '$lib/types';
     import type {WeaponSortMode} from '$lib/catalog-controls';
     import {i18n} from '$lib/i18n';
+    import SearchableSelect from './SearchableSelect.svelte';
 
     type Option = { value: string; label: string };
 
@@ -102,51 +103,23 @@
             {/if}
 
             {#if slug === 'cube-recipes'}
-                <label class="sm:col-span-2">
-                    <span class={fieldLabel}>{$i18n.t('filter_select_recipe_type')}</span>
-                    <select class="field" bind:value={recipeType}>
-                        <option value="">All recipe types</option>
-                        {#each recipeTypeOptions as option}
-                            <option value={option.value}>{option.label}</option>
-                        {/each}
-                    </select>
-                </label>
+                <div class="sm:col-span-2"><SearchableSelect id="recipe-type" label={$i18n.t('filter_select_recipe_type')}
+                    placeholder="All recipe types" options={recipeTypeOptions} bind:value={recipeType} /></div>
             {/if}
 
             {#if typeOptions.length}
-                <label>
-                    <span class={fieldLabel}>{$i18n.t('filter_select_type')}</span>
-                    <select class="field" bind:value={selectedType}>
-                        <option value="">All types</option>
-                        {#each typeOptions as option}
-                            <option value={option.value}>{option.label}</option>
-                        {/each}
-                    </select>
-                </label>
+                <SearchableSelect id="item-type" label={$i18n.t('filter_select_type')}
+                    placeholder="All types" options={typeOptions} bind:value={selectedType} />
             {/if}
 
             {#if (slug === 'uniques' || slug === 'sets') && equipmentOptions.length}
-                <label>
-                    <span class={fieldLabel}>{$i18n.t('filter_select_equipment')}</span>
-                    <select class="field" bind:value={selectedEquipment}>
-                        <option value="">All equipment</option>
-                        {#each equipmentOptions as option}
-                            <option value={option.value}>{option.label}</option>
-                        {/each}
-                    </select>
-                </label>
+                <SearchableSelect id="equipment" label={$i18n.t('filter_select_equipment')}
+                    placeholder="All equipment" options={equipmentOptions} bind:value={selectedEquipment} />
             {/if}
 
             {#if classOptions.length}
-                <label>
-                    <span class={fieldLabel}>{$i18n.t('filter_select_class')}</span>
-                    <select class="field" bind:value={selectedClass}>
-                        <option value="">All classes</option>
-                        {#each classOptions as option}
-                            <option value={option.value}>{option.label}</option>
-                        {/each}
-                    </select>
-                </label>
+                <SearchableSelect id="item-class" label={$i18n.t('filter_select_class')}
+                    placeholder="All classes" options={classOptions} bind:value={selectedClass} />
             {/if}
 
             {#if slug === 'bases'}
@@ -171,15 +144,8 @@
             {/if}
 
             {#if slug === 'affixes'}
-                <label class="sm:col-span-2">
-                    <span class={fieldLabel}>{$i18n.t('filter_select_property_type')}</span>
-                    <select class="field" bind:value={propertyType}>
-                        <option value="">All properties</option>
-                        {#each propertyOptions as option}
-                            <option value={option.value}>{option.label}</option>
-                        {/each}
-                    </select>
-                </label>
+                <div class="sm:col-span-2"><SearchableSelect id="property-type" label={$i18n.t('filter_select_property_type')}
+                    placeholder="All properties" options={propertyOptions} bind:value={propertyType} /></div>
                 <label>
                     <span class={fieldLabel}>{$i18n.t('filter_min_rlvl')}</span>
                     <select class="field" bind:value={minLevel}>

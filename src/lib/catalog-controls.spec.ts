@@ -5,6 +5,8 @@ import {
   baseHasSockets,
   baseTier,
   catalogTypeValues,
+  equipmentNamesForType,
+  groupBases,
   matchesSearch,
   matchesItemType,
   passesHandFilter,
@@ -35,9 +37,37 @@ describe('base filters', () => {
     expect(baseHasSockets(base, 6)).toBe(true);
     expect(baseHasSockets(base, 3)).toBe(false);
   });
+
+  it('groups concrete types and keeps each base family in N → X → E order', () => {
+    const family = { NormCode: 'qui', UberCode: 'xui', UltraCode: 'uui', source: 'armor' as const, Type: 'torsitype' };
+    const groups = groupBases([
+      { ...family, NameKey: 'uui' },
+      { Type: 'shieitype', NameKey: 'shield', source: 'armor' },
+      { ...family, NameKey: 'qui' },
+      { ...family, NameKey: 'xui' }
+    ]);
+    expect(groups.find((group) => group.type === 'torsitype')?.families[0].items.map((item) => item.NameKey))
+      .toEqual(['qui', 'xui', 'uui']);
+    expect(groups.find((group) => group.type === 'shieitype')?.families).toHaveLength(1);
+  });
 });
 
 describe('item type filtering', () => {
+  it('limits equipment choices to the selected family, including set pieces', () => {
+    const items: CatalogItem[] = [
+      { Type: 'torsitype', Equipment: { NameKey: 'armor' } },
+      { Type: 'shieitype', Equipment: { NameKey: 'shield' } },
+      { Type: 'h2hitype', Equipment: { NameKey: 'claw' } },
+      { Type: 'sworitype', Equipment: { NameKey: 'sword' } },
+      { SetItems: [
+        { Type: 'torsitype', Equipment: { NameKey: 'set armor' } },
+        { Type: 'shieitype', Equipment: { NameKey: 'set shield' } }
+      ] }
+    ];
+    expect(equipmentNamesForType(items, 'torsitype')).toEqual(['armor', 'set armor']);
+    expect(equipmentNamesForType(items, 'h2hitype')).toEqual(['claw']);
+    expect(equipmentNamesForType(items, 'armoitype')).toEqual(['armor', 'shield', 'set armor', 'set shield']);
+  });
   it.each(['bases', 'uniques', 'sets'] as const)('offers broad equipment families in %s', (slug) => {
     const values = catalogTypeValues(['sworitype', 'abowitype', 'taxeitype', 'peltitype'], slug);
     expect(values).toEqual(expect.arrayContaining([
