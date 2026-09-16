@@ -212,6 +212,28 @@ export function getAdminUsers(): Promise<AdminUser[]> {
   return apiRequest<AdminUser[]>('/admin/users', {}, true);
 }
 
+export interface AdminUserSearch {
+  skip?: number;
+  count?: number;
+  search?: string;
+}
+
+export interface AdminUserPage {
+  items: AdminUser[];
+  total: number;
+  skip: number;
+  count: number;
+}
+
+export function searchAdminUsers(query: AdminUserSearch = {}): Promise<AdminUserPage> {
+  const parameters = new URLSearchParams();
+  if (query.skip !== undefined) parameters.set('skip', String(query.skip));
+  if (query.count !== undefined) parameters.set('count', String(query.count));
+  if (query.search?.trim()) parameters.set('search', query.search.trim());
+  const suffix = parameters.size > 0 ? `?${parameters.toString()}` : '';
+  return apiRequest<AdminUserPage>(`/admin/users/search${suffix}`, {}, true);
+}
+
 export function updateUserRoles(id: string, roles: string[]): Promise<AdminUser> {
   return apiRequest<AdminUser>(`/admin/users/${id}/roles`, {
     method: 'PUT',
