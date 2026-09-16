@@ -25,7 +25,7 @@ export const load: PageServerLoad = async ({ fetch, url, setHeaders }) => {
 
   let ladders: LadderSummary[] = [];
   try {
-    const response = await fetch(`${apiBaseUrl()}/ladders`);
+    const response = await fetch(`${apiBaseUrl()}/ladders/summaries`);
     if (response.ok) ladders = (await response.json()) as LadderSummary[];
   } catch {
     // A board with no ladder list still works - it falls back to Standard.

@@ -10,7 +10,7 @@ export const load: LayoutServerLoad = async ({ fetch, url }) => {
   if (tradeEnabled || url.pathname.startsWith('/trade')) {
     const api = (publicEnv.PUBLIC_API_BASE_URL || 'http://localhost:5000').replace(/\/$/, '');
     try {
-      const response = await fetch(`${api}/ladders/active`);
+      const response = await fetch(`${api}/ladders/summaries?activeOnly=true`);
       if (response.ok) {
         const ladders = await response.json() as Array<{ id: string; name: string }>;
         tradeLadders = buildTradeLadders(ladders);

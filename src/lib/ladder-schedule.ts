@@ -25,7 +25,6 @@ export interface LadderSummary {
   startDateUtc: string;
   endDateUtc: string;
   archivedAtUtc?: string | null;
-  allowedExtensions: LadderAllowedExtension[];
 }
 
 /** Whether `now` falls inside the ladder's scheduled window. */

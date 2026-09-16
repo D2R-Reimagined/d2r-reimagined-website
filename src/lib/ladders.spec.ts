@@ -5,7 +5,7 @@ import { defaultLadder, isLadderRunning, type LadderSummary } from './ladder-sch
 const now = new Date('2026-06-15T00:00:00Z');
 
 function ladder(id: string, start: string, end: string): LadderSummary {
-  return { id, name: id, startDateUtc: start, endDateUtc: end, allowedExtensions: [] };
+  return { id, name: id, startDateUtc: start, endDateUtc: end };
 }
 
 const finished = ladder('finished', '2026-01-01T00:00:00Z', '2026-03-01T00:00:00Z');

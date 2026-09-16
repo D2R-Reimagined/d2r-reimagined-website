@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
   import CharacterViewer from '$lib/components/CharacterViewer.svelte';
   import TradeStashPicker from '$lib/components/TradeStashPicker.svelte';
-  import { getLadders, type Ladder } from '$lib/admin';
+  import { getLadders, type LadderSummary } from '$lib/ladders';
   import { authState, initializeAuth } from '$lib/auth';
   import type { CharacterDetailsResponse, SaveItem } from '$lib/characters';
   import { i18n } from '$lib/i18n';
@@ -19,7 +19,7 @@
     type TradeInventory
   } from '$lib/trades';
 
-  let ladders = $state<Ladder[]>([]);
+  let ladders = $state<LadderSummary[]>([]);
   let selectedLadderId = $state('');
   let inventory = $state<TradeInventory | null>(null);
   let selectedCharacterId = $state('');

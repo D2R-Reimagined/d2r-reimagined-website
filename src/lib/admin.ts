@@ -1,11 +1,12 @@
 import { apiRequest, apiUploadRequest, type ApiUploadProgress } from '$lib/auth';
-import type { LadderExtensionKind, LadderSummary } from '$lib/ladders';
+import type { LadderAllowedExtension, LadderExtensionKind, LadderSummary } from '$lib/ladders';
 
 // Re-exported so the admin pages keep importing these from one place.
 export type { LadderAllowedExtension, LadderExtensionKind } from '$lib/ladders';
 
 // The admin view is the public ladder plus the bundle only staff can act on.
 export interface Ladder extends LadderSummary {
+  allowedExtensions: LadderAllowedExtension[];
   activeBundle: LadderBundle | null;
 }
 
