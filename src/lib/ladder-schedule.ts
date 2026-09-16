@@ -24,6 +24,7 @@ export interface LadderSummary {
   name: string;
   startDateUtc: string;
   endDateUtc: string;
+  archivedAtUtc?: string | null;
   allowedExtensions: LadderAllowedExtension[];
 }
 

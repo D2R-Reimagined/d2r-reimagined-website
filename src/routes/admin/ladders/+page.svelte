@@ -435,11 +435,12 @@
     async function deleteSelectedLadder(): Promise<void> {
         if (!selectedLadder || deleteConfirmName !== selectedLadder.name) return;
         if (!confirm(
-            `Permanently delete "${selectedLadder.name}"?
+            `Archive and clean up "${selectedLadder.name}"?
 
 `
-            + 'Every character, save file, signed package and stored artifact belonging to '
-            + 'this ladder is destroyed. This cannot be undone.'
+            + 'Server saves, anti-cheat data, and ladder packages are permanently removed. '
+            + 'Characters, their viewer snapshots, and final leaderboard rankings remain available. '
+            + 'Players can use their local saves. This season cannot be restarted.'
         )) {
             return;
         }
@@ -454,9 +455,9 @@
             ladderBundles = [];
             resetDraft();
             await loadLadders();
-            notice = `Deleted "${result.name}": ${result.charactersDeleted} character(s), `
-                + `${result.saveFilesDeleted} save file(s), ${result.bundlesDeleted} package(s), `
-                + `${result.storedObjectsDeleted} stored object(s).`;
+            notice = `Archived "${result.name}". Characters and final rankings preserved. Removed `
+                + `${result.saveFilesDeleted} server save file(s), ${result.bundlesDeleted} package(s), `
+                + `${result.storedObjectsDeleted} stored object(s), and ladder anti-cheat data.`;
             if (result.storageWarning) {
                 error = result.storageWarning;
             }
@@ -512,7 +513,7 @@
                             onclick={() => editLadder(ladder)}
                             class={`rounded-lg border p-3 text-left transition ${selectedId === ladder.id ? 'border-ember-400 bg-ember-700/20' : 'border-parchment-300/20 hover:border-parchment-300/45'}`}
                     >
-                        <span class="block text-parchment-50">{ladder.name}</span>
+                        <span class="block text-parchment-50">{ladder.name}{ladder.archivedAtUtc ? ' — Archived' : ''}</span>
                         <span class="mt-1 block text-xs text-parchment-300">{new Date(ladder.startDateUtc).toLocaleString()}
                             – {new Date(ladder.endDateUtc).toLocaleString()}</span>
                         <span class="mt-1 block text-xs text-rarity">
@@ -528,6 +529,10 @@
         </aside>
 
         <form class="panel rounded-lg p-5 sm:p-7" onsubmit={(event) => { event.preventDefault(); void saveLadder(); }}>
+            {#if selectedLadder?.archivedAtUtc}
+                <p class="mb-4 text-sm text-parchment-300">Archived season. Character pages and final rankings remain available.</p>
+            {/if}
+            <fieldset disabled={!!selectedLadder?.archivedAtUtc}>
             <div class="flex flex-wrap items-start justify-between gap-4">
                 <div>
                     <p class="text-xs uppercase tracking-[0.18em] text-ember-400">{selectedLadder ? 'Editing ladder' : 'New ladder'}</p>
@@ -612,17 +617,19 @@
                         type="submit"
                         disabled={saving || optionalBusy}>{saving ? 'Saving…' : selectedId ? 'Save ladder' : 'Create ladder'}</button>
             </div>
+            </fieldset>
         </form>
 
         {#if selectedLadder}
             <section class="panel rounded-lg border border-requirement/40 p-5 sm:p-7">
                 <p class="text-xs uppercase tracking-[0.18em] text-requirement">Danger zone</p>
-                <h3 class="display-text mt-1 text-2xl">Delete this ladder</h3>
+                <h3 class="display-text mt-1 text-2xl">Archive and clean up this ladder</h3>
                 <p class="mt-2 max-w-3xl text-sm text-parchment-300">
-                    Removes <strong>{selectedLadder.name}</strong> along with every character and save
-                    file played on it, its extension policy, all signed package revisions, and the
-                    stored artifacts behind them. Plugin releases stay in the catalog, because other
-                    ladders may share them. This cannot be undone.
+                    Preserves <strong>{selectedLadder.name}</strong>, its characters, viewer snapshots,
+                    and final leaderboard rankings. Permanently removes server saves, anti-cheat data,
+                    extension policy, and ladder packages. Players can use their local saves.
+                    Shared plugin releases remain available. Only ended ladders can be cleaned up;
+                    archived seasons cannot be edited or restarted.
                 </p>
                 <div class="mt-5 grid gap-3 sm:max-w-xl">
                     <label>
@@ -634,13 +641,14 @@
                     </label>
                     <button class="justify-self-start rounded border border-requirement/60 px-4 py-2 text-requirement hover:bg-requirement/10 disabled:cursor-not-allowed disabled:opacity-40"
                             type="button"
-                            disabled={deleting || deleteConfirmName !== selectedLadder.name}
+                            disabled={deleting || deleteConfirmName !== selectedLadder.name || new Date(selectedLadder.endDateUtc) >= new Date()}
                             onclick={() => void deleteSelectedLadder()}>
-                        {deleting ? 'Deleting…' : 'Delete ladder permanently'}
+                        {deleting ? 'Cleaning up…' : 'Archive and clean up ladder'}
                     </button>
                 </div>
             </section>
 
+            {#if !selectedLadder.archivedAtUtc}
             <section class="panel rounded-lg p-5 sm:p-7 xl:col-start-2">
                 <div class="flex flex-wrap items-start justify-between gap-4">
                     <div>
@@ -810,6 +818,7 @@
                     </div>
                 </div>
             </section>
+            {/if}
         {/if}
     </div>
 {/if}
