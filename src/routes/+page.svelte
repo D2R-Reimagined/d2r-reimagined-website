@@ -1,7 +1,24 @@
 <script lang="ts">
     import {Button} from 'flowbite-svelte';
+    import {onMount} from 'svelte';
 
     let {data} = $props();
+
+    const ladderStart = '2026-09-18T16:00:00-05:00';
+    const ladderStartMs = Date.parse(ladderStart);
+    let now = $state<number | null>(null);
+    let secondsRemaining = $derived(Math.max(0, Math.ceil((ladderStartMs - (now ?? data.serverNow)) / 1000)));
+    let countdown = $derived([
+        {label: 'Hours', value: Math.floor(secondsRemaining / 3600)},
+        {label: 'Minutes', value: Math.floor(secondsRemaining / 60) % 60},
+        {label: 'Seconds', value: secondsRemaining % 60}
+    ]);
+
+    onMount(() => {
+        now = Date.now();
+        const timer = window.setInterval(() => { now = Date.now(); }, 1000);
+        return () => window.clearInterval(timer);
+    });
 
     let dataCards = $derived([
         {
@@ -53,6 +70,26 @@
             <p class="mt-6 max-w-xl text-lg leading-8 text-parchment-200 sm:text-xl">An expanded D2R experience shaped
                 by years of community ideas: deeper itemization, reworked skills, denser encounters, and much more to
                 discover.</p>
+            <div class="mt-8 max-w-md rounded-lg border border-ember-400/40 bg-black/60 p-5 backdrop-blur-sm">
+                {#if secondsRemaining > 0}
+                    <h2 class="display-text text-sm tracking-widest text-ember-400">Ladder starts in</h2>
+                    <div role="timer" aria-label="Time until ladder launch" aria-live="off"
+                         class="mt-4 grid grid-cols-3 gap-3 text-center">
+                        {#each countdown as unit}
+                            <div>
+                                <span class="block font-sans text-4xl font-semibold tabular-nums text-parchment-50 sm:text-5xl">{String(unit.value).padStart(2, '0')}</span>
+                                <span class="mt-1 block text-xs uppercase tracking-wider text-parchment-300">{unit.label}</span>
+                            </div>
+                        {/each}
+                    </div>
+                    <p class="mt-4 text-sm text-parchment-200">
+                        <time datetime={ladderStart}>September 18 · 4:00 PM Central (CDT)</time>
+                    </p>
+                {:else}
+                    <h2 role="status" class="display-text text-xl text-ember-400">The ladder is live</h2>
+                    <a href="/leaderboard" class="mt-3 inline-block text-parchment-50 underline decoration-ember-400/60 underline-offset-4 hover:text-ember-400">View the leaderboard →</a>
+                {/if}
+            </div>
             <div class="mt-8 flex flex-wrap gap-3">
                 <Button href="https://www.nexusmods.com/diablo2resurrected/mods/503" target="_blank" rel="noreferrer"
                         color="red">Get the mod

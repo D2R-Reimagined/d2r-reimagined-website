@@ -1,15 +1,16 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { apiRequest } from '$lib/auth';
-  import { getAdminUsers, type AdminUser } from '$lib/admin';
+  import { searchAdminUsers, type AdminUser } from '$lib/admin';
   type Pack = { id: string; name: string; isActive: boolean; portalIds: string[] };
   type Access = { portalIds: string[]; packIds: string[]; supporterTier: string | null; effective: { portals: { id: string; unlocked: boolean }[] } };
   let users = $state<AdminUser[]>([]), packs = $state<Pack[]>([]), catalog = $state<string[]>([]);
   let userId = $state(''), access = $state<Access | null>(null);
+  let userSearch = $state(''), userTotal = $state(0), hasSearchedUsers = $state(false), searchingUsers = $state(false);
   let portalIds = $state<string[]>([]), packIds = $state<string[]>([]);
   let editPackId = $state(''), packName = $state(''), packActive = $state(true), packPortals = $state<string[]>([]);
   let busy = $state(false), loading = $state(true), error = $state(''), notice = $state('');
-  let selectionVersion = 0;
+  let selectionVersion = 0, searchVersion = 0;
   const base = '/admin/portal-entitlements';
   const problem = (e: unknown) => e instanceof Error ? e.message : 'Could not save changes.';
   async function loadAccess() {
@@ -21,6 +22,26 @@
       if (version !== selectionVersion) return;
       access = result; portalIds = [...result.portalIds]; packIds = [...result.packIds];
     } catch (e) { if (version === selectionVersion) error = problem(e); }
+  }
+  async function findUsers() {
+    const search = userSearch.trim();
+    if (!search || searchingUsers) return;
+    const version = ++searchVersion;
+    const selectedUser = users.find(user => user.id === userId);
+    searchingUsers = true; error = ''; notice = '';
+    try {
+      const result = await searchAdminUsers({ search, count: 25 });
+      if (version !== searchVersion) return;
+      users = selectedUser && !result.items.some(user => user.id === selectedUser.id)
+        ? [selectedUser, ...result.items]
+        : result.items;
+      userTotal = result.total;
+      hasSearchedUsers = true;
+    } catch (e) {
+      if (version === searchVersion) error = problem(e);
+    } finally {
+      if (version === searchVersion) searchingUsers = false;
+    }
   }
   async function saveAccess() {
     if (!access || busy) return;
@@ -47,7 +68,7 @@
     } catch (e) { error = problem(e); } finally { busy = false; }
   }
   onMount(async () => {
-    try { [users, packs, catalog] = await Promise.all([getAdminUsers(), apiRequest<Pack[]>(base + '/packs', {}, true), apiRequest<string[]>(base + '/catalog', {}, true)]); }
+    try { [packs, catalog] = await Promise.all([apiRequest<Pack[]>(base + '/packs', {}, true), apiRequest<string[]>(base + '/catalog', {}, true)]); }
     catch (e) { error = problem(e); } finally { loading = false; }
   });
 </script>
@@ -61,12 +82,33 @@
 {:else}
 <section class="panel rounded-lg p-6 mb-6">
   <h3 class="display-text text-xl mb-4">User rewards</h3>
+  <form class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end" onsubmit={(event) => { event.preventDefault(); void findUsers(); }}>
+    <label class="min-w-0 flex-1">Find an account
+      <input
+        class="block w-full mt-2 rounded bg-black/40 p-3"
+        type="search"
+        required
+        maxlength="100"
+        placeholder="Display name or email"
+        bind:value={userSearch}
+        disabled={searchingUsers}
+      />
+    </label>
+    <button class="rounded border border-ember-400 px-4 py-3 disabled:opacity-50" type="submit" disabled={busy || searchingUsers || !userSearch.trim()}>
+      {searchingUsers ? 'Searching…' : 'Search'}
+    </button>
+  </form>
   <label class="block mb-4">Account
-    <select class="block w-full mt-2 rounded bg-black/40 p-3" bind:value={userId} onchange={() => void loadAccess()} disabled={busy}>
-      <option value="">Choose an account</option>
+    <select class="block w-full mt-2 rounded bg-black/40 p-3" bind:value={userId} onchange={() => void loadAccess()} disabled={busy || searchingUsers || users.length === 0}>
+      <option value="">{hasSearchedUsers ? 'Choose a matching account' : 'Search for an account first'}</option>
       {#each users as user}<option value={user.id}>{user.displayName} — {user.email}</option>{/each}
     </select>
   </label>
+  {#if hasSearchedUsers && userTotal === 0}
+    <p class="mb-4 text-sm text-parchment-300">No accounts matched that search.</p>
+  {:else if hasSearchedUsers && userTotal > 25}
+    <p class="mb-4 text-sm text-parchment-300">Showing the first 25 of {userTotal} matches. Refine the search to narrow the list.</p>
+  {/if}
   {#if access}
     <p class="mb-4">Discord tier: {access.supporterTier ?? 'None'}</p>
     <fieldset disabled={busy} class="mb-4">
@@ -108,4 +150,3 @@
   </form>
 </section>
 {/if}
-

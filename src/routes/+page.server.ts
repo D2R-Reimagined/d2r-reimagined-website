@@ -5,6 +5,7 @@ import cubeRecipes from '../../static/data/keyed/cube-recipes.json';
 
 export function load() {
   return {
+    serverNow: Date.now(),
     counts: {
       uniques: uniques.length,
       sets: sets.length,
