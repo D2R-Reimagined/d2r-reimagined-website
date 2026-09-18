@@ -22394,22 +22394,10 @@
   {
     "Index": 442,
     "Description": "",
-    "Op": 15,
-    "Param": 386,
-    "Value": 50,
     "RequiredClass": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
     "Inputs": [
-      {
-        "Name": {
-          "key": "bag",
-          "args": []
-        },
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "bag"
-      },
       {
         "Name": {
           "key": "PreCrafted Rotting Fissure",
@@ -22450,31 +22438,19 @@
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "xa1"
+      },
+      {
+        "Name": {
+          "key": "ooc",
+          "args": []
+        },
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ooc"
       }
     ],
     "Outputs": {
       "A": {
-        "Name": {
-          "key": "strCubeOutputReturnGemBag",
-          "args": []
-        },
-        "Quantity": 1,
-        "Qualifiers": [
-          {
-            "key": "strCubeQualifierKeepModifiers",
-            "args": []
-          }
-        ],
-        "Lines": [
-          {
-            "key": "StackedGem",
-            "args": [
-              -50
-            ]
-          }
-        ]
-      },
-      "B": {
         "Name": {
           "key": "Crafted Rotting Fissure",
           "args": []
@@ -22495,22 +22471,10 @@
   {
     "Index": 443,
     "Description": "",
-    "Op": 15,
-    "Param": 386,
-    "Value": 50,
     "RequiredClass": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
     "Inputs": [
-      {
-        "Name": {
-          "key": "bag",
-          "args": []
-        },
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "bag"
-      },
       {
         "Name": {
           "key": "PreCrafted Cold Rupture",
@@ -22551,31 +22515,19 @@
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "xa2"
+      },
+      {
+        "Name": {
+          "key": "ooc",
+          "args": []
+        },
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ooc"
       }
     ],
     "Outputs": {
       "A": {
-        "Name": {
-          "key": "strCubeOutputReturnGemBag",
-          "args": []
-        },
-        "Quantity": 1,
-        "Qualifiers": [
-          {
-            "key": "strCubeQualifierKeepModifiers",
-            "args": []
-          }
-        ],
-        "Lines": [
-          {
-            "key": "StackedGem",
-            "args": [
-              -50
-            ]
-          }
-        ]
-      },
-      "B": {
         "Name": {
           "key": "Crafted Cold Rupture",
           "args": []
@@ -22596,22 +22548,10 @@
   {
     "Index": 444,
     "Description": "",
-    "Op": 15,
-    "Param": 386,
-    "Value": 50,
     "RequiredClass": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
     "Inputs": [
-      {
-        "Name": {
-          "key": "bag",
-          "args": []
-        },
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "bag"
-      },
       {
         "Name": {
           "key": "PreCrafted Crack of the Heavens",
@@ -22652,31 +22592,19 @@
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "xa3"
+      },
+      {
+        "Name": {
+          "key": "ooc",
+          "args": []
+        },
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ooc"
       }
     ],
     "Outputs": {
       "A": {
-        "Name": {
-          "key": "strCubeOutputReturnGemBag",
-          "args": []
-        },
-        "Quantity": 1,
-        "Qualifiers": [
-          {
-            "key": "strCubeQualifierKeepModifiers",
-            "args": []
-          }
-        ],
-        "Lines": [
-          {
-            "key": "StackedGem",
-            "args": [
-              -50
-            ]
-          }
-        ]
-      },
-      "B": {
         "Name": {
           "key": "Crafted Crack of the Heavens",
           "args": []
@@ -22697,22 +22625,10 @@
   {
     "Index": 445,
     "Description": "",
-    "Op": 15,
-    "Param": 386,
-    "Value": 50,
     "RequiredClass": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
     "Inputs": [
-      {
-        "Name": {
-          "key": "bag",
-          "args": []
-        },
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "bag"
-      },
       {
         "Name": {
           "key": "PreCrafted Flame Rift",
@@ -22753,31 +22669,19 @@
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "xa4"
+      },
+      {
+        "Name": {
+          "key": "ooc",
+          "args": []
+        },
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ooc"
       }
     ],
     "Outputs": {
       "A": {
-        "Name": {
-          "key": "strCubeOutputReturnGemBag",
-          "args": []
-        },
-        "Quantity": 1,
-        "Qualifiers": [
-          {
-            "key": "strCubeQualifierKeepModifiers",
-            "args": []
-          }
-        ],
-        "Lines": [
-          {
-            "key": "StackedGem",
-            "args": [
-              -50
-            ]
-          }
-        ]
-      },
-      "B": {
         "Name": {
           "key": "Crafted Flame Rift",
           "args": []
@@ -22798,22 +22702,10 @@
   {
     "Index": 446,
     "Description": "",
-    "Op": 15,
-    "Param": 386,
-    "Value": 50,
     "RequiredClass": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
     "Inputs": [
-      {
-        "Name": {
-          "key": "bag",
-          "args": []
-        },
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "bag"
-      },
       {
         "Name": {
           "key": "PreCrafted Bone Break",
@@ -22854,31 +22746,19 @@
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "xa5"
+      },
+      {
+        "Name": {
+          "key": "ooc",
+          "args": []
+        },
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ooc"
       }
     ],
     "Outputs": {
       "A": {
-        "Name": {
-          "key": "strCubeOutputReturnGemBag",
-          "args": []
-        },
-        "Quantity": 1,
-        "Qualifiers": [
-          {
-            "key": "strCubeQualifierKeepModifiers",
-            "args": []
-          }
-        ],
-        "Lines": [
-          {
-            "key": "StackedGem",
-            "args": [
-              -50
-            ]
-          }
-        ]
-      },
-      "B": {
         "Name": {
           "key": "Crafted Bone Break",
           "args": []
@@ -22899,22 +22779,10 @@
   {
     "Index": 447,
     "Description": "",
-    "Op": 15,
-    "Param": 386,
-    "Value": 50,
     "RequiredClass": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
     "Inputs": [
-      {
-        "Name": {
-          "key": "bag",
-          "args": []
-        },
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "bag"
-      },
       {
         "Name": {
           "key": "PreCrafted Black Cleft",
@@ -22973,31 +22841,19 @@
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "xa5"
+      },
+      {
+        "Name": {
+          "key": "ooc",
+          "args": []
+        },
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ooc"
       }
     ],
     "Outputs": {
       "A": {
-        "Name": {
-          "key": "strCubeOutputReturnGemBag",
-          "args": []
-        },
-        "Quantity": 1,
-        "Qualifiers": [
-          {
-            "key": "strCubeQualifierKeepModifiers",
-            "args": []
-          }
-        ],
-        "Lines": [
-          {
-            "key": "StackedGem",
-            "args": [
-              -50
-            ]
-          }
-        ]
-      },
-      "B": {
         "Name": {
           "key": "Crafted Black Cleft",
           "args": []

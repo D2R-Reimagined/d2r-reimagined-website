@@ -20537,8 +20537,8 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
-          8,
-          8,
+          7,
+          7,
           "Skillname224",
           "DruOnly"
         ],
@@ -20547,8 +20547,8 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
-          6,
-          6,
+          7,
+          7,
           "Skillname225",
           "DruOnly"
         ],

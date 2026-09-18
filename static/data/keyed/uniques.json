@@ -837,6 +837,13 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
+        "key": "strModEnhancedDamage",
+        "args": [
+          15,
+          25
+        ]
+      },
+      {
         "key": "ModStr2z",
         "args": [
           5,
@@ -855,7 +862,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
-          1,
+          3,
           3,
           "Skillname225",
           "DruOnly"
@@ -872,12 +879,6 @@
         "key": "ModStr1u",
         "args": [
           25
-        ]
-      },
-      {
-        "key": "ModStr1e",
-        "args": [
-          20
         ]
       }
     ],
@@ -5096,53 +5097,45 @@
   {
     "Type": "peltitype",
     "Vanilla": "N",
-    "Index": "Copperbite",
+    "Index": "Swift Descent",
     "Enabled": true,
     "Rarity": 1,
     "ItemLevel": 1,
     "RequiredLevel": 8,
     "Code": "dr2",
-    "DamageArmorEnhanced": true,
+    "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "ModStre8a",
+        "key": "ModStr4v",
         "args": [
-          1
+          10,
+          20
         ]
       },
       {
-        "key": "strModPoisonDamageRange",
+        "key": "ModitemdamFiresk",
         "args": [
-          20,
-          20,
-          2
+          5
         ]
       },
       {
-        "key": "Modstr2v",
+        "key": "ModitemdamColdsk",
         "args": [
-          55,
-          75
+          5
         ]
       },
       {
         "key": "ModStr1i",
         "args": [
-          10,
-          15
+          15,
+          35
         ]
       },
       {
-        "key": "ModStr1n",
+        "key": "ModStr5f",
         "args": [
-          55
-        ]
-      },
-      {
-        "key": "ModStre9u",
-        "args": [
-          1,
-          7
+          2,
+          3
         ]
       }
     ],
@@ -5154,8 +5147,8 @@
         {
           "key": "strDefenseRange",
           "args": [
-            34,
-            43
+            19,
+            50
           ]
         },
         {
@@ -9386,7 +9379,7 @@
     "Index": "Morning After",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 1,
+    "ItemLevel": 12,
     "RequiredLevel": 12,
     "Code": "dr1",
     "DamageArmorEnhanced": true,
@@ -9394,15 +9387,26 @@
       {
         "key": "StrSklTabItem16",
         "args": [
-          1,
-          2
+          1
         ],
         "classOnly": "DruOnly"
       },
       {
-        "key": "strModEnhancedDamage",
+        "key": "strSkillRandomFromSkillClass",
         "args": [
-          20
+          2,
+          3,
+          "Skillname227",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          3,
+          "Skillname232",
+          "DruOnly"
         ]
       },
       {
@@ -9413,22 +9417,9 @@
         ]
       },
       {
-        "key": "ModStr2l",
-        "args": [
-          8,
-          12
-        ]
-      },
-      {
-        "key": "ModStr5f",
-        "args": [
-          5
-        ]
-      },
-      {
         "key": "strSocketedCount",
         "args": [
-          1
+          2
         ]
       }
     ],
@@ -12102,99 +12093,6 @@
           "key": "strRequiredClass",
           "args": [
             "Amazon"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Silverskin",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 12,
-    "RequiredLevel": 14,
-    "Code": "dr3",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "StrSklTabItem17",
-        "args": [
-          1,
-          3
-        ],
-        "classOnly": "DruOnly"
-      },
-      {
-        "key": "ModStr4s",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "strModColdDamageRange",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModStr5q",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr3l",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          35,
-          45
-        ]
-      },
-      {
-        "key": "ModStr2u",
-        "args": [
-          3,
-          5
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "dr3",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            53,
-            69
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            24
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
           ]
         }
       ]
@@ -15372,6 +15270,102 @@
     }
   },
   {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Silverskin",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 12,
+    "RequiredLevel": 15,
+    "Code": "dr3",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "StrSklTabItem17",
+        "args": [
+          1,
+          2
+        ],
+        "classOnly": "DruOnly"
+      },
+      {
+        "key": "ModStr4p",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "ModStr5q",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          2,
+          "Skillname234",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          35,
+          45
+        ]
+      },
+      {
+        "key": "ModStr2u",
+        "args": [
+          3,
+          5
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "dr3",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            53,
+            69
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            24
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "h2hitype",
     "Vanilla": "N",
     "Index": "Spirit Hawk",
@@ -16761,92 +16755,6 @@
           "key": "strRequiredStrength",
           "args": [
             34
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Swift Descent",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 12,
-    "RequiredLevel": 16,
-    "Code": "dr2",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "StrSklTabItem17",
-        "args": [
-          1,
-          2
-        ],
-        "classOnly": "DruOnly"
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "ModStr1f",
-        "args": [
-          6,
-          10
-        ]
-      },
-      {
-        "key": "ModStr1h",
-        "args": [
-          75
-        ]
-      },
-      {
-        "key": "ModStr2z",
-        "args": [
-          5
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          105,
-          125
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "dr2",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            32,
-            36
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            20
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
           ]
         }
       ]
@@ -19292,6 +19200,94 @@
     }
   },
   {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Copperbite",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 12,
+    "RequiredLevel": 18,
+    "Code": "dr2",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ModStre8a",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          1,
+          2,
+          "Skillname239",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          55,
+          75
+        ]
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          35,
+          40
+        ]
+      },
+      {
+        "key": "ModStr1n",
+        "args": [
+          25,
+          35
+        ]
+      },
+      {
+        "key": "ModStr5f",
+        "args": [
+          2
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "dr2",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            59,
+            68
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            20
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "ringitype",
     "Vanilla": "N",
     "Index": "Elven Heartband",
@@ -20263,83 +20259,6 @@
           "key": "strRequiredClass",
           "args": [
             "Necromancer"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Eye of Heaven",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 12,
-    "RequiredLevel": 19,
-    "Code": "dr4",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ModStr4v",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          65,
-          100
-        ]
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr1d",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr4b",
-        "args": [
-          1
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "dr4",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            47,
-            58
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            28
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
           ]
         }
       ]
@@ -24781,74 +24700,82 @@
   {
     "Type": "peltitype",
     "Vanilla": "N",
-    "Index": "Yamanda's Token",
+    "Index": "Eye of Heaven",
     "Enabled": true,
     "Rarity": 1,
     "ItemLevel": 17,
     "RequiredLevel": 21,
-    "Code": "dr3",
+    "Code": "dr4",
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "ModStre8a",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr3g",
+        "key": "ModStr4v",
         "args": [
           15,
           25
         ]
       },
       {
-        "key": "ModitemdamFiresk",
+        "key": "ModitemdamColdsk",
         "args": [
-          10
+          7,
+          13
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          2,
+          "Skillname236",
+          "DruOnly"
         ]
       },
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
-          3,
-          "Skillname227",
+          2,
+          "Skillname231",
           "DruOnly"
         ]
       },
       {
         "key": "Modstr2v",
         "args": [
-          110,
-          130
+          65,
+          100
         ]
       },
       {
-        "key": "ModStr3w",
+        "key": "ModStr1c",
         "args": [
-          5,
-          10
-        ]
-      },
-      {
-        "key": "ModStre9u",
-        "args": [
-          1,
           15
+        ]
+      },
+      {
+        "key": "ModStr1d",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr4b",
+        "args": [
+          1
         ]
       }
     ],
     "Equipment": {
       "EquipmentType": 0,
-      "NameKey": "dr3",
+      "NameKey": "dr4",
       "RequiredClass": "Druid",
       "Lines": [
         {
           "key": "strDefenseRange",
           "args": [
-            52,
-            57
+            47,
+            58
           ]
         },
         {
@@ -24861,7 +24788,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            24
+            28
           ]
         },
         {
@@ -27337,6 +27264,101 @@
     }
   },
   {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Yamanda's Token",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 17,
+    "RequiredLevel": 23,
+    "Code": "dr3",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ModStre8a",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr3g",
+        "args": [
+          15,
+          25
+        ]
+      },
+      {
+        "key": "ModStr1h",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "Moditemenresfiresk",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          1,
+          3,
+          "Skillname238",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          110,
+          130
+        ]
+      },
+      {
+        "key": "ModStre9u",
+        "args": [
+          1,
+          15
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "dr3",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            52,
+            57
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            24
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "hammitype",
     "Vanilla": "Y",
     "Index": "Bonesnap",
@@ -28086,91 +28108,6 @@
           "key": "strRequiredClass",
           "args": [
             "Necromancer"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Voltar's Feather",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 17,
-    "RequiredLevel": 24,
-    "Code": "dr4",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ModStr4s",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "strModLightningDamageRange",
-        "args": [
-          1,
-          75
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          115,
-          135
-        ]
-      },
-      {
-        "key": "ModStr1d",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ModStr1m",
-        "args": [
-          5,
-          10
-        ]
-      },
-      {
-        "key": "ModStr1l",
-        "args": [
-          25
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "dr4",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            62,
-            68
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            28
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
           ]
         }
       ]
@@ -30848,73 +30785,77 @@
   {
     "Type": "peltitype",
     "Vanilla": "N",
-    "Index": "Wraith Whisper",
+    "Index": "Voltar's Feather",
     "Enabled": true,
     "Rarity": 1,
     "ItemLevel": 17,
     "RequiredLevel": 25,
-    "Code": "dr5",
+    "Code": "dr4",
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "StrSklTabItem18",
+        "key": "ravenhits",
         "args": [
-          1,
           2
-        ],
-        "classOnly": "DruOnly"
+        ]
       },
       {
-        "key": "ModStre8a",
+        "key": "ModStr4s",
         "args": [
-          1
+          15
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          3,
+          "Skillname222",
+          "DruOnly"
         ]
       },
       {
         "key": "Modstr2v",
         "args": [
-          80,
-          110
+          115,
+          135
         ]
       },
       {
-        "key": "ModStr1k",
+        "key": "ModStr1d",
         "args": [
-          1
-        ],
-        "perLevel": true
+          20
+        ]
       },
       {
-        "key": "ModStr3f",
+        "key": "ModStr4g",
         "args": [
-          3,
+          20
+        ]
+      },
+      {
+        "key": "ModStr1m",
+        "args": [
           5
         ]
       },
       {
-        "key": "ModStre9u",
+        "key": "strModAllResistances",
         "args": [
-          1,
-          15
-        ]
-      },
-      {
-        "key": "strethereal",
-        "args": [
-          1
+          10
         ]
       }
     ],
     "Equipment": {
       "EquipmentType": 0,
-      "NameKey": "dr5",
+      "NameKey": "dr4",
       "RequiredClass": "Druid",
       "Lines": [
         {
           "key": "strDefenseRange",
           "args": [
-            95,
-            111
+            62,
+            68
           ]
         },
         {
@@ -30927,7 +30868,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            30
+            28
           ]
         },
         {
@@ -33924,6 +33865,116 @@
           "key": "strRequiredClass",
           "args": [
             "Barbarian"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Wraith Whisper",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 25,
+    "RequiredLevel": 27,
+    "Code": "dr5",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ModStr3k",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "strModLightningDamageRange",
+        "args": [
+          1,
+          111
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          80,
+          110
+        ]
+      },
+      {
+        "key": "ModStr1l",
+        "args": [
+          1
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "Moditemreanimas",
+        "args": [
+          5,
+          "Voltshade"
+        ]
+      },
+      {
+        "key": "ModStr3f",
+        "args": [
+          3,
+          5
+        ]
+      },
+      {
+        "key": "ModStre9u",
+        "args": [
+          1,
+          15
+        ]
+      },
+      {
+        "key": "strethereal",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "fadeDescription",
+        "args": []
+      },
+      {
+        "key": "strSocketedCount",
+        "args": [
+          1
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "dr5",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            95,
+            111
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            30
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
           ]
         }
       ]
@@ -38356,11 +38407,34 @@
     "Index": "Moon Shadow",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 17,
+    "ItemLevel": 25,
     "RequiredLevel": 29,
     "Code": "dr6",
     "DamageArmorEnhanced": true,
     "Lines": [
+      {
+        "key": "StrSklTabItem17",
+        "args": [
+          1,
+          2
+        ],
+        "classOnly": "DruOnly"
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          1,
+          2,
+          "Skillname228",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "ModStr3l",
+        "args": [
+          1
+        ]
+      },
       {
         "key": "Modstr2v",
         "args": [
@@ -38383,30 +38457,20 @@
         ]
       },
       {
-        "key": "ModStr1l",
-        "args": [
-          15,
-          30
-        ]
-      },
-      {
         "key": "ModitemHPaK",
         "args": [
+          5,
           10
         ]
       },
       {
         "key": "strSkillCharges",
         "args": [
-          3,
+          7,
           "Skillname268",
           15,
           15
         ]
-      },
-      {
-        "key": "fadeDescription",
-        "args": []
       }
     ],
     "Equipment": {
@@ -41786,96 +41850,6 @@
     }
   },
   {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Lion's Pride",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 25,
-    "RequiredLevel": 30,
-    "Code": "dr5",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ModStr4p",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "ModStr1g",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr5q",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          120,
-          140
-        ]
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          0.75
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          30
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "dr5",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            79,
-            86
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            30
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "h2hitype",
     "Vanilla": "N",
     "Index": "Key to the Madhouse",
@@ -43592,6 +43566,93 @@
           "key": "strRequiredClass",
           "args": [
             "Barbarian"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Dire Wolf Might",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 30,
+    "RequiredLevel": 31,
+    "Code": "dr5",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ModStr4p",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStr5c",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr5q",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          4,
+          "Skillname237",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          100,
+          125
+        ]
+      },
+      {
+        "key": "ModStr1a",
+        "args": [
+          1.25
+        ],
+        "perLevel": true
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "dr5",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            72,
+            81
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            30
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
           ]
         }
       ]
@@ -47793,37 +47854,38 @@
     "Index": "The King's Heart",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 25,
+    "ItemLevel": 30,
     "RequiredLevel": 34,
     "Code": "dr6",
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "ModStr3k",
+        "key": "ModitemAura",
+        "args": [
+          2,
+          5,
+          "skillname104"
+        ]
+      },
+      {
+        "key": "StrSklTabItem16",
+        "args": [
+          1,
+          2
+        ],
+        "classOnly": "DruOnly"
+      },
+      {
+        "key": "ModStre8a",
         "args": [
           1
         ]
       },
       {
-        "key": "strModEnhancedDamage",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          2,
-          3,
-          "Skillname239",
-          "DruOnly"
-        ]
-      },
-      {
         "key": "Modstr2v",
         "args": [
-          100,
-          125
+          65,
+          80
         ]
       },
       {
@@ -47835,7 +47897,14 @@
       {
         "key": "strModAllResistances",
         "args": [
-          25
+          15,
+          20
+        ]
+      },
+      {
+        "key": "strSocketedCount",
+        "args": [
+          2
         ]
       }
     ],
@@ -47847,8 +47916,8 @@
         {
           "key": "strDefenseRange",
           "args": [
-            126,
-            141
+            103,
+            113
           ]
         },
         {
@@ -54241,17 +54310,37 @@
     "Index": "Centaur's Sight",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 25,
+    "ItemLevel": 30,
     "RequiredLevel": 37,
     "Code": "dr8",
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "StrSklTabItem18",
+        "key": "ItemExpansiveChanc1",
         "args": [
-          2
+          10,
+          5,
+          "skillname8"
+        ]
+      },
+      {
+        "key": "StrSklTabItem17",
+        "args": [
+          1
         ],
         "classOnly": "DruOnly"
+      },
+      {
+        "key": "ModStre8a",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
       },
       {
         "key": "ModStr4p",
@@ -54260,22 +54349,9 @@
         ]
       },
       {
-        "key": "ModStr3y",
-        "args": [
-          1
-        ]
-      },
-      {
         "key": "ModStr4f",
         "args": [
-          75
-        ]
-      },
-      {
-        "key": "strSkillRandomClass",
-        "args": [
-          2,
-          "Druid"
+          25
         ]
       },
       {
@@ -60209,7 +60285,7 @@
     "Index": "Creeper's Canopy",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 30,
+    "ItemLevel": 35,
     "RequiredLevel": 40,
     "Code": "dr7",
     "DamageArmorEnhanced": true,
@@ -60217,15 +60293,23 @@
       {
         "key": "ModStr4p",
         "args": [
+          15,
           25
         ]
       },
       {
+        "key": "Moditemenrespoissk",
+        "args": [
+          5,
+          10
+        ]
+      },
+      {
         "key": "strSkillRandomFromSkillClass",
         "args": [
-          2,
+          3,
           5,
-          "Skillname224",
+          "Skillname225",
           "DruOnly"
         ]
       },
@@ -60233,15 +60317,15 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
-          5,
-          "Skillname233",
+          4,
+          "Skillname239",
           "DruOnly"
         ]
       },
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
-          2,
+          1,
           3,
           "Skillname243",
           "DruOnly"
@@ -60264,6 +60348,13 @@
         "key": "ModStr4g",
         "args": [
           50
+        ]
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          5,
+          10
         ]
       }
     ],
@@ -60290,87 +60381,6 @@
           "key": "strRequiredStrength",
           "args": [
             50
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Falcon Sharp",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 30,
-    "RequiredLevel": 40,
-    "Code": "dr9",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ItemExpansiveChanc1",
-        "args": [
-          10,
-          5,
-          "skillname8"
-        ]
-      },
-      {
-        "key": "StrSklTabItem17",
-        "args": [
-          1,
-          2
-        ],
-        "classOnly": "DruOnly"
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          50
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          125,
-          150
-        ]
-      },
-      {
-        "key": "Moditem2allattrib",
-        "args": [
-          10
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "dr9",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            198,
-            220
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            62
           ]
         },
         {
@@ -64911,102 +64921,6 @@
     }
   },
   {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Gathering of Hawks",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 30,
-    "RequiredLevel": 42,
-    "Code": "dr7",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "ravenhits",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          2,
-          3,
-          "Skillname222",
-          "DruOnly"
-        ]
-      },
-      {
-        "key": "strSkillRandomClass",
-        "args": [
-          3,
-          "Druid"
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          75,
-          100
-        ]
-      },
-      {
-        "key": "ModStr1u",
-        "args": [
-          0.5
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ModStr1k",
-        "args": [
-          0.5
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ModStr1j",
-        "args": [
-          0.5
-        ],
-        "perLevel": true
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "dr7",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            121,
-            168
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            50
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "axeitype",
     "Vanilla": "Y",
     "Index": "Islestrike",
@@ -66484,16 +66398,16 @@
   {
     "Type": "peltitype",
     "Vanilla": "N",
-    "Index": "Night Prowler",
+    "Index": "Falcon Sharp",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 25,
+    "ItemLevel": 35,
     "RequiredLevel": 43,
-    "Code": "dr8",
+    "Code": "dr9",
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "StrSklTabItem16",
+        "key": "StrSklTabItem18",
         "args": [
           1,
           2
@@ -66501,53 +66415,70 @@
         "classOnly": "DruOnly"
       },
       {
-        "key": "ModStre8a",
-        "args": [
-          2
-        ]
-      },
-      {
         "key": "ModStr4s",
         "args": [
-          50
+          30
         ]
       },
       {
-        "key": "ModStr4m",
+        "key": "Moditemenrescoldsk",
         "args": [
+          10,
           15
-        ]
-      },
-      {
-        "key": "ModStr4p",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ModStr4y",
-        "args": [
-          40
         ]
       },
       {
         "key": "Modstr2v",
         "args": [
-          120,
+          125,
           150
+        ]
+      },
+      {
+        "key": "Moditem2allattrib",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr1d",
+        "args": [
+          0.5
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          10,
+          20
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          25,
+          35
         ]
       }
     ],
     "Equipment": {
       "EquipmentType": 0,
-      "NameKey": "dr8",
+      "NameKey": "dr9",
       "RequiredClass": "Druid",
       "Lines": [
         {
           "key": "strDefenseRange",
           "args": [
-            180,
-            205
+            198,
+            220
           ]
         },
         {
@@ -66560,7 +66491,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            56
+            62
           ]
         },
         {
@@ -73320,14 +73251,20 @@
   {
     "Type": "peltitype",
     "Vanilla": "N",
-    "Index": "Phoenix Fall",
+    "Index": "Gathering of Hawks",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 43,
+    "ItemLevel": 45,
     "RequiredLevel": 46,
-    "Code": "dr9",
-    "DamageArmorEnhanced": true,
+    "Code": "dr7",
+    "DamageArmorEnhanced": false,
     "Lines": [
+      {
+        "key": "extraravens",
+        "args": [
+          5
+        ]
+      },
       {
         "key": "ModStre8a",
         "args": [
@@ -73335,57 +73272,44 @@
         ]
       },
       {
-        "key": "strModFireDamageRange",
+        "key": "ModStr1i",
         "args": [
-          35,
+          75,
           100
         ]
       },
       {
-        "key": "ModitemdamFiresk",
+        "key": "ModStr1u",
         "args": [
-          10,
-          15
-        ]
+          0.5
+        ],
+        "perLevel": true
       },
       {
-        "key": "Modstr2v",
+        "key": "ModStr1k",
         "args": [
-          160,
-          190
-        ]
+          0.5
+        ],
+        "perLevel": true
       },
       {
-        "key": "strModAllResistances",
+        "key": "ModStr1l",
         "args": [
-          15,
-          25
-        ]
-      },
-      {
-        "key": "ModStr3f",
-        "args": [
-          1,
-          3
-        ]
-      },
-      {
-        "key": "strSocketedCount",
-        "args": [
-          1
-        ]
+          0.5
+        ],
+        "perLevel": true
       }
     ],
     "Equipment": {
       "EquipmentType": 0,
-      "NameKey": "dr9",
+      "NameKey": "dr7",
       "RequiredClass": "Druid",
       "Lines": [
         {
           "key": "strDefenseRange",
           "args": [
-            228,
-            255
+            121,
+            168
           ]
         },
         {
@@ -73398,7 +73322,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            62
+            50
           ]
         },
         {
@@ -81684,6 +81608,105 @@
     }
   },
   {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "The Black Stag",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 45,
+    "RequiredLevel": 50,
+    "Code": "dr8",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ModitemAura",
+        "args": [
+          4,
+          6,
+          "skillname115"
+        ]
+      },
+      {
+        "key": "StrSklTabItem16",
+        "args": [
+          1,
+          2
+        ],
+        "classOnly": "DruOnly"
+      },
+      {
+        "key": "ModStre8a",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr4p",
+        "args": [
+          25
+        ]
+      },
+      {
+        "key": "ModStr4y",
+        "args": [
+          40
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          120,
+          150
+        ]
+      },
+      {
+        "key": "strSocketedCount",
+        "args": [
+          2
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "dr8",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            180,
+            205
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            56
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "h2hitype",
     "Vanilla": "N",
     "Index": "Full Suffering",
@@ -86205,12 +86228,6 @@
         ]
       },
       {
-        "key": "ModStr4c",
-        "args": [
-          20
-        ]
-      },
-      {
         "key": "Modstr2v",
         "args": [
           150,
@@ -86224,7 +86241,7 @@
         ]
       },
       {
-        "key": "ModStr1d",
+        "key": "ModStr1b",
         "args": [
           20
         ]
@@ -86232,7 +86249,7 @@
       {
         "key": "strModAllResistances",
         "args": [
-          30
+          20
         ]
       },
       {
@@ -92497,107 +92514,6 @@
     }
   },
   {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Sanctuary's Scion",
-    "Enabled": true,
-    "Rarity": 2,
-    "ItemLevel": 49,
-    "RequiredLevel": 59,
-    "Code": "drc",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ModStre8a",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "ModStr4c",
-        "args": [
-          35,
-          50
-        ]
-      },
-      {
-        "key": "strSkillRandomClass",
-        "args": [
-          4,
-          "Druid"
-        ]
-      },
-      {
-        "key": "strSkillRandomClass",
-        "args": [
-          3,
-          "Druid"
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          150,
-          200
-        ]
-      },
-      {
-        "key": "ModStr2uPercent",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModStr2t",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          25,
-          50
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "drc",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            370,
-            444
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            95
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "amulitype",
     "Vanilla": "Y",
     "Index": "Atma's Scarab",
@@ -94829,6 +94745,116 @@
     }
   },
   {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Phoenix Fall",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 55,
+    "RequiredLevel": 60,
+    "Code": "dr9",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          5,
+          5,
+          "Starfall"
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr1h",
+        "args": [
+          50,
+          75
+        ]
+      },
+      {
+        "key": "strModFireDamageRange",
+        "args": [
+          150,
+          250
+        ]
+      },
+      {
+        "key": "ModitemdamFiresk",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          5,
+          "Skillname250",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          175,
+          225
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          15,
+          25
+        ]
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          10,
+          15
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "dr9",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            242,
+            286
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            62
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "ringitype",
     "Vanilla": "N",
     "Index": "Plantar Enlightenment",
@@ -96186,96 +96212,6 @@
           "key": "strRequiredStrength",
           "args": [
             170
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "peltitype",
-    "Vanilla": "Y",
-    "Index": "Cerberus' Bite",
-    "Enabled": true,
-    "Rarity": 2,
-    "ItemLevel": 60,
-    "RequiredLevel": 63,
-    "Code": "drb",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "StrSklTabItem17",
-        "args": [
-          2,
-          4
-        ],
-        "classOnly": "DruOnly"
-      },
-      {
-        "key": "ModStr1h",
-        "args": [
-          100,
-          150
-        ]
-      },
-      {
-        "key": "ModStr2z",
-        "args": [
-          7,
-          10
-        ]
-      },
-      {
-        "key": "ModStr3m",
-        "args": [
-          33
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          2,
-          4,
-          "Skillname233",
-          "DruOnly"
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          130,
-          140
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "drb",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            335,
-            350
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            86
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
           ]
         }
       ]
@@ -100356,18 +100292,23 @@
         "key": "extraspiritwolves",
         "args": [
           1,
-          3
+          2
         ]
       },
       {
         "key": "extrasdirewolves",
         "args": [
-          1,
-          2
+          1
         ]
       },
       {
-        "key": "ModStr3k",
+        "key": "grizzlycap",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStre8a",
         "args": [
           1
         ]
@@ -100379,10 +100320,12 @@
         ]
       },
       {
-        "key": "strSkillRandomClass",
+        "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
-          "Druid"
+          3,
+          "Skillname224",
+          "DruOnly"
         ]
       },
       {
@@ -100395,14 +100338,14 @@
       {
         "key": "Modstr2v",
         "args": [
-          170,
-          200
+          150,
+          175
         ]
       },
       {
         "key": "ModStr3h2",
         "args": [
-          100
+          66
         ]
       }
     ],
@@ -100414,8 +100357,8 @@
         {
           "key": "strDefenseRange",
           "args": [
-            267,
-            297
+            247,
+            272
           ]
         },
         {
@@ -100428,7 +100371,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            130
+            107
           ]
         },
         {
@@ -100929,99 +100872,6 @@
           "key": "strRequiredDexterity",
           "args": [
             67
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "peltitype",
-    "Vanilla": "Y",
-    "Index": "Spirit Keeper",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 60,
-    "RequiredLevel": 67,
-    "Code": "drd",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ModStre8a",
-        "args": [
-          1,
-          2
-        ]
-      },
-      {
-        "key": "ModStr4p",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          170,
-          190
-        ]
-      },
-      {
-        "key": "ModStr5y",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr1j",
-        "args": [
-          30,
-          40
-        ]
-      },
-      {
-        "key": "ModStr5j",
-        "args": [
-          9,
-          14
-        ]
-      },
-      {
-        "key": "ModStr5m",
-        "args": [
-          9,
-          14
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "drd",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            413,
-            443
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            104
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
           ]
         }
       ]
@@ -104180,6 +104030,102 @@
     }
   },
   {
+    "Type": "peltitype",
+    "Vanilla": "Y",
+    "Index": "Spirit Keeper",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 60,
+    "RequiredLevel": 70,
+    "Code": "drd",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ModitemAura",
+        "args": [
+          5,
+          "skillname124"
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr4p",
+        "args": [
+          40
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          150,
+          200
+        ]
+      },
+      {
+        "key": "ModStrAllMaxRes",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "ModStr1m",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          30
+        ]
+      },
+      {
+        "key": "strSocketedCount",
+        "args": [
+          2
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "drd",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            382,
+            459
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            104
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "knifitype",
     "Vanilla": "Y",
     "Index": "Ghostflame",
@@ -106698,172 +106644,6 @@
     }
   },
   {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Eagle Eyes",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 80,
-    "RequiredLevel": 70,
-    "Code": "drc",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "extraravens",
-        "args": [
-          1,
-          3
-        ]
-      },
-      {
-        "key": "ravenhits",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "StrSklTabItem16",
-        "args": [
-          1,
-          3
-        ],
-        "classOnly": "DruOnly"
-      },
-      {
-        "key": "ModStr4v",
-        "args": [
-          15,
-          20
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          160,
-          210
-        ]
-      },
-      {
-        "key": "ModStr2u",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModStr3h2",
-        "args": [
-          100
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "drc",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            258,
-            357
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            190
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Stone Feather",
-    "Enabled": true,
-    "Rarity": 2,
-    "ItemLevel": 70,
-    "RequiredLevel": 70,
-    "Code": "drf",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ModStr3k",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          200,
-          300
-        ]
-      },
-      {
-        "key": "ModStr2uPercent",
-        "args": [
-          20,
-          30
-        ]
-      },
-      {
-        "key": "strSocketedCount",
-        "args": [
-          3
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "drf",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            480,
-            640
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            118
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "h2hitype",
     "Vanilla": "N",
     "Index": "Path of the Nightwalker",
@@ -108157,105 +107937,6 @@
     }
   },
   {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Spirit of the Land",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 65,
-    "RequiredLevel": 72,
-    "Code": "drd",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "ModStre8a",
-        "args": [
-          1,
-          2
-        ]
-      },
-      {
-        "key": "ModStr4s",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ModStr4p",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          175,
-          240
-        ]
-      },
-      {
-        "key": "Moditem2allattrib",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ModStr2g",
-        "args": [
-          10,
-          20
-        ]
-      },
-      {
-        "key": "ModStr1m",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModStr2uPercent",
-        "args": [
-          10,
-          20
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "drd",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            282,
-            392
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            104
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "helmitype",
     "Vanilla": "Y",
     "Index": "Veil of Steel",
@@ -109397,96 +109078,6 @@
           "key": "strRequiredStrength",
           "args": [
             106
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "peltitype",
-    "Vanilla": "Y",
-    "Index": "Ravenlore",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 82,
-    "RequiredLevel": 74,
-    "Code": "dre",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "StrSklTabItem18",
-        "args": [
-          3
-        ],
-        "classOnly": "DruOnly"
-      },
-      {
-        "key": "Moditemenresfiresk",
-        "args": [
-          10,
-          20
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          7,
-          7,
-          "Skillname222",
-          "DruOnly"
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          120,
-          150
-        ]
-      },
-      {
-        "key": "ModStr1d",
-        "args": [
-          20,
-          30
-        ]
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          15,
-          25
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "dre",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            343,
-            390
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            113
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
           ]
         }
       ]
@@ -111728,11 +111319,9 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "ItemExpansiveChanc2",
+        "key": "ModItemMonPoisonSunder",
         "args": [
-          5,
-          40,
-          "Skillname279"
+          300
         ]
       },
       {
@@ -111767,8 +111356,8 @@
       {
         "key": "ModStr1w",
         "args": [
-          30,
-          50
+          50,
+          75
         ]
       },
       {
@@ -111798,11 +111387,9 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "ItemExpansiveChanc2",
+        "key": "ModItemMonLightSunder",
         "args": [
-          5,
-          40,
-          "skillname42"
+          300
         ]
       },
       {
@@ -111836,8 +111423,8 @@
       {
         "key": "ModStr1w",
         "args": [
-          30,
-          50
+          50,
+          75
         ]
       },
       {
@@ -111867,11 +111454,9 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "ItemExpansiveChanc2",
+        "key": "ModItemMonColdSunder",
         "args": [
-          5,
-          40,
-          "skillname150"
+          300
         ]
       },
       {
@@ -111905,8 +111490,8 @@
       {
         "key": "ModStr1w",
         "args": [
-          30,
-          50
+          50,
+          75
         ]
       },
       {
@@ -111936,11 +111521,9 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "ItemExpansiveChanc2",
+        "key": "ModItemMonFireSunder",
         "args": [
-          5,
-          40,
-          "skillname52"
+          300
         ]
       },
       {
@@ -111974,8 +111557,8 @@
       {
         "key": "ModStr1w",
         "args": [
-          30,
-          50
+          50,
+          75
         ]
       },
       {
@@ -112005,25 +111588,23 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "ItemExpansiveChanc2",
+        "key": "ModItemMonPhysicalSunder",
         "args": [
-          5,
-          40,
-          "skillname149"
+          300
         ]
       },
       {
         "key": "strModEnhancedDamage",
         "args": [
-          100,
-          150
+          75,
+          100
         ]
       },
       {
         "key": "strModMinDamageRange",
         "args": [
-          25,
-          50
+          20,
+          40
         ]
       },
       {
@@ -112043,8 +111624,8 @@
       {
         "key": "ModStr1w",
         "args": [
-          30,
-          50
+          50,
+          75
         ]
       },
       {
@@ -112074,11 +111655,9 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "ItemExpansiveChanc2",
+        "key": "ModItemMonMagicSunder",
         "args": [
-          5,
-          40,
-          "BaneHexName"
+          300
         ]
       },
       {
@@ -112112,8 +111691,8 @@
       {
         "key": "ModStr1w",
         "args": [
-          30,
-          50
+          50,
+          75
         ]
       },
       {
@@ -115552,45 +115131,93 @@
   {
     "Type": "peltitype",
     "Vanilla": "N",
-    "Index": "Hecuba's Tresses",
+    "Index": "Sanctuary's Scion",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 75,
+    "ItemLevel": 70,
     "RequiredLevel": 75,
-    "Code": "dre",
-    "DamageArmorEnhanced": false,
+    "Code": "drc",
+    "DamageArmorEnhanced": true,
     "Lines": [
       {
         "key": "ModStre8a",
         "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr4c",
+        "args": [
+          35,
+          40
+        ]
+      },
+      {
+        "key": "ModitemdamPoissk",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          5,
+          5,
+          "Skillname247",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
           3,
-          4
+          5,
+          "Skillname239",
+          "DruOnly"
         ]
       },
       {
-        "key": "ModStr1i",
+        "key": "strSkillRandomFromSkillClass",
         "args": [
-          240,
-          300
+          2,
+          4,
+          "Skillname243",
+          "DruOnly"
         ]
       },
       {
-        "key": "strSocketedCount",
+        "key": "Modstr2v",
         "args": [
-          3
+          150,
+          200
+        ]
+      },
+      {
+        "key": "ModStr5y",
+        "args": [
+          3,
+          5
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          25,
+          50
         ]
       }
     ],
     "Equipment": {
       "EquipmentType": 0,
-      "NameKey": "dre",
+      "NameKey": "drc",
       "RequiredClass": "Druid",
       "Lines": [
         {
           "key": "strDefenseRange",
           "args": [
-            343,
-            455
+            370,
+            444
           ]
         },
         {
@@ -115603,7 +115230,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            113
+            95
           ]
         },
         {
@@ -119775,6 +119402,116 @@
           "key": "strRequiredDexterity",
           "args": [
             98
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "peltitype",
+    "Vanilla": "Y",
+    "Index": "Cerberus' Bite",
+    "Enabled": true,
+    "Rarity": 2,
+    "ItemLevel": 80,
+    "RequiredLevel": 80,
+    "Code": "drb",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "StrSklTabItem17",
+        "args": [
+          3,
+          5
+        ],
+        "classOnly": "DruOnly"
+      },
+      {
+        "key": "ModStr1h",
+        "args": [
+          75,
+          100
+        ]
+      },
+      {
+        "key": "Moditemenresfiresk",
+        "args": [
+          10,
+          20
+        ]
+      },
+      {
+        "key": "ModStr3m",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          3,
+          "Skillname238",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          130,
+          150
+        ]
+      },
+      {
+        "key": "ModStr5g",
+        "args": [
+          6,
+          9
+        ]
+      },
+      {
+        "key": "ModStr5z",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModitemHPaK",
+        "args": [
+          7,
+          9
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "drb",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            335,
+            365
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            86
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
           ]
         }
       ]
@@ -125387,112 +125124,6 @@
     }
   },
   {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Call of the Wild",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 85,
-    "RequiredLevel": 81,
-    "Code": "drb",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "StrSklTabItem17",
-        "args": [
-          2,
-          4
-        ],
-        "classOnly": "DruOnly"
-      },
-      {
-        "key": "ModStr4p",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "strModMinDamageRange",
-        "args": [
-          30,
-          60
-        ]
-      },
-      {
-        "key": "ModStr2z",
-        "args": [
-          6
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          3,
-          5,
-          "Skillname224",
-          "DruOnly"
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          3,
-          6,
-          "Skillname249",
-          "DruOnly"
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          3,
-          5,
-          "Skillname233",
-          "DruOnly"
-        ]
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          20
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "drb",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            101,
-            145
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            86
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "h2hitype",
     "Vanilla": "N",
     "Index": "Biteblade",
@@ -127131,6 +126762,117 @@
           "key": "strRequiredStrength",
           "args": [
             151
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Spirit of the Land",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 80,
+    "RequiredLevel": 83,
+    "Code": "drd",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "extra_grizzly_bears",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr4p",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          5,
+          "Skillname248",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          3,
+          "Skillname229",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          5,
+          7,
+          "Skillname242",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          175,
+          200
+        ]
+      },
+      {
+        "key": "Moditem2allattrib",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          5,
+          10
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "drd",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            420,
+            459
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            104
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
           ]
         }
       ]
@@ -131431,6 +131173,195 @@
     }
   },
   {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Belenu's Blessing",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 80,
+    "RequiredLevel": 85,
+    "Code": "drc",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "ModitemAura",
+        "args": [
+          5,
+          "skillname100"
+        ]
+      },
+      {
+        "key": "StrSklTabItem18",
+        "args": [
+          2,
+          3
+        ],
+        "classOnly": "DruOnly"
+      },
+      {
+        "key": "ModitemdamFiresk",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          160,
+          210
+        ]
+      },
+      {
+        "key": "ModStr1u",
+        "args": [
+          35,
+          45
+        ]
+      },
+      {
+        "key": "ModStr5u",
+        "args": [
+          3,
+          5
+        ]
+      },
+      {
+        "key": "ModitemHPaK",
+        "args": [
+          7
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "drc",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            258,
+            357
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            95
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Hecuba's Tresses",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 80,
+    "RequiredLevel": 85,
+    "Code": "dre",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "ModitemAura",
+        "args": [
+          5,
+          "skillname105"
+        ]
+      },
+      {
+        "key": "StrSklTabItem18",
+        "args": [
+          3,
+          4
+        ],
+        "classOnly": "DruOnly"
+      },
+      {
+        "key": "ModStr4v",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "Moditemenrescoldsk",
+        "args": [
+          15,
+          25
+        ]
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          180,
+          190
+        ]
+      },
+      {
+        "key": "ModStr5v",
+        "args": [
+          3,
+          5
+        ]
+      },
+      {
+        "key": "ModStr5f",
+        "args": [
+          5
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "dre",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            283,
+            345
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            113
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "h2hitype",
     "Vanilla": "N",
     "Index": "Storm Talons",
@@ -133318,113 +133249,6 @@
     }
   },
   {
-    "Type": "peltitype",
-    "Vanilla": "N",
-    "Index": "Call of the Kindred",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 85,
-    "RequiredLevel": 86,
-    "Code": "drf",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "StrSklTabItem16",
-        "args": [
-          2
-        ],
-        "classOnly": "DruOnly"
-      },
-      {
-        "key": "ModStr4p",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          3,
-          5,
-          "Skillname228",
-          "DruOnly"
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          3,
-          5,
-          "Skillname238",
-          "DruOnly"
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          3,
-          5,
-          "Skillname248",
-          "DruOnly"
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          200,
-          240
-        ]
-      },
-      {
-        "key": "ModStr1u",
-        "args": [
-          1.5
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ModStr1e",
-        "args": [
-          1.5
-        ],
-        "perLevel": true
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "drf",
-      "RequiredClass": "Druid",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            309,
-            399
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            118
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Druid"
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "hammitype",
     "Vanilla": "Y",
     "Index": "The Cranium Basher",
@@ -134731,6 +134555,122 @@
     }
   },
   {
+    "Type": "peltitype",
+    "Vanilla": "Y",
+    "Index": "Ravenlore",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 85,
+    "RequiredLevel": 89,
+    "Code": "dre",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "extraravens",
+        "args": [
+          2,
+          3
+        ]
+      },
+      {
+        "key": "ravenhits",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "StrSklTabItem16",
+        "args": [
+          2,
+          3
+        ],
+        "classOnly": "DruOnly"
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          30,
+          "skillname57"
+        ]
+      },
+      {
+        "key": "ModStr4v",
+        "args": [
+          15,
+          25
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          120,
+          150
+        ]
+      },
+      {
+        "key": "ModStr1d",
+        "args": [
+          15,
+          25
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          15,
+          25
+        ]
+      },
+      {
+        "key": "ModStr5m",
+        "args": [
+          6,
+          9
+        ]
+      },
+      {
+        "key": "ModStr5i",
+        "args": [
+          6,
+          9
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "dre",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            343,
+            390
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            113
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "bowitype",
     "Vanilla": "N",
     "Index": "Freedom's Flight",
@@ -134935,6 +134875,113 @@
           "key": "strRequiredDexterity",
           "args": [
             119
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Call of the Kindred",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 85,
+    "RequiredLevel": 89,
+    "Code": "drf",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "extraspiritwolves",
+        "args": [
+          2,
+          3
+        ]
+      },
+      {
+        "key": "extrasdirewolves",
+        "args": [
+          1,
+          2
+        ]
+      },
+      {
+        "key": "grizzlycap",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "StrSklTabItem16",
+        "args": [
+          1,
+          2
+        ],
+        "classOnly": "DruOnly"
+      },
+      {
+        "key": "ModStr4s",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          150,
+          200
+        ]
+      },
+      {
+        "key": "ModStr1u",
+        "args": [
+          1.5
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ModStr1e",
+        "args": [
+          1.5
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ModStr3h2",
+        "args": [
+          66
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "drf",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            259,
+            359
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            195
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
           ]
         }
       ]
@@ -136138,6 +136185,230 @@
       "NameKey": "cqv",
       "RequiredClass": "",
       "Lines": []
+    }
+  },
+  {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Call of the Wild",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 85,
+    "RequiredLevel": 91,
+    "Code": "drb",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          100,
+          1,
+          "SkillnameMetamorphosisWolf"
+        ]
+      },
+      {
+        "key": "ModStre8a",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "strModMinDamageRange",
+        "args": [
+          33,
+          66
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          6,
+          6,
+          "Skillname224",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          6,
+          "Skillname249",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          6,
+          "Skillname233",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          6,
+          6,
+          "Skillname225",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          66,
+          99
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          20
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "drb",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            167,
+            244
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            86
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Stone Hide",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 85,
+    "RequiredLevel": 91,
+    "Code": "drf",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          100,
+          1,
+          "SkillnameMetamorphosisBear"
+        ]
+      },
+      {
+        "key": "ModStre8a",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr4p",
+        "args": [
+          15,
+          25
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          4,
+          "Skillname244",
+          "DruOnly"
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          300,
+          350
+        ]
+      },
+      {
+        "key": "ModStr2g",
+        "args": [
+          15,
+          25
+        ]
+      },
+      {
+        "key": "ModStr1m",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr3h2",
+        "args": [
+          150
+        ]
+      },
+      {
+        "key": "res-curse-len",
+        "args": [
+          20
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "drf",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            640,
+            720
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            295
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
     }
   },
   {

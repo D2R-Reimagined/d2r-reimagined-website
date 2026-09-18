@@ -1,5 +1,50 @@
-=== Missing Translation Keys (2) ===
+=== Missing Translation Keys (47) ===
 Add these to your supplemental translation file to resolve them.
 
+  Act 5 Combatant
+  Act 5 Townguard
+  Akara
+  Atma
+  Bunny
+  Charsi
+  DeckardCain
+  Drehya
+  Drognan
+  Elzix
+  Fara
+  Geglash
+  Gheed
+  Greiz
+  Injured Barbarian 1
+  Injured Barbarian 2
+  Injured Barbarian 3
+  Jamella
+  Jerhyn
+  Kaelan
+  Kashya
+  Larzuk
+  Lysander
+  Malachai
+  Malah
+  Meshif
+  Natalya
+  Nihlathak
+  Nihlathak Town
+  POW
+  Prison Door
+  Qual-Kehk
   StrSkillRunWalkRange
+  Turret
+  Warriv
+  Worldstone Effect
+  a trap
+  alkor
+  asheara
+  compellingorb
+  halbu
+  hratli
+  meshif
+  navi
+  ormus
   skillnameskele
+  tyrael
