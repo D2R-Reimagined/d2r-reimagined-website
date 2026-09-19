@@ -56,6 +56,23 @@ export interface LeaderboardRequest {
   search?: string;
 }
 
+export const leaderboardClasses = [
+  'Amazon', 'Assassin', 'Barbarian', 'Druid', 'Necromancer', 'Paladin', 'Sorceress', 'Warlock'
+];
+
+export function leaderboardClass(value: string | null): string {
+  return leaderboardClasses.find((name) => name.toLowerCase() === value?.trim().toLowerCase()) ?? '';
+}
+
+export function leaderboardFilterUrl(url: URL, ladderId: string | null, characterClass: string): URL {
+  const next = new URL(url);
+  // An explicit empty ladderId means Standard; omission selects the default ladder.
+  next.searchParams.set('ladderId', ladderId ?? '');
+  if (characterClass) next.searchParams.set('class', characterClass);
+  else next.searchParams.delete('class');
+  return next;
+}
+
 export function leaderboardQuery(request: LeaderboardRequest = {}): URLSearchParams {
   const parameters = new URLSearchParams();
   parameters.set('skip', String(request.skip ?? 0));

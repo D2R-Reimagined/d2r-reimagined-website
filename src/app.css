@@ -61,6 +61,18 @@ body {
 button, a, input, select, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 
+/* Native popup menus need opaque colors; translucent select backgrounds can
+   leave pale text on the operating system's light option background. */
+select { color-scheme: dark; }
+select option, select optgroup {
+  background-color: var(--color-abyss-850);
+  color: var(--color-parchment-50);
+}
+select option:checked {
+  background-color: var(--color-ember-700);
+  color: #fff;
+}
+
 a:focus-visible, button:focus-visible, input:focus-visible,
 select:focus-visible, textarea:focus-visible {
   outline: 2px solid var(--color-ember-400);

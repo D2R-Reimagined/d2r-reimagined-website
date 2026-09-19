@@ -5,6 +5,7 @@ import type { CharacterSource } from '$lib/leaderboard-entries';
 export type { CharacterSource };
 
 export interface CharacterResponse {
+  leaderboardBlacklisted?: boolean;
   id: string;
   userId: string;
   ownerDisplayName: string;
@@ -189,6 +190,13 @@ export function getCharacterDetails(id: string): Promise<CharacterDetailsRespons
     {},
     'optional'
   );
+}
+
+export function updateCharacterLeaderboardBlacklist(id: string, blacklisted: boolean): Promise<CharacterResponse> {
+  return apiRequest<CharacterResponse>(`/characters/${encodeURIComponent(id)}/leaderboard-blacklist`, {
+    method: 'PUT',
+    body: JSON.stringify({ blacklisted })
+  }, true);
 }
 
 export function parseCharacterSave(file: File): Promise<ParsedCharacterSave> {

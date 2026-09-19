@@ -1,5 +1,6 @@
 ﻿<script lang="ts">
   import CharacterItem from '$lib/components/CharacterItem.svelte';
+  import CharacterLeaderboardModeration from '$lib/components/CharacterLeaderboardModeration.svelte';
   import SkillTreeView from '$lib/components/skills/SkillTreeView.svelte';
   import { formatLastLogged } from '$lib/character-activity';
   import { characterSkillRanks } from '$lib/character-skill-ranks';
@@ -195,6 +196,10 @@
     return () => window.clearInterval(timer);
   });
 </script>
+
+{#if !embedded && !inventoryOnly}
+  {#key details.character.id}<CharacterLeaderboardModeration character={details.character} />{/key}
+{/if}
 
 {#if !save}
   <div class="panel rounded-lg p-8 text-center">

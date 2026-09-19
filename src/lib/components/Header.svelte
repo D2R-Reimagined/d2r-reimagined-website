@@ -189,7 +189,7 @@
       </button>
     </div>
 
-    <div class:hidden={!mobileOpen} class="absolute left-0 right-0 top-16 border-b border-parchment-300/20 bg-abyss-950 p-4 xl:static xl:order-2 xl:ml-auto xl:flex xl:items-center xl:gap-1 xl:border-0 xl:bg-transparent xl:p-0">
+    <div class:hidden={!mobileOpen} class="absolute left-0 right-0 top-16 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-y-contain border-b border-parchment-300/20 bg-abyss-950 p-4 xl:static xl:order-2 xl:ml-auto xl:flex xl:max-h-none xl:items-center xl:gap-1 xl:overflow-visible xl:border-0 xl:bg-transparent xl:p-0">
       <div class="flex flex-col gap-1 xl:flex-row xl:items-center xl:whitespace-nowrap">
         <a href="/" onclick={closeMenus} class={navClass('/')}>Home</a>
         <a href="/download" onclick={closeMenus} class={navClass('/download')}>Download</a>

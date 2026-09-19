@@ -1,5 +1,8 @@
 <script lang="ts">
   import { untrack } from 'svelte';
+  import { replaceState } from '$app/navigation';
+  import { page } from '$app/state';
+  import { leaderboardClasses as classes, leaderboardFilterUrl } from '$lib/leaderboard-entries';
   import { authState } from '$lib/auth';
   import OnlinePlayers from '$lib/components/OnlinePlayers.svelte';
   import { debounced } from '$lib/debounce.svelte';
@@ -17,16 +20,6 @@
   let { data }: { data: PageData } = $props();
 
   const pageSize = 25;
-  const classes = [
-    'Amazon',
-    'Assassin',
-    'Barbarian',
-    'Druid',
-    'Necromancer',
-    'Paladin',
-    'Sorceress',
-    'Warlock'
-  ];
 
   // The server render is what is on screen until a client fetch replaces it, so
   // the board is derived from whichever is current rather than copied out of
@@ -45,7 +38,8 @@
   let ladderChoice = $state<string | null | undefined>(undefined);
   let ladderId = $derived(ladderChoice === undefined ? data.selectedLadderId : ladderChoice);
 
-  let selectedClass = $state('');
+  let classChoice = $state<string | undefined>(undefined);
+  let selectedClass = $derived(classChoice ?? data.selectedClass);
   let hardcoreOnly = $state(false);
   let search = $state('');
   const searchTerm = debounced(() => search);
@@ -63,6 +57,7 @@
       clientBoard = null;
       clientError = null;
       ladderChoice = undefined;
+      classChoice = undefined;
       myEntries = [];
       myBoardSize = 0;
       loading = false;
@@ -147,10 +142,12 @@
     ladderChoice = next;
 
     // Keeps a shared link pointing at the board being looked at.
-    const url = new URL(window.location.href);
-    if (next) url.searchParams.set('ladderId', next);
-    else url.searchParams.delete('ladderId');
-    history.replaceState(history.state, '', url);
+    replaceState(leaderboardFilterUrl(page.url, next, selectedClass), page.state);
+  }
+
+  function chooseClass(next: string): void {
+    classChoice = next;
+    replaceState(leaderboardFilterUrl(page.url, ladderId, next), page.state);
   }
 
   function standingLabel(entry: LeaderboardEntry): string {
@@ -225,7 +222,7 @@
 
     <div class="mt-3 flex flex-wrap items-center gap-3 border-t border-parchment-300/15 pt-3">
       <label class="sr-only" for="leaderboard-class">Class</label>
-      <select id="leaderboard-class" class="control" bind:value={selectedClass}>
+      <select id="leaderboard-class" class="control" value={selectedClass} onchange={(event) => chooseClass(event.currentTarget.value)}>
         <option value="">All classes</option>
         {#each classes as characterClass (characterClass)}
           <option value={characterClass}>{characterClass}</option>
