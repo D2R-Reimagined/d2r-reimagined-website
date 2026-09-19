@@ -9,6 +9,7 @@
   let { children } = $props();
 
   const links = [
+    { href: '/admin/global-chat', label: 'Global chat', detail: 'Chat live with players in game' },
     { href: '/admin/feedback', label: 'Feedback', detail: 'Bug reports and suggestions' },
     { href: '/admin/portals', label: 'Portal rewards', detail: 'Individual grants and supporter packs' },
     {
