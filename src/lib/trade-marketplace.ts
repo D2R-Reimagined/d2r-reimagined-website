@@ -1,3 +1,5 @@
+import { browser } from '$app/environment';
+import { apiRequest } from '$lib/auth';
 import { env } from '$env/dynamic/public';
 import { error } from '@sveltejs/kit';
 import {
@@ -21,11 +23,13 @@ export async function loadTradeMarketplace(
   if (realm.kind === 'standard') query.set('isLadder', 'false');
 
   try {
-    const response = await fetch(`${api}/trades?${query}`);
+    const listings = browser
+      ? await apiRequest<TradeListingPage>(`/trades?${query}`, {}, 'optional')
+      : await fetch(`${api}/trades?${query}`).then(response => response.ok ? response.json() as Promise<TradeListingPage> : null);
     return {
       ladders,
       realm,
-      initialListings: response.ok ? await response.json() as TradeListingPage : null
+      initialListings: listings
     };
   } catch {
     return { ladders, realm, initialListings: null };

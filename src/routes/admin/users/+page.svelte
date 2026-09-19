@@ -3,6 +3,7 @@
 
   import { searchAdminUsers, updateUserRoles, type AdminUser } from '$lib/admin';
   import { ApiError, authState } from '$lib/auth';
+  import ParticipationEditor from '$lib/components/ParticipationEditor.svelte';
   import RoleToggle from '$lib/components/RoleToggle.svelte';
 
   const pageSize = 25;
@@ -16,6 +17,7 @@
   let roleSavingId = $state<string | null>(null);
   let error = $state('');
   let notice = $state('');
+  let editingUserId = $state<string | null>(null);
   let requestSequence = 0;
 
   let currentPage = $derived(Math.floor(skip / pageSize) + 1);
@@ -85,7 +87,7 @@
 
 <div class="mb-6">
   <h2 class="display-text mt-1 text-3xl text-parchment-50">Users</h2>
-  <p class="mt-2 text-parchment-300">Assign Admin and Moderator access. Changes take effect immediately.</p>
+  <p class="mt-2 text-parchment-300">Manage roles and account-wide trade or leaderboard bans. Search by display name, email, character name, or user ID.</p>
 </div>
 
 {#if error}<div class="mb-5 rounded-lg border border-requirement/45 bg-requirement/10 p-4 text-requirement">{error}</div>{/if}
@@ -98,7 +100,7 @@
       class="mt-2 block w-full rounded border border-parchment-300/25 bg-black/40 px-3 py-2 text-parchment-50 placeholder:text-parchment-300/60"
       type="search"
       maxlength="100"
-      placeholder="Display name or email"
+      placeholder="Display name, email, character, or user ID"
       bind:value={searchInput}
     />
   </label>
@@ -121,10 +123,10 @@
     <div class="overflow-x-auto">
       <table class="w-full min-w-[42rem] text-left text-sm">
         <thead class="border-b border-parchment-300/20 text-parchment-300">
-          <tr><th class="px-3 py-3">User</th><th class="px-3 py-3">Email</th><th class="px-3 py-3">Admin</th><th class="px-3 py-3">Moderator</th><th class="px-3 py-3">Joined</th></tr>
+          <tr><th class="px-3 py-3">User</th><th class="px-3 py-3">Email</th><th class="px-3 py-3">Admin</th><th class="px-3 py-3">Moderator</th><th class="px-3 py-3">Tester</th><th class="px-3 py-3">Participation</th><th class="px-3 py-3">Joined</th></tr>
         </thead>
         <tbody>
-          {#each users as user}
+          {#each users as user (user.id)}
             <tr class="border-b border-parchment-300/10 last:border-0">
               <td class="px-3 py-3 text-parchment-50">{user.displayName}</td>
               <td class="px-3 py-3 text-parchment-300">{user.email || 'Provider account'}</td>
@@ -145,10 +147,31 @@
                   onToggle={(enabled) => void toggleRole(user, 'Moderator', enabled)}
                 />
               </td>
+              <td class="px-3 py-3">
+                <RoleToggle checked={user.roles.includes('Tester')} disabled={roleSavingId === user.id}
+                  label={`Tester role for ${user.displayName}`}
+                  onToggle={(enabled) => void toggleRole(user, 'Tester', enabled)} />
+              </td>
+              <td class="px-3 py-3">
+                <p class={user.tradeBanned || user.leaderboardBanned ? 'text-requirement' : 'text-parchment-300'}>
+                  {user.tradeBanned ? 'Trade banned' : 'Trade allowed'} · {user.leaderboardBanned ? 'Leaderboards banned' : 'Leaderboards allowed'}
+                </p>
+                <button type="button" class="mt-2 text-ember-400 underline disabled:opacity-50" disabled={roleSavingId !== null || loading}
+                  onclick={() => { editingUserId = editingUserId === user.id ? null : user.id; }}>Manage bans</button>
+              </td>
               <td class="px-3 py-3 text-parchment-300">{new Date(user.createdAtUtc).toLocaleDateString()}</td>
             </tr>
+            {#if editingUserId === user.id}
+              <tr><td colspan="7" class="px-3 py-4">
+                <ParticipationEditor {user} oncancel={() => editingUserId = null} onsaved={(updated) => {
+                  users = users.map(entry => entry.id === updated.id ? updated : entry);
+                  editingUserId = null;
+                  notice = `${updated.displayName}'s participation settings were saved.`;
+                }} />
+              </td></tr>
+            {/if}
           {:else}
-            <tr><td class="px-3 py-8 text-center text-parchment-300" colspan="5">{appliedSearch ? 'No users match this search.' : 'No users found.'}</td></tr>
+            <tr><td class="px-3 py-8 text-center text-parchment-300" colspan="7">{appliedSearch ? 'No users match this search.' : 'No users found.'}</td></tr>
           {/each}
         </tbody>
       </table>

@@ -1,5 +1,8 @@
 <script lang="ts">
   import { page } from '$app/state';
+  import { invalidateAll } from '$app/navigation';
+  import { untrack } from 'svelte';
+  import { authState } from '$lib/auth';
   import Footer from '$lib/components/Footer.svelte';
   import Header from '$lib/components/Header.svelte';
   import BackToTop from '$lib/components/BackToTop.svelte';
@@ -15,6 +18,13 @@
   let canonical = $derived(page.url.origin + page.url.pathname);
   let socialImage = $derived(new URL('/images/reimagined-hero.jpg', page.url.origin).toString());
   let isTradeRoute = $derived(page.url.pathname === '/trade' || page.url.pathname.startsWith('/trade/'));
+  let lastIdentity: string | undefined;
+  $effect(() => {
+    if (!$authState.ready) return;
+    const identity = `${$authState.user?.id ?? ''}:${$authState.user?.roles.join(',') ?? ''}`;
+    if (lastIdentity !== undefined && lastIdentity !== identity) untrack(() => void invalidateAll());
+    lastIdentity = identity;
+  });
 </script>
 
 <svelte:head>
@@ -34,7 +44,15 @@
 
 <Header tradeEnabled={data.tradeEnabled} ladders={data.tradeLadders} />
 <RouteLoading />
-<main id="main-content">{@render children()}</main>
+<main id="main-content">
+  {#if $authState.user?.tradeBanned && isTradeRoute}
+    <p role="status" class="mx-auto my-4 max-w-7xl rounded border border-requirement/40 p-4 text-requirement">Your account is banned from trade participation.</p>
+  {/if}
+  {#if $authState.user?.leaderboardBanned && (page.url.pathname.startsWith('/characters') || page.url.pathname.startsWith('/leaderboard') || page.url.pathname === '/profile')}
+    <p role="status" class="mx-auto my-4 max-w-7xl rounded border border-requirement/40 p-4 text-requirement">Your account is banned from leaderboards. Your characters are excluded from public character listings and rankings.</p>
+  {/if}
+  {@render children()}
+</main>
 <Footer />
 <BackToTop />
-{#if isTradeRoute}<TradeChatDock />{/if}
+{#if (data.tradeEnabled || isTradeRoute) && !$authState.user?.tradeBanned}<TradeChatDock />{/if}

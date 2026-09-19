@@ -5,4 +5,6 @@
   let { data }: { data: PageData } = $props();
 </script>
 
-<TradeMarketplace {data} />
+{#key data}
+  <TradeMarketplace {data} />
+{/key}

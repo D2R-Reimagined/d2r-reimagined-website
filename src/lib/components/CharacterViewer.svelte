@@ -211,7 +211,7 @@
         <p class="text-xs uppercase tracking-[0.24em] text-ember-400">{details.character.ownerDisplayName}'s character</p>
         <h1 class="display-text mt-2 text-4xl text-parchment-50 sm:text-5xl">{details.character.name}</h1>
         <p class="mt-2 text-parchment-300">
-          {details.character.class} Â· level {details.character.level} Â· {formatNumber(details.character.experience)} experience Â· Last Logged {formatLastLogged(details.character.lastPlayedAtUtc, relativeTimeNow)}
+          {details.character.class} &middot; level {details.character.level} &middot; {formatNumber(details.character.experience)} experience &middot; Last Logged {formatLastLogged(details.character.lastPlayedAtUtc, relativeTimeNow)}
         </p>
       </div>
       <div class="flex flex-wrap gap-2 text-xs">
@@ -222,15 +222,15 @@
     </div>
 
     {:else}
-      <p class="mb-4 text-sm text-parchment-300">{details.character.name} Â· {details.character.class} Â· Level {details.character.level} Â· Saved equipment snapshot</p>
+      <p class="mb-4 text-sm text-parchment-300">{details.character.name} &middot; {details.character.class} &middot; Level {details.character.level} &middot; Saved equipment snapshot</p>
     {/if}
 
     {#if details.character.isHardcore && details.character.isDead}
       <p class="mb-4 rounded border border-red-500/40 bg-red-950/40 px-4 py-3 text-sm text-red-200">
         {#if details.isPreDeathSnapshot}
-          Fallen hero Â· Equipment and inventory shown are from the last living save synced before death. Changes after that sync may not appear.
+          Fallen hero &middot; Equipment and inventory shown are from the last living save synced before death. Changes after that sync may not appear.
         {:else}
-          Fallen hero Â· No living snapshot was preserved. Showing the available save.
+          Fallen hero &middot; No living snapshot was preserved. Showing the available save.
         {/if}
       </p>
     {/if}

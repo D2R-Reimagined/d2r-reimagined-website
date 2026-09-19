@@ -198,8 +198,8 @@
           <a href={tradeHref} onclick={closeMenus} class={`${navClass('/trade')} border border-ember-400/35 bg-ember-950/20`}>Trade</a>
         {/if}
         <a href="/grail" onclick={closeMenus} class={navClass('/grail')}>Holy Grail</a>
-        {#if $authState.user?.roles.includes('Admin')}
-          <a href="/admin/ladders" onclick={closeMenus} class={navClass('/admin')}>Admin</a>
+        {#if $authState.user?.roles.some(role => role === 'Admin' || role === 'Moderator')}
+          <a href="/admin" onclick={closeMenus} class={navClass('/admin')}>Admin</a>
         {/if}
 
         <div class="relative" role="group" data-nav-dropdown onpointerenter={(event) => openHoverMenu(event, 'community')} onpointerleave={(event) => closeHoverMenu(event, 'community')}>

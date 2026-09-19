@@ -5,6 +5,6 @@
   let { data }: { data: PageData } = $props();
 </script>
 
-{#key data.realm.path}
+{#key data}
   <TradeMarketplace {data} />
 {/key}

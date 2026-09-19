@@ -36,6 +36,7 @@
   let busy = $state(false);
   let error = $state('');
   let notice = $state('');
+  let username = $state('');
 
   function profileUrl(): string {
     const url = new URL(window.location.href);
@@ -51,6 +52,7 @@
   }
 
   async function continueAfterSignIn(): Promise<boolean> {
+    if ($authState.user?.requiresUsername) return false;
     const returnTo = launcherReturnTo();
     if (!returnTo) return false;
     await goto(returnTo, { replaceState: true });
@@ -207,6 +209,28 @@
     notice = 'You have been signed out.';
   }
 
+  async function chooseUsername(event: SubmitEvent): Promise<void> {
+    event.preventDefault();
+    if (busy) return;
+    const name = username.trim();
+    if (name.length < 2 || name.length > 50) {
+      error = 'Username must be between 2 and 50 characters.';
+      return;
+    }
+    busy = true;
+    error = '';
+    notice = '';
+    try {
+      await updateProfile(undefined, name);
+      if (await continueAfterSignIn()) return;
+      notice = 'Your account is ready.';
+    } catch (value) {
+      error = message(value);
+    } finally {
+      busy = false;
+    }
+  }
+
   onMount(async () => {
     const steamStatus = page.url.searchParams.get('steam');
     const battleNetStatus = page.url.searchParams.get('battlenet');
@@ -237,16 +261,14 @@
         }
       }
 
-      if ($authState.user && returnTo) {
-        await goto(returnTo, { replaceState: true });
-        return;
-      }
+      if ($authState.user && await continueAfterSignIn()) return;
     } catch (value) {
       error = message(value);
     } finally {
       busy = false;
-      if ((steamStatus || battleNetStatus || discordStatus) && !returnTo) {
-        await goto('/profile', { replaceState: true, noScroll: true });
+      if ((steamStatus || battleNetStatus || discordStatus) && (!returnTo || $authState.user?.requiresUsername)) {
+        const cleanUrl = new URL(profileUrl());
+        await goto(cleanUrl.pathname + cleanUrl.search, { replaceState: true, noScroll: true });
       }
     }
   });
@@ -276,6 +298,22 @@
 
   {#if !$authState.ready}
     <div class="panel rounded-lg p-8 text-center text-parchment-300">Loading your profile…</div>
+  {:else if $authState.user?.requiresUsername}
+    <article class="panel mx-auto max-w-xl rounded-lg p-6 sm:p-8">
+      <p class="text-xs uppercase tracking-[0.22em] text-ember-400">Welcome to D2R Reimagined</p>
+      <h2 class="display-text mt-2 text-2xl text-parchment-50">Choose your username</h2>
+      <p class="mt-3 text-parchment-300">This is the name other players will see on leaderboards and in trades. You can change it later in your profile.</p>
+      <form class="mt-6 space-y-5" onsubmit={chooseUsername}>
+        <div>
+          <label for="signup-username" class="mb-2 block text-sm text-parchment-200">Username</label>
+          <input class="field" id="signup-username" autocomplete="nickname" required minlength="2" maxlength="50" aria-describedby="username-help" bind:value={username} />
+          <p id="username-help" class="mt-2 text-sm text-parchment-300">Choose a unique name between 2 and 50 characters. No email address is required.</p>
+        </div>
+        <button type="submit" disabled={busy} class="rounded border border-ember-400/60 bg-ember-700/30 px-5 py-3 text-parchment-50 transition hover:bg-ember-700/45 disabled:cursor-wait disabled:opacity-60">
+          {busy ? 'Saving…' : 'Save username and continue'}
+        </button>
+      </form>
+    </article>
   {:else if $authState.user}
     <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
       <article class="panel rounded-lg p-6 sm:p-8">
@@ -466,7 +504,7 @@
         <p class="text-xs uppercase tracking-[0.22em] text-ember-400">Continue with Steam</p>
         <h2 class="display-text mt-2 text-2xl text-parchment-50">Use your Steam identity</h2>
         <p class="mt-3 text-sm leading-6 text-parchment-300">
-          Steam sign-in creates an account automatically and prepares it for leaderboard integration. No Steam password is shared with this site.
+          Sign in with Steam, then choose a username if you’re new here. No Steam password is shared with this site.
         </p>
         <button type="button" onclick={steamSignIn} class="mt-6 flex items-center justify-center gap-3 rounded bg-[#1b2838] px-5 py-3 font-semibold text-white transition hover:bg-[#243b55]">
           <span aria-hidden="true" class="text-xl">◉</span>

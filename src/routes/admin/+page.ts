@@ -1,5 +1,5 @@
 import { redirect } from '@sveltejs/kit';
 
 export function load(): never {
-  redirect(307, '/admin/ladders');
+  redirect(307, '/admin/feedback');
 }

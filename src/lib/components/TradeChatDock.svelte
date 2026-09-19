@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { apiWebSocketUrl, authState, initializeAuth } from '$lib/auth';
+  import { authState, initializeAuth } from '$lib/auth';
+  import { connectTradeEvents, isTradeNotification, tradeEvent, tradeNotificationTitle, type TradeEvent } from '$lib/trade-realtime';
   import { tradeChatRequest } from '$lib/trade-chat';
   import {
     getTradeConversation,
@@ -18,12 +19,15 @@
   let sending = $state(false);
   let message = $state('');
   let error = $state('');
-  let socket: WebSocket | null = null;
-  let reconnectTimer: ReturnType<typeof setTimeout> | null = null;
   let disposed = false;
+  let accountId: string | null = null;
+  let stopConnection: (() => void) | undefined;
+  let notifications = $state<TradeEvent[]>([]);
+  let toast = $state<TradeEvent | null>(null);
   let messageList: HTMLDivElement | undefined = $state();
 
   let unread = $derived(conversations.reduce((total, conversation) => total + conversation.unreadCount, 0));
+  let notificationCount = $derived(Math.max(unread, notifications.length));
   let otherName = $derived(
     active && $authState.user
       ? active.sellerId === $authState.user.id ? active.buyerDisplayName : active.sellerDisplayName
@@ -37,7 +41,9 @@
   async function loadSummaries(): Promise<void> {
     if (!$authState.user) return;
     try {
-      conversations = await getTradeConversations();
+      const owner = accountId;
+      const result = await getTradeConversations();
+      if (!disposed && owner === accountId) conversations = result;
     } catch (value) {
       error = friendlyError(value);
     }
@@ -47,8 +53,13 @@
     if (loading) return;
     loading = true;
     error = '';
+    const owner = accountId;
     try {
-      active = await getTradeConversation(id);
+      const result = await getTradeConversation(id);
+      if (disposed || owner !== accountId) return;
+      active = result;
+      notifications = notifications.filter((entry) => entry.type !== 'message_created' || entry.conversationId !== id);
+      if (toast?.conversationId === id && toast.type === 'message_created') toast = null;
       open = true;
       await loadSummaries();
       requestAnimationFrame(() => messageList?.scrollTo({ top: messageList.scrollHeight }));
@@ -66,8 +77,11 @@
     }
     loading = true;
     error = '';
+    const owner = accountId;
     try {
-      active = await startTradeConversation(listingId);
+      const result = await startTradeConversation(listingId);
+      if (disposed || owner !== accountId) return;
+      active = result;
       open = true;
       await loadSummaries();
     } catch (value) {
@@ -84,9 +98,12 @@
     if (!active || !body || sending) return;
     sending = true;
     error = '';
+    const conversationId = active.id;
+    const owner = accountId;
     try {
-      const sent = await sendTradeMessage(active.id, body);
-      active = { ...active, messages: [...active.messages, sent] };
+      const sent = await sendTradeMessage(conversationId, body);
+      if (disposed || owner !== accountId || active?.id !== conversationId) return;
+      if (active && !active.messages.some((entry) => entry.id === sent.id)) active = { ...active, messages: [...active.messages, sent] };
       message = '';
       await loadSummaries();
       requestAnimationFrame(() => messageList?.scrollTo({ top: messageList.scrollHeight, behavior: 'smooth' }));
@@ -97,31 +114,40 @@
     }
   }
 
-  function connect(): void {
-    if (disposed || !$authState.user || socket) return;
-    socket = new WebSocket(apiWebSocketUrl('/ws/trades'));
-    socket.onmessage = async (event) => {
-      const payload = JSON.parse(String(event.data)) as { conversationId?: string };
-      await loadSummaries();
-      if (active && payload.conversationId === active.id) {
-        active = await getTradeConversation(active.id).catch(() => active);
+  async function handleEvent(event: TradeEvent): Promise<void> {
+    tradeEvent.set(event);
+    if (isTradeNotification(event)) {
+      notifications = [event, ...notifications].slice(0, 20);
+      toast = event;
+    }
+    if (active && event.type === 'listing_deleted' && event.tradeListingId === active.listing.id) active = null;
+    const id = active?.id;
+    const owner = accountId;
+    if (open && id && event.conversationId === id) {
+      const result = await getTradeConversation(id).catch(() => null);
+      if (!disposed && owner === accountId && open && active?.id === id && result) {
+        active = result;
+        notifications = notifications.filter((entry) => entry.type !== 'message_created' || entry.conversationId !== id);
         requestAnimationFrame(() => messageList?.scrollTo({ top: messageList.scrollHeight }));
       }
-    };
-    socket.onclose = () => {
-      socket = null;
-      if (!disposed && $authState.user) reconnectTimer = setTimeout(connect, 2500);
-    };
-    socket.onerror = () => socket?.close();
+    }
+    await loadSummaries();
+  }
+
+  function showNotification(event: TradeEvent): void {
+    toast = null;
+    notifications = notifications.filter((entry) => entry.eventId !== event.eventId);
+    if (event.type === 'message_created' && event.conversationId) void openConversation(event.conversationId);
+    else window.location.assign(`/trade/${encodeURIComponent(event.tradeListingId!)}`);
+  }
+
+  function toggleChat(): void {
+    open = !open;
+    if (open && active) void openConversation(active.id);
   }
 
   onMount(() => {
-    void initializeAuth().then(async () => {
-      if ($authState.user) {
-        await loadSummaries();
-        connect();
-      }
-    });
+    void initializeAuth();
 
     let requestSubscriptionReady = false;
     const unsubscribeRequest = tradeChatRequest.subscribe((request) => {
@@ -135,43 +161,66 @@
       else open = true;
     });
     const unsubscribeAuth = authState.subscribe((state) => {
-      if (state.user) connect();
-      else {
-        socket?.close();
-        socket = null;
-        conversations = [];
-        active = null;
-      }
+      const next = state.user?.id ?? null;
+      if (next === accountId) return;
+      stopConnection?.();
+      accountId = next;
+      conversations = [];
+      active = null;
+      notifications = [];
+      toast = null;
+      tradeEvent.set(null);
+      open = false;
+      if (next) stopConnection = connectTradeEvents(next, (event) => void handleEvent(event), () => void loadSummaries());
     });
 
     return () => {
       disposed = true;
       unsubscribeRequest();
       unsubscribeAuth();
-      if (reconnectTimer) clearTimeout(reconnectTimer);
-      socket?.close();
+      stopConnection?.();
     };
   });
 </script>
 
 {#if $authState.user}
+  {#if toast && !open}
+    <div role="status" class="fixed bottom-20 right-3 z-[75] w-[min(24rem,calc(100vw-1.5rem))] rounded-lg border border-ember-400/50 bg-[#171514] p-4 shadow-xl">
+      <button type="button" aria-label="Dismiss trade notification" class="float-right ml-2 text-parchment-300" onclick={() => toast = null}>×</button>
+      <button type="button" class="block w-full text-left" onclick={() => toast && showNotification(toast)}>
+        <strong class="block text-sm text-ember-300">{tradeNotificationTitle(toast)}</strong>
+        <span class="mt-2 line-clamp-3 block break-words text-sm text-parchment-100">{toast.preview}</span>
+        <span class="mt-2 block text-xs text-parchment-300">Open trade →</span>
+      </button>
+    </div>
+  {/if}
   <aside class:trade-chat-open={open} class="trade-chat-dock" aria-label="Trade conversations">
-    <button type="button" class="trade-chat-header" aria-expanded={open} onclick={() => open = !open}>
+    <button type="button" class="trade-chat-header" aria-expanded={open} onclick={toggleChat}>
       <span class="flex items-center gap-2">
         <span class="relative grid h-7 w-7 place-items-center rounded-full border border-ember-400/50 bg-ember-950/40" aria-hidden="true">✦</span>
         <span>
-          <strong class="display-text block text-sm text-parchment-50">Trade chat</strong>
+          <strong class="display-text block text-sm text-parchment-50">Trade notifications</strong>
           <span class="block text-[0.68rem] text-parchment-300">{active ? `${otherName} · ${active.listing.itemName}` : `${conversations.length} conversations`}</span>
         </span>
       </span>
       <span class="flex items-center gap-2">
-        {#if unread}<span class="rounded-full bg-ember-500 px-2 py-0.5 text-xs font-bold text-white">{unread}</span>{/if}
+        {#if notificationCount}<span class="rounded-full bg-ember-500 px-2 py-0.5 text-xs font-bold text-white">{notificationCount}</span>{/if}
         <span aria-hidden="true">{open ? '×' : '⌃'}</span>
       </span>
     </button>
 
     {#if open}
       <div class="trade-chat-body">
+        {#if notifications.length}
+          <div class="max-h-36 shrink-0 overflow-y-auto border-b border-parchment-300/15" aria-label="Recent trade notifications">
+            {#each notifications as notification (notification.eventId)}
+              <button type="button" class="block w-full border-b border-parchment-300/10 p-3 text-left hover:bg-white/5" onclick={() => showNotification(notification)}>
+                <strong class="block truncate text-xs text-ember-300">{tradeNotificationTitle(notification)}</strong>
+                <span class="block truncate text-xs text-parchment-100">{notification.preview}</span>
+              </button>
+            {/each}
+          </div>
+        {/if}
         {#if error}<p role="alert" class="border-b border-red-500/25 bg-red-950/50 px-3 py-2 text-xs text-red-200">{error}</p>{/if}
         {#if active}
           <div class="flex items-center gap-3 border-b border-parchment-300/15 px-3 py-2">

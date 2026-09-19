@@ -183,11 +183,11 @@ function queryString(filters: TradeFilters): string {
 
 export function getTradeListings(filters: TradeFilters = {}): Promise<TradeListingPage> {
   const query = queryString({ count: 24, ...filters });
-  return apiRequest<TradeListingPage>(`/trades?${query}`);
+  return apiRequest<TradeListingPage>(`/trades?${query}`, {}, 'optional');
 }
 
 export function getTradeListing(id: string): Promise<TradeListing> {
-  return apiRequest<TradeListing>(`/trades/${encodeURIComponent(id)}`);
+  return apiRequest<TradeListing>(`/trades/${encodeURIComponent(id)}`, {}, 'optional');
 }
 
 export function getMyTradeListings(): Promise<TradeListing[]> {

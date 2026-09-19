@@ -8,6 +8,9 @@ export interface UserProfile {
   id: string;
   email: string;
   displayName: string;
+  requiresUsername?: boolean;
+  tradeBanned?: boolean;
+  leaderboardBanned?: boolean;
   battleTag: string | null;
   battleNetId: string | null;
   steamId: string | null;
@@ -282,7 +285,7 @@ export async function refreshProfile(): Promise<UserProfile> {
   return user;
 }
 
-export async function updateProfile(email: string, displayName: string): Promise<UserProfile> {
+export async function updateProfile(email: string | undefined, displayName: string): Promise<UserProfile> {
   const user = await apiRequest<UserProfile>(
     '/users/me',
     {

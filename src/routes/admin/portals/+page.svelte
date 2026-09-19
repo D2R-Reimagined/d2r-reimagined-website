@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { apiRequest } from '$lib/auth';
   import { searchAdminUsers, type AdminUser } from '$lib/admin';
+  import NormalCompletionRewards from '$lib/components/NormalCompletionRewards.svelte';
   type Pack = { id: string; name: string; isActive: boolean; portalIds: string[] };
   type Access = { portalIds: string[]; packIds: string[]; supporterTier: string | null; effective: { portals: { id: string; unlocked: boolean }[] } };
   let users = $state<AdminUser[]>([]), packs = $state<Pack[]>([]), catalog = $state<string[]>([]);
@@ -80,6 +81,7 @@
 {#if notice}<p role="status" class="mb-4 text-set">{notice}</p>{/if}
 {#if loading}<p>Loading portal rewards…</p>
 {:else}
+<NormalCompletionRewards bind:busy onGranted={loadAccess} />
 <section class="panel rounded-lg p-6 mb-6">
   <h3 class="display-text text-xl mb-4">User rewards</h3>
   <form class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end" onsubmit={(event) => { event.preventDefault(); void findUsers(); }}>

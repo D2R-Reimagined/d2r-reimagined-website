@@ -17,7 +17,7 @@ export type {
 export { entryStanding, formatExperience, leaderboardQuery } from '$lib/leaderboard-entries';
 
 export function getLeaderboard(request: LeaderboardRequest = {}): Promise<LeaderboardResponse> {
-  return apiRequest<LeaderboardResponse>(`/leaderboards/characters?${leaderboardQuery(request)}`);
+  return apiRequest<LeaderboardResponse>(`/leaderboards/characters?${leaderboardQuery(request)}`, {}, 'optional');
 }
 
 /**

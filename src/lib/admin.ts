@@ -133,13 +133,31 @@ export interface LadderAllowedExtensionInput {
 }
 
 export interface LadderInput {
+  isHidden: boolean;
   name: string;
   startDateUtc: string;
   endDateUtc: string;
   allowedExtensions: LadderAllowedExtensionInput[];
 }
 
+export interface ParticipationSettings {
+  tradeBanned: boolean;
+  leaderboardBanned: boolean;
+  reason: string;
+}
+
+export function updateUserParticipation(id: string, settings: ParticipationSettings): Promise<AdminUser> {
+  return apiRequest<AdminUser>(`/admin/users/${id}/participation`, {
+    method: 'PUT', body: JSON.stringify(settings)
+  }, true);
+}
+
 export interface AdminUser {
+  tradeBanned: boolean;
+  leaderboardBanned: boolean;
+  participationReason: string | null;
+  participationUpdatedBy: string | null;
+  participationUpdatedAtUtc: string | null;
   id: string;
   email: string;
   displayName: string;

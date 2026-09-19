@@ -4,10 +4,12 @@
   import { onMount } from 'svelte';
 
   import { authState, initializeAuth } from '$lib/auth';
+  import { canAccessAdminPage, canReviewFeedback } from '$lib/admin-access';
 
   let { children } = $props();
 
   const links = [
+    { href: '/admin/feedback', label: 'Feedback', detail: 'Bug reports and suggestions' },
     { href: '/admin/portals', label: 'Portal rewards', detail: 'Individual grants and supporter packs' },
     {
       href: '/admin/ladders',
@@ -27,6 +29,9 @@
   ];
 
   let isAdmin = $derived($authState.user?.roles.includes('Admin') ?? false);
+  let canEnter = $derived(canReviewFeedback($authState.user?.roles));
+  let canViewPage = $derived(canAccessAdminPage($authState.user?.roles, page.url.pathname));
+  let visibleLinks = $derived(links.filter(link => isAdmin || link.href === '/admin/feedback'));
 
   function isActive(href: string): boolean {
     return page.url.pathname === href || page.url.pathname.startsWith(`${href}/`);
@@ -48,22 +53,22 @@
   <div class="mb-7 max-w-3xl">
     <p class="display-text text-sm uppercase tracking-[0.24em] text-ember-400">Administration</p>
     <h1 class="display-text mt-2 text-4xl text-parchment-50 sm:text-5xl">Admin dashboard</h1>
-    <p class="mt-3 text-parchment-300">Manage Reimagined ladders, staff access, and live announcements.</p>
+    <p class="mt-3 text-parchment-300">Review player feedback{isAdmin ? ' and manage Reimagined ladders, staff access, and announcements' : ''}.</p>
   </div>
 
   {#if !$authState.ready}
     <div class="panel rounded-lg p-8 text-center text-parchment-300">Loading the admin dashboard…</div>
-  {:else if !isAdmin}
+  {:else if !canEnter}
     <div class="panel max-w-2xl rounded-lg p-8">
       <h2 class="display-text text-2xl text-requirement">Access denied</h2>
-      <p class="mt-3 text-parchment-300">This area requires the Admin role.</p>
+      <p class="mt-3 text-parchment-300">This area requires the Admin or Moderator role.</p>
     </div>
   {:else}
     <div class="grid items-start gap-6 md:grid-cols-[15rem_minmax(0,1fr)]">
       <aside class="panel rounded-lg p-3 md:sticky md:top-24" aria-label="Admin navigation">
         <p class="display-text px-3 pb-2 pt-1 text-xs uppercase tracking-[0.18em] text-parchment-300">Manage</p>
         <nav class="grid gap-1">
-          {#each links as link}
+          {#each visibleLinks as link}
             <a
               href={link.href}
               aria-current={isActive(link.href) ? 'page' : undefined}
@@ -76,7 +81,16 @@
         </nav>
       </aside>
 
-      <div class="min-w-0">{@render children()}</div>
+      <div class="min-w-0">
+        {#if canViewPage}
+          {@render children()}
+        {:else}
+          <div class="panel rounded-lg p-8">
+            <h2 class="display-text text-2xl text-requirement">Access denied</h2>
+            <p class="mt-3 text-parchment-300">This page requires the Admin role. You can review reports in the Feedback tab.</p>
+          </div>
+        {/if}
+      </div>
     </div>
   {/if}
 </section>

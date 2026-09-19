@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { untrack } from 'svelte';
   import { authState } from '$lib/auth';
   import OnlinePlayers from '$lib/components/OnlinePlayers.svelte';
   import { debounced } from '$lib/debounce.svelte';
@@ -13,7 +14,7 @@
   } from '$lib/leaderboards';
   import type { PageData } from './$types';
 
-  const { data }: { data: PageData } = $props();
+  let { data }: { data: PageData } = $props();
 
   const pageSize = 25;
   const classes = [
@@ -54,6 +55,19 @@
 
   let requestSequence = 0;
   let hydrated = false;
+
+  $effect(() => {
+    void data;
+    untrack(() => {
+      requestSequence++;
+      clientBoard = null;
+      clientError = null;
+      ladderChoice = undefined;
+      myEntries = [];
+      myBoardSize = 0;
+      loading = false;
+    });
+  });
 
   let currentPage = $derived(Math.floor(skip / pageSize) + 1);
   let pageCount = $derived(Math.max(1, Math.ceil(total / pageSize)));

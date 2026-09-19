@@ -26,6 +26,7 @@
     import {isSha256, normalizeSha256} from '$lib/sha256';
 
     interface LadderDraft {
+        isHidden: boolean;
         name: string;
         startDate: string;
         endDate: string;
@@ -40,7 +41,7 @@
 
     let ladders = $state<Ladder[]>([]);
     let selectedId = $state<string | null>(null);
-    let draft = $state<LadderDraft>({name: '', startDate: '', endDate: '', allowedExtensions: []});
+    let draft = $state<LadderDraft>({isHidden: false, name: '', startDate: '', endDate: '', allowedExtensions: []});
     let loading = $state(true);
     let saving = $state(false);
     let error = $state('');
@@ -91,6 +92,7 @@
         end.setDate(end.getDate() + 7);
         selectedId = null;
         draft = {
+            isHidden: false,
             name: '',
             startDate: formatDateInput(start),
             endDate: formatDateInput(end),
@@ -109,6 +111,7 @@
         publishMonitorGeneration++;
         selectedId = ladder.id;
         draft = {
+            isHidden: ladder.isHidden ?? false,
             name: ladder.name,
             startDate: formatDateInput(new Date(ladder.startDateUtc)),
             endDate: formatDateInput(new Date(ladder.endDateUtc)),
@@ -376,6 +379,7 @@
 
     function requestFromDraft(): LadderInput {
         return {
+            isHidden: draft.isHidden,
             name: draft.name.trim(),
             startDateUtc: new Date(draft.startDate).toISOString(),
             endDateUtc: new Date(draft.endDate).toISOString(),
@@ -513,7 +517,7 @@
                             onclick={() => editLadder(ladder)}
                             class={`rounded-lg border p-3 text-left transition ${selectedId === ladder.id ? 'border-ember-400 bg-ember-700/20' : 'border-parchment-300/20 hover:border-parchment-300/45'}`}
                     >
-                        <span class="block text-parchment-50">{ladder.name}{ladder.archivedAtUtc ? ' — Archived' : ''}</span>
+                        <span class="block text-parchment-50">{ladder.name}{ladder.isHidden ? ' — Hidden' : ''}{ladder.archivedAtUtc ? ' — Archived' : ''}</span>
                         <span class="mt-1 block text-xs text-parchment-300">{new Date(ladder.startDateUtc).toLocaleString()}
                             – {new Date(ladder.endDateUtc).toLocaleString()}</span>
                         <span class="mt-1 block text-xs text-rarity">
@@ -559,6 +563,13 @@
                     <input class="field" type="datetime-local" required bind:value={draft.endDate}/>
                 </label>
             </div>
+
+            <label class="mt-5 flex items-start gap-3 text-sm text-parchment-200">
+                <input type="checkbox" class="mt-1" bind:checked={draft.isHidden} />
+                <span>Hidden — Tester only
+                    <span class="mt-1 block text-xs text-parchment-300">Only users with the Tester role can see or play this ladder, including its leaderboards and trades.</span>
+                </span>
+            </label>
 
             <div class="mt-8 border-t border-parchment-300/15 pt-6">
                 <h3 class="display-text text-xl">Required Plugins and Patches</h3>

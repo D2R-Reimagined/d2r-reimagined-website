@@ -180,7 +180,7 @@ export function getCharacterDirectory(
   parameters.set('skip', String(request.skip ?? 0));
   parameters.set('count', String(request.count ?? 24));
   if (request.characterClass) parameters.set('class', request.characterClass);
-  return apiRequest<CharacterDirectoryResponse>(`/characters?${parameters}`);
+  return apiRequest<CharacterDirectoryResponse>(`/characters?${parameters}`, {}, 'optional');
 }
 
 export function getCharacterDetails(id: string): Promise<CharacterDetailsResponse> {

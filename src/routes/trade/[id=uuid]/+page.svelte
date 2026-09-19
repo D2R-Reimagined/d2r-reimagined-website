@@ -5,6 +5,7 @@
   import TradeItemDetails from '$lib/components/TradeItemDetails.svelte';
   import { authState, initializeAuth } from '$lib/auth';
   import { openTradeChat } from '$lib/trade-chat';
+  import { tradeEvent } from '$lib/trade-realtime';
   import type { SaveItem } from '$lib/characters';
   import {
     acceptTradeOffer,
@@ -113,6 +114,16 @@
     } catch (value) { error = value instanceof Error ? value.message : 'This listing could not be loaded.'; }
     finally { loading = false; }
   });
+
+  onMount(() => tradeEvent.subscribe((event) => {
+    if (!event || event.tradeListingId !== page.params.id) return;
+    if (event.type === 'listing_deleted') {
+      listing = null;
+      error = 'This listing has been removed.';
+    } else {
+      void load().catch((value) => { error = value instanceof Error ? value.message : 'Could not refresh this listing.'; });
+    }
+  }));
 </script>
 
 <svelte:head>

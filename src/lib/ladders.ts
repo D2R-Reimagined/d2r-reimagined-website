@@ -9,9 +9,9 @@ export type {
 export { defaultLadder, isLadderRunning } from '$lib/ladder-schedule';
 
 export function getLadders(): Promise<LadderSummary[]> {
-  return apiRequest<LadderSummary[]>('/ladders/summaries');
+  return apiRequest<LadderSummary[]>('/ladders/summaries', {}, 'optional');
 }
 
 export function getActiveLadders(): Promise<LadderSummary[]> {
-  return apiRequest<LadderSummary[]>('/ladders/summaries?activeOnly=true');
+  return apiRequest<LadderSummary[]>('/ladders/summaries?activeOnly=true', {}, 'optional');
 }

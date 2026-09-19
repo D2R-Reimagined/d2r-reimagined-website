@@ -1,32 +1,33 @@
-import type { PageServerLoad } from './$types';
+import { browser } from '$app/environment';
+import { initializeAuth, apiRequest } from '$lib/auth';
+import type { PageLoad } from './$types';
 import { env } from '$env/dynamic/public';
 import { defaultLadder, type LadderSummary } from '$lib/ladder-schedule';
 import { leaderboardQuery, type LeaderboardResponse } from '$lib/leaderboard-entries';
 
-// SvelteKit only allows its own exports from a server load module, so this is
-// local. The page keeps its own copy for client-side paging.
+// The page keeps its own copy for client-side paging.
 const pageSize = 25;
 
 function apiBaseUrl(): string {
   return (env.PUBLIC_API_BASE_URL || 'http://localhost:5000').replace(/\/$/, '');
 }
 
-/**
- * Renders the first page of the board on the server.
- *
- * The board is public and the same for everyone, so serving it already-rendered
- * costs nothing and means a shared link shows standings rather than a spinner.
- * The signed-in player's own rank needs their token, so it stays a client call.
- */
-export const load: PageServerLoad = async ({ fetch, url, setHeaders }) => {
-  setHeaders({ 'cache-control': 'public, max-age=30, stale-while-revalidate=300' });
+// Public SSR is refreshed with the signed-in viewer's ladders during hydration.
+export const load: PageLoad = async ({ fetch, url, setHeaders }) => {
+  if (!browser) setHeaders({ 'cache-control': 'private, no-store' });
+  if (browser) await initializeAuth();
+  async function read<T>(path: string): Promise<T> {
+    if (browser) return apiRequest<T>(path, {}, 'optional');
+    const response = await fetch(`${apiBaseUrl()}${path}`);
+    if (!response.ok) throw new Error(`The API returned ${response.status}.`);
+    return response.json() as Promise<T>;
+  }
 
   const requestedLadderId = url.searchParams.get('ladderId');
 
   let ladders: LadderSummary[] = [];
   try {
-    const response = await fetch(`${apiBaseUrl()}/ladders/summaries`);
-    if (response.ok) ladders = (await response.json()) as LadderSummary[];
+    ladders = await read<LadderSummary[]>('/ladders/summaries');
   } catch {
     // A board with no ladder list still works - it falls back to Standard.
     ladders = [];
@@ -41,13 +42,12 @@ export const load: PageServerLoad = async ({ fetch, url, setHeaders }) => {
   const query = leaderboardQuery({ skip: 0, count: pageSize, ladderId: selected });
 
   try {
-    const response = await fetch(`${apiBaseUrl()}/leaderboards/characters?${query}`);
-    if (!response.ok) throw new Error(`The leaderboard API returned ${response.status}.`);
+    const board = await read<LeaderboardResponse>(`/leaderboards/characters?${query}`);
 
     return {
       ladders,
       selectedLadderId: selected,
-      board: (await response.json()) as LeaderboardResponse,
+      board,
       error: null as string | null
     };
   } catch {
