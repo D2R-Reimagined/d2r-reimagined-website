@@ -254,7 +254,7 @@
         <div class="relative" data-nav-dropdown>
           <button type="button" aria-label="Choose font" aria-expanded={fontOpen} onclick={toggleFontMenu} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">Aa <span class="xl:hidden">Font</span></button>
           {#if fontOpen}
-            <div class="mt-1 min-w-44 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl xl:absolute xl:right-0 xl:top-full">
+            <div class="mt-1 grid min-w-44 grid-cols-1 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl xl:absolute xl:right-0 xl:top-full xl:w-44">
               {#each fonts as font}
                 <button type="button" onclick={() => chooseFont(font.value)} class="w-full rounded px-3 py-2 text-left hover:bg-white/5">{font.label}</button>
               {/each}
