@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { createGlobalChatClient, type GlobalChatState } from './global-chat';
+import { createGlobalChatClient, roleLabel, roleNameClass, type GlobalChatState } from './global-chat';
 import { canAccessAdminPage } from './admin-access';
 
 class Socket {
@@ -52,6 +52,26 @@ describe('admin global chat', () => {
     expect(test.authorize).toHaveBeenCalledTimes(2);
     test.sockets[1].receive({ type: 'chat_history', messages: [message('one'), message('two')] });
     expect(test.state().messages).toHaveLength(2);
+    test.client.stop();
+  });
+
+  it('keeps a known sender role and drops anything else', async () => {
+    const test = await setup();
+    test.sockets[0].receive({ type: 'chat_history', messages: [
+      { ...message('admin'), role: 'admin' },
+      { ...message('mod'), role: 'moderator' },
+      { ...message('player') },
+      { ...message('odd'), role: 'owner' }
+    ] });
+    const roles = test.state().messages.map(value => value.role);
+    expect(roles).toEqual(['admin', 'moderator', undefined, undefined]);
+    expect(roleNameClass('admin')).toBe('text-requirement');
+    expect(roleNameClass('moderator')).toBe('text-magic');
+    expect(roleNameClass(undefined)).toBe('text-ember-400');
+    expect(roleNameClass('owner')).toBe('text-ember-400');
+    expect(roleLabel('admin')).toBe('Admin');
+    expect(roleLabel('moderator')).toBe('Moderator');
+    expect(roleLabel(undefined)).toBe('');
     test.client.stop();
   });
 

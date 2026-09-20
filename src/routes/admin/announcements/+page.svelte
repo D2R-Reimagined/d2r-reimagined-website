@@ -16,11 +16,8 @@
   // kept, and they mean opposite things: one is "do not send yet", the other is
   // "sending this reaches nobody".
   let audienceKnown = $derived(audience !== null);
-  let reach = $derived(audience?.players ?? 0);
+  let reach = $derived(audience?.listeners ?? 0);
 
-  // Two sockets for one account is somebody playing twice, not two people. Only
-  // worth mentioning when the two numbers actually differ.
-  let extraClients = $derived(audience ? audience.listeners - audience.players : 0);
 
   async function refreshAudience(): Promise<void> {
     try {
@@ -109,9 +106,8 @@
   {:else}
     <p class="text-parchment-200">
       This would reach <span class="text-parchment-50">{reach.toLocaleString()}</span>
-      {reach === 1 ? 'player' : 'players'}{#if extraClients > 0}<span class="text-parchment-300">
-          ({audience?.listeners.toLocaleString()} clients — someone has the game open more than once)</span
-        >{/if}.
+      connected {reach === 1 ? 'client' : 'clients'}
+      <span class="text-parchment-300">({audience?.players.toLocaleString()} signed-in players; clients may be signed out or share an account)</span>.
     </p>
   {/if}
   {#if audienceFailed}
@@ -147,7 +143,7 @@
     >{sending
         ? 'Sending…'
         : audienceKnown && reach > 0
-          ? `Send to ${reach.toLocaleString()} ${reach === 1 ? 'player' : 'players'}`
+          ? `Send to ${reach.toLocaleString()} connected ${reach === 1 ? 'client' : 'clients'}`
           : 'Send announcement'}</button>
   </div>
 </form>

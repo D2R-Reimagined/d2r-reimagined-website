@@ -1,9 +1,29 @@
+// The sender's chat role, already resolved by the API: admin over moderator
+// when they hold both, absent for a player. Same values the game plugin reads.
+export type GlobalChatRole = 'admin' | 'moderator';
+
 export interface GlobalChatMessage {
   messageId: string;
   userId: string;
   displayName: string;
   message: string;
   sentAtUtc: string;
+  role?: GlobalChatRole;
+}
+
+// Red for an admin, matching the server's own lines in game; blue for a
+// moderator; the usual name colour for everyone else. Anything unrecognised is
+// treated as no role rather than trusted.
+export function roleNameClass(role: unknown): string {
+  if (role === 'admin') return 'text-requirement';
+  if (role === 'moderator') return 'text-magic';
+  return 'text-ember-400';
+}
+
+export function roleLabel(role: unknown): string {
+  if (role === 'admin') return 'Admin';
+  if (role === 'moderator') return 'Moderator';
+  return '';
 }
 
 export interface GlobalChatState {
@@ -47,6 +67,8 @@ export function createGlobalChatClient(dependencies: {
       if (!message || typeof message.messageId !== 'string' || typeof message.message !== 'string' ||
           typeof message.displayName !== 'string' || typeof message.sentAtUtc !== 'string' || seen.has(message.messageId)) return false;
       seen.add(message.messageId);
+      // Keep only a role this build knows, so an unexpected value cannot style anything.
+      if (message.role !== 'admin' && message.role !== 'moderator') delete message.role;
       return true;
     });
     while (seen.size > 1000) seen.delete(seen.values().next().value!);
