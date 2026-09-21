@@ -1,17 +1,42 @@
-export type DropQuality = 'unique' | 'set' | 'rune';
+export type DropQuality = 'unique' | 'set' | 'rune' | 'misc';
 export interface DropItem { Id: string; NameKey: string; Code: string; Quality: DropQuality; Level: number; Rarity: number; Random: boolean; Condition: string }
 export interface DropSource { Id: string; NameKey: string; AreaKey: string; Difficulty: number; Kind: string; Level: number; TreasureClass: string }
 export interface DropClass { Code: string; Group: string; Level: number; Picks: number; Unique: number; Set: number; NoDrop: number; Entries: { Code: string; Weight: number }[]; Condition: string; QuestFlag: string; QuestFlagEx: string }
 export interface DropRatio { Version: number; Uber: number; ClassSpecific: number; Unique: number; UniqueDivisor: number; UniqueMin: number; Set: number; SetDivisor: number; SetMin: number }
 export interface DropData {
   Items: DropItem[];
-  Bases: { Code: string; Level: number; Uber: boolean; ClassSpecific: boolean; Quest: boolean }[];
+  Bases: { Code: string; NameKey?: string; Equipment?: boolean; Level: number; Uber: boolean; ClassSpecific: boolean; Quest: boolean }[];
   Ratios: DropRatio[];
   TreasureClasses: DropClass[];
   Sources: DropSource[];
 }
 export interface DropSettings { players: number; party: number; magicFind: number; difficulty: number; kind: string }
-export interface DropResult { source: DropSource; chance: number | null; reason?: string }
+export interface DropResult { source: DropSource; chance: number | null; treasureClass?: string; reason?: string; simulation?: DropSimulation }
+export interface DropSimulation { kills: number; successes: number; expected: number; atLeastOne: number }
+
+/** Sample independent kills with at least one target, not individual item counts.
+ * Geometric waiting times avoid looping over every failed kill for rare items.
+ */
+export function simulateKills(chance: number, kills: number, random: () => number = Math.random): DropSimulation {
+  kills = clamp(kills, 1, 100000);
+  let successes = 0;
+  if (chance >= 1) successes = kills;
+  else if (chance > 0) {
+    const logMiss = Math.log1p(-chance);
+    let kill = 0;
+    while (true) {
+      kill += 1 + Math.floor(Math.log1p(-random()) / logMiss);
+      if (kill > kills) break;
+      successes++;
+    }
+  }
+  return { kills, successes, expected: kills * chance, atLeastOne: chance === 1 ? 1 : -Math.expm1(kills * Math.log1p(-chance)) };
+}
+
+export function matchesDropSource(row: DropResult, treasureClass: string, minLevel: number, maxLevel: number): boolean {
+  return (!treasureClass || (row.treasureClass ?? row.source.TreasureClass) === treasureClass) &&
+    row.source.Level >= minLevel && row.source.Level <= maxLevel;
+}
 const key = (value: string) => value.toLowerCase();
 const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(min, Number.isFinite(n) ? Math.trunc(n) : min));
 
@@ -44,7 +69,7 @@ export function calculateDrops(data: DropData, target: DropItem, input: DropSett
   const mf = clamp(input.magicFind, 0, 10000);
   const classes = new Map(data.TreasureClasses.map(tc => [key(tc.Code), tc]));
   const bases = new Map(data.Bases.map(base => [key(base.Code), base]));
-  const named = new Map(data.Items.filter(i => i.Quality !== 'rune').map(i => [key(i.NameKey), i]));
+  const named = new Map(data.Items.filter(i => i.Quality === 'unique' || i.Quality === 'set').map(i => [key(i.NameKey), i]));
   const peers = data.Items.filter(i => i.Quality === target.Quality && key(i.Code) === key(target.Code));
   const groups = new Map<string, DropClass[]>();
   for (const tc of data.TreasureClasses) {
@@ -56,6 +81,7 @@ export function calculateDrops(data: DropData, target: DropItem, input: DropSett
   const results: DropResult[] = [];
   const shared = new Map<string, number[]>();
   const conditionalReach = new Map<string, boolean>();
+  const rootReach = new Map<string, boolean>();
   function canContainTarget(code: string, seen = new Set<string>()): boolean {
     const id = key(code);
     if (seen.has(id)) return false;
@@ -77,7 +103,7 @@ export function calculateDrops(data: DropData, target: DropItem, input: DropSett
       if (!bases.has(key(baseCode))) throw new Error(`Unresolved drop reference: ${raw}`);
       if (key(baseCode) !== key(target.Code)) return [0, 1];
       if (explicit) return [0, explicit.Id === target.Id ? 0 : 1];
-      if (target.Quality === 'rune') return [0, 0];
+      if (target.Quality === 'rune' || target.Quality === 'misc') return [0, 0];
       if (!target.Random || source.Level < target.Level) return [0, 1];
       const base = bases.get(key(baseCode))!;
       if (base.Quest) return [0, 1];
@@ -154,19 +180,25 @@ export function calculateDrops(data: DropData, target: DropItem, input: DropSett
         return state;
       } finally { active.delete(key(code)); }
     }
+    let treasureClass = source.TreasureClass;
     try {
       let root = classes.get(key(source.TreasureClass));
       if (!root) throw new Error('Missing monster treasure class');
       if (source.Difficulty > 0 && root.Group && root.Group !== '0') {
         root = groups.get(root.Group)?.filter(tc => tc.Level >= root!.Level && tc.Level <= source.Level).at(-1) ?? root;
       }
+      treasureClass = root.Code;
       const misses = walk(root.Code, 6, 0, 0).reduce((sum, n) => sum + n, 0);
       suppressConditional = false;
       const gatedMisses = walk(root.Code, 6, 0, 0).reduce((sum, n) => sum + n, 0);
       if (Math.abs(misses - gatedMisses) > 1e-12) throw new Error('Conditional drops affect the six-item limit');
-      results.push({ source, chance: Math.min(1, Math.max(0, 1 - misses)) });
+      // Summed miss probabilities can land just below 1 through floating-point
+      // rounding. A graph with no target leaf still has exactly zero chance.
+      let reachable = rootReach.get(key(root.Code));
+      if (reachable === undefined) { reachable = canContainTarget(root.Code); rootReach.set(key(root.Code), reachable); }
+      results.push({ source, treasureClass, chance: reachable ? Math.min(1, Math.max(0, 1 - misses)) : 0 });
     } catch (error) {
-      results.push({ source, chance: null, reason: error instanceof Error ? error.message : 'Unsupported drop data' });
+      results.push({ source, treasureClass, chance: null, reason: error instanceof Error ? error.message : 'Unsupported drop data' });
     }
   }
   return results.sort((a, b) => (b.chance ?? -1) - (a.chance ?? -1));

@@ -2,7 +2,7 @@ import type { DropItem, DropQuality } from './drop-calculator';
 
 const difficulties = ['normal', 'nightmare', 'hell'];
 const kinds = ['all', 'normal', 'champion', 'unique', 'superunique', 'boss', 'quest'];
-const params = ['item', 'type', 'difficulty', 'players', 'party', 'mf', 'monster', 'filter', 'zero'];
+const params = ['item', 'type', 'difficulty', 'players', 'party', 'mf', 'monster', 'filter', 'zero', 'tc', 'minLevel', 'maxLevel', 'kills'];
 export interface DropUrlState {
   selected: DropItem | null;
   quality: DropQuality;
@@ -13,6 +13,10 @@ export interface DropUrlState {
   kind: string;
   filter: string;
   showZero: boolean;
+  treasureClass: string;
+  minLevel: number;
+  maxLevel: number;
+  kills: number;
 }
 
 function integer(value: string | null, fallback: number, min: number, max: number) {
@@ -29,14 +33,18 @@ export function readDropUrl(url: URL, items: DropItem[]): DropUrlState {
   const difficulty = p.get('difficulty');
   return {
     selected,
-    quality: selected?.Quality ?? (type === 'set' || type === 'rune' ? type : 'unique'),
+    quality: selected?.Quality ?? (type === 'set' || type === 'rune' || type === 'misc' ? type : 'unique'),
     difficulty: difficulty === 'all' ? -1 : difficulties.includes(difficulty ?? '') ? difficulties.indexOf(difficulty!) : 2,
     players,
     party: integer(p.get('party'), 1, 1, players),
     magicFind: integer(p.get('mf'), 0, 0, 10000),
     kind: kinds.includes(p.get('monster') ?? '') ? p.get('monster')! : 'all',
     filter: p.get('filter') ?? '',
-    showZero: p.get('zero') === '1'
+    showZero: p.get('zero') === '1',
+    treasureClass: p.get('tc') ?? '',
+    minLevel: integer(p.get('minLevel'), 1, 1, 999),
+    maxLevel: integer(p.get('maxLevel'), 999, 1, 999),
+    kills: integer(p.get('kills'), 100000, 1, 100000)
   };
 }
 
@@ -54,5 +62,9 @@ export function writeDropUrl(current: URL, state: DropUrlState): URL {
   if (state.kind !== 'all') p.set('monster', state.kind);
   if (state.filter) p.set('filter', state.filter);
   if (state.showZero) p.set('zero', '1');
+  if (state.treasureClass) p.set('tc', state.treasureClass);
+  if (state.minLevel !== 1) p.set('minLevel', String(state.minLevel));
+  if (state.maxLevel !== 999) p.set('maxLevel', String(state.maxLevel));
+  if (state.kills !== 100000) p.set('kills', String(state.kills));
   return url;
 }

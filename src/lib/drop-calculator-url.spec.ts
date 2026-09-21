@@ -8,7 +8,7 @@ const base = new URL('https://example.com/data/drop-calculator');
 describe('shareable drop URLs', () => {
   it('round trips every setting, including punctuation and result filters', () => {
     const state = { ...readDropUrl(base, [item]), selected: item, quality: 'set' as const,
-      difficulty: -1, players: 8, party: 4, magicFind: 350, kind: 'superunique', filter: 'Baal & friends', showZero: true };
+      difficulty: -1, players: 8, party: 4, magicFind: 350, kind: 'superunique', filter: 'Baal & friends', showZero: true, treasureClass: 'Act 5 (H) H2H C', minLevel: 80, maxLevel: 90, kills: 25000 };
     const url = writeDropUrl(new URL(`${base}?utm_source=discord#results`), state);
     expect(readDropUrl(url, [item])).toEqual(state);
     expect(url.searchParams.get('utm_source')).toBe('discord');
@@ -21,11 +21,19 @@ describe('shareable drop URLs', () => {
     expect(readDropUrl(url, [item]).quality).toBe('set');
   });
   it('handles stale items and malformed or out-of-range settings', () => {
-    const state = readDropUrl(new URL(`${base}?item=removed&type=bogus&players=99&party=99&mf=NaN&difficulty=oops&monster=oops`), [item]);
-    expect(state).toMatchObject({ selected: null, quality: 'unique', players: 8, party: 8, magicFind: 0, difficulty: 2, kind: 'all' });
+    const state = readDropUrl(new URL(`${base}?item=removed&type=bogus&players=99&party=99&mf=NaN&difficulty=oops&monster=oops&kills=999999&minLevel=oops&maxLevel=-1`), [item]);
+    expect(state).toMatchObject({ selected: null, quality: 'unique', players: 8, party: 8, magicFind: 0, difficulty: 2, kind: 'all', kills: 100000, minLevel: 1, maxLevel: 999 });
     expect(readDropUrl(new URL(`${base}?players=2&party=8&mf=-1`), [item])).toMatchObject({ players: 2, party: 2, magicFind: 0 });
   });
   it('removes stale state and omits defaults', () => {
     expect(writeDropUrl(new URL(`${base}?item=removed&mf=500&zero=1`), readDropUrl(base, [item])).href).toBe(base.href);
   });
+});
+
+
+it('shares miscellaneous item selections and an empty misc search', () => {
+  const misc: DropItem = { ...item, Id: 'misc:ka3', Quality: 'misc' };
+  const state = { ...readDropUrl(base, [misc]), selected: misc, quality: 'misc' as const };
+  expect(readDropUrl(writeDropUrl(base, state), [misc])).toEqual(state);
+  expect(readDropUrl(new URL(`${base}?type=misc`), [misc]).quality).toBe('misc');
 });
