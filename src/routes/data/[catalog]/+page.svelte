@@ -109,9 +109,11 @@
   let recipeTypeOptions = $derived(([...new Set<string>(data.items.flatMap((item: CatalogItem) => recipeTypesFor(item)))] as string[])
     .map((value) => ({ value, label: recipeLabel(value) }))
     .sort((a, b) => a.label.localeCompare(b.label)));
+  // Rune keys (r01, r02, …) follow the game's rune order, which players expect over alphabetical.
   let runeOptions = $derived(options(data.items
     .flatMap((item: CatalogItem) => item.Runes ?? [])
-    .map((rune: { NameKey?: string }) => rune.NameKey ?? '')));
+    .map((rune: { NameKey?: string }) => rune.NameKey ?? ''))
+    .sort((a, b) => a.value.localeCompare(b.value, undefined, { numeric: true })));
 
   function optionValue(value: string, choices: Option[]): string {
     const normalize = (label: string) => label.toLowerCase().replace(/\s+rune(?:\s+\(#\d+\))?$/i, '');
