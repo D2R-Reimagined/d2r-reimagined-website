@@ -185,7 +185,7 @@ export interface AnnouncementListeners {
 }
 
 export function getLadders(): Promise<Ladder[]> {
-  return apiRequest<Ladder[]>('/ladders');
+  return apiRequest<Ladder[]>('/admin/ladders', {}, true);
 }
 
 export function createLadder(input: LadderInput): Promise<Ladder> {
