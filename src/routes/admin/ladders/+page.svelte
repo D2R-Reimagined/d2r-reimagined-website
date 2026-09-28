@@ -60,8 +60,8 @@
     let deleteConfirmName = $state('');
     let deleting = $state(false);
     let bundleDraft = $state<BundleDraft>({
-        minimumLauncherVersion: '0.16.0',
-        requiredD2RLoaderVersion: '1.3.0',
+        minimumLauncherVersion: '0.16.3',
+        requiredD2RLoaderVersion: '1.3.1',
         supportedGameVersion: '3.3'
     });
 
