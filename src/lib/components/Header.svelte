@@ -6,6 +6,7 @@
   import { onMount } from 'svelte';
 
   import { authState, initializeAuth } from '$lib/auth';
+  import { canUseTesterSaves } from '$lib/tester-saves';
   import { i18n, languages, restoreSavedLanguage, setLanguage, type LanguageCode } from '$lib/i18n';
   import {
     lastTradeRealmStorageKey,
@@ -162,7 +163,7 @@
   <nav class="mx-auto flex min-h-16 max-w-screen-2xl items-center justify-between gap-4 px-4" aria-label="Primary navigation">
     <a href="/" class="display-text truncate text-lg text-parchment-50 transition hover:text-ember-400">D2R Reimagined</a>
 
-    <div class="ml-auto flex items-center gap-2 xl:order-3 xl:ml-2">
+    <div class="ml-auto flex items-center gap-2 2xl:order-3 2xl:ml-2">
       <a
         href="https://discord.gg/ZvQD4MARxz"
         target="_blank"
@@ -184,13 +185,13 @@
         </a>
       {/if}
 
-      <button type="button" class="rounded-md border border-parchment-300/25 px-3 py-2 xl:hidden" aria-label="Toggle navigation" aria-expanded={mobileOpen} onclick={() => mobileOpen = !mobileOpen}>
+      <button type="button" class="rounded-md border border-parchment-300/25 px-3 py-2 2xl:hidden" aria-label="Toggle navigation" aria-expanded={mobileOpen} onclick={() => mobileOpen = !mobileOpen}>
         <span aria-hidden="true" class="text-xl">☰</span>
       </button>
     </div>
 
-    <div class:hidden={!mobileOpen} class="absolute left-0 right-0 top-16 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-y-contain border-b border-parchment-300/20 bg-abyss-950 p-4 xl:static xl:order-2 xl:ml-auto xl:flex xl:max-h-none xl:items-center xl:gap-1 xl:overflow-visible xl:border-0 xl:bg-transparent xl:p-0">
-      <div class="flex flex-col gap-1 xl:flex-row xl:items-center xl:whitespace-nowrap">
+    <div class:hidden={!mobileOpen} class="absolute left-0 right-0 top-16 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-y-contain border-b border-parchment-300/20 bg-abyss-950 p-4 2xl:static 2xl:order-2 2xl:ml-auto 2xl:flex 2xl:max-h-none 2xl:items-center 2xl:gap-1 2xl:overflow-visible 2xl:border-0 2xl:bg-transparent 2xl:p-0">
+      <div class="flex flex-col gap-1 2xl:flex-row 2xl:items-center 2xl:whitespace-nowrap">
         <a href="/" onclick={closeMenus} class={navClass('/')}>Home</a>
         <a href="/download" onclick={closeMenus} class={navClass('/download')}>Download</a>
         <a href="/leaderboard" onclick={closeMenus} class={navClass('/leaderboard')}>Leaderboard</a>
@@ -198,6 +199,9 @@
           <a href={tradeHref} onclick={closeMenus} class={`${navClass('/trade')} border border-ember-400/35 bg-ember-950/20`}>Trade</a>
         {/if}
         <a href="/grail" onclick={closeMenus} class={navClass('/grail')}>Holy Grail</a>
+        {#if canUseTesterSaves($authState.user?.roles)}
+          <a href="/testers" onclick={closeMenus} class={navClass('/testers')}>TESTERS</a>
+        {/if}
         {#if $authState.user?.roles.some(role => role === 'Admin' || role === 'Moderator')}
           <a href="/admin" onclick={closeMenus} class={navClass('/admin')}>Admin</a>
         {/if}
@@ -207,7 +211,7 @@
             Community <span aria-hidden="true" class="text-xs">▾</span>
           </button>
           {#if communityOpen}
-            <div id="community-links" class="min-w-72 pt-1 xl:absolute xl:left-0 xl:top-full">
+            <div id="community-links" class="min-w-72 pt-1 2xl:absolute 2xl:left-0 2xl:top-full">
               <div class="grid gap-1 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl">
                 <a href="/builds" onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5"><span class="block text-parchment-50">Builds</span><span class="block text-xs text-parchment-300">Guides from the community</span></a>
                 <a href="/characters" onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5"><span class="block text-parchment-50">Characters</span><span class="block text-xs text-parchment-300">Explore player equipment and skills</span></a>
@@ -221,7 +225,7 @@
             Data <span aria-hidden="true" class="text-xs">▾</span>
           </button>
           {#if dataOpen}
-            <div class="min-w-72 pt-1 xl:absolute xl:left-0 xl:top-full">
+            <div class="min-w-72 pt-1 2xl:absolute 2xl:left-0 2xl:top-full">
               <div class="grid gap-1 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl">
                 {#each dataLinks as link}
                   <a href={link.href} onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5">
@@ -236,12 +240,12 @@
 
         <a href="https://wiki.d2r-reimagined.com/" target="_blank" rel="noreferrer" class="rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">Wiki ↗</a>
 
-        <div class="my-2 h-px bg-parchment-300/15 xl:mx-2 xl:my-0 xl:h-7 xl:w-px"></div>
+        <div class="my-2 h-px bg-parchment-300/15 2xl:mx-2 2xl:my-0 2xl:h-7 2xl:w-px"></div>
 
         <div class="relative" data-nav-dropdown>
-          <button type="button" aria-label="Choose language" aria-expanded={languageOpen} onclick={toggleLanguageMenu} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">◎ <span class="xl:hidden">Language</span></button>
+          <button type="button" aria-label="Choose language" aria-expanded={languageOpen} onclick={toggleLanguageMenu} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">◎ <span class="2xl:hidden">Language</span></button>
           {#if languageOpen}
-            <div class="mt-1 max-h-80 min-w-56 overflow-y-auto rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl xl:absolute xl:right-0 xl:top-full">
+            <div class="mt-1 max-h-80 min-w-56 overflow-y-auto rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl 2xl:absolute 2xl:right-0 2xl:top-full">
               {#each languages as language}
                 <button type="button" onclick={() => chooseLanguage(language.code)} class="flex w-full items-center justify-between rounded px-3 py-2 text-left hover:bg-white/5">
                   {language.name}{#if language.code === $i18n.code}<span class="text-set">✓</span>{/if}
@@ -252,9 +256,9 @@
         </div>
 
         <div class="relative" data-nav-dropdown>
-          <button type="button" aria-label="Choose font" aria-expanded={fontOpen} onclick={toggleFontMenu} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">Aa <span class="xl:hidden">Font</span></button>
+          <button type="button" aria-label="Choose font" aria-expanded={fontOpen} onclick={toggleFontMenu} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">Aa <span class="2xl:hidden">Font</span></button>
           {#if fontOpen}
-            <div class="mt-1 grid min-w-44 grid-cols-1 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl xl:absolute xl:right-0 xl:top-full xl:w-44">
+            <div class="mt-1 grid min-w-44 grid-cols-1 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl 2xl:absolute 2xl:right-0 2xl:top-full 2xl:w-44">
               {#each fonts as font}
                 <button type="button" onclick={() => chooseFont(font.value)} class="w-full rounded px-3 py-2 text-left hover:bg-white/5">{font.label}</button>
               {/each}
