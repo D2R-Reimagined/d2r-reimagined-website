@@ -2,6 +2,9 @@ import { describe, expect, it } from 'vitest';
 
 import { buildCatalog, catalogSources, loadCatalog } from './catalog-sources';
 import { catalogSlugs, type CatalogItem } from './types';
+import runewords from '../../static/data/keyed/runewords.json';
+import { load as loadHome } from '../routes/+page.server';
+import { load as loadGrail } from '../routes/grail/+page.server';
 
 describe('catalog sources', () => {
   it('covers every catalog slug', () => {
@@ -31,6 +34,19 @@ describe('catalog sources', () => {
   it('leaves single-file catalogs untagged', () => {
     const rows: CatalogItem[] = [{ Index: 'Gull' }];
     expect(buildCatalog('uniques', { uniques: rows })).toEqual(rows);
+  });
+
+  it('hides only the removed runewords across catalogs, search, counts, and the grail', async () => {
+    const removed = ['Fortitude (Dummy)', 'Rain Reimagined'];
+    const rows = runewords as CatalogItem[];
+    expect(rows.filter((row) => removed.includes(String(row.Index)))).toHaveLength(2);
+    const expected = rows.filter((row) => !removed.includes(String(row.Index)));
+    expect(buildCatalog('runewords', { runewords: rows })).toEqual(expected);
+
+    const fetcher = (async () => ({ ok: true, json: async () => rows })) as unknown as typeof fetch;
+    expect(await loadCatalog('runewords', fetcher)).toEqual(expected);
+    expect(loadHome().counts.runewords).toBe(expected.length);
+    expect(loadGrail().runewords.map((row) => row.Index)).toEqual(expected.map((row) => row.Index));
   });
 
   it('shares one request per catalog and retries after a failure', async () => {

@@ -3,6 +3,7 @@
     import type {WeaponSortMode} from '$lib/catalog-controls';
     import {i18n} from '$lib/i18n';
     import SearchableSelect from './SearchableSelect.svelte';
+    import SearchableMultiSelect from './SearchableMultiSelect.svelte';
 
     type Option = { value: string; label: string };
 
@@ -178,15 +179,10 @@
                         {/each}
                     </select>
                 </label>
-                <label class="col-span-2 xl:row-span-2 xl:self-start">
-                    <span class={fieldLabel}>{$i18n.t('filter_runes_only_placeholder')}</span>
-                    <select class="field min-h-28" multiple size="4" bind:value={selectedRunes}>
-                        {#each runeOptions as option}
-                            <option value={option.value}>{option.label}</option>
-                        {/each}
-                    </select>
-                    <span class="mt-1 block text-xs text-parchment-300/75">Hold Ctrl or Command to choose multiple runes.</span>
-                </label>
+                <div class="col-span-2">
+                    <SearchableMultiSelect id="runes-only" label={$i18n.t('filter_runes_only_placeholder')}
+                        placeholder="Any runes" options={runeOptions} bind:value={selectedRunes} />
+                </div>
             {/if}
 
             {#if ['affixes', 'runewords'].includes(slug) && typeOptions.length}
@@ -243,7 +239,4 @@
         line-height: 1.25rem;
     }
 
-    .filters-grid :global(select[multiple]) {
-        min-height: 7rem;
-    }
 </style>

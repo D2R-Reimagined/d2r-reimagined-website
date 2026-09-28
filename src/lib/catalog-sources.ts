@@ -1,6 +1,10 @@
 import { isOrbRecipe } from './orbs';
 import type { CatalogItem, CatalogSlug } from './types';
 
+// These legacy rows remain enabled in the export, but their names mark them as removed.
+// Use stable keys so visibility is independent of the selected language.
+const removedRunewords = new Set(['Fortitude (Dummy)', 'Rain Reimagined']);
+
 /** One `static/data/keyed/*.json` file backing a catalog, plus the badge its rows carry. */
 export interface CatalogSource {
   file: string;
@@ -22,7 +26,7 @@ export interface CatalogSource {
 export const catalogSources: Record<CatalogSlug, CatalogSource[]> = {
   uniques: [{ file: 'uniques' }],
   sets: [{ file: 'sets' }],
-  runewords: [{ file: 'runewords' }],
+  runewords: [{ file: 'runewords', rows: (row) => !removedRunewords.has(String(row.Index)) }],
   bases: [{ file: 'armors', source: 'armor' }, { file: 'weapons', source: 'weapon' }],
   affixes: [{ file: 'magicprefix', source: 'prefix' }, { file: 'magicsuffix', source: 'suffix' }],
   'cube-recipes': [{ file: 'cube-recipes', rows: (row) => !isOrbRecipe(row) }],

@@ -2,6 +2,7 @@ import runewords from '../../../static/data/keyed/runewords.json';
 import sets from '../../../static/data/keyed/sets.json';
 import uniques from '../../../static/data/keyed/uniques.json';
 import type { CatalogItem } from '$lib/types';
+import { buildCatalog } from '$lib/catalog-sources';
 
 function grailUnique(item: CatalogItem): CatalogItem {
   return {
@@ -37,6 +38,6 @@ export function load() {
     sets: (sets as CatalogItem[]).flatMap((set) =>
       (set.SetItems ?? []).map(grailSetItem)
     ),
-    runewords: (runewords as CatalogItem[]).map(grailRuneword)
+    runewords: buildCatalog('runewords', { runewords: runewords as CatalogItem[] }).map(grailRuneword)
   };
 }
