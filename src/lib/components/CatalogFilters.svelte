@@ -52,31 +52,33 @@
 </script>
 
 <section
-        class:collapsed={!expanded}
-        class="filters-panel panel sticky top-16 z-40 mb-8 max-h-[calc(100vh-4rem)] overflow-y-auto rounded-lg p-3 sm:p-4"
+        class="filters-panel panel sticky top-16 z-40 mb-4 max-h-[calc(100vh-4rem)] overflow-y-auto rounded-lg p-2.5 sm:p-3"
         aria-label="Catalog filters"
         data-testid="catalog-filters"
 >
     <div class="flex items-center justify-between gap-3">
-        <div>
-            <h2 class="display-text text-base text-parchment-50">Filters</h2>
-            <p class="text-xs text-parchment-300">Refine the catalog results.</p>
-        </div>
+        <h2 class="display-text text-sm text-parchment-50">Filters</h2>
         <button
                 type="button"
-                class="shrink-0 rounded-md border border-parchment-300/30 px-3 py-1.5 text-sm text-parchment-200 transition hover:border-ember-400/70 hover:text-white"
+                class="flex size-7 shrink-0 items-center justify-center rounded text-parchment-200 transition hover:bg-parchment-300/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember-400"
+                aria-label={expanded ? 'Collapse filters' : 'Expand filters'}
+                title={expanded ? 'Collapse filters' : 'Expand filters'}
                 aria-controls="catalog-filter-controls"
                 aria-expanded={expanded}
                 onclick={() => expanded = !expanded}
         >
-            {expanded ? 'Collapse' : 'Expand'} <span aria-hidden="true">{expanded ? '▴' : '▾'}</span>
+            <svg class="size-4 transition-transform" class:rotate-180={!expanded}
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 11 6-6 6 6m-12 7 6-6 6 6" />
+            </svg>
         </button>
     </div>
 
     {#if expanded}
         <div id="catalog-filter-controls"
-             class="filters-grid mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
-            <label class="sm:col-span-2">
+             class="filters-grid mt-1.5 grid grid-cols-2 items-end gap-2 lg:grid-cols-4 xl:grid-cols-6">
+            <label class="col-span-2">
                 <span class={fieldLabel}>{$i18n.t('filter_search_placeholder')}</span>
                 <input class="field" type="search" placeholder="Name, property, base, or class…" autocomplete="off"
                        bind:value={search}/>
@@ -103,7 +105,7 @@
             {/if}
 
             {#if slug === 'cube-recipes'}
-                <div class="sm:col-span-2"><SearchableSelect id="recipe-type" label={$i18n.t('filter_select_recipe_type')}
+                <div class="col-span-2"><SearchableSelect id="recipe-type" label={$i18n.t('filter_select_recipe_type')}
                     placeholder="All recipe types" options={recipeTypeOptions} bind:value={recipeType} /></div>
             {/if}
 
@@ -144,7 +146,7 @@
             {/if}
 
             {#if slug === 'affixes'}
-                <div class="sm:col-span-2"><SearchableSelect id="property-type" label={$i18n.t('filter_select_property_type')}
+                <div class="col-span-2"><SearchableSelect id="property-type" label={$i18n.t('filter_select_property_type')}
                     placeholder="All properties" options={propertyOptions} bind:value={propertyType} /></div>
                 <label>
                     <span class={fieldLabel}>{$i18n.t('filter_min_rlvl')}</span>
@@ -176,7 +178,7 @@
                         {/each}
                     </select>
                 </label>
-                <label class="sm:col-span-2">
+                <label class="col-span-2 xl:row-span-2 xl:self-start">
                     <span class={fieldLabel}>{$i18n.t('filter_runes_only_placeholder')}</span>
                     <select class="field min-h-28" multiple size="4" bind:value={selectedRunes}>
                         {#each runeOptions as option}
@@ -188,7 +190,7 @@
             {/if}
 
             {#if ['affixes', 'runewords'].includes(slug) && typeOptions.length}
-                <label class="compact-control flex min-h-12 items-center gap-3 self-end rounded-md border border-parchment-300/20 bg-black/20 px-3 py-2">
+                <label class="compact-control flex items-center gap-2 rounded-md border border-parchment-300/20 bg-black/20">
                     <input type="checkbox" bind:checked={exactType} class="checkbox"/>
                     <span>{$i18n.t('filter_exact')}</span>
                 </label>
@@ -203,7 +205,7 @@
                         <option value="2h">{$i18n.t('label_2h_only')}</option>
                     </select>
                 </label>
-                <label class="sm:col-span-2">
+                <label class="col-span-2">
                     <span class={fieldLabel}>{$i18n.t('sort_by_damage')}</span>
                     <select class="field" bind:value={weaponSort}>
                         {#each weaponSortOptions as option}
@@ -214,14 +216,14 @@
             {/if}
 
             {#if ['uniques', 'sets', 'runewords'].includes(slug)}
-                <label class="compact-control flex min-h-12 items-center gap-3 self-end rounded-md border border-parchment-300/20 bg-black/20 px-3 py-2">
+                <label class="compact-control flex items-center gap-2 rounded-md border border-parchment-300/20 bg-black/20">
                     <input type="checkbox" bind:checked={hideVanilla} class="checkbox"/>
                     <span>{$i18n.t('filter_hide_vanilla')}</span>
                 </label>
             {/if}
 
             <button type="button" onclick={reset}
-                    class="compact-control min-h-12 self-end rounded-md border border-ember-500/55 px-4 py-2 text-ember-400 transition hover:bg-ember-700 hover:text-white">
+                    class="compact-control rounded-md border border-ember-500/55 text-ember-400 transition hover:bg-ember-700 hover:text-white">
                 {$i18n.t('filter_reset')}
             </button>
         </div>
@@ -229,28 +231,19 @@
 </section>
 
 <style>
-    .filters-panel.collapsed {
-        margin-bottom: 1rem;
+    .filters-grid > :global(*) {
+        min-width: 0;
     }
 
-    @media (max-height: 800px) and (min-width: 640px) {
-        .filters-panel {
-            padding: 0.65rem;
-        }
+    .filters-grid :global(.field),
+    .compact-control {
+        min-height: 2.25rem;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
 
-        .filters-grid {
-            margin-top: 0.5rem;
-            gap: 0.5rem;
-        }
-
-        :global(.filters-grid .field) {
-            padding: 0.45rem 0.6rem;
-        }
-
-        :global(.filters-grid .compact-control) {
-            min-height: 2.5rem;
-            padding-top: 0.35rem;
-            padding-bottom: 0.35rem;
-        }
+    .filters-grid :global(select[multiple]) {
+        min-height: 7rem;
     }
 </style>
