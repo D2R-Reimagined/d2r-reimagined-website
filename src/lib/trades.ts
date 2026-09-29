@@ -1,5 +1,6 @@
 import { apiRequest } from '$lib/auth';
 import type { CharacterDetailsResponse, SaveItem } from '$lib/characters';
+import type { GameItemPayload } from '$lib/trade-game-item';
 
 export type TradeListingStatus = 'Active' | 'Reserved' | 'Completed' | 'Cancelled' | 'Expired';
 export type TradeOfferStatus = 'Pending' | 'Accepted' | 'Declined' | 'Withdrawn';
@@ -197,6 +198,17 @@ export function getMyTradeListings(): Promise<TradeListing[]> {
 export function getTradeInventory(ladderId: string | null): Promise<TradeInventory> {
   const query = ladderId ? `?ladderId=${encodeURIComponent(ladderId)}` : '';
   return apiRequest<TradeInventory>(`/trades/inventory${query}`, {}, true);
+}
+
+/**
+ * An item the trade-sell plugin read in game, turned by the API into the same
+ * shape a synced save gives it. The item does not have to be in any save.
+ */
+export function resolveGameItem(item: GameItemPayload): Promise<SaveItem> {
+  return apiRequest<SaveItem>('/trades/items/resolve', {
+    method: 'POST',
+    body: JSON.stringify(item)
+  }, true);
 }
 
 export function createTradeListing(input: CreateTradeListing): Promise<TradeListing> {

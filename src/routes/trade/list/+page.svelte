@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
+  import { page } from '$app/state';
   import { onMount } from 'svelte';
   import CharacterViewer from '$lib/components/CharacterViewer.svelte';
   import TradeStashPicker from '$lib/components/TradeStashPicker.svelte';
@@ -15,9 +16,13 @@
   import {
     createTradeListing,
     getTradeInventory,
+    resolveGameItem,
     type SharedStash,
     type TradeInventory
   } from '$lib/trades';
+  import { decodeGameItemHash, findGameItemInInventory, type GameItemPayload } from '$lib/trade-game-item';
+
+  type ItemOrigin = 'character' | 'stash' | 'game';
 
   let ladders = $state<LadderSummary[]>([]);
   let selectedLadderId = $state('');
@@ -27,6 +32,12 @@
   let selectedStashTab = $state(0);
   let source = $state<'character' | 'stash'>('character');
   let selectedItem = $state<SaveItem | null>(null);
+  let itemOrigin = $state<ItemOrigin | null>(null);
+  // Sent by the trade-sell plugin's Sell button. The item's own record from the
+  // game, so the listing never depends on the item being in a synced save.
+  let gameItem = $state<GameItemPayload | null>(null);
+  let resolvedGameItem = $state<SaveItem | null>(null);
+  let gameItemInSave = $state(false);
   let selectedCharacter = $state<CharacterDetailsResponse | null>(null);
   let loading = $state(true);
   let inventoryLoading = $state(false);
@@ -64,13 +75,21 @@
   function chooseCharacter(id: string): void {
     selectedCharacterId = id;
     selectedCharacter = inventory?.characters.find((entry) => entry.character.id === id) ?? null;
-    selectedItem = null;
+    clearPickedItem();
   }
 
   function chooseStash(fileName: string): void {
     selectedStashFile = fileName;
     selectedStashTab = 0;
+    clearPickedItem();
+  }
+
+  // Browsing saves drops an item picked from them, but not the one sent from
+  // the game: that stays chosen until another item is picked.
+  function clearPickedItem(): void {
+    if (itemOrigin === 'game') return;
     selectedItem = null;
+    itemOrigin = null;
   }
 
   function itemLabel(item: SaveItem): string {
@@ -80,8 +99,9 @@
     return itemDisplayLabel(item, identifiedName);
   }
 
-  function chooseItem(item: SaveItem): void {
+  function chooseItem(item: SaveItem, origin: ItemOrigin = source): void {
     selectedItem = structuredClone($state.snapshot(item));
+    itemOrigin = origin;
     itemName = itemLabel(item);
     const identified = isItemIdentified(item);
     title = identified ? `${itemName} for trade` : `Unidentified ${itemName} for trade`;
@@ -98,6 +118,7 @@
     inventoryLoading = true;
     error = '';
     selectedItem = null;
+    itemOrigin = null;
     try {
       inventory = await getTradeInventory(selectedLadderQuery());
       const firstCharacter = inventory.characters[0];
@@ -114,9 +135,46 @@
       }
     } catch (value) {
       inventory = null;
-      error = value instanceof Error ? value.message : 'Your item inventory could not be loaded.';
+      // A game item does not need the inventory, so its failure is not the
+      // page's failure.
+      if (!gameItem) error = value instanceof Error ? value.message : 'Your item inventory could not be loaded.';
     } finally {
       inventoryLoading = false;
+    }
+    if (gameItem) await applyGameItem();
+  }
+
+  // The save's copy when a synced save holds the same item: it knows the
+  // runeword, socket contents and set bonuses the game does not report. The
+  // game's own copy otherwise - the usual case for something just found or
+  // about to be handed over.
+  async function applyGameItem(): Promise<void> {
+    if (!gameItem) return;
+    const match = findGameItemInInventory(inventory, gameItem);
+    gameItemInSave = match !== null;
+    if (match?.source === 'character') {
+      source = 'character';
+      chooseCharacter(match.characterId);
+      chooseItem(match.item, 'character');
+      return;
+    }
+    if (match?.source === 'stash') {
+      source = 'stash';
+      chooseStash(match.fileName);
+      selectedStashTab = match.tabIndex;
+      chooseItem(match.item, 'stash');
+      return;
+    }
+    await useGameItem();
+  }
+
+  async function useGameItem(): Promise<void> {
+    if (!gameItem) return;
+    try {
+      resolvedGameItem ??= { ...(await resolveGameItem(gameItem)), socketedCount: gameItem.socketed };
+      chooseItem(resolvedGameItem, 'game');
+    } catch (value) {
+      error = value instanceof Error ? value.message : 'The item from the game could not be read.';
     }
   }
 
@@ -127,7 +185,7 @@
     error = '';
     try {
       const listing = await createTradeListing({
-        characterId: source === 'character' ? selectedCharacterId : null,
+        characterId: itemOrigin === 'character' ? selectedCharacterId : null,
         ladderId: selectedLadderQuery(),
         title: title.trim(),
         itemName: itemName.trim(),
@@ -157,9 +215,12 @@
   onMount(async () => {
     await initializeAuth();
     if (!$authState.user) {
-      await goto(`/profile?returnTo=${encodeURIComponent('/trade/list')}`);
+      // The whole address, fragment included: it carries the game item.
+      const returnTo = `${page.url.pathname}${page.url.search}${location.hash}`;
+      await goto(`/profile?returnTo=${encodeURIComponent(returnTo)}`);
       return;
     }
+    gameItem = decodeGameItemHash(location.hash);
     try {
       const [loadedLadders, loadedPresentations, loadedTiers, uniques, sets] = await Promise.all([
         getLadders(),
@@ -175,7 +236,11 @@
       catalogItems = [...uniques, ...setItems];
       nameOptions = [...new Set(catalogItems.map((item) => String(item.Index || '')).filter(Boolean))].sort((a, b) => a.localeCompare(b));
       const now = Date.now();
-      selectedLadderId = ladders.find((ladder) => new Date(ladder.startDateUtc).getTime() <= now && new Date(ladder.endDateUtc).getTime() > now)?.id ?? '';
+      const currentLadderId = ladders.find((ladder) => new Date(ladder.startDateUtc).getTime() <= now && new Date(ladder.endDateUtc).getTime() > now)?.id ?? '';
+      // A game link names the character's ladder when the launcher configured
+      // one; otherwise the current ladder stays the default, as it always was.
+      const linkedLadder = page.url.searchParams.get('ladder');
+      selectedLadderId = ladders.find((ladder) => ladder.id === linkedLadder)?.id ?? currentLadderId;
       await loadInventory();
     } catch (value) {
       error = value instanceof Error ? value.message : 'The listing page could not be prepared.';
@@ -195,7 +260,7 @@
   <div class="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 sm:py-10">
     <a href="/trade" class="text-sm text-parchment-300 hover:text-ember-400">← Back to trade</a>
     <div class="mt-5 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-      <div><p class="text-xs uppercase tracking-[0.26em] text-ember-400">Create listing</p><h1 class="display-text mt-2 text-4xl text-parchment-50 sm:text-5xl">List an item</h1><p class="mt-3 max-w-2xl text-parchment-300">Select the exact item from your server-synced character or shared stash. Its properties are filled in for you.</p></div>
+      <div><p class="text-xs uppercase tracking-[0.26em] text-ember-400">Create listing</p><h1 class="display-text mt-2 text-4xl text-parchment-50 sm:text-5xl">List an item</h1><p class="mt-3 max-w-2xl text-parchment-300">Type <code>/sell</code> in game and choose the item, or select it here from a server-synced character or shared stash. Its properties are filled in for you.</p></div>
       <ol class="flex gap-2 text-xs text-parchment-300" aria-label="Listing steps"><li class="rounded-full border border-ember-400/35 px-3 py-1.5">1 Ladder</li><li class="rounded-full border border-parchment-300/25 px-3 py-1.5">2 Item</li><li class="rounded-full border border-parchment-300/25 px-3 py-1.5">3 Details</li></ol>
     </div>
   </div>
@@ -206,6 +271,24 @@
   {#if loading}
     <div class="panel rounded-lg p-12 text-center text-parchment-300">Loading ladders and your server inventory…</div>
   {:else}
+    {#if gameItem}
+      <section class="mb-6 rounded-lg border border-ember-400/35 bg-ember-700/10 px-5 py-4 text-sm leading-6 text-parchment-200" aria-label="Item from the game">
+        <p class="text-xs uppercase tracking-[0.2em] text-ember-400">Sent from the game</p>
+        {#if !selectedItem}
+          <p class="mt-1">Reading the item from the game…</p>
+        {:else if itemOrigin !== 'game'}
+          <p class="mt-1">
+            {#if gameItemInSave}This item is also in your synced save, so the listing below uses the save's copy - it includes runewords, socketed items and set bonuses.{:else}You picked a different item from your saves.{/if}
+            <button type="button" class="text-ember-400 underline hover:text-ember-300" onclick={() => useGameItem()}>Use the item sent from the game</button>
+          </p>
+        {:else}
+          <p class="mt-1">Read straight from the game - it does not need to be in a synced save.
+            {#if gameItem.statSource === 'probe'}Skill bonuses, charges and chance-to-cast properties could not be read, so add any the item has to the notes.{:else if gameItem.statSource === 'none'}The game could not report its properties, so describe them in the notes, or pick the item below if a synced save has it.{:else}Check the properties before you publish.{/if}
+            {#if gameItem.sockets > 0}The properties include what its sockets add, but not which runes or jewels fill them - for a runeword, set the quality to Runeword and give its name.{/if}
+          </p>
+        {/if}
+      </section>
+    {/if}
     <section class="panel rounded-lg p-5 sm:p-6" aria-labelledby="ladder-heading">
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div><p class="text-xs uppercase tracking-[0.2em] text-ember-400">Step 1</p><h2 id="ladder-heading" class="display-text mt-1 text-2xl text-parchment-50">Choose ladder</h2><p class="mt-2 text-sm text-parchment-300">Characters and stash files are isolated by ladder.</p></div>
@@ -217,23 +300,27 @@
       <div class="mb-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div><p class="text-xs uppercase tracking-[0.2em] text-ember-400">Step 2</p><h2 id="item-heading" class="display-text mt-1 text-2xl text-parchment-50">Select the item</h2></div>
         <div class="inline-flex rounded-full border border-parchment-300/25 bg-black/30 p-1">
-          <button type="button" disabled={!inventory?.characters.length} class={`rounded-full px-4 py-2 text-sm ${source === 'character' ? 'bg-ember-700/35 text-white' : 'text-parchment-300'} disabled:opacity-35`} onclick={() => { source = 'character'; selectedItem = null; }}>Characters ({inventory?.characters.length ?? 0})</button>
-          <button type="button" disabled={!inventory?.sharedStashes.length} class={`rounded-full px-4 py-2 text-sm ${source === 'stash' ? 'bg-ember-700/35 text-white' : 'text-parchment-300'} disabled:opacity-35`} onclick={() => { source = 'stash'; selectedItem = null; }}>Shared stash ({inventory?.sharedStashes.length ?? 0})</button>
+          <button type="button" disabled={!inventory?.characters.length} class={`rounded-full px-4 py-2 text-sm ${source === 'character' ? 'bg-ember-700/35 text-white' : 'text-parchment-300'} disabled:opacity-35`} onclick={() => { source = 'character'; clearPickedItem(); }}>Characters ({inventory?.characters.length ?? 0})</button>
+          <button type="button" disabled={!inventory?.sharedStashes.length} class={`rounded-full px-4 py-2 text-sm ${source === 'stash' ? 'bg-ember-700/35 text-white' : 'text-parchment-300'} disabled:opacity-35`} onclick={() => { source = 'stash'; clearPickedItem(); }}>Shared stash ({inventory?.sharedStashes.length ?? 0})</button>
         </div>
       </div>
 
       {#if inventoryLoading}
         <div class="panel rounded-lg p-12 text-center text-parchment-300">Loading {selectedLadder?.name || 'Standard'} inventory…</div>
       {:else if !inventory || (!inventory.characters.length && !inventory.sharedStashes.length)}
-        <div class="panel rounded-lg p-10 text-center"><h3 class="display-text text-2xl text-parchment-50">No server-synced items found</h3><p class="mx-auto mt-3 max-w-xl text-parchment-300">Launch this ladder with the server saves plugin, or upload a Standard character from your profile, then return here.</p><a href="/profile" class="trade-secondary-button mt-5 inline-block">Open profile</a></div>
+        {#if gameItem}
+          <div class="rounded-lg border border-dashed border-parchment-300/25 px-6 py-8 text-center text-sm text-parchment-300">No synced saves in this realm - none are needed for the item you sent from the game.</div>
+        {:else}
+          <div class="panel rounded-lg p-10 text-center"><h3 class="display-text text-2xl text-parchment-50">No server-synced items found</h3><p class="mx-auto mt-3 max-w-xl text-parchment-300">Type <code>/sell</code> in game to list an item straight from your inventory. Or launch this ladder with the server saves plugin, or upload a Standard character from your profile, then return here.</p><a href="/profile" class="trade-secondary-button mt-5 inline-block">Open profile</a></div>
+        {/if}
       {:else if source === 'character'}
         <div class="mb-4 flex flex-wrap gap-2">{#each inventory.characters as entry}<button type="button" class={`rounded border px-3 py-2 text-sm ${selectedCharacterId === entry.character.id ? 'border-ember-400/55 bg-ember-700/25 text-white' : 'border-parchment-300/20 text-parchment-300'}`} onclick={() => chooseCharacter(entry.character.id)}>{entry.character.name} · {entry.character.class} {entry.character.level}</button>{/each}</div>
-        {#if selectedCharacter}<div class="rounded-lg border border-parchment-300/15 bg-[#101014] p-3 sm:p-6"><CharacterViewer details={selectedCharacter} inventoryOnly selectedItemSeed={selectedItem?.seed} onItemSelect={chooseItem} /></div>{/if}
+        {#if selectedCharacter}<div class="rounded-lg border border-parchment-300/15 bg-[#101014] p-3 sm:p-6"><CharacterViewer details={selectedCharacter} inventoryOnly selectedItemSeed={itemOrigin === 'character' ? selectedItem?.seed : undefined} onItemSelect={(item) => chooseItem(item, 'character')} /></div>{/if}
       {:else}
         <div class="mb-4 flex flex-wrap gap-2">{#each inventory.sharedStashes as stash}<button type="button" class={`rounded border px-3 py-2 text-sm ${selectedStashFile === stash.fileName ? 'border-ember-400/55 bg-ember-700/25 text-white' : 'border-parchment-300/20 text-parchment-300'}`} onclick={() => chooseStash(stash.fileName)}>{stash.fileName}</button>{/each}</div>
         {#if currentStash}
-          <div class="mb-5 flex gap-2 overflow-x-auto pb-2">{#each currentStash.tabs as tab}<button type="button" class={`whitespace-nowrap rounded border px-3 py-2 text-sm ${selectedStashTab === tab.index ? 'border-ember-400/55 bg-ember-700/25 text-white' : 'border-parchment-300/20 text-parchment-300'}`} onclick={() => { selectedStashTab = tab.index; selectedItem = null; }}>Tab {tab.index + 1} · {tab.items.length} items</button>{/each}</div>
-          {#if currentStashTab}<TradeStashPicker items={currentStashTab.items} selectedItemSeed={selectedItem?.seed} onItemSelect={chooseItem} />{/if}
+          <div class="mb-5 flex gap-2 overflow-x-auto pb-2">{#each currentStash.tabs as tab}<button type="button" class={`whitespace-nowrap rounded border px-3 py-2 text-sm ${selectedStashTab === tab.index ? 'border-ember-400/55 bg-ember-700/25 text-white' : 'border-parchment-300/20 text-parchment-300'}`} onclick={() => { selectedStashTab = tab.index; clearPickedItem(); }}>Tab {tab.index + 1} · {tab.items.length} items</button>{/each}</div>
+          {#if currentStashTab}<TradeStashPicker items={currentStashTab.items} selectedItemSeed={itemOrigin === 'stash' ? selectedItem?.seed : undefined} onItemSelect={(item) => chooseItem(item, 'stash')} />{/if}
         {/if}
       {/if}
     </section>
@@ -264,7 +351,7 @@
           </div>
 
           {#if selectedItemIdentified && selectedItem.stats.length}
-            <fieldset class="mt-7 border-t border-parchment-300/15 pt-6"><legend class="display-text text-lg text-parchment-50">Item properties</legend><p class="mt-1 text-xs text-parchment-300">Prefilled from the save. Adjust a roll only when the decoded value needs correction.</p><div class="mt-4 grid gap-3 md:grid-cols-2">{#each selectedItem.stats as stat}<label class="grid grid-cols-[1fr_7rem] items-center gap-3 rounded border border-parchment-300/12 bg-black/20 px-3 py-2 text-sm text-parchment-200"><span>{stat.name}</span><input aria-label={`${stat.name} value`} type="number" class="field !py-1.5 text-right" bind:value={stat.value} /></label>{/each}</div></fieldset>
+            <fieldset class="mt-7 border-t border-parchment-300/15 pt-6"><legend class="display-text text-lg text-parchment-50">Item properties</legend><p class="mt-1 text-xs text-parchment-300">Prefilled from {itemOrigin === 'game' ? 'the game' : 'the save'}. Adjust a roll only when the decoded value needs correction.</p><div class="mt-4 grid gap-3 md:grid-cols-2">{#each selectedItem.stats as stat}<label class="grid grid-cols-[1fr_7rem] items-center gap-3 rounded border border-parchment-300/12 bg-black/20 px-3 py-2 text-sm text-parchment-200"><span>{stat.name}</span><input aria-label={`${stat.name} value`} type="number" class="field !py-1.5 text-right" bind:value={stat.value} /></label>{/each}</div></fieldset>
           {/if}
 
           <label class="mt-6 flex items-start gap-3 rounded border border-parchment-300/15 bg-black/20 p-4"><input type="checkbox" class="checkbox mt-0.5" bind:checked={negotiable} /><span><strong class="block text-parchment-50">Open to offers</strong><span class="mt-1 block text-sm text-parchment-300">Players can submit an offer without starting a conversation.</span></span></label>

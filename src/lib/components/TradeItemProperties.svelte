@@ -29,7 +29,10 @@
     if (item.maximumDurability != null) values.push(`Durability ${item.durability ?? 0} of ${item.maximumDurability}`);
     if (item.quantity != null) values.push(`Quantity ${item.quantity}`);
     if (item.advancedStashStackSize != null) values.push(`Stack size ${item.advancedStashStackSize}`);
-    if (item.sockets.length) values.push(`Socketed ${item.sockets.filter(Boolean).length} of ${item.sockets.length}`);
+    // An item sent from the game carries its filled-socket count rather than
+    // the socketed items themselves.
+    const socketed = typeof item.socketedCount === 'number' ? item.socketedCount : item.sockets.filter(Boolean).length;
+    if (item.sockets.length) values.push(`Socketed ${socketed} of ${item.sockets.length}`);
     return values;
   });
 
