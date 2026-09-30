@@ -45,7 +45,7 @@
 </script>
 
 <svelte:head>
-    <title>D2R Reimagined — Expanded Diablo II: Resurrected</title>
+    <title>D2R Reimagined</title>
     <meta name="description"
           content="D2R Reimagined expands Diablo II: Resurrected with new items, skills, recipes, balance changes, and searchable game data."/>
     <meta property="og:title" content="D2R Reimagined"/>
