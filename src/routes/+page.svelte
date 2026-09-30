@@ -102,6 +102,21 @@
     </div>
 </section>
 
+<section aria-labelledby="play-your-way-heading"
+         class="mx-auto grid max-w-7xl gap-8 px-5 pb-20 lg:grid-cols-2 lg:items-center">
+    <div>
+        <h2 id="play-your-way-heading" class="display-text mt-3 text-3xl sm:text-5xl">Face Hell solo or together</h2>
+        <p class="mt-5 text-lg leading-8 text-parchment-200">Take on Sanctuary at your own pace in single player,
+            or team up with friends in multiplayer through D2RLoader. Whether you prefer a solo adventure or a shared
+            battle against Hell, Reimagined has a place for you.</p>
+        <a href="https://d2rloader.net" target="_blank" rel="noreferrer"
+           class="mt-6 inline-block text-ember-400 hover:text-ember-300">Explore D2RLoader ↗</a>
+    </div>
+    <div class="overflow-hidden rounded-lg border border-parchment-300/20 shadow-2xl"><img
+            src="/images/multiplayer.webp" alt="D2RLoader multiplayer browser showing available games and player counts"
+            width="1365" height="1111" class="h-auto w-full" loading="lazy"/></div>
+</section>
+
 <section class="border-y border-parchment-300/15 bg-black/30 py-20">
     <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-2 lg:items-center">
         <div class="overflow-hidden rounded-lg border border-parchment-300/20 shadow-2xl"><img
