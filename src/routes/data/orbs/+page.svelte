@@ -116,11 +116,11 @@
 </script>
 
 <svelte:head>
-  <title>{data.definition.title} — D2R Reimagined</title>
+  <title>{data.definition.title} | D2R Reimagined</title>
   <meta name="description" content={data.definition.description} />
-  <meta property="og:title" content={`${data.definition.title} — D2R Reimagined`} />
+  <meta property="og:title" content={`${data.definition.title} | D2R Reimagined`} />
   <meta property="og:description" content={data.definition.description} />
-  <meta name="twitter:title" content={`${data.definition.title} — D2R Reimagined`} />
+  <meta name="twitter:title" content={`${data.definition.title} | D2R Reimagined`} />
   <meta name="twitter:description" content={data.definition.description} />
 </svelte:head>
 

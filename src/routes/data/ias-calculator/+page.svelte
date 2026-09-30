@@ -79,7 +79,7 @@
 </script>
 
 <svelte:head>
-    <title>IAS Calculator — D2R Reimagined</title>
+    <title>IAS Calculator | D2R Reimagined</title>
     <meta name="description"
           content="Calculate attack-speed breakpoints with D2R Reimagined weapon bases, skill bonuses, and animation timings."/>
 </svelte:head>

@@ -74,7 +74,7 @@
   });
 </script>
 
-<svelte:head><title>Portal rewards — D2R Reimagined</title></svelte:head>
+<svelte:head><title>Portal rewards | D2R Reimagined</title></svelte:head>
 <h2 class="display-text text-3xl text-parchment-50">Portal rewards</h2>
 <p class="mt-2 mb-6 text-parchment-300">Supporter tier colors, individual rewards, and owned packs add together. Ember requires an individual reward or a pack.</p>
 {#if error}<p role="alert" class="mb-4 text-requirement">{error}</p>{/if}

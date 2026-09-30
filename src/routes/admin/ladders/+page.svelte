@@ -483,7 +483,7 @@
 </script>
 
 <svelte:head>
-    <title>Manage Ladders — D2R Reimagined</title>
+    <title>Manage Ladders | D2R Reimagined</title>
 </svelte:head>
 
 <div class="mb-6">

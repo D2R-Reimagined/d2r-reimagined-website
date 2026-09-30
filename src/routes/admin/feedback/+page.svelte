@@ -81,7 +81,7 @@
   });
 </script>
 
-<svelte:head><title>Feedback — D2R Reimagined</title></svelte:head>
+<svelte:head><title>Feedback | D2R Reimagined</title></svelte:head>
 
 <div class="mb-6">
   <h2 class="display-text text-3xl text-parchment-50">Feedback</h2>

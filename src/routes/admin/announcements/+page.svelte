@@ -74,7 +74,7 @@
 </script>
 
 <svelte:head>
-  <title>Send Announcements — D2R Reimagined</title>
+  <title>Send Announcements | D2R Reimagined</title>
 </svelte:head>
 
 <div class="mb-6">

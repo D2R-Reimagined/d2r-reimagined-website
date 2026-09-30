@@ -24,7 +24,7 @@
 </script>
 
 <svelte:head>
-  <title>Download the Launcher — D2R Reimagined</title>
+  <title>Download the Launcher | D2R Reimagined</title>
   <meta name="description" content="Download the latest D2R Reimagined Launcher for Windows or Linux, with automatic updates or a static Windows install." />
   <meta property="og:title" content="Download the D2R Reimagined Launcher" />
   <meta property="og:description" content="Choose the right launcher download for Windows or Linux." />

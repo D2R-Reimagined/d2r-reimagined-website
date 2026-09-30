@@ -85,7 +85,7 @@
 </script>
 
 <svelte:head>
-  <title>Game Data — D2R Reimagined</title>
+  <title>Game Data | D2R Reimagined</title>
   <meta name="description" content="Search D2R Reimagined unique items, sets, runewords, bases, affixes, and cube recipes." />
 </svelte:head>
 

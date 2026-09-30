@@ -82,7 +82,7 @@
 </script>
 
 <svelte:head>
-  <title>Manage Users — D2R Reimagined</title>
+  <title>Manage Users | D2R Reimagined</title>
 </svelte:head>
 
 <div class="mb-6">

@@ -6,11 +6,11 @@
 </script>
 
 <svelte:head>
-  <title>Skill Planner — D2R Reimagined</title>
+  <title>Skill Planner | D2R Reimagined</title>
   <meta name="description" content={skillPlannerDefinition.description} />
-  <meta property="og:title" content="Skill Planner — D2R Reimagined" />
+  <meta property="og:title" content="Skill Planner | D2R Reimagined" />
   <meta property="og:description" content={skillPlannerDefinition.description} />
-  <meta name="twitter:title" content="Skill Planner — D2R Reimagined" />
+  <meta name="twitter:title" content="Skill Planner | D2R Reimagined" />
   <meta name="twitter:description" content={skillPlannerDefinition.description} />
 </svelte:head>
 

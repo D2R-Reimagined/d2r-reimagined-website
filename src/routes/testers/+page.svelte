@@ -58,7 +58,7 @@
 </script>
 
 <svelte:head>
-  <title>Testers — D2R Reimagined</title>
+  <title>Testers | D2R Reimagined</title>
   <meta name="robots" content="noindex,nofollow" />
 </svelte:head>
 

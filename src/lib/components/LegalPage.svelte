@@ -5,9 +5,9 @@
 </script>
 
 <svelte:head>
-  <title>{title} — D2R Reimagined</title>
+  <title>{title} | D2R Reimagined</title>
   <meta name="description" content={description} />
-  <meta property="og:title" content={`${title} — D2R Reimagined`} />
+  <meta property="og:title" content={`${title} | D2R Reimagined`} />
   <meta property="og:description" content={description} />
 </svelte:head>
 

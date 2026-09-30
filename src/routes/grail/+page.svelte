@@ -148,11 +148,11 @@
 </script>
 
 <svelte:head>
-  <title>Holy Grail Tracker — D2R Reimagined</title>
+  <title>Holy Grail Tracker | D2R Reimagined</title>
   <meta name="description" content="Track D2R Reimagined unique items, set pieces, and runewords in a private browser-based Holy Grail checklist." />
-  <meta property="og:title" content="Holy Grail Tracker — D2R Reimagined" />
+  <meta property="og:title" content="Holy Grail Tracker | D2R Reimagined" />
   <meta property="og:description" content="A private browser-based checklist for D2R Reimagined unique items, sets, and runewords." />
-  <meta name="twitter:title" content="Holy Grail Tracker — D2R Reimagined" />
+  <meta name="twitter:title" content="Holy Grail Tracker | D2R Reimagined" />
   <meta name="twitter:description" content="Track your D2R Reimagined collection." />
 </svelte:head>
 

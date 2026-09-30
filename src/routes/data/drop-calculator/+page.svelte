@@ -131,7 +131,7 @@
 </script>
 
 <svelte:head>
-  <title>Drop Calculator — D2R Reimagined</title>
+  <title>Drop Calculator | D2R Reimagined</title>
   <meta name="description" content="Find where to farm unique items, set pieces, runes, and miscellaneous items in D2R Reimagined. Compare monster drop chances using the latest exported mod data." />
 </svelte:head>
 
