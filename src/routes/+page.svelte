@@ -16,7 +16,9 @@
 
     onMount(() => {
         now = Date.now();
-        const timer = window.setInterval(() => { now = Date.now(); }, 1000);
+        const timer = window.setInterval(() => {
+            now = Date.now();
+        }, 1000);
         return () => window.clearInterval(timer);
     });
 
@@ -72,10 +74,12 @@
                 discover.
             </p>
             <div class="mt-8 flex flex-wrap gap-3">
-                <Button href="https://www.nexusmods.com/diablo2resurrected/mods/503" target="_blank" rel="noreferrer"
-                        color="red">Get the mod
+                <Button href="/download" color="red">
+                    Download
                 </Button>
-                <Button href="/grail" color="alternative">Open Holy Grail</Button>
+                <Button href="/grail" color="alternative">
+                    Open Holy Grail
+                </Button>
             </div>
         </div>
     </div>
@@ -107,8 +111,7 @@
     <div>
         <h2 id="play-your-way-heading" class="display-text mt-3 text-3xl sm:text-5xl">Face Hell solo or together</h2>
         <p class="mt-5 text-lg leading-8 text-parchment-200">Take on Sanctuary at your own pace in single player,
-            or team up with friends in multiplayer through D2RLoader. Whether you prefer a solo adventure or a shared
-            battle against Hell, Reimagined has a place for you.</p>
+            or team up with friends in multiplayer through D2RLoader. Support added directly to the Reimaigned Launcher</p>
         <a href="https://d2rloader.net" target="_blank" rel="noreferrer"
            class="mt-6 inline-block text-ember-400 hover:text-ember-300">Explore D2RLoader ↗</a>
     </div>
