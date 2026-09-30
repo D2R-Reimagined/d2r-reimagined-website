@@ -144,12 +144,31 @@ describe('displayStatLines', () => {
   it('applies ItemStatCost value shifts and decodes packed proc skill layers', () => {
     const lines = displayStatLines([
       stat(7, 'maxhp', 2048),
-      stat(201, 'item_skillongethit', 27, 387 + 4 * 512)
+      stat(201, 'item_skillongethit', 27, (387 << 6) | 4)
     ], bundle);
 
     expect(lines.map((line) => line.keyed)).toEqual([
       { key: 'ModStr1u', args: [8] },
       { key: 'ItemExpansiveChanc2', args: [27, 4, 'PsychicWardName'] }
+    ]);
+  });
+
+  it('renders charged skills and self-repair the way the game tooltip does', () => {
+    initializeI18n(strings);
+    // The Antlers listed from the game: level 2 skill 273 with 39 of 55 charges,
+    // and item_replenish_durability 3 (one point every 100 / 3 seconds).
+    const lines = displayStatLines([
+      stat(204, 'item_charged_skill', 14119, 17474),
+      stat(252, 'item_replenish_durability', 3)
+    ], exportedBundle);
+
+    expect(lines.map((line) => line.keyed)).toEqual([
+      { key: 'strSkillCharges', args: [2, exportedBundle.Skills['273'].NameKey, 39, 55] },
+      { key: 'ModStre9u', args: [1, 33] }
+    ]);
+    expect(lines.map((line) => get(i18n).line(line.keyed))).toEqual([
+      `Level 2 ${get(i18n).t(exportedBundle.Skills['273'].NameKey)} (39/55 Charges)`,
+      'Repairs 1 durability in 33 seconds'
     ]);
   });
 

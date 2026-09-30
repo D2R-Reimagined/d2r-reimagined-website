@@ -261,13 +261,45 @@ function eventSkillLine(
   const key = metadata?.PositiveKey;
   if (!key) return null;
 
-  const skillId = stat.layer & 0x1ff;
-  const level = stat.layer >> 9;
-  const skill = bundle.Skills[String(skillId)];
+  const { skill, level } = packedSkill(stat, bundle);
   if (!skill) return keyedLine(stat, bundle, context);
   return {
     keyed: { key, args: [valueOf(stat, bundle, context), level, skill.NameKey] },
     fallback: `${valueOf(stat, bundle, context)}% chance to cast level ${level} ${skill.FallbackName}`
+  };
+}
+
+// Proc and charged skills share one layer packing, in saves and in game memory
+// alike: the skill id above six bits of skill level.
+function packedSkill(stat: SaveStat, bundle: ItemStatPresentationBundle) {
+  return { skill: bundle.Skills[String(stat.layer >> 6)], level: stat.layer & 0x3f };
+}
+
+// descfunc 24. The value packs the charges the same way: maximum in the high
+// byte, charges left in the low one. ModStre10d is not in the exported strings,
+// so this uses the catalog's synthetic copy of the same template.
+function chargedSkillLine(
+  stat: SaveStat,
+  bundle: ItemStatPresentationBundle,
+  context: ItemStatDisplayContext
+): DisplayStatLine | null {
+  const { skill, level } = packedSkill(stat, bundle);
+  if (!skill) return keyedLine(stat, bundle, context);
+  const charges = stat.value & 0xff;
+  const maximum = (stat.value >> 8) & 0xff;
+  return {
+    keyed: { key: 'strSkillCharges', args: [level, skill.NameKey, charges, maximum] },
+    fallback: `Level ${level} ${skill.FallbackName} (${charges}/${maximum} Charges)`
+  };
+}
+
+// descfunc 11: one point every 100/value seconds, the way the game words it.
+function repairLine(stat: SaveStat): DisplayStatLine | null {
+  if (stat.value <= 0) return null;
+  const seconds = Math.max(1, Math.floor(100 / stat.value));
+  return {
+    keyed: { key: 'ModStre9u', args: [1, seconds] },
+    fallback: `Repairs 1 durability in ${seconds} seconds`
   };
 }
 
@@ -373,6 +405,10 @@ export function displayStatLines(
         ? displayedSkillLine(stat, bundle, context)
       : bundle.Stats[stat.name]?.Function === 15
         ? eventSkillLine(stat, bundle, context)
+      : bundle.Stats[stat.name]?.Function === 24
+        ? chargedSkillLine(stat, bundle, context)
+      : bundle.Stats[stat.name]?.Function === 11
+        ? repairLine(stat)
         : keyedLine(stat, bundle, context);
     if (line) lines.push(decorate(line, stat, bundle));
   }
