@@ -152,7 +152,31 @@ export function updateUserParticipation(id: string, settings: ParticipationSetti
   }, true);
 }
 
+// One user invited to one hidden ladder, on top of everyone with the Tester role.
+export interface LadderAccessGrant {
+  ladderId: string;
+  ladderName: string;
+  ladderIsHidden: boolean;
+  userId: string;
+  displayName: string;
+  email: string;
+  grantedAtUtc: string;
+}
+
+export function getLadderAccess(ladderId: string): Promise<LadderAccessGrant[]> {
+  return apiRequest<LadderAccessGrant[]>(`/admin/ladders/${ladderId}/access`, { cache: 'no-store' }, true);
+}
+
+export function grantLadderAccess(ladderId: string, userId: string): Promise<LadderAccessGrant> {
+  return apiRequest<LadderAccessGrant>(`/admin/ladders/${ladderId}/access/${userId}`, { method: 'PUT' }, true);
+}
+
+export async function revokeLadderAccess(ladderId: string, userId: string): Promise<void> {
+  await apiRequest<void>(`/admin/ladders/${ladderId}/access/${userId}`, { method: 'DELETE' }, true);
+}
+
 export interface AdminUser {
+  ladderAccess: LadderAccessGrant[];
   tradeBanned: boolean;
   leaderboardBanned: boolean;
   participationReason: string | null;

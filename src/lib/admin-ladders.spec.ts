@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 const mocks = vi.hoisted(() => ({ api: vi.fn() }));
 vi.mock('$lib/auth', () => ({ apiRequest: mocks.api, apiUploadRequest: vi.fn() }));
 
-import { getLadders } from './admin';
+import { getLadderAccess, getLadders, grantLadderAccess, revokeLadderAccess } from './admin';
 
 describe('admin ladder discovery', () => {
   it('reloads hidden ladders without a first bundle through authenticated management access', async () => {
@@ -15,5 +15,19 @@ describe('admin ladder discovery', () => {
     expect(await getLadders()).toEqual([hidden]);
     expect(await getLadders()).toEqual([hidden]);
     expect(mocks.api).toHaveBeenCalledWith('/admin/ladders', {}, true);
+  });
+});
+
+describe('admin ladder access', () => {
+  it('lists, grants, and revokes one user on one ladder through authenticated management routes', async () => {
+    mocks.api.mockReset().mockResolvedValue(undefined);
+    await getLadderAccess('ladder-id');
+    await grantLadderAccess('ladder-id', 'user-id');
+    await revokeLadderAccess('ladder-id', 'user-id');
+    expect(mocks.api.mock.calls).toEqual([
+      ['/admin/ladders/ladder-id/access', { cache: 'no-store' }, true],
+      ['/admin/ladders/ladder-id/access/user-id', { method: 'PUT' }, true],
+      ['/admin/ladders/ladder-id/access/user-id', { method: 'DELETE' }, true]
+    ]);
   });
 });

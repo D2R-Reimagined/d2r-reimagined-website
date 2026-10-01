@@ -1,7 +1,16 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import { searchAdminUsers, updateUserRoles, type AdminUser } from '$lib/admin';
+  import {
+    getLadders,
+    grantLadderAccess,
+    revokeLadderAccess,
+    searchAdminUsers,
+    updateUserRoles,
+    type AdminUser,
+    type Ladder,
+    type LadderAccessGrant
+  } from '$lib/admin';
   import { ApiError, authState } from '$lib/auth';
   import ParticipationEditor from '$lib/components/ParticipationEditor.svelte';
   import RoleToggle from '$lib/components/RoleToggle.svelte';
@@ -18,6 +27,8 @@
   let error = $state('');
   let notice = $state('');
   let editingUserId = $state<string | null>(null);
+  let hiddenLadders = $state<Ladder[]>([]);
+  let accessSavingId = $state<string | null>(null);
   let requestSequence = 0;
 
   let currentPage = $derived(Math.floor(skip / pageSize) + 1);
@@ -78,7 +89,57 @@
     }
   }
 
-  onMount(() => void loadUsers(0, ''));
+  async function loadHiddenLadders(): Promise<void> {
+    try {
+      hiddenLadders = (await getLadders())
+        .filter((ladder) => ladder.isHidden && !ladder.archivedAtUtc)
+        .sort((a, b) => a.name.localeCompare(b.name));
+    } catch (value) {
+      error = problemMessage(value);
+    }
+  }
+
+  function setLadderAccess(userId: string, access: LadderAccessGrant[]): void {
+    users = users.map((entry) => entry.id === userId ? { ...entry, ladderAccess: access } : entry);
+  }
+
+  async function addLadderAccess(user: AdminUser, ladderId: string): Promise<void> {
+    if (!ladderId) return;
+    accessSavingId = user.id;
+    error = '';
+    notice = '';
+    try {
+      const created = await grantLadderAccess(ladderId, user.id);
+      setLadderAccess(user.id, [...user.ladderAccess.filter((grant) => grant.ladderId !== ladderId), created]
+        .sort((a, b) => a.ladderName.localeCompare(b.ladderName)));
+      notice = `${user.displayName} can now see and play ${created.ladderName}.`;
+    } catch (value) {
+      error = problemMessage(value);
+    } finally {
+      accessSavingId = null;
+    }
+  }
+
+  async function removeLadderAccess(user: AdminUser, grant: LadderAccessGrant): Promise<void> {
+    if (!confirm(`Remove ${user.displayName}'s access to ${grant.ladderName}?`)) return;
+    accessSavingId = user.id;
+    error = '';
+    notice = '';
+    try {
+      await revokeLadderAccess(grant.ladderId, user.id);
+      setLadderAccess(user.id, user.ladderAccess.filter((entry) => entry.ladderId !== grant.ladderId));
+      notice = `${user.displayName} no longer has access to ${grant.ladderName}.`;
+    } catch (value) {
+      error = problemMessage(value);
+    } finally {
+      accessSavingId = null;
+    }
+  }
+
+  onMount(() => {
+    void loadUsers(0, '');
+    void loadHiddenLadders();
+  });
 </script>
 
 <svelte:head>
@@ -87,7 +148,7 @@
 
 <div class="mb-6">
   <h2 class="display-text mt-1 text-3xl text-parchment-50">Users</h2>
-  <p class="mt-2 text-parchment-300">Manage roles and account-wide trade or leaderboard bans. Search by display name, email, character name, or user ID.</p>
+  <p class="mt-2 text-parchment-300">Manage roles, individual hidden-ladder access, and account-wide trade or leaderboard bans. Search by display name, email, character name, or user ID.</p>
 </div>
 
 {#if error}<div class="mb-5 rounded-lg border border-requirement/45 bg-requirement/10 p-4 text-requirement">{error}</div>{/if}
@@ -121,9 +182,9 @@
       {#if total > 0}<p>Page {currentPage} of {pageCount}</p>{/if}
     </div>
     <div class="overflow-x-auto">
-      <table class="w-full min-w-[42rem] text-left text-sm">
+      <table class="w-full min-w-[52rem] text-left text-sm">
         <thead class="border-b border-parchment-300/20 text-parchment-300">
-          <tr><th class="px-3 py-3">User</th><th class="px-3 py-3">Email</th><th class="px-3 py-3">Admin</th><th class="px-3 py-3">Moderator</th><th class="px-3 py-3">Tester</th><th class="px-3 py-3">Participation</th><th class="px-3 py-3">Joined</th></tr>
+          <tr><th class="px-3 py-3">User</th><th class="px-3 py-3">Email</th><th class="px-3 py-3">Admin</th><th class="px-3 py-3">Moderator</th><th class="px-3 py-3">Tester</th><th class="px-3 py-3">Ladder access</th><th class="px-3 py-3">Participation</th><th class="px-3 py-3">Joined</th></tr>
         </thead>
         <tbody>
           {#each users as user (user.id)}
@@ -153,6 +214,34 @@
                   onToggle={(enabled) => void toggleRole(user, 'Tester', enabled)} />
               </td>
               <td class="px-3 py-3">
+                {#if user.roles.includes('Tester')}
+                  <p class="mb-2 text-xs text-parchment-300">All hidden ladders (Tester)</p>
+                {/if}
+                <div class="flex flex-wrap gap-1.5">
+                  {#each user.ladderAccess as grant (grant.ladderId)}
+                    <span class="inline-flex items-center gap-1 rounded border border-set/40 bg-set/10 py-0.5 pl-2 pr-1 text-xs text-set">
+                      {grant.ladderName}{grant.ladderIsHidden ? '' : ' (public)'}
+                      <button type="button" class="rounded px-1 text-parchment-300 hover:text-requirement disabled:opacity-50"
+                        aria-label={`Remove ${user.displayName}'s access to ${grant.ladderName}`}
+                        disabled={accessSavingId === user.id} onclick={() => void removeLadderAccess(user, grant)}>×</button>
+                    </span>
+                  {/each}
+                </div>
+                {#if hiddenLadders.some((ladder) => !user.ladderAccess.some((grant) => grant.ladderId === ladder.id))}
+                  <select class="mt-2 block max-w-[12rem] rounded border border-parchment-300/30 bg-abyss-950 px-2 py-1 text-xs text-parchment-50 disabled:opacity-50"
+                    aria-label={`Give ${user.displayName} access to a hidden ladder`}
+                    disabled={accessSavingId === user.id}
+                    onchange={(event) => { const select = event.currentTarget; void addLadderAccess(user, select.value); select.value = ''; }}>
+                    <option value="">Add hidden ladder…</option>
+                    {#each hiddenLadders.filter((ladder) => !user.ladderAccess.some((grant) => grant.ladderId === ladder.id)) as ladder (ladder.id)}
+                      <option value={ladder.id}>{ladder.name}</option>
+                    {/each}
+                  </select>
+                {:else if user.ladderAccess.length === 0 && !user.roles.includes('Tester')}
+                  <p class="text-xs text-parchment-300">No hidden ladders</p>
+                {/if}
+              </td>
+              <td class="px-3 py-3">
                 <p class={user.tradeBanned || user.leaderboardBanned ? 'text-requirement' : 'text-parchment-300'}>
                   {user.tradeBanned ? 'Trade banned' : 'Trade allowed'} · {user.leaderboardBanned ? 'Leaderboards banned' : 'Leaderboards allowed'}
                 </p>
@@ -162,7 +251,7 @@
               <td class="px-3 py-3 text-parchment-300">{new Date(user.createdAtUtc).toLocaleDateString()}</td>
             </tr>
             {#if editingUserId === user.id}
-              <tr><td colspan="7" class="px-3 py-4">
+              <tr><td colspan="8" class="px-3 py-4">
                 <ParticipationEditor {user} oncancel={() => editingUserId = null} onsaved={(updated) => {
                   users = users.map(entry => entry.id === updated.id ? updated : entry);
                   editingUserId = null;
@@ -171,7 +260,7 @@
               </td></tr>
             {/if}
           {:else}
-            <tr><td class="px-3 py-8 text-center text-parchment-300" colspan="7">{appliedSearch ? 'No users match this search.' : 'No users found.'}</td></tr>
+            <tr><td class="px-3 py-8 text-center text-parchment-300" colspan="8">{appliedSearch ? 'No users match this search.' : 'No users found.'}</td></tr>
           {/each}
         </tbody>
       </table>

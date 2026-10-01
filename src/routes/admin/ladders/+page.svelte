@@ -23,6 +23,7 @@
         type LadderInput
     } from '$lib/admin';
     import {ApiError} from '$lib/auth';
+    import LadderAccessManager from '$lib/components/LadderAccessManager.svelte';
     import {isSha256, normalizeSha256} from '$lib/sha256';
 
     interface LadderDraft {
@@ -566,8 +567,8 @@
 
             <label class="mt-5 flex items-start gap-3 text-sm text-parchment-200">
                 <input type="checkbox" class="mt-1" bind:checked={draft.isHidden} />
-                <span>Hidden — Tester only
-                    <span class="mt-1 block text-xs text-parchment-300">Only users with the Tester role can see or play this ladder, including its leaderboards and trades.</span>
+                <span>Hidden — Testers and invited players only
+                    <span class="mt-1 block text-xs text-parchment-300">Only users with the Tester role, plus players invited below, can see or play this ladder, including its leaderboards and trades.</span>
                 </span>
             </label>
 
@@ -660,6 +661,11 @@
             </section>
 
             {#if !selectedLadder.archivedAtUtc}
+            <section class="panel rounded-lg p-5 sm:p-7 xl:col-start-2">
+                <LadderAccessManager ladderId={selectedLadder.id} ladderName={selectedLadder.name}
+                                     isHidden={selectedLadder.isHidden ?? false}/>
+            </section>
+
             <section class="panel rounded-lg p-5 sm:p-7 xl:col-start-2">
                 <div class="flex flex-wrap items-start justify-between gap-4">
                     <div>
