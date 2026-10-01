@@ -1,6 +1,7 @@
 ﻿<script lang="ts">
   import CharacterItem from '$lib/components/CharacterItem.svelte';
   import CharacterLeaderboardModeration from '$lib/components/CharacterLeaderboardModeration.svelte';
+  import CharacterSaveReview from '$lib/components/CharacterSaveReview.svelte';
   import SkillTreeView from '$lib/components/skills/SkillTreeView.svelte';
   import { formatLastLogged } from '$lib/character-activity';
   import { characterSkillRanks } from '$lib/character-skill-ranks';
@@ -198,7 +199,10 @@
 </script>
 
 {#if !embedded && !inventoryOnly}
-  {#key details.character.id}<CharacterLeaderboardModeration character={details.character} />{/key}
+  {#key details.character.id}
+    <CharacterLeaderboardModeration character={details.character} />
+    <CharacterSaveReview character={details.character} />
+  {/key}
 {/if}
 
 {#if !save}
