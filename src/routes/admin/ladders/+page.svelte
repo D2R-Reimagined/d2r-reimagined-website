@@ -24,6 +24,7 @@
     } from '$lib/admin';
     import {ApiError} from '$lib/auth';
     import LadderAccessManager from '$lib/components/LadderAccessManager.svelte';
+    import LadderSaveEnforcementEditor from '$lib/components/LadderSaveEnforcementEditor.svelte';
     import {isSha256, normalizeSha256} from '$lib/sha256';
 
     interface LadderDraft {
@@ -664,6 +665,10 @@
             <section class="panel rounded-lg p-5 sm:p-7 xl:col-start-2">
                 <LadderAccessManager ladderId={selectedLadder.id} ladderName={selectedLadder.name}
                                      isHidden={selectedLadder.isHidden ?? false}/>
+            </section>
+
+            <section class="panel rounded-lg p-5 sm:p-7 xl:col-start-2">
+                <LadderSaveEnforcementEditor ladderId={selectedLadder.id} ladderName={selectedLadder.name}/>
             </section>
 
             <section class="panel rounded-lg p-5 sm:p-7 xl:col-start-2">

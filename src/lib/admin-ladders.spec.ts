@@ -3,7 +3,14 @@ import { describe, expect, it, vi } from 'vitest';
 const mocks = vi.hoisted(() => ({ api: vi.fn() }));
 vi.mock('$lib/auth', () => ({ apiRequest: mocks.api, apiUploadRequest: vi.fn() }));
 
-import { getLadderAccess, getLadders, grantLadderAccess, revokeLadderAccess } from './admin';
+import {
+  getLadderAccess,
+  getLadders,
+  getLadderSaveEnforcement,
+  grantLadderAccess,
+  revokeLadderAccess,
+  updateLadderSaveEnforcement
+} from './admin';
 
 describe('admin ladder discovery', () => {
   it('reloads hidden ladders without a first bundle through authenticated management access', async () => {
@@ -28,6 +35,22 @@ describe('admin ladder access', () => {
       ['/admin/ladders/ladder-id/access', { cache: 'no-store' }, true],
       ['/admin/ladders/ladder-id/access/user-id', { method: 'PUT' }, true],
       ['/admin/ladders/ladder-id/access/user-id', { method: 'DELETE' }, true]
+    ]);
+  });
+});
+
+describe('admin ladder save enforcement', () => {
+  it('reads and replaces every switch for one ladder through authenticated management routes', async () => {
+    mocks.api.mockReset().mockResolvedValue(undefined);
+    const settings = {
+      enforceProgression: true, enforceAffixRanges: false, enforceSaveChecksum: true, enforceUnwitnessedItems: false,
+      enforceAreaBounds: false, enforceUnexplainedChanges: false, enforceRetainedDivestments: true
+    };
+    await getLadderSaveEnforcement('ladder-id');
+    await updateLadderSaveEnforcement('ladder-id', settings);
+    expect(mocks.api.mock.calls).toEqual([
+      ['/admin/ladders/ladder-id/save-enforcement', { cache: 'no-store' }, true],
+      ['/admin/ladders/ladder-id/save-enforcement', { method: 'PUT', body: JSON.stringify(settings) }, true]
     ]);
   });
 });

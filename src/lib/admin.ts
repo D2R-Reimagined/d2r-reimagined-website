@@ -152,6 +152,40 @@ export function updateUserParticipation(id: string, settings: ParticipationSetti
   }, true);
 }
 
+// Which save checks may refuse a write to one ladder. Off means the check
+// still runs and logs, but the save is stored.
+export interface LadderSaveEnforcementSettings {
+  enforceProgression: boolean;
+  enforceAffixRanges: boolean;
+  enforceSaveChecksum: boolean;
+  enforceUnwitnessedItems: boolean;
+  enforceAreaBounds: boolean;
+  enforceUnexplainedChanges: boolean;
+  enforceRetainedDivestments: boolean;
+}
+
+export interface LadderSaveEnforcement extends LadderSaveEnforcementSettings {
+  ladderId: string;
+  updatedAtUtc: string | null;
+  updatedBy: string | null;
+  progressionChecksEnabled: boolean;
+  journalChecksEnabled: boolean;
+}
+
+export function getLadderSaveEnforcement(ladderId: string): Promise<LadderSaveEnforcement> {
+  return apiRequest<LadderSaveEnforcement>(`/admin/ladders/${ladderId}/save-enforcement`, { cache: 'no-store' }, true);
+}
+
+export function updateLadderSaveEnforcement(
+  ladderId: string,
+  settings: LadderSaveEnforcementSettings
+): Promise<LadderSaveEnforcement> {
+  return apiRequest<LadderSaveEnforcement>(`/admin/ladders/${ladderId}/save-enforcement`, {
+    method: 'PUT',
+    body: JSON.stringify(settings)
+  }, true);
+}
+
 // One user invited to one hidden ladder, on top of everyone with the Tester role.
 export interface LadderAccessGrant {
   ladderId: string;
