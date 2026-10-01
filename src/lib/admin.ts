@@ -158,10 +158,12 @@ export interface LadderSaveEnforcementSettings {
   enforceProgression: boolean;
   enforceAffixRanges: boolean;
   enforceSaveChecksum: boolean;
+  enforceUnlocks: boolean;
   enforceUnwitnessedItems: boolean;
   enforceAreaBounds: boolean;
   enforceUnexplainedChanges: boolean;
   enforceRetainedDivestments: boolean;
+  enforceJournalCoverage: boolean;
 }
 
 export interface LadderSaveEnforcement extends LadderSaveEnforcementSettings {

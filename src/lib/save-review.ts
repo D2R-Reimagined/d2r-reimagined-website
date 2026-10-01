@@ -15,7 +15,15 @@ export type SaveReviewFlagKind =
   | 'JournalCoverage'
   | 'ProgressionViolation'
   | 'ItemLegality'
-  | 'AffixRange';
+  | 'AffixRange'
+  | 'GambleOdds'
+  | 'GambleGold'
+  | 'UnlockViolation'
+  | 'UnwitnessedWaypoint'
+  | 'DropOdds'
+  | 'ExperienceRate'
+  | 'KillExperience'
+  | 'MovementSpeed';
 
 export interface SaveReviewFlag {
   id: string;
@@ -75,7 +83,7 @@ const kinds: Record<SaveReviewFlagKind, KindInfo> = {
   },
   UnwitnessedPlay: {
     label: 'Unwitnessed play',
-    description: 'Play time advanced without journal coverage from an account that has journalled before.'
+    description: 'A save arrived without journal coverage, from an account that has journalled before or on a ladder that requires the journal.'
   },
   CrossAccountDuplicate: {
     label: 'Cross-account duplicate',
@@ -108,6 +116,38 @@ const kinds: Record<SaveReviewFlagKind, KindInfo> = {
   AffixRange: {
     label: 'Affix range',
     description: 'An item rolled affix values outside what generation allows.'
+  },
+  GambleOdds: {
+    label: 'Gamble odds',
+    description: "More gambles came out set or unique than the gamble tables could plausibly produce. The sign of edited gamble odds."
+  },
+  GambleGold: {
+    label: 'Gamble gold',
+    description: "Items gambled since the last save cost more than the account's gold went down by, with nothing that could have paid the difference. The sign of edited gamble prices."
+  },
+  UnlockViolation: {
+    label: 'Unlock',
+    description: "A difficulty or waypoint is unlocked that the character's own quest log could not have unlocked."
+  },
+  UnwitnessedWaypoint: {
+    label: 'Unwitnessed waypoint',
+    description: 'Waypoints became active in levels the journal never saw the player enter. The sign of a waypoint-unlock script.'
+  },
+  DropOdds: {
+    label: 'Drop odds',
+    description: 'Far more of the items dropping around the account were set or unique than any drop table produces. The sign of an edited drop table.'
+  },
+  ExperienceRate: {
+    label: 'Experience rate',
+    description: 'A character gained more experience than its play time since the last save could produce. The sign of a monster experience multiplier.'
+  },
+  KillExperience: {
+    label: 'Kill experience',
+    description: 'A character gained more experience than every monster that died around it could have paid, priced at their most generous. The sign of a monster experience multiplier.'
+  },
+  MovementSpeed: {
+    label: 'Movement speed',
+    description: 'The player walked or ran faster than any honest setup allows, for longer than a tolerance. Teleport and skill movement are not measured. The sign of a speed script.'
   }
 };
 

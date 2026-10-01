@@ -44,7 +44,8 @@ describe('admin ladder save enforcement', () => {
     mocks.api.mockReset().mockResolvedValue(undefined);
     const settings = {
       enforceProgression: true, enforceAffixRanges: false, enforceSaveChecksum: true, enforceUnwitnessedItems: false,
-      enforceAreaBounds: false, enforceUnexplainedChanges: false, enforceRetainedDivestments: true
+      enforceAreaBounds: false, enforceUnexplainedChanges: false, enforceRetainedDivestments: true,
+      enforceJournalCoverage: true, enforceUnlocks: false
     };
     await getLadderSaveEnforcement('ladder-id');
     await updateLadderSaveEnforcement('ladder-id', settings);

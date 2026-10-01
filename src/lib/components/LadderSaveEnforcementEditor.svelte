@@ -21,7 +21,9 @@
     { key: 'enforceAffixRanges', label: 'Affix ranges',
       description: 'Affixes or stat values the mod\'s generation tables cannot produce.' },
     { key: 'enforceSaveChecksum', label: 'Save checksums',
-      description: 'A .d2s whose content does not match its own header checksum. Incomplete files are refused either way.' }
+      description: 'A .d2s whose content does not match its own header checksum. Incomplete files are refused either way.' },
+    { key: 'enforceUnlocks', label: 'Difficulty and waypoint unlocks',
+      description: 'Difficulties or waypoints unlocked ahead of the character\'s own quest log, such as an "unlock all" script.' }
   ];
   const journalChecks: Setting[] = [
     { key: 'enforceUnwitnessedItems', label: 'Unwitnessed items',
@@ -31,7 +33,9 @@
     { key: 'enforceUnexplainedChanges', label: 'Unexplained changes',
       description: 'Generation-fixed fields that changed on an existing item, such as an edited stack.' },
     { key: 'enforceRetainedDivestments', label: 'Retained divestments',
-      description: 'An item the account\'s own journal watched leave is still in the save it sent afterwards.' }
+      description: 'An item the account\'s own journal watched leave is still in the save it sent afterwards.' },
+    { key: 'enforceJournalCoverage', label: 'Require the journal',
+      description: 'A save that no valid journal session covers. Makes the Server Saves journal mandatory: a removed, outdated or blocked plugin stops the player saving.' }
   ];
   const allSettings = [...saveChecks, ...journalChecks];
 
