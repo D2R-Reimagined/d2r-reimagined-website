@@ -164,6 +164,7 @@ export interface LadderSaveEnforcementSettings {
   enforceUnexplainedChanges: boolean;
   enforceRetainedDivestments: boolean;
   enforceJournalCoverage: boolean;
+  enforceServerAuthority: boolean;
 }
 
 export interface LadderSaveEnforcement extends LadderSaveEnforcementSettings {

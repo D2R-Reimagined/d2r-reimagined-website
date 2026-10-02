@@ -119,6 +119,22 @@ export function apiRequest<T>(
   return executeApiRequest<T>(path, init, authenticated, true);
 }
 
+// Streaming uses header authentication, keeping tokens out of URLs and proxy logs.
+export async function apiStreamRequest(path: string, signal: AbortSignal, allowRefresh = true): Promise<Response> {
+  let token = accessToken();
+  if (!token && allowRefresh && await refreshAccessToken()) token = accessToken();
+  if (!token) throw new ApiError('You need to sign in first.', 401);
+  const response = await fetch(`${apiBaseUrl()}${path}`, {
+    signal, cache: 'no-store', credentials: 'include',
+    headers: { Authorization: `Bearer ${token}`, Accept: 'text/event-stream' }
+  });
+  if (response.status === 401 && allowRefresh && await refreshAccessToken()) {
+    return apiStreamRequest(path, signal, false);
+  }
+  if (!response.ok) throw new ApiError(`Live monitoring request failed (${response.status}).`, response.status);
+  return response;
+}
+
 export interface ApiUploadProgress {
   loadedBytes: number;
   totalBytes: number | null;

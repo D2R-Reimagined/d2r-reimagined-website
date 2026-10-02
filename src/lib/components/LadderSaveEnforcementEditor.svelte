@@ -37,7 +37,11 @@
     { key: 'enforceJournalCoverage', label: 'Require the journal',
       description: 'A save that no valid journal session covers. Makes the Server Saves journal mandatory: a removed, outdated or blocked plugin stops the player saving.' }
   ];
-  const allSettings = [...saveChecks, ...journalChecks];
+  const serverChecks: Setting[] = [
+    { key: 'enforceServerAuthority', label: 'Dedicated servers only',
+      description: 'Only the ladder\'s dedicated servers may save characters. Players can create a new level-1 character; everything after that is saved by the server they play on. Saves from offline or player-hosted games are refused.' }
+  ];
+  const allSettings = [...saveChecks, ...journalChecks, ...serverChecks];
 
   let { ladderId, ladderName }: { ladderId: string; ladderName: string } = $props();
 
@@ -139,7 +143,8 @@
     <form class="mt-5" onsubmit={(event) => { event.preventDefault(); void save(); }}>
       <fieldset disabled={saving} class="grid gap-6 lg:grid-cols-2">
         {#each [{ title: 'Save checks', settings: saveChecks, enabled: current.progressionChecksEnabled, setting: 'SaveValidation:Enabled' },
-                { title: 'Journal checks', settings: journalChecks, enabled: current.journalChecksEnabled, setting: 'ItemJournal:Enabled / CheckOnWrite' }] as group (group.title)}
+                { title: 'Journal checks', settings: journalChecks, enabled: current.journalChecksEnabled, setting: 'ItemJournal:Enabled / CheckOnWrite' },
+                { title: 'Server authority', settings: serverChecks, enabled: true, setting: '' }] as group (group.title)}
           <div class="rounded-lg border border-parchment-300/20 bg-abyss-900 p-4">
             <h4 class="display-text text-lg">{group.title}</h4>
             {#if !group.enabled}

@@ -45,7 +45,7 @@ describe('admin ladder save enforcement', () => {
     const settings = {
       enforceProgression: true, enforceAffixRanges: false, enforceSaveChecksum: true, enforceUnwitnessedItems: false,
       enforceAreaBounds: false, enforceUnexplainedChanges: false, enforceRetainedDivestments: true,
-      enforceJournalCoverage: true, enforceUnlocks: false
+      enforceJournalCoverage: true, enforceUnlocks: false, enforceServerAuthority: true
     };
     await getLadderSaveEnforcement('ladder-id');
     await updateLadderSaveEnforcement('ladder-id', settings);
