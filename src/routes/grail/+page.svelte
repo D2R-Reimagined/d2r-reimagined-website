@@ -1,21 +1,34 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, untrack } from 'svelte';
+  import { afterNavigate, beforeNavigate, replaceState } from '$app/navigation';
+  import { page } from '$app/state';
 
   import GrailItem from '$lib/components/GrailItem.svelte';
-  import { searchText } from '$lib/catalog';
+  import CatalogFilters from '$lib/components/CatalogFilters.svelte';
+  import { itemClass } from '$lib/catalog';
+  import { catalogTypeValues, equipmentNamesForType, weaponSortOptions } from '$lib/catalog-controls';
+  import { filterGrailItems, grailTypes, normalizeGrailFilters } from '$lib/grail-filters';
+  import { readGrailFilters, writeGrailFilters, type GrailCategory } from '$lib/grail-query';
   import { i18n } from '$lib/i18n';
   import type { CatalogItem } from '$lib/types';
 
-  type Category = 'uniques' | 'sets' | 'runewords';
+  type Category = GrailCategory;
   type FoundMap = Record<string, boolean>;
 
   let { data } = $props();
-  let category = $state<Category>('uniques');
+  const initial = untrack(() => {
+    const restored = readGrailFilters(page.url.searchParams);
+    restored.catalog = normalizeGrailFilters(restored.catalog, data[restored.category], restored.category, $i18n);
+    return restored;
+  });
+  let category = $state<Category>(initial.category);
+  let filters = $state(initial.catalog);
   let foundUniques = $state<FoundMap>({});
   let foundSets = $state<FoundMap>({});
   let foundRunewords = $state<FoundMap>({});
-  let search = $state('');
-  let hideFound = $state(false);
+  let hideFound = $state(initial.hideFound);
+  let routerReady = $state(false);
+  let navigationInProgress = $state(false);
   let visibleCount = $state(60);
   let transferOpen = $state(false);
   let exportValue = $state('');
@@ -35,18 +48,53 @@
 
   let currentMap = $derived(mapFor(category));
   let currentItems = $derived(itemsFor(category));
-  let filtered = $derived.by(() => {
-    const query = search.trim().toLowerCase();
-    return currentItems.filter((item) => {
-      const key = itemKey(item);
-      if (hideFound && currentMap[key]) return false;
-      return !query || searchText(item, $i18n).includes(query);
-    });
-  });
+  function options(values: string[]) {
+    return [...new Set(values.filter(Boolean))].map((value) => ({ value, label: $i18n.t(value) }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }
+  let typeOptions = $derived(options(catalogTypeValues(currentItems.flatMap(grailTypes), category)));
+  let classOptions = $derived(category === 'runewords' ? [] : options(currentItems.map(itemClass)));
+  let equipmentOptions = $derived(category === 'runewords' ? [] : options(equipmentNamesForType(currentItems, filters.selectedType)));
+  let runeOptions = $derived(options(currentItems.flatMap((item) => (item.Runes ?? []).map((rune) => rune.NameKey ?? '')))
+    .sort((a, b) => a.value.localeCompare(b.value, undefined, { numeric: true })));
+  let filtered = $derived(filterGrailItems(currentItems, category, filters, currentMap, hideFound, $i18n));
   let visible = $derived(filtered.slice(0, visibleCount));
   let foundCount = $derived(Object.values(currentMap).filter(Boolean).length);
 
-  $effect(() => { category; search; hideFound; visibleCount = 60; });
+  $effect(() => { filtered; visibleCount = 60; });
+
+  $effect(() => {
+    if (navigationInProgress) return;
+    // Category/type changes can invalidate an equipment or class selection.
+    for (const [key, choices] of [
+      ['selectedType', typeOptions], ['selectedClass', classOptions], ['selectedEquipment', equipmentOptions]
+    ] as const) {
+      const value = filters[key];
+      if (value && !choices.some((option) => option.value === value)) {
+        filters[key] = choices.find((option) => option.label.toLowerCase() === value.toLowerCase())?.value ?? '';
+      }
+    }
+  });
+
+  $effect(() => {
+    if (!routerReady || navigationInProgress) return;
+    const url = writeGrailFilters(new URL(page.url), { category, hideFound, catalog: filters });
+    if (url.search !== page.url.search) replaceState(url, {});
+  });
+  beforeNavigate(() => { navigationInProgress = true; });
+  afterNavigate(({ to }) => {
+    if (!routerReady) { routerReady = true; return; }
+    const restored = readGrailFilters((to?.url ?? page.url).searchParams);
+    category = restored.category;
+    filters = normalizeGrailFilters(restored.catalog, data[restored.category], restored.category, $i18n);
+    hideFound = restored.hideFound;
+    navigationInProgress = false;
+  });
+
+  function resetFilters(): void {
+    filters = readGrailFilters(new URLSearchParams()).catalog;
+    hideFound = false;
+  }
 
   function readMap(key: string): FoundMap {
     try {
@@ -166,20 +214,29 @@
 
 <section class="mx-auto max-w-screen-2xl px-4 py-8">
   <div class="panel mb-6 rounded-lg p-4">
-    <div class="flex flex-wrap justify-center gap-2" role="tablist" aria-label="Grail category">
+    <div class="mx-auto grid max-w-md grid-cols-3 gap-2" role="tablist" aria-label="Grail category">
       {#each ['uniques', 'sets', 'runewords'] as value}
-        <button type="button" role="tab" aria-selected={category === value} onclick={() => category = value as Category} class={`rounded-md border px-5 py-2 capitalize transition ${category === value ? 'border-ember-400 bg-ember-700' : 'border-parchment-300/20'}`}>{value}</button>
+        <button type="button" role="tab" aria-selected={category === value} onclick={() => category = value as Category} class={`rounded-md border px-2 py-2 text-sm capitalize transition sm:px-5 sm:text-base ${category === value ? 'border-ember-400 bg-ember-700' : 'border-parchment-300/20'}`}>{value}</button>
       {/each}
     </div>
-    <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_auto_auto_auto]">
-      <input class="field" type="search" placeholder="Search this collection…" bind:value={search} />
-      <label class="flex items-center gap-3 rounded-md border border-parchment-300/20 bg-black/20 px-4 py-2"><input type="checkbox" bind:checked={hideFound} class="checkbox" /> Hide found</label>
-      <button type="button" onclick={openTransfer} class="rounded-md border border-parchment-300/25 px-4 py-2 hover:border-ember-400">Import / export</button>
-      <button type="button" onclick={resetCategory} class="rounded-md border border-ember-500/55 px-4 py-2 text-ember-400 hover:bg-ember-700 hover:text-white">Reset category</button>
+    <div class="mt-4 grid grid-cols-2 gap-2 text-sm sm:flex sm:flex-wrap sm:justify-center sm:text-base">
+      <label class="flex items-center justify-center gap-2 rounded-md border border-parchment-300/20 bg-black/20 px-2 py-2 sm:px-4"><input type="checkbox" bind:checked={hideFound} class="checkbox" /> Hide found</label>
+      <button type="button" onclick={openTransfer} class="rounded-md border border-parchment-300/25 px-2 py-2 hover:border-ember-400 sm:px-4">Import / export</button>
+      <button type="button" onclick={resetCategory} class="col-span-2 rounded-md border border-ember-500/55 px-4 py-2 text-ember-400 hover:bg-ember-700 hover:text-white">Reset category</button>
     </div>
   </div>
 
-  <p class="mb-5 text-center text-parchment-300"><span class="set-line">{foundCount.toLocaleString()}</span> / {currentItems.length.toLocaleString()} found · {filtered.length.toLocaleString()} shown</p>
+  <CatalogFilters slug={category} grail {typeOptions} {classOptions} {equipmentOptions}
+    propertyOptions={[]} recipeTypeOptions={[]} {runeOptions} {weaponSortOptions}
+    bind:search={filters.search} bind:selectedType={filters.selectedType}
+    bind:selectedClass={filters.selectedClass} bind:selectedEquipment={filters.selectedEquipment}
+    bind:hideVanilla={filters.hideVanilla} bind:runeCount={filters.runeCount}
+    bind:selectedRunes={filters.selectedRunes} bind:exactType={filters.exactType} reset={resetFilters} />
+
+  <p class="mb-5 text-center text-parchment-300" aria-live="polite"><span class="set-line">{foundCount.toLocaleString()}</span> / {currentItems.length.toLocaleString()} found · {filtered.length.toLocaleString()} shown</p>
+  {#if !filtered.length}
+    <div class="panel mb-5 rounded-lg p-8 text-center"><h2 class="display-text text-2xl">Nothing matched</h2><p class="mt-2 text-parchment-300">Try removing a filter or searching for a broader property.</p></div>
+  {/if}
 
   <div class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
     {#each visible as item (itemKey(item))}

@@ -78,7 +78,8 @@ describe('item type filtering', () => {
   });
 
   it('only offers families present in equipment and leaves applicability options intact', () => {
-    expect(catalogTypeValues(['peltitype'], 'uniques')).toEqual(['peltitype', 'armoitype']);
+    expect(catalogTypeValues(['peltitype'], 'uniques')).toEqual(['peltitype', 'armoitype', 'helmitype']);
+    expect(catalogTypeValues(['ashditype'], 'sets')).toEqual(['ashditype', 'armoitype', 'shlditype']);
     expect(catalogTypeValues([], 'bases')).toEqual([]);
     expect(catalogTypeValues(['sworitype'], 'runewords')).toEqual(['sworitype']);
     expect(catalogTypeValues(['sworitype'], 'affixes')).toEqual(['sworitype']);

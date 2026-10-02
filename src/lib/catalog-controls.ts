@@ -119,7 +119,7 @@ export function catalogTypeValues(itemTypes: string[], slug: CatalogSlug): strin
   const values = new Set(itemTypes.filter(Boolean));
   if (slug === 'bases' || slug === 'uniques' || slug === 'sets') {
     const families = new Set(itemTypes.flatMap((type) => [...typeChain(type)]));
-    for (const type of ['weapitype', 'meleitype', 'missitype', 'throitype', 'armoitype']) {
+    for (const type of ['weapitype', 'meleitype', 'missitype', 'throitype', 'armoitype', 'helmitype', 'shlditype']) {
       if (families.has(type)) values.add(type);
     }
   }

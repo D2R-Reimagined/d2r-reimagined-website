@@ -24,6 +24,7 @@
   } from '$lib/catalog-controls';
   import { readCatalogFilters, writeCatalogFilters, type CatalogFilterState } from '$lib/catalog-query';
   import { isVanilla, itemClass, itemType, searchText } from '$lib/catalog';
+  import { filterSetPieces, scopesSetPieces } from '$lib/set-filters';
   import { debounced } from '$lib/debounce.svelte';
   import { i18n } from '$lib/i18n';
   import type { CatalogItem, CatalogSlug, KeyedLine } from '$lib/types';
@@ -141,7 +142,12 @@
     const minimum = minLevel ? Number(minLevel) : undefined;
     const maximum = maxLevel ? Number(maxLevel) : undefined;
 
-    const matches = data.items.filter((item: CatalogItem) => {
+    const candidates = data.definition.slug === 'sets'
+      ? data.items.map((item: CatalogItem) => filterSetPieces(item,
+          { selectedType, selectedClass, selectedEquipment, handFilter }, searchGroups, $i18n))
+          .filter((item: CatalogItem | null): item is CatalogItem => item !== null)
+      : data.items;
+    const matches = candidates.filter((item: CatalogItem) => {
       if (hideVanilla && isVanilla(item)) return false;
       if (!matchesItemType(typesFor(item), selectedType, exactType,
         data.definition.slug === 'runewords' || data.definition.slug === 'affixes')) return false;
@@ -161,7 +167,7 @@
       if (recipeType && !recipeTypesFor(item).includes(recipeType)) return false;
       if (handFilter && !passesHandFilter(item, handFilter)) return false;
       // Guarded so an unsearched page never pays for flattening every item.
-      if (searchGroups.length && !matchesSearch(searchText(item, $i18n), searchGroups)
+      if (data.definition.slug !== 'sets' && searchGroups.length && !matchesSearch(searchText(item, $i18n), searchGroups)
         && !matchingBaseFamilies?.has(baseFamilyKey(item))) return false;
       if (String(item.Index ?? '').toLowerCase().includes('grabber')) return false;
       return true;
@@ -321,6 +327,10 @@
     {reset}
   />
 
+  {#if data.definition.slug === 'sets' && scopesSetPieces({ selectedType, selectedClass, selectedEquipment, handFilter })}
+    <p class="mb-3 text-center text-sm text-parchment-300">Search applies to individual pieces matching your filters.</p>
+  {/if}
+
   <p class="mb-5 text-center text-parchment-300" aria-live="polite"><span class="rarity-line">{filtered.length.toLocaleString()}</span> results</p>
 
   {#if filtered.length}
@@ -347,7 +357,8 @@
     {:else}
     <div class="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
       {#each visible as item, index (`${String(item.Index ?? item.NameKey ?? index)}-${index}`)}
-        <CatalogCard {item} slug={data.definition.slug} />
+        <CatalogCard {item} slug={data.definition.slug}
+          scopedSet={data.definition.slug === 'sets' && scopesSetPieces({ selectedType, selectedClass, selectedEquipment, handFilter })} />
       {/each}
     </div>
     {#if visible.length < filtered.length}

@@ -4,28 +4,19 @@ import uniques from '../../../static/data/keyed/uniques.json';
 import type { CatalogItem } from '$lib/types';
 import { buildCatalog } from '$lib/catalog-sources';
 
-function grailUnique(item: CatalogItem): CatalogItem {
+function grailItem(item: CatalogItem): CatalogItem {
   return {
     Index: item.Index,
     Rarity: item.Rarity,
     Lines: item.Lines,
-    Equipment: item.Equipment ? { NameKey: item.Equipment.NameKey } : undefined
-  };
-}
-
-function grailSetItem(item: CatalogItem): CatalogItem {
-  return {
-    Index: item.Index,
-    Rarity: item.Rarity,
-    Lines: item.Lines,
-    Equipment: item.Equipment ? { NameKey: item.Equipment.NameKey } : undefined
-  };
-}
-
-function grailRuneword(item: CatalogItem): CatalogItem {
-  return {
-    Index: item.Index,
-    Lines: item.Lines,
+    Type: item.Type,
+    Types: item.Types,
+    RequiredClass: item.RequiredClass,
+    ClassSpecific: item.ClassSpecific,
+    Vanilla: item.Vanilla,
+    SetName: item.SetName,
+    SetBonuses: item.SetBonuses,
+    Equipment: item.Equipment,
     Runes: item.Runes?.map((rune) => ({ NameKey: rune.NameKey }))
   };
 }
@@ -34,10 +25,10 @@ export function load() {
   return {
     uniques: (uniques as CatalogItem[])
       .filter((item) => !String(item.Index ?? '').toLowerCase().includes('grabber'))
-      .map(grailUnique),
+      .map(grailItem),
     sets: (sets as CatalogItem[]).flatMap((set) =>
-      (set.SetItems ?? []).map(grailSetItem)
+      (set.SetItems ?? []).map((piece) => grailItem({ ...piece, SetName: piece.SetName ?? set.Index, Vanilla: piece.Vanilla ?? set.Vanilla }))
     ),
-    runewords: buildCatalog('runewords', { runewords: runewords as CatalogItem[] }).map(grailRuneword)
+    runewords: buildCatalog('runewords', { runewords: runewords as CatalogItem[] }).map(grailItem)
   };
 }

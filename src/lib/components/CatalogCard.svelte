@@ -6,7 +6,7 @@
   import type { CatalogItem, CatalogSlug, KeyedLine } from '$lib/types';
   import KeyedLines from './KeyedLines.svelte';
 
-  let { item, slug }: { item: CatalogItem; slug: CatalogSlug } = $props();
+  let { item, slug, scopedSet = false }: { item: CatalogItem; slug: CatalogSlug; scopedSet?: boolean } = $props();
 
   const equipmentEarly = new Set([
     'strDefense', 'strDefenseRange', 'strDefenseRangeRange', 'strChanceToBlock',
@@ -62,8 +62,17 @@
   </header>
 
   {#if slug === 'sets'}
-    <KeyedLines lines={item.PartialBonuses} class="set-line text-sm" />
-    <KeyedLines lines={item.FullBonuses} class="set-line text-sm" />
+    {#if scopedSet}
+      <p class="mb-2 text-sm text-parchment-300">{item.SetItems?.length ?? 0} matching {item.SetItems?.length === 1 ? 'piece' : 'pieces'} · <a class="text-ember-400 underline" href={`/data/sets?search=${encodeURIComponent(String(item.Index ?? ''))}`}>View complete set</a></p>
+      <details class="mb-2 text-sm">
+        <summary class="cursor-pointer text-parchment-300">Shared set bonuses</summary>
+        <KeyedLines lines={item.PartialBonuses} class="set-line" />
+        <KeyedLines lines={item.FullBonuses} class="set-line" />
+      </details>
+    {:else}
+      <KeyedLines lines={item.PartialBonuses} class="set-line text-sm" />
+      <KeyedLines lines={item.FullBonuses} class="set-line text-sm" />
+    {/if}
     <div class="mt-2 space-y-5">
       {#each item.SetItems ?? [] as setItem}
         <section>

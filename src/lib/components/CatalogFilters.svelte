@@ -8,7 +8,7 @@
     type Option = { value: string; label: string };
 
     let {
-        slug, typeOptions, classOptions, equipmentOptions, propertyOptions,
+        slug, grail = false, typeOptions, classOptions, equipmentOptions, propertyOptions,
         recipeTypeOptions, runeOptions, weaponSortOptions,
         search = $bindable(''), selectedType = $bindable(''),
         selectedClass = $bindable(''), subtype = $bindable(''),
@@ -21,6 +21,7 @@
         handFilter = $bindable(''), reset
     }: {
         slug: CatalogSlug;
+        grail?: boolean;
         typeOptions: Option[];
         classOptions: Option[];
         equipmentOptions: Option[];
@@ -54,7 +55,7 @@
 
 <section
         class="filters-panel panel sticky top-16 z-40 mb-4 max-h-[calc(100vh-4rem)] overflow-y-auto rounded-lg p-2.5 sm:p-3"
-        aria-label="Catalog filters"
+        aria-label={grail ? 'Grail filters' : 'Catalog filters'}
         data-testid="catalog-filters"
 >
     <div class="flex items-center justify-between gap-3">
@@ -192,7 +193,7 @@
                 </label>
             {/if}
 
-            {#if ['bases', 'uniques', 'sets'].includes(slug)}
+            {#if !grail && ['bases', 'uniques', 'sets'].includes(slug)}
                 <label>
                     <span class={fieldLabel}>{$i18n.t('sort_select_weapon_type')}</span>
                     <select class="field" bind:value={handFilter}>
