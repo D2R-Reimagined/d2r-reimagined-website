@@ -40,6 +40,15 @@ describe('Grail restored filters', () => {
     expect(filtered.length).toBeGreaterThan(0);
     expect(filtered.every((item) => item.Runes?.length === 3 && item.Runes.some((rune) => rune.NameKey === 'r01'))).toBe(true);
   });
+  it('lists only runewords makeable from the selected runes', () => {
+    const selectedRunes = ['r01', 'r02', 'r03', 'r04', 'r05', 'r06', 'r07', 'r08'];
+    const filters = { ...defaults(), selectedRunes, runeMatch: 'makeable' as const };
+    const filtered = filterGrailItems(data.runewords, 'runewords', filters, {}, false, tools);
+    expect(filtered.length).toBeGreaterThan(0);
+    expect(filtered.every((item) => item.Runes?.every((rune) => selectedRunes.includes(rune.NameKey ?? '')))).toBe(true);
+    expect(readGrailFilters(writeGrailFilters(new URL('https://example.test/grail?g-category=runewords'),
+      { category: 'runewords', hideFound: false, catalog: filters }).searchParams).catalog.runeMatch).toBe('makeable');
+  });
   it('normalizes translated legacy choices before server rendering and clears stale equipment', () => {
     const legacy = { ...defaults(), selectedType: 'Amulet', selectedEquipment: 'Amulet' };
     const filters = normalizeGrailFilters(legacy, data.sets, 'sets', tools);

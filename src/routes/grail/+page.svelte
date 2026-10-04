@@ -231,7 +231,7 @@
     bind:search={filters.search} bind:selectedType={filters.selectedType}
     bind:selectedClass={filters.selectedClass} bind:selectedEquipment={filters.selectedEquipment}
     bind:hideVanilla={filters.hideVanilla} bind:runeCount={filters.runeCount}
-    bind:selectedRunes={filters.selectedRunes} bind:exactType={filters.exactType} reset={resetFilters} />
+    bind:selectedRunes={filters.selectedRunes} bind:runeMatch={filters.runeMatch} bind:exactType={filters.exactType} reset={resetFilters} />
 
   <p class="mb-5 text-center text-parchment-300" aria-live="polite"><span class="set-line">{foundCount.toLocaleString()}</span> / {currentItems.length.toLocaleString()} found · {filtered.length.toLocaleString()} shown</p>
   {#if !filtered.length}
