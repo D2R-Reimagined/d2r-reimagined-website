@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {CatalogSlug} from '$lib/types';
-    import type {WeaponSortMode} from '$lib/catalog-controls';
+    import type {CatalogSortMode} from '$lib/catalog-controls';
     import {i18n} from '$lib/i18n';
     import SearchableSelect from './SearchableSelect.svelte';
     import SearchableMultiSelect from './SearchableMultiSelect.svelte';
@@ -9,7 +9,7 @@
 
     let {
         slug, grail = false, typeOptions, classOptions, equipmentOptions, propertyOptions,
-        recipeTypeOptions, runeOptions, weaponSortOptions,
+        recipeTypeOptions, runeOptions, sortOptions,
         search = $bindable(''), selectedType = $bindable(''),
         selectedClass = $bindable(''), subtype = $bindable(''),
         hideVanilla = $bindable(false), runeCount = $bindable(''),
@@ -17,7 +17,7 @@
         selectedSockets = $bindable(''), propertyType = $bindable(''),
         minLevel = $bindable(''), maxLevel = $bindable(''),
         exactType = $bindable(false), recipeType = $bindable(''),
-        selectedRunes = $bindable([]), weaponSort = $bindable(''),
+        selectedRunes = $bindable([]), sortMode = $bindable(''),
         handFilter = $bindable(''), reset
     }: {
         slug: CatalogSlug;
@@ -28,7 +28,7 @@
         propertyOptions: Option[];
         recipeTypeOptions: Option[];
         runeOptions: Option[];
-        weaponSortOptions: Array<{ value: WeaponSortMode; label: string }>;
+        sortOptions: Array<{ value: CatalogSortMode; label: string }>;
         search?: string;
         selectedType?: string;
         selectedClass?: string;
@@ -44,7 +44,7 @@
         exactType?: boolean;
         recipeType?: string;
         selectedRunes?: string[];
-        weaponSort?: WeaponSortMode;
+        sortMode?: CatalogSortMode;
         handFilter?: string;
         reset: () => void;
     } = $props();
@@ -203,9 +203,9 @@
                     </select>
                 </label>
                 <label class="col-span-2">
-                    <span class={fieldLabel}>{$i18n.t('sort_by_damage')}</span>
-                    <select class="field" bind:value={weaponSort}>
-                        {#each weaponSortOptions as option}
+                    <span class={fieldLabel}>{$i18n.t('sort_by')}</span>
+                    <select class="field" bind:value={sortMode}>
+                        {#each sortOptions as option}
                             <option value={option.value}>{option.label}</option>
                         {/each}
                     </select>

@@ -6,7 +6,7 @@
   import GrailItem from '$lib/components/GrailItem.svelte';
   import CatalogFilters from '$lib/components/CatalogFilters.svelte';
   import { itemClass } from '$lib/catalog';
-  import { catalogTypeValues, equipmentNamesForType, weaponSortOptions } from '$lib/catalog-controls';
+  import { catalogTypeValues, equipmentNamesForType, sortOptions } from '$lib/catalog-controls';
   import { filterGrailItems, grailTypes, normalizeGrailFilters } from '$lib/grail-filters';
   import { readGrailFilters, writeGrailFilters, type GrailCategory } from '$lib/grail-query';
   import { i18n } from '$lib/i18n';
@@ -227,7 +227,7 @@
   </div>
 
   <CatalogFilters slug={category} grail {typeOptions} {classOptions} {equipmentOptions}
-    propertyOptions={[]} recipeTypeOptions={[]} {runeOptions} {weaponSortOptions}
+    propertyOptions={[]} recipeTypeOptions={[]} {runeOptions} {sortOptions}
     bind:search={filters.search} bind:selectedType={filters.selectedType}
     bind:selectedClass={filters.selectedClass} bind:selectedEquipment={filters.selectedEquipment}
     bind:hideVanilla={filters.hideVanilla} bind:runeCount={filters.runeCount}

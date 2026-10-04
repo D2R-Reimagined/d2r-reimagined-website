@@ -17,10 +17,10 @@
     matchesItemType,
     passesHandFilter,
     recipeType as recipeTypesFor,
-    sortByWeaponDamage,
+    sortCatalogItems,
     tokenizeSearch,
-    weaponSortOptions,
-    type WeaponSortMode
+    sortOptions,
+    type CatalogSortMode
   } from '$lib/catalog-controls';
   import { readCatalogFilters, writeCatalogFilters, type CatalogFilterState } from '$lib/catalog-query';
   import { isVanilla, itemClass, itemType, searchText } from '$lib/catalog';
@@ -52,7 +52,7 @@
   let exactType = $state(initialFilters.exactType);
   let recipeType = $state(initialFilters.recipeType);
   let selectedRunes = $state<string[]>(initialFilters.selectedRunes);
-  let weaponSort = $state<WeaponSortMode>(initialFilters.weaponSort);
+  let sortMode = $state<CatalogSortMode>(initialFilters.sortMode);
   let handFilter = $state(initialFilters.handFilter);
   let visibleCount = $state(untrack(() => data.definition.slug === 'bases' ? 16 : 48));
   let routerReady = $state(false);
@@ -173,7 +173,7 @@
       return true;
     });
 
-    return sortByWeaponDamage(matches, weaponSort);
+    return sortCatalogItems(matches, sortMode);
   });
 
   let visible = $derived(filtered.slice(0, visibleCount));
@@ -206,7 +206,7 @@
   $effect(() => {
     query; selectedType; selectedClass; subtype; hideVanilla; runeCount;
     selectedEquipment; selectedTier; selectedSockets; propertyType; minLevel;
-    maxLevel; exactType; recipeType; selectedRunes; weaponSort; handFilter;
+    maxLevel; exactType; recipeType; selectedRunes; sortMode; handFilter;
     visibleCount = data.definition.slug === 'bases' ? 16 : 48;
   });
 
@@ -215,7 +215,7 @@
     const filters: CatalogFilterState = {
       search, selectedType, selectedClass, subtype, hideVanilla, runeCount,
       selectedEquipment, selectedTier, selectedSockets, propertyType, minLevel,
-      maxLevel, exactType, recipeType, selectedRunes, weaponSort, handFilter
+      maxLevel, exactType, recipeType, selectedRunes, sortMode, handFilter
     };
     const url = writeCatalogFilters(new URL(page.url), filters, data.definition.slug);
     if (url.search !== page.url.search) replaceState(url, {});
@@ -251,7 +251,7 @@
     exactType = filters.exactType;
     recipeType = filters.recipeType;
     selectedRunes = filters.selectedRunes;
-    weaponSort = filters.weaponSort;
+    sortMode = filters.sortMode;
     handFilter = filters.handFilter;
 
     const normalizedUrl = writeCatalogFilters(new URL(destination), filters, data.definition.slug);
@@ -275,7 +275,7 @@
     exactType = false;
     recipeType = '';
     selectedRunes = [];
-    weaponSort = '';
+    sortMode = '';
     handFilter = '';
   }
 </script>
@@ -306,7 +306,7 @@
     {propertyOptions}
     {recipeTypeOptions}
     {runeOptions}
-    {weaponSortOptions}
+    {sortOptions}
     bind:search
     bind:selectedType
     bind:selectedClass
@@ -322,7 +322,7 @@
     bind:exactType
     bind:recipeType
     bind:selectedRunes
-    bind:weaponSort
+    bind:sortMode
     bind:handFilter
     {reset}
   />
