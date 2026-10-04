@@ -1,4 +1,4 @@
-import type { CatalogSortMode } from './catalog-controls';
+import type { CatalogSortMode, RuneMatchMode } from './catalog-controls';
 import type { CatalogSlug } from './types';
 
 export interface CatalogFilterState {
@@ -17,6 +17,7 @@ export interface CatalogFilterState {
   exactType: boolean;
   recipeType: string;
   selectedRunes: string[];
+  runeMatch: RuneMatchMode;
   sortMode: CatalogSortMode;
   handFilter: string;
 }
@@ -51,6 +52,7 @@ export function readCatalogFilters(params: URLSearchParams, slug: CatalogSlug): 
     exactType: enabled(params.get('exact')),
     recipeType: params.get('recipeType') ?? '',
     selectedRunes: runeValues(params),
+    runeMatch: params.get('runeMatch') === 'makeable' ? 'makeable' : '',
     sortMode: (params.get('sort') ?? '') as CatalogSortMode,
     handFilter: params.get('hand') ?? ''
   };
@@ -78,6 +80,7 @@ export function writeCatalogFilters(url: URL, filters: CatalogFilterState, slug:
   setParam(params, 'exact', filters.exactType);
   setParam(params, 'recipeType', filters.recipeType);
   setParam(params, 'runes', filters.selectedRunes.join(','));
+  setParam(params, 'runeMatch', filters.runeMatch);
   setParam(params, 'sort', filters.sortMode);
   setParam(params, 'hand', filters.handFilter);
   return url;

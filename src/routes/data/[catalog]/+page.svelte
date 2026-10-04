@@ -15,12 +15,14 @@
     catalogTypeValues,
     matchesSearch,
     matchesItemType,
+    matchesRunes,
     passesHandFilter,
     recipeType as recipeTypesFor,
     sortCatalogItems,
     tokenizeSearch,
     sortOptions,
-    type CatalogSortMode
+    type CatalogSortMode,
+    type RuneMatchMode
   } from '$lib/catalog-controls';
   import { readCatalogFilters, writeCatalogFilters, type CatalogFilterState } from '$lib/catalog-query';
   import { isVanilla, itemClass, itemType, searchText } from '$lib/catalog';
@@ -52,6 +54,7 @@
   let exactType = $state(initialFilters.exactType);
   let recipeType = $state(initialFilters.recipeType);
   let selectedRunes = $state<string[]>(initialFilters.selectedRunes);
+  let runeMatch = $state<RuneMatchMode>(initialFilters.runeMatch);
   let sortMode = $state<CatalogSortMode>(initialFilters.sortMode);
   let handFilter = $state(initialFilters.handFilter);
   let visibleCount = $state(untrack(() => data.definition.slug === 'bases' ? 16 : 48));
@@ -155,10 +158,7 @@
       if (selectedEquipment && !equipmentFor(item).includes(selectedEquipment)) return false;
       if (subtype && item.source !== subtype) return false;
       if (runeCount && (item.Runes?.length ?? 0) !== Number(runeCount)) return false;
-      if (selectedRunes.length) {
-        const itemRunes = (item.Runes ?? []).map((rune) => rune.NameKey ?? '');
-        if (!selectedRunes.every((rune) => itemRunes.includes(rune))) return false;
-      }
+      if (!matchesRunes((item.Runes ?? []).map((rune) => rune.NameKey ?? ''), selectedRunes, runeMatch)) return false;
       if (selectedTier && baseTier(item) !== selectedTier) return false;
       if (selectedSockets && !baseHasSockets(item, Number(selectedSockets))) return false;
       if (propertyType && !affixMatchesProperty(item, propertyType)) return false;
@@ -206,7 +206,7 @@
   $effect(() => {
     query; selectedType; selectedClass; subtype; hideVanilla; runeCount;
     selectedEquipment; selectedTier; selectedSockets; propertyType; minLevel;
-    maxLevel; exactType; recipeType; selectedRunes; sortMode; handFilter;
+    maxLevel; exactType; recipeType; selectedRunes; runeMatch; sortMode; handFilter;
     visibleCount = data.definition.slug === 'bases' ? 16 : 48;
   });
 
@@ -215,7 +215,7 @@
     const filters: CatalogFilterState = {
       search, selectedType, selectedClass, subtype, hideVanilla, runeCount,
       selectedEquipment, selectedTier, selectedSockets, propertyType, minLevel,
-      maxLevel, exactType, recipeType, selectedRunes, sortMode, handFilter
+      maxLevel, exactType, recipeType, selectedRunes, runeMatch, sortMode, handFilter
     };
     const url = writeCatalogFilters(new URL(page.url), filters, data.definition.slug);
     if (url.search !== page.url.search) replaceState(url, {});
@@ -251,6 +251,7 @@
     exactType = filters.exactType;
     recipeType = filters.recipeType;
     selectedRunes = filters.selectedRunes;
+    runeMatch = filters.runeMatch;
     sortMode = filters.sortMode;
     handFilter = filters.handFilter;
 
@@ -275,6 +276,7 @@
     exactType = false;
     recipeType = '';
     selectedRunes = [];
+    runeMatch = '';
     sortMode = '';
     handFilter = '';
   }
@@ -322,6 +324,7 @@
     bind:exactType
     bind:recipeType
     bind:selectedRunes
+    bind:runeMatch
     bind:sortMode
     bind:handFilter
     {reset}

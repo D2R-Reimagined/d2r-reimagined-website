@@ -11,7 +11,7 @@ export function readGrailFilters(params: URLSearchParams): GrailFilters {
   const value = params.get('g-category') ?? params.get('category');
   const category = value === 'sets' || value === 'runewords' ? value : 'uniques';
   const catalogParams = new URLSearchParams(params);
-  for (const key of ['search', 'type', 'class', 'equipment', 'hideVanilla', 'sockets', 'runes', 'exact']) {
+  for (const key of ['search', 'type', 'class', 'equipment', 'hideVanilla', 'sockets', 'runes', 'runeMatch', 'exact']) {
     const legacy = params.get(`g-${key}`);
     if (legacy !== null) catalogParams.set(key, legacy);
   }
@@ -30,6 +30,7 @@ export function writeGrailFilters(url: URL, filters: GrailFilters): URL {
     hideVanilla: filters.catalog.hideVanilla,
     sockets: filters.category === 'runewords' ? filters.catalog.runeCount : '',
     runes: filters.category === 'runewords' ? filters.catalog.selectedRunes.join(',') : '',
+    runeMatch: filters.category === 'runewords' ? filters.catalog.runeMatch : '',
     exact: filters.category === 'runewords' && filters.catalog.exactType
   };
   url.searchParams.delete('q');

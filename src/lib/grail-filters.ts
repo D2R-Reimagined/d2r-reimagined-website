@@ -1,5 +1,5 @@
 import { isVanilla, itemClass, searchText, type SearchTools } from './catalog';
-import { catalogTypeValues, equipmentNamesForType, matchesItemType, matchesSearch, tokenizeSearch } from './catalog-controls';
+import { catalogTypeValues, equipmentNamesForType, matchesItemType, matchesRunes, matchesSearch, tokenizeSearch } from './catalog-controls';
 import type { CatalogFilterState } from './catalog-query';
 import { matchesPiece } from './set-filters';
 import type { CatalogItem } from './types';
@@ -43,7 +43,7 @@ export function filterGrailItems(
     if (category === 'runewords') {
       if (!matchesItemType(grailTypes(item), filters.selectedType, filters.exactType, true)) return false;
       if (filters.runeCount && item.Runes?.length !== Number(filters.runeCount)) return false;
-      if (!filters.selectedRunes.every((rune) => item.Runes?.some((value) => value.NameKey === rune))) return false;
+      if (!matchesRunes((item.Runes ?? []).map((rune) => rune.NameKey ?? ''), filters.selectedRunes, filters.runeMatch)) return false;
     } else if (!matchesPiece(item, filters)) return false;
     return !groups.length || matchesSearch(searchText(item, tools), groups);
   });

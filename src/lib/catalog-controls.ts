@@ -254,6 +254,18 @@ function damageTypesFor(item: CatalogItem): DamageType[] {
   return [];
 }
 
+export type RuneMatchMode = '' | 'makeable';
+
+/**
+ * Default mode keeps runewords that use every selected rune. "Makeable" treats the selection
+ * as the runes on hand and keeps runewords built only from them, however many each needs.
+ */
+export function matchesRunes(itemRunes: string[], selected: string[], mode: RuneMatchMode): boolean {
+  if (!selected.length) return true;
+  if (mode === 'makeable') return itemRunes.length > 0 && itemRunes.every((rune) => selected.includes(rune));
+  return selected.every((rune) => itemRunes.includes(rune));
+}
+
 export function passesHandFilter(item: CatalogItem, mode: string): boolean {
   if (!mode) return true;
   if (item.SetItems?.length) return item.SetItems.some((setItem) => passesHandFilter(setItem, mode));

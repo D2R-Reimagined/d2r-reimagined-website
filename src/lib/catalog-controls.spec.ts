@@ -9,6 +9,7 @@ import {
   groupBases,
   matchesSearch,
   matchesItemType,
+  matchesRunes,
   passesHandFilter,
   sortCatalogItems,
   sortModifierLines,
@@ -124,6 +125,27 @@ describe('item type filtering', () => {
     expect(matchesItemType(['sworitype'], 'weapitype', false)).toBe(true);
     expect(matchesItemType(['sworitype'], 'weapitype', true)).toBe(false);
     expect(matchesItemType(['weapitype'], 'weapitype', true)).toBe(true);
+  });
+});
+
+describe('rune matching', () => {
+  const on = (...runes: string[]) => runes;
+
+  it('keeps runewords that use every selected rune by default', () => {
+    expect(matchesRunes(on('r01', 'r02', 'r03'), on('r01', 'r03'), '')).toBe(true);
+    expect(matchesRunes(on('r01', 'r02'), on('r01', 'r03'), '')).toBe(false);
+  });
+
+  it('keeps only runewords buildable from the selected runes in makeable mode', () => {
+    expect(matchesRunes(on('r01', 'r02'), on('r01', 'r02', 'r03'), 'makeable')).toBe(true);
+    expect(matchesRunes(on('r30', 'r30', 'r01'), on('r30', 'r01'), 'makeable')).toBe(true);
+    expect(matchesRunes(on('r01', 'r04'), on('r01', 'r02', 'r03'), 'makeable')).toBe(false);
+    expect(matchesRunes([], on('r01'), 'makeable')).toBe(false);
+  });
+
+  it('applies no rune filter until a rune is selected', () => {
+    expect(matchesRunes(on('r01'), [], '')).toBe(true);
+    expect(matchesRunes(on('r01'), [], 'makeable')).toBe(true);
   });
 });
 

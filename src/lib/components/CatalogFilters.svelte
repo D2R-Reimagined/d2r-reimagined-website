@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {CatalogSlug} from '$lib/types';
-    import type {CatalogSortMode} from '$lib/catalog-controls';
+    import type {CatalogSortMode, RuneMatchMode} from '$lib/catalog-controls';
     import {i18n} from '$lib/i18n';
     import SearchableSelect from './SearchableSelect.svelte';
     import SearchableMultiSelect from './SearchableMultiSelect.svelte';
@@ -17,7 +17,7 @@
         selectedSockets = $bindable(''), propertyType = $bindable(''),
         minLevel = $bindable(''), maxLevel = $bindable(''),
         exactType = $bindable(false), recipeType = $bindable(''),
-        selectedRunes = $bindable([]), sortMode = $bindable(''),
+        selectedRunes = $bindable([]), runeMatch = $bindable(''), sortMode = $bindable(''),
         handFilter = $bindable(''), reset
     }: {
         slug: CatalogSlug;
@@ -44,6 +44,7 @@
         exactType?: boolean;
         recipeType?: string;
         selectedRunes?: string[];
+        runeMatch?: RuneMatchMode;
         sortMode?: CatalogSortMode;
         handFilter?: string;
         reset: () => void;
@@ -184,6 +185,13 @@
                     <SearchableMultiSelect id="runes-only" label={$i18n.t('filter_runes_only_placeholder')}
                         placeholder="Any runes" options={runeOptions} bind:value={selectedRunes} />
                 </div>
+                <label>
+                    <span class={fieldLabel}>{$i18n.t('filter_rune_match')}</span>
+                    <select class="field" bind:value={runeMatch}>
+                        <option value="">Has all selected</option>
+                        <option value="makeable">Makeable from selected</option>
+                    </select>
+                </label>
             {/if}
 
             {#if ['affixes', 'runewords'].includes(slug) && typeOptions.length}
