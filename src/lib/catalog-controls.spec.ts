@@ -10,7 +10,7 @@ import {
   matchesSearch,
   matchesItemType,
   passesHandFilter,
-  sortByWeaponDamage,
+  sortCatalogItems,
   sortModifierLines,
   tokenizeSearch
 } from './catalog-controls';
@@ -93,7 +93,7 @@ describe('item type filtering', () => {
       { Index: 'amazon bow', Type: 'abowitype', DamageTypes: [{ Type: 1, AverageDamage: 150 }] },
       { Index: 'helm', Type: 'helmitype' }
     ];
-    const ranked = (type: string) => sortByWeaponDamage(
+    const ranked = (type: string) => sortCatalogItems(
       items.filter((item) => matchesItemType([item.Type as string], type, false)),
       'avg-2h-phys-descending'
     ).map((item) => item.Index);
@@ -149,8 +149,44 @@ describe('weapon controls', () => {
   const armor: CatalogItem = { Index: 'armor', Equipment: { DamageTypes: [] } };
 
   it('sorts weapon damage while keeping non-weapons last', () => {
-    expect(sortByWeaponDamage([armor, low, high], 'avg-2h-phys-descending').map((item) => item.Index))
+    expect(sortCatalogItems([armor, low, high], 'avg-2h-phys-descending').map((item) => item.Index))
       .toEqual(['high', 'low', 'armor']);
+  });
+
+  it('sorts by required level in either direction', () => {
+    const items: CatalogItem[] = [
+      { Index: 'mid', RequiredLevel: 40 },
+      { Index: 'high', RequiredLevel: 85 },
+      { Index: 'low', RequiredLevel: 5 }
+    ];
+    expect(sortCatalogItems(items, 'level-descending').map((item) => item.Index)).toEqual(['high', 'mid', 'low']);
+    expect(sortCatalogItems(items, 'level-ascending').map((item) => item.Index)).toEqual(['low', 'mid', 'high']);
+  });
+
+  it('sorts armor by its best defense roll while keeping items without defense last', () => {
+    const plain: CatalogItem = { Index: 'plain', Equipment: { Lines: [{ key: 'strDefense', args: [120] }] } };
+    const ranged: CatalogItem = { Index: 'ranged', Equipment: { Lines: [{ key: 'strDefenseRange', args: [90, 140] }] } };
+    const enhanced: CatalogItem = {
+      Index: 'enhanced',
+      Equipment: { Lines: [{ key: 'strChanceToBlock', args: [20] }, { key: 'strDefenseRangeRange', args: [186, 257, 205, 276] }] }
+    };
+    const ring: CatalogItem = { Index: 'ring', Equipment: { Lines: [] } };
+    expect(sortCatalogItems([ring, plain, ranged, enhanced], 'defense-descending').map((item) => item.Index))
+      .toEqual(['enhanced', 'ranged', 'plain', 'ring']);
+    expect(sortCatalogItems([ring, plain, ranged, enhanced], 'defense-ascending').map((item) => item.Index))
+      .toEqual(['plain', 'ranged', 'enhanced', 'ring']);
+  });
+
+  it('ranks sets by their highest-level and best-defense piece', () => {
+    const light: CatalogItem = { Index: 'light', SetItems: [
+      { RequiredLevel: 10, Equipment: { Lines: [{ key: 'strDefense', args: [30] }] } }
+    ] };
+    const heavy: CatalogItem = { Index: 'heavy', SetItems: [
+      { RequiredLevel: 8, Equipment: { Lines: [] } },
+      { RequiredLevel: 60, Equipment: { Lines: [{ key: 'strDefenseRange', args: [200, 250] }] } }
+    ] };
+    expect(sortCatalogItems([light, heavy], 'level-descending').map((item) => item.Index)).toEqual(['heavy', 'light']);
+    expect(sortCatalogItems([light, heavy], 'defense-descending').map((item) => item.Index)).toEqual(['heavy', 'light']);
   });
 
   it('filters one- and two-handed equipment', () => {

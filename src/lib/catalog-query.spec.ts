@@ -32,7 +32,7 @@ describe('catalog filter query parameters', () => {
       exactType: true,
       recipeType: 'crafting',
       selectedRunes: ['r01', 'r02'],
-      weaponSort: 'avg-1h-phys-descending',
+      sortMode: 'avg-1h-phys-descending',
       handFilter: '1h'
     });
 

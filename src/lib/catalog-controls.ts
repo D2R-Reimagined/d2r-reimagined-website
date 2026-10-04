@@ -7,7 +7,7 @@ export interface SearchToken {
 
 export type SearchGroups = SearchToken[][];
 
-export type WeaponSortMode =
+export type CatalogSortMode =
   | ''
   | 'avg-1h-phys-descending'
   | 'avg-1h-phys-ascending'
@@ -16,9 +16,13 @@ export type WeaponSortMode =
   | 'avg-throw-phys-descending'
   | 'avg-throw-phys-ascending'
   | 'avg-non-phys-descending'
-  | 'avg-non-phys-ascending';
+  | 'avg-non-phys-ascending'
+  | 'level-descending'
+  | 'level-ascending'
+  | 'defense-descending'
+  | 'defense-ascending';
 
-export const weaponSortOptions: Array<{ value: WeaponSortMode; label: string }> = [
+export const sortOptions: Array<{ value: CatalogSortMode; label: string }> = [
   { value: '', label: 'Default order' },
   { value: 'avg-1h-phys-descending', label: '1H physical — highest first' },
   { value: 'avg-1h-phys-ascending', label: '1H physical — lowest first' },
@@ -27,7 +31,11 @@ export const weaponSortOptions: Array<{ value: WeaponSortMode; label: string }> 
   { value: 'avg-throw-phys-descending', label: 'Throw physical — highest first' },
   { value: 'avg-throw-phys-ascending', label: 'Throw physical — lowest first' },
   { value: 'avg-non-phys-descending', label: 'Elemental — highest first' },
-  { value: 'avg-non-phys-ascending', label: 'Elemental — lowest first' }
+  { value: 'avg-non-phys-ascending', label: 'Elemental — lowest first' },
+  { value: 'level-descending', label: 'Required level — highest first' },
+  { value: 'level-ascending', label: 'Required level — lowest first' },
+  { value: 'defense-descending', label: 'Defense — highest first' },
+  { value: 'defense-ascending', label: 'Defense — lowest first' }
 ];
 
 const affixPropertyGroups: Record<string, number[]> = {
@@ -254,7 +262,7 @@ export function passesHandFilter(item: CatalogItem, mode: string): boolean {
   return mode === '1h' ? !hasTwoHand : mode === '2h' ? hasTwoHand : true;
 }
 
-export function weaponDamageValue(item: CatalogItem, mode: WeaponSortMode): number {
+export function weaponDamageValue(item: CatalogItem, mode: CatalogSortMode): number {
   if (item.SetItems?.length) {
     return Math.max(0, ...item.SetItems.map((setItem) => weaponDamageValue(setItem, mode)));
   }
@@ -270,11 +278,32 @@ export function weaponDamageValue(item: CatalogItem, mode: WeaponSortMode): numb
   return 0;
 }
 
-export function sortByWeaponDamage(items: CatalogItem[], mode: WeaponSortMode): CatalogItem[] {
+const defenseLineKeys = new Set(['strDefense', 'strDefenseRange', 'strDefenseRangeRange']);
+
+// Ranged defense lines (including the enhanced-defense "a-b to c-d" form) rank by their best roll.
+export function defenseValue(item: CatalogItem): number {
+  if (item.SetItems?.length) return Math.max(0, ...item.SetItems.map(defenseValue));
+  const line = item.Equipment?.Lines?.find((candidate) => defenseLineKeys.has(candidate.key));
+  return Math.max(0, ...(line?.args ?? []).map(Number).filter(Number.isFinite));
+}
+
+// Sets rank by their highest-level piece, which is the level needed to wear the whole set.
+export function requiredLevelValue(item: CatalogItem): number {
+  if (item.SetItems?.length) return Math.max(0, ...item.SetItems.map(requiredLevelValue));
+  return Number(item.RequiredLevel ?? 0) || 0;
+}
+
+export function catalogSortValue(item: CatalogItem, mode: CatalogSortMode): number {
+  if (mode.startsWith('level-')) return requiredLevelValue(item);
+  if (mode.startsWith('defense-')) return defenseValue(item);
+  return weaponDamageValue(item, mode);
+}
+
+export function sortCatalogItems(items: CatalogItem[], mode: CatalogSortMode): CatalogItem[] {
   if (!mode) return items;
   const ascending = mode.includes('ascending');
   return items
-    .map((item, index) => ({ item, index, value: weaponDamageValue(item, mode) }))
+    .map((item, index) => ({ item, index, value: catalogSortValue(item, mode) }))
     .sort((a, b) => {
       if (a.value === 0 && b.value !== 0) return 1;
       if (a.value !== 0 && b.value === 0) return -1;
