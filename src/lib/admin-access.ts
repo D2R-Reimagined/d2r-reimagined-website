@@ -1,3 +1,7 @@
+export function canManageServers(roles: readonly string[] = []): boolean {
+  return roles.includes('Admin');
+}
+
 export function canReviewFeedback(roles: readonly string[] = []): boolean {
   return roles.includes('Admin') || roles.includes('Moderator');
 }

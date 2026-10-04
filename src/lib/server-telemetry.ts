@@ -18,7 +18,8 @@ export interface MonitorSnapshot {
   lobby: { state: string; lastStatus: number; failures: number; networkError: number; lastSuccessAgeSeconds?: number };
 }
 export interface TelemetryServer {
-  id: string; ladderId: string; address: string; status: 'online' | 'delayed' | 'offline' | 'stalled' | 'starting';
+  id: string; ladderId: string; address: string; status: 'online' | 'delayed' | 'offline' | 'stalled' | 'starting' | 'disabled';
+  regionIds?: string[];
   receivedAtUtc: string | null; snapshot: MonitorSnapshot | null; sourceGaps: number;
 }
 export interface TelemetryLog {

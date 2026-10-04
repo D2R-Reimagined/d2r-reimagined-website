@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte';
+  import ServerRegistryEditor from '$lib/components/ServerRegistryEditor.svelte';
   import { appendLogs, connectServerTelemetry, getServers, logLevels, type TelemetryLog, type TelemetryServer } from '$lib/server-telemetry';
 
   let servers = $state<TelemetryServer[]>([]);
@@ -28,6 +29,7 @@
     return server.receivedAtUtc ? Math.max(0, (now + clockOffset - Date.parse(server.receivedAtUtc)) / 1000) : Infinity;
   }
   function status(server: TelemetryServer): string {
+    if (server.status === 'disabled') return 'disabled';
     return age(server) > 30 ? 'offline' : age(server) > 10 ? 'delayed' : server.status;
   }
   function tone(value: string): string {
@@ -58,6 +60,13 @@
     } catch (e) { if (!signal.aborted) error = e instanceof Error ? e.message : 'Unable to load servers.'; }
     finally { if (!signal.aborted) loading = false; }
   }
+  async function refreshMonitoring(): Promise<void> {
+    if (!mounted) return;
+    const frame = await getServers();
+    if (!mounted) return;
+    servers = frame.servers; clockOffset = Date.parse(frame.nowUtc) - Date.now();
+    if (!selectedId && servers.length) choose(servers[0].id);
+  }
   function togglePause(): void { if (!paused) frozen = [...logs]; paused = !paused; }
   function exportLogs(): void {
     const text = visibleLogs.map(e => `${new Date(e.timestamp).toISOString()} [${logLevels[e.level]}] [${e.session}/${e.sourceId}] ${e.message}`).join('\n');
@@ -75,31 +84,35 @@
   });
 </script>
 
-<svelte:head><title>Server monitoring | D2R Reimagined</title></svelte:head>
+<svelte:head><title>Servers | D2R Reimagined</title></svelte:head>
 
 <div class="space-y-5">
   <div class="flex flex-wrap items-start justify-between gap-3">
-    <div><h2 class="display-text text-3xl text-parchment-50">Server monitoring</h2><p class="mt-2 text-sm text-parchment-300">Live lobbies, character connections, and diagnostics across your dedicated servers.</p></div>
+    <div><h2 class="display-text text-3xl text-parchment-50">Servers</h2><p class="mt-2 text-sm text-parchment-300">Manage dedicated servers and regions, and monitor live lobbies, connections, and diagnostics.</p></div>
     <span class={`rounded-full border border-parchment-300/25 px-3 py-1 text-xs ${connection === 'Live' ? 'text-emerald-300' : 'text-amber-300'}`} role="status">{selectedId ? connection : loading ? 'Loading' : 'No servers'}</span>
   </div>
   {#if error}<div class="rounded-lg border border-ember-400/40 bg-ember-700/20 p-3 text-sm text-parchment-50" role="alert">{error} {connection === 'Reconnecting' ? 'The stream will retry automatically. Displayed data is the last report.' : ''}</div>{/if}
+  <ServerRegistryEditor onchange={refreshMonitoring} />
+  <h3 class="display-text text-xl text-parchment-50">Live monitoring</h3>
   {#if loading}
     <div class="panel rounded-lg p-8 text-parchment-300">Loading server reports…</div>
   {:else if !servers.length}
-    <div class="panel rounded-lg p-8"><h3 class="display-text text-xl text-parchment-50">No dedicated servers configured</h3><p class="mt-3 text-parchment-300">Add the hosts to the API’s GameDirectory server configuration, then enable telemetry on each D2RDS host.</p></div>
+    <div class="panel rounded-lg p-8"><h3 class="display-text text-xl text-parchment-50">No dedicated servers configured</h3><p class="mt-3 text-parchment-300">Add a server above, then enable telemetry on its D2RDS host.</p></div>
   {:else}
     <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3" aria-label="Dedicated servers">
       {#each servers as server (server.id)}
         <button onclick={() => choose(server.id)} aria-pressed={selectedId === server.id} class={`panel min-w-0 rounded-lg p-4 text-left transition hover:border-ember-400/65 ${selectedId === server.id ? 'border-ember-400/65 bg-ember-700/15' : ''}`}>
           <span class="flex items-center justify-between gap-2"><span class="display-text truncate text-lg text-parchment-50">{server.id}</span><span class={`text-xs uppercase tracking-wider ${tone(status(server))}`}>{status(server)}</span></span>
           <span class="mt-1 block text-xs text-parchment-300">{server.address}{server.snapshot ? `:${server.snapshot.gamePort}` : ''}</span>
+          {#if server.regionIds?.length}<span class="mt-1 block break-words text-xs text-parchment-300">{server.regionIds.join(' · ')}</span>{/if}
           <span class="mt-3 block text-sm text-parchment-200">{server.snapshot?.games.length ?? 0} lobbies · {server.snapshot?.games.reduce((n, g) => n + g.connectedCount, 0) ?? 0} connections</span>
           <span class="mt-1 block text-xs text-parchment-300">{server.receivedAtUtc ? `Last report ${duration(age(server))} ago` : 'Waiting for the first report'}</span>
         </button>
       {/each}
     </div>
     {#if selected}
-      {#if snapshot && status(selected) !== 'online'}<div class="panel rounded-lg px-4 py-3 text-sm text-amber-300">{status(selected) === 'offline' ? 'This host is offline or has stopped reporting. Lobbies and characters below are its last observed state.' : status(selected) === 'stalled' ? 'The game loop or lobby snapshot has stopped updating. Reports are still arriving.' : status(selected) === 'delayed' ? 'Reports are delayed. The state below may have changed.' : 'This host is starting. Waiting for the game loop to publish its first snapshot.'}</div>{/if}
+      {#if status(selected) === 'disabled'}<div class="panel rounded-lg px-4 py-3 text-sm text-amber-300">This server is disabled. Hosting and server API access are turned off; any reports below show its last observed state.</div>
+      {:else if snapshot && status(selected) !== 'online'}<div class="panel rounded-lg px-4 py-3 text-sm text-amber-300">{status(selected) === 'offline' ? 'This host is offline or has stopped reporting. Lobbies and characters below are its last observed state.' : status(selected) === 'stalled' ? 'The game loop or lobby snapshot has stopped updating. Reports are still arriving.' : status(selected) === 'delayed' ? 'Reports are delayed. The state below may have changed.' : 'This host is starting. Waiting for the game loop to publish its first snapshot.'}</div>{/if}
       {#if snapshot}
         <div class="grid grid-cols-2 gap-3 lg:grid-cols-4">
           <div class="panel rounded-lg p-4"><p class="text-xs uppercase tracking-wider text-parchment-300">Process uptime</p><p class="mt-2 text-xl text-parchment-50">{duration(snapshot.uptimeSeconds)}</p><p class="mt-1 text-xs text-parchment-300">PID {snapshot.pid}</p></div>
