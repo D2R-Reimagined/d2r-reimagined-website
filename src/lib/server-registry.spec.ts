@@ -3,10 +3,10 @@ vi.mock('$lib/auth', () => ({ apiRequest: vi.fn() }));
 import { apiRequest } from '$lib/auth';
 import { canAccessAdminPage, canManageServers } from './admin-access';
 import { createServerConfiguration, updateServerConfiguration, getServerConfigurations, getServerRegions,
-  createServerRegion, updateServerRegion, deleteServerRegion, serverConfigurationInput, serverRegionInput, type ServerDraft } from './server-registry';
+  createServerRegion, updateServerRegion, deleteServerRegion, serverConfigurationInput, serverRegionInput, serverLabel, serverDraft, MAX_GAMES_PER_SERVER, type ServerDraft, type ServerConfiguration } from './server-registry';
 
-const draft = (): ServerDraft => ({ id: 'eu-1', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: true,
-  regionIds: ['eu-west', 'na-east'], keySha256: '' });
+const draft = (): ServerDraft => ({ id: 'eu-1', name: '', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: true,
+  maxGames: 32, regionIds: ['eu-west', 'na-east'], keySha256: '' });
 beforeEach(() => vi.clearAllMocks());
 
 describe('server administration access', () => {
@@ -31,7 +31,7 @@ describe('server configuration requests', () => {
     expect(input.regionIds).not.toBe(value.regionIds);
     await updateServerConfiguration(input);
     expect(apiRequest).toHaveBeenCalledWith('/admin/servers/configuration/eu-1', {
-      method: 'PUT', body: JSON.stringify({ id: 'eu-1', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: false, regionIds: ['eu-west', 'na-east'] })
+      method: 'PUT', body: JSON.stringify({ id: 'eu-1', name: '', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: false, maxGames: 32, regionIds: ['eu-west', 'na-east'] })
     }, true);
   });
   it('requires a complete hash on creation and normalizes hex case without silently truncating input', async () => {
@@ -57,6 +57,40 @@ describe('server configuration requests', () => {
       const value = draft(); value.publicAddress = address;
       expect(() => serverConfigurationInput(value, false)).toThrow('IPv4');
     }
+  });
+  it('trims display names, limits them to 64 printable characters and always sends them', () => {
+    const value = draft(); value.name = '  NA East 1  ';
+    expect(serverConfigurationInput(value, false).name).toBe('NA East 1');
+    value.name = ' ' + 'x'.repeat(64) + ' ';
+    expect(serverConfigurationInput(value, false).name).toBe('x'.repeat(64));
+    value.name = '   ';
+    expect(serverConfigurationInput(value, false)).toHaveProperty('name', '');
+    for (const name of ['x'.repeat(65), 'NA\nEast']) {
+      value.name = name;
+      expect(() => serverConfigurationInput(value, false)).toThrow('Server name');
+    }
+  });
+  it('requires max games to be a whole number from 1 to 32 and always sends it', () => {
+    for (const maxGames of [1, 8, MAX_GAMES_PER_SERVER]) {
+      const value = draft(); value.maxGames = maxGames;
+      expect(serverConfigurationInput(value, false).maxGames).toBe(maxGames);
+    }
+    const created = draft(); created.keySha256 = 'a'.repeat(64);
+    expect(serverConfigurationInput(created, true)).toHaveProperty('maxGames', 32);
+    for (const maxGames of [0, -1, 33, 2.5, Number.NaN, null as unknown as number, '8' as unknown as number]) {
+      const value = draft(); value.maxGames = maxGames;
+      expect(() => serverConfigurationInput(value, false)).toThrow('Max games');
+    }
+  });
+  it('labels servers by name with the id, falling back to the id', () => {
+    expect(serverLabel({ id: 'vps2', name: 'NA East 1' })).toBe('NA East 1 (vps2)');
+    for (const name of [undefined, null, '', '  ']) expect(serverLabel({ id: 'vps2', name })).toBe('vps2');
+  });
+  it('builds edit drafts from API records, defaulting missing names and limits', () => {
+    const record = { id: 'vps2', name: null, ladderId: 'l', publicAddress: '203.0.113.7', enabled: true, regionIds: ['na-east'] } as unknown as ServerConfiguration;
+    const value = serverDraft(record);
+    expect(value).toMatchObject({ name: '', maxGames: 32, keySha256: '' });
+    expect(value.regionIds).not.toBe(record.regionIds);
   });
   it('loads private records without caching and propagates cancellation', async () => {
     const signal = new AbortController().signal;

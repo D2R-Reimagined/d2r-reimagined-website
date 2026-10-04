@@ -6,16 +6,20 @@
   import {
     getServerConfigurations, getServerRegions, createServerConfiguration, updateServerConfiguration,
     createServerRegion, updateServerRegion, deleteServerRegion, serverConfigurationInput, serverRegionInput,
-    type ServerConfiguration, type ServerRegion, type ServerDraft
+    serverDraft, serverLabel, MAX_GAMES_PER_SERVER, type ServerConfiguration, type ServerRegion, type ServerDraft
   } from '$lib/server-registry';
 
-  let { onchange }: { onchange?: () => Promise<void> } = $props();
+  let { onchange, onconfigured }: {
+    onchange?: () => Promise<void>;
+    /** Receives the configured server records whenever they load or change (for display names elsewhere). */
+    onconfigured?: (servers: ServerConfiguration[]) => void;
+  } = $props();
   let servers = $state<ServerConfiguration[]>([]);
   let regions = $state<ServerRegion[]>([]);
   let ladders = $state<Ladder[]>([]);
   let loading = $state(true), saving = $state(false), error = $state(''), notice = $state('');
   let editingId = $state<string | null>(null), formOpen = $state(false);
-  const emptyServer = (): ServerDraft => ({ id: '', ladderId: '', publicAddress: '', enabled: true, regionIds: [], keySha256: '' });
+  const emptyServer = (): ServerDraft => ({ id: '', name: '', ladderId: '', publicAddress: '', enabled: true, maxGames: MAX_GAMES_PER_SERVER, regionIds: [], keySha256: '' });
   let draft = $state<ServerDraft>(emptyServer());
   let editingRegionId = $state<string | null>(null);
   let regionDraft = $state<ServerRegion>({ id: '', name: '' });
@@ -23,8 +27,10 @@
   let mounted = false;
   let loadSequence = 0;
   const allowed = $derived(canManageServers($authState.user?.roles));
-  const sortedServers = $derived([...servers].sort((a, b) => a.id.localeCompare(b.id)));
+  const sortedServers = $derived([...servers].sort((a, b) => serverLabel(a).localeCompare(serverLabel(b)) || a.id.localeCompare(b.id)));
   const sortedRegions = $derived([...regions].sort((a, b) => a.name.localeCompare(b.name)));
+
+  $effect(() => { onconfigured?.(servers); });
 
   function problem(value: unknown): string { return value instanceof Error ? value.message : 'Unable to save configuration.'; }
   function ladderName(id: string): string { return ladders.find(l => l.id === id)?.name ?? id; }
@@ -49,7 +55,7 @@
     editingId = null; draft = emptyServer(); formOpen = true; error = ''; notice = '';
   }
   function editServer(server: ServerConfiguration): void {
-    editingId = server.id; draft = { ...server, regionIds: [...server.regionIds], keySha256: '' };
+    editingId = server.id; draft = serverDraft(server);
     formOpen = true; error = ''; notice = '';
   }
   function toggleRegion(id: string, checked: boolean): void {
@@ -68,9 +74,9 @@
       const result = editingId === null ? await createServerConfiguration(input) : await updateServerConfiguration(input);
       if (!mounted) return;
       servers = [...servers.filter(s => s.id !== result.id), result];
-      editingId = result.id; draft = { ...result, regionIds: [...result.regionIds], keySha256: '' };
+      editingId = result.id; draft = serverDraft(result);
       formOpen = false;
-      await changed(`${result.id} saved. Changes take effect without restarting the API.`);
+      await changed(`${serverLabel(result)} saved. Changes take effect without restarting the API.`);
     } catch (e) { if (mounted) error = problem(e); }
     finally { if (mounted) saving = false; }
   }
@@ -122,8 +128,8 @@
         {#if !servers.length}<p class="rounded-lg border border-parchment-300/15 p-4 text-sm text-parchment-300">No servers registered yet. Create regions below, then add your first server.</p>{/if}
         {#each sortedServers as server (server.id)}
           <div class="flex min-w-0 flex-wrap items-center justify-between gap-3 rounded-lg border border-parchment-300/15 p-3">
-            <div class="min-w-0 flex-1"><p class="break-words text-sm text-parchment-50"><span class="font-semibold">{server.id}</span> <span class={`ml-2 text-xs ${server.enabled ? 'text-emerald-300' : 'text-amber-300'}`}>{server.enabled ? 'Enabled' : 'Disabled'}</span></p><p class="mt-1 break-words text-xs text-parchment-300">{server.publicAddress} · {ladderName(server.ladderId)}</p><p class="mt-1 break-words text-xs text-parchment-300">{regionNames(server.regionIds)}</p></div>
-            <button class="control" disabled={saving} aria-label={`Edit server ${server.id}`} onclick={() => editServer(server)}>Edit</button>
+            <div class="min-w-0 flex-1"><p class="break-words text-sm text-parchment-50"><span class="font-semibold">{serverLabel(server)}</span> <span class={`ml-2 text-xs ${server.enabled ? 'text-emerald-300' : 'text-amber-300'}`}>{server.enabled ? 'Enabled' : 'Disabled'}</span></p><p class="mt-1 break-words text-xs text-parchment-300">{server.publicAddress} · {ladderName(server.ladderId)} · max {server.maxGames ?? MAX_GAMES_PER_SERVER} games</p><p class="mt-1 break-words text-xs text-parchment-300">{regionNames(server.regionIds)}</p></div>
+            <button class="control" disabled={saving} aria-label={`Edit server ${serverLabel(server)}`} onclick={() => editServer(server)}>Edit</button>
           </div>
         {/each}
       </div>
@@ -132,10 +138,12 @@
           <fieldset disabled={saving} class="min-w-0"><legend class="display-text text-lg text-parchment-50">{editingId ? `Edit ${editingId}` : 'New server'}</legend>
             <div class="mt-3 grid gap-3 sm:grid-cols-2">
               <label class="label">Server ID<input class="field" bind:value={draft.id} required maxlength="64" disabled={editingId !== null} placeholder="na-1" /></label>
+              <label class="label">Display name (optional)<input class="field" bind:value={draft.name} maxlength="64" placeholder="NA East 1" /><span class="mt-1 block text-xs text-parchment-300">Shown to admins instead of the ID. Leave blank to show the ID.</span></label>
               <label class="label">Ladder<select class="field" bind:value={draft.ladderId} required disabled={editingId !== null}><option value="">Choose a ladder</option>{#if editingId && !ladders.some(ladder => ladder.id === draft.ladderId)}<option value={draft.ladderId}>{ladderName(draft.ladderId)}</option>{/if}{#each ladders as ladder}<option value={ladder.id}>{ladder.name}{ladder.isHidden ? ' (hidden)' : ''}{ladder.archivedAtUtc ? ' (archived)' : ''}</option>{/each}</select></label>
               <label class="label">Public IPv4 address<input class="field" bind:value={draft.publicAddress} required maxlength="15" placeholder="203.0.113.20" /></label>
+              <label class="label">Max games<input class="field" type="number" bind:value={draft.maxGames} required min="1" max={MAX_GAMES_PER_SERVER} step="1" /><span class="mt-1 block text-xs text-parchment-300">Hosting stops picking this server at this many games (1–{MAX_GAMES_PER_SERVER}).</span></label>
               <label class="flex items-center gap-2 self-center text-sm text-parchment-200"><input type="checkbox" bind:checked={draft.enabled} />Enabled for hosting and server access</label>
-              <label class="label sm:col-span-2">{editingId ? 'New server key SHA-256 (optional)' : 'Server key SHA-256'}<input class="field font-mono" bind:value={draft.keySha256} required={editingId === null} autocomplete="off" spellcheck="false" placeholder={editingId ? 'Leave blank to keep the current key' : '64-character SHA-256 hash'} /><span class="mt-1 block text-xs text-parchment-300">{editingId ? 'Enter a new hash only when rotating this server’s key.' : 'Use the hash of the key configured on this dedicated server.'}</span></label>
+              <label class="label sm:col-span-2">{editingId ? 'New server key SHA-256 (optional)' : 'Server key SHA-256'}<input class="field font-mono" bind:value={draft.keySha256} required={editingId === null} autocomplete="off" spellcheck="false" placeholder={editingId ? 'Leave blank to keep the current key' : '64-character SHA-256 hash'} /><span class="mt-1 block text-xs text-parchment-300">{editingId ? 'Enter a new hash only when rotating this server’s key.' : 'Use the hash of the key configured on this dedicated server.'}</span><span class="mt-1 block text-xs text-parchment-300">Copy it from the server’s lobby-server-key.txt; lowercase or uppercase hex is accepted.</span></label>
             </div>
             <fieldset class="mt-4"><legend class="label">Regions</legend><p class="mt-1 text-xs text-parchment-300">Select every region this server serves. Without an assignment it appears when players select all regions.</p>
               <div class="mt-2 flex flex-wrap gap-x-5 gap-y-2">{#each sortedRegions as region}<label class="flex min-w-0 items-center gap-2 text-sm text-parchment-200"><input type="checkbox" checked={draft.regionIds.includes(region.id)} onchange={event => toggleRegion(region.id, event.currentTarget.checked)} /><span class="break-words">{region.name}</span></label>{/each}</div>

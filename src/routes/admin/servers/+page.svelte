@@ -1,9 +1,11 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte';
   import ServerRegistryEditor from '$lib/components/ServerRegistryEditor.svelte';
+  import type { ServerConfiguration } from '$lib/server-registry';
   import { appendLogs, connectServerTelemetry, getServers, logLevels, type TelemetryLog, type TelemetryServer } from '$lib/server-telemetry';
 
   let servers = $state<TelemetryServer[]>([]);
+  let configured = $state<ServerConfiguration[]>([]);
   let selectedId = $state('');
   let loading = $state(true);
   let connection = $state('Connecting');
@@ -25,6 +27,8 @@
   const visibleLogs = $derived((paused ? frozen : logs).filter(e => e.level >= severity && e.message.toLowerCase().includes(search.toLowerCase())));
   const stalled = $derived(snapshot?.games.flatMap(g => g.players).filter(p => p.stalled).length ?? 0);
 
+  function configuration(id: string): ServerConfiguration | undefined { return configured.find(s => s.id === id); }
+  function displayName(id: string): string { return configuration(id)?.name?.trim() || id; }
   function age(server: TelemetryServer): number {
     return server.receivedAtUtc ? Math.max(0, (now + clockOffset - Date.parse(server.receivedAtUtc)) / 1000) : Infinity;
   }
@@ -92,7 +96,7 @@
     <span class={`rounded-full border border-parchment-300/25 px-3 py-1 text-xs ${connection === 'Live' ? 'text-emerald-300' : 'text-amber-300'}`} role="status">{selectedId ? connection : loading ? 'Loading' : 'No servers'}</span>
   </div>
   {#if error}<div class="rounded-lg border border-ember-400/40 bg-ember-700/20 p-3 text-sm text-parchment-50" role="alert">{error} {connection === 'Reconnecting' ? 'The stream will retry automatically. Displayed data is the last report.' : ''}</div>{/if}
-  <ServerRegistryEditor onchange={refreshMonitoring} />
+  <ServerRegistryEditor onchange={refreshMonitoring} onconfigured={value => { configured = value; }} />
   <h3 class="display-text text-xl text-parchment-50">Live monitoring</h3>
   {#if loading}
     <div class="panel rounded-lg p-8 text-parchment-300">Loading server reports…</div>
@@ -102,10 +106,10 @@
     <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3" aria-label="Dedicated servers">
       {#each servers as server (server.id)}
         <button onclick={() => choose(server.id)} aria-pressed={selectedId === server.id} class={`panel min-w-0 rounded-lg p-4 text-left transition hover:border-ember-400/65 ${selectedId === server.id ? 'border-ember-400/65 bg-ember-700/15' : ''}`}>
-          <span class="flex items-center justify-between gap-2"><span class="display-text truncate text-lg text-parchment-50">{server.id}</span><span class={`text-xs uppercase tracking-wider ${tone(status(server))}`}>{status(server)}</span></span>
-          <span class="mt-1 block text-xs text-parchment-300">{server.address}{server.snapshot ? `:${server.snapshot.gamePort}` : ''}</span>
+          <span class="flex items-center justify-between gap-2"><span class="display-text truncate text-lg text-parchment-50" title={server.id}>{displayName(server.id)}</span><span class={`text-xs uppercase tracking-wider ${tone(status(server))}`}>{status(server)}</span></span>
+          <span class="mt-1 block text-xs text-parchment-300">{displayName(server.id) !== server.id ? `${server.id} · ` : ''}{server.address}{server.snapshot ? `:${server.snapshot.gamePort}` : ''}</span>
           {#if server.regionIds?.length}<span class="mt-1 block break-words text-xs text-parchment-300">{server.regionIds.join(' · ')}</span>{/if}
-          <span class="mt-3 block text-sm text-parchment-200">{server.snapshot?.games.length ?? 0} lobbies · {server.snapshot?.games.reduce((n, g) => n + g.connectedCount, 0) ?? 0} connections</span>
+          <span class="mt-3 block text-sm text-parchment-200">{server.snapshot?.games.length ?? 0}{configuration(server.id)?.maxGames ? ` / ${configuration(server.id)?.maxGames}` : ''} lobbies · {server.snapshot?.games.reduce((n, g) => n + g.connectedCount, 0) ?? 0} connections</span>
           <span class="mt-1 block text-xs text-parchment-300">{server.receivedAtUtc ? `Last report ${duration(age(server))} ago` : 'Waiting for the first report'}</span>
         </button>
       {/each}
