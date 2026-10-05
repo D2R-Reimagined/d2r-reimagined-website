@@ -295,6 +295,38 @@ export async function signIn(email: string, password: string): Promise<UserProfi
   }
 }
 
+// The API always accepts, whether or not the address has an account, so the
+// caller cannot tell which emails are registered.
+export async function requestPasswordReset(email: string, resetUrl: string): Promise<void> {
+  try {
+    await apiRequest<void>('/auth/password/forgot', {
+      method: 'POST',
+      body: JSON.stringify({ email: email.trim(), resetUrl })
+    });
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 429) {
+      throw new Error('Too many reset requests right now. Please wait a minute and try again.');
+    }
+    throw error;
+  }
+}
+
+export async function resetPassword(userId: string, token: string, newPassword: string): Promise<void> {
+  try {
+    await apiRequest<void>('/auth/password/reset', {
+      method: 'POST',
+      body: JSON.stringify({ userId, token, newPassword })
+    });
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 429) {
+      throw new Error('Too many attempts right now. Please wait a minute and try again.');
+    }
+    throw error;
+  }
+  // A reset signs the account out everywhere, including this browser.
+  clearStoredSession();
+}
+
 export async function refreshProfile(): Promise<UserProfile> {
   const user = await apiRequest<UserProfile>('/users/me', {}, true);
   authState.set({ ready: true, user });

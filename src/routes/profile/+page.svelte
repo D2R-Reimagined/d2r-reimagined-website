@@ -485,7 +485,12 @@
             <input class="field" id="email" type="email" autocomplete="email" required maxlength="256" bind:value={email} />
           </div>
           <div>
-            <label for="password" class="mb-2 block text-sm text-parchment-200">Password</label>
+            <div class="mb-2 flex items-baseline justify-between gap-3">
+              <label for="password" class="block text-sm text-parchment-200">Password</label>
+              {#if mode === 'signin'}
+                <a href="/forgot-password" class="text-sm text-ember-400 underline-offset-2 hover:text-parchment-50 hover:underline">Forgot password?</a>
+              {/if}
+            </div>
             <input class="field" id="password" type="password" autocomplete={mode === 'register' ? 'new-password' : 'current-password'} required minlength="8" maxlength="128" bind:value={password} />
           </div>
           {#if mode === 'register'}
