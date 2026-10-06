@@ -3,7 +3,7 @@
     "private": true,
     "version": "0.3.0",
     "type": "module",
-    "packageManager": "pnpm@11.25.0",
+    "packageManager": "pnpm@11.28.5",
     "scripts": {
         "build": "vite build",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -20,16 +20,16 @@
     "devDependencies": {
         "@sveltejs/adapter-node": "^5.5.7",
         "@sveltejs/kit": "^2.70.3",
-        "@sveltejs/vite-plugin-svelte": "^7.3.0",
+        "@sveltejs/vite-plugin-svelte": "^7.3.1",
         "@tailwindcss/vite": "^4.3.3",
         "flowbite": "^4.0.2",
         "flowbite-svelte": "^1.33.1",
         "flowbite-svelte-icons": "^3.1.0",
-        "svelte": "^5.57.0",
+        "svelte": "^5.57.1",
         "svelte-check": "^4.7.6",
         "tailwindcss": "^4.3.3",
         "typescript": "^6.0.3",
-        "vite": "^8.2.2",
+        "vite": "^8.3.3",
         "vitest": "^4.1.11"
     }
 }

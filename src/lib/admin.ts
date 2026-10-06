@@ -8,6 +8,21 @@ export type { LadderAllowedExtension, LadderExtensionKind } from '$lib/ladders';
 export interface Ladder extends LadderSummary {
   allowedExtensions: LadderAllowedExtension[];
   activeBundle: LadderBundle | null;
+  /** A bundle counting down to activation; absent when none is. */
+  pendingRelease?: LadderPendingRelease | null;
+}
+
+/** The current bundle stays valid for launches and saves until `activatesAtUtc`. */
+export interface LadderPendingRelease {
+  bundleId: string;
+  revision: number;
+  activatesAtUtc: string;
+}
+
+export interface LadderBundleActivation {
+  bundle: LadderBundle;
+  /** Null when the bundle became current immediately. */
+  pendingRelease: LadderPendingRelease | null;
 }
 
 export type LadderBundleStatus = 'Ready' | 'Active' | 'Retired' | 'Revoked';
@@ -400,10 +415,29 @@ export function cancelLadderBundlePublishJob(
   );
 }
 
-export function activateLadderBundle(ladderId: string, bundleId: string): Promise<LadderBundle> {
-  return apiRequest<LadderBundle>(`/admin/ladders/${ladderId}/bundles/${bundleId}/activate`, {
+/**
+ * Starts the bundle's activation countdown: players are counted down in game
+ * and dedicated servers restart onto it together when it ends. `immediate`
+ * skips the countdown, as does a ladder with no current bundle.
+ */
+export function activateLadderBundle(
+  ladderId: string,
+  bundleId: string,
+  immediate = false
+): Promise<LadderBundleActivation> {
+  const query = immediate ? '?immediate=true' : '';
+  return apiRequest<LadderBundleActivation>(`/admin/ladders/${ladderId}/bundles/${bundleId}/activate${query}`, {
     method: 'POST'
   }, true);
+}
+
+/** Stops a running countdown; the current bundle stays. Null when none was running. */
+export async function cancelLadderBundleActivation(ladderId: string): Promise<LadderPendingRelease | null> {
+  return await apiRequest<LadderPendingRelease | undefined>(
+    `/admin/ladders/${ladderId}/bundle-activation/cancel`,
+    { method: 'POST' },
+    true
+  ) ?? null;
 }
 
 export function revokeLadderBundle(ladderId: string, bundleId: string): Promise<LadderBundle> {

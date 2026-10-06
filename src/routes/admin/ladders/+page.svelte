@@ -3,6 +3,7 @@
 
     import {
         activateLadderBundle,
+        cancelLadderBundleActivation,
         cancelLadderBundlePublishJob,
         createLadderBundle,
         createLadder,
@@ -68,6 +69,34 @@
     });
 
     let selectedLadder = $derived(ladders.find((ladder) => ladder.id === selectedId) ?? null);
+    let pendingRelease = $derived(selectedLadder?.pendingRelease ?? null);
+    let pendingBundle = $derived(pendingRelease ? ladderBundles.find((bundle) => bundle.id === pendingRelease.bundleId) ?? null : null);
+    let clockMs = $state(Date.now());
+    let lastCountdownReloadMs = 0;
+
+    // Ticks the countdown while one runs, and reloads once it has ended so the
+    // page shows the revision that went live (the API ends it within a second
+    // or two of the deadline; until it does, reloads are spaced out).
+    $effect(() => {
+        if (!pendingRelease) return;
+        const ladderId = selectedLadder?.id;
+        const activatesAtMs = new Date(pendingRelease.activatesAtUtc).getTime();
+        const timer = setInterval(() => {
+            clockMs = Date.now();
+            if (ladderId && clockMs >= activatesAtMs + 3000 && clockMs - lastCountdownReloadMs >= 5000) {
+                lastCountdownReloadMs = clockMs;
+                void (async () => {
+                    try {
+                        ladders = await getLadders();
+                        await loadLadderBundles(ladderId);
+                    } catch (value) {
+                        error = problemMessage(value);
+                    }
+                })();
+            }
+        }, 1000);
+        return () => clearInterval(timer);
+    });
     // A job that has reported Completed or Failed is finished for good: the
     // card drops the progress bar and the stage counters so a half-filled bar
     // from the last progress write cannot read as work still in flight.
@@ -343,23 +372,58 @@
         }
     }
 
-    async function activateBundle(bundle: LadderBundle): Promise<void> {
-        if (!selectedId) return;
+    async function activateBundle(bundle: LadderBundle, immediate = false): Promise<void> {
+        if (!selectedId || !selectedLadder) return;
+        const current = selectedLadder.activeBundle;
+        const replacing = selectedLadder.pendingRelease && selectedLadder.pendingRelease.bundleId !== bundle.id
+            ? ` This replaces the countdown to r${selectedLadder.pendingRelease.revision}.` : '';
+        const question = !current
+            ? `Activate r${bundle.revision}? The ladder has no active package, so it goes live immediately.`
+            : immediate
+                ? `Activate r${bundle.revision} NOW, with no countdown? Saving on r${current.revision} stops at once and players get no warning. Dedicated servers restart onto it once their players leave.`
+                : `Release r${bundle.revision}? Players are counted down in game for the next few minutes, then every dedicated server restarts onto it and saving on r${current.revision} stops.${replacing}`;
+        if (!confirm(question)) return;
         bundleBusy = true;
         error = '';
         notice = '';
         try {
-            await activateLadderBundle(selectedId, bundle.id);
+            const result = await activateLadderBundle(selectedId, bundle.id, immediate);
             ladders = await getLadders();
             await loadLadderBundles(selectedId);
-            notice = bundle.status === 'Retired'
-                ? `Rolled the ladder back to signed package r${bundle.revision}.`
-                : `Signed package r${bundle.revision} is now active.`;
+            notice = result.pendingRelease
+                ? `Signed package r${bundle.revision} goes live at ${new Date(result.pendingRelease.activatesAtUtc).toLocaleTimeString()}. Players are being counted down and dedicated servers restart onto it then.`
+                : bundle.status === 'Retired'
+                    ? `Rolled the ladder back to signed package r${bundle.revision}.`
+                    : `Signed package r${bundle.revision} is now active.`;
         } catch (value) {
             error = problemMessage(value);
         } finally {
             bundleBusy = false;
         }
+    }
+
+    async function cancelRelease(): Promise<void> {
+        if (!selectedId || !selectedLadder?.pendingRelease) return;
+        const revision = selectedLadder.pendingRelease.revision;
+        if (!confirm(`Cancel the release of r${revision}? Players are told it is off. Dedicated servers that already left the lobby restart once empty to list again.`)) return;
+        bundleBusy = true;
+        error = '';
+        notice = '';
+        try {
+            const cancelled = await cancelLadderBundleActivation(selectedId);
+            ladders = await getLadders();
+            await loadLadderBundles(selectedId);
+            notice = cancelled ? `The release of r${cancelled.revision} was cancelled.` : 'No release was counting down.';
+        } catch (value) {
+            error = problemMessage(value);
+        } finally {
+            bundleBusy = false;
+        }
+    }
+
+    function formatCountdown(activatesAtUtc: string, nowMs: number): string {
+        const seconds = Math.max(0, Math.ceil((new Date(activatesAtUtc).getTime() - nowMs) / 1000));
+        return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
     }
 
     async function revokeBundle(bundle: LadderBundle): Promise<void> {
@@ -684,6 +748,29 @@
                     </div>
                 </div>
 
+                {#if pendingRelease}
+                    <div class="mt-5 flex flex-wrap items-center justify-between gap-4 rounded-lg border border-ember-400/60 bg-abyss-950 p-4 shadow-[0_0_24px_rgba(217,119,6,0.08)]"
+                         role="status" aria-live="polite">
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.16em] text-ember-400">Release counting down</p>
+                            <p class="mt-1 text-parchment-50">
+                                r{pendingRelease.revision} goes live in
+                                <span class="font-mono text-ember-300">{formatCountdown(pendingRelease.activatesAtUtc, clockMs)}</span>
+                                <span class="text-sm text-parchment-300">({new Date(pendingRelease.activatesAtUtc).toLocaleTimeString()})</span>
+                            </p>
+                            <p class="mt-1 max-w-2xl text-xs text-parchment-300">Players are being counted down in game. r{selectedLadder.activeBundle?.revision ?? '?'} keeps saving until then; at the deadline every dedicated server stops and restarts onto r{pendingRelease.revision}.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="rounded border border-requirement/60 px-3 py-2 text-sm text-requirement hover:bg-requirement/10 disabled:opacity-50"
+                                    type="button" disabled={bundleBusy} onclick={() => void cancelRelease()}>Cancel release</button>
+                            {#if pendingBundle}
+                                <button class="rounded border border-parchment-300/35 px-3 py-2 text-sm text-parchment-100 hover:bg-parchment-300/10 disabled:opacity-50"
+                                        type="button" disabled={bundleBusy} onclick={() => void activateBundle(pendingBundle, true)}>Activate now</button>
+                            {/if}
+                        </div>
+                    </div>
+                {/if}
+
                 <form class="mt-7 rounded-lg border border-parchment-300/20 bg-abyss-900 p-4"
                       onsubmit={(event) => { event.preventDefault(); void composeBundle(); }}>
                     <h4 class="display-text text-xl">Upload and sign the complete package</h4>
@@ -813,6 +900,9 @@
                                         <div class="flex flex-wrap items-center gap-2">
                                             <span class="text-parchment-50">Revision {bundle.revision}</span>
                                             <span class="rounded border border-parchment-300/25 px-2 py-1 text-xs uppercase tracking-wide">{bundle.status}</span>
+                                            {#if pendingRelease?.bundleId === bundle.id}
+                                                <span class="rounded border border-ember-400/60 px-2 py-1 text-xs uppercase tracking-wide text-ember-300">Scheduled · {formatCountdown(pendingRelease.activatesAtUtc, clockMs)}</span>
+                                            {/if}
                                         </div>
                                         <p class="mt-2 text-xs text-parchment-300">{bundle.files.length} files · {bundle.plugins.length} plugins · mod {bundle.compatibility.requiredModVersion} · key {bundle.signingKeyId} · {new Date(bundle.createdAtUtc).toLocaleString()}</p>
                                         {#if bundle.plugins.length > 0}
@@ -821,7 +911,7 @@
                                         <p class="mt-1 break-all font-mono text-[0.7rem] text-parchment-300">Artifact {bundle.artifactSha256}</p>
                                     </div>
                                     <div class="flex flex-wrap gap-2">
-                                        {#if bundle.status !== 'Active' && bundle.status !== 'Revoked'}
+                                        {#if bundle.status !== 'Active' && bundle.status !== 'Revoked' && pendingRelease?.bundleId !== bundle.id}
                                             <button class="rounded border border-set/50 px-3 py-2 text-sm text-set hover:bg-set/10 disabled:opacity-50"
                                                     type="button" disabled={bundleBusy} onclick={() => void activateBundle(bundle)}>
                                                 {bundle.status === 'Retired' ? 'Roll back to this' : 'Activate'}
