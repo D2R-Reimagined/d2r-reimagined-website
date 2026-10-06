@@ -3,7 +3,7 @@ vi.mock('$lib/auth', () => ({ apiRequest: vi.fn() }));
 import { apiRequest } from '$lib/auth';
 import { canAccessAdminPage, canManageServers } from './admin-access';
 import { createServerConfiguration, updateServerConfiguration, getServerConfigurations, getServerRegions,
-  createServerRegion, updateServerRegion, deleteServerRegion, serverConfigurationInput, serverRegionInput, serverLabel, serverDraft, MAX_GAMES_PER_SERVER, type ServerDraft, type ServerConfiguration } from './server-registry';
+  createServerRegion, updateServerRegion, deleteServerRegion, serverConfigurationInput, serverRegionInput, serverLabel, serverDraft, MAX_GAMES_PER_SERVER, DEFAULT_MAX_GAMES, type ServerDraft, type ServerConfiguration } from './server-registry';
 
 const draft = (): ServerDraft => ({ id: 'eu-1', name: '', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: true,
   maxGames: 32, regionIds: ['eu-west', 'na-east'], keySha256: '' });
@@ -70,14 +70,16 @@ describe('server configuration requests', () => {
       expect(() => serverConfigurationInput(value, false)).toThrow('Server name');
     }
   });
-  it('requires max games to be a whole number from 1 to 32 and always sends it', () => {
-    for (const maxGames of [1, 8, MAX_GAMES_PER_SERVER]) {
+  it('requires max games to be a whole number from 1 to 128 and always sends it', () => {
+    expect(MAX_GAMES_PER_SERVER).toBe(128);
+    expect(DEFAULT_MAX_GAMES).toBe(32);
+    for (const maxGames of [1, 8, 32, 33, 64, MAX_GAMES_PER_SERVER]) {
       const value = draft(); value.maxGames = maxGames;
       expect(serverConfigurationInput(value, false).maxGames).toBe(maxGames);
     }
     const created = draft(); created.keySha256 = 'a'.repeat(64);
     expect(serverConfigurationInput(created, true)).toHaveProperty('maxGames', 32);
-    for (const maxGames of [0, -1, 33, 2.5, Number.NaN, null as unknown as number, '8' as unknown as number]) {
+    for (const maxGames of [0, -1, 129, 2.5, Number.NaN, null as unknown as number, '8' as unknown as number]) {
       const value = draft(); value.maxGames = maxGames;
       expect(() => serverConfigurationInput(value, false)).toThrow('Max games');
     }

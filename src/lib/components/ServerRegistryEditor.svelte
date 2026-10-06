@@ -6,7 +6,7 @@
   import {
     getServerConfigurations, getServerRegions, createServerConfiguration, updateServerConfiguration,
     createServerRegion, updateServerRegion, deleteServerRegion, serverConfigurationInput, serverRegionInput,
-    serverDraft, serverLabel, MAX_GAMES_PER_SERVER, type ServerConfiguration, type ServerRegion, type ServerDraft
+    serverDraft, serverLabel, MAX_GAMES_PER_SERVER, DEFAULT_MAX_GAMES, type ServerConfiguration, type ServerRegion, type ServerDraft
   } from '$lib/server-registry';
 
   let { onchange, onconfigured }: {
@@ -19,7 +19,7 @@
   let ladders = $state<Ladder[]>([]);
   let loading = $state(true), saving = $state(false), error = $state(''), notice = $state('');
   let editingId = $state<string | null>(null), formOpen = $state(false);
-  const emptyServer = (): ServerDraft => ({ id: '', name: '', ladderId: '', publicAddress: '', enabled: true, maxGames: MAX_GAMES_PER_SERVER, regionIds: [], keySha256: '' });
+  const emptyServer = (): ServerDraft => ({ id: '', name: '', ladderId: '', publicAddress: '', enabled: true, maxGames: DEFAULT_MAX_GAMES, regionIds: [], keySha256: '' });
   let draft = $state<ServerDraft>(emptyServer());
   let editingRegionId = $state<string | null>(null);
   let regionDraft = $state<ServerRegion>({ id: '', name: '' });
@@ -128,7 +128,7 @@
         {#if !servers.length}<p class="rounded-lg border border-parchment-300/15 p-4 text-sm text-parchment-300">No servers registered yet. Create regions below, then add your first server.</p>{/if}
         {#each sortedServers as server (server.id)}
           <div class="flex min-w-0 flex-wrap items-center justify-between gap-3 rounded-lg border border-parchment-300/15 p-3">
-            <div class="min-w-0 flex-1"><p class="break-words text-sm text-parchment-50"><span class="font-semibold">{serverLabel(server)}</span> <span class={`ml-2 text-xs ${server.enabled ? 'text-emerald-300' : 'text-amber-300'}`}>{server.enabled ? 'Enabled' : 'Disabled'}</span></p><p class="mt-1 break-words text-xs text-parchment-300">{server.publicAddress} · {ladderName(server.ladderId)} · max {server.maxGames ?? MAX_GAMES_PER_SERVER} games</p><p class="mt-1 break-words text-xs text-parchment-300">{regionNames(server.regionIds)}</p></div>
+            <div class="min-w-0 flex-1"><p class="break-words text-sm text-parchment-50"><span class="font-semibold">{serverLabel(server)}</span> <span class={`ml-2 text-xs ${server.enabled ? 'text-emerald-300' : 'text-amber-300'}`}>{server.enabled ? 'Enabled' : 'Disabled'}</span></p><p class="mt-1 break-words text-xs text-parchment-300">{server.publicAddress} · {ladderName(server.ladderId)} · max {server.maxGames ?? DEFAULT_MAX_GAMES} games</p><p class="mt-1 break-words text-xs text-parchment-300">{regionNames(server.regionIds)}</p></div>
             <button class="control" disabled={saving} aria-label={`Edit server ${serverLabel(server)}`} onclick={() => editServer(server)}>Edit</button>
           </div>
         {/each}

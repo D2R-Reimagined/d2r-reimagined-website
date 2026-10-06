@@ -7,8 +7,10 @@ export interface ServerConfiguration {
 export interface ServerConfigurationInput extends Omit<ServerConfiguration, 'name'> { name: string; keySha256?: string }
 export interface ServerDraft extends Omit<ServerConfiguration, 'name'> { name: string; keySha256: string }
 
-/** Hard per-server cap enforced by the API (GameServerHeartbeatValidator.MaximumGamesPerServer). */
-export const MAX_GAMES_PER_SERVER = 32;
+/** Hard per-server cap enforced by the API (GameServer.MaximumGames): room for bigger machines. */
+export const MAX_GAMES_PER_SERVER = 128;
+/** A new server's max games, as the API defaults it (GameServer.DefaultMaxGames). */
+export const DEFAULT_MAX_GAMES = 32;
 
 /** Display label: "Name (id)" when a name is set, otherwise the id. */
 export function serverLabel(server: { id: string; name?: string | null }): string {
@@ -16,7 +18,7 @@ export function serverLabel(server: { id: string; name?: string | null }): strin
   return name ? `${name} (${server.id})` : server.id;
 }
 export function serverDraft(server: ServerConfiguration): ServerDraft {
-  return { ...server, name: server.name ?? '', maxGames: server.maxGames ?? MAX_GAMES_PER_SERVER, regionIds: [...server.regionIds], keySha256: '' };
+  return { ...server, name: server.name ?? '', maxGames: server.maxGames ?? DEFAULT_MAX_GAMES, regionIds: [...server.regionIds], keySha256: '' };
 }
 
 export const getServerConfigurations = (signal?: AbortSignal) =>
