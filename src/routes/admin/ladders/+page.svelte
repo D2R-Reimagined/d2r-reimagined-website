@@ -19,7 +19,7 @@
         removeOptionalExtension,
         type Ladder,
         type LadderAllowedExtensionInput,
-        type LadderBundle,
+        type LadderBundleSummary,
         type LadderBundlePublishJob,
         type LadderInput
     } from '$lib/admin';
@@ -52,7 +52,7 @@
     let optionalFile = $state<File | null>(null);
     let optionalBusy = $state(false);
     let optionalProgress = $state<number | null>(null);
-    let ladderBundles = $state<LadderBundle[]>([]);
+    let ladderBundles = $state<LadderBundleSummary[]>([]);
     let bundleArchive = $state<File | null>(null);
     let bundleBusy = $state(false);
     let bundleJob = $state<LadderBundlePublishJob | null>(null);
@@ -372,7 +372,7 @@
         }
     }
 
-    async function activateBundle(bundle: LadderBundle, immediate = false): Promise<void> {
+    async function activateBundle(bundle: LadderBundleSummary, immediate = false): Promise<void> {
         if (!selectedId || !selectedLadder) return;
         const current = selectedLadder.activeBundle;
         const replacing = selectedLadder.pendingRelease && selectedLadder.pendingRelease.bundleId !== bundle.id
@@ -426,7 +426,7 @@
         return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
     }
 
-    async function revokeBundle(bundle: LadderBundle): Promise<void> {
+    async function revokeBundle(bundle: LadderBundleSummary): Promise<void> {
         if (!selectedId || !confirm(`Revoke ladder package r${bundle.revision}? Revoked packages cannot be reactivated.`)) return;
         bundleBusy = true;
         error = '';
@@ -904,7 +904,7 @@
                                                 <span class="rounded border border-ember-400/60 px-2 py-1 text-xs uppercase tracking-wide text-ember-300">Scheduled · {formatCountdown(pendingRelease.activatesAtUtc, clockMs)}</span>
                                             {/if}
                                         </div>
-                                        <p class="mt-2 text-xs text-parchment-300">{bundle.files.length} files · {bundle.plugins.length} plugins · mod {bundle.compatibility.requiredModVersion} · key {bundle.signingKeyId} · {new Date(bundle.createdAtUtc).toLocaleString()}</p>
+                                        <p class="mt-2 text-xs text-parchment-300">{bundle.fileCount} files · {bundle.plugins.length} plugins · mod {bundle.compatibility.requiredModVersion} · key {bundle.signingKeyId} · {new Date(bundle.createdAtUtc).toLocaleString()}</p>
                                         {#if bundle.plugins.length > 0}
                                             <p class="mt-1 text-xs text-parchment-300">{bundle.plugins.map((plugin) => plugin.name).join(', ')}</p>
                                         {/if}

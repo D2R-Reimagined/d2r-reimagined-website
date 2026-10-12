@@ -87,6 +87,23 @@ export interface LadderBundle {
   downloadPath: string;
 }
 
+/** A revision in the admin list: a file count stands in for the full file list. */
+export interface LadderBundleSummary {
+  id: string;
+  ladderId: string;
+  revision: number;
+  status: LadderBundleStatus;
+  artifactSha256: string;
+  signingKeyId: string;
+  artifactSizeBytes: number;
+  compatibility: LadderBundleCompatibility;
+  fileCount: number;
+  plugins: LadderBundlePlugin[];
+  createdAtUtc: string;
+  publishedAtUtc: string | null;
+  revokedAtUtc: string | null;
+}
+
 export type LadderBundlePublishStatus = 'Queued' | 'Processing' | 'Completed' | 'Failed';
 export type LadderBundlePublishStage =
   | 'Queued'
@@ -351,8 +368,8 @@ export function publishPluginRelease(input: PluginReleaseUpload): Promise<Plugin
   return apiRequest<PluginRelease>('/admin/plugin-releases', { method: 'POST', body }, true);
 }
 
-export function getLadderBundles(ladderId: string): Promise<LadderBundle[]> {
-  return apiRequest<LadderBundle[]>(`/admin/ladders/${ladderId}/bundles`, {}, true);
+export function getLadderBundles(ladderId: string): Promise<LadderBundleSummary[]> {
+  return apiRequest<LadderBundleSummary[]>(`/admin/ladders/${ladderId}/bundles`, {}, true);
 }
 
 export function createLadderBundle(
