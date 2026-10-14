@@ -239,6 +239,7 @@
         </div>
 
         <a href="https://wiki.d2r-reimagined.com/" target="_blank" rel="noreferrer" class="rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">Wiki ↗</a>
+        <a href="/support" onclick={closeMenus} class={navClass('/support')}>Support Us</a>
 
         <div class="my-2 h-px bg-parchment-300/15 2xl:mx-2 2xl:my-0 2xl:h-7 2xl:w-px"></div>
 

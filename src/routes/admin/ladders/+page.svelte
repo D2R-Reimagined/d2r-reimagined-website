@@ -69,6 +69,10 @@
     });
 
     let selectedLadder = $derived(ladders.find((ladder) => ladder.id === selectedId) ?? null);
+    // The API trims and ignores case too, so a stray space or shift key cannot block cleanup.
+    let deleteNameMatches = $derived(!!selectedLadder
+        && deleteConfirmName.trim().toLowerCase() === selectedLadder.name.trim().toLowerCase());
+    let selectedLadderEnded = $derived(!!selectedLadder && new Date(selectedLadder.endDateUtc) < new Date());
     let pendingRelease = $derived(selectedLadder?.pendingRelease ?? null);
     let pendingBundle = $derived(pendingRelease ? ladderBundles.find((bundle) => bundle.id === pendingRelease.bundleId) ?? null : null);
     let clockMs = $state(Date.now());
@@ -503,7 +507,7 @@
     }
 
     async function deleteSelectedLadder(): Promise<void> {
-        if (!selectedLadder || deleteConfirmName !== selectedLadder.name) return;
+        if (!selectedLadder || !deleteNameMatches || !selectedLadderEnded) return;
         if (!confirm(
             `Archive and clean up "${selectedLadder.name}"?
 
@@ -718,10 +722,16 @@
                     </label>
                     <button class="justify-self-start rounded border border-requirement/60 px-4 py-2 text-requirement hover:bg-requirement/10 disabled:cursor-not-allowed disabled:opacity-40"
                             type="button"
-                            disabled={deleting || deleteConfirmName !== selectedLadder.name || new Date(selectedLadder.endDateUtc) >= new Date()}
+                            disabled={deleting || !deleteNameMatches || !selectedLadderEnded}
                             onclick={() => void deleteSelectedLadder()}>
                         {deleting ? 'Cleaning up…' : 'Archive and clean up ladder'}
                     </button>
+                    {#if !selectedLadderEnded && !selectedLadder.archivedAtUtc}
+                        <p class="text-sm text-requirement">
+                            This ladder is still running until {new Date(selectedLadder.endDateUtc).toLocaleString()}.
+                            To archive it now, set its end date to a time in the past above and save first.
+                        </p>
+                    {/if}
                 </div>
             </section>
 
