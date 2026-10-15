@@ -19,12 +19,12 @@
 <fieldset class="min-w-0 rounded border border-parchment-300/20 p-3">
   <legend class="px-1 text-xs uppercase tracking-widest text-parchment-300">{label}</legend>
   {#each entries as [operator, number] (operator)}
-    <div class="mb-2 flex min-w-0 gap-1.5">
-      <select class="field w-16 shrink-0 !px-2" aria-label={`${label} comparison`} value={operator} onchange={event => changeOperator(operator, event.currentTarget.value as Operator)}>
+    <div class="mb-2 flex min-w-0 items-center gap-1.5">
+      <select class="field !w-16 shrink-0 !px-2" aria-label={`${label} comparison`} value={operator} onchange={event => changeOperator(operator, event.currentTarget.value as Operator)}>
         {#each comparisons as option}<option value={option.value} disabled={option.value !== operator && option.value in (value ?? {})}>{option.label}</option>{/each}
       </select>
-      <input class="field min-w-0 !px-2" type="number" {min} {max} step="1" aria-label={`${label} ${operator}`} value={Number.isFinite(number) ? number : ''} oninput={event => update(operator, event.currentTarget.value === '' ? NaN : Number(event.currentTarget.value))} />
-      <button type="button" class="px-1 text-parchment-300 hover:text-requirement" aria-label={`Remove ${label} ${operator}`} onclick={() => update(operator, undefined)}>×</button>
+      <input class="field min-w-0 flex-1 !px-2" type="number" {min} {max} step="1" aria-label={`${label} ${operator}`} value={Number.isFinite(number) ? number : ''} oninput={event => update(operator, event.currentTarget.value === '' ? NaN : Number(event.currentTarget.value))} />
+      <button type="button" class="flex h-8 w-8 shrink-0 items-center justify-center rounded border border-parchment-300/25 text-lg leading-none text-parchment-300 hover:border-requirement hover:text-requirement" title="Remove comparison" aria-label={`Remove ${label} ${operator}`} onclick={() => update(operator, undefined)}>×</button>
     </div>
   {:else}<p class="mb-2 text-sm text-parchment-300">Any</p>{/each}
   <button type="button" class="text-xs text-ember-400 hover:underline disabled:opacity-40" disabled={entries.length === comparisons.length}
