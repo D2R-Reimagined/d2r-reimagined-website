@@ -33,7 +33,8 @@
   --color-rarity: #63c7ef;
   --font-display: D2R, Georgia, serif;
   --font-body: DiabloLight, Georgia, serif;
-  --breakpoint-lg: 1025px;
+  /* 1025px, in rem so Tailwind orders lg after the default rem-based sm/md breakpoints. */
+  --breakpoint-lg: 64.0625rem;
 }
 
 :root {
