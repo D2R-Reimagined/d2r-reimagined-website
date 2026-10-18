@@ -10,6 +10,7 @@ import {
   productHighlights,
   progressPercent,
   purchaseStatusLabel,
+  sourceLabel,
   type SupportGoal,
   type SupportPurchase
 } from './support';
@@ -84,5 +85,12 @@ describe('support formatting', () => {
     expect(monthLabel('2026-10-01T00:00:00Z')).toBe('October 2026');
     expect(formatDate('2026-11-17T12:00:00Z')).toBe('Nov 17, 2026');
     expect(formatDate(null)).toBe('');
+  });
+});
+
+describe('sourceLabel', () => {
+  it('shows Patreon totals as Other Sources', () => {
+    expect(sourceLabel({ key: 'patreon', label: 'Patreon' })).toBe('Other Sources');
+    expect(sourceLabel({ key: 'discord', label: 'Discord' })).toBe('Discord');
   });
 });

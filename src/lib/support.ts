@@ -1,4 +1,3 @@
-export const patreonUrl = 'https://www.patreon.com/c/scottieknows_mods';
 export const discordInviteUrl = 'https://discord.gg/ZvQD4MARxz';
 
 export interface SupportSource {
@@ -59,6 +58,11 @@ export interface SupportPurchase {
   currentPeriodEndUtc: string | null;
   cancelAtPeriodEnd: boolean;
   active: boolean;
+}
+
+/** The label to show for a funding source; Patreon totals are shown as "Other Sources". */
+export function sourceLabel(source: Pick<SupportSource, 'key' | 'label'>): string {
+  return source.key === 'patreon' ? 'Other Sources' : source.label;
 }
 
 export function formatMoney(amount: number, currency = 'usd'): string {

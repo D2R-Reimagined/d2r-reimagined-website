@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({ fetch, setHeaders }) => {
       const response = await fetch(`${api}${path}`);
       return response.ok ? await response.json() as T : null;
     } catch {
-      // The page still offers Patreon and Discord when the API is offline.
+      // The page still offers Discord when the API is offline.
       return null;
     }
   }

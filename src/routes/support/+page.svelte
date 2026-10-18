@@ -13,10 +13,10 @@
     goalPosition,
     monthLabel,
     nextGoal,
-    patreonUrl,
     productHighlights,
     progressPercent,
     purchaseStatusLabel,
+    sourceLabel,
     type SupportProduct,
     type SupportPurchase
   } from '$lib/support';
@@ -239,7 +239,7 @@
       <dl class="grid gap-3 sm:grid-cols-3">
         {#each summary.sources as source (source.key)}
           <div class="rounded-md border border-parchment-300/15 bg-black/30 px-4 py-3">
-            <dt class="text-xs uppercase tracking-wider text-parchment-300">{source.label}</dt>
+            <dt class="text-xs uppercase tracking-wider text-parchment-300">{sourceLabel(source)}</dt>
             <dd class="mt-1 text-lg text-parchment-50">{formatMoney(source.amount, currency)}</dd>
           </div>
         {/each}
@@ -279,7 +279,7 @@
   {#if !checkoutEnabled}
     <div class="panel mt-14 rounded-lg p-6">
       <h2 class="display-text text-2xl">Memberships are unavailable right now</h2>
-      <p class="mt-3 text-parchment-300">We could not load the membership and purchase options. Please check back shortly, or support us through Patreon or Discord below.</p>
+      <p class="mt-3 text-parchment-300">We could not load the membership and purchase options. Please check back shortly, or support us through Discord below.</p>
     </div>
   {:else}
     <p class="mt-6 flex items-center gap-1.5 text-xs text-parchment-300/80">
@@ -343,14 +343,6 @@
   <h2 class="display-text mt-14 text-3xl">Other ways to support</h2>
   <div class="mt-6 grid gap-5 md:grid-cols-2">
     <article class="panel flex flex-col rounded-lg p-6">
-      <h3 class="display-text text-2xl">Patreon</h3>
-      <p class="mt-3 flex-1 text-parchment-300">Become a monthly patron and follow development updates from ScottieKnows.</p>
-      <a class="support-secondary mt-6 flex w-full items-center justify-center gap-2 rounded px-5 py-3" href={patreonUrl} target="_blank" rel="noreferrer">
-        <HeartSolid class="h-5 w-5" aria-hidden="true" /> Join on Patreon ↗
-      </a>
-    </article>
-
-    <article class="panel flex flex-col rounded-lg p-6">
       <h3 class="display-text text-2xl">Discord server subscription</h3>
       <p class="mt-3 flex-1 text-parchment-300">Join our Discord, open the server name menu, and choose <span class="text-parchment-50">Server Subscriptions</span> to get supporter roles.</p>
       <a class="support-secondary mt-6 flex w-full items-center justify-center gap-2 rounded px-5 py-3" href={discordInviteUrl} target="_blank" rel="noreferrer">
@@ -361,7 +353,7 @@
 
   {#if summary}
     <p class="mt-10 border-t border-parchment-300/15 pt-6 text-sm text-parchment-300">
-      Totals reset at the start of each month (UTC). Patreon and Discord amounts are updated by the team; website memberships and purchases update automatically.
+      Totals reset at the start of each month (UTC). Discord and other amounts are updated by the team; website memberships and purchases update automatically.
     </p>
   {/if}
 </section>
