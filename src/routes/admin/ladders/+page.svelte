@@ -26,6 +26,7 @@
     import {ApiError} from '$lib/auth';
     import LadderAccessManager from '$lib/components/LadderAccessManager.svelte';
     import LadderSaveEnforcementEditor from '$lib/components/LadderSaveEnforcementEditor.svelte';
+    import LadderServerBuilds from '$lib/components/LadderServerBuilds.svelte';
     import {isSha256, normalizeSha256} from '$lib/sha256';
 
     interface LadderDraft {
@@ -409,7 +410,7 @@
     async function cancelRelease(): Promise<void> {
         if (!selectedId || !selectedLadder?.pendingRelease) return;
         const revision = selectedLadder.pendingRelease.revision;
-        if (!confirm(`Cancel the release of r${revision}? Players are told it is off. Dedicated servers that already left the lobby restart once empty to list again.`)) return;
+        if (!confirm(`Cancel the release of r${revision}? Players are told it is off. Dedicated servers that already left the lobby restart once empty to list again. A server build attached to this release is cancelled too.`)) return;
         bundleBusy = true;
         error = '';
         notice = '';
@@ -743,6 +744,10 @@
 
             <section class="panel rounded-lg p-5 sm:p-7 xl:col-start-2">
                 <LadderSaveEnforcementEditor ladderId={selectedLadder.id} ladderName={selectedLadder.name}/>
+            </section>
+
+            <section class="panel rounded-lg p-5 sm:p-7 xl:col-start-2">
+                <LadderServerBuilds ladderId={selectedLadder.id} ladderName={selectedLadder.name} bundleRelease={pendingRelease}/>
             </section>
 
             <section class="panel rounded-lg p-5 sm:p-7 xl:col-start-2">

@@ -1,4 +1,7 @@
 import { ApiError, apiRequest, apiStreamRequest } from '$lib/auth';
+import type { ServerBuildState } from '$lib/admin';
+import { currentServerBuild, installedBuildLabels, installedBuildMatch, shortBuildId, type InstalledBuildMatch,
+  type InstalledServerBuild } from '$lib/server-builds';
 
 export interface MonitorPlayer {
   name: string; clientId: number; class: string; state: string; stateCode: number;
@@ -21,6 +24,8 @@ export interface TelemetryServer {
   id: string; ladderId: string; address: string; status: 'online' | 'delayed' | 'offline' | 'stalled' | 'starting' | 'disabled';
   regionIds?: string[];
   receivedAtUtc: string | null; snapshot: MonitorSnapshot | null; sourceGaps: number;
+  /** The d2rl-d2rds.dll its supervisor last reported installed; absent until it reports one. */
+  serverBuild?: InstalledServerBuild | null;
 }
 export interface TelemetryLog {
   cursor: number; session: string; sourceId: number; timestamp: number; level: number; message: string;
@@ -29,6 +34,17 @@ export interface TelemetryFrame {
   nowUtc: string; servers: TelemetryServer[]; serverId: string; cursor: number; gap: boolean; entries: TelemetryLog[];
 }
 export const logLevels = ['Debug', 'Info', 'Warning', 'Error'];
+// A card's installed server build: its short id, the full hash for a tooltip, and
+// how it compares with the ladder's current build (null when that is not loaded).
+export function installedBuildSummary(installed: InstalledServerBuild | null | undefined, ladder: ServerBuildState | null | undefined):
+  { label: string; title: string; match: InstalledBuildMatch | null } {
+  const match = installedBuildMatch(installed, ladder);
+  const label = !installed ? installedBuildLabels['not-reported'] : installed.buildId ? shortBuildId(installed.buildId) : installedBuildLabels['unknown-build'];
+  const current = currentServerBuild(ladder);
+  const title = [installed ? `Installed SHA-256 ${installed.sha256}` : '', match === 'outdated' && current ? `Ladder current ${shortBuildId(current.id)} · ${current.sha256}` : '']
+    .filter(Boolean).join('\n');
+  return { label, title, match };
+}
 export const getServers = (signal?: AbortSignal) => apiRequest<TelemetryFrame>('/admin/servers', { signal, cache: 'no-store' }, true);
 
 // Incremental framing survives split UTF-8 characters and arbitrary network chunks.

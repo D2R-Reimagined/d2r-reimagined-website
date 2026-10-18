@@ -463,6 +463,68 @@ export function revokeLadderBundle(ladderId: string, bundleId: string): Promise<
   }, true);
 }
 
+// The dedicated-server plugin (d2rl-d2rds.dll), kept apart from the player
+// bundle. Admins see a build's hash, size and notes but never its bytes: the
+// API has no download for them, only the ladder's servers can fetch one.
+export type ServerBuildStatus = 'current' | 'pending' | 'available';
+
+export interface ServerBuild {
+  id: string;
+  ladderId: string;
+  sha256: string;
+  sizeBytes: number;
+  notes?: string | null;
+  uploadedAtUtc: string;
+  status: ServerBuildStatus;
+}
+
+/** Set when the build shares a bundle countdown, so servers restart once for both. */
+export interface ServerBuildPending {
+  buildId: string;
+  activatesAtUtc: string;
+  attachedToBundleRevision?: number | null;
+}
+
+export interface ServerBuildState {
+  ladderId: string;
+  currentBuildId: string | null;
+  /** A build counting down to activation; absent when none is. */
+  pending?: ServerBuildPending | null;
+  /** Newest first. */
+  builds: ServerBuild[];
+}
+
+export function getServerBuilds(ladderId: string): Promise<ServerBuildState> {
+  return apiRequest<ServerBuildState>(`/admin/ladders/${ladderId}/server-builds`, { cache: 'no-store' }, true);
+}
+
+/** Uploading the same bytes again returns the build already stored. */
+export function uploadServerBuild(ladderId: string, file: File, notes: string,
+  onProgress?: (progress: ApiUploadProgress) => void): Promise<ServerBuild> {
+  const body = new FormData();
+  body.set('file', file, file.name);
+  if (notes.trim()) body.set('notes', notes.trim());
+  return apiUploadRequest<ServerBuild>(`/admin/ladders/${ladderId}/server-builds`, body, onProgress);
+}
+
+/**
+ * Starts the build's countdown, or joins a bundle countdown already running.
+ * `immediate` makes it current now. Activating an older build is the rollback,
+ * and activating the current one cancels a pending build.
+ */
+export function activateServerBuild(ladderId: string, buildId: string, immediate = false): Promise<ServerBuildState> {
+  return apiRequest<ServerBuildState>(
+    `/admin/ladders/${ladderId}/server-builds/${buildId}/activate?immediate=${immediate}`,
+    { method: 'POST' },
+    true
+  );
+}
+
+/** Stops a server build countdown; servers stay on the current build. */
+export function cancelServerBuildActivation(ladderId: string): Promise<ServerBuildState> {
+  return apiRequest<ServerBuildState>(`/admin/ladders/${ladderId}/server-builds/activation/cancel`, { method: 'POST' }, true);
+}
+
 /**
  * Who would receive an announcement sent right now, without sending one.
  *

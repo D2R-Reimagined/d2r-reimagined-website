@@ -3,7 +3,7 @@ const stream = vi.hoisted(() => vi.fn());
 vi.mock('$lib/auth', () => ({ apiRequest: vi.fn(), apiStreamRequest: stream,
   ApiError: class extends Error { constructor(message: string, public status: number) { super(message); } } }));
 import { ApiError } from '$lib/auth';
-import { appendLogs, connectServerTelemetry, TelemetryEventParser, type TelemetryFrame, type TelemetryLog } from './server-telemetry';
+import { appendLogs, connectServerTelemetry, installedBuildSummary, TelemetryEventParser, type TelemetryFrame, type TelemetryLog } from './server-telemetry';
 const frame: TelemetryFrame = { nowUtc: '2026-10-02T12:00:00Z', servers: [], serverId: 'eu-1', cursor: 1, gap: false,
   entries: [{ cursor: 1, session: 'one', sourceId: 1, timestamp: 1, level: 1, message: 'Aurelia joined 漢' }] };
 const wire = (f = frame) => `event: telemetry\ndata: ${JSON.stringify(f)}\n\n`;
@@ -48,6 +48,18 @@ it('reconnects with the received cursor and aborts cleanup without late updates'
   const calls = stream.mock.calls.length;
   await vi.advanceTimersByTimeAsync(60000);
   expect(stream).toHaveBeenCalledTimes(calls);
+});
+it('summarises a card\'s installed server build against its ladder', () => {
+  const current = { id: 'bbbbbbbb-0000', ladderId: 'l', sha256: 'B'.repeat(64), sizeBytes: 1, uploadedAtUtc: frame.nowUtc, status: 'current' as const };
+  const ladder = { ladderId: 'l', currentBuildId: current.id, builds: [current] };
+  const reportedAtUtc = frame.nowUtc;
+  expect(installedBuildSummary({ buildId: current.id, sha256: current.sha256, reportedAtUtc }, ladder))
+    .toEqual({ label: 'bbbbbbbb', title: `Installed SHA-256 ${current.sha256}`, match: 'up-to-date' });
+  const old = installedBuildSummary({ buildId: 'aaaaaaaa-0000', sha256: 'A'.repeat(64), reportedAtUtc }, ladder);
+  expect(old.match).toBe('outdated'); expect(old.title).toContain(`Ladder current bbbbbbbb · ${current.sha256}`);
+  expect(installedBuildSummary({ buildId: null, sha256: 'C'.repeat(64), reportedAtUtc }, undefined)).toMatchObject({ label: 'Unknown build', match: 'unknown-build' });
+  expect(installedBuildSummary(undefined, ladder)).toEqual({ label: 'Not reported', title: '', match: 'not-reported' });
+  expect(installedBuildSummary({ buildId: current.id, sha256: current.sha256, reportedAtUtc }, undefined).match).toBeNull();
 });
 it('stops reconnecting when current admin access is denied', async () => {
   vi.useFakeTimers(); stream.mockRejectedValue(new ApiError('Forbidden', 403));

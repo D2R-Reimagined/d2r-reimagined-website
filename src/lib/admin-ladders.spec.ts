@@ -1,9 +1,13 @@
 import { describe, expect, it, vi } from 'vitest';
 
-const mocks = vi.hoisted(() => ({ api: vi.fn() }));
-vi.mock('$lib/auth', () => ({ apiRequest: mocks.api, apiUploadRequest: vi.fn() }));
+const mocks = vi.hoisted(() => ({ api: vi.fn(), upload: vi.fn() }));
+vi.mock('$lib/auth', () => ({ apiRequest: mocks.api, apiUploadRequest: mocks.upload }));
 
 import {
+  activateServerBuild,
+  cancelServerBuildActivation,
+  getServerBuilds,
+  uploadServerBuild,
   getLadderAccess,
   getLadders,
   getLadderSaveEnforcement,
@@ -36,6 +40,35 @@ describe('admin ladder access', () => {
       ['/admin/ladders/ladder-id/access/user-id', { method: 'PUT' }, true],
       ['/admin/ladders/ladder-id/access/user-id', { method: 'DELETE' }, true]
     ]);
+  });
+});
+
+describe('admin server builds', () => {
+  it('lists, activates, and cancels one ladder\'s builds through authenticated management routes', async () => {
+    mocks.api.mockReset().mockResolvedValue(undefined);
+    await getServerBuilds('ladder-id');
+    await activateServerBuild('ladder-id', 'build-id');
+    await activateServerBuild('ladder-id', 'build-id', true);
+    await cancelServerBuildActivation('ladder-id');
+    expect(mocks.api.mock.calls).toEqual([
+      ['/admin/ladders/ladder-id/server-builds', { cache: 'no-store' }, true],
+      ['/admin/ladders/ladder-id/server-builds/build-id/activate?immediate=false', { method: 'POST' }, true],
+      ['/admin/ladders/ladder-id/server-builds/build-id/activate?immediate=true', { method: 'POST' }, true],
+      ['/admin/ladders/ladder-id/server-builds/activation/cancel', { method: 'POST' }, true]
+    ]);
+  });
+
+  it('uploads the file and trimmed notes as multipart, leaving out empty notes', async () => {
+    mocks.upload.mockReset().mockResolvedValue(undefined);
+    const file = new File([new Uint8Array([0x4d, 0x5a])], 'd2rl-d2rds.dll');
+    await uploadServerBuild('ladder-id', file, '  hotfix  ');
+    await uploadServerBuild('ladder-id', file, '   ');
+    const [path, withNotes] = mocks.upload.mock.calls[0] as [string, FormData];
+    const withoutNotes = mocks.upload.mock.calls[1][1] as FormData;
+    expect(path).toBe('/admin/ladders/ladder-id/server-builds');
+    expect((withNotes.get('file') as File).name).toBe('d2rl-d2rds.dll');
+    expect(withNotes.get('notes')).toBe('hotfix');
+    expect(withoutNotes.has('notes')).toBe(false);
   });
 });
 

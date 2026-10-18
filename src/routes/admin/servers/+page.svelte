@@ -2,7 +2,8 @@
   import { onMount, tick } from 'svelte';
   import ServerRegistryEditor from '$lib/components/ServerRegistryEditor.svelte';
   import type { ServerConfiguration } from '$lib/server-registry';
-  import { appendLogs, connectServerTelemetry, getServers, logLevels, type TelemetryLog, type TelemetryServer } from '$lib/server-telemetry';
+  import { getServerBuilds, type ServerBuildState } from '$lib/admin';
+  import { appendLogs, connectServerTelemetry, getServers, installedBuildSummary, logLevels, type TelemetryLog, type TelemetryServer } from '$lib/server-telemetry';
 
   let servers = $state<TelemetryServer[]>([]);
   let configured = $state<ServerConfiguration[]>([]);
@@ -26,6 +27,10 @@
   const snapshot = $derived(selected?.snapshot);
   const visibleLogs = $derived((paused ? frozen : logs).filter(e => e.level >= severity && e.message.toLowerCase().includes(search.toLowerCase())));
   const stalled = $derived(snapshot?.games.flatMap(g => g.players).filter(p => p.stalled).length ?? 0);
+  // Each ladder's server builds, fetched once per ladder seen and every minute, only to flag cards running another build.
+  let ladderBuilds = $state<Record<string, ServerBuildState>>({});
+  const ladderIds = $derived([...new Set(servers.map(s => s.ladderId))].sort().join(','));
+  $effect(() => { if (ladderIds) void loadLadderBuilds(ladderIds.split(',')); });
 
   function configuration(id: string): ServerConfiguration | undefined { return configured.find(s => s.id === id); }
   function displayName(id: string): string { return configuration(id)?.name?.trim() || id; }
@@ -71,6 +76,12 @@
     servers = frame.servers; clockOffset = Date.parse(frame.nowUtc) - Date.now();
     if (!selectedId && servers.length) choose(servers[0].id);
   }
+  async function loadLadderBuilds(ids: string[]): Promise<void> {
+    // A ladder that fails to load just shows its servers' builds without the comparison.
+    const loaded = await Promise.all(ids.map(id => getServerBuilds(id).catch(() => null)));
+    if (!mounted) return;
+    ladderBuilds = { ...ladderBuilds, ...Object.fromEntries(loaded.flatMap((state, i) => state ? [[ids[i], state]] : [])) };
+  }
   function togglePause(): void { if (!paused) frozen = [...logs]; paused = !paused; }
   function exportLogs(): void {
     const text = visibleLogs.map(e => `${new Date(e.timestamp).toISOString()} [${logLevels[e.level]}] [${e.session}/${e.sourceId}] ${e.message}`).join('\n');
@@ -84,7 +95,8 @@
     void load(controller.signal);
     const timer = setInterval(() => { now = Date.now(); }, 1000);
     const discovery = setInterval(() => { if (!selectedId) void load(controller.signal); }, 10000);
-    return () => { mounted = false; controller.abort(); disconnect?.(); clearInterval(timer); clearInterval(discovery); };
+    const builds = setInterval(() => { if (ladderIds) void loadLadderBuilds(ladderIds.split(',')); }, 60000);
+    return () => { mounted = false; controller.abort(); disconnect?.(); clearInterval(timer); clearInterval(discovery); clearInterval(builds); };
   });
 </script>
 
@@ -105,12 +117,14 @@
   {:else}
     <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3" aria-label="Dedicated servers">
       {#each servers as server (server.id)}
+        {@const build = installedBuildSummary(server.serverBuild, ladderBuilds[server.ladderId])}
         <button onclick={() => choose(server.id)} aria-pressed={selectedId === server.id} class={`panel min-w-0 rounded-lg p-4 text-left transition hover:border-ember-400/65 ${selectedId === server.id ? 'border-ember-400/65 bg-ember-700/15' : ''}`}>
           <span class="flex items-center justify-between gap-2"><span class="display-text truncate text-lg text-parchment-50" title={server.id}>{displayName(server.id)}</span><span class={`text-xs uppercase tracking-wider ${tone(status(server))}`}>{status(server)}</span></span>
           <span class="mt-1 block text-xs text-parchment-300">{displayName(server.id) !== server.id ? `${server.id} · ` : ''}{server.address}{server.snapshot ? `:${server.snapshot.gamePort}` : ''}</span>
           {#if server.regionIds?.length}<span class="mt-1 block break-words text-xs text-parchment-300">{server.regionIds.join(' · ')}</span>{/if}
           <span class="mt-3 block text-sm text-parchment-200">{server.snapshot?.games.length ?? 0}{configuration(server.id)?.maxGames ? ` / ${configuration(server.id)?.maxGames}` : ''} lobbies · {server.snapshot?.games.reduce((n, g) => n + g.connectedCount, 0) ?? 0} connections</span>
           <span class="mt-1 block text-xs text-parchment-300">{server.receivedAtUtc ? `Last report ${duration(age(server))} ago` : 'Waiting for the first report'}</span>
+          <span class="mt-1 block text-xs text-parchment-300" title={build.title}>Server build <span class={`font-mono ${build.match === 'unknown-build' ? 'text-amber-300' : 'text-parchment-200'}`}>{build.label}</span>{server.serverBuild ? ` · reported ${duration(Math.max(0, (now + clockOffset - Date.parse(server.serverBuild.reportedAtUtc)) / 1000))} ago` : ''}{#if build.match === 'outdated'}<span class="text-amber-300"> · not the ladder's current build</span>{:else if build.match === 'up-to-date'}<span class="text-emerald-300"> · up to date</span>{/if}</span>
         </button>
       {/each}
     </div>
