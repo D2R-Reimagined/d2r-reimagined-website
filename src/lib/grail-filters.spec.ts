@@ -12,6 +12,16 @@ const data = load();
 const defaults = () => readGrailFilters(new URLSearchParams()).catalog;
 
 describe('Grail restored filters', () => {
+  it('retains catalog requirements and shared set bonuses for item details', () => {
+    const beauty = data.runewords.find((item) => item.Index === 'Beauty')!;
+    expect(beauty.RequiredLevel).toBeGreaterThan(1);
+    expect(beauty.Types).toBeTruthy();
+    const icon = data.sets.find((item) => item.Index === "Civerb's Icon")!;
+    expect(icon.RequiredLevel).toBeGreaterThan(1);
+    expect(icon.PartialBonuses?.length).toBeGreaterThan(0);
+    expect(icon.FullBonuses?.length).toBeGreaterThan(0);
+    expect(data.uniques.some((item) => Number(item.RequiredLevel) > 1)).toBe(true);
+  });
   it('retains type, class, equipment, vanilla, and set name metadata without changing progress keys', () => {
     const icon = data.sets.find((item) => item.Index === "Civerb's Icon")!;
     expect(icon.Type).toBe('amulitype');

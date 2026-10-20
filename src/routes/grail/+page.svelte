@@ -3,6 +3,7 @@
   import { afterNavigate, beforeNavigate, replaceState } from '$app/navigation';
   import { page } from '$app/state';
 
+  import GrailItemDetails from '$lib/components/GrailItemDetails.svelte';
   import GrailItem from '$lib/components/GrailItem.svelte';
   import CatalogFilters from '$lib/components/CatalogFilters.svelte';
   import { itemClass } from '$lib/catalog';
@@ -30,6 +31,7 @@
   let routerReady = $state(false);
   let navigationInProgress = $state(false);
   let visibleCount = $state(60);
+  let selectedItem = $state<{ item: CatalogItem; category: Category } | null>(null);
   let transferOpen = $state(false);
   let exportValue = $state('');
   let importValue = $state('');
@@ -241,7 +243,7 @@
   <div class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
     {#each visible as item (itemKey(item))}
       {@const key = itemKey(item)}
-      <GrailItem {item} tone={category === 'sets' ? 'set' : 'unique'} found={Boolean(currentMap[key])} onchange={(value) => setFound(item, value)} />
+      <GrailItem {item} ondetails={() => selectedItem = { item, category }} tone={category === 'sets' ? 'set' : 'unique'} found={Boolean(currentMap[key])} onchange={(value) => setFound(item, value)} />
     {/each}
   </div>
 
@@ -260,4 +262,8 @@
       <div class="mt-3 flex flex-wrap gap-3"><button type="button" disabled={!importValue.trim()} onclick={() => importProgress(true)} class="rounded-md bg-ember-700 px-4 py-2 disabled:opacity-40">Merge progress</button><button type="button" disabled={!importValue.trim()} onclick={() => importProgress(false)} class="rounded-md border border-requirement/60 px-4 py-2 text-requirement disabled:opacity-40">Replace progress</button></div>
     </div>
   </div>
+{/if}
+
+{#if selectedItem}
+  <GrailItemDetails item={selectedItem.item} category={selectedItem.category} onclose={() => selectedItem = null} />
 {/if}

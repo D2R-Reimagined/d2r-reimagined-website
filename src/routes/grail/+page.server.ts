@@ -8,6 +8,9 @@ function grailItem(item: CatalogItem): CatalogItem {
   return {
     Index: item.Index,
     Rarity: item.Rarity,
+    RequiredLevel: item.RequiredLevel,
+    PartialBonuses: item.PartialBonuses,
+    FullBonuses: item.FullBonuses,
     Lines: item.Lines,
     Type: item.Type,
     Types: item.Types,
@@ -27,7 +30,7 @@ export function load() {
       .filter((item) => !String(item.Index ?? '').toLowerCase().includes('grabber'))
       .map(grailItem),
     sets: (sets as CatalogItem[]).flatMap((set) =>
-      (set.SetItems ?? []).map((piece) => grailItem({ ...piece, SetName: piece.SetName ?? set.Index, Vanilla: piece.Vanilla ?? set.Vanilla }))
+      (set.SetItems ?? []).map((piece) => grailItem({ ...piece, PartialBonuses: set.PartialBonuses, FullBonuses: set.FullBonuses, SetName: piece.SetName ?? set.Index, Vanilla: piece.Vanilla ?? set.Vanilla }))
     ),
     runewords: buildCatalog('runewords', { runewords: runewords as CatalogItem[] }).map(grailItem)
   };
