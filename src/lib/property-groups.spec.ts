@@ -115,6 +115,24 @@ describe('splitPropertyGroups', () => {
   it('returns nothing to collapse for empty input', () => {
     expect(splitPropertyGroups([])).toEqual({ visible: [], groups: [] });
   });
+
+  it('renders every exported line of a multi-stat property in exporter order without merging', () => {
+    const tools = english();
+    // One exported property can yield several lines: independently rolled stats (same key,
+    // different args) stay separate, and an exporter-mirrored stat arrives as one line.
+    const lines: KeyedLine[] = [
+      { key: 'ModStr1a', args: [5] },
+      { key: '', pickMode: '1', children: [{ key: 'ModStr1b', args: [1], chance: 1 }] },
+      { key: 'ModStr1a', args: [10] },
+      { key: 'Moditem2allattrib', args: [3] },
+      { key: 'ModStr1a', args: [5] }
+    ];
+    const { visible, groups } = splitPropertyGroups(sortModifierLines(lines));
+    expect(visible.map((line) => tools.line(line))).toEqual([
+      '+5 to Strength', '+10 to Strength', '+3 to all Attributes', '+5 to Strength'
+    ]);
+    expect(groups).toEqual([lines[1]]);
+  });
 });
 
 describe('group labels', () => {
