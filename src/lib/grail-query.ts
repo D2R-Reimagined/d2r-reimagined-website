@@ -31,7 +31,8 @@ export function writeGrailFilters(url: URL, filters: GrailFilters): URL {
     sockets: filters.category === 'runewords' ? filters.catalog.runeCount : '',
     runes: filters.category === 'runewords' ? filters.catalog.selectedRunes.join(',') : '',
     runeMatch: filters.category === 'runewords' ? filters.catalog.runeMatch : '',
-    exact: filters.category === 'runewords' && filters.catalog.exactType
+    // Uniques and sets carry it for the Helm choice; it only means something with a type.
+    exact: filters.catalog.exactType && (filters.category === 'runewords' || Boolean(filters.catalog.selectedType))
   };
   url.searchParams.delete('q');
   for (const [key, value] of Object.entries(values)) {

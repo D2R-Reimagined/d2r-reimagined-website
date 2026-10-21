@@ -1,7 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import skillClasses from '../../static/data/keyed/skills.json';
 import type { Skill, SkillClass } from '$lib/types';
-import { applySkillSynergy, evaluateSkillCalc, skillSynergyBonus } from './skill-calculation';
+import {
+  applySkillSynergy,
+  evaluateSkillCalc,
+  skillLineSynergyBonus,
+  skillSynergyBonus
+} from './skill-calculation';
 
 function skill(id: number, code: string, overrides: Partial<Skill> = {}): Skill {
   return {
@@ -71,6 +76,58 @@ describe('skill synergy calculation', () => {
     expect(skillSynergyBonus(teeth, 'elemental', [teeth, boneWall], { 67: 1, 78: 3 })).toBe(21);
   });
 
+  it('reads blvl from hard points and lvl from levels including +skills', () => {
+    const fireMastery = skill(1, 'Fire Mastery');
+    fireMastery.Calculation!.Params = { 1: 10, 2: 2, 3: 30 };
+    const expression = 'blvl*par1 + min((lvl-blvl)*par2, par3)';
+
+    expect(evaluateSkillCalc(expression, fireMastery, [fireMastery], { 1: 25 }, { 1: 5 })).toBe(50 + 30);
+    expect(evaluateSkillCalc(expression, fireMastery, [fireMastery], { 1: 10 }, { 1: 10 })).toBe(100);
+    expect(evaluateSkillCalc("skill('Fire Mastery'.blvl)", fireMastery, [fireMastery], { 1: 9 }, { 1: 0 })).toBe(0);
+    // A single rank map still means both, which keeps the old call shape working.
+    expect(evaluateSkillCalc(expression, fireMastery, [fireMastery], { 1: 4 })).toBe(40);
+  });
+
+  it('prefers a line scaleCalc over the skill-level scale expression', () => {
+    const inferno = skill(41, 'Inferno');
+    const meteor = skill(56, 'Meteor');
+    meteor.Calculation!.Params[8] = 99;
+    meteor.Calculation!.ElementalDamage = 'par8';
+    const skills = [inferno, meteor];
+    const ranks = { 41: 20, 56: 1 };
+    const base = { 41: 4, 56: 1 };
+
+    expect(skillLineSynergyBonus(
+      { key: 'k', scale: 'elemental', scaleCalc: "skill('Inferno'.blvl)*3" }, meteor, skills, ranks, base
+    )).toBe(12);
+    expect(skillLineSynergyBonus({ key: 'k', scale: 'elemental' }, meteor, skills, ranks, base)).toBe(99);
+    expect(skillLineSynergyBonus({ key: 'k' }, meteor, skills, ranks, base)).toBe(0);
+  });
+
+  it('supports every line scaleCalc expression in the exported Reimagined skill bundle', () => {
+    const classes = skillClasses as SkillClass[];
+    const skills = classes.flatMap((entry) => entry.Tabs.flatMap((tab) => tab.Skills));
+    const ranks = Object.fromEntries(skills.map((entry) => [entry.Id, Math.min(entry.MaxLevel, 10)]));
+
+    const failures: string[] = [];
+    for (const entry of skills) {
+      const lines = [
+        ...(entry.Descriptions?.Stats ?? []),
+        ...(entry.Descriptions?.Details ?? []),
+        ...(entry.Descriptions?.Synergies ?? [])
+      ];
+      for (const line of lines) {
+        if (!line.scaleCalc) continue;
+        try {
+          evaluateSkillCalc(line.scaleCalc, entry, skills, ranks);
+        } catch (error) {
+          failures.push(`${entry.Code}: ${line.scaleCalc} (${error instanceof Error ? error.message : error})`);
+        }
+      }
+    }
+    expect(failures).toEqual([]);
+  });
+
   it('supports every damage synergy expression in the exported Reimagined skill bundle', () => {
     const classes = skillClasses as SkillClass[];
     const skills = classes.flatMap((entry) => entry.Tabs.flatMap((tab) => tab.Skills));
@@ -92,5 +149,32 @@ describe('skill synergy calculation', () => {
       }
     }
     expect(failures).toEqual([]);
+  });
+
+  it('cancels the self term of shared synergy counters such as Raven and Firestorm clc5', () => {
+    const classes = skillClasses as SkillClass[];
+    const skills = classes.flatMap((entry) => entry.Tabs.flatMap((tab) => tab.Skills));
+    const shared = skills.filter((entry) => [
+      entry.Calculation?.PhysicalDamage,
+      entry.Calculation?.ElementalDamage,
+      entry.Calculation?.ElementalLength
+    ].some((expression) => /skill\('(?:Raven|Firestorm)'\.clc5\)/i.test(expression ?? '')));
+    expect(shared.length).toBeGreaterThan(10);
+
+    for (const entry of shared) {
+      // Only the viewed skill allocated: the counter holds just its own level, which `- blvl` removes.
+      const alone = { [entry.Id]: 20 };
+      for (const scale of ['physical', 'elemental', 'elementalLength'] as const) {
+        expect(skillSynergyBonus(entry, scale, skills, alone), `${entry.Code} ${scale}`).toBeGreaterThanOrEqual(0);
+      }
+    }
+
+    const byCode = (code: string) => skills.find((entry) => entry.Code === code)!;
+    const vines = byCode('Vines');
+    const raven = byCode('Raven');
+    const ranks = { [vines.Id]: 20, [raven.Id]: 5 };
+    expect(skillSynergyBonus(vines, 'physical', skills, { [vines.Id]: 20 })).toBe(0);
+    expect(skillSynergyBonus(vines, 'physical', skills, ranks))
+      .toBe(5 * (vines.Calculation!.Params[8] ?? 0));
   });
 });

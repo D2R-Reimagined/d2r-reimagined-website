@@ -23,7 +23,20 @@ export interface KeyedLine {
   chance?: number;
   pickMode?: string;
   code?: string;
+  /** Property-group parents: translatable label for the group (e.g. strPropertyGroupsProperty). */
+  nameKey?: string;
   children?: KeyedLine[];
+  selection?: PropertySelection;
+}
+
+/**
+ * Exporter identifier bounds behind a random pick (skill, skill tab, or class). These are
+ * identifiers, never the displayed bonus; see src/lib/skill-selection.ts for what is shown.
+ */
+export interface PropertySelection {
+  stat: string;
+  min?: number;
+  max?: number;
 }
 
 export interface DamageType {
@@ -42,6 +55,8 @@ export interface Equipment {
 
 export interface CatalogItem {
   Index?: string | number;
+  /** Stable recipe identity from the exporter; see src/lib/cube-recipe-ids.ts. */
+  Id?: string;
   NameKey?: string;
   Type?: string | { Name?: string; Index?: string; Class?: string };
   Vanilla?: string;
@@ -68,6 +83,8 @@ export interface CatalogItem {
   SetBonuses?: KeyedLine[][];
   Runes?: Array<{ NameKey?: string }>;
   Types?: Array<string | { Name?: string; Index?: string; Class?: string }>;
+  /** Affix item types (and their subtypes) the affix may never roll on. */
+  ETypes?: string[];
   Inputs?: Array<{ Name?: KeyedLine; Quantity?: number; Qualifiers?: KeyedLine[] }>;
   Outputs?: Record<string, { Name?: KeyedLine; Quantity?: number; Qualifiers?: KeyedLine[]; Lines?: KeyedLine[] }>;
   Notes?: KeyedLine[];
@@ -94,12 +111,28 @@ export interface SkillDescriptionLine {
   key: string;
   /** Damage family whose source skillcalc synergy percentage applies to this line. */
   scale?: SkillDamageScale;
+  /**
+   * Synergy percentage expression for missile-sourced damage (from the missiles.txt row).
+   * Same grammar as the skill's own `*SymPerCalc`; takes precedence over `scale` when present.
+   */
+  scaleCalc?: string;
   /** Plural template, chosen whenever the rendered value is not exactly 1. */
   pluralKey?: string;
   /** Leading string arguments — translation keys, typically a bonus-granting skill name. */
   args?: string[];
   /** One table per numeric argument, each indexed by `level - 1`. */
   values?: number[][];
+  /**
+   * The same per-argument tables indexed `[hardPoints][bonusLevels]`, shipped only on lines
+   * whose formula reads `blvl`. Row 0 (no hard points, an item-granted oskill) is meaningful.
+   */
+  values2d?: number[][][];
+  /**
+   * The same per-argument tables indexed `[skillLevel - 1][characterLevel - 1]`, shipped only on
+   * lines whose formula reads `ulvl` (e.g. Thorns). `values` is then solved at the maximum
+   * character level.
+   */
+  valuesUlvl?: number[][][];
 }
 
 export type SkillDamageScale = 'physical' | 'elemental' | 'elementalLength';
@@ -120,6 +153,10 @@ export interface SkillCalculation {
 export interface SkillDescriptionSet {
   /** Highest level the value tables cover — the skill cap plus +skills headroom. */
   MaxLevel: number;
+  /** The skill's own maxlvl; the first axis of `values2d` runs `0..HardPointCap`. */
+  HardPointCap?: number;
+  /** Extent of the character-level axis of `valuesUlvl`. */
+  CharacterLevelCap?: number;
   /** Main tooltip stats: damage, duration, radius, … */
   Stats: SkillDescriptionLine[];
   /** Supplementary lines: mana cost, casting delay, … */

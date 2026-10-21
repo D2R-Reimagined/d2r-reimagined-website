@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
   import { loadCatalog } from '$lib/catalog-sources';
-  import { buildItemTitle } from '$lib/build-items';
+  import { buildItemTitle, findBuildItem } from '$lib/build-items';
   import { i18n } from '$lib/i18n';
   import type { CatalogItem } from '$lib/types';
   import type { BuildItemReference } from '$lib/builds';
@@ -48,7 +48,7 @@
     item = null; error = '';
     loadCatalog(reference.catalog).then(items => {
       if (!active) return;
-      item = items.find(entry => String(entry.Index ?? entry.NameKey ?? '') === reference.key) ?? null;
+      item = findBuildItem(items, reference.catalog, reference.key) ?? null;
       if (!item) error = 'This item is no longer in the current game catalog.';
     }).catch(() => { if (active) error = 'The item catalog could not be loaded.'; });
     return () => { active = false; };

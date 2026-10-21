@@ -740,10 +740,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
           1,
-          3
+          2
         ]
       },
       {
@@ -876,10 +876,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
           2,
-          5
+          3
         ]
       },
       {
@@ -1012,10 +1012,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
           3,
-          6
+          4
         ]
       },
       {
@@ -1148,10 +1148,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
           4,
-          8
+          5
         ]
       },
       {
@@ -1284,10 +1284,9 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          5,
-          10
+          5
         ]
       },
       {
@@ -1420,10 +1419,9 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          6,
-          12
+          5
         ]
       },
       {
@@ -1556,10 +1554,9 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          7,
-          14
+          5
         ]
       },
       {
@@ -1692,10 +1689,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          8,
-          16
+          5,
+          10
         ]
       },
       {
@@ -1828,10 +1825,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          9,
-          18
+          5,
+          10
         ]
       },
       {
@@ -1964,10 +1961,9 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          10,
-          20
+          10
         ]
       },
       {
@@ -2100,10 +2096,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          12,
-          24
+          10,
+          15
         ]
       },
       {
@@ -2236,10 +2232,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          13,
-          26
+          10,
+          15
         ]
       },
       {
@@ -2372,10 +2368,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          15,
-          30
+          10,
+          15
         ]
       },
       {
@@ -4433,7 +4429,7 @@
       {
         "key": "ModStr1f",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
@@ -8620,7 +8616,12 @@
         "args": [
           2,
           "Amazon"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 6,
+          "max": 35
+        }
       }
     ]
   },
@@ -8647,7 +8648,12 @@
         "args": [
           3,
           "Amazon"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 6,
+          "max": 35
+        }
       }
     ]
   },
@@ -8674,7 +8680,12 @@
         "args": [
           4,
           "Amazon"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 6,
+          "max": 35
+        }
       }
     ]
   },
@@ -8701,7 +8712,12 @@
         "args": [
           5,
           "Amazon"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 6,
+          "max": 35
+        }
       }
     ]
   },
@@ -8728,7 +8744,12 @@
         "args": [
           2,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       }
     ]
   },
@@ -8755,7 +8776,12 @@
         "args": [
           3,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       }
     ]
   },
@@ -8782,7 +8808,12 @@
         "args": [
           4,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       }
     ]
   },
@@ -8809,7 +8840,12 @@
         "args": [
           5,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       }
     ]
   },
@@ -8836,7 +8872,12 @@
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       }
     ]
   },
@@ -8863,7 +8904,12 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       }
     ]
   },
@@ -8890,7 +8936,12 @@
         "args": [
           4,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       }
     ]
   },
@@ -8917,7 +8968,12 @@
         "args": [
           5,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       }
     ]
   },
@@ -8944,7 +9000,12 @@
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       }
     ]
   },
@@ -8971,7 +9032,12 @@
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       }
     ]
   },
@@ -8998,7 +9064,12 @@
         "args": [
           4,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       }
     ]
   },
@@ -9025,7 +9096,12 @@
         "args": [
           5,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       }
     ]
   },
@@ -9052,7 +9128,12 @@
         "args": [
           2,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       }
     ]
   },
@@ -9079,7 +9160,12 @@
         "args": [
           3,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       }
     ]
   },
@@ -9106,7 +9192,12 @@
         "args": [
           4,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       }
     ]
   },
@@ -9133,7 +9224,12 @@
         "args": [
           5,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       }
     ]
   },
@@ -9160,7 +9256,12 @@
         "args": [
           2,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       }
     ]
   },
@@ -9187,7 +9288,12 @@
         "args": [
           3,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       }
     ]
   },
@@ -9214,7 +9320,12 @@
         "args": [
           4,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       }
     ]
   },
@@ -9241,7 +9352,12 @@
         "args": [
           5,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       }
     ]
   },
@@ -9268,7 +9384,12 @@
         "args": [
           2,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       }
     ]
   },
@@ -9295,7 +9416,12 @@
         "args": [
           3,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       }
     ]
   },
@@ -9322,7 +9448,12 @@
         "args": [
           4,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       }
     ]
   },
@@ -9349,7 +9480,12 @@
         "args": [
           5,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       }
     ]
   },
@@ -9369,6 +9505,12 @@
     "ETypes": [],
     "PType": "Prefix",
     "Lines": [
+      {
+        "key": "StrSkill13",
+        "args": [
+          1
+        ]
+      },
       {
         "key": "ModStr1t",
         "args": [
@@ -9402,6 +9544,12 @@
     "PType": "Prefix",
     "Lines": [
       {
+        "key": "StrSkill13",
+        "args": [
+          2
+        ]
+      },
+      {
         "key": "ModStr1t",
         "args": [
           10,
@@ -9434,6 +9582,12 @@
     "PType": "Prefix",
     "Lines": [
       {
+        "key": "StrSkill13",
+        "args": [
+          3
+        ]
+      },
+      {
         "key": "ModStr1t",
         "args": [
           16,
@@ -9464,6 +9618,12 @@
     "ETypes": [],
     "PType": "Prefix",
     "Lines": [
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
+        ]
+      },
       {
         "key": "ModStr1t",
         "args": [
@@ -11794,7 +11954,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ]
@@ -12316,10 +12477,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          5,
-          10
+          1,
+          3
         ]
       }
     ]
@@ -12340,16 +12501,16 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          11,
-          15
+          3,
+          5
         ]
       }
     ]
   },
   {
-    "NameKey": "Crushing1",
+    "NameKey": "Fracturing1",
     "Level": 70,
     "MaxLevel": 0,
     "RequiredLevel": 63,
@@ -12364,10 +12525,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          16,
-          20
+          5,
+          10
         ]
       }
     ]
@@ -12460,7 +12621,27 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr1p",
+        "key": "strModFireDamageRange",
+        "args": [
+          1,
+          20
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          1,
+          20
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "strModLightningDamageRange",
         "args": [
           1,
           20
@@ -12484,7 +12665,27 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr1p",
+        "key": "strModFireDamageRange",
+        "args": [
+          21,
+          50
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          21,
+          50
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "strModLightningDamageRange",
         "args": [
           21,
           50
@@ -12508,7 +12709,27 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr1p",
+        "key": "strModFireDamageRange",
+        "args": [
+          51,
+          125
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          51,
+          125
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
+        ]
+      },
+      {
+        "key": "strModLightningDamageRange",
         "args": [
           51,
           125
@@ -12532,7 +12753,27 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr1p",
+        "key": "strModFireDamageRange",
+        "args": [
+          64,
+          200
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          64,
+          200
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          5
+        ]
+      },
+      {
+        "key": "strModLightningDamageRange",
         "args": [
           64,
           200
@@ -12835,6 +13076,12 @@
           10,
           15
         ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          5
+        ]
       }
     ]
   },
@@ -12861,6 +13108,13 @@
         "args": [
           16,
           25
+        ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          6,
+          10
         ]
       }
     ]
@@ -12889,6 +13143,13 @@
           26,
           35
         ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          11,
+          15
+        ]
       }
     ]
   },
@@ -12915,6 +13176,13 @@
         "args": [
           36,
           45
+        ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          16,
+          20
         ]
       }
     ]
@@ -12943,6 +13211,13 @@
           46,
           55
         ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          21,
+          30
+        ]
       }
     ]
   },
@@ -12969,6 +13244,13 @@
         "args": [
           56,
           65
+        ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          31,
+          45
         ]
       }
     ]
@@ -12997,6 +13279,13 @@
           66,
           80
         ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          46,
+          59
+        ]
       }
     ]
   },
@@ -13023,6 +13312,13 @@
         "args": [
           81,
           100
+        ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          60,
+          75
         ]
       }
     ]
@@ -13051,6 +13347,12 @@
           3,
           5
         ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          5
+        ]
       }
     ]
   },
@@ -13075,6 +13377,13 @@
         "args": [
           6,
           9
+        ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          6,
+          10
         ]
       }
     ]
@@ -13101,6 +13410,13 @@
           10,
           15
         ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          11,
+          15
+        ]
       }
     ]
   },
@@ -13122,6 +13438,13 @@
     "Lines": [
       {
         "key": "Modstr2v",
+        "args": [
+          16,
+          20
+        ]
+      },
+      {
+        "key": "strDurabilityBonus",
         "args": [
           16,
           20
@@ -13151,6 +13474,13 @@
           21,
           30
         ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          21,
+          30
+        ]
       }
     ]
   },
@@ -13175,6 +13505,13 @@
         "args": [
           31,
           40
+        ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          31,
+          45
         ]
       }
     ]
@@ -13201,6 +13538,13 @@
           41,
           50
         ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          46,
+          59
+        ]
       }
     ]
   },
@@ -13224,6 +13568,13 @@
         "key": "Modstr2v",
         "args": [
           51,
+          75
+        ]
+      },
+      {
+        "key": "strDurabilityBonus",
+        "args": [
+          60,
           75
         ]
       }
@@ -21768,7 +22119,21 @@
         ]
       },
       {
-        "key": "ModStr1p",
+        "key": "strModFireDamageRange",
+        "args": [
+          3,
+          6
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          3,
+          6
+        ]
+      },
+      {
+        "key": "strModLightningDamageRange",
         "args": [
           3,
           6
@@ -21798,7 +22163,21 @@
         ]
       },
       {
-        "key": "ModStr1p",
+        "key": "strModFireDamageRange",
+        "args": [
+          6,
+          9
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          6,
+          9
+        ]
+      },
+      {
+        "key": "strModLightningDamageRange",
         "args": [
           6,
           9
@@ -21828,7 +22207,21 @@
         ]
       },
       {
-        "key": "ModStr1p",
+        "key": "strModFireDamageRange",
+        "args": [
+          9,
+          12
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          9,
+          12
+        ]
+      },
+      {
+        "key": "strModLightningDamageRange",
         "args": [
           9,
           12
@@ -23381,11 +23774,11 @@
     ]
   },
   {
-    "NameKey": "Crushing1",
-    "Level": 24,
+    "NameKey": "Fracturing1",
+    "Level": 18,
     "MaxLevel": 70,
     "RequiredLevel": 18,
-    "Group": 212,
+    "Group": 214,
     "ClassSpecific": "",
     "Class": "",
     "ClassLevelReq": 0,
@@ -23396,10 +23789,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          3,
-          5
+          1,
+          2
         ]
       }
     ]
@@ -23448,7 +23841,12 @@
         "args": [
           1,
           "Amazon"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 6,
+          "max": 35
+        }
       },
       {
         "key": "ModStr1b",
@@ -23486,7 +23884,12 @@
         "args": [
           1,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "ModStr1a",
@@ -23524,7 +23927,12 @@
         "args": [
           1,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "ModStr1d",
@@ -23562,7 +23970,12 @@
         "args": [
           1,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "ModStr1d",
@@ -23600,7 +24013,12 @@
         "args": [
           1,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "ModStr1a",
@@ -23638,7 +24056,12 @@
         "args": [
           1,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "ModStr1b",
@@ -23676,7 +24099,12 @@
         "args": [
           1,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "ModStr1b",
@@ -23887,11 +24315,11 @@
     ]
   },
   {
-    "NameKey": "Crushing1",
-    "Level": 55,
+    "NameKey": "Fracturing1",
+    "Level": 50,
     "MaxLevel": 0,
     "RequiredLevel": 50,
-    "Group": 212,
+    "Group": 214,
     "ClassSpecific": "",
     "Class": "",
     "ClassLevelReq": 0,
@@ -23902,10 +24330,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          5,
-          7
+          2,
+          3
         ]
       }
     ]
@@ -23954,7 +24382,12 @@
         "args": [
           2,
           "Amazon"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 6,
+          "max": 35
+        }
       },
       {
         "key": "ModStr1b",
@@ -23992,7 +24425,12 @@
         "args": [
           2,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "ModStr1a",
@@ -24030,7 +24468,12 @@
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "ModStr1d",
@@ -24068,7 +24511,12 @@
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "ModStr1d",
@@ -24106,7 +24554,12 @@
         "args": [
           2,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "ModStr1a",
@@ -24144,7 +24597,12 @@
         "args": [
           2,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "ModStr1b",
@@ -24182,7 +24640,12 @@
         "args": [
           2,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "ModStr1b",
@@ -24393,11 +24856,11 @@
     ]
   },
   {
-    "NameKey": "Crushing1",
-    "Level": 65,
+    "NameKey": "Fracturing1",
+    "Level": 81,
     "MaxLevel": 0,
-    "RequiredLevel": 60,
-    "Group": 212,
+    "RequiredLevel": 80,
+    "Group": 214,
     "ClassSpecific": "",
     "Class": "",
     "ClassLevelReq": 0,
@@ -24408,10 +24871,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          7,
-          10
+          3,
+          5
         ]
       }
     ]
@@ -24460,7 +24923,12 @@
         "args": [
           3,
           "Amazon"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 6,
+          "max": 35
+        }
       },
       {
         "key": "ModStr1b",
@@ -24498,7 +24966,12 @@
         "args": [
           3,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "ModStr1a",
@@ -24536,7 +25009,12 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "ModStr1d",
@@ -24574,7 +25052,12 @@
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "ModStr1d",
@@ -24612,7 +25095,12 @@
         "args": [
           3,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "ModStr1a",
@@ -24650,7 +25138,12 @@
         "args": [
           3,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "ModStr1b",
@@ -24688,7 +25181,12 @@
         "args": [
           3,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "ModStr1b",
@@ -27055,7 +27553,21 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr1p",
+        "key": "strModFireDamageRange",
+        "args": [
+          5,
+          10
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          5,
+          10
+        ]
+      },
+      {
+        "key": "strModLightningDamageRange",
         "args": [
           5,
           10
@@ -27079,7 +27591,21 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr1p",
+        "key": "strModFireDamageRange",
+        "args": [
+          10,
+          20
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          10,
+          20
+        ]
+      },
+      {
+        "key": "strModLightningDamageRange",
         "args": [
           10,
           20
@@ -27103,7 +27629,21 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "ModStr1p",
+        "key": "strModFireDamageRange",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "strModLightningDamageRange",
         "args": [
           20,
           30
@@ -28340,7 +28880,12 @@
         "args": [
           1,
           "Warlock"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 373,
+          "max": 402
+        }
       },
       {
         "key": "ModStr1a",
@@ -28378,7 +28923,12 @@
         "args": [
           2,
           "Warlock"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 373,
+          "max": 402
+        }
       },
       {
         "key": "ModStr1a",
@@ -28416,7 +28966,12 @@
         "args": [
           3,
           "Warlock"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 373,
+          "max": 402
+        }
       },
       {
         "key": "ModStr1a",
@@ -28529,7 +29084,12 @@
         "args": [
           2,
           "Warlock"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 373,
+          "max": 402
+        }
       }
     ]
   },
@@ -28556,7 +29116,12 @@
         "args": [
           3,
           "Warlock"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 373,
+          "max": 402
+        }
       }
     ]
   },
@@ -28583,7 +29148,12 @@
         "args": [
           4,
           "Warlock"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 373,
+          "max": 402
+        }
       }
     ]
   },
@@ -28610,7 +29180,12 @@
         "args": [
           5,
           "Warlock"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 373,
+          "max": 402
+        }
       }
     ]
   },
@@ -29419,5 +29994,21 @@
         ]
       }
     ]
+  },
+  {
+    "NameKey": "rmapaffix_quality_prefix",
+    "Level": 1,
+    "MaxLevel": 0,
+    "RequiredLevel": 0,
+    "Group": 2000,
+    "ClassSpecific": "",
+    "Class": "",
+    "ClassLevelReq": 0,
+    "Types": [
+      "mapiitype"
+    ],
+    "ETypes": [],
+    "PType": "Prefix",
+    "Lines": []
   }
 ]

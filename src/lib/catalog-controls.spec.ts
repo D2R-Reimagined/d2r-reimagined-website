@@ -1,11 +1,14 @@
 import { describe, expect, it } from 'vitest';
 
+import magicPrefixes from '../../static/data/keyed/magicprefix.json';
+import magicSuffixes from '../../static/data/keyed/magicsuffix.json';
 import {
   affixMatchesProperty,
   baseHasSockets,
   baseTier,
   catalogTypeValues,
   equipmentNamesForType,
+  excludesItemType,
   groupBases,
   matchesSearch,
   matchesItemType,
@@ -162,6 +165,125 @@ describe('affix and modifier behavior', () => {
       { key: 'also-first', pickMode: '0', children: [{ key: 'choice' }] }
     ];
     expect(sortModifierLines(lines).map((line) => line.key)).toEqual(['first', 'also-first', 'late']);
+  });
+});
+
+describe('affix item type applicability', () => {
+  // Mirrors the affixes catalog: positive Types applicability, then the ETypes exclusions.
+  const applies = (affix: CatalogItem, selectedType: string, exact = false) =>
+    matchesItemType((affix.Types ?? []) as string[], selectedType, exact, true)
+    && !excludesItemType(affix.ETypes ?? [], selectedType);
+  const jagged: CatalogItem = { NameKey: 'Jagged', Types: ['weapitype'], ETypes: ['orbitype', 'wanditype'] };
+  const robineye: CatalogItem = { NameKey: 'Robineye', Types: ['weapitype'], ETypes: ['stafitype', 'wanditype', 'orbitype'] };
+  const screaming: CatalogItem = { NameKey: 'Screaming', Types: ['weapitype'], ETypes: ['missitype', 'sworitype', 'axeitype'] };
+  const blight: CatalogItem = { NameKey: 'of Blight', Types: ['weapitype', 'circitype'], ETypes: ['roditype', 'orbitype'] };
+  const plain: CatalogItem = { NameKey: 'Plain', Types: ['weapitype'] };
+
+  it('rejects a wand or sorceress orb selection its exclusions name', () => {
+    expect(applies(jagged, 'wanditype')).toBe(false);
+    expect(applies(jagged, 'orbitype')).toBe(false);
+    expect(applies(robineye, 'wanditype')).toBe(false);
+    expect(applies(robineye, 'orbitype')).toBe(false);
+  });
+
+  it('rejects staves for staff exclusions while keeping other weapons', () => {
+    expect(applies(robineye, 'stafitype')).toBe(false);
+    expect(applies(robineye, 'sworitype')).toBe(true);
+    expect(applies(jagged, 'stafitype')).toBe(true);
+  });
+
+  it('separates excluded and eligible swords', () => {
+    expect(applies(jagged, 'sworitype')).toBe(true);
+    expect(applies(screaming, 'sworitype')).toBe(false);
+    expect(applies(screaming, 'axeitype')).toBe(false);
+    expect(applies(screaming, 'bowitype')).toBe(false);
+    expect(applies(screaming, 'maceitype')).toBe(true);
+  });
+
+  it('applies an excluded ancestor to every type beneath it', () => {
+    expect(applies(blight, 'roditype')).toBe(false);
+    expect(applies(blight, 'wanditype')).toBe(false);
+    expect(applies(blight, 'stafitype')).toBe(false);
+    expect(applies(blight, 'scepitype')).toBe(false);
+    expect(applies(blight, 'maceitype')).toBe(true);
+    expect(applies(blight, 'circitype')).toBe(true);
+  });
+
+  it('keeps affixes on broad selections whose other subtypes remain eligible', () => {
+    for (const affix of [jagged, robineye, screaming, blight]) {
+      expect(applies(affix, 'weapitype')).toBe(true);
+    }
+    expect(applies(jagged, 'meleitype')).toBe(true);
+    expect(applies(blight, 'blunitype')).toBe(true);
+    expect(excludesItemType(['wanditype'], 'weapitype')).toBe(false);
+  });
+
+  it('leaves affixes without exclusions unchanged', () => {
+    for (const type of ['', 'weapitype', 'wanditype', 'orbitype', 'sworitype']) {
+      expect(applies(plain, type)).toBe(matchesItemType(['weapitype'], type, false, true));
+    }
+    expect(excludesItemType([], 'wanditype')).toBe(false);
+    expect(excludesItemType(['wanditype'], '')).toBe(false);
+  });
+
+  it('keeps Exact matching to the directly named types', () => {
+    expect(applies(jagged, 'weapitype', true)).toBe(true);
+    expect(applies(jagged, 'sworitype', true)).toBe(false);
+    expect(applies(jagged, 'wanditype', true)).toBe(false);
+    expect(applies({ Types: ['wanditype'] }, 'wanditype', true)).toBe(true);
+  });
+
+  it('treats Slam Weapons as melee weapons', () => {
+    expect(matchesItemType(['slamitype'], 'meleitype', false)).toBe(true);
+    expect(matchesItemType(['slamitype'], 'weapitype', false)).toBe(true);
+    expect(matchesItemType(['meleitype'], 'slamitype', false, true)).toBe(true);
+    expect(matchesItemType(['weapitype'], 'slamitype', false, true)).toBe(true);
+    expect(matchesItemType(['slamitype'], 'meleitype', true)).toBe(false);
+    expect(matchesItemType(['meleitype'], 'slamitype', true, true)).toBe(false);
+    expect(matchesItemType(['slamitype'], 'missitype', false)).toBe(false);
+  });
+
+  describe('against the exported affixes', () => {
+    const affixes = [...magicPrefixes, ...magicSuffixes] as CatalogItem[];
+    const count = (selectedType: string, exact = false) => affixes.filter((affix) => applies(affix, selectedType, exact));
+    const positiveOnly = (selectedType: string, exact = false) => affixes.filter((affix) =>
+      matchesItemType((affix.Types ?? []) as string[], selectedType, exact, true));
+    const names = (rows: CatalogItem[]) => new Set(rows.map((row) => row.NameKey));
+    const slamCharged = affixes.filter((affix) => (affix.Types as string[] | undefined)?.includes('slamitype'));
+
+    it('removes every wand and sorceress orb exclusion', () => {
+      expect(positiveOnly('wanditype')).toHaveLength(749);
+      expect(count('wanditype')).toHaveLength(566);
+      expect(positiveOnly('orbitype')).toHaveLength(606);
+      expect(count('orbitype')).toHaveLength(431);
+      expect(names(count('wanditype')).has('Jagged')).toBe(false);
+      expect(names(count('orbitype')).has('Jagged')).toBe(false);
+      expect(names(count('stafitype')).has('Robineye')).toBe(false);
+    });
+
+    it('keeps Jagged where its weapon applicability is not excluded', () => {
+      expect(names(count('sworitype')).has('Jagged')).toBe(true);
+      expect(names(count('weapitype')).has('Jagged')).toBe(true);
+    });
+
+    it('gives Slam Weapons the weapon and melee affixes and both Charged rows to its ancestors', () => {
+      expect(slamCharged).toHaveLength(2);
+      expect(count('slamitype')).toHaveLength(674);
+      expect(count('meleitype')).toHaveLength(863);
+      expect(count('weapitype')).toHaveLength(935);
+      for (const row of slamCharged) {
+        expect(count('meleitype')).toContain(row);
+        expect(count('weapitype')).toContain(row);
+        expect(count('slamitype')).toContain(row);
+      }
+    });
+
+    it('leaves Exact results unchanged by exclusions', () => {
+      for (const [type, total] of [['wanditype', 57], ['orbitype', 104], ['slamitype', 2], ['meleitype', 166], ['weapitype', 506]] as const) {
+        expect(count(type, true)).toHaveLength(total);
+        expect(count(type, true)).toEqual(positiveOnly(type, true));
+      }
+    });
   });
 });
 

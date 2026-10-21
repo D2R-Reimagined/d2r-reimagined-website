@@ -1,9 +1,12 @@
-import type { Skill, SkillDamageScale } from '$lib/types';
+import type { Skill, SkillDamageScale, SkillDescriptionLine } from '$lib/types';
 
 interface CalcContext {
   skill: Skill;
   skillsByCode: Map<string, Skill>;
+  /** `lvl` / `sklvl` — skill levels including +skills. */
   ranks: Record<number, number>;
+  /** `blvl` — hard points only, mirroring the exporter's CalcLevels.BaseLevel. */
+  baseRanks: Record<number, number>;
   expanding: Set<string>;
 }
 
@@ -11,17 +14,42 @@ export function skillSynergyBonus(
   skill: Skill,
   scale: SkillDamageScale,
   skills: Skill[],
-  ranks: Record<number, number>
+  ranks: Record<number, number>,
+  baseRanks: Record<number, number> = ranks
 ): number {
   const expression = {
     physical: skill.Calculation?.PhysicalDamage,
     elemental: skill.Calculation?.ElementalDamage,
     elementalLength: skill.Calculation?.ElementalLength
   }[scale];
-  if (!expression) return 0;
+  return safeEvaluate(expression, skill, skills, ranks, baseRanks);
+}
 
+/**
+ * The damage percentage for one description line: its own missile-sourced `scaleCalc` when
+ * present, otherwise the skill's `*SymPerCalc` named by `scale`, otherwise none.
+ */
+export function skillLineSynergyBonus(
+  line: SkillDescriptionLine,
+  skill: Skill,
+  skills: Skill[],
+  ranks: Record<number, number>,
+  baseRanks: Record<number, number> = ranks
+): number {
+  if (line.scaleCalc) return safeEvaluate(line.scaleCalc, skill, skills, ranks, baseRanks);
+  return line.scale ? skillSynergyBonus(skill, line.scale, skills, ranks, baseRanks) : 0;
+}
+
+function safeEvaluate(
+  expression: string | undefined,
+  skill: Skill,
+  skills: Skill[],
+  ranks: Record<number, number>,
+  baseRanks: Record<number, number>
+): number {
+  if (!expression) return 0;
   try {
-    return evaluateSkillCalc(expression, skill, skills, ranks);
+    return evaluateSkillCalc(expression, skill, skills, ranks, baseRanks);
   } catch {
     return 0;
   }
@@ -32,12 +60,14 @@ export function evaluateSkillCalc(
   expression: string,
   skill: Skill,
   skills: Skill[],
-  ranks: Record<number, number>
+  ranks: Record<number, number>,
+  baseRanks: Record<number, number> = ranks
 ): number {
   const context: CalcContext = {
     skill,
     skillsByCode: new Map(skills.map((entry) => [entry.Code.toLowerCase(), entry])),
     ranks,
+    baseRanks,
     expanding: new Set()
   };
   return new Parser(balanceTerminalParentheses(expression.trim().replace(/^"|"$/g, '')), context).parse();
@@ -188,7 +218,8 @@ class Parser {
 
   private resolveSymbol(symbol: string, context: CalcContext): number {
     const lower = symbol.toLowerCase();
-    if (lower === 'lvl' || lower === 'blvl' || lower === 'sklvl') {
+    if (lower === 'blvl') return context.baseRanks[context.skill.Id] ?? 0;
+    if (lower === 'lvl' || lower === 'sklvl') {
       return context.ranks[context.skill.Id] ?? 0;
     }
 

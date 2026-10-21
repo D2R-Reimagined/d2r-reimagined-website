@@ -108,6 +108,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -122,6 +123,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -143,6 +145,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -164,6 +167,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -178,6 +182,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -192,6 +197,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -213,6 +219,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -227,6 +234,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -248,6 +256,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -262,6 +271,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -342,6 +352,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -356,6 +367,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -377,6 +389,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -398,6 +411,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -412,6 +426,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -426,6 +441,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -447,6 +463,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -461,6 +478,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -482,6 +500,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -496,6 +515,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -576,6 +596,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -590,6 +611,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -611,6 +633,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -632,6 +655,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -646,6 +670,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -660,6 +685,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -681,6 +707,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -695,6 +722,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -716,6 +744,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -730,6 +759,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -1246,8 +1276,8 @@
       {
         "key": "strDurability",
         "args": [
-          18,
-          18
+          22,
+          22
         ]
       },
       {
@@ -1291,8 +1321,8 @@
       {
         "key": "strDurability",
         "args": [
-          18,
-          18
+          22,
+          22
         ]
       },
       {
@@ -1329,8 +1359,8 @@
       {
         "key": "strDurability",
         "args": [
-          18,
-          18
+          22,
+          22
         ]
       },
       {
@@ -1480,7 +1510,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -1499,7 +1529,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -1513,7 +1543,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -1532,7 +1562,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -1546,7 +1576,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -1560,7 +1590,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -1579,7 +1609,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -1598,7 +1628,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -1664,7 +1694,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -1683,7 +1713,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -1697,7 +1727,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -1716,7 +1746,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -1730,7 +1760,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -1744,7 +1774,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -1763,7 +1793,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -1782,7 +1812,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -1892,6 +1922,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -1912,6 +1943,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -1932,6 +1964,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -1952,6 +1985,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -2133,8 +2167,8 @@
       {
         "key": "strDurability",
         "args": [
-          16,
-          16
+          24,
+          24
         ]
       },
       {
@@ -2248,8 +2282,8 @@
       {
         "key": "strDurability",
         "args": [
-          12,
-          12
+          20,
+          20
         ]
       },
       {
@@ -2394,7 +2428,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -2413,7 +2447,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -2427,7 +2461,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -2446,7 +2480,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -2460,7 +2494,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -2474,7 +2508,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -2493,7 +2527,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -2512,7 +2546,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -2578,6 +2612,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -2598,6 +2633,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -2618,6 +2654,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -2638,6 +2675,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -3021,7 +3059,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -3040,7 +3078,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -3054,7 +3092,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -3073,7 +3111,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -3087,7 +3125,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -3101,7 +3139,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -3120,7 +3158,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -3139,7 +3177,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -3180,8 +3218,8 @@
       {
         "key": "strDurability",
         "args": [
-          24,
-          24
+          32,
+          32
         ]
       },
       {
@@ -3243,7 +3281,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -3262,7 +3300,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -3276,7 +3314,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -3295,7 +3333,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -3309,7 +3347,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -3323,7 +3361,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -3342,7 +3380,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -3361,7 +3399,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -3554,6 +3592,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -3568,6 +3607,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -3589,6 +3629,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -3610,6 +3651,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -3624,6 +3666,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -3638,6 +3681,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -3659,6 +3703,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -3673,6 +3718,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -3694,6 +3740,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -3708,6 +3755,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -3794,8 +3842,8 @@
       {
         "key": "strDurability",
         "args": [
-          18,
-          18
+          26,
+          26
         ]
       },
       {
@@ -3895,7 +3943,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -3914,7 +3962,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -3928,7 +3976,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -3947,7 +3995,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -3961,7 +4009,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -3975,7 +4023,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -3994,7 +4042,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -4013,7 +4061,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -4079,7 +4127,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -4098,7 +4146,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -4112,7 +4160,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -4131,7 +4179,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -4145,7 +4193,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -4159,7 +4207,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -4178,7 +4226,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -4197,7 +4245,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -4352,6 +4400,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -4372,6 +4421,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -4392,6 +4442,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -4412,6 +4463,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -4542,8 +4594,8 @@
       {
         "key": "strDurability",
         "args": [
-          12,
-          12
+          16,
+          16
         ]
       },
       {
@@ -4580,8 +4632,8 @@
       {
         "key": "strDurability",
         "args": [
-          12,
-          12
+          16,
+          16
         ]
       },
       {
@@ -4618,8 +4670,8 @@
       {
         "key": "strDurability",
         "args": [
-          12,
-          12
+          16,
+          16
         ]
       },
       {
@@ -5104,6 +5156,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -5124,6 +5177,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -5144,6 +5198,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -5164,6 +5219,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -5274,7 +5330,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -5293,7 +5349,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -5307,7 +5363,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -5326,7 +5382,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -5340,7 +5396,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -5354,7 +5410,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -5373,7 +5429,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -5392,7 +5448,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -5578,6 +5634,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -5598,6 +5655,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -5618,6 +5676,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -5638,6 +5697,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -5831,6 +5891,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -5845,6 +5906,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -5866,6 +5928,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -5887,6 +5950,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -5901,6 +5965,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -5915,6 +5980,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -5936,6 +6002,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -5950,6 +6017,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -5971,6 +6039,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -5985,6 +6054,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -6439,7 +6509,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -6458,7 +6528,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -6472,7 +6542,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -6491,7 +6561,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -6505,7 +6575,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -6519,7 +6589,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -6538,7 +6608,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -6557,7 +6627,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -6857,8 +6927,8 @@
       {
         "key": "strDurability",
         "args": [
-          16,
-          16
+          20,
+          20
         ]
       },
       {
@@ -6990,6 +7060,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -7010,6 +7081,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -7030,6 +7102,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -7050,6 +7123,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -7167,6 +7241,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -7181,6 +7256,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -7202,6 +7278,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -7223,6 +7300,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -7237,6 +7315,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -7251,6 +7330,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -7272,6 +7352,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -7286,6 +7367,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -7307,6 +7389,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -7321,6 +7404,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -7394,6 +7478,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -7414,6 +7499,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -7434,6 +7520,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -7454,6 +7541,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -7887,6 +7975,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -7901,6 +7990,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -7922,6 +8012,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -7943,6 +8034,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -7957,6 +8049,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -7971,6 +8064,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -7992,6 +8086,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -8006,6 +8101,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -8027,6 +8123,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -8041,6 +8138,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -8685,8 +8783,8 @@
       {
         "key": "strDurability",
         "args": [
-          16,
-          16
+          20,
+          20
         ]
       },
       {
@@ -8730,8 +8828,8 @@
       {
         "key": "strDurability",
         "args": [
-          16,
-          16
+          20,
+          20
         ]
       },
       {
@@ -8793,6 +8891,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -8813,6 +8912,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -8833,6 +8933,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -8853,6 +8954,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -8907,8 +9009,8 @@
       {
         "key": "strDurability",
         "args": [
-          18,
-          18
+          26,
+          26
         ]
       },
       {
@@ -8945,8 +9047,8 @@
       {
         "key": "strDurability",
         "args": [
-          16,
-          16
+          24,
+          24
         ]
       },
       {
@@ -9059,6 +9161,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -9079,6 +9182,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -9099,6 +9203,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -9119,6 +9224,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -9173,8 +9279,8 @@
       {
         "key": "strDurability",
         "args": [
-          24,
-          24
+          32,
+          32
         ]
       },
       {
@@ -9236,7 +9342,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -9255,7 +9361,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -9269,7 +9375,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -9288,7 +9394,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -9302,7 +9408,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -9316,7 +9422,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -9335,7 +9441,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -9354,7 +9460,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -9420,7 +9526,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -9439,7 +9545,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -9453,7 +9559,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -9472,7 +9578,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -9486,7 +9592,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -9500,7 +9606,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -9519,7 +9625,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -9538,7 +9644,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -9579,8 +9685,8 @@
       {
         "key": "strDurability",
         "args": [
-          24,
-          24
+          32,
+          32
         ]
       },
       {
@@ -9642,7 +9748,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -9661,7 +9767,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -9675,7 +9781,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -9694,7 +9800,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -9708,7 +9814,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -9722,7 +9828,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -9741,7 +9847,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -9760,7 +9866,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -9864,6 +9970,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -9884,6 +9991,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -9904,6 +10012,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -9924,6 +10033,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -10123,7 +10233,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -10142,7 +10252,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -10156,7 +10266,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -10175,7 +10285,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -10189,7 +10299,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -10203,7 +10313,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -10222,7 +10332,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -10241,7 +10351,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -10307,7 +10417,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -10326,7 +10436,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -10340,7 +10450,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -10359,7 +10469,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -10373,7 +10483,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -10387,7 +10497,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -10406,7 +10516,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -10425,7 +10535,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -10491,6 +10601,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -10511,6 +10622,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -10531,6 +10643,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -10551,6 +10664,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -10630,6 +10744,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -10644,6 +10759,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -10665,6 +10781,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -10686,6 +10803,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -10700,6 +10818,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -10714,6 +10833,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -10735,6 +10855,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -10749,6 +10870,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -10770,6 +10892,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -10784,6 +10907,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -10984,6 +11108,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -10998,6 +11123,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -11019,6 +11145,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -11040,6 +11167,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -11054,6 +11182,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -11068,6 +11197,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -11089,6 +11219,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -11103,6 +11234,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -11124,6 +11256,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -11138,6 +11271,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -11269,6 +11403,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -11283,6 +11418,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -11304,6 +11440,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -11325,6 +11462,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -11339,6 +11477,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -11353,6 +11492,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -11374,6 +11514,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -11388,6 +11529,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -11409,6 +11551,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -11423,6 +11566,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -11623,6 +11767,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -11637,6 +11782,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -11658,6 +11804,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -11679,6 +11826,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -11693,6 +11841,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -11707,6 +11856,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -11728,6 +11878,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -11742,6 +11893,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -11763,6 +11915,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -11777,6 +11930,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -11857,6 +12011,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -11871,6 +12026,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -11892,6 +12048,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -11913,6 +12070,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -11927,6 +12085,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -11941,6 +12100,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -11962,6 +12122,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -11976,6 +12137,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -11997,6 +12159,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -12011,6 +12174,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -12255,8 +12419,8 @@
       {
         "key": "strDurability",
         "args": [
-          14,
-          14
+          22,
+          22
         ]
       },
       {
@@ -12407,6 +12571,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -12427,6 +12592,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -12447,6 +12613,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -12467,6 +12634,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -12590,8 +12758,8 @@
       {
         "key": "strDurability",
         "args": [
-          14,
-          14
+          18,
+          18
         ]
       },
       {
@@ -12635,8 +12803,8 @@
       {
         "key": "strDurability",
         "args": [
-          14,
-          14
+          18,
+          18
         ]
       },
       {
@@ -12673,8 +12841,8 @@
       {
         "key": "strDurability",
         "args": [
-          14,
-          14
+          18,
+          18
         ]
       },
       {
@@ -12926,8 +13094,8 @@
       {
         "key": "strDurability",
         "args": [
-          12,
-          12
+          20,
+          20
         ]
       },
       {
@@ -13198,6 +13366,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -13218,6 +13387,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -13238,6 +13408,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -13258,6 +13429,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -13381,6 +13553,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -13395,6 +13568,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -13416,6 +13590,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -13437,6 +13612,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -13451,6 +13627,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -13465,6 +13642,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -13486,6 +13664,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -13500,6 +13679,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -13521,6 +13701,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -13535,6 +13716,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -13722,7 +13904,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "of Ember",
+        "Code": "of Ember",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -13741,7 +13923,7 @@
         ]
       },
       {
-        "NameKey": "of Shadows",
+        "Code": "of Shadows",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -13755,7 +13937,7 @@
         ]
       },
       {
-        "NameKey": "of Cinders",
+        "Code": "of Cinders",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -13774,7 +13956,7 @@
         ]
       },
       {
-        "NameKey": "of Darkness",
+        "Code": "of Darkness",
         "Level": 15,
         "RequiredLevel": 11,
         "Lines": [
@@ -13788,7 +13970,7 @@
         ]
       },
       {
-        "NameKey": "of Despair",
+        "Code": "of Despair",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -13802,7 +13984,7 @@
         ]
       },
       {
-        "NameKey": "of Flames",
+        "Code": "of Flames",
         "Level": 25,
         "RequiredLevel": 18,
         "Lines": [
@@ -13821,7 +14003,7 @@
         ]
       },
       {
-        "NameKey": "of Inferno",
+        "Code": "of Inferno",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -13840,7 +14022,7 @@
         ]
       },
       {
-        "NameKey": "of Nightmares",
+        "Code": "of Nightmares",
         "Level": 33,
         "RequiredLevel": 25,
         "Lines": [
@@ -14014,8 +14196,8 @@
       {
         "key": "strDurability",
         "args": [
-          18,
-          18
+          26,
+          26
         ]
       },
       {
@@ -14128,6 +14310,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -14148,6 +14331,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -14168,6 +14352,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -14188,6 +14373,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,
@@ -14235,8 +14421,8 @@
       {
         "key": "strDurability",
         "args": [
-          16,
-          16
+          26,
+          26
         ]
       },
       {
@@ -14273,8 +14459,8 @@
       {
         "key": "strDurability",
         "args": [
-          14,
-          14
+          22,
+          22
         ]
       },
       {
@@ -14311,8 +14497,8 @@
       {
         "key": "strDurability",
         "args": [
-          14,
-          14
+          22,
+          22
         ]
       },
       {
@@ -14381,6 +14567,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -14395,6 +14582,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -14416,6 +14604,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -14437,6 +14626,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -14451,6 +14641,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -14465,6 +14656,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -14486,6 +14678,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -14500,6 +14693,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -14521,6 +14715,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -14535,6 +14730,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -14583,8 +14779,8 @@
       {
         "key": "strDurability",
         "args": [
-          24,
-          24
+          28,
+          28
         ]
       },
       {
@@ -14628,8 +14824,8 @@
       {
         "key": "strDurability",
         "args": [
-          24,
-          24
+          28,
+          28
         ]
       },
       {
@@ -14666,8 +14862,8 @@
       {
         "key": "strDurability",
         "args": [
-          24,
-          24
+          28,
+          28
         ]
       },
       {
@@ -14920,8 +15116,8 @@
       {
         "key": "strDurability",
         "args": [
-          12,
-          12
+          20,
+          20
         ]
       },
       {
@@ -15028,6 +15224,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "Shimmering",
         "NameKey": "Shimmering",
         "Level": 1,
         "RequiredLevel": 3,
@@ -15042,6 +15239,7 @@
         ]
       },
       {
+        "Code": "Sharp",
         "NameKey": "Sharp",
         "Level": 10,
         "RequiredLevel": 5,
@@ -15063,6 +15261,7 @@
         ]
       },
       {
+        "Code": "Fine",
         "NameKey": "Fine",
         "Level": 18,
         "RequiredLevel": 13,
@@ -15084,6 +15283,7 @@
         ]
       },
       {
+        "Code": "Rainbow",
         "NameKey": "Rainbow",
         "Level": 18,
         "RequiredLevel": 13,
@@ -15098,6 +15298,7 @@
         ]
       },
       {
+        "Code": "Scintillating",
         "NameKey": "Scintillating",
         "Level": 28,
         "RequiredLevel": 21,
@@ -15112,6 +15313,7 @@
         ]
       },
       {
+        "Code": "Warrior's",
         "NameKey": "Warrior's",
         "Level": 30,
         "RequiredLevel": 23,
@@ -15133,6 +15335,7 @@
         ]
       },
       {
+        "Code": "Prismatic",
         "NameKey": "Prismatic",
         "Level": 39,
         "RequiredLevel": 31,
@@ -15147,6 +15350,7 @@
         ]
       },
       {
+        "Code": "Soldier's",
         "NameKey": "Soldier's",
         "Level": 42,
         "RequiredLevel": 34,
@@ -15168,6 +15372,7 @@
         ]
       },
       {
+        "Code": "Chromatic",
         "NameKey": "Chromatic",
         "Level": 50,
         "RequiredLevel": 42,
@@ -15182,6 +15387,7 @@
         ]
       },
       {
+        "Code": "Knight's",
         "NameKey": "Knight's",
         "Level": 50,
         "RequiredLevel": 42,
@@ -15255,6 +15461,7 @@
     ],
     "AutoMagicGroups": [
       {
+        "Code": "of Blight",
         "NameKey": "of Blight",
         "Level": 1,
         "RequiredLevel": 3,
@@ -15275,6 +15482,7 @@
         ]
       },
       {
+        "Code": "of Venom",
         "NameKey": "of Venom",
         "Level": 15,
         "RequiredLevel": 11,
@@ -15295,6 +15503,7 @@
         ]
       },
       {
+        "Code": "of Pestilence",
         "NameKey": "of Pestilence",
         "Level": 25,
         "RequiredLevel": 18,
@@ -15315,6 +15524,7 @@
         ]
       },
       {
+        "Code": "of Anthrax",
         "NameKey": "of Anthrax",
         "Level": 33,
         "RequiredLevel": 25,

@@ -9,6 +9,7 @@
     baseRanks = ranks,
     readonly = false,
     floatDetails = false,
+    characterLevel,
     increase = () => undefined,
     decrease = () => undefined,
     canIncrease = () => false
@@ -18,6 +19,7 @@
     baseRanks?: Record<number, number>;
     readonly?: boolean;
     floatDetails?: boolean;
+    characterLevel?: number;
     increase?: (skill: Skill, amount?: number) => void;
     decrease?: (skill: Skill, amount?: number) => void;
     canIncrease?: (skill: Skill) => boolean;
@@ -67,6 +69,7 @@
       {increase}
       {decrease}
       {readonly}
+      {characterLevel}
     />
   </div>
 </div>

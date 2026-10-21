@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {CatalogSlug} from '$lib/types';
-    import type {CatalogSortMode, RuneMatchMode} from '$lib/catalog-controls';
+    import {parseTypeChoice, typeChoiceValue, typeFamilyChoices, type CatalogSortMode, type RuneMatchMode} from '$lib/catalog-controls';
     import {i18n} from '$lib/i18n';
     import SearchableSelect from './SearchableSelect.svelte';
     import SearchableMultiSelect from './SearchableMultiSelect.svelte';
@@ -52,10 +52,27 @@
 
     const fieldLabel = 'mb-1 block text-xs uppercase tracking-widest text-parchment-300';
     let expanded = $state(true);
+    // Without the Exact toggle, the type list offers Helm and Any Helm as separate choices.
+    const exactToggle = $derived(['affixes', 'runewords'].includes(slug));
+    const typeChoices = $derived(exactToggle ? typeOptions : typeFamilyChoices(typeOptions, (key) => $i18n.t(key)));
+
+    function getTypeChoice(): string {
+        return exactToggle ? selectedType : typeChoiceValue(selectedType, exactType);
+    }
+
+    function setTypeChoice(value: string): void {
+        if (exactToggle) {
+            selectedType = value;
+            return;
+        }
+        const choice = parseTypeChoice(value);
+        selectedType = choice.selectedType;
+        exactType = choice.exactType;
+    }
 </script>
 
 <section
-        class="filters-panel panel sticky top-16 z-40 mb-4 max-h-[calc(100vh-4rem)] overflow-y-auto rounded-lg p-2.5 sm:p-3"
+        class="filters-panel panel mb-4 rounded-lg p-2.5 sm:p-3 lg:sticky lg:top-16 lg:z-40 lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto"
         aria-label={grail ? 'Grail filters' : 'Catalog filters'}
         data-testid="catalog-filters"
 >
@@ -114,7 +131,7 @@
 
             {#if typeOptions.length}
                 <SearchableSelect id="item-type" label={$i18n.t('filter_select_type')}
-                    placeholder="All types" options={typeOptions} bind:value={selectedType} />
+                    placeholder="All types" options={typeChoices} bind:value={getTypeChoice, setTypeChoice} />
             {/if}
 
             {#if (slug === 'uniques' || slug === 'sets') && equipmentOptions.length}
@@ -194,7 +211,7 @@
                 </label>
             {/if}
 
-            {#if ['affixes', 'runewords'].includes(slug) && typeOptions.length}
+            {#if exactToggle && typeOptions.length}
                 <label class="compact-control flex items-center gap-2 rounded-md border border-parchment-300/20 bg-black/20">
                     <input type="checkbox" bind:checked={exactType} class="checkbox"/>
                     <span>{$i18n.t('filter_exact')}</span>

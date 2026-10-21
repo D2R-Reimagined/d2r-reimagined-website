@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildItemTitle, isCraftRecipe } from './build-items';
+import { buildItemKey, buildItemTitle, findBuildItem, isCraftRecipe } from './build-items';
 import { inlineTokens } from './build-markdown';
 import { searchText, type SearchTools } from './catalog';
 import recipes from '../../static/data/keyed/cube-recipes.json';
@@ -22,7 +22,9 @@ describe('Build craft references', () => {
   it('selects actual exported crafts and retains their additional output modifiers', () => {
     const crafts = (recipes as CatalogItem[]).filter(isCraftRecipe);
     expect(crafts.length).toBeGreaterThan(0);
-    const craft = crafts.find(item => item.Index === 249)!;
+    // A link saved as `249` before recipes were renumbered still names the same amulet craft.
+    const craft = findBuildItem(crafts, 'cube-recipes', '249')!;
+    expect(findBuildItem(crafts, 'cube-recipes', buildItemKey(craft, 'cube-recipes'))).toBe(craft);
     expect(craft.Outputs?.A.Lines).toContainEqual({ key: 'ModStr3k', args: [2] });
     expect(searchText(craft, tools)).toContain('modstr3k 2');
     expect(buildItemTitle(craft, 'cube-recipes', tools)).toContain('amu strCubeQualifierRareItem');

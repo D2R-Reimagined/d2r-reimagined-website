@@ -68,12 +68,6 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          5
-        ]
-      },
-      {
         "key": "ModStr1i",
         "args": [
           25
@@ -190,16 +184,18 @@
           ]
         },
         {
-          "key": "strDurability",
-          "args": [
-            20,
-            20
-          ]
-        },
-        {
           "key": "strRequiredStrength",
           "args": [
             10
+          ]
+        },
+        {
+          "key": "strDurabilityRolls",
+          "args": [
+            20,
+            24,
+            20,
+            24
           ]
         }
       ]
@@ -594,15 +590,13 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 9.75,
+          "AverageDamage": 10.5,
           "Lines": [
             {
-              "key": "strWeaponDamageGenericRange",
+              "key": "strWeaponDamageGeneric",
               "args": [
                 2,
-                16,
-                4,
-                17
+                19
               ]
             }
           ]
@@ -934,12 +928,6 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          5
-        ]
-      },
-      {
         "key": "ModStr3m",
         "args": [
           20
@@ -948,7 +936,7 @@
       {
         "key": "ModStr1a",
         "args": [
-          8
+          15
         ]
       }
     ],
@@ -1096,12 +1084,6 @@
         "key": "ModStr1h",
         "args": [
           35
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          5
         ]
       },
       {
@@ -1732,17 +1714,17 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
+        "key": "ModStr4m",
+        "args": [
+          10
+        ]
+      },
+      {
         "key": "strModPoisonDamageRange",
         "args": [
           23,
           23,
           3
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          5
         ]
       },
       {
@@ -2463,14 +2445,24 @@
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 44
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 44
+        }
       },
       {
         "key": "ModStr1e",
@@ -2835,7 +2827,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -3107,6 +3100,12 @@
         "args": [
           5,
           15
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          8
         ]
       },
       {
@@ -4458,9 +4457,11 @@
         ]
       },
       {
-        "key": "strModFireDamageRange",
+        "key": "strFireDamageRolls",
         "args": [
           6,
+          9,
+          15,
           20
         ]
       },
@@ -4499,12 +4500,14 @@
         },
         {
           "Type": 4,
-          "AverageDamage": 13,
+          "AverageDamage": 12.5,
           "Lines": [
             {
-              "key": "strElementalDamage",
+              "key": "strElementalDamageRange",
               "args": [
                 6,
+                9,
+                15,
                 20
               ]
             }
@@ -4944,7 +4947,12 @@
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 76
+        }
       },
       {
         "key": "ModStr1k",
@@ -5273,9 +5281,10 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "strModFireDamageRange",
         "args": [
-          10
+          10,
+          20
         ]
       },
       {
@@ -5319,6 +5328,19 @@
                 5,
                 15,
                 17
+              ]
+            }
+          ]
+        },
+        {
+          "Type": 4,
+          "AverageDamage": 15,
+          "Lines": [
+            {
+              "key": "strElementalDamage",
+              "args": [
+                10,
+                20
               ]
             }
           ]
@@ -5611,16 +5633,18 @@
           ]
         },
         {
-          "key": "strDurability",
-          "args": [
-            26,
-            26
-          ]
-        },
-        {
           "key": "strRequiredStrength",
           "args": [
             22
+          ]
+        },
+        {
+          "key": "strDurabilityRolls",
+          "args": [
+            26,
+            31,
+            26,
+            31
           ]
         }
       ]
@@ -5895,14 +5919,24 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 75
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 75
+        }
       },
       {
         "key": "strSocketedCount",
@@ -5918,15 +5952,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 15,
+          "AverageDamage": 14.75,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 7,
-                22,
-                8,
-                23
+                12,
+                16,
+                24
               ]
             }
           ]
@@ -6320,16 +6354,16 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          8
-        ]
-      },
-      {
         "key": "ModStr1u",
         "args": [
           35,
           50
+        ]
+      },
+      {
+        "key": "ModStr2l",
+        "args": [
+          5
         ]
       }
     ],
@@ -7002,13 +7036,13 @@
       {
         "key": "ModStr3u",
         "args": [
-          50
+          21
         ]
       },
       {
         "key": "ModStr5r",
         "args": [
-          15
+          10
         ]
       },
       {
@@ -8120,6 +8154,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          6
+        ]
+      },
+      {
         "key": "ModStr2y",
         "args": [
           9
@@ -8573,7 +8613,7 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr2z",
         "args": [
           10
         ]
@@ -8694,21 +8734,36 @@
         "args": [
           1,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 50
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 50
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 50
+        }
       }
     ],
     "Equipment": {
@@ -8771,28 +8826,48 @@
         "args": [
           1,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 80
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 80
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 80
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 80
+        }
       },
       {
         "key": "ModStr1e",
@@ -9600,15 +9675,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 32.5,
+          "AverageDamage": 34.25,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 17,
-                47,
-                18,
-                48
+                28,
+                41,
+                51
               ]
             }
           ]
@@ -9779,6 +9854,12 @@
         "args": [
           3,
           5
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2
         ]
       },
       {
@@ -10095,15 +10176,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 11.25,
+          "AverageDamage": 12.5,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 7,
-                14,
                 9,
-                15
+                14,
+                20
               ]
             }
           ]
@@ -10205,16 +10286,18 @@
           ]
         },
         {
-          "key": "strDurability",
+          "key": "strRequiredStrength",
           "args": [
-            34,
             34
           ]
         },
         {
-          "key": "strRequiredStrength",
+          "key": "strDurabilityRolls",
           "args": [
-            34
+            34,
+            39,
+            34,
+            39
           ]
         }
       ]
@@ -10903,16 +10986,18 @@
       ],
       "Lines": [
         {
-          "key": "strDurability",
-          "args": [
-            270,
-            270
-          ]
-        },
-        {
           "key": "strRequiredStrength",
           "args": [
             50
+          ]
+        },
+        {
+          "key": "strDurabilityRolls",
+          "args": [
+            270,
+            290,
+            270,
+            290
           ]
         }
       ]
@@ -11096,15 +11181,16 @@
         ]
       },
       {
-        "key": "ModStr5r",
+        "key": "ModStr3m",
         "args": [
-          10
+          15
         ]
       },
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -12965,9 +13051,16 @@
         ]
       },
       {
-        "key": "strModColdDamageRange",
+        "key": "ModStr1t",
         "args": [
           1,
+          2
+        ]
+      },
+      {
+        "key": "ModStr1s",
+        "args": [
+          3,
           5
         ]
       },
@@ -12990,6 +13083,13 @@
         "args": [
           1,
           5
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2,
+          10
         ]
       }
     ],
@@ -13094,15 +13194,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 31,
+          "AverageDamage": 30.75,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 13,
-                48,
-                14,
-                49
+                18,
+                41,
+                51
               ]
             }
           ]
@@ -13279,6 +13379,7 @@
       {
         "key": "strModMinDamageRange",
         "args": [
+          5,
           5
         ]
       }
@@ -13758,30 +13859,30 @@
       "DamageTypes": [
         {
           "Type": 0,
-          "AverageDamage": 60.5,
+          "AverageDamage": 61,
           "Lines": [
             {
               "key": "strWeaponDamageOneHandRange",
               "args": [
                 35,
-                85,
-                36,
-                86
+                45,
+                72,
+                92
               ]
             }
           ]
         },
         {
           "Type": 1,
-          "AverageDamage": 68.5,
+          "AverageDamage": 74,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 43,
-                93,
-                44,
-                94
+                53,
+                90,
+                110
               ]
             }
           ]
@@ -13961,9 +14062,10 @@
         ]
       },
       {
-        "key": "ModStr5r",
+        "key": "ModStr2z",
         "args": [
-          10
+          3,
+          8
         ]
       },
       {
@@ -14648,7 +14750,7 @@
       {
         "key": "ItemExpansiveChanc2",
         "args": [
-          7,
+          0,
           2,
           "skillname71"
         ]
@@ -14843,15 +14945,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 63.5,
+          "AverageDamage": 66,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 38,
-                88,
-                39,
-                89
+                58,
+                74,
+                94
               ]
             }
           ]
@@ -15421,15 +15523,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 31.5,
+          "AverageDamage": 37.75,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 16,
-                46,
-                17,
-                47
+                27,
+                49,
+                59
               ]
             }
           ]
@@ -15520,9 +15622,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr5q",
         "args": [
-          10
+          15
         ]
       },
       {
@@ -15847,7 +15949,7 @@
       {
         "key": "ItemExpansiveChanc1",
         "args": [
-          10,
+          5,
           1,
           "skillname71"
         ]
@@ -16791,9 +16893,11 @@
         ]
       },
       {
-        "key": "strModFireDamageRange",
+        "key": "strFireDamageRolls",
         "args": [
           10,
+          12,
+          15,
           25
         ]
       },
@@ -16832,12 +16936,14 @@
         },
         {
           "Type": 4,
-          "AverageDamage": 17.5,
+          "AverageDamage": 15.5,
           "Lines": [
             {
-              "key": "strElementalDamage",
+              "key": "strElementalDamageRange",
               "args": [
                 10,
+                12,
+                15,
                 25
               ]
             }
@@ -17181,16 +17287,18 @@
           ]
         },
         {
-          "key": "strDurability",
-          "args": [
-            45,
-            45
-          ]
-        },
-        {
           "key": "strRequiredStrength",
           "args": [
             47
+          ]
+        },
+        {
+          "key": "strDurabilityRolls",
+          "args": [
+            45,
+            50,
+            45,
+            50
           ]
         }
       ]
@@ -17242,9 +17350,10 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr2z",
         "args": [
-          10
+          3,
+          5
         ]
       },
       {
@@ -17354,7 +17463,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          3
         ]
       }
     ],
@@ -18208,6 +18318,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          24
+        ]
+      },
+      {
         "key": "ModStr3l",
         "args": [
           1
@@ -18440,7 +18556,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          3
         ]
       }
     ],
@@ -18492,6 +18609,14 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          5,
+          5,
+          "skillname87"
+        ]
+      },
+      {
         "key": "ModStr4m",
         "args": [
           15
@@ -18507,13 +18632,7 @@
       {
         "key": "ModStr6d",
         "args": [
-          3
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          10
+          1
         ]
       },
       {
@@ -19804,16 +19923,18 @@
           ]
         },
         {
-          "key": "strDurability",
-          "args": [
-            140,
-            140
-          ]
-        },
-        {
           "key": "strRequiredStrength",
           "args": [
             75
+          ]
+        },
+        {
+          "key": "strDurabilityRolls",
+          "args": [
+            140,
+            160,
+            140,
+            160
           ]
         }
       ]
@@ -19874,15 +19995,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 29,
+          "AverageDamage": 28.5,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 11,
-                46,
-                12,
-                47
+                16,
+                36,
+                51
               ]
             }
           ]
@@ -19924,14 +20045,9 @@
         ]
       },
       {
-        "key": "ModStr6d",
+        "key": "ModStr2z",
         "args": [
-          2
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
+          5,
           10
         ]
       },
@@ -19939,6 +20055,13 @@
         "key": "ModStr1y",
         "args": [
           2
+        ]
+      },
+      {
+        "key": "healperhit",
+        "args": [
+          2,
+          3
         ]
       },
       {
@@ -20311,6 +20434,12 @@
         "args": [
           25,
           50
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          3
         ]
       }
     ],
@@ -20795,15 +20924,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 52,
+          "AverageDamage": 53,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 29,
-                74,
-                30,
-                75
+                34,
+                67,
+                82
               ]
             }
           ]
@@ -21073,6 +21202,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          2
+        ]
+      },
+      {
         "key": "Moditemenrescoldsk",
         "args": [
           10,
@@ -21206,15 +21341,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 31.5,
+          "AverageDamage": 32.25,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 11,
-                51,
-                12,
-                52
+                16,
+                46,
+                56
               ]
             }
           ]
@@ -21604,6 +21739,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          4
+        ]
+      },
+      {
         "key": "ModStr2y",
         "args": [
           4,
@@ -21618,15 +21759,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 51,
+          "AverageDamage": 64.25,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 21,
-                71,
-                40,
-                72
+                31,
+                90,
+                115
               ]
             }
           ]
@@ -21714,15 +21855,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 36.5,
+          "AverageDamage": 34.25,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 11,
-                61,
-                12,
-                62
+                16,
+                45,
+                65
               ]
             }
           ]
@@ -22155,6 +22296,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          8
+        ]
+      },
+      {
         "key": "ModStr5f",
         "args": [
           5
@@ -22497,6 +22644,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          8
+        ]
+      },
+      {
         "key": "ModStr2y",
         "args": [
           6
@@ -22643,15 +22796,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 28,
+          "AverageDamage": 28.5,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 15,
-                40,
-                16,
-                41
+                15,
+                37,
+                47
               ]
             }
           ]
@@ -23023,15 +23176,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 38.5,
+          "AverageDamage": 42.25,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 23,
-                53,
-                24,
-                54
+                34,
+                51,
+                61
               ]
             }
           ]
@@ -23109,6 +23262,12 @@
         "args": [
           15,
           25
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          12
         ]
       },
       {
@@ -23484,16 +23643,16 @@
         ]
       },
       {
+        "key": "ModStr2z",
+        "args": [
+          5
+        ]
+      },
+      {
         "key": "ModStrDamPierce",
         "args": [
           5,
           8
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          10
         ]
       },
       {
@@ -23510,15 +23669,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 25.25,
+          "AverageDamage": 32.75,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 6,
-                21,
-                36,
-                38
+                11,
+                56,
+                58
               ]
             }
           ]
@@ -23780,15 +23939,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 39.25,
+          "AverageDamage": 45,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 20,
+                32,
                 57,
-                22,
-                58
+                71
               ]
             }
           ]
@@ -23847,6 +24006,12 @@
         "args": [
           35,
           70
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
         ]
       },
       {
@@ -24358,84 +24523,6 @@
   {
     "Type": "torsitype",
     "Vanilla": "N",
-    "Index": "Red Dragon Scales",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 6,
-    "RequiredLevel": 21,
-    "Code": "scl",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "Moditemenresfiresk",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModitemdamFiresk",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          130,
-          150
-        ]
-      },
-      {
-        "key": "ModStr1j",
-        "args": [
-          20,
-          40
-        ]
-      },
-      {
-        "key": "ModStr5g",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr2uPercent",
-        "args": [
-          10
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "scl",
-      "RequiredClass": "",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            187,
-            210
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            36,
-            36
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            44
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "torsitype",
-    "Vanilla": "N",
     "Index": "Obsidian Husk",
     "Enabled": true,
     "Rarity": 1,
@@ -24637,10 +24724,10 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr2z",
         "args": [
-          5,
-          10
+          2,
+          5
         ]
       },
       {
@@ -24665,7 +24752,7 @@
       {
         "key": "ModStr2w",
         "args": [
-          -2
+          -5
         ]
       }
     ],
@@ -25171,13 +25258,13 @@
       {
         "key": "ModStr4s",
         "args": [
-          10
+          20
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr3m",
         "args": [
-          10
+          15
         ]
       },
       {
@@ -25302,15 +25389,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 39,
+          "AverageDamage": 42.75,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 21,
+                26,
                 56,
-                22,
-                57
+                68
               ]
             }
           ]
@@ -25575,7 +25662,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -25979,9 +26067,9 @@
               "key": "strWeaponDamageGenericRange",
               "args": [
                 30,
-                78,
-                31,
-                79
+                43,
+                60,
+                85
               ]
             }
           ]
@@ -26055,9 +26143,11 @@
         ]
       },
       {
-        "key": "strModFireDamageRange",
+        "key": "strFireDamageRolls",
         "args": [
           6,
+          6,
+          20,
           40
         ]
       },
@@ -26114,12 +26204,14 @@
         },
         {
           "Type": 4,
-          "AverageDamage": 23,
+          "AverageDamage": 18,
           "Lines": [
             {
-              "key": "strElementalDamage",
+              "key": "strElementalDamageRange",
               "args": [
                 6,
+                6,
+                20,
                 40
               ]
             }
@@ -26391,15 +26483,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 49.5,
+          "AverageDamage": 55.75,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 27,
+                40,
                 70,
-                30,
-                71
+                86
               ]
             }
           ]
@@ -26683,15 +26775,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 59,
+          "AverageDamage": 63.5,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 31,
-                86,
-                32,
-                87
+                41,
+                81,
+                101
               ]
             }
           ]
@@ -26918,85 +27010,6 @@
           "key": "strRequiredDexterity",
           "args": [
             45
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "torsitype",
-    "Vanilla": "N",
-    "Index": "Ghostly Chainmail",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 8,
-    "RequiredLevel": 23,
-    "Code": "chn",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "Moditemenrescoldsk",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModitemdamColdsk",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          155,
-          175
-        ]
-      },
-      {
-        "key": "ModStr1k",
-        "args": [
-          30,
-          50
-        ]
-      },
-      {
-        "key": "ModStre9u",
-        "args": [
-          1,
-          25
-        ]
-      },
-      {
-        "key": "strethereal",
-        "args": [
-          1
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "chn",
-      "RequiredClass": "",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            263,
-            287
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            45,
-            45
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            48
           ]
         }
       ]
@@ -27370,6 +27383,12 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
+        "key": "ModStr4m",
+        "args": [
+          10
+        ]
+      },
+      {
         "key": "strModEnhancedDamage",
         "args": [
           200,
@@ -27384,21 +27403,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr2uPercent",
         "args": [
           10
-        ]
-      },
-      {
-        "key": "ModStr1k",
-        "args": [
-          30
-        ]
-      },
-      {
-        "key": "ModStr1j",
-        "args": [
-          30
         ]
       }
     ],
@@ -27561,16 +27568,17 @@
         ]
       },
       {
+        "key": "ModStr6g",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
         "key": "strModMinDamageRange",
         "args": [
           10,
           20
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          10
         ]
       },
       {
@@ -27776,7 +27784,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -28043,14 +28052,24 @@
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 89
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 89
+        }
       },
       {
         "key": "Modstr2v",
@@ -28525,15 +28544,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 51.5,
+          "AverageDamage": 60.75,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 28,
-                66,
-                45,
-                67
+                36,
+                75,
+                104
               ]
             }
           ]
@@ -29238,30 +29257,30 @@
       "DamageTypes": [
         {
           "Type": 0,
-          "AverageDamage": 66,
+          "AverageDamage": 69.5,
           "Lines": [
             {
               "key": "strWeaponDamageOneHandRange",
               "args": [
                 38,
-                93,
-                39,
-                94
+                48,
+                86,
+                106
               ]
             }
           ]
         },
         {
           "Type": 1,
-          "AverageDamage": 72,
+          "AverageDamage": 78.5,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 44,
-                99,
-                45,
-                100
+                54,
+                98,
+                118
               ]
             }
           ]
@@ -29350,15 +29369,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 45.5,
+          "AverageDamage": 45.25,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 20,
-                70,
-                21,
-                71
+                25,
+                63,
+                73
               ]
             }
           ]
@@ -29425,7 +29444,12 @@
         "args": [
           3,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "Moditem2ExpG",
@@ -29448,15 +29472,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 43.5,
+          "AverageDamage": 46.75,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 23,
-                63,
-                24,
-                64
+                33,
+                58,
+                73
               ]
             }
           ]
@@ -29507,14 +29531,24 @@
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 90
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 90
+        }
       },
       {
         "key": "ModStr1e",
@@ -29862,88 +29896,6 @@
   {
     "Type": "torsitype",
     "Vanilla": "N",
-    "Index": "Breastplate of Gond",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 10,
-    "RequiredLevel": 25,
-    "Code": "brs",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "strModLightningDamageRange",
-        "args": [
-          1,
-          75
-        ]
-      },
-      {
-        "key": "Moditemenresltngsk",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModitemdamLtngsk",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          180,
-          200
-        ]
-      },
-      {
-        "key": "ModStr1l",
-        "args": [
-          40,
-          60
-        ]
-      },
-      {
-        "key": "ModStr5i",
-        "args": [
-          10,
-          15
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "brs",
-      "RequiredClass": "",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            245,
-            268
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            50,
-            50
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            30
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "torsitype",
-    "Vanilla": "N",
     "Index": "Dreamscape",
     "Enabled": true,
     "Rarity": 1,
@@ -29986,7 +29938,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -30205,7 +30158,7 @@
   {
     "Type": "shieitype",
     "Vanilla": "N",
-    "Index": "Bigby's Crushing Fist",
+    "Index": "Hratlis Warden",
     "Enabled": true,
     "Rarity": 1,
     "ItemLevel": 17,
@@ -30227,13 +30180,6 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          0.25
-        ],
-        "perLevel": true
-      },
-      {
         "key": "ModStr1i",
         "args": [
           40,
@@ -30241,9 +30187,17 @@
         ]
       },
       {
+        "key": "strModAllResistances",
+        "args": [
+          15,
+          30
+        ]
+      },
+      {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          3
         ]
       }
     ],
@@ -30941,15 +30895,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 63,
+          "AverageDamage": 62,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 35,
-                90,
-                36,
-                91
+                45,
+                74,
+                94
               ]
             }
           ]
@@ -31667,15 +31621,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 63.5,
+          "AverageDamage": 69,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 38,
-                88,
-                39,
-                89
+                48,
+                90,
+                100
               ]
             }
           ]
@@ -32118,12 +32072,6 @@
           40,
           40,
           2
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          10
         ]
       },
       {
@@ -32917,8 +32865,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr2z",
         "args": [
+          5,
           10
         ]
       }
@@ -32930,15 +32879,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 69,
+          "AverageDamage": 82.25,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 36,
-                91,
-                57,
-                92
+                51,
+                107,
+                135
               ]
             }
           ]
@@ -32990,7 +32939,7 @@
       {
         "key": "ModStr1f",
         "args": [
-          1.12
+          1.125
         ],
         "perLevel": true
       },
@@ -33106,15 +33055,15 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr2z",
         "args": [
-          10
+          5
         ]
       },
       {
-        "key": "ModStr1y",
+        "key": "mansteal",
         "args": [
-          1
+          5
         ]
       }
     ],
@@ -33624,10 +33573,10 @@
         ]
       },
       {
-        "key": "ModStr5r",
+        "key": "ModStrDamPierce",
         "args": [
-          10,
-          15
+          5,
+          10
         ]
       },
       {
@@ -33942,7 +33891,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -34235,6 +34185,14 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          5,
+          5,
+          "Confuse"
+        ]
+      },
+      {
         "key": "strModEnhancedDamage",
         "args": [
           50,
@@ -34263,12 +34221,6 @@
         "key": "ModStr3l",
         "args": [
           1
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          10
         ]
       },
       {
@@ -35246,7 +35198,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -36003,7 +35956,7 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr5q",
         "args": [
           10
         ]
@@ -36029,15 +35982,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 75,
+          "AverageDamage": 80.75,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 47,
-                73,
-                81,
-                99
+                56,
+                96,
+                124
               ]
             }
           ]
@@ -36335,21 +36288,21 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "ModStr1h",
+        "key": "ModStr4s",
         "args": [
-          45
+          20
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr1h",
         "args": [
-          15
+          50
         ]
       },
       {
         "key": "ModStr3u",
         "args": [
-          40
+          15
         ]
       },
       {
@@ -36865,12 +36818,6 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          5
-        ]
-      },
-      {
         "key": "Modstr2v",
         "args": [
           130,
@@ -36882,12 +36829,6 @@
         "args": [
           15,
           25
-        ]
-      },
-      {
-        "key": "ModStr5y",
-        "args": [
-          5
         ]
       },
       {
@@ -36912,8 +36853,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            16,
+            16
           ]
         },
         {
@@ -37018,8 +36959,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            16,
+            16
           ]
         },
         {
@@ -37092,8 +37033,8 @@
         {
           "key": "strDurability",
           "args": [
-            22,
-            22
+            26,
+            26
           ]
         },
         {
@@ -37166,15 +37107,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 42.5,
+          "AverageDamage": 45.25,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 17,
-                67,
-                18,
-                68
+                22,
+                66,
+                76
               ]
             }
           ]
@@ -37528,7 +37469,7 @@
       {
         "key": "ModStr1j",
         "args": [
-          0.62
+          0.625
         ],
         "perLevel": true
       },
@@ -37542,7 +37483,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -37553,15 +37495,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 81,
+          "AverageDamage": 91,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 53,
-                108,
-                54,
-                109
+                63,
+                119,
+                129
               ]
             }
           ]
@@ -37629,7 +37571,12 @@
         "args": [
           4,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "ModStr1e",
@@ -37645,15 +37592,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 57.5,
+          "AverageDamage": 55,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 22,
-                92,
-                23,
-                93
+                32,
+                68,
+                98
               ]
             }
           ]
@@ -37711,21 +37658,36 @@
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       }
     ],
     "Equipment": {
@@ -37804,6 +37766,12 @@
         "args": [
           40,
           50
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
         ]
       },
       {
@@ -37927,15 +37895,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 32,
+          "AverageDamage": 33.75,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 11,
-                51,
-                14,
-                52
+                21,
+                44,
+                59
               ]
             }
           ]
@@ -38542,6 +38510,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          2
+        ]
+      },
+      {
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
@@ -39029,15 +39003,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 45,
+          "AverageDamage": 40.25,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 22,
-                67,
-                23,
-                68
+                27,
+                41,
+                71
               ]
             }
           ]
@@ -39387,14 +39361,6 @@
       {
         "key": "ItemModifierNonClassSkill",
         "args": [
-          2,
-          3,
-          "skillname126"
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
           1,
           "skillname127"
         ]
@@ -39428,6 +39394,7 @@
       {
         "key": "ModStr5r",
         "args": [
+          5,
           10
         ]
       }
@@ -39899,7 +39866,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          4
+          4,
+          6
         ]
       }
     ],
@@ -40133,15 +40101,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 47.75,
+          "AverageDamage": 50.75,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 26,
-                68,
-                28,
-                69
+                38,
+                58,
+                81
               ]
             }
           ]
@@ -40857,7 +40825,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -40925,6 +40894,12 @@
         "args": [
           10,
           20
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          1
         ]
       },
       {
@@ -41291,21 +41266,36 @@
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 60
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 60
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 60
+        }
       },
       {
         "key": "ModStr1a",
@@ -41385,14 +41375,24 @@
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 60
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "Moditem2allattrib",
@@ -41985,17 +41985,17 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          10
-        ]
-      },
-      {
         "key": "ModStr5q",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
+      },
+      {
+        "key": "ModStr3m",
+        "args": [
+          15
+        ]
       },
       {
         "key": "ModStr1a",
@@ -42343,6 +42343,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          4
+        ]
+      },
+      {
         "key": "ModStr2l",
         "args": [
           6,
@@ -42538,6 +42544,12 @@
         "args": [
           20,
           50
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2
         ]
       },
       {
@@ -43174,16 +43186,18 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
+        "key": "ModitemskonKill",
+        "args": [
+          10,
+          25,
+          "Skillname259"
+        ]
+      },
+      {
         "key": "strModEnhancedDamage",
         "args": [
           165,
           210
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          10
         ]
       },
       {
@@ -43308,28 +43322,28 @@
       {
         "key": "ModStr1a",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
       {
         "key": "ModStr1b",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
       {
         "key": "ModStr1c",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
       {
         "key": "ModStr1d",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       }
@@ -43583,15 +43597,17 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "ModStr4p",
+        "key": "ModitemAura",
         "args": [
-          20
+          1,
+          3,
+          "skillname98"
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr4p",
         "args": [
-          10
+          20
         ]
       },
       {
@@ -43948,8 +43964,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            18,
+            18
           ]
         },
         {
@@ -44028,8 +44044,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            18,
+            18
           ]
         },
         {
@@ -44173,16 +44189,16 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr5q",
         "args": [
-          0.25
+          0.375
         ],
         "perLevel": true
       },
       {
         "key": "ModStr3m",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
@@ -44455,28 +44471,48 @@
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strModAllResistances",
@@ -44553,14 +44589,24 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           5,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "ModStr1a",
@@ -45269,7 +45315,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          4
         ]
       }
     ],
@@ -46029,7 +46076,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -46040,15 +46088,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 78.5,
+          "AverageDamage": 95.5,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 41,
-                100,
-                72,
-                101
+                55,
+                127,
+                159
               ]
             }
           ]
@@ -46131,7 +46179,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -46367,15 +46416,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 38.5,
+          "AverageDamage": 37.5,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 13,
-                63,
-                14,
-                64
+                23,
+                47,
+                67
               ]
             }
           ]
@@ -46539,9 +46588,9 @@
         ]
       },
       {
-        "key": "ModStr5r",
+        "key": "ModitemdamLtngsk",
         "args": [
-          5
+          10
         ]
       },
       {
@@ -46782,7 +46831,7 @@
       {
         "key": "ModStr1u",
         "args": [
-          1.12
+          1.125
         ],
         "perLevel": true
       },
@@ -46899,21 +46948,36 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 76,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           1,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 88,
+          "max": 95
+        }
       },
       {
         "key": "Modstr2v",
@@ -47082,12 +47146,6 @@
         "classOnly": "AssOnly"
       },
       {
-        "key": "ModStre8b",
-        "args": [
-          1
-        ]
-      },
-      {
         "key": "strModEnhancedDamage",
         "args": [
           100,
@@ -47112,13 +47170,12 @@
         "args": [
           3,
           "Assassin"
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          20
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 268
+        }
       }
     ],
     "Equipment": {
@@ -47240,15 +47297,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 59,
+          "AverageDamage": 65,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 36,
-                81,
-                37,
-                82
+                46,
+                74,
+                104
               ]
             }
           ]
@@ -47500,14 +47557,24 @@
         "args": [
           2,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "ModStr6d",
@@ -47585,12 +47652,6 @@
       {
         "key": "ModStr5o",
         "args": [
-          5
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
           10
         ]
       },
@@ -47620,6 +47681,13 @@
         "args": [
           100
         ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          20,
+          25
+        ]
       }
     ],
     "Equipment": {
@@ -47637,8 +47705,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            16,
+            16
           ]
         },
         {
@@ -47904,7 +47972,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          3
         ]
       }
     ],
@@ -48816,6 +48885,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          8
+        ]
+      },
+      {
         "key": "ModitemSMRIP",
         "args": [
           1
@@ -48930,12 +49005,6 @@
         ]
       },
       {
-        "key": "ModStr5r",
-        "args": [
-          10
-        ]
-      },
-      {
         "key": "ModStr1a",
         "args": [
           15
@@ -48944,7 +49013,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          4
         ]
       }
     ],
@@ -48955,15 +49025,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 79.5,
+          "AverageDamage": 82.75,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 39,
-                119,
-                40,
-                120
+                59,
+                104,
+                129
               ]
             }
           ]
@@ -49239,14 +49309,24 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "ModStr4g",
@@ -50352,14 +50432,24 @@
         "args": [
           2,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "Modstr2v",
@@ -50488,8 +50578,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            16,
+            16
           ]
         },
         {
@@ -50654,14 +50744,24 @@
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "Modstr2v",
@@ -50963,6 +51063,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          2
+        ]
+      },
+      {
         "key": "ModStr5v",
         "args": [
           15
@@ -51190,6 +51296,12 @@
         "args": [
           30,
           50
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2
         ]
       },
       {
@@ -51460,8 +51572,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            20,
+            20
           ]
         },
         {
@@ -51538,8 +51650,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            20,
+            20
           ]
         },
         {
@@ -51616,8 +51728,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            20,
+            20
           ]
         },
         {
@@ -51758,21 +51870,36 @@
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "ModStr2u",
@@ -52240,8 +52367,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            16,
+            16
           ]
         },
         {
@@ -52505,7 +52632,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -52698,7 +52826,7 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr2z",
         "args": [
           10
         ]
@@ -52713,7 +52841,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          3
+          3,
+          6
         ]
       }
     ],
@@ -52907,15 +53036,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 98,
+          "AverageDamage": 114.25,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 67,
-                124,
-                76,
-                125
+                84,
+                136,
+                170
               ]
             }
           ]
@@ -52964,8 +53093,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr2z",
         "args": [
+          5,
           10
         ]
       },
@@ -52990,7 +53120,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -53277,6 +53408,12 @@
         ]
       },
       {
+        "key": "ModStr6g",
+        "args": [
+          15
+        ]
+      },
+      {
         "key": "strModMinDamageRange",
         "args": [
           40,
@@ -53288,12 +53425,6 @@
         "args": [
           5,
           7
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          10
         ]
       },
       {
@@ -53400,6 +53531,12 @@
         "args": [
           40,
           80
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          12
         ]
       },
       {
@@ -53719,6 +53856,14 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
+        "key": "ItemExpansiveChancX",
+        "args": [
+          5,
+          1,
+          "Spine Piercer"
+        ]
+      },
+      {
         "key": "ModStr3k",
         "args": [
           1
@@ -53736,18 +53881,6 @@
         "args": [
           165,
           225
-        ]
-      },
-      {
-        "key": "ModStr6d",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          10
         ]
       },
       {
@@ -54105,8 +54238,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            16,
+            16
           ]
         },
         {
@@ -54136,15 +54269,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          5,
-          10
-        ]
-      },
-      {
         "key": "ModStr5q",
         "args": [
+          10,
           15
         ]
       },
@@ -54160,6 +54287,13 @@
         "args": [
           25,
           35
+        ]
+      },
+      {
+        "key": "balance",
+        "args": [
+          10,
+          15
         ]
       }
     ],
@@ -54178,8 +54312,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            18,
+            18
           ]
         },
         {
@@ -54253,7 +54387,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          3
         ]
       }
     ],
@@ -54359,7 +54494,12 @@
         "args": [
           3,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "Modstr2v",
@@ -54778,12 +54918,6 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          10
-        ]
-      },
-      {
         "key": "ModStr5q",
         "args": [
           20
@@ -54827,8 +54961,8 @@
         {
           "key": "strDurability",
           "args": [
-            270,
-            270
+            250,
+            250
           ]
         },
         {
@@ -55152,7 +55286,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          3
         ]
       }
     ],
@@ -55356,6 +55491,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          2
+        ]
+      },
+      {
         "key": "ModStr5f",
         "args": [
           3,
@@ -55370,15 +55511,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 82.5,
+          "AverageDamage": 96,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 52,
-                112,
-                53,
-                113
+                62,
+                125,
+                145
               ]
             }
           ]
@@ -55461,7 +55602,7 @@
       {
         "key": "ModStr2j",
         "args": [
-          1.12
+          1.125
         ],
         "perLevel": true
       },
@@ -55795,8 +55936,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            18,
+            18
           ]
         },
         {
@@ -56280,6 +56421,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          2
+        ]
+      },
+      {
         "key": "ModStr3l",
         "args": [
           3
@@ -56380,7 +56527,7 @@
       {
         "key": "ModStr5q",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
@@ -56899,8 +57046,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr2z",
         "args": [
+          5,
           10
         ]
       },
@@ -56918,15 +57066,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 192.5,
+          "AverageDamage": 198.25,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 96,
-                288,
-                97,
-                289
+                138,
+                251,
+                308
               ]
             }
           ]
@@ -56979,21 +57127,36 @@
         "args": [
           3,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "ModStr1k",
@@ -57084,6 +57247,12 @@
         "args": [
           200,
           250
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          7
         ]
       },
       {
@@ -57191,21 +57360,36 @@
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "ModStr3w",
@@ -57426,6 +57610,12 @@
         "args": [
           50,
           100
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2
         ]
       },
       {
@@ -57839,14 +58029,24 @@
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "Modstr2v",
@@ -57985,8 +58185,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            18,
+            18
           ]
         },
         {
@@ -58063,8 +58263,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            16,
+            16
           ]
         },
         {
@@ -58103,14 +58303,14 @@
       {
         "key": "ModStr1a",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
       {
         "key": "ModStr1b",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
@@ -58459,7 +58659,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          3
         ]
       }
     ],
@@ -58659,6 +58860,12 @@
         "args": [
           25,
           40
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          8
         ]
       },
       {
@@ -58968,7 +59175,7 @@
       {
         "key": "ModStr1b",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
@@ -59074,7 +59281,12 @@
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "ModStr1j",
@@ -59097,15 +59309,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 60,
+          "AverageDamage": 65,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 27,
-                92,
-                28,
-                93
+                37,
+                88,
+                108
               ]
             }
           ]
@@ -59160,13 +59372,13 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr5q",
         "args": [
-          10
+          15
         ]
       },
       {
-        "key": "ModStr5q",
+        "key": "ModStr3m",
         "args": [
           15
         ]
@@ -59242,14 +59454,24 @@
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "Modstr2v",
@@ -59396,8 +59618,16 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
+        "key": "ModStr4s",
+        "args": [
+          20,
+          25
+        ]
+      },
+      {
         "key": "ModStr4v",
         "args": [
+          20,
           30
         ]
       },
@@ -59415,23 +59645,10 @@
         ]
       },
       {
-        "key": "ModStr5r",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
         "key": "Modstr2v",
         "args": [
           90,
           140
-        ]
-      },
-      {
-        "key": "ModStr1b",
-        "args": [
-          -5
         ]
       },
       {
@@ -59471,8 +59688,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            16,
+            16
           ]
         },
         {
@@ -59554,8 +59771,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            20,
+            20
           ]
         },
         {
@@ -59636,15 +59853,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 105,
+          "AverageDamage": 110.75,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 60,
-                148,
-                63,
-                149
+                83,
+                113,
+                187
               ]
             }
           ]
@@ -60463,15 +60680,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 78.75,
+          "AverageDamage": 85,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 42,
-                112,
-                48,
-                113
+                62,
+                98,
+                138
               ]
             }
           ]
@@ -60568,15 +60785,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 101,
+          "AverageDamage": 114.25,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 64,
-                131,
-                77,
-                132
+                81,
+                137,
+                175
               ]
             }
           ]
@@ -60669,7 +60886,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -61413,15 +61631,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 89,
+          "AverageDamage": 96.5,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 34,
-                63,
-                121,
-                138
+                43,
+                141,
+                168
               ]
             }
           ]
@@ -61489,6 +61707,12 @@
         "args": [
           32,
           196
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
         ]
       },
       {
@@ -61577,15 +61801,16 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "ModStr4a",
+        "key": "ModitemdamLtngsk",
         "args": [
-          1
+          10,
+          15
         ]
       },
       {
-        "key": "ModStr5r",
+        "key": "ModStr4a",
         "args": [
-          10
+          1
         ]
       },
       {
@@ -61658,6 +61883,12 @@
         "args": [
           6,
           22
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
         ]
       },
       {
@@ -62051,13 +62282,6 @@
         "args": [
           15,
           20
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          5,
-          10
         ]
       },
       {
@@ -62455,9 +62679,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr3m",
         "args": [
-          10
+          15
         ]
       },
       {
@@ -62505,8 +62729,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            18,
+            18
           ]
         },
         {
@@ -63009,17 +63233,16 @@
         ]
       },
       {
+        "key": "ModStr2z",
+        "args": [
+          5
+        ]
+      },
+      {
         "key": "ModStrDamPierce",
         "args": [
           5,
           10
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          10,
-          15
         ]
       },
       {
@@ -63420,8 +63643,8 @@
         {
           "key": "strDurability",
           "args": [
-            38,
-            38
+            42,
+            42
           ]
         },
         {
@@ -63513,8 +63736,8 @@
         {
           "key": "strDurability",
           "args": [
-            48,
-            48
+            52,
+            52
           ]
         },
         {
@@ -64486,21 +64709,36 @@
         "args": [
           4,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "ModStr2h",
@@ -64752,12 +64990,6 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          10
-        ]
-      },
-      {
         "key": "Modstr2v",
         "args": [
           110,
@@ -64938,62 +65170,27 @@
         ]
       },
       {
+        "key": "ModStr4m",
+        "args": [
+          10,
+          20
+        ]
+      },
+      {
         "key": "strModEnhancedDamage",
         "args": [
-          170,
-          190
+          150,
+          200
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr2z",
         "args": [
           10
         ]
       },
       {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          1,
-          2,
-          "Skillname234",
-          "DruOnly"
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          1,
-          2,
-          "Skillname249",
-          "DruOnly"
-        ]
-      },
-      {
-        "key": "ModStr6a",
-        "args": [
-          50
-        ]
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr1b",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr1d",
+        "key": "Moditem2allattrib",
         "args": [
           10
         ]
@@ -65006,15 +65203,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 71,
+          "AverageDamage": 70,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
-                35,
-                37,
-                102,
-                110
+                32,
+                39,
+                95,
+                114
               ]
             }
           ]
@@ -65158,6 +65355,12 @@
         "args": [
           50,
           140
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          3
         ]
       },
       {
@@ -65699,7 +65902,7 @@
       {
         "key": "ModStr1f",
         "args": [
-          1.62
+          1.625
         ],
         "perLevel": true
       },
@@ -65791,14 +65994,24 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "Modstr2v",
@@ -65866,14 +66079,24 @@
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "Modstr2v",
@@ -65980,7 +66203,12 @@
         "args": [
           2,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "Modstr2v",
@@ -66090,8 +66318,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            18,
+            18
           ]
         },
         {
@@ -66121,15 +66349,15 @@
         ]
       },
       {
-        "key": "ModStr5e",
+        "key": "ModStr4p",
         "args": [
-          5,
           10
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr5e",
         "args": [
+          5,
           10
         ]
       },
@@ -66143,7 +66371,7 @@
       {
         "key": "ModStr1b",
         "args": [
-          0.62
+          0.625
         ],
         "perLevel": true
       },
@@ -66182,8 +66410,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            20,
+            20
           ]
         },
         {
@@ -66547,7 +66775,12 @@
         "args": [
           3,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "ModStr1b",
@@ -67193,15 +67426,16 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          10
-        ]
-      },
-      {
         "key": "ModStr1u",
         "args": [
           60
+        ]
+      },
+      {
+        "key": "ModStr1w",
+        "args": [
+          50,
+          80
         ]
       },
       {
@@ -67718,12 +67952,6 @@
         ]
       },
       {
-        "key": "ModStr5r",
-        "args": [
-          15
-        ]
-      },
-      {
         "key": "Modstr2v",
         "args": [
           130,
@@ -67975,14 +68203,24 @@
         "args": [
           2,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "Modstr2v",
@@ -68161,6 +68399,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          1
+        ]
+      },
+      {
         "key": "ModitemdamColdsk",
         "args": [
           10
@@ -68242,9 +68486,9 @@
         ]
       },
       {
-        "key": "ModStr5r",
+        "key": "Moditemenresfiresk",
         "args": [
-          50
+          10
         ]
       },
       {
@@ -68325,7 +68569,7 @@
       {
         "key": "strModEnhancedDamage",
         "args": [
-          140,
+          150,
           200
         ]
       },
@@ -68337,22 +68581,15 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr5q",
         "args": [
-          10
+          20
         ]
       },
       {
         "key": "ModStr6d",
         "args": [
           2
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          10,
-          15
         ]
       },
       {
@@ -68375,14 +68612,14 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 207.75,
+          "AverageDamage": 210.75,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
-                123,
+                127,
                 149,
-                254,
+                262,
                 305
               ]
             }
@@ -68586,15 +68823,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 247.25,
+          "AverageDamage": 264.75,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 162,
-                283,
-                247,
-                297
+                203,
+                297,
+                397
               ]
             }
           ]
@@ -68797,10 +69034,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr4f",
         "args": [
-          10,
-          15
+          50
         ]
       },
       {
@@ -69109,6 +69345,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          6
+        ]
+      },
+      {
         "key": "Modstr2v",
         "args": [
           140,
@@ -69244,6 +69486,12 @@
         "args": [
           25,
           50
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2
         ]
       },
       {
@@ -69541,7 +69789,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          3
         ]
       }
     ],
@@ -69731,6 +69980,12 @@
         "args": [
           50,
           200
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2
         ]
       },
       {
@@ -70054,14 +70309,24 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "Moditem2allattrib",
@@ -70072,7 +70337,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -70144,6 +70410,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          3
+        ]
+      },
+      {
         "key": "ModStr3l",
         "args": [
           1
@@ -70158,7 +70430,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          3
         ]
       }
     ],
@@ -70548,7 +70821,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          3
         ]
       }
     ],
@@ -70637,14 +70911,24 @@
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "Modstr2v",
@@ -70782,8 +71066,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            18,
+            18
           ]
         },
         {
@@ -70848,7 +71132,7 @@
       {
         "key": "ModStr1k",
         "args": [
-          0.88
+          0.875
         ],
         "perLevel": true
       }
@@ -70868,8 +71152,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            20,
+            20
           ]
         },
         {
@@ -70946,15 +71230,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 125.5,
+          "AverageDamage": 136.25,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 63,
-                178,
-                82,
-                179
+                88,
+                172,
+                222
               ]
             }
           ]
@@ -71261,7 +71545,7 @@
       {
         "key": "ItemExpansiveChanc2",
         "args": [
-          25,
+          10,
           4,
           "skillname71"
         ]
@@ -71310,15 +71594,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 77,
+          "AverageDamage": 78,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 44,
-                109,
-                45,
-                110
+                54,
+                97,
+                117
               ]
             }
           ]
@@ -71416,15 +71700,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 81.25,
+          "AverageDamage": 96.25,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 38,
-                106,
-                74,
-                107
+                56,
+                127,
+                164
               ]
             }
           ]
@@ -71494,35 +71778,60 @@
         "args": [
           4,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       }
     ],
     "Equipment": {
@@ -71811,12 +72120,6 @@
         "key": "ModStrMagMastery",
         "args": [
           15
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          20
         ]
       },
       {
@@ -72315,15 +72618,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 121.5,
+          "AverageDamage": 123.5,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 60,
-                182,
-                61,
-                183
+                82,
+                154,
+                198
               ]
             }
           ]
@@ -72360,7 +72663,7 @@
       {
         "key": "ItemExpansiveChanc1",
         "args": [
-          10,
+          5,
           5,
           "skillname71"
         ]
@@ -72402,7 +72705,7 @@
       {
         "key": "ModStr5r",
         "args": [
-          25
+          10
         ]
       },
       {
@@ -72620,14 +72923,24 @@
         "args": [
           2,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "Modstr2v",
@@ -73044,8 +73357,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            22,
+            22
           ]
         },
         {
@@ -73185,14 +73498,24 @@
         "args": [
           3,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "Modstr2v",
@@ -73397,8 +73720,8 @@
         {
           "key": "strDurability",
           "args": [
-            39,
-            39
+            43,
+            43
           ]
         },
         {
@@ -73428,9 +73751,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "strModEnhancedDamage",
         "args": [
-          10
+          25
         ]
       },
       {
@@ -73481,8 +73804,8 @@
         {
           "key": "strDurability",
           "args": [
-            34,
-            34
+            38,
+            38
           ]
         },
         {
@@ -73585,8 +73908,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            28,
+            28
           ]
         },
         {
@@ -73753,7 +74076,7 @@
         ]
       },
       {
-        "key": "ModStr5r",
+        "key": "Moditemenrespoissk",
         "args": [
           10
         ]
@@ -73999,7 +74322,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          3
         ]
       }
     ],
@@ -74090,12 +74414,6 @@
         "key": "ModStr4p",
         "args": [
           40
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          10
         ]
       },
       {
@@ -74300,31 +74618,40 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          10
-        ]
-      },
-      {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       }
     ],
     "Equipment": {
@@ -75105,10 +75432,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr5q",
         "args": [
-          10,
-          15
+          20
         ]
       },
       {
@@ -75544,10 +75870,10 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr4p",
         "args": [
           10,
-          15
+          20
         ]
       },
       {
@@ -75960,10 +76286,9 @@
         ]
       },
       {
-        "key": "strSkillRandomClass",
+        "key": "StrSkill13",
         "args": [
-          2,
-          "Amazon"
+          4
         ]
       },
       {
@@ -75971,7 +76296,24 @@
         "args": [
           2,
           "Amazon"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 6,
+          "max": 35
+        }
+      },
+      {
+        "key": "strSkillRandomClass",
+        "args": [
+          2,
+          "Amazon"
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 6,
+          "max": 35
+        }
       },
       {
         "key": "Modstr2v",
@@ -76293,8 +76635,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            20,
+            20
           ]
         },
         {
@@ -76381,8 +76723,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            20,
+            20
           ]
         },
         {
@@ -76460,8 +76802,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            22,
+            22
           ]
         },
         {
@@ -76790,6 +77132,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          0.12
+        ]
+      },
+      {
         "key": "Moditemenrescoldsk",
         "args": [
           3,
@@ -76975,6 +77323,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          0.12
+        ]
+      },
+      {
         "key": "Moditemenrescoldsk",
         "args": [
           3,
@@ -77140,7 +77494,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -77401,12 +77756,6 @@
         "perLevel": true
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          10
-        ]
-      },
-      {
         "key": "ModStr5q",
         "args": [
           15
@@ -77415,7 +77764,7 @@
       {
         "key": "ModStr3m",
         "args": [
-          50
+          65
         ]
       },
       {
@@ -77628,7 +77977,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          3
+          3,
+          5
         ]
       },
       {
@@ -77915,21 +78265,36 @@
         "args": [
           1,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomFromSkillClass",
@@ -78142,14 +78507,24 @@
         "args": [
           2,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "ModitemSMRIP",
@@ -78605,6 +78980,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          2
+        ]
+      },
+      {
         "key": "ModitemdamColdsk",
         "args": [
           10,
@@ -78646,8 +79027,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            22,
+            22
           ]
         },
         {
@@ -79552,7 +79933,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -79759,7 +80141,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          4
         ]
       }
     ],
@@ -80116,21 +80499,36 @@
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       }
     ],
     "Equipment": {
@@ -80198,14 +80596,24 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "ModStr1i",
@@ -80532,12 +80940,6 @@
       },
       {
         "key": "ModStr3u",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr5r",
         "args": [
           10
         ]
@@ -80965,8 +81367,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            22,
+            22
           ]
         },
         {
@@ -81059,8 +81461,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            22,
+            22
           ]
         },
         {
@@ -81144,8 +81546,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            28,
+            28
           ]
         },
         {
@@ -81668,7 +82070,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          3
         ]
       }
     ],
@@ -81782,15 +82185,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 102.5,
+          "AverageDamage": 119.25,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 57,
-                137,
-                78,
-                138
+                87,
+                133,
+                200
               ]
             }
           ]
@@ -81874,15 +82277,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 108.5,
+          "AverageDamage": 121.75,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 76,
-                140,
-                77,
-                141
+                90,
+                147,
+                174
               ]
             }
           ]
@@ -81963,15 +82366,15 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          10
-        ]
-      },
-      {
         "key": "ModStr5q",
         "args": [
           20
+        ]
+      },
+      {
+        "key": "ModStr3m",
+        "args": [
+          25
         ]
       }
     ],
@@ -82478,9 +82881,8 @@
         ]
       },
       {
-        "key": "ModStr5r",
+        "key": "ModStr3m",
         "args": [
-          5,
           10
         ]
       },
@@ -82518,8 +82920,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            22,
+            22
           ]
         },
         {
@@ -82667,13 +83069,7 @@
         ]
       },
       {
-        "key": "ModStr4y",
-        "args": [
-          30
-        ]
-      },
-      {
-        "key": "ModStr5r",
+        "key": "ModStrDamPierce",
         "args": [
           5,
           10
@@ -82884,7 +83280,12 @@
         "args": [
           3,
           "Amazon"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 6,
+          "max": 35
+        }
       },
       {
         "key": "Modstr2v",
@@ -83274,16 +83675,16 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
+        "key": "ModStr4m",
+        "args": [
+          15
+        ]
+      },
+      {
         "key": "strModEnhancedDamage",
         "args": [
           170,
           230
-        ]
-      },
-      {
-        "key": "ModStr4v",
-        "args": [
-          15
         ]
       },
       {
@@ -83304,12 +83705,6 @@
         "args": [
           20,
           30
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          15
         ]
       },
       {
@@ -83413,14 +83808,24 @@
         "args": [
           4,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "Modstr2v",
@@ -83622,7 +84027,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          3
+          3,
+          4
         ]
       }
     ],
@@ -84042,6 +84448,12 @@
           35,
           70
         ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          8
+        ]
       }
     ],
     "Equipment": {
@@ -84338,14 +84750,24 @@
         "args": [
           2,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "Modstr2v",
@@ -84880,14 +85302,24 @@
         "args": [
           4,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "ModStr2l",
@@ -85484,7 +85916,7 @@
   {
     "Type": "glovitype",
     "Vanilla": "N",
-    "Index": "Warlock's Touch",
+    "Index": "Gravewood Grasp",
     "Enabled": true,
     "Rarity": 1,
     "ItemLevel": 43,
@@ -85549,8 +85981,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            22,
+            22
           ]
         },
         {
@@ -85634,8 +86066,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            28,
+            28
           ]
         },
         {
@@ -86144,8 +86576,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            18,
+            18
           ]
         },
         {
@@ -86707,7 +87139,12 @@
         "args": [
           2,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "strModAllResistances",
@@ -87072,7 +87509,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          3
         ]
       }
     ],
@@ -87282,6 +87720,12 @@
         "args": [
           100,
           140
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          8
         ]
       },
       {
@@ -87551,21 +87995,36 @@
         "args": [
           3,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "Modstr2v",
@@ -87653,7 +88112,12 @@
         "args": [
           3,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "Modstr2v",
@@ -88253,8 +88717,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            28,
+            28
           ]
         },
         {
@@ -88352,8 +88816,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            28,
+            28
           ]
         },
         {
@@ -88395,14 +88859,24 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "Modstr2v",
@@ -88508,7 +88982,12 @@
         "args": [
           2,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "ModStr1i",
@@ -88837,7 +89316,7 @@
       {
         "key": "ModStr1f",
         "args": [
-          0.88
+          0.875
         ],
         "perLevel": true
       },
@@ -89203,6 +89682,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          1
+        ]
+      },
+      {
         "key": "ModStr3l",
         "args": [
           1
@@ -89323,7 +89808,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -89451,15 +89937,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 101.5,
+          "AverageDamage": 104,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 41,
-                161,
-                42,
-                162
+                61,
+                132,
+                182
               ]
             }
           ]
@@ -89607,6 +90093,12 @@
         "args": [
           100,
           200
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
         ]
       },
       {
@@ -89941,14 +90433,24 @@
         "args": [
           2,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "Modstr2v",
@@ -90068,15 +90570,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 92.5,
+          "AverageDamage": 102,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 52,
-                125,
-                67,
-                126
+                75,
+                117,
+                164
               ]
             }
           ]
@@ -90216,7 +90718,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          6
         ]
       }
     ],
@@ -90288,6 +90791,12 @@
         "args": [
           100,
           200
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2
         ]
       },
       {
@@ -90433,9 +90942,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr3m",
         "args": [
-          10
+          15
         ]
       },
       {
@@ -90844,8 +91353,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            20,
+            20
           ]
         },
         {
@@ -91624,6 +92133,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          0.12
+        ]
+      },
+      {
         "key": "ModStr1e",
         "args": [
           35,
@@ -92085,15 +92600,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 271,
+          "AverageDamage": 289.25,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 185,
-                356,
-                186,
-                357
+                226,
+                340,
+                406
               ]
             }
           ]
@@ -92442,14 +92957,24 @@
         "args": [
           2,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "Modstr2v",
@@ -92921,6 +93446,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          8
+        ]
+      },
+      {
         "key": "strModAllResistances",
         "args": [
           20,
@@ -93158,16 +93689,15 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          10,
-          15
+          10
         ]
       },
       {
         "key": "ModStr5q",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
@@ -93291,10 +93821,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrMagPierce",
         "args": [
-          10,
-          15
+          10
         ]
       },
       {
@@ -93631,15 +94160,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 157,
+          "AverageDamage": 150.25,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 49,
-                264,
-                50,
-                265
+                84,
+                184,
+                284
               ]
             }
           ]
@@ -94336,8 +94865,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            28,
+            28
           ]
         },
         {
@@ -94424,8 +94953,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            28,
+            28
           ]
         },
         {
@@ -94597,8 +95126,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            20,
+            20
           ]
         },
         {
@@ -95178,7 +95707,7 @@
       {
         "key": "ModStre9p",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
@@ -96097,15 +96626,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 97.5,
+          "AverageDamage": 103.75,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 57,
-                137,
-                58,
-                138
+                77,
+                128,
+                153
               ]
             }
           ]
@@ -96278,8 +96807,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            24,
+            24
           ]
         },
         {
@@ -96461,7 +96990,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          3
         ]
       }
     ],
@@ -96537,12 +97067,6 @@
         "args": [
           5,
           10
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          15
         ]
       },
       {
@@ -96890,8 +97414,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            22,
+            22
           ]
         },
         {
@@ -97222,105 +97746,6 @@
     }
   },
   {
-    "Type": "xbowitype",
-    "Vanilla": "N",
-    "Index": "Grey Render",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 56,
-    "RequiredLevel": 64,
-    "Code": "6mx",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ModStr3a",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          200,
-          300
-        ]
-      },
-      {
-        "key": "ModStr3y",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr2y",
-        "args": [
-          5,
-          8
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          15,
-          20
-        ]
-      },
-      {
-        "key": "ModStr1e",
-        "args": [
-          35,
-          60
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 1,
-      "NameKey": "6mx",
-      "RequiredClass": "",
-      "DamageTypes": [
-        {
-          "Type": 1,
-          "AverageDamage": 259,
-          "Lines": [
-            {
-              "key": "strWeaponDamageTwoHandRange",
-              "args": [
-                99,
-                132,
-                345,
-                460
-              ]
-            }
-          ]
-        }
-      ],
-      "Lines": [
-        {
-          "key": "strIndestructible",
-          "args": []
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            117
-          ]
-        },
-        {
-          "key": "strRequiredDexterity",
-          "args": [
-            105
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "glovitype",
     "Vanilla": "N",
     "Index": "Mephisto's Claw",
@@ -97387,8 +97812,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            20,
+            20
           ]
         },
         {
@@ -97435,7 +97860,12 @@
         "args": [
           2,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "ModStr3u",
@@ -97466,8 +97896,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            22,
+            22
           ]
         },
         {
@@ -97668,7 +98098,7 @@
       {
         "key": "ModStr5q",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
@@ -97748,7 +98178,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -98467,10 +98898,10 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          10,
-          15
+          5,
+          10
         ]
       },
       {
@@ -98592,6 +99023,12 @@
         "args": [
           200,
           300
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          8
         ]
       },
       {
@@ -99348,7 +99785,7 @@
       {
         "key": "ModStr1f",
         "args": [
-          0.88
+          0.875
         ],
         "perLevel": true
       },
@@ -99780,8 +100217,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            32,
+            32
           ]
         },
         {
@@ -99873,8 +100310,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            24,
+            24
           ]
         },
         {
@@ -99965,8 +100402,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            32,
+            32
           ]
         },
         {
@@ -100333,7 +100770,12 @@
         "args": [
           3,
           "Druid"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 221,
+          "max": 250
+        }
       },
       {
         "key": "Modstr2v",
@@ -101019,6 +101461,11 @@
             "args": [
               1
             ],
+            "selection": {
+              "stat": "item_addskill_tab",
+              "min": 21,
+              "max": 23
+            },
             "classOnly": "WarOnly"
           }
         ]
@@ -101046,8 +101493,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            26,
+            26
           ]
         },
         {
@@ -101298,6 +101745,12 @@
         "args": [
           100,
           200
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          6
         ]
       },
       {
@@ -101676,15 +102129,16 @@
         ]
       },
       {
-        "key": "ModStr6d",
+        "key": "ModitemdamFiresk",
         "args": [
-          2
+          15,
+          25
         ]
       },
       {
-        "key": "ModStr5r",
+        "key": "ModStr6d",
         "args": [
-          10
+          2
         ]
       },
       {
@@ -101871,16 +102325,15 @@
         ]
       },
       {
-        "key": "ModStr5o",
+        "key": "ModStr3y",
         "args": [
-          50
+          1
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr5o",
         "args": [
-          10,
-          15
+          50
         ]
       },
       {
@@ -102083,7 +102536,12 @@
         "key": "strSkillRandom",
         "args": [
           3
-        ]
+        ],
+        "selection": {
+          "stat": "item_addclassskills",
+          "min": 0,
+          "max": 7
+        }
       },
       {
         "key": "ModStr4y",
@@ -102204,6 +102662,12 @@
         "args": [
           205,
           455
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2
         ]
       },
       {
@@ -102518,14 +102982,24 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "ModStr1d",
@@ -102953,30 +103427,30 @@
       "DamageTypes": [
         {
           "Type": 0,
-          "AverageDamage": 207,
+          "AverageDamage": 242.25,
           "Lines": [
             {
               "key": "strWeaponDamageOneHandRange",
               "args": [
                 118,
-                255,
-                199,
-                256
+                165,
+                299,
+                387
               ]
             }
           ]
         },
         {
           "Type": 1,
-          "AverageDamage": 381,
+          "AverageDamage": 396.5,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 292,
-                462,
-                307,
-                463
+                372,
+                407,
+                515
               ]
             }
           ]
@@ -103207,16 +103681,10 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          15
-        ]
-      },
-      {
         "key": "Modstr2v",
         "args": [
-          50,
-          80
+          100,
+          150
         ]
       }
     ],
@@ -103383,21 +103851,36 @@
         "args": [
           5,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           5,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           5,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "ModStr1d",
@@ -104087,7 +104570,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          4
         ]
       }
     ],
@@ -104276,6 +104760,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          6
+        ]
+      },
+      {
         "key": "ModitemdamColdsk",
         "args": [
           15,
@@ -104387,10 +104877,10 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          10,
-          15
+          5,
+          10
         ]
       },
       {
@@ -104429,8 +104919,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            32,
+            32
           ]
         },
         {
@@ -105070,7 +105560,7 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
           10,
           15
@@ -105304,7 +105794,12 @@
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomFromSkillClass",
@@ -105399,7 +105894,7 @@
       {
         "key": "ModStr5q",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
@@ -105644,7 +106139,7 @@
       {
         "key": "ModStr1w",
         "args": [
-          2.62
+          2.625
         ],
         "perLevel": true
       },
@@ -105841,8 +106336,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            22,
+            22
           ]
         },
         {
@@ -105915,8 +106410,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            20,
+            20
           ]
         },
         {
@@ -105996,8 +106491,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            22,
+            22
           ]
         },
         {
@@ -106083,8 +106578,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            20,
+            20
           ]
         },
         {
@@ -106248,7 +106743,12 @@
         "args": [
           5,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "ModStr1i",
@@ -106472,21 +106972,36 @@
         "args": [
           2,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           4,
           "Barbarian"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 126,
+          "max": 155
+        }
       },
       {
         "key": "ModStr1i",
@@ -106712,15 +107227,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 218,
+          "AverageDamage": 245.5,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 90,
-                162,
-                268,
-                352
+                112,
+                338,
+                442
               ]
             }
           ]
@@ -106763,7 +107278,7 @@
       {
         "key": "ItemExpansiveChanc1",
         "args": [
-          15,
+          10,
           25,
           "skillname121"
         ]
@@ -106787,21 +107302,16 @@
         ]
       },
       {
-        "key": "strModLightningDamageRange",
+        "key": "strModMagicDamageRange",
         "args": [
-          1,
-          100
+          10,
+          50
         ]
       },
       {
-        "key": "Moditemenresltngsk",
+        "key": "ModStrMagPierce",
         "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
+          5,
           10
         ]
       },
@@ -106839,8 +107349,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            22,
+            22
           ]
         },
         {
@@ -107290,8 +107800,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            26,
+            26
           ]
         },
         {
@@ -107781,7 +108291,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -108666,7 +109177,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          5
         ]
       }
     ],
@@ -109070,8 +109582,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            26,
+            26
           ]
         },
         {
@@ -109673,8 +110185,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            26,
+            26
           ]
         },
         {
@@ -110331,9 +110843,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          15
+          10
         ]
       },
       {
@@ -110463,8 +110975,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            32,
+            32
           ]
         },
         {
@@ -110849,7 +111361,12 @@
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "ModStr1d",
@@ -110940,10 +111457,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrMagPierce",
         "args": [
-          10,
-          15
+          10
         ]
       },
       {
@@ -110956,7 +111472,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          3
         ]
       }
     ],
@@ -111464,6 +111981,12 @@
         "args": [
           50,
           200
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
         ]
       },
       {
@@ -113302,14 +113825,14 @@
         "key": "StrSklTabItem16",
         "args": [
           1,
-          3
+          2
         ],
         "classOnly": "DruOnly"
       },
       {
         "key": "ModStre8a",
         "args": [
-          2,
+          1,
           3
         ]
       },
@@ -113327,11 +113850,11 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          0.25
-        ],
-        "perLevel": true
+          8,
+          12
+        ]
       },
       {
         "key": "ModStr5q",
@@ -114011,15 +114534,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 367.25,
+          "AverageDamage": 473.5,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 111,
-                442,
-                423,
-                493
+                167,
+                723,
+                893
               ]
             }
           ]
@@ -114099,6 +114622,12 @@
         "args": [
           100,
           200
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
         ]
       },
       {
@@ -114351,8 +114880,8 @@
       {
         "key": "ModStr3h",
         "args": [
-          5,
-          20
+          20,
+          5
         ]
       }
     ],
@@ -114419,7 +114948,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          4
         ]
       }
     ],
@@ -114701,8 +115231,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            22,
+            22
           ]
         },
         {
@@ -114757,7 +115287,12 @@
         "args": [
           2,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "strSkillRandomFromSkillClass",
@@ -115057,7 +115592,12 @@
         "args": [
           3,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "Modstr2v",
@@ -115825,8 +116365,8 @@
         {
           "key": "strDurability",
           "args": [
-            14,
-            14
+            22,
+            22
           ]
         },
         {
@@ -115921,8 +116461,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            24,
+            24
           ]
         },
         {
@@ -116962,7 +117502,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          3
+          3,
+          6
         ]
       }
     ],
@@ -117135,9 +117676,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          20
+          10
         ]
       },
       {
@@ -117149,14 +117690,14 @@
       {
         "key": "ModStr1a",
         "args": [
-          0.62
+          0.625
         ],
         "perLevel": true
       },
       {
         "key": "ModStr1b",
         "args": [
-          0.62
+          0.625
         ],
         "perLevel": true
       },
@@ -117492,6 +118033,12 @@
         "args": [
           150,
           300
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          1
         ]
       },
       {
@@ -117847,7 +118394,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -117919,7 +118467,7 @@
       {
         "key": "ModStr1d",
         "args": [
-          0.62
+          0.625
         ],
         "perLevel": true
       },
@@ -117965,8 +118513,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            26,
+            26
           ]
         },
         {
@@ -118097,13 +118645,6 @@
           20,
           40
         ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          0.25
-        ],
-        "perLevel": true
       },
       {
         "key": "Modstr2v",
@@ -118484,7 +119025,7 @@
       {
         "key": "ModStr1c",
         "args": [
-          0.62
+          0.625
         ],
         "perLevel": true
       },
@@ -119025,6 +119566,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          4
+        ]
+      },
+      {
         "key": "Moditemenrescoldsk",
         "args": [
           15,
@@ -119151,8 +119698,7 @@
       {
         "key": "ModStr5r",
         "args": [
-          10,
-          15
+          10
         ]
       }
     ],
@@ -119678,6 +120224,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          1
+        ]
+      },
+      {
         "key": "allelemskilldmg",
         "args": [
           10
@@ -120016,7 +120568,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          3
         ]
       }
     ],
@@ -120085,12 +120638,6 @@
         ]
       },
       {
-        "key": "ModStr5r",
-        "args": [
-          10
-        ]
-      },
-      {
         "key": "Modstr2v",
         "args": [
           90,
@@ -120098,18 +120645,24 @@
         ]
       },
       {
+        "key": "ModAttEnrPercent",
+        "args": [
+          5,
+          10
+        ]
+      },
+      {
         "key": "ModStr2h",
         "args": [
+          10,
           20
         ]
       },
       {
-        "key": "strSkillCharges",
+        "key": "ModStr5f",
         "args": [
           3,
-          "Skillname279",
-          11,
-          11
+          5
         ]
       }
     ],
@@ -120128,8 +120681,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            20,
+            20
           ]
         },
         {
@@ -120390,7 +120943,7 @@
       {
         "key": "ModStr2j",
         "args": [
-          4.12
+          4.125
         ],
         "perLevel": true
       },
@@ -120746,7 +121299,12 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 66,
+          "max": 95
+        }
       },
       {
         "key": "ModStr3u",
@@ -120940,7 +121498,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          3
+          3,
+          4
         ]
       }
     ],
@@ -121013,9 +121572,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          20
+          10
         ]
       },
       {
@@ -121143,15 +121702,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 285.5,
+          "AverageDamage": 295.25,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 160,
-                410,
-                161,
-                411
+                210,
+                343,
+                468
               ]
             }
           ]
@@ -121819,7 +122378,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          4
         ]
       }
     ],
@@ -121887,21 +122447,36 @@
         "args": [
           1,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           2,
           "Paladin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 96,
+          "max": 125
+        }
       },
       {
         "key": "Modstr2v",
@@ -122382,10 +122957,9 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          10,
-          15
+          10
         ]
       },
       {
@@ -122438,8 +123012,8 @@
         {
           "key": "strDurability",
           "args": [
-            12,
-            12
+            20,
+            20
           ]
         },
         {
@@ -122525,8 +123099,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            26,
+            26
           ]
         },
         {
@@ -122620,8 +123194,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            32,
+            32
           ]
         },
         {
@@ -122802,14 +123376,14 @@
       {
         "key": "ModStr5c",
         "args": [
-          15,
-          20
+          10
         ]
       },
       {
         "key": "strSocketedCount",
         "args": [
-          4
+          4,
+          6
         ]
       }
     ],
@@ -122989,6 +123563,12 @@
         "args": [
           200,
           250
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          12
         ]
       },
       {
@@ -123406,6 +123986,61 @@
     }
   },
   {
+    "Type": "lchaitype",
+    "Vanilla": "N",
+    "Index": "Relic of the Ancients",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 100,
+    "RequiredLevel": 80,
+    "Code": "cm3",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "mod_weight",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "boss_kill_str",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr2g",
+        "args": [
+          5
+        ]
+      },
+      {
+        "key": "ModStr2h",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr1w",
+        "args": [
+          50
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          25
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 2,
+      "NameKey": "cm3",
+      "RequiredClass": "",
+      "Lines": []
+    }
+  },
+  {
     "Type": "sworitype",
     "Vanilla": "Y",
     "Index": "The Grandfather",
@@ -123460,7 +124095,7 @@
       {
         "key": "ModStr5q",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
@@ -124309,6 +124944,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          1
+        ]
+      },
+      {
         "key": "strModAllResistances",
         "args": [
           15,
@@ -124565,7 +125206,12 @@
         "args": [
           3,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "ModStr1d",
@@ -124597,8 +125243,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            24,
+            24
           ]
         },
         {
@@ -124692,8 +125338,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            26,
+            26
           ]
         },
         {
@@ -125054,12 +125700,6 @@
         ]
       },
       {
-        "key": "ModStr5c",
-        "args": [
-          15
-        ]
-      },
-      {
         "key": "ModStr5q",
         "args": [
           25
@@ -125068,9 +125708,8 @@
       {
         "key": "ModStr3m",
         "args": [
-          0.5
-        ],
-        "perLevel": true
+          50
+        ]
       },
       {
         "key": "Modstr2v",
@@ -125080,12 +125719,16 @@
         ]
       },
       {
-        "key": "strSkillCharges",
+        "key": "ModAttStrPercent",
         "args": [
-          15,
-          "skillname87",
-          33,
-          33
+          10
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          50,
+          100
         ]
       }
     ],
@@ -125623,7 +126266,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          1
+          1,
+          2
         ]
       }
     ],
@@ -125700,15 +126344,15 @@
         ]
       },
       {
-        "key": "ModStrDamPierce",
+        "key": "Moditemenresltngsk",
         "args": [
           10
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          15
+          10
         ]
       }
     ],
@@ -125839,15 +126483,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 122.5,
+          "AverageDamage": 140,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 92,
-                152,
-                93,
-                153
+                132,
+                158,
+                178
               ]
             }
           ]
@@ -126338,9 +126982,22 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "strModColdDamageRange",
         "args": [
-          15,
+          50,
+          200
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
+        ]
+      },
+      {
+        "key": "Moditemenrescoldsk",
+        "args": [
+          10,
           20
         ]
       }
@@ -126361,6 +127018,19 @@
                 346,
                 424,
                 477
+              ]
+            }
+          ]
+        },
+        {
+          "Type": 4,
+          "AverageDamage": 125,
+          "Lines": [
+            {
+              "key": "strElementalDamage",
+              "args": [
+                50,
+                200
               ]
             }
           ]
@@ -126754,8 +127424,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            26,
+            26
           ]
         },
         {
@@ -127037,14 +127707,24 @@
         "args": [
           3,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Assassin"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 251,
+          "max": 280
+        }
       },
       {
         "key": "ModStr1w",
@@ -127394,7 +128074,8 @@
       {
         "key": "strSocketedCount",
         "args": [
-          2
+          2,
+          3
         ]
       }
     ],
@@ -127608,6 +128289,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          1
+        ]
+      },
+      {
         "key": "ModStr1k",
         "args": [
           50
@@ -127676,16 +128363,16 @@
     "Vanilla": "N",
     "Index": "Nameless Horror",
     "Enabled": true,
-    "Rarity": 1,
+    "Rarity": 2,
     "ItemLevel": 80,
     "RequiredLevel": 84,
     "Code": "7gi",
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "ItemExpansiveChanc2",
+        "key": "ItemExpansiveChancX",
         "args": [
-          20,
+          10,
           50,
           "skillname130"
         ]
@@ -127699,15 +128386,8 @@
       {
         "key": "ItemModifierNonClassSkill",
         "args": [
-          8,
+          10,
           "skillname85"
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          5,
-          "skillname79"
         ]
       },
       {
@@ -127726,9 +128406,9 @@
       {
         "key": "strModPoisonDamageRange",
         "args": [
-          500,
-          500,
-          5
+          400,
+          400,
+          4
         ]
       },
       {
@@ -127821,7 +128501,7 @@
       {
         "key": "ModitemskonKill",
         "args": [
-          15,
+          10,
           5,
           "skillname71"
         ]
@@ -128172,8 +128852,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            26,
+            26
           ]
         },
         {
@@ -128266,15 +128946,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 295.25,
+          "AverageDamage": 318,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 155,
-                420,
-                185,
-                421
+                220,
+                385,
+                512
               ]
             }
           ]
@@ -128860,6 +129540,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          10
+        ]
+      },
+      {
         "key": "Moditem2allattrib",
         "args": [
           5,
@@ -128969,8 +129655,7 @@
       {
         "key": "ModStr5c",
         "args": [
-          20,
-          25
+          10
         ]
       }
     ],
@@ -129053,21 +129738,36 @@
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "strSkillRandomClass",
         "args": [
           3,
           "Sorceress"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 36,
+          "max": 65
+        }
       },
       {
         "key": "ModStr1i",
@@ -129161,9 +129861,10 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "strSocketedCount",
         "args": [
-          20
+          1,
+          4
         ]
       }
     ],
@@ -129338,21 +130039,21 @@
       {
         "key": "strModEnhancedDamage",
         "args": [
-          350,
-          400
+          300,
+          350
         ]
       },
       {
         "key": "strModMinDamageRange",
         "args": [
           50,
-          150
+          100
         ]
       },
       {
         "key": "ModStr5c",
         "args": [
-          15
+          5
         ]
       },
       {
@@ -129383,15 +130084,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 294.5,
+          "AverageDamage": 249,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
+                70,
                 72,
-                75,
-                496,
-                535
+                408,
+                446
               ]
             }
           ]
@@ -129475,15 +130176,15 @@
       "DamageTypes": [
         {
           "Type": 3,
-          "AverageDamage": 234,
+          "AverageDamage": 261.5,
           "Lines": [
             {
               "key": "strWeaponDamageGenericRange",
               "args": [
                 143,
-                324,
-                144,
-                325
+                224,
+                291,
+                388
               ]
             }
           ]
@@ -129553,9 +130254,10 @@
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          15
+          10,
+          20
         ]
       },
       {
@@ -129764,7 +130466,7 @@
       {
         "key": "ModStr5c",
         "args": [
-          25
+          10
         ]
       },
       {
@@ -129782,15 +130484,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 648.5,
+          "AverageDamage": 684,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 506,
-                790,
-                507,
-                791
+                590,
+                775,
+                865
               ]
             }
           ]
@@ -129991,15 +130693,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 261.75,
+          "AverageDamage": 353,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 160,
-                317,
-                252,
-                318
+                267,
+                452,
+                533
               ]
             }
           ]
@@ -130134,6 +130836,103 @@
   {
     "Type": "xbowitype",
     "Vanilla": "N",
+    "Index": "Grey Render",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 85,
+    "RequiredLevel": 85,
+    "Code": "6mx",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ModStr3a",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          200,
+          300
+        ]
+      },
+      {
+        "key": "ModStr3y",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr2y",
+        "args": [
+          5,
+          8
+        ]
+      },
+      {
+        "key": "ModStrDamPierce",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr5c",
+        "args": [
+          10
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 1,
+      "NameKey": "6mx",
+      "RequiredClass": "",
+      "DamageTypes": [
+        {
+          "Type": 1,
+          "AverageDamage": 259,
+          "Lines": [
+            {
+              "key": "strWeaponDamageTwoHandRange",
+              "args": [
+                99,
+                132,
+                345,
+                460
+              ]
+            }
+          ]
+        }
+      ],
+      "Lines": [
+        {
+          "key": "strIndestructible",
+          "args": []
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            117
+          ]
+        },
+        {
+          "key": "strRequiredDexterity",
+          "args": [
+            105
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "xbowitype",
+    "Vanilla": "N",
     "Index": "Thor's Bolt",
     "Enabled": true,
     "Rarity": 1,
@@ -130203,15 +131002,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 209.5,
+          "AverageDamage": 206,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 84,
-                334,
-                85,
-                335
+                134,
+                253,
+                353
               ]
             }
           ]
@@ -130977,8 +131776,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            26,
+            26
           ]
         },
         {
@@ -131066,8 +131865,8 @@
         {
           "key": "strDurability",
           "args": [
-            16,
-            16
+            24,
+            24
           ]
         },
         {
@@ -131158,8 +131957,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            32,
+            32
           ]
         },
         {
@@ -132248,14 +133047,14 @@
         ]
       },
       {
-        "key": "strModLightningDamageRange",
+        "key": "strModMagicDamageRange",
         "args": [
-          63,
-          500
+          200,
+          400
         ]
       },
       {
-        "key": "ModitemdamLtngsk",
+        "key": "ModStrMagMastery",
         "args": [
           10,
           20
@@ -132299,13 +133098,13 @@
         },
         {
           "Type": 4,
-          "AverageDamage": 281.5,
+          "AverageDamage": 300,
           "Lines": [
             {
               "key": "strElementalDamage",
               "args": [
-                63,
-                500
+                200,
+                400
               ]
             }
           ]
@@ -132678,7 +133477,8 @@
       {
         "key": "strModEnhancedDamage",
         "args": [
-          333
+          300,
+          380
         ]
       },
       {
@@ -132689,17 +133489,16 @@
         ]
       },
       {
-        "key": "strModColdDamageRange",
+        "key": "ModStrDamPierce",
         "args": [
-          222,
-          333
+          10,
+          15
         ]
       },
       {
-        "key": "Moditemenrescoldsk",
+        "key": "ModStr5c",
         "args": [
-          20,
-          30
+          10
         ]
       },
       {
@@ -132716,28 +133515,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 232.5,
+          "AverageDamage": 235.5,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
-                142,
-                142,
-                273,
-                373
-              ]
-            }
-          ]
-        },
-        {
-          "Type": 4,
-          "AverageDamage": 277.5,
-          "Lines": [
-            {
-              "key": "strElementalDamage",
-              "args": [
-                222,
-                333
+                132,
+                158,
+                260,
+                392
               ]
             }
           ]
@@ -132864,7 +133650,7 @@
       {
         "key": "ItemExpansiveChanc1",
         "args": [
-          18,
+          8,
           18,
           "skillname71"
         ]
@@ -133123,8 +133909,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            26,
+            26
           ]
         },
         {
@@ -133276,7 +134062,7 @@
       {
         "key": "strModEnhancedDamage",
         "args": [
-          300,
+          250,
           350
         ]
       },
@@ -133290,8 +134076,7 @@
       {
         "key": "ModStr5c",
         "args": [
-          20,
-          25
+          10
         ]
       },
       {
@@ -133321,14 +134106,14 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 527.5,
+          "AverageDamage": 500.75,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
-                232,
+                215,
                 348,
-                720,
+                630,
                 810
               ]
             }
@@ -133851,6 +134636,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          1
+        ]
+      },
+      {
         "key": "ModitemdamColdsk",
         "args": [
           23,
@@ -133985,8 +134776,8 @@
         {
           "key": "strDurability",
           "args": [
-            24,
-            24
+            32,
+            32
           ]
         },
         {
@@ -134058,6 +134849,12 @@
         "args": [
           100,
           200
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2
         ]
       },
       {
@@ -134172,7 +134969,12 @@
         "args": [
           3,
           "Necromancer"
-        ]
+        ],
+        "selection": {
+          "stat": "item_singleskill",
+          "min": 76,
+          "max": 95
+        }
       },
       {
         "key": "Modstr2v",
@@ -134258,12 +135060,6 @@
         "args": [
           20,
           30
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          10
         ]
       },
       {
@@ -135069,8 +135865,8 @@
         {
           "key": "strDurability",
           "args": [
-            18,
-            18
+            26,
+            26
           ]
         },
         {
@@ -135393,6 +136189,312 @@
     }
   },
   {
+    "Type": "torsitype",
+    "Vanilla": "N",
+    "Index": "Red Dragon Scales",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 100,
+    "RequiredLevel": 90,
+    "Code": "upl",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ModItemMonFireSunder",
+        "args": [
+          200
+        ]
+      },
+      {
+        "key": "ModStr3i",
+        "args": [
+          2,
+          3
+        ]
+      },
+      {
+        "key": "Moditemenresfiresk",
+        "args": [
+          15,
+          20
+        ]
+      },
+      {
+        "key": "ModitemdamFiresk",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          300,
+          400
+        ]
+      },
+      {
+        "key": "ModStr5u",
+        "args": [
+          3,
+          5
+        ]
+      },
+      {
+        "key": "ModStr5g",
+        "args": [
+          8,
+          12
+        ]
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          10,
+          20
+        ]
+      },
+      {
+        "key": "strSocketedCount",
+        "args": [
+          0,
+          4
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "upl",
+      "RequiredClass": "",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            2072,
+            2590
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            30,
+            30
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            165
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "torsitype",
+    "Vanilla": "N",
+    "Index": "Ghostly Chainmail",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 100,
+    "RequiredLevel": 90,
+    "Code": "uhn",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ModItemMonColdSunder",
+        "args": [
+          200
+        ]
+      },
+      {
+        "key": "ModStrcoldskill",
+        "args": [
+          2,
+          3
+        ]
+      },
+      {
+        "key": "Moditemenrescoldsk",
+        "args": [
+          15,
+          20
+        ]
+      },
+      {
+        "key": "ModitemdamColdsk",
+        "args": [
+          20,
+          10
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          300,
+          400
+        ]
+      },
+      {
+        "key": "ModStr5v",
+        "args": [
+          3,
+          5
+        ]
+      },
+      {
+        "key": "ModStr5m",
+        "args": [
+          8,
+          12
+        ]
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          10,
+          20
+        ]
+      },
+      {
+        "key": "strSocketedCount",
+        "args": [
+          0,
+          4
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "uhn",
+      "RequiredClass": "",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            2024,
+            2530
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            45,
+            45
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            158
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "torsitype",
+    "Vanilla": "N",
+    "Index": "Breastplate of Gond",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 100,
+    "RequiredLevel": 90,
+    "Code": "urs",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ModItemMonLightSunder",
+        "args": [
+          200
+        ]
+      },
+      {
+        "key": "Moditemenresltngsk",
+        "args": [
+          15,
+          20
+        ]
+      },
+      {
+        "key": "ModitemdamLtngsk",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          300,
+          400
+        ]
+      },
+      {
+        "key": "ModStr5w",
+        "args": [
+          3,
+          5
+        ]
+      },
+      {
+        "key": "ModStr5i",
+        "args": [
+          8,
+          12
+        ]
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          10,
+          20
+        ]
+      },
+      {
+        "key": "strSocketedCount",
+        "args": [
+          0,
+          4
+        ]
+      },
+      {
+        "key": "ModStrlightningskill",
+        "args": [
+          2,
+          3
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "urs",
+      "RequiredClass": "",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            2008,
+            2510
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            50,
+            50
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            118
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "helmitype",
     "Vanilla": "N",
     "Index": "The Gambler's Fallacy",
@@ -135407,7 +136509,12 @@
         "key": "strSkillRandom",
         "args": [
           2
-        ]
+        ],
+        "selection": {
+          "stat": "item_addclassskills",
+          "min": 0,
+          "max": 7
+        }
       },
       {
         "key": "strModEnhancedDamage",
@@ -135556,15 +136663,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 304,
+          "AverageDamage": 404,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
                 159,
-                373,
-                306,
-                378
+                273,
+                506,
+                678
               ]
             }
           ]
@@ -135610,7 +136717,7 @@
       {
         "key": "ItemExpansiveChanc1",
         "args": [
-          10,
+          5,
           10,
           "skillname71"
         ]
@@ -136169,6 +137276,12 @@
         ]
       },
       {
+        "key": "StrSkill13",
+        "args": [
+          3
+        ]
+      },
+      {
         "key": "PenetrateElePen",
         "args": [
           15,
@@ -136365,15 +137478,15 @@
         ]
       },
       {
-        "key": "ModStr3h2",
+        "key": "ModStr2uPercent",
         "args": [
-          150
+          10
         ]
       },
       {
-        "key": "res-curse-len",
+        "key": "ModStr3h2",
         "args": [
-          20
+          150
         ]
       }
     ],

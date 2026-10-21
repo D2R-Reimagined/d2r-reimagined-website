@@ -36,17 +36,24 @@ describe('catalog sources', () => {
     expect(buildCatalog('uniques', { uniques: rows })).toEqual(rows);
   });
 
-  it('hides only the removed runewords across catalogs, search, counts, and the grail', async () => {
-    const removed = ['Fortitude (Dummy)', 'Rain Reimagined'];
+  it('still hides the legacy placeholder runewords if an export ships them', () => {
+    const rows: CatalogItem[] = [{ Index: 'Rain' }, { Index: 'Rain Reimagined' }, { Index: 'Fortitude (Dummy)' }, { Index: 'Fortitude' }];
+    expect(buildCatalog('runewords', { runewords: rows })).toEqual([rows[0], rows[3]]);
+  });
+
+  it('shows every exported runeword across catalogs, search, counts, and the grail', async () => {
     const rows = runewords as CatalogItem[];
-    expect(rows.filter((row) => removed.includes(String(row.Index)))).toHaveLength(2);
-    const expected = rows.filter((row) => !removed.includes(String(row.Index)));
-    expect(buildCatalog('runewords', { runewords: rows })).toEqual(expected);
+    const names = rows.map((row) => String(row.Index));
+    // The merged mod source no longer defines the placeholder rows; the real runewords they shadowed remain.
+    expect(names).not.toContain('Fortitude (Dummy)');
+    expect(names).not.toContain('Rain Reimagined');
+    expect(names).toEqual(expect.arrayContaining(['Fortitude', 'Rain', 'Unity', 'Insanity', 'Chromaskin', 'Ravage']));
+    expect(buildCatalog('runewords', { runewords: rows })).toEqual(rows);
 
     const fetcher = (async () => ({ ok: true, json: async () => rows })) as unknown as typeof fetch;
-    expect(await loadCatalog('runewords', fetcher)).toEqual(expected);
-    expect(loadHome().counts.runewords).toBe(expected.length);
-    expect(loadGrail().runewords.map((row) => row.Index)).toEqual(expected.map((row) => row.Index));
+    expect(await loadCatalog('runewords', fetcher)).toEqual(rows);
+    expect(loadHome().counts.runewords).toBe(rows.length);
+    expect(loadGrail().runewords.map((row) => row.Index)).toEqual(names);
   });
 
   it('shares one request per catalog and retries after a failure', async () => {

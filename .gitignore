@@ -38,3 +38,6 @@ node_modules
 /.svelte-kit
 /build
 /artifacts
+
+# Interrupted `pnpm data:install` working directories (see docs/DATA-INSTALL.md)
+/static/.data.*

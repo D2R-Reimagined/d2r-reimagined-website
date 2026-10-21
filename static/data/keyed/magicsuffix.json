@@ -1208,6 +1208,12 @@
           1,
           2
         ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2
+        ]
       }
     ]
   },
@@ -1240,6 +1246,12 @@
         "args": [
           3,
           4
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          3
         ]
       }
     ]
@@ -1275,6 +1287,12 @@
           4,
           15
         ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
+        ]
       }
     ]
   },
@@ -1308,6 +1326,12 @@
         "args": [
           16,
           50
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          6
         ]
       }
     ]
@@ -1343,6 +1367,12 @@
           75,
           100
         ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          6
+        ]
       }
     ]
   },
@@ -1377,6 +1407,12 @@
           100,
           150
         ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          6
+        ]
       }
     ]
   },
@@ -1408,6 +1444,12 @@
           3,
           6
         ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          3
+        ]
       }
     ]
   },
@@ -1438,6 +1480,12 @@
         "args": [
           7,
           10
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
         ]
       }
     ]
@@ -1471,6 +1519,12 @@
           11,
           15
         ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          5
+        ]
       }
     ]
   },
@@ -1503,6 +1557,12 @@
           16,
           25
         ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          6
+        ]
       }
     ]
   },
@@ -1532,6 +1592,12 @@
         "args": [
           3,
           5
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          2
         ]
       }
     ]
@@ -1564,6 +1630,12 @@
           6,
           10
         ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          3
+        ]
       }
     ]
   },
@@ -1594,6 +1666,12 @@
         "args": [
           11,
           15
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
         ]
       }
     ]
@@ -5340,21 +5418,21 @@
       {
         "key": "ModStr1k",
         "args": [
-          0.62
+          0.625
         ],
         "perLevel": true
       },
       {
         "key": "ModStr1j",
         "args": [
-          0.62
+          0.625
         ],
         "perLevel": true
       },
       {
         "key": "ModStr1l",
         "args": [
-          0.62
+          0.625
         ],
         "perLevel": true
       }
@@ -7097,7 +7175,7 @@
       {
         "key": "ModStr1b",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       }
@@ -7122,7 +7200,7 @@
       {
         "key": "ModStr1a",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       }
@@ -7146,14 +7224,14 @@
       {
         "key": "ModStr1a",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       },
       {
         "key": "ModStr1b",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true
       }
@@ -16064,6 +16142,12 @@
           1,
           5
         ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          1
+        ]
       }
     ]
   },
@@ -16094,6 +16178,12 @@
         "args": [
           5,
           10
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          1
         ]
       }
     ]
@@ -16126,6 +16216,12 @@
           10,
           20
         ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          1
+        ]
       }
     ]
   },
@@ -16156,6 +16252,12 @@
         "args": [
           20,
           40
+        ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          1
         ]
       }
     ]
@@ -20269,5 +20371,21 @@
         ]
       }
     ]
+  },
+  {
+    "NameKey": "rmapaffix_quality_suffix",
+    "Level": 1,
+    "MaxLevel": 0,
+    "RequiredLevel": 0,
+    "Group": 2001,
+    "ClassSpecific": "",
+    "Class": "",
+    "ClassLevelReq": 0,
+    "Types": [
+      "mapiitype"
+    ],
+    "ETypes": [],
+    "PType": "Suffix",
+    "Lines": []
   }
 ]

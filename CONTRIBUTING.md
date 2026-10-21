@@ -10,6 +10,9 @@
 - `static/data/strings/**` — language bundles loaded on demand after English SSR.
 - `static/images/**` and `static/fonts/**` — public presentation assets.
 
+Everything under `static/data` is generated export output. Refresh it with `pnpm data:install`
+as described in [docs/DATA-INSTALL.md](docs/DATA-INSTALL.md), and commit data changes separately.
+
 ## Conventions
 
 - Use Svelte 5 runes for project components.

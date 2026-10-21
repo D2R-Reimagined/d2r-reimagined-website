@@ -1,1 +1,19 @@
-=== CASC-sourced Translation Keys (0) ===
+=== CASC-sourced Translation Keys (11) ===
+Keys below were referenced by the export but not supplied by the mod's
+local\lng\strings\*.json, so their values were promoted from the bundled
+CASC base strings. To stop relying on CASC for any of these, add an entry
+to Config/synthetic-strings.json (or to the mod's own string files).
+Languages in brackets indicate a partial fallback; an unbracketed key fell
+through to CASC for all 13 languages.
+
+  Nihlathak
+  SkillNameCubeLoot
+  SkillNameEmoteWheel
+  SkillNameInteract
+  SkillNameLoot
+  SkillNameMap
+  SkillNameRunToggle
+  SkillNameShowItems
+  SkillNameSwapWeapons
+  StrSkillRunWalkRange
+  fire

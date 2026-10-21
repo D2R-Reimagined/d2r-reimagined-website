@@ -4,7 +4,8 @@ export interface HealthStats {
     LightningResist: number; ColdResist: number; PoisonResist: number;
 }
 export interface HealthMonster {
-    Id: string; NameKey: string; Enabled: boolean; Killable: boolean; Boss: boolean;
+    /** NameKey is absent for rows with no localized name; FallbackName is raw English. */
+    Id: string; NameKey?: string; FallbackName?: string; Enabled: boolean; Killable: boolean; Boss: boolean;
     NoRatio: boolean; Align: number; DamageRegen: number | null; MonProp: string;
     Stats: HealthStats[]; Areas: number[][];
 }

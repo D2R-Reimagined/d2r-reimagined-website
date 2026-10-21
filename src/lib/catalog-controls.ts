@@ -111,7 +111,7 @@ const typeParents: Record<string, string[]> = {
   h2hitype: ['assnitype', 'meleitype', 'weapitype'], orbitype: ['sorcitype', 'weapitype'],
   phlmitype: ['barbitype', 'helmitype'], peltitype: ['druiitype', 'helmitype'],
   headitype: ['necritype', 'shlditype'], ashditype: ['palaitype', 'shlditype'],
-  grimitype: ['warlitype', 'shlditype'], tpotitype: ['throitype']
+  grimitype: ['warlitype', 'shlditype'], tpotitype: ['throitype'], slamitype: ['meleitype']
 };
 
 function typeChain(code: string, seen = new Set<string>()): Set<string> {
@@ -134,6 +134,33 @@ export function catalogTypeValues(itemTypes: string[], slug: CatalogSlug): strin
   return [...values];
 }
 
+// Pages without the Exact toggle still distinguish ordinary helms from the whole
+// helm family, as the legacy site did. Both choices keep the real type code; the
+// prefixed value exists only inside the type dropdown and maps to the Exact flag.
+const familyLabels: Record<string, string> = { helmitype: 'itype_any_helm' };
+const exactChoicePrefix = 'exact:';
+
+export function typeFamilyChoices(
+  options: Array<{ value: string; label: string }>, t: (key: string) => string
+): Array<{ value: string; label: string }> {
+  return options
+    .flatMap((option) => familyLabels[option.value]
+      ? [{ value: `${exactChoicePrefix}${option.value}`, label: option.label },
+         { value: option.value, label: t(familyLabels[option.value]) }]
+      : [option])
+    .sort((a, b) => a.label.localeCompare(b.label));
+}
+
+export function typeChoiceValue(selectedType: string, exact: boolean): string {
+  return exact && familyLabels[selectedType] ? `${exactChoicePrefix}${selectedType}` : selectedType;
+}
+
+export function parseTypeChoice(value: string): { selectedType: string; exactType: boolean } {
+  return value.startsWith(exactChoicePrefix)
+    ? { selectedType: value.slice(exactChoicePrefix.length), exactType: true }
+    : { selectedType: value, exactType: false };
+}
+
 export function matchesItemType(itemTypes: string[], selectedType: string, exact: boolean, applicability = false): boolean {
   if (!selectedType) return true;
   if (exact) return itemTypes.includes(selectedType);
@@ -141,6 +168,17 @@ export function matchesItemType(itemTypes: string[], selectedType: string, exact
   // through a broader allowed type. A Helm item is not itself a Druid Pelt.
   const selectedChain = applicability ? typeChain(selectedType) : new Set<string>();
   return itemTypes.some((itemType) => typeChain(itemType).has(selectedType) || selectedChain.has(itemType));
+}
+
+/**
+ * Affix ETypes forbid a type and everything beneath it, so an exclusion hits a selection
+ * that is, or descends from, an excluded type. A broad selection such as Any Weapon is
+ * not rejected merely because some of its subtypes are excluded.
+ */
+export function excludesItemType(excludedTypes: string[], selectedType: string): boolean {
+  if (!selectedType || !excludedTypes.length) return false;
+  const selectedChain = typeChain(selectedType);
+  return excludedTypes.some((excluded) => selectedChain.has(excluded));
 }
 
 /** Only equipment belonging to the chosen item family should be offered. */

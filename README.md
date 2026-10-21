@@ -43,6 +43,10 @@ pnpm test
 pnpm run build
 ```
 
+## Game data
+
+`static/data` holds the generated D2R Multi-Export bundle. Install a bundle staged by the exporter's `publish --staging` command with `pnpm data:install --from <staging-directory>`. See [docs/DATA-INSTALL.md](docs/DATA-INSTALL.md).
+
 ## Production
 
 `pnpm run build` creates a Node SSR application in `build/`. Run it with:
@@ -52,6 +56,8 @@ $env:ORIGIN='https://www.d2r-reimagined.com'
 $env:PORT='3000'
 node build
 ```
+
+The SvelteKit version that ties server-rendered HTML to its client bundle is `BUILD_ID` when set, otherwise `GITHUB_SHA` or the current Git commit, and SvelteKit's timestamp default only when none of these is available. Run `pnpm run check` and `pnpm run build` one after the other, not concurrently. `pnpm run build` finishes with `scripts/verify-build.mjs`, which fails the build if the server and client bundles disagree on that version.
 
 The included `Dockerfile` and `compose.yml` provide the same Node SSR runtime in a container. This app cannot be deployed as a static GitHub Pages site without losing server rendering.
 

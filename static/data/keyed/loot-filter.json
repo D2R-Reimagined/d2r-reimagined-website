@@ -11728,7 +11728,7 @@
     },
     {
       "NameKey": "Red Dragon Scales",
-      "Code": "scl"
+      "Code": "upl"
     },
     {
       "NameKey": "Mandrake\u0027s Bloom",
@@ -11736,7 +11736,7 @@
     },
     {
       "NameKey": "Ghostly Chainmail",
-      "Code": "chn"
+      "Code": "uhn"
     },
     {
       "NameKey": "Xanadu Dreams",
@@ -11744,7 +11744,7 @@
     },
     {
       "NameKey": "Breastplate of Gond",
-      "Code": "brs"
+      "Code": "urs"
     },
     {
       "NameKey": "Shattering Blow",
@@ -12455,7 +12455,7 @@
       "Code": "xmg"
     },
     {
-      "NameKey": "Warlock\u0027s Touch",
+      "NameKey": "Gravewood Grasp",
       "Code": "xtg"
     },
     {

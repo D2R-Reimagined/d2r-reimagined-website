@@ -1,0 +1,1320 @@
+=== Asset Report: 0 unresolved, 1313 fallback(s), 0 collision(s) ===
+Unresolved = no sprite was exported for the identifier (its Sprite/Icon is absent).
+Fallback   = a supported substitute was exported (e.g. the base item's art for a unique without its own).
+Collision  = two different sources resolved to the same output file; the first was kept.
+
+--- item-presentation.json / Fallback (1313): no named artwork mapping (mod or CASC) ---
+  set item 'Afterlife' (xla)  mapping=hd/items/sets.json#afterlife  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
+  set item 'Alyssa's Essence' (xpl)  mapping=hd/items/sets.json#alyssa_s_essence  fallback=base item sprite sprites/items/armor-armor-splint_mail.webp
+  set item 'Alyssa's Leafblighter' (8l8)  mapping=hd/items/sets.json#alyssa_s_leafblighter  fallback=base item sprite sprites/items/weapon-bow-long_battle_bow.webp
+  set item 'Alyssa's Sandals' (ulb)  mapping=hd/items/sets.json#alyssa_s_sandals  fallback=base item sprite sprites/items/armor-boot-leather_boots.webp
+  set item 'Andariel's Breastbone' (ula)  mapping=hd/items/sets.json#andariel_s_breastbone  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
+  set item 'Andariel's Claw' (uvg)  mapping=hd/items/sets.json#andariel_s_claw  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
+  set item 'Andariel's Hooves' (umb)  mapping=hd/items/sets.json#andariel_s_hooves  fallback=base item sprite sprites/items/armor-boot-chain_boots.webp
+  set item 'Andariel's Mask' (xsk)  mapping=hd/items/sets.json#andariel_s_mask  fallback=base item sprite sprites/items/armor-helmet-mask.webp
+  set item 'Angel's Touch' (7qs)  mapping=hd/items/sets.json#angel_s_touch  fallback=base item sprite sprites/items/weapon-scepter-grand_scepter.webp
+  set item 'Angels' (uth)  mapping=hd/items/sets.json#angels  fallback=base item sprite sprites/items/armor-armor-gothic_plate.webp
+  set item 'Animal Kinship' (dr3)  mapping=hd/items/sets.json#animal_kinship  fallback=base item sprite sprites/items/armor-pelt-antlers.webp
+  set item 'Apparition of Malice' (9ls)  mapping=hd/items/sets.json#apparition_of_malice  fallback=base item sprite sprites/items/weapon-sword-long_sword.webp
+  set item 'Arcane Battlestaff' (8bs)  mapping=hd/items/sets.json#arcane_battlestaff  fallback=base item sprite sprites/items/weapon-staff-battle_staff.webp
+  set item 'Astral Body' (xhn)  mapping=hd/items/sets.json#astral_body  fallback=base item sprite sprites/items/armor-armor-chain_mail.webp
+  set item 'Autumn's Decay' (tgl)  mapping=hd/items/sets.json#autumn_s_decay  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  set item 'Aviendha's Gift' (vbt)  mapping=hd/items/sets.json#aviendha_s_gift  fallback=base item sprite sprites/items/armor-boot-heavy_boots.webp
+  set item 'Axe of Arvoreen' (7o7)  mapping=hd/items/sets.json#axe_of_arvoreen  fallback=base item sprite sprites/items/weapon-polearm-bardiche.webp
+  set item 'Baal's Cryptic Amulet' (amu)  mapping=hd/items/sets.json#baal_s_cryptic_amulet  fallback=base item sprite sprites/items/misc-amulet-amulet.webp
+  set item 'Balance of Power' (mau)  mapping=hd/items/sets.json#balance_of_power  fallback=base item sprite sprites/items/weapon-hammer-maul.webp
+  set item 'Band of Mysticism' (urs)  mapping=hd/items/sets.json#band_of_mysticism  fallback=base item sprite sprites/items/armor-armor-breast_plate.webp
+  set item 'Baptism by Fire' (9ma)  mapping=hd/items/sets.json#baptism_by_fire  fallback=base item sprite sprites/items/weapon-mace-mace.webp
+  set item 'Baton of Intrepidity' (7cl)  mapping=hd/items/sets.json#baton_of_intrepidity  fallback=base item sprite sprites/items/weapon-club-club.webp
+  set item 'Beast Collar' (bhm)  mapping=hd/items/sets.json#beast_collar  fallback=base item sprite sprites/items/armor-helmet-bone_helm.webp
+  set item 'Belt of Temerity' (hbl)  mapping=hd/items/sets.json#belt_of_temerity  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
+  set item 'Belt of the Vindicator' (zmb)  mapping=hd/items/sets.json#belt_of_the_vindicator  fallback=base item sprite sprites/items/armor-belt-belt_m.webp
+  set item 'Berserker's Howl' (ba4)  mapping=hd/items/sets.json#berserker_s_howl  fallback=base item sprite sprites/items/armor-helmet-assault_helmet.webp
+  set item 'Between Fire and Ice' (urg)  mapping=hd/items/sets.json#between_fire_and_ice  fallback=base item sprite sprites/items/armor-shield-large_shield.webp
+  set item 'Black Dragon Hide Shield' (xit)  mapping=hd/items/sets.json#black_dragon_hide_shield  fallback=base item sprite sprites/items/armor-shield-kite_shield.webp
+  set item 'Blood Raven's Curse' (utu)  mapping=hd/items/sets.json#blood_raven_s_curse  fallback=base item sprite sprites/items/armor-armor-studded_leather.webp
+  set item 'Blood Raven's Pain' (uh9)  mapping=hd/items/sets.json#blood_raven_s_pain  fallback=base item sprite sprites/items/armor-helmet-bone_helm.webp
+  set item 'Blood Raven's Redemption' (6lb)  mapping=hd/items/sets.json#blood_raven_s_redemption  fallback=base item sprite sprites/items/weapon-bow-long_bow.webp
+  set item 'Bloody Visage Helm' (xhm)  mapping=hd/items/sets.json#bloody_visage_helm  fallback=base item sprite sprites/items/armor-helmet-great_helm.webp
+  set item 'Born Supremacy' (umc)  mapping=hd/items/sets.json#born_supremacy  fallback=base item sprite sprites/items/armor-belt-belt_m.webp
+  set item 'Bound by Honor' (7tr)  mapping=hd/items/sets.json#bound_by_honor  fallback=base item sprite sprites/items/weapon-spear-trident.webp
+  set item 'Brother Laz' Faith' (xld)  mapping=hd/items/sets.json#brother_laz_faith  fallback=base item sprite sprites/items/armor-armor-field_plate.webp
+  set item 'Brother Laz' Holy Symbol' (amu)  mapping=hd/items/sets.json#brother_laz_holy_symbol  fallback=base item sprite sprites/items/misc-amulet-amulet.webp
+  set item 'Bulwark of the Vindicator' (pa9)  mapping=hd/items/sets.json#bulwark_of_the_vindicator  fallback=base item sprite sprites/items/armor-shield-aerin_shield.webp
+  set item 'Call of Gylandra' (xla)  mapping=hd/items/sets.json#call_of_gylandra  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
+  set item 'Calming Embrace' (hla)  mapping=hd/items/sets.json#calming_embrace  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
+  set item 'Calming Peace' (uow)  mapping=hd/items/sets.json#calming_peace  fallback=base item sprite sprites/items/armor-shield-tower_shield.webp
+  set item 'Chaos Heart' (fld)  mapping=hd/items/sets.json#chaos_heart  fallback=base item sprite sprites/items/armor-armor-field_plate.webp
+  set item 'Chaotic Shield' (nef)  mapping=hd/items/sets.json#chaotic_shield  fallback=base item sprite sprites/items/armor-voodoo_head-demon_head.webp
+  set item 'Char's Annulus of Obscurity' (rin)  mapping=hd/items/sets.json#char_s_annulus_of_obscurity  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Char's Blessed Reflection' (rin)  mapping=hd/items/sets.json#char_s_blessed_reflection  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Char's Carapace' (utu)  mapping=hd/items/sets.json#char_s_carapace  fallback=base item sprite sprites/items/armor-armor-studded_leather.webp
+  set item 'Char's Grimace of Death' (usk)  mapping=hd/items/sets.json#char_s_grimace_of_death  fallback=base item sprite sprites/items/armor-helmet-mask.webp
+  set item 'Char's Hand of Blessed Light' (7sc)  mapping=hd/items/sets.json#char_s_hand_of_blessed_light  fallback=base item sprite sprites/items/weapon-scepter-scepter.webp
+  set item 'Cherubim' (ulm)  mapping=hd/items/sets.json#cherubim  fallback=base item sprite sprites/items/armor-helmet-helm.webp
+  set item 'Chiad's Halo' (rin)  mapping=hd/items/sets.json#chiad_s_halo  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Chiad's Heartbane' (ucl)  mapping=hd/items/sets.json#chiad_s_heartbane  fallback=base item sprite sprites/items/armor-armor-scale_mail.webp
+  set item 'Chiad's Lances' (amf)  mapping=hd/items/sets.json#chiad_s_lances  fallback=base item sprite sprites/items/weapon-javelin-maiden_javelin.webp
+  set item 'Chiad's Valor' (ulc)  mapping=hd/items/sets.json#chiad_s_valor  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  set item 'Chiad's Wall' (uit)  mapping=hd/items/sets.json#chiad_s_wall  fallback=base item sprite sprites/items/armor-shield-kite_shield.webp
+  set item 'Citadel Belt' (ulc)  mapping=hd/items/sets.json#citadel_belt  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  set item 'Corgina's Orb' (ob2)  mapping=hd/items/sets.json#corgina_s_orb  fallback=base item sprite sprites/items/weapon-orb-sacred_globe.webp
+  set item 'Corgina's Plate' (ltp)  mapping=hd/items/sets.json#corgina_s_plate  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
+  set item 'Corgina's Slippers' (lbt)  mapping=hd/items/sets.json#corgina_s_slippers  fallback=base item sprite sprites/items/armor-boot-leather_boots.webp
+  set item 'Corgina's Ward' (lrg)  mapping=hd/items/sets.json#corgina_s_ward  fallback=base item sprite sprites/items/armor-shield-large_shield.webp
+  set item 'Cortex Wrap' (umc)  mapping=hd/items/sets.json#cortex_wrap  fallback=base item sprite sprites/items/armor-belt-belt_m.webp
+  set item 'Cry of the Wolf' (xcl)  mapping=hd/items/sets.json#cry_of_the_wolf  fallback=base item sprite sprites/items/armor-armor-scale_mail.webp
+  set item 'Cryptic Claws' (7tw)  mapping=hd/items/sets.json#cryptic_claws  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  set item 'Dagger of Vashna' (9dg)  mapping=hd/items/sets.json#dagger_of_vashna  fallback=base item sprite sprites/items/weapon-knife-dagger.webp
+  set item 'Dark Cataclysm' (ci2)  mapping=hd/items/sets.json#dark_cataclysm  fallback=base item sprite sprites/items/armor-circlet-tiara.webp
+  set item 'Dark Rituals' (xtp)  mapping=hd/items/sets.json#dark_rituals  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
+  set item 'Darkest Wishes' (72a)  mapping=hd/items/sets.json#darkest_wishes  fallback=base item sprite sprites/items/weapon-axe-double_axe.webp
+  set item 'Darkmage's Celestial Fury' (uap)  mapping=hd/items/sets.json#darkmage_s_celestial_fury  fallback=base item sprite sprites/items/armor-helmet-cap_hat.webp
+  set item 'Darkmage's Falling Star' (uhn)  mapping=hd/items/sets.json#darkmage_s_falling_star  fallback=base item sprite sprites/items/armor-armor-chain_mail.webp
+  set item 'Darkmage's Meteor Shower' (7mt)  mapping=hd/items/sets.json#darkmage_s_meteor_shower  fallback=base item sprite sprites/items/weapon-mace-morning_star.webp
+  set item 'Darkmage's Solar Flair' (umg)  mapping=hd/items/sets.json#darkmage_s_solar_flair  fallback=base item sprite sprites/items/armor-glove-bracers_m.webp
+  set item 'Darkmage's Super Nova' (umb)  mapping=hd/items/sets.json#darkmage_s_super_nova  fallback=base item sprite sprites/items/armor-boot-chain_boots.webp
+  set item 'Dawn's Blessing' (xts)  mapping=hd/items/sets.json#dawn_s_blessing  fallback=base item sprite sprites/items/armor-shield-gothic_shield.webp
+  set item 'Dawns Mist' (uvg)  mapping=hd/items/sets.json#dawns_mist  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
+  set item 'Daystar Wrap' (zhb)  mapping=hd/items/sets.json#daystar_wrap  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
+  set item 'Death Knight's Demon Blade' (9bs)  mapping=hd/items/sets.json#death_knight_s_demon_blade  fallback=base item sprite sprites/items/weapon-sword-broad_sword.webp
+  set item 'Death and Decay' (utp)  mapping=hd/items/sets.json#death_and_decay  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
+  set item 'Death's Door' (zvb)  mapping=hd/items/sets.json#death_s_door  fallback=base item sprite sprites/items/armor-belt-light_belt.webp
+  set item 'Deflector of Light' (xts)  mapping=hd/items/sets.json#deflector_of_light  fallback=base item sprite sprites/items/armor-shield-gothic_shield.webp
+  set item 'Demonic Chuckle' (rin)  mapping=hd/items/sets.json#demonic_chuckle  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Diablo's Soulstone Ring' (rin)  mapping=hd/items/sets.json#diablo_s_soulstone_ring  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Diamond Necklace' (amu)  mapping=hd/items/sets.json#diamond_necklace  fallback=base item sprite sprites/items/misc-amulet-amulet.webp
+  set item 'Dominion' (utb)  mapping=hd/items/sets.json#dominion  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  set item 'Dominion's Thesis' (amu)  mapping=hd/items/sets.json#dominion_s_thesis  fallback=base item sprite sprites/items/misc-amulet-amulet.webp
+  set item 'Dracolich' (ne8)  mapping=hd/items/sets.json#dracolich  fallback=base item sprite sprites/items/armor-voodoo_head-unraveller_head.webp
+  set item 'Draconian Mask' (xlm)  mapping=hd/items/sets.json#draconian_mask  fallback=base item sprite sprites/items/armor-helmet-helm.webp
+  set item 'Dragon's Flank' (bsh)  mapping=hd/items/sets.json#dragon_s_flank  fallback=base item sprite sprites/items/armor-shield-bone_shield.webp
+  set item 'Draven Coil' (rin)  mapping=hd/items/sets.json#draven_coil  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Drawing Out the Beast' (zlb)  mapping=hd/items/sets.json#drawing_out_the_beast  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  set item 'Dying Curses' (zlb)  mapping=hd/items/sets.json#dying_curses  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  set item 'Ebony Plate of Evil' (urs)  mapping=hd/items/sets.json#ebony_plate_of_evil  fallback=base item sprite sprites/items/armor-armor-breast_plate.webp
+  set item 'Elven Grace' (xvb)  mapping=hd/items/sets.json#elven_grace  fallback=base item sprite sprites/items/armor-boot-heavy_boots.webp
+  set item 'Elysian Fields' (upk)  mapping=hd/items/sets.json#elysian_fields  fallback=base item sprite sprites/items/armor-shield-spiked_shield.webp
+  set item 'Embracing Hatred' (ztb)  mapping=hd/items/sets.json#embracing_hatred  fallback=base item sprite sprites/items/armor-belt-heavy_belt.webp
+  set item 'Equilibrium' (zmb)  mapping=hd/items/sets.json#equilibrium  fallback=base item sprite sprites/items/armor-belt-belt_m.webp
+  set item 'Eternal Sleep' (amu)  mapping=hd/items/sets.json#eternal_sleep  fallback=base item sprite sprites/items/misc-amulet-amulet.webp
+  set item 'Evil Humor' (rin)  mapping=hd/items/sets.json#evil_humor  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Evil Reputation' (utb)  mapping=hd/items/sets.json#evil_reputation  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  set item 'Eye of the Trent' (ob8)  mapping=hd/items/sets.json#eye_of_the_trent  fallback=base item sprite sprites/items/weapon-orb-smoked_sphere.webp
+  set item 'Fade to Black' (xkp)  mapping=hd/items/sets.json#fade_to_black  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
+  set item 'Fall From Grace' (rin)  mapping=hd/items/sets.json#fall_from_grace  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Fallen Angels' (xth)  mapping=hd/items/sets.json#fallen_angels  fallback=base item sprite sprites/items/armor-armor-gothic_plate.webp
+  set item 'Featherfoot' (ulb)  mapping=hd/items/sets.json#featherfoot  fallback=base item sprite sprites/items/armor-boot-leather_boots.webp
+  set item 'Feeding Frenzy' (7wc)  mapping=hd/items/sets.json#feeding_frenzy  fallback=base item sprite sprites/items/weapon-polearm-war_scythe.webp
+  set item 'Fernandez' Plate' (brs)  mapping=hd/items/sets.json#fernandez_plate  fallback=base item sprite sprites/items/armor-armor-breast_plate.webp
+  set item 'Ferrit's Paw' (vgl)  mapping=hd/items/sets.json#ferrit_s_paw  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
+  set item 'Firecam Gilded Plate' (xar)  mapping=hd/items/sets.json#firecam_gilded_plate  fallback=base item sprite sprites/items/armor-armor-ancient_armor.webp
+  set item 'Frostwyrm Hide' (uea)  mapping=hd/items/sets.json#frostwyrm_hide  fallback=base item sprite sprites/items/armor-armor-leather_armor.webp
+  set item 'Full Moon Frenzy' (dr6)  mapping=hd/items/sets.json#full_moon_frenzy  fallback=base item sprite sprites/items/armor-pelt-wolf_head.webp
+  set item 'Gauntlets of Quietus' (xtg)  mapping=hd/items/sets.json#gauntlets_of_quietus  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  set item 'Girdle of Kitthix' (uhc)  mapping=hd/items/sets.json#girdle_of_kitthix  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
+  set item 'Glory of Salvation' (utg)  mapping=hd/items/sets.json#glory_of_salvation  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  set item 'Gloves of Knowledge' (xmg)  mapping=hd/items/sets.json#gloves_of_knowledge  fallback=base item sprite sprites/items/armor-glove-bracers_m.webp
+  set item 'Grasp of Lament' (xlg)  mapping=hd/items/sets.json#grasp_of_lament  fallback=base item sprite sprites/items/armor-glove-gloves_l.webp
+  set item 'Great White Terror' (uld)  mapping=hd/items/sets.json#great_white_terror  fallback=base item sprite sprites/items/armor-armor-field_plate.webp
+  set item 'Green Dragon Mask' (xhm)  mapping=hd/items/sets.json#green_dragon_mask  fallback=base item sprite sprites/items/armor-helmet-great_helm.webp
+  set item 'Greyhawk's Deflector' (pa3)  mapping=hd/items/sets.json#greyhawk_s_deflector  fallback=base item sprite sprites/items/armor-shield-heraldic_shield.webp
+  set item 'Greyhawk's Icebrand' (scp)  mapping=hd/items/sets.json#greyhawk_s_icebrand  fallback=base item sprite sprites/items/weapon-scepter-scepter.webp
+  set item 'Greyhawk's Viser' (fhl)  mapping=hd/items/sets.json#greyhawk_s_viser  fallback=base item sprite sprites/items/armor-helmet-full_helm.webp
+  set item 'Greyhawk's Wing' (plt)  mapping=hd/items/sets.json#greyhawk_s_wing  fallback=base item sprite sprites/items/armor-armor-plate_mail.webp
+  set item 'Grimlock's Belt' (mbl)  mapping=hd/items/sets.json#grimlock_s_belt  fallback=base item sprite sprites/items/armor-belt-belt_m.webp
+  set item 'Grimlock's Shroud' (qui)  mapping=hd/items/sets.json#grimlock_s_shroud  fallback=base item sprite sprites/items/armor-armor-quilted_armor.webp
+  set item 'Grimlock's Skull' (ne2)  mapping=hd/items/sets.json#grimlock_s_skull  fallback=base item sprite sprites/items/armor-voodoo_head-zombie_head.webp
+  set item 'Grimlock's Wand' (bwn)  mapping=hd/items/sets.json#grimlock_s_wand  fallback=base item sprite sprites/items/weapon-wand-bone_wand.webp
+  set item 'Guiding Focus' (ukp)  mapping=hd/items/sets.json#guiding_focus  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
+  set item 'Guiding Force' (umg)  mapping=hd/items/sets.json#guiding_force  fallback=base item sprite sprites/items/armor-glove-bracers_m.webp
+  set item 'Hallowed Greaves' (xtb)  mapping=hd/items/sets.json#hallowed_greaves  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  set item 'Hallowed Redeemer' (7ba)  mapping=hd/items/sets.json#hallowed_redeemer  fallback=base item sprite sprites/items/weapon-axe-broad_axe.webp
+  set item 'Hammerhead's Persistence' (xvb)  mapping=hd/items/sets.json#hammerhead_s_persistence  fallback=base item sprite sprites/items/armor-boot-heavy_boots.webp
+  set item 'Hand of the Vindicator' (whm)  mapping=hd/items/sets.json#hand_of_the_vindicator  fallback=base item sprite sprites/items/weapon-hammer-war_hammer.webp
+  set item 'Hannibal's Bending Knee' (xtb)  mapping=hd/items/sets.json#hannibal_s_bending_knee  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  set item 'Hannibal's Blurred Vision' (xhl)  mapping=hd/items/sets.json#hannibal_s_blurred_vision  fallback=base item sprite sprites/items/armor-helmet-full_helm.webp
+  set item 'Hannibal's Final Flight' (7bk)  mapping=hd/items/sets.json#hannibal_s_final_flight  fallback=base item sprite sprites/items/weapon-knife-balanced_knife.webp
+  set item 'Hannibal's Shattered Plate' (xld)  mapping=hd/items/sets.json#hannibal_s_shattered_plate  fallback=base item sprite sprites/items/armor-armor-field_plate.webp
+  set item 'Harvest of Cruelty' (uvb)  mapping=hd/items/sets.json#harvest_of_cruelty  fallback=base item sprite sprites/items/armor-boot-heavy_boots.webp
+  set item 'Haunted Wisdom' (uhl)  mapping=hd/items/sets.json#haunted_wisdom  fallback=base item sprite sprites/items/armor-helmet-full_helm.webp
+  set item 'Heaven's Lances' (9ts)  mapping=hd/items/sets.json#heaven_s_lances  fallback=base item sprite sprites/items/weapon-javelin-throwing_spear.webp
+  set item 'Helghast Waistband' (utc)  mapping=hd/items/sets.json#helghast_waistband  fallback=base item sprite sprites/items/armor-belt-heavy_belt.webp
+  set item 'Hell's Embrace' (xtp)  mapping=hd/items/sets.json#hell_s_embrace  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
+  set item 'Hell's Torment Greaves' (hbt)  mapping=hd/items/sets.json#hell_s_torment_greaves  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
+  set item 'Helm of Chivalry' (ukp)  mapping=hd/items/sets.json#helm_of_chivalry  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
+  set item 'Helshazag' (upl)  mapping=hd/items/sets.json#helshazag  fallback=base item sprite sprites/items/armor-armor-splint_mail.webp
+  set item 'Heroes Stand' (xng)  mapping=hd/items/sets.json#heroes_stand  fallback=base item sprite sprites/items/armor-armor-ring_mail.webp
+  set item 'Heron-Branded Blade' (9cr)  mapping=hd/items/sets.json#heron_branded_blade  fallback=base item sprite sprites/items/weapon-sword-crystal_sword.webp
+  set item 'Holy Aura' (uar)  mapping=hd/items/sets.json#holy_aura  fallback=base item sprite sprites/items/armor-armor-ancient_armor.webp
+  set item 'Holy Boots of Amaunator' (hbt)  mapping=hd/items/sets.json#holy_boots_of_amaunator  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
+  set item 'Holy Buckler of Amaunator' (uml)  mapping=hd/items/sets.json#holy_buckler_of_amaunator  fallback=base item sprite sprites/items/armor-shield-small_shield.webp
+  set item 'Holy Cleaver of Amaunator' (9ax)  mapping=hd/items/sets.json#holy_cleaver_of_amaunator  fallback=base item sprite sprites/items/weapon-axe-axe.webp
+  set item 'Holy Fury' (7s7)  mapping=hd/items/sets.json#holy_fury  fallback=base item sprite sprites/items/weapon-javelin-short_spear.webp
+  set item 'Holy Ring of Amaunator' (rin)  mapping=hd/items/sets.json#holy_ring_of_amaunator  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Holy Sash of Amaunator' (zlb)  mapping=hd/items/sets.json#holy_sash_of_amaunator  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  set item 'Holy Shroud of Amaunator' (uui)  mapping=hd/items/sets.json#holy_shroud_of_amaunator  fallback=base item sprite sprites/items/armor-armor-quilted_armor.webp
+  set item 'Imperial Gauntlets' (uhg)  mapping=hd/items/sets.json#imperial_gauntlets  fallback=base item sprite sprites/items/armor-glove-gaunlets_h.webp
+  set item 'Imperial Girdle' (uhc)  mapping=hd/items/sets.json#imperial_girdle  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
+  set item 'Imperial Greaves' (uhb)  mapping=hd/items/sets.json#imperial_greaves  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
+  set item 'Imperial Helm' (xkp)  mapping=hd/items/sets.json#imperial_helm  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
+  set item 'Imperial Plate' (ult)  mapping=hd/items/sets.json#imperial_plate  fallback=base item sprite sprites/items/armor-armor-plate_mail.webp
+  set item 'Imperial Scepter' (9ws)  mapping=hd/items/sets.json#imperial_scepter  fallback=base item sprite sprites/items/weapon-scepter-war_scepter.webp
+  set item 'Incarnadine Elven Plate' (xtp)  mapping=hd/items/sets.json#incarnadine_elven_plate  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
+  set item 'Jakira's Braces' (mgl)  mapping=hd/items/sets.json#jakira_s_braces  fallback=base item sprite sprites/items/armor-glove-bracers_m.webp
+  set item 'Jakira's Hood' (skp)  mapping=hd/items/sets.json#jakira_s_hood  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
+  set item 'Jakira's Leather Jerkin' (stu)  mapping=hd/items/sets.json#jakira_s_leather_jerkin  fallback=base item sprite sprites/items/armor-armor-studded_leather.webp
+  set item 'Jakira's Strike' (axf)  mapping=hd/items/sets.json#jakira_s_strike  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  set item 'Janis' Gloves' (vgl)  mapping=hd/items/sets.json#janis_gloves  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
+  set item 'Jeweled Belt' (hbl)  mapping=hd/items/sets.json#jeweled_belt  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
+  set item 'Jeweled Circlet' (ci0)  mapping=hd/items/sets.json#jeweled_circlet  fallback=base item sprite sprites/items/armor-circlet-circlet.webp
+  set item 'Judicial Decree' (xcl)  mapping=hd/items/sets.json#judicial_decree  fallback=base item sprite sprites/items/armor-armor-scale_mail.webp
+  set item 'Katriana's Mask' (msk)  mapping=hd/items/sets.json#katriana_s_mask  fallback=base item sprite sprites/items/armor-helmet-mask.webp
+  set item 'King's Prescript' (xit)  mapping=hd/items/sets.json#king_s_prescript  fallback=base item sprite sprites/items/armor-shield-kite_shield.webp
+  set item 'Kingpin's Blade' (9fc)  mapping=hd/items/sets.json#kingpin_s_blade  fallback=base item sprite sprites/items/weapon-sword-falchion.webp
+  set item 'Kingpin's Crown' (uap)  mapping=hd/items/sets.json#kingpin_s_crown  fallback=base item sprite sprites/items/armor-helmet-cap_hat.webp
+  set item 'Kingpin's Greaves' (xtb)  mapping=hd/items/sets.json#kingpin_s_greaves  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  set item 'Kingpin's Ire' (xpl)  mapping=hd/items/sets.json#kingpin_s_ire  fallback=base item sprite sprites/items/armor-armor-splint_mail.webp
+  set item 'Kingpin's Signet' (rin)  mapping=hd/items/sets.json#kingpin_s_signet  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Kingpin's Wrap' (ztb)  mapping=hd/items/sets.json#kingpin_s_wrap  fallback=base item sprite sprites/items/armor-belt-heavy_belt.webp
+  set item 'Lady Daan's Celeritous Jambeau' (xmb)  mapping=hd/items/sets.json#lady_daan_s_celeritous_jambeau  fallback=base item sprite sprites/items/armor-boot-chain_boots.webp
+  set item 'Lancer's Reach' (9pa)  mapping=hd/items/sets.json#lancer_s_reach  fallback=base item sprite sprites/items/weapon-polearm-poleaxe.webp
+  set item 'Legacy in Blood' (amu)  mapping=hd/items/sets.json#legacy_in_blood  fallback=base item sprite sprites/items/misc-amulet-amulet.webp
+  set item 'Lich's Cranium' (xh9)  mapping=hd/items/sets.json#lich_s_cranium  fallback=base item sprite sprites/items/armor-helmet-bone_helm.webp
+  set item 'Lich's Rites' (uuc)  mapping=hd/items/sets.json#lich_s_rites  fallback=base item sprite sprites/items/armor-shield-buckler.webp
+  set item 'Lilarcors Crown' (ci3)  mapping=hd/items/sets.json#lilarcors_crown  fallback=base item sprite sprites/items/armor-circlet-diadem.webp
+  set item 'Lord Hades' Throne' (xrn)  mapping=hd/items/sets.json#lord_hades_throne  fallback=base item sprite sprites/items/armor-helmet-crown.webp
+  set item 'Luther's Cord' (tbl)  mapping=hd/items/sets.json#luther_s_cord  fallback=base item sprite sprites/items/armor-belt-heavy_belt.webp
+  set item 'Maadi's Silence' (uvg)  mapping=hd/items/sets.json#maadi_s_silence  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
+  set item 'Maadi's Soul' (ned)  mapping=hd/items/sets.json#maadi_s_soul  fallback=base item sprite sprites/items/armor-voodoo_head-unraveller_head.webp
+  set item 'Maadi's Spirit' (uhn)  mapping=hd/items/sets.json#maadi_s_spirit  fallback=base item sprite sprites/items/armor-armor-chain_mail.webp
+  set item 'Maadi's Torch' (7gw)  mapping=hd/items/sets.json#maadi_s_torch  fallback=base item sprite sprites/items/weapon-wand-grim_wand.webp
+  set item 'Maadi's Vision' (uh9)  mapping=hd/items/sets.json#maadi_s_vision  fallback=base item sprite sprites/items/armor-helmet-bone_helm.webp
+  set item 'Maiden's Kiss' (xmg)  mapping=hd/items/sets.json#maiden_s_kiss  fallback=base item sprite sprites/items/armor-glove-bracers_m.webp
+  set item 'Mail of Courageousness' (uhn)  mapping=hd/items/sets.json#mail_of_courageousness  fallback=base item sprite sprites/items/armor-armor-chain_mail.webp
+  set item 'Mako's Quickness' (zvb)  mapping=hd/items/sets.json#mako_s_quickness  fallback=base item sprite sprites/items/armor-belt-light_belt.webp
+  set item 'Martyr's Principle' (utg)  mapping=hd/items/sets.json#martyr_s_principle  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  set item 'Mask of Vashna' (xsk)  mapping=hd/items/sets.json#mask_of_vashna  fallback=base item sprite sprites/items/armor-helmet-mask.webp
+  set item 'Mephisto's Misty Aura' (uul)  mapping=hd/items/sets.json#mephisto_s_misty_aura  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
+  set item 'Mindrazor' (7wd)  mapping=hd/items/sets.json#mindrazor  fallback=base item sprite sprites/items/weapon-sword-war_sword.webp
+  set item 'Momentum Theft' (xui)  mapping=hd/items/sets.json#momentum_theft  fallback=base item sprite sprites/items/armor-armor-quilted_armor.webp
+  set item 'Myhrginoc's Black Rain' (uul)  mapping=hd/items/sets.json#myhrginoc_s_black_rain  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
+  set item 'Myhrginoc's Crimson Crusader' (ulm)  mapping=hd/items/sets.json#myhrginoc_s_crimson_crusader  fallback=base item sprite sprites/items/armor-helmet-helm.webp
+  set item 'Myhrginoc's Deathmonger' (uhg)  mapping=hd/items/sets.json#myhrginoc_s_deathmonger  fallback=base item sprite sprites/items/armor-glove-gaunlets_h.webp
+  set item 'Myhrginoc's Headhunter' (7ga)  mapping=hd/items/sets.json#myhrginoc_s_headhunter  fallback=base item sprite sprites/items/weapon-axe-great_axe.webp
+  set item 'Mystic Blades' (xpk)  mapping=hd/items/sets.json#mystic_blades  fallback=base item sprite sprites/items/armor-shield-spiked_shield.webp
+  set item 'Neprida's Kiss' (xrg)  mapping=hd/items/sets.json#neprida_s_kiss  fallback=base item sprite sprites/items/armor-shield-large_shield.webp
+  set item 'Night's Caress' (xlg)  mapping=hd/items/sets.json#night_s_caress  fallback=base item sprite sprites/items/armor-glove-gloves_l.webp
+  set item 'Noxious Whispers' (usk)  mapping=hd/items/sets.json#noxious_whispers  fallback=base item sprite sprites/items/armor-helmet-mask.webp
+  set item 'Onyx's Celestial Rage' (baf)  mapping=hd/items/sets.json#onyx_s_celestial_rage  fallback=base item sprite sprites/items/armor-helmet-avenger_guard.webp
+  set item 'Onyx's Fallen Star' (uhb)  mapping=hd/items/sets.json#onyx_s_fallen_star  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
+  set item 'Onyx's Meteor Shower' (upl)  mapping=hd/items/sets.json#onyx_s_meteor_shower  fallback=base item sprite sprites/items/armor-armor-splint_mail.webp
+  set item 'Onyx's Solar Flair' (7b7)  mapping=hd/items/sets.json#onyx_s_solar_flair  fallback=base item sprite sprites/items/weapon-sword-bastard_sword.webp
+  set item 'Onyx's Super Nova' (7gs)  mapping=hd/items/sets.json#onyx_s_super_nova  fallback=base item sprite sprites/items/weapon-sword-giant_sword.webp
+  set item 'Panda's Coat' (uui)  mapping=hd/items/sets.json#panda_s_coat  fallback=base item sprite sprites/items/armor-armor-quilted_armor.webp
+  set item 'Panda's Mitts' (lgl)  mapping=hd/items/sets.json#panda_s_mitts  fallback=base item sprite sprites/items/armor-glove-gloves_l.webp
+  set item 'Panda's Pelt' (dr6)  mapping=hd/items/sets.json#panda_s_pelt  fallback=base item sprite sprites/items/armor-pelt-wolf_head.webp
+  set item 'Panda's Sash' (lbl)  mapping=hd/items/sets.json#panda_s_sash  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  set item 'Panda's Sled' (uow)  mapping=hd/items/sets.json#panda_s_sled  fallback=base item sprite sprites/items/armor-shield-tower_shield.webp
+  set item 'Peace Ring' (rin)  mapping=hd/items/sets.json#peace_ring  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Phantasm of Horror' (xsh)  mapping=hd/items/sets.json#phantasm_of_horror  fallback=base item sprite sprites/items/armor-shield-bone_shield.webp
+  set item 'Phasewalker Boots' (xhb)  mapping=hd/items/sets.json#phasewalker_boots  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
+  set item 'Power of Brother Laz' (xtg)  mapping=hd/items/sets.json#power_of_brother_laz  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  set item 'Power of Fire' (xui)  mapping=hd/items/sets.json#power_of_fire  fallback=base item sprite sprites/items/armor-armor-quilted_armor.webp
+  set item 'Power of Ice' (xap)  mapping=hd/items/sets.json#power_of_ice  fallback=base item sprite sprites/items/armor-helmet-cap_hat.webp
+  set item 'Power of Lightning' (xuc)  mapping=hd/items/sets.json#power_of_lightning  fallback=base item sprite sprites/items/armor-shield-buckler.webp
+  set item 'Prayer of Brother Laz' (pa8)  mapping=hd/items/sets.json#prayer_of_brother_laz  fallback=base item sprite sprites/items/armor-shield-heraldic_shield.webp
+  set item 'Prince Gwar's Bracers' (xmg)  mapping=hd/items/sets.json#prince_gwar_s_bracers  fallback=base item sprite sprites/items/armor-glove-bracers_m.webp
+  set item 'Prince Karnd's Abomination' (6rx)  mapping=hd/items/sets.json#prince_karnd_s_abomination  fallback=base item sprite sprites/items/weapon-bow-repeating_crossbow.webp
+  set item 'Principality' (9b9)  mapping=hd/items/sets.json#principality  fallback=base item sprite sprites/items/weapon-sword-bastard_sword.webp
+  set item 'Quincy's Shield' (spk)  mapping=hd/items/sets.json#quincy_s_shield  fallback=base item sprite sprites/items/armor-shield-spiked_shield.webp
+  set item 'Red Dragon Scale Mail' (xcl)  mapping=hd/items/sets.json#red_dragon_scale_mail  fallback=base item sprite sprites/items/armor-armor-scale_mail.webp
+  set item 'Redemption Denied' (amu)  mapping=hd/items/sets.json#redemption_denied  fallback=base item sprite sprites/items/misc-amulet-amulet.webp
+  set item 'Regime of Regulation' (7sm)  mapping=hd/items/sets.json#regime_of_regulation  fallback=base item sprite sprites/items/weapon-sword-scimitar.webp
+  set item 'Retribution' (pae)  mapping=hd/items/sets.json#retribution  fallback=base item sprite sprites/items/armor-shield-aerin_shield.webp
+  set item 'Return to Hydrakal' (7wh)  mapping=hd/items/sets.json#return_to_hydrakal  fallback=base item sprite sprites/items/weapon-hammer-war_hammer.webp
+  set item 'Revenant's Claw' (utg)  mapping=hd/items/sets.json#revenant_s_claw  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  set item 'Robes of Vashna' (xea)  mapping=hd/items/sets.json#robes_of_vashna  fallback=base item sprite sprites/items/armor-armor-leather_armor.webp
+  set item 'Ruby Ring' (rin)  mapping=hd/items/sets.json#ruby_ring  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Sage's Leather' (xla)  mapping=hd/items/sets.json#sage_s_leather  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
+  set item 'Salander's Mail' (xng)  mapping=hd/items/sets.json#salander_s_mail  fallback=base item sprite sprites/items/armor-armor-ring_mail.webp
+  set item 'Salander's Visor' (xlm)  mapping=hd/items/sets.json#salander_s_visor  fallback=base item sprite sprites/items/armor-helmet-helm.webp
+  set item 'Savant Fury' (9gd)  mapping=hd/items/sets.json#savant_fury  fallback=base item sprite sprites/items/weapon-sword-great_sword.webp
+  set item 'Secret Society' (ba9)  mapping=hd/items/sets.json#secret_society  fallback=base item sprite sprites/items/armor-helmet-assault_helmet.webp
+  set item 'Ser'Angreal Necklace' (amu)  mapping=hd/items/sets.json#ser_angreal_necklace  fallback=base item sprite sprites/items/misc-amulet-amulet.webp
+  set item 'Seraphim' (rin)  mapping=hd/items/sets.json#seraphim  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Shackles of the Veiled Belt' (uvc)  mapping=hd/items/sets.json#shackles_of_the_veiled_belt  fallback=base item sprite sprites/items/armor-belt-light_belt.webp
+  set item 'Shadow Ninja' (xtu)  mapping=hd/items/sets.json#shadow_ninja  fallback=base item sprite sprites/items/armor-armor-studded_leather.webp
+  set item 'Shadowed Plate' (utp)  mapping=hd/items/sets.json#shadowed_plate  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
+  set item 'Shattering Fist' (hgl)  mapping=hd/items/sets.json#shattering_fist  fallback=base item sprite sprites/items/armor-glove-gaunlets_h.webp
+  set item 'Sheena's Band' (vbl)  mapping=hd/items/sets.json#sheena_s_band  fallback=base item sprite sprites/items/armor-belt-light_belt.webp
+  set item 'Sheena's Choker' (amu)  mapping=hd/items/sets.json#sheena_s_choker  fallback=base item sprite sprites/items/misc-amulet-amulet.webp
+  set item 'Sheena's Elven Mail' (scl)  mapping=hd/items/sets.json#sheena_s_elven_mail  fallback=base item sprite sprites/items/armor-armor-scale_mail.webp
+  set item 'Sheena's Heartwood' (am1)  mapping=hd/items/sets.json#sheena_s_heartwood  fallback=base item sprite sprites/items/weapon-bow-stag_bow.webp
+  set item 'Shroud of Anger' (xth)  mapping=hd/items/sets.json#shroud_of_anger  fallback=base item sprite sprites/items/armor-armor-gothic_plate.webp
+  set item 'Silent Whisper' (ci1)  mapping=hd/items/sets.json#silent_whisper  fallback=base item sprite sprites/items/armor-circlet-coronet.webp
+  set item 'Silk Shroud' (uld)  mapping=hd/items/sets.json#silk_shroud  fallback=base item sprite sprites/items/armor-armor-field_plate.webp
+  set item 'Sin and Greed' (7s8)  mapping=hd/items/sets.json#sin_and_greed  fallback=base item sprite sprites/items/weapon-polearm-scythe.webp
+  set item 'Sir Tylan's Sylvan Mail' (ung)  mapping=hd/items/sets.json#sir_tylan_s_sylvan_mail  fallback=base item sprite sprites/items/armor-armor-ring_mail.webp
+  set item 'Skeleton Warrior's Corpse Plate' (xlt)  mapping=hd/items/sets.json#skeleton_warrior_s_corpse_plate  fallback=base item sprite sprites/items/armor-armor-plate_mail.webp
+  set item 'Slave to Anarchy' (xul)  mapping=hd/items/sets.json#slave_to_anarchy  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
+  set item 'Soulreaver' (7cr)  mapping=hd/items/sets.json#soulreaver  fallback=base item sprite sprites/items/weapon-sword-crystal_sword.webp
+  set item 'Soulstone of Power' (amu)  mapping=hd/items/sets.json#soulstone_of_power  fallback=base item sprite sprites/items/misc-amulet-amulet.webp
+  set item 'Spectral Knight's Unholy Shield' (xsh)  mapping=hd/items/sets.json#spectral_knight_s_unholy_shield  fallback=base item sprite sprites/items/armor-shield-bone_shield.webp
+  set item 'Spin's Conundrum' (uow)  mapping=hd/items/sets.json#spin_s_conundrum  fallback=base item sprite sprites/items/armor-shield-tower_shield.webp
+  set item 'Spin's Enigma' (ci2)  mapping=hd/items/sets.json#spin_s_enigma  fallback=base item sprite sprites/items/armor-circlet-tiara.webp
+  set item 'Spin's Mystery' (ulc)  mapping=hd/items/sets.json#spin_s_mystery  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  set item 'Spin's Paradox' (ula)  mapping=hd/items/sets.json#spin_s_paradox  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
+  set item 'Spin's Perplexing Puzzle' (obc)  mapping=hd/items/sets.json#spin_s_perplexing_puzzle  fallback=base item sprite sprites/items/weapon-orb-sacred_globe.webp
+  set item 'Spring Dawning' (ghm)  mapping=hd/items/sets.json#spring_dawning  fallback=base item sprite sprites/items/armor-helmet-great_helm.webp
+  set item 'Steps Etched in Ash' (umb)  mapping=hd/items/sets.json#steps_etched_in_ash  fallback=base item sprite sprites/items/armor-boot-chain_boots.webp
+  set item 'Stormtwist Grasp' (xvg)  mapping=hd/items/sets.json#stormtwist_grasp  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
+  set item 'Summer Flame' (hbt)  mapping=hd/items/sets.json#summer_flame  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
+  set item 'Summerswerd' (7cr)  mapping=hd/items/sets.json#summerswerd  fallback=base item sprite sprites/items/weapon-sword-crystal_sword.webp
+  set item 'Sundered Heart' (uth)  mapping=hd/items/sets.json#sundered_heart  fallback=base item sprite sprites/items/armor-armor-gothic_plate.webp
+  set item 'Sunspear Deflector' (xow)  mapping=hd/items/sets.json#sunspear_deflector  fallback=base item sprite sprites/items/armor-shield-tower_shield.webp
+  set item 'Taint of Saidin' (uuc)  mapping=hd/items/sets.json#taint_of_saidin  fallback=base item sprite sprites/items/armor-shield-buckler.webp
+  set item 'Teachings of Brother Laz' (urn)  mapping=hd/items/sets.json#teachings_of_brother_laz  fallback=base item sprite sprites/items/armor-helmet-crown.webp
+  set item 'Teleomortis' Gloves' (ulg)  mapping=hd/items/sets.json#teleomortis_gloves  fallback=base item sprite sprites/items/armor-glove-gloves_l.webp
+  set item 'Temple Guardian' (7fl)  mapping=hd/items/sets.json#temple_guardian  fallback=base item sprite sprites/items/weapon-mace-flail.webp
+  set item 'Temptation's Death' (amu)  mapping=hd/items/sets.json#temptation_s_death  fallback=base item sprite sprites/items/misc-amulet-amulet.webp
+  set item 'Ter'Angreal Ring' (rin)  mapping=hd/items/sets.json#ter_angreal_ring  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'The Raven's Beak' (9bl)  mapping=hd/items/sets.json#the_raven_s_beak  fallback=base item sprite sprites/items/weapon-knife-blade.webp
+  set item 'The Raven's Feathers' (uea)  mapping=hd/items/sets.json#the_raven_s_feathers  fallback=base item sprite sprites/items/armor-armor-leather_armor.webp
+  set item 'The Raven's Feet' (mbt)  mapping=hd/items/sets.json#the_raven_s_feet  fallback=base item sprite sprites/items/armor-boot-chain_boots.webp
+  set item 'The Raven's Talons' (lgl)  mapping=hd/items/sets.json#the_raven_s_talons  fallback=base item sprite sprites/items/armor-glove-gloves_l.webp
+  set item 'The Raven's Wing' (xpk)  mapping=hd/items/sets.json#the_raven_s_wing  fallback=base item sprite sprites/items/armor-shield-spiked_shield.webp
+  set item 'The River Stix' (xlb)  mapping=hd/items/sets.json#the_river_stix  fallback=base item sprite sprites/items/armor-boot-leather_boots.webp
+  set item 'Throws of Hatred' (ush)  mapping=hd/items/sets.json#throws_of_hatred  fallback=base item sprite sprites/items/armor-shield-bone_shield.webp
+  set item 'Tome of the Abyss' (wac)  mapping=hd/items/sets.json#tome_of_the_abyss  fallback=base item sprite sprites/items/armor-grimoires-tome_book.webp
+  set item 'Torment of Innocence' (9m9)  mapping=hd/items/sets.json#torment_of_innocence  fallback=base item sprite sprites/items/weapon-hammer-maul.webp
+  set item 'Tortured Soul Gauntlets' (hgl)  mapping=hd/items/sets.json#tortured_soul_gauntlets  fallback=base item sprite sprites/items/armor-glove-gaunlets_h.webp
+  set item 'Treads of Energy' (uvb)  mapping=hd/items/sets.json#treads_of_energy  fallback=base item sprite sprites/items/armor-boot-heavy_boots.webp
+  set item 'Trent's Caster' (am7)  mapping=hd/items/sets.json#trent_s_caster  fallback=base item sprite sprites/items/weapon-bow-reflex_bow.webp
+  set item 'Turtle's Shell' (ful)  mapping=hd/items/sets.json#turtle_s_shell  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
+  set item 'Twilight of Evil' (9yw)  mapping=hd/items/sets.json#twilight_of_evil  fallback=base item sprite sprites/items/weapon-wand-yew_wand.webp
+  set item 'Tyrael's Grief' (rin)  mapping=hd/items/sets.json#tyrael_s_grief  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Unholy Desires' (xap)  mapping=hd/items/sets.json#unholy_desires  fallback=base item sprite sprites/items/armor-helmet-cap_hat.webp
+  set item 'Unholy Vows' (xlt)  mapping=hd/items/sets.json#unholy_vows  fallback=base item sprite sprites/items/armor-armor-plate_mail.webp
+  set item 'Vampire's Crusade' (rin)  mapping=hd/items/sets.json#vampire_s_crusade  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Vampirebone Dagger' (7dg)  mapping=hd/items/sets.json#vampirebone_dagger  fallback=base item sprite sprites/items/weapon-knife-dagger.webp
+  set item 'Vengeance Unleashed' (zhb)  mapping=hd/items/sets.json#vengeance_unleashed  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
+  set item 'Virtue' (zlb)  mapping=hd/items/sets.json#virtue  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  set item 'Wall of Bravery' (xow)  mapping=hd/items/sets.json#wall_of_bravery  fallback=base item sprite sprites/items/armor-shield-tower_shield.webp
+  set item 'Wall of Modius' (bsh)  mapping=hd/items/sets.json#wall_of_modius  fallback=base item sprite sprites/items/armor-shield-bone_shield.webp
+  set item 'Warder's Bond' (rin)  mapping=hd/items/sets.json#warder_s_bond  fallback=base item sprite sprites/items/misc-ring-ring.webp
+  set item 'Warder's Vest' (xtu)  mapping=hd/items/sets.json#warder_s_vest  fallback=base item sprite sprites/items/armor-armor-studded_leather.webp
+  set item 'Warlord's Pike' (pik)  mapping=hd/items/sets.json#warlord_s_pike  fallback=base item sprite sprites/items/weapon-spear-pike.webp
+  set item 'Warrior's Heroism' (9cm)  mapping=hd/items/sets.json#warrior_s_heroism  fallback=base item sprite sprites/items/weapon-sword-claymore.webp
+  set item 'Waterwyrd's Talon' (xhg)  mapping=hd/items/sets.json#waterwyrd_s_talon  fallback=base item sprite sprites/items/armor-glove-gaunlets_h.webp
+  set item 'Way of the Shadow' (ung)  mapping=hd/items/sets.json#way_of_the_shadow  fallback=base item sprite sprites/items/armor-armor-ring_mail.webp
+  set item 'Windspar Mask' (uhm)  mapping=hd/items/sets.json#windspar_mask  fallback=base item sprite sprites/items/armor-helmet-great_helm.webp
+  set item 'Winter's Discord' (uvc)  mapping=hd/items/sets.json#winter_s_discord  fallback=base item sprite sprites/items/armor-belt-light_belt.webp
+  set item 'Winter's Embrace' (xea)  mapping=hd/items/sets.json#winter_s_embrace  fallback=base item sprite sprites/items/armor-armor-leather_armor.webp
+  set item 'Winter's Heart' (aar)  mapping=hd/items/sets.json#winter_s_heart  fallback=base item sprite sprites/items/armor-armor-ancient_armor.webp
+  set item 'Wiseman's Cap' (ci1)  mapping=hd/items/sets.json#wiseman_s_cap  fallback=base item sprite sprites/items/armor-circlet-coronet.webp
+  set item 'Wolf Pelt' (tbl)  mapping=hd/items/sets.json#wolf_pelt  fallback=base item sprite sprites/items/armor-belt-heavy_belt.webp
+  set item 'Woodland Protector' (xhn)  mapping=hd/items/sets.json#woodland_protector  fallback=base item sprite sprites/items/armor-armor-chain_mail.webp
+  set item 'Wrath of Brother Laz' (9sc)  mapping=hd/items/sets.json#wrath_of_brother_laz  fallback=base item sprite sprites/items/weapon-scepter-scepter.webp
+  set item 'Xavier's Greaves' (tbt)  mapping=hd/items/sets.json#xavier_s_greaves  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  set item 'Yavin's Infernal Visage' (uhl)  mapping=hd/items/sets.json#yavin_s_infernal_visage  fallback=base item sprite sprites/items/armor-helmet-full_helm.webp
+  set item 'wicked Impulse' (ult)  mapping=hd/items/sets.json#wicked_impulse  fallback=base item sprite sprites/items/armor-armor-plate_mail.webp
+  unique 'A Knight's Tale' (gth)  mapping=hd/items/uniques.json#a_knight_s_tale  fallback=base item sprite sprites/items/armor-armor-gothic_plate.webp
+  unique 'Abyssal Torment' (amb)  mapping=hd/items/uniques.json#abyssal_torment  fallback=base item sprite sprites/items/weapon-bow-stag_bow.webp
+  unique 'Acolyte's Wand' (wnd)  mapping=hd/items/uniques.json#acolyte_s_wand  fallback=base item sprite sprites/items/weapon-wand-wand.webp
+  unique 'Adamantine Bow' (6lw)  mapping=hd/items/uniques.json#adamantine_bow  fallback=base item sprite sprites/items/weapon-bow-long_war_bow.webp
+  unique 'Adamantine Facet' (jew)  mapping=hd/items/uniques.json#adamantine_facet  fallback=base item sprite sprites/items/misc-gem-jewels.webp
+  unique 'Adamantine Links' (ung)  mapping=hd/items/uniques.json#adamantine_links  fallback=base item sprite sprites/items/armor-armor-ring_mail.webp
+  unique 'Adamantine Mail' (xng)  mapping=hd/items/uniques.json#adamantine_mail  fallback=base item sprite sprites/items/armor-armor-ring_mail.webp
+  unique 'Adamantine Razors' (9tw)  mapping=hd/items/uniques.json#adamantine_razors  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Adamantine Shield' (xow)  mapping=hd/items/uniques.json#adamantine_shield  fallback=base item sprite sprites/items/armor-shield-tower_shield.webp
+  unique 'Aiel Javelins' (9ja)  mapping=hd/items/uniques.json#aiel_javelins  fallback=base item sprite sprites/items/weapon-javelin-javelin.webp
+  unique 'Akara's Wrath' (crs)  mapping=hd/items/uniques.json#akara_s_wrath  fallback=base item sprite sprites/items/weapon-sword-crystal_sword.webp
+  unique 'Amanda's Point' (ame)  mapping=hd/items/uniques.json#amanda_s_point  fallback=base item sprite sprites/items/weapon-spear-maiden_pike.webp
+  unique 'Amazon's Kiss' (pil)  mapping=hd/items/uniques.json#amazon_s_kiss  fallback=base item sprite sprites/items/weapon-javelin-pilum.webp
+  unique 'Ambercall' (scp)  mapping=hd/items/uniques.json#ambercall  fallback=base item sprite sprites/items/weapon-scepter-scepter.webp
+  unique 'Anaconda Skin' (xea)  mapping=hd/items/uniques.json#anaconda_skin  fallback=base item sprite sprites/items/armor-armor-leather_armor.webp
+  unique 'Anadek's Sword' (scm)  mapping=hd/items/uniques.json#anadek_s_sword  fallback=base item sprite sprites/items/weapon-sword-scimitar.webp
+  unique 'Ancient Dragon' (uea)  mapping=hd/items/uniques.json#ancient_dragon  fallback=base item sprite sprites/items/armor-armor-leather_armor.webp
+  unique 'Ancients' Epiphany' (pab)  mapping=hd/items/uniques.json#ancients_epiphany  fallback=base item sprite sprites/items/armor-shield-targe.webp
+  unique 'Androsphinx' (ces)  mapping=hd/items/uniques.json#androsphinx  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Angel's Grace' (gsc)  mapping=hd/items/uniques.json#angel_s_grace  fallback=base item sprite sprites/items/weapon-scepter-grand_scepter.webp
+  unique 'Angel's Tread' (vbt)  mapping=hd/items/uniques.json#angel_s_tread  fallback=base item sprite sprites/items/armor-boot-heavy_boots.webp
+  unique 'Angelic Sympathy' (scp)  mapping=hd/items/uniques.json#angelic_sympathy  fallback=base item sprite sprites/items/weapon-scepter-scepter.webp
+  unique 'Angelsong' (am1)  mapping=hd/items/uniques.json#angelsong  fallback=base item sprite sprites/items/weapon-bow-stag_bow.webp
+  unique 'Antics of the Jester' (9wa)  mapping=hd/items/uniques.json#antics_of_the_jester  fallback=base item sprite sprites/items/weapon-axe-war_axe.webp
+  unique 'Aphrodite's Girdle' (ula)  mapping=hd/items/uniques.json#aphrodite_s_girdle  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
+  unique 'Apocalypse Fire' (9wn)  mapping=hd/items/uniques.json#apocalypse_fire  fallback=base item sprite sprites/items/weapon-wand-wand.webp
+  unique 'Arachnid's Bite' (6sb)  mapping=hd/items/uniques.json#arachnid_s_bite  fallback=base item sprite sprites/items/weapon-bow-short_bow.webp
+  unique 'Arc of the Rainbow' (7ja)  mapping=hd/items/uniques.json#arc_of_the_rainbow  fallback=base item sprite sprites/items/weapon-javelin-javelin.webp
+  unique 'Arcane Protection' (8ws)  mapping=hd/items/uniques.json#arcane_protection  fallback=base item sprite sprites/items/weapon-staff-war_staff.webp
+  unique 'Arch-Nemesis' (xsk)  mapping=hd/items/uniques.json#arch_nemesis  fallback=base item sprite sprites/items/armor-helmet-mask.webp
+  unique 'Archon's Ache' (baf)  mapping=hd/items/uniques.json#archon_s_ache  fallback=base item sprite sprites/items/armor-helmet-avenger_guard.webp
+  unique 'Arctic Edge' (gsd)  mapping=hd/items/uniques.json#arctic_edge  fallback=base item sprite sprites/items/weapon-sword-great_sword.webp
+  unique 'Arctic Frost' (8ss)  mapping=hd/items/uniques.json#arctic_frost  fallback=base item sprite sprites/items/weapon-staff-short_staff.webp
+  unique 'Armor of Warmth' (plt)  mapping=hd/items/uniques.json#armor_of_warmth  fallback=base item sprite sprites/items/armor-armor-plate_mail.webp
+  unique 'Artemis's Spiculum' (9s9)  mapping=hd/items/uniques.json#artemis_s_spiculum  fallback=base item sprite sprites/items/weapon-javelin-short_spear.webp
+  unique 'Asheara's Slippers' (xvb)  mapping=hd/items/uniques.json#asheara_s_slippers  fallback=base item sprite sprites/items/armor-boot-heavy_boots.webp
+  unique 'Ashenwrath' (qui)  mapping=hd/items/uniques.json#ashenwrath  fallback=base item sprite sprites/items/armor-armor-quilted_armor.webp
+  unique 'Ashira's Stunbeam' (8rx)  mapping=hd/items/uniques.json#ashira_s_stunbeam  fallback=base item sprite sprites/items/weapon-bow-repeating_crossbow.webp
+  unique 'Askarian Grips' (xvg)  mapping=hd/items/uniques.json#askarian_grips  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
+  unique 'Assassin Vine' (ztb)  mapping=hd/items/uniques.json#assassin_vine  fallback=base item sprite sprites/items/armor-belt-heavy_belt.webp
+  unique 'Astral Dreadnought' (7m7)  mapping=hd/items/uniques.json#astral_dreadnought  fallback=base item sprite sprites/items/weapon-hammer-maul.webp
+  unique 'Asylum's Ward' (9bw)  mapping=hd/items/uniques.json#asylum_s_ward  fallback=base item sprite sprites/items/weapon-wand-bone_wand.webp
+  unique 'Athena's Tirade' (obe)  mapping=hd/items/uniques.json#athena_s_tirade  fallback=base item sprite sprites/items/weapon-orb-clasped_orb.webp
+  unique 'Auburn Fire' (hax)  mapping=hd/items/uniques.json#auburn_fire  fallback=base item sprite sprites/items/weapon-axe-hand_axe.webp
+  unique 'Avalanche Strike' (7qr)  mapping=hd/items/uniques.json#avalanche_strike  fallback=base item sprite sprites/items/weapon-h2h-scissors_katar.webp
+  unique 'Avenger's Honor' (gsc)  mapping=hd/items/uniques.json#avenger_s_honor  fallback=base item sprite sprites/items/weapon-scepter-grand_scepter.webp
+  unique 'Axe of Sytherdan' (pax)  mapping=hd/items/uniques.json#axe_of_sytherdan  fallback=base item sprite sprites/items/weapon-polearm-poleaxe.webp
+  unique 'Axes of Jahadra' (9b8)  mapping=hd/items/uniques.json#axes_of_jahadra  fallback=base item sprite sprites/items/weapon-axe-balanced_axe.webp
+  unique 'Baal's Wing' (upk)  mapping=hd/items/uniques.json#baal_s_wing  fallback=base item sprite sprites/items/armor-shield-spiked_shield.webp
+  unique 'Baba Yaga's Needle' (tsp)  mapping=hd/items/uniques.json#baba_yaga_s_needle  fallback=base item sprite sprites/items/weapon-javelin-throwing_spear.webp
+  unique 'Badger's Bite' (7sm)  mapping=hd/items/uniques.json#badger_s_bite  fallback=base item sprite sprites/items/weapon-sword-scimitar.webp
+  unique 'Bane of All Gods' (9ls)  mapping=hd/items/uniques.json#bane_of_all_gods  fallback=base item sprite sprites/items/weapon-sword-long_sword.webp
+  unique 'Bane's Dark Wisdom' (uap)  mapping=hd/items/uniques.json#bane_s_dark_wisdom  fallback=base item sprite sprites/items/armor-helmet-cap_hat.webp
+  unique 'Banshee's Cry' (9ta)  mapping=hd/items/uniques.json#banshee_s_cry  fallback=base item sprite sprites/items/weapon-axe-throwing_axe.webp
+  unique 'Barbazu's Smile' (hlm)  mapping=hd/items/uniques.json#barbazu_s_smile  fallback=base item sprite sprites/items/armor-helmet-helm.webp
+  unique 'Basilisk's Touch' (9kr)  mapping=hd/items/uniques.json#basilisk_s_touch  fallback=base item sprite sprites/items/weapon-knife-kriss.webp
+  unique 'Bastion of Hope' (pa4)  mapping=hd/items/uniques.json#bastion_of_hope  fallback=base item sprite sprites/items/armor-shield-aerin_shield.webp
+  unique 'Beeswarm' (lbb)  mapping=hd/items/uniques.json#beeswarm  fallback=base item sprite sprites/items/weapon-bow-long_battle_bow.webp
+  unique 'Beholder' (72a)  mapping=hd/items/uniques.json#beholder  fallback=base item sprite sprites/items/weapon-axe-double_axe.webp
+  unique 'Belenu's Blessing' (drc)  mapping=hd/items/uniques.json#belenu_s_blessing  fallback=base item sprite sprites/items/armor-pelt-hawk_helm.webp
+  unique 'Belt of Evil' (mbl)  mapping=hd/items/uniques.json#belt_of_evil  fallback=base item sprite sprites/items/armor-belt-belt_m.webp
+  unique 'Biteblade' (7lw)  mapping=hd/items/uniques.json#biteblade  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Bitter Sorrow' (wnd)  mapping=hd/items/uniques.json#bitter_sorrow  fallback=base item sprite sprites/items/weapon-wand-wand.webp
+  unique 'Black Lotus' (uhg)  mapping=hd/items/uniques.json#black_lotus  fallback=base item sprite sprites/items/armor-glove-gaunlets_h.webp
+  unique 'Black Rain' (pa8)  mapping=hd/items/uniques.json#black_rain  fallback=base item sprite sprites/items/armor-shield-heraldic_shield.webp
+  unique 'Black Razor' (9fb)  mapping=hd/items/uniques.json#black_razor  fallback=base item sprite sprites/items/weapon-sword-flamberge.webp
+  unique 'Black Widow' (6sb)  mapping=hd/items/uniques.json#black_widow  fallback=base item sprite sprites/items/weapon-bow-short_bow.webp
+  unique 'Blade Of Mythos' (72h)  mapping=hd/items/uniques.json#blade_of_mythos  fallback=base item sprite sprites/items/weapon-sword-two_handed_sword.webp
+  unique 'Blade of Conan' (7cm)  mapping=hd/items/uniques.json#blade_of_conan  fallback=base item sprite sprites/items/weapon-sword-claymore.webp
+  unique 'Bladespan' (btl)  mapping=hd/items/uniques.json#bladespan  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Blanched Death' (ne1)  mapping=hd/items/uniques.json#blanched_death  fallback=base item sprite sprites/items/armor-voodoo_head-preserved_head.webp
+  unique 'Blanket of Stars' (uui)  mapping=hd/items/uniques.json#blanket_of_stars  fallback=base item sprite sprites/items/armor-armor-quilted_armor.webp
+  unique 'Blasthammer' (9wh)  mapping=hd/items/uniques.json#blasthammer  fallback=base item sprite sprites/items/weapon-hammer-war_hammer.webp
+  unique 'Bleeding Branch' (am1)  mapping=hd/items/uniques.json#bleeding_branch  fallback=base item sprite sprites/items/weapon-bow-stag_bow.webp
+  unique 'Blessed One' (9gl)  mapping=hd/items/uniques.json#blessed_one  fallback=base item sprite sprites/items/weapon-javelin-glaive.webp
+  unique 'Blessings of Osiris' (9ts)  mapping=hd/items/uniques.json#blessings_of_osiris  fallback=base item sprite sprites/items/weapon-javelin-throwing_spear.webp
+  unique 'Blinded by Faith' (utg)  mapping=hd/items/uniques.json#blinded_by_faith  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  unique 'Blindman's Bluff' (msk)  mapping=hd/items/uniques.json#blindman_s_bluff  fallback=base item sprite sprites/items/armor-helmet-mask.webp
+  unique 'Blindsight' (ci3)  mapping=hd/items/uniques.json#blindsight  fallback=base item sprite sprites/items/armor-circlet-diadem.webp
+  unique 'Blink Dog' (clm)  mapping=hd/items/uniques.json#blink_dog  fallback=base item sprite sprites/items/weapon-sword-claymore.webp
+  unique 'Blisterpain' (lgl)  mapping=hd/items/uniques.json#blisterpain  fallback=base item sprite sprites/items/armor-glove-gloves_l.webp
+  unique 'Blood Brother' (dr1)  mapping=hd/items/uniques.json#blood_brother  fallback=base item sprite sprites/items/armor-pelt-wolf_head.webp
+  unique 'Blood Dancer' (ba4)  mapping=hd/items/uniques.json#blood_dancer  fallback=base item sprite sprites/items/armor-helmet-assault_helmet.webp
+  unique 'Bloodlust Frenzy' (xld)  mapping=hd/items/uniques.json#bloodlust_frenzy  fallback=base item sprite sprites/items/armor-armor-field_plate.webp
+  unique 'Bloodrune' (lbl)  mapping=hd/items/uniques.json#bloodrune  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  unique 'Bloody Scalp' (9ha)  mapping=hd/items/uniques.json#bloody_scalp  fallback=base item sprite sprites/items/weapon-axe-hand_axe.webp
+  unique 'Bloodyearn' (uvg)  mapping=hd/items/uniques.json#bloodyearn  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
+  unique 'Bluebeard' (6hx)  mapping=hd/items/uniques.json#bluebeard  fallback=base item sprite sprites/items/weapon-bow-heavy_crossbow.webp
+  unique 'Bolt Case of Amplified Slaying' (cqv)  mapping=hd/items/uniques.json#bolt_case_of_amplified_slaying  fallback=base item sprite sprites/items/misc-quiver-bolts.webp
+  unique 'Bolt Case of Pestilence' (cqv)  mapping=hd/items/uniques.json#bolt_case_of_pestilence  fallback=base item sprite sprites/items/misc-quiver-bolts.webp
+  unique 'Bolt Case of Piercing' (cqv)  mapping=hd/items/uniques.json#bolt_case_of_piercing  fallback=base item sprite sprites/items/misc-quiver-bolts.webp
+  unique 'Bolt Case of Resistance Slaying' (cqv)  mapping=hd/items/uniques.json#bolt_case_of_resistance_slaying  fallback=base item sprite sprites/items/misc-quiver-bolts.webp
+  unique 'Bolt Case of Slaying' (cqv)  mapping=hd/items/uniques.json#bolt_case_of_slaying  fallback=base item sprite sprites/items/misc-quiver-bolts.webp
+  unique 'Bolts of Zakarum' (cqv)  mapping=hd/items/uniques.json#bolts_of_zakarum  fallback=base item sprite sprites/items/misc-quiver-bolts.webp
+  unique 'Bonemesh' (uhb)  mapping=hd/items/uniques.json#bonemesh  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
+  unique 'Book of the Swift Apostle' (wa1)  mapping=hd/items/uniques.json#book_of_the_swift_apostle  fallback=base item sprite sprites/items/armor-grimoires-oldbook.webp
+  unique 'Bow of the Dead' (8lb)  mapping=hd/items/uniques.json#bow_of_the_dead  fallback=base item sprite sprites/items/weapon-bow-long_bow.webp
+  unique 'Bowel Twister' (9ts)  mapping=hd/items/uniques.json#bowel_twister  fallback=base item sprite sprites/items/weapon-javelin-throwing_spear.webp
+  unique 'Braced for Battle' (uts)  mapping=hd/items/uniques.json#braced_for_battle  fallback=base item sprite sprites/items/armor-shield-gothic_shield.webp
+  unique 'Brainraver' (9b8)  mapping=hd/items/uniques.json#brainraver  fallback=base item sprite sprites/items/weapon-axe-balanced_axe.webp
+  unique 'Bramble Oak' (clb)  mapping=hd/items/uniques.json#bramble_oak  fallback=base item sprite sprites/items/weapon-club-club.webp
+  unique 'Breastplate of Gond' (urs)  mapping=hd/items/uniques.json#breastplate_of_gond  fallback=base item sprite sprites/items/armor-armor-breast_plate.webp
+  unique 'Breath Of Fire' (7tr)  mapping=hd/items/uniques.json#breath_of_fire  fallback=base item sprite sprites/items/weapon-spear-trident.webp
+  unique 'Briarblade' (scm)  mapping=hd/items/uniques.json#briarblade  fallback=base item sprite sprites/items/weapon-sword-scimitar.webp
+  unique 'Bridge of Pain' (9ss)  mapping=hd/items/uniques.json#bridge_of_pain  fallback=base item sprite sprites/items/weapon-sword-short_sword.webp
+  unique 'Brightmangler' (am6)  mapping=hd/items/uniques.json#brightmangler  fallback=base item sprite sprites/items/weapon-bow-stag_bow.webp
+  unique 'Brimstone Hearth' (xpl)  mapping=hd/items/uniques.json#brimstone_hearth  fallback=base item sprite sprites/items/armor-armor-splint_mail.webp
+  unique 'Brittlequick' (9ga)  mapping=hd/items/uniques.json#brittlequick  fallback=base item sprite sprites/items/weapon-axe-great_axe.webp
+  unique 'Broken Earth' (mpi)  mapping=hd/items/uniques.json#broken_earth  fallback=base item sprite sprites/items/weapon-axe-military_pick.webp
+  unique 'Burning Desire' (9gm)  mapping=hd/items/uniques.json#burning_desire  fallback=base item sprite sprites/items/weapon-hammer-great_maul.webp
+  unique 'Burning Soul' (xhg)  mapping=hd/items/uniques.json#burning_soul  fallback=base item sprite sprites/items/armor-glove-gaunlets_h.webp
+  unique 'Cacophony' (bsh)  mapping=hd/items/uniques.json#cacophony  fallback=base item sprite sprites/items/armor-shield-bone_shield.webp
+  unique 'Cadin'Sor' (glv)  mapping=hd/items/uniques.json#cadin_sor  fallback=base item sprite sprites/items/weapon-javelin-glaive.webp
+  unique 'Cain's Stride' (xvb)  mapping=hd/items/uniques.json#cain_s_stride  fallback=base item sprite sprites/items/armor-boot-heavy_boots.webp
+  unique 'Call Of Heroes' (7wd)  mapping=hd/items/uniques.json#call_of_heroes  fallback=base item sprite sprites/items/weapon-sword-war_sword.webp
+  unique 'Call of the Kindred' (drf)  mapping=hd/items/uniques.json#call_of_the_kindred  fallback=base item sprite sprites/items/armor-pelt-spirit_mask.webp
+  unique 'Call of the Wild' (drb)  mapping=hd/items/uniques.json#call_of_the_wild  fallback=base item sprite sprites/items/armor-pelt-wolf_head.webp
+  unique 'Carrion Comfort' (ne7)  mapping=hd/items/uniques.json#carrion_comfort  fallback=base item sprite sprites/items/armor-voodoo_head-zombie_head.webp
+  unique 'Carrion Wing' (6sb)  mapping=hd/items/uniques.json#carrion_wing  fallback=base item sprite sprites/items/weapon-bow-short_bow.webp
+  unique 'Cat Tail' (9ma)  mapping=hd/items/uniques.json#cat_tail  fallback=base item sprite sprites/items/weapon-mace-mace.webp
+  unique 'Celestial Judgment' (7qs)  mapping=hd/items/uniques.json#celestial_judgment  fallback=base item sprite sprites/items/weapon-scepter-grand_scepter.webp
+  unique 'Celestial Knight' (wsp)  mapping=hd/items/uniques.json#celestial_knight  fallback=base item sprite sprites/items/weapon-scepter-war_scepter.webp
+  unique 'Celestial Lion' (7ss)  mapping=hd/items/uniques.json#celestial_lion  fallback=base item sprite sprites/items/weapon-sword-short_sword.webp
+  unique 'Celestial Revelation' (plt)  mapping=hd/items/uniques.json#celestial_revelation  fallback=base item sprite sprites/items/armor-armor-plate_mail.webp
+  unique 'Celestial Strike' (6s7)  mapping=hd/items/uniques.json#celestial_strike  fallback=base item sprite sprites/items/weapon-bow-short_battle_bow.webp
+  unique 'Celestial Tiger' (92h)  mapping=hd/items/uniques.json#celestial_tiger  fallback=base item sprite sprites/items/weapon-sword-two_handed_sword.webp
+  unique 'Celestial Unicorn' (urs)  mapping=hd/items/uniques.json#celestial_unicorn  fallback=base item sprite sprites/items/armor-armor-breast_plate.webp
+  unique 'Centaur's Arc' (hbw)  mapping=hd/items/uniques.json#centaur_s_arc  fallback=base item sprite sprites/items/weapon-bow-hunters_bow.webp
+  unique 'Centaur's Sight' (dr8)  mapping=hd/items/uniques.json#centaur_s_sight  fallback=base item sprite sprites/items/armor-pelt-antlers.webp
+  unique 'Cerberus' Bite' (drb)  mapping=hd/items/uniques.json#cerberus_bite  fallback=base item sprite sprites/items/armor-pelt-wolf_head.webp
+  unique 'Chains of the Abyss' (uhn)  mapping=hd/items/uniques.json#chains_of_the_abyss  fallback=base item sprite sprites/items/armor-armor-chain_mail.webp
+  unique 'Chaos Flight' (ssp)  mapping=hd/items/uniques.json#chaos_flight  fallback=base item sprite sprites/items/weapon-javelin-short_spear.webp
+  unique 'Chaos Kin' (ba1)  mapping=hd/items/uniques.json#chaos_kin  fallback=base item sprite sprites/items/armor-helmet-jawbone_cap.webp
+  unique 'Chaos Wail' (7kr)  mapping=hd/items/uniques.json#chaos_wail  fallback=base item sprite sprites/items/weapon-knife-kriss.webp
+  unique 'Charon's Token' (ci0)  mapping=hd/items/uniques.json#charon_s_token  fallback=base item sprite sprites/items/armor-circlet-circlet.webp
+  unique 'Cheetah Speed' (lbt)  mapping=hd/items/uniques.json#cheetah_speed  fallback=base item sprite sprites/items/armor-boot-leather_boots.webp
+  unique 'Chi Strike' (9cs)  mapping=hd/items/uniques.json#chi_strike  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Chiaroscuro Visage' (ne5)  mapping=hd/items/uniques.json#chiaroscuro_visage  fallback=base item sprite sprites/items/armor-voodoo_head-demon_head.webp
+  unique 'Child's Laughter' (bwn)  mapping=hd/items/uniques.json#child_s_laughter  fallback=base item sprite sprites/items/weapon-wand-bone_wand.webp
+  unique 'Chill of Winter' (uuc)  mapping=hd/items/uniques.json#chill_of_winter  fallback=base item sprite sprites/items/armor-shield-buckler.webp
+  unique 'Chillwind' (8lb)  mapping=hd/items/uniques.json#chillwind  fallback=base item sprite sprites/items/weapon-bow-long_bow.webp
+  unique 'Chimera's Chaos' (ba5)  mapping=hd/items/uniques.json#chimera_s_chaos  fallback=base item sprite sprites/items/armor-helmet-avenger_guard.webp
+  unique 'Chimera's Claw' (9dg)  mapping=hd/items/uniques.json#chimera_s_claw  fallback=base item sprite sprites/items/weapon-knife-dagger.webp
+  unique 'Chorus of the Cursed' (7yw)  mapping=hd/items/uniques.json#chorus_of_the_cursed  fallback=base item sprite sprites/items/weapon-wand-yew_wand.webp
+  unique 'Chromablade' (sbr)  mapping=hd/items/uniques.json#chromablade  fallback=base item sprite sprites/items/weapon-sword-saber.webp
+  unique 'Cincture of Falling Grace' (uvc)  mapping=hd/items/uniques.json#cincture_of_falling_grace  fallback=base item sprite sprites/items/armor-belt-light_belt.webp
+  unique 'Cleric's Rebuke' (pab)  mapping=hd/items/uniques.json#cleric_s_rebuke  fallback=base item sprite sprites/items/armor-shield-targe.webp
+  unique 'Cloaker Beast' (2hs)  mapping=hd/items/uniques.json#cloaker_beast  fallback=base item sprite sprites/items/weapon-sword-two_handed_sword.webp
+  unique 'Clockwork Horror' (7s7)  mapping=hd/items/uniques.json#clockwork_horror  fallback=base item sprite sprites/items/weapon-javelin-short_spear.webp
+  unique 'Cloud Giant's Axe' (7h7)  mapping=hd/items/uniques.json#cloud_giant_s_axe  fallback=base item sprite sprites/items/weapon-polearm-halberd.webp
+  unique 'Coaldark' (clm)  mapping=hd/items/uniques.json#coaldark  fallback=base item sprite sprites/items/weapon-sword-claymore.webp
+  unique 'Codex of Sundered Flesh' (wa8)  mapping=hd/items/uniques.json#codex_of_sundered_flesh  fallback=base item sprite sprites/items/armor-grimoires-codex.webp
+  unique 'Codex of the Crimson Pyre' (wad)  mapping=hd/items/uniques.json#codex_of_the_crimson_pyre  fallback=base item sprite sprites/items/armor-grimoires-codex.webp
+  unique 'Cold Comfort' (xtu)  mapping=hd/items/uniques.json#cold_comfort  fallback=base item sprite sprites/items/armor-armor-studded_leather.webp
+  unique 'Cold of Winter' (7ar)  mapping=hd/items/uniques.json#cold_of_winter  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Comet's Tail' (9mt)  mapping=hd/items/uniques.json#comet_s_tail  fallback=base item sprite sprites/items/weapon-mace-morning_star.webp
+  unique 'Compendium of Gheed' (wa4)  mapping=hd/items/uniques.json#compendium_of_gheed  fallback=base item sprite sprites/items/armor-grimoires-compendium.webp
+  unique 'Compendium of Piercing Oaths' (wa4)  mapping=hd/items/uniques.json#compendium_of_piercing_oaths  fallback=base item sprite sprites/items/armor-grimoires-compendium.webp
+  unique 'Conch of Dismay' (uhl)  mapping=hd/items/uniques.json#conch_of_dismay  fallback=base item sprite sprites/items/armor-helmet-full_helm.webp
+  unique 'Conqueror's Feast' (bab)  mapping=hd/items/uniques.json#conqueror_s_feast  fallback=base item sprite sprites/items/armor-helmet-jawbone_cap.webp
+  unique 'Conquistador' (bsd)  mapping=hd/items/uniques.json#conquistador  fallback=base item sprite sprites/items/weapon-sword-broad_sword.webp
+  unique 'Conscience of the King' (baf)  mapping=hd/items/uniques.json#conscience_of_the_king  fallback=base item sprite sprites/items/armor-helmet-avenger_guard.webp
+  unique 'Conspiracy of Thieves' (xvg)  mapping=hd/items/uniques.json#conspiracy_of_thieves  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
+  unique 'Copperbite' (dr2)  mapping=hd/items/uniques.json#copperbite  fallback=base item sprite sprites/items/armor-pelt-hawk_helm.webp
+  unique 'Cornugon' (9mp)  mapping=hd/items/uniques.json#cornugon  fallback=base item sprite sprites/items/weapon-axe-military_pick.webp
+  unique 'Corpseflayer' (9ar)  mapping=hd/items/uniques.json#corpseflayer  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Couatl' (9wa)  mapping=hd/items/uniques.json#couatl  fallback=base item sprite sprites/items/weapon-axe-war_axe.webp
+  unique 'Count Kidran's Axe' (9b7)  mapping=hd/items/uniques.json#count_kidran_s_axe  fallback=base item sprite sprites/items/weapon-polearm-bardiche.webp
+  unique 'Crafted Black Cleft' (cs2)  mapping=hd/items/uniques.json#crafted_black_cleft  fallback=base item sprite sprites/items/misc-charm-charm_sunder.webp
+  unique 'Crafted Bone Break' (cs2)  mapping=hd/items/uniques.json#crafted_bone_break  fallback=base item sprite sprites/items/misc-charm-charm_sunder.webp
+  unique 'Crafted Cold Rupture' (cs2)  mapping=hd/items/uniques.json#crafted_cold_rupture  fallback=base item sprite sprites/items/misc-charm-charm_sunder.webp
+  unique 'Crafted Crack of the Heavens' (cs2)  mapping=hd/items/uniques.json#crafted_crack_of_the_heavens  fallback=base item sprite sprites/items/misc-charm-charm_sunder.webp
+  unique 'Crafted Flame Rift' (cs2)  mapping=hd/items/uniques.json#crafted_flame_rift  fallback=base item sprite sprites/items/misc-charm-charm_sunder.webp
+  unique 'Crafted Rotting Fissure' (cs2)  mapping=hd/items/uniques.json#crafted_rotting_fissure  fallback=base item sprite sprites/items/misc-charm-charm_sunder.webp
+  unique 'Creeper's Canopy' (dr7)  mapping=hd/items/uniques.json#creeper_s_canopy  fallback=base item sprite sprites/items/armor-pelt-hawk_helm.webp
+  unique 'Crescendo' (aqv)  mapping=hd/items/uniques.json#crescendo  fallback=base item sprite sprites/items/misc-quiver-arrows.webp
+  unique 'Crescent of Secrets' (uea)  mapping=hd/items/uniques.json#crescent_of_secrets  fallback=base item sprite sprites/items/armor-armor-leather_armor.webp
+  unique 'Crest of Avalon' (kit)  mapping=hd/items/uniques.json#crest_of_avalon  fallback=base item sprite sprites/items/armor-shield-kite_shield.webp
+  unique 'Crest of the Horned Society' (lrg)  mapping=hd/items/uniques.json#crest_of_the_horned_society  fallback=base item sprite sprites/items/armor-shield-large_shield.webp
+  unique 'Crimson Crusade' (8l8)  mapping=hd/items/uniques.json#crimson_crusade  fallback=base item sprite sprites/items/weapon-bow-long_battle_bow.webp
+  unique 'Crimson Cry' (axf)  mapping=hd/items/uniques.json#crimson_cry  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Crocodile Wrap' (tbl)  mapping=hd/items/uniques.json#crocodile_wrap  fallback=base item sprite sprites/items/armor-belt-heavy_belt.webp
+  unique 'Crown of Thorns' (crn)  mapping=hd/items/uniques.json#crown_of_thorns  fallback=base item sprite sprites/items/armor-helmet-crown.webp
+  unique 'Crusader's Wall' (xts)  mapping=hd/items/uniques.json#crusader_s_wall  fallback=base item sprite sprites/items/armor-shield-gothic_shield.webp
+  unique 'Crusader's Will' (pa9)  mapping=hd/items/uniques.json#crusader_s_will  fallback=base item sprite sprites/items/armor-shield-aerin_shield.webp
+  unique 'Crusader's Wrath' (9ws)  mapping=hd/items/uniques.json#crusader_s_wrath  fallback=base item sprite sprites/items/weapon-scepter-war_scepter.webp
+  unique 'Cry of the Wretched' (ush)  mapping=hd/items/uniques.json#cry_of_the_wretched  fallback=base item sprite sprites/items/armor-shield-bone_shield.webp
+  unique 'Cryohydra' (92a)  mapping=hd/items/uniques.json#cryohydra  fallback=base item sprite sprites/items/weapon-axe-double_axe.webp
+  unique 'Cursebreaker' (9ss)  mapping=hd/items/uniques.json#cursebreaker  fallback=base item sprite sprites/items/weapon-sword-short_sword.webp
+  unique 'Cursed Hindsight' (bhm)  mapping=hd/items/uniques.json#cursed_hindsight  fallback=base item sprite sprites/items/armor-helmet-bone_helm.webp
+  unique 'Cursed One' (9s9)  mapping=hd/items/uniques.json#cursed_one  fallback=base item sprite sprites/items/weapon-javelin-short_spear.webp
+  unique 'Curseweaver' (gix)  mapping=hd/items/uniques.json#curseweaver  fallback=base item sprite sprites/items/weapon-axe-giant_axe.webp
+  unique 'Cyan Bloodbane' (9dg)  mapping=hd/items/uniques.json#cyan_bloodbane  fallback=base item sprite sprites/items/weapon-knife-dagger.webp
+  unique 'Cyanstrike' (ob2)  mapping=hd/items/uniques.json#cyanstrike  fallback=base item sprite sprites/items/weapon-orb-sacred_globe.webp
+  unique 'Dagger of Kara'Tir' (7bl)  mapping=hd/items/uniques.json#dagger_of_kara_tir  fallback=base item sprite sprites/items/weapon-knife-blade.webp
+  unique 'Damsel of Destruction' (am1)  mapping=hd/items/uniques.json#damsel_of_destruction  fallback=base item sprite sprites/items/weapon-bow-stag_bow.webp
+  unique 'Dance of the Cobra' (ulb)  mapping=hd/items/uniques.json#dance_of_the_cobra  fallback=base item sprite sprites/items/armor-boot-leather_boots.webp
+  unique 'Dancing Scarecrow' (tsp)  mapping=hd/items/uniques.json#dancing_scarecrow  fallback=base item sprite sprites/items/weapon-javelin-throwing_spear.webp
+  unique 'Dark Demesne' (skr)  mapping=hd/items/uniques.json#dark_demesne  fallback=base item sprite sprites/items/weapon-h2h-scissors_katar.webp
+  unique 'Dark Descent' (9wd)  mapping=hd/items/uniques.json#dark_descent  fallback=base item sprite sprites/items/weapon-sword-war_sword.webp
+  unique 'Dark Familiar' (hbt)  mapping=hd/items/uniques.json#dark_familiar  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
+  unique 'Dark Nemesis' (9tw)  mapping=hd/items/uniques.json#dark_nemesis  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Darkflayer' (dgr)  mapping=hd/items/uniques.json#darkflayer  fallback=base item sprite sprites/items/weapon-knife-dagger.webp
+  unique 'Darkhunger' (ba2)  mapping=hd/items/uniques.json#darkhunger  fallback=base item sprite sprites/items/armor-helmet-fanged_helm.webp
+  unique 'Darkkon' (9sm)  mapping=hd/items/uniques.json#darkkon  fallback=base item sprite sprites/items/weapon-sword-scimitar.webp
+  unique 'Darkmantle' (7wn)  mapping=hd/items/uniques.json#darkmantle  fallback=base item sprite sprites/items/weapon-wand-wand.webp
+  unique 'Darts of Evermeet' (9bk)  mapping=hd/items/uniques.json#darts_of_evermeet  fallback=base item sprite sprites/items/weapon-knife-balanced_knife.webp
+  unique 'Dawn Blesser' (pac)  mapping=hd/items/uniques.json#dawn_blesser  fallback=base item sprite sprites/items/armor-shield-rondache.webp
+  unique 'Dawn Scion' (tbt)  mapping=hd/items/uniques.json#dawn_scion  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  unique 'Dawn Shadow' (ob8)  mapping=hd/items/uniques.json#dawn_shadow  fallback=base item sprite sprites/items/weapon-orb-smoked_sphere.webp
+  unique 'Dawn of Skeon' (9cl)  mapping=hd/items/uniques.json#dawn_of_skeon  fallback=base item sprite sprites/items/weapon-club-club.webp
+  unique 'Dawn of the Dead' (9wc)  mapping=hd/items/uniques.json#dawn_of_the_dead  fallback=base item sprite sprites/items/weapon-polearm-war_scythe.webp
+  unique 'Dawn's Mist' (mst)  mapping=hd/items/uniques.json#dawn_s_mist  fallback=base item sprite sprites/items/weapon-mace-morning_star.webp
+  unique 'Dawnfall' (pad)  mapping=hd/items/uniques.json#dawnfall  fallback=base item sprite sprites/items/armor-shield-heraldic_shield.webp
+  unique 'Dawnskein' (wsp)  mapping=hd/items/uniques.json#dawnskein  fallback=base item sprite sprites/items/weapon-scepter-war_scepter.webp
+  unique 'Dead Scoffer' (bkf)  mapping=hd/items/uniques.json#dead_scoffer  fallback=base item sprite sprites/items/weapon-knife-balanced_knife.webp
+  unique 'Dead World' (8sb)  mapping=hd/items/uniques.json#dead_world  fallback=base item sprite sprites/items/weapon-bow-short_bow.webp
+  unique 'Deadgaze' (ba6)  mapping=hd/items/uniques.json#deadgaze  fallback=base item sprite sprites/items/armor-helmet-jawbone_cap.webp
+  unique 'Deadly Hunter' (7b7)  mapping=hd/items/uniques.json#deadly_hunter  fallback=base item sprite sprites/items/weapon-sword-bastard_sword.webp
+  unique 'Death Knight's Mask' (bac)  mapping=hd/items/uniques.json#death_knight_s_mask  fallback=base item sprite sprites/items/armor-helmet-fanged_helm.webp
+  unique 'Death Mauler' (ne3)  mapping=hd/items/uniques.json#death_mauler  fallback=base item sprite sprites/items/armor-voodoo_head-unraveller_head.webp
+  unique 'Death Shade' (6lb)  mapping=hd/items/uniques.json#death_shade  fallback=base item sprite sprites/items/weapon-bow-long_bow.webp
+  unique 'Death Slaad' (7ax)  mapping=hd/items/uniques.json#death_slaad  fallback=base item sprite sprites/items/weapon-axe-axe.webp
+  unique 'Death of a Thousand Cuts' (9sb)  mapping=hd/items/uniques.json#death_of_a_thousand_cuts  fallback=base item sprite sprites/items/weapon-sword-saber.webp
+  unique 'Death to the Soul' (pa6)  mapping=hd/items/uniques.json#death_to_the_soul  fallback=base item sprite sprites/items/armor-shield-targe.webp
+  unique 'Death's Witness' (ne2)  mapping=hd/items/uniques.json#death_s_witness  fallback=base item sprite sprites/items/armor-voodoo_head-zombie_head.webp
+  unique 'Deathflake' (wax)  mapping=hd/items/uniques.json#deathflake  fallback=base item sprite sprites/items/weapon-axe-war_axe.webp
+  unique 'Deathfoe' (9sm)  mapping=hd/items/uniques.json#deathfoe  fallback=base item sprite sprites/items/weapon-sword-scimitar.webp
+  unique 'Deathfriend' (7bs)  mapping=hd/items/uniques.json#deathfriend  fallback=base item sprite sprites/items/weapon-sword-broad_sword.webp
+  unique 'Deathlust' (2hs)  mapping=hd/items/uniques.json#deathlust  fallback=base item sprite sprites/items/weapon-sword-two_handed_sword.webp
+  unique 'Deathprick' (bld)  mapping=hd/items/uniques.json#deathprick  fallback=base item sprite sprites/items/weapon-knife-blade.webp
+  unique 'Debt Finisher' (spk)  mapping=hd/items/uniques.json#debt_finisher  fallback=base item sprite sprites/items/armor-shield-spiked_shield.webp
+  unique 'Deceiver's Device' (tri)  mapping=hd/items/uniques.json#deceiver_s_device  fallback=base item sprite sprites/items/weapon-spear-trident.webp
+  unique 'Deepwander' (xlb)  mapping=hd/items/uniques.json#deepwander  fallback=base item sprite sprites/items/armor-boot-leather_boots.webp
+  unique 'Defender of Innocence' (pa8)  mapping=hd/items/uniques.json#defender_of_innocence  fallback=base item sprite sprites/items/armor-shield-heraldic_shield.webp
+  unique 'Demand for Justice' (7gd)  mapping=hd/items/uniques.json#demand_for_justice  fallback=base item sprite sprites/items/weapon-sword-great_sword.webp
+  unique 'Demise of the Weak' (9ma)  mapping=hd/items/uniques.json#demise_of_the_weak  fallback=base item sprite sprites/items/weapon-mace-mace.webp
+  unique 'Demolisher' (gsd)  mapping=hd/items/uniques.json#demolisher  fallback=base item sprite sprites/items/weapon-sword-great_sword.webp
+  unique 'Demonspike Coat' (xlt)  mapping=hd/items/uniques.json#demonspike_coat  fallback=base item sprite sprites/items/armor-armor-plate_mail.webp
+  unique 'Desecration Sigil' (ob9)  mapping=hd/items/uniques.json#desecration_sigil  fallback=base item sprite sprites/items/weapon-orb-clasped_orb.webp
+  unique 'Despicable Behavior' (9ta)  mapping=hd/items/uniques.json#despicable_behavior  fallback=base item sprite sprites/items/weapon-axe-throwing_axe.webp
+  unique 'Devil's Advocate' (neg)  mapping=hd/items/uniques.json#devil_s_advocate  fallback=base item sprite sprites/items/armor-voodoo_head-zombie_head.webp
+  unique 'Devil's Invocation' (xlg)  mapping=hd/items/uniques.json#devil_s_invocation  fallback=base item sprite sprites/items/armor-glove-gloves_l.webp
+  unique 'Deviljack' (ssd)  mapping=hd/items/uniques.json#deviljack  fallback=base item sprite sprites/items/weapon-sword-short_sword.webp
+  unique 'Devourer of Dreams' (skp)  mapping=hd/items/uniques.json#devourer_of_dreams  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
+  unique 'Devourer of Worlds' (pa5)  mapping=hd/items/uniques.json#devourer_of_worlds  fallback=base item sprite sprites/items/armor-shield-crown_shield.webp
+  unique 'Diamond Facet' (jew)  mapping=hd/items/uniques.json#diamond_facet  fallback=base item sprite sprites/items/misc-gem-jewels.webp
+  unique 'Dire Wolf Might' (dr5)  mapping=hd/items/uniques.json#dire_wolf_might  fallback=base item sprite sprites/items/armor-pelt-spirit_mask.webp
+  unique 'Disparate Paths' (xhn)  mapping=hd/items/uniques.json#disparate_paths  fallback=base item sprite sprites/items/armor-armor-chain_mail.webp
+  unique 'Distant Thunder' (am7)  mapping=hd/items/uniques.json#distant_thunder  fallback=base item sprite sprites/items/weapon-bow-reflex_bow.webp
+  unique 'Doom Avatar' (9gm)  mapping=hd/items/uniques.json#doom_avatar  fallback=base item sprite sprites/items/weapon-hammer-great_maul.webp
+  unique 'Doom Hedge' (bsh)  mapping=hd/items/uniques.json#doom_hedge  fallback=base item sprite sprites/items/armor-shield-bone_shield.webp
+  unique 'Doom's Mirror' (xml)  mapping=hd/items/uniques.json#doom_s_mirror  fallback=base item sprite sprites/items/armor-shield-small_shield.webp
+  unique 'Doubleshot Machine' (6lx)  mapping=hd/items/uniques.json#doubleshot_machine  fallback=base item sprite sprites/items/weapon-bow-light_crossbow.webp
+  unique 'Doubtraiser' (xhb)  mapping=hd/items/uniques.json#doubtraiser  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
+  unique 'Dracolich Fang' (gwn)  mapping=hd/items/uniques.json#dracolich_fang  fallback=base item sprite sprites/items/weapon-wand-grim_wand.webp
+  unique 'Dragon Mask' (ba3)  mapping=hd/items/uniques.json#dragon_mask  fallback=base item sprite sprites/items/armor-helmet-horned_helm.webp
+  unique 'Dragon Mephit' (9qs)  mapping=hd/items/uniques.json#dragon_mephit  fallback=base item sprite sprites/items/weapon-scepter-grand_scepter.webp
+  unique 'Dragon Soul' (9st)  mapping=hd/items/uniques.json#dragon_soul  fallback=base item sprite sprites/items/weapon-spear-spetum.webp
+  unique 'Dragon Talon' (kri)  mapping=hd/items/uniques.json#dragon_talon  fallback=base item sprite sprites/items/weapon-knife-kriss.webp
+  unique 'Dragon Turtle' (spt)  mapping=hd/items/uniques.json#dragon_turtle  fallback=base item sprite sprites/items/weapon-spear-spetum.webp
+  unique 'Dragon's Breach' (72h)  mapping=hd/items/uniques.json#dragon_s_breach  fallback=base item sprite sprites/items/weapon-sword-two_handed_sword.webp
+  unique 'Dragoon's Shank' (9br)  mapping=hd/items/uniques.json#dragoon_s_shank  fallback=base item sprite sprites/items/weapon-spear-brandistock.webp
+  unique 'Dread Blade' (9bs)  mapping=hd/items/uniques.json#dread_blade  fallback=base item sprite sprites/items/weapon-sword-broad_sword.webp
+  unique 'Dreadfear' (7h7)  mapping=hd/items/uniques.json#dreadfear  fallback=base item sprite sprites/items/weapon-polearm-halberd.webp
+  unique 'Dreadfury' (uvc)  mapping=hd/items/uniques.json#dreadfury  fallback=base item sprite sprites/items/armor-belt-light_belt.webp
+  unique 'Dreadmother' (neg)  mapping=hd/items/uniques.json#dreadmother  fallback=base item sprite sprites/items/armor-voodoo_head-zombie_head.webp
+  unique 'Dreadwall' (xts)  mapping=hd/items/uniques.json#dreadwall  fallback=base item sprite sprites/items/armor-shield-gothic_shield.webp
+  unique 'Dreams of Empire' (9st)  mapping=hd/items/uniques.json#dreams_of_empire  fallback=base item sprite sprites/items/weapon-spear-spetum.webp
+  unique 'Dreamscape' (fld)  mapping=hd/items/uniques.json#dreamscape  fallback=base item sprite sprites/items/armor-armor-field_plate.webp
+  unique 'Dreamsplitter' (ob6)  mapping=hd/items/uniques.json#dreamsplitter  fallback=base item sprite sprites/items/weapon-orb-eagle_orb.webp
+  unique 'Dreamweaver' (ne9)  mapping=hd/items/uniques.json#dreamweaver  fallback=base item sprite sprites/items/armor-voodoo_head-gargoyle_head.webp
+  unique 'Drehya's Globe' (ob7)  mapping=hd/items/uniques.json#drehya_s_globe  fallback=base item sprite sprites/items/weapon-orb-sacred_globe.webp
+  unique 'Drow Mesh' (xhn)  mapping=hd/items/uniques.json#drow_mesh  fallback=base item sprite sprites/items/armor-armor-chain_mail.webp
+  unique 'Drunken Fury' (xkp)  mapping=hd/items/uniques.json#drunken_fury  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
+  unique 'Dune Runner' (8sw)  mapping=hd/items/uniques.json#dune_runner  fallback=base item sprite sprites/items/weapon-bow-short_war_bow.webp
+  unique 'Dusk Ray' (9wb)  mapping=hd/items/uniques.json#dusk_ray  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Duskwreath' (ulc)  mapping=hd/items/uniques.json#duskwreath  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  unique 'Dwarven Honor' (9ba)  mapping=hd/items/uniques.json#dwarven_honor  fallback=base item sprite sprites/items/weapon-axe-broad_axe.webp
+  unique 'Dyer's Eve' (7bt)  mapping=hd/items/uniques.json#dyer_s_eve  fallback=base item sprite sprites/items/weapon-axe-battle_axe.webp
+  unique 'Easebringer' (axe)  mapping=hd/items/uniques.json#easebringer  fallback=base item sprite sprites/items/weapon-axe-axe.webp
+  unique 'Eater of Souls' (9sp)  mapping=hd/items/uniques.json#eater_of_souls  fallback=base item sprite sprites/items/weapon-club-spiked_club.webp
+  unique 'Echoes of Harrogath' (cqv)  mapping=hd/items/uniques.json#echoes_of_harrogath  fallback=base item sprite sprites/items/misc-quiver-bolts.webp
+  unique 'Ecstacy of Ishtar' (utc)  mapping=hd/items/uniques.json#ecstacy_of_ishtar  fallback=base item sprite sprites/items/armor-belt-heavy_belt.webp
+  unique 'Edge of Forever' (9ax)  mapping=hd/items/uniques.json#edge_of_forever  fallback=base item sprite sprites/items/weapon-axe-axe.webp
+  unique 'Efreeti's Eye' (9fl)  mapping=hd/items/uniques.json#efreeti_s_eye  fallback=base item sprite sprites/items/weapon-mace-flail.webp
+  unique 'Elder Curse' (bsw)  mapping=hd/items/uniques.json#elder_curse  fallback=base item sprite sprites/items/weapon-sword-bastard_sword.webp
+  unique 'Elder Tojanida' (7mp)  mapping=hd/items/uniques.json#elder_tojanida  fallback=base item sprite sprites/items/weapon-axe-military_pick.webp
+  unique 'Elflord's Victory' (6l7)  mapping=hd/items/uniques.json#elflord_s_victory  fallback=base item sprite sprites/items/weapon-bow-long_battle_bow.webp
+  unique 'Elven Bow of Duadon' (lbw)  mapping=hd/items/uniques.json#elven_bow_of_duadon  fallback=base item sprite sprites/items/weapon-bow-long_bow.webp
+  unique 'Elven Mystral' (7di)  mapping=hd/items/uniques.json#elven_mystral  fallback=base item sprite sprites/items/weapon-knife-dirk.webp
+  unique 'Elvenbrand' (am2)  mapping=hd/items/uniques.json#elvenbrand  fallback=base item sprite sprites/items/weapon-bow-reflex_bow.webp
+  unique 'Embracing Solitude' (xhm)  mapping=hd/items/uniques.json#embracing_solitude  fallback=base item sprite sprites/items/armor-helmet-great_helm.webp
+  unique 'Emerald Facet' (jew)  mapping=hd/items/uniques.json#emerald_facet  fallback=base item sprite sprites/items/misc-gem-jewels.webp
+  unique 'Endless Sleep' (mst)  mapping=hd/items/uniques.json#endless_sleep  fallback=base item sprite sprites/items/weapon-mace-morning_star.webp
+  unique 'Enfeeblement Arrows' (aqv)  mapping=hd/items/uniques.json#enfeeblement_arrows  fallback=base item sprite sprites/items/misc-quiver-arrows.webp
+  unique 'Epee of Speed' (ssd)  mapping=hd/items/uniques.json#epee_of_speed  fallback=base item sprite sprites/items/weapon-sword-short_sword.webp
+  unique 'Epoch's End' (9wn)  mapping=hd/items/uniques.json#epoch_s_end  fallback=base item sprite sprites/items/weapon-wand-wand.webp
+  unique 'Equinox Visor' (fhl)  mapping=hd/items/uniques.json#equinox_visor  fallback=base item sprite sprites/items/armor-helmet-full_helm.webp
+  unique 'Eternity Cable' (ob5)  mapping=hd/items/uniques.json#eternity_cable  fallback=base item sprite sprites/items/weapon-orb-dragon_stone.webp
+  unique 'Ettercap' (gis)  mapping=hd/items/uniques.json#ettercap  fallback=base item sprite sprites/items/weapon-sword-giant_sword.webp
+  unique 'Evening Sky' (xcl)  mapping=hd/items/uniques.json#evening_sky  fallback=base item sprite sprites/items/armor-armor-scale_mail.webp
+  unique 'Everdusk' (6ws)  mapping=hd/items/uniques.json#everdusk  fallback=base item sprite sprites/items/weapon-staff-war_staff.webp
+  unique 'Everkeeper' (6ws)  mapping=hd/items/uniques.json#everkeeper  fallback=base item sprite sprites/items/weapon-staff-war_staff.webp
+  unique 'Eye of Heaven' (dr4)  mapping=hd/items/uniques.json#eye_of_heaven  fallback=base item sprite sprites/items/armor-pelt-falcon_mask.webp
+  unique 'Fair Weather' (ci0)  mapping=hd/items/uniques.json#fair_weather  fallback=base item sprite sprites/items/armor-circlet-circlet.webp
+  unique 'Faith's Promise' (pad)  mapping=hd/items/uniques.json#faith_s_promise  fallback=base item sprite sprites/items/armor-shield-heraldic_shield.webp
+  unique 'Falcon Sharp' (dr9)  mapping=hd/items/uniques.json#falcon_sharp  fallback=base item sprite sprites/items/armor-pelt-falcon_mask.webp
+  unique 'Falcon Talon' (9bl)  mapping=hd/items/uniques.json#falcon_talon  fallback=base item sprite sprites/items/weapon-knife-blade.webp
+  unique 'Fall Of Myth Drannor' (7di)  mapping=hd/items/uniques.json#fall_of_myth_drannor  fallback=base item sprite sprites/items/weapon-knife-dirk.webp
+  unique 'Fallen Glory' (7tk)  mapping=hd/items/uniques.json#fallen_glory  fallback=base item sprite sprites/items/weapon-knife-throwing_knife.webp
+  unique 'Fallen Hero's Disgrace' (ne8)  mapping=hd/items/uniques.json#fallen_hero_s_disgrace  fallback=base item sprite sprites/items/armor-voodoo_head-unraveller_head.webp
+  unique 'Famorian's Club' (mau)  mapping=hd/items/uniques.json#famorian_s_club  fallback=base item sprite sprites/items/weapon-hammer-maul.webp
+  unique 'Fanged Shield' (spk)  mapping=hd/items/uniques.json#fanged_shield  fallback=base item sprite sprites/items/armor-shield-spiked_shield.webp
+  unique 'Fangtree' (brn)  mapping=hd/items/uniques.json#fangtree  fallback=base item sprite sprites/items/weapon-spear-brandistock.webp
+  unique 'Father of Nations' (9h9)  mapping=hd/items/uniques.json#father_of_nations  fallback=base item sprite sprites/items/weapon-polearm-halberd.webp
+  unique 'Fear and Loathing' (9br)  mapping=hd/items/uniques.json#fear_and_loathing  fallback=base item sprite sprites/items/weapon-spear-brandistock.webp
+  unique 'Fearsome Rumors' (9qr)  mapping=hd/items/uniques.json#fearsome_rumors  fallback=base item sprite sprites/items/weapon-h2h-scissors_katar.webp
+  unique 'Feathering Mithril' (ung)  mapping=hd/items/uniques.json#feathering_mithril  fallback=base item sprite sprites/items/armor-armor-ring_mail.webp
+  unique 'Felix's Brace' (pa3)  mapping=hd/items/uniques.json#felix_s_brace  fallback=base item sprite sprites/items/armor-shield-heraldic_shield.webp
+  unique 'Fiendfeast' (vgl)  mapping=hd/items/uniques.json#fiendfeast  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
+  unique 'Fiendslayer' (flc)  mapping=hd/items/uniques.json#fiendslayer  fallback=base item sprite sprites/items/weapon-sword-falchion.webp
+  unique 'Final Flight' (6s7)  mapping=hd/items/uniques.json#final_flight  fallback=base item sprite sprites/items/weapon-bow-short_battle_bow.webp
+  unique 'Fire Mephit' (9b7)  mapping=hd/items/uniques.json#fire_mephit  fallback=base item sprite sprites/items/weapon-polearm-bardiche.webp
+  unique 'Firesign' (hgl)  mapping=hd/items/uniques.json#firesign  fallback=base item sprite sprites/items/armor-glove-gaunlets_h.webp
+  unique 'Fist of Lachdanan' (7ma)  mapping=hd/items/uniques.json#fist_of_lachdanan  fallback=base item sprite sprites/items/weapon-mace-mace.webp
+  unique 'Flames of Sanctuary' (cqv)  mapping=hd/items/uniques.json#flames_of_sanctuary  fallback=base item sprite sprites/items/misc-quiver-bolts.webp
+  unique 'Flametongue' (9tr)  mapping=hd/items/uniques.json#flametongue  fallback=base item sprite sprites/items/weapon-spear-trident.webp
+  unique 'Flaming Fist' (7cs)  mapping=hd/items/uniques.json#flaming_fist  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Fleshbleeder' (9fc)  mapping=hd/items/uniques.json#fleshbleeder  fallback=base item sprite sprites/items/weapon-sword-falchion.webp
+  unique 'Flicker Cinch' (ob2)  mapping=hd/items/uniques.json#flicker_cinch  fallback=base item sprite sprites/items/weapon-orb-sacred_globe.webp
+  unique 'Flight of Confusion' (9gl)  mapping=hd/items/uniques.json#flight_of_confusion  fallback=base item sprite sprites/items/weapon-javelin-glaive.webp
+  unique 'Fool's Crest' (ghm)  mapping=hd/items/uniques.json#fool_s_crest  fallback=base item sprite sprites/items/armor-helmet-great_helm.webp
+  unique 'Footman's Picket' (pik)  mapping=hd/items/uniques.json#footman_s_picket  fallback=base item sprite sprites/items/weapon-spear-pike.webp
+  unique 'Forbidden Rites' (7dg)  mapping=hd/items/uniques.json#forbidden_rites  fallback=base item sprite sprites/items/weapon-knife-dagger.webp
+  unique 'Fortress of Morpheus' (paf)  mapping=hd/items/uniques.json#fortress_of_morpheus  fallback=base item sprite sprites/items/armor-shield-crown_shield.webp
+  unique 'Fortress of Solitude' (uit)  mapping=hd/items/uniques.json#fortress_of_solitude  fallback=base item sprite sprites/items/armor-shield-kite_shield.webp
+  unique 'Fortune's Fool' (ztb)  mapping=hd/items/uniques.json#fortune_s_fool  fallback=base item sprite sprites/items/armor-belt-heavy_belt.webp
+  unique 'Foul Embrace' (bab)  mapping=hd/items/uniques.json#foul_embrace  fallback=base item sprite sprites/items/armor-helmet-jawbone_cap.webp
+  unique 'Foxfire Leaf' (6hb)  mapping=hd/items/uniques.json#foxfire_leaf  fallback=base item sprite sprites/items/weapon-bow-hunters_bow.webp
+  unique 'Frantic Distress' (9fl)  mapping=hd/items/uniques.json#frantic_distress  fallback=base item sprite sprites/items/weapon-mace-flail.webp
+  unique 'Freedom's Facade' (hlm)  mapping=hd/items/uniques.json#freedom_s_facade  fallback=base item sprite sprites/items/armor-helmet-helm.webp
+  unique 'Freedom's Flight' (6lb)  mapping=hd/items/uniques.json#freedom_s_flight  fallback=base item sprite sprites/items/weapon-bow-long_bow.webp
+  unique 'Frost Wyrm' (7wa)  mapping=hd/items/uniques.json#frost_wyrm  fallback=base item sprite sprites/items/weapon-axe-war_axe.webp
+  unique 'Frostband Tine' (9tr)  mapping=hd/items/uniques.json#frostband_tine  fallback=base item sprite sprites/items/weapon-spear-trident.webp
+  unique 'Frostbite Shard' (7bk)  mapping=hd/items/uniques.json#frostbite_shard  fallback=base item sprite sprites/items/weapon-knife-balanced_knife.webp
+  unique 'Frostshiver' (clw)  mapping=hd/items/uniques.json#frostshiver  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Full Suffering' (9cs)  mapping=hd/items/uniques.json#full_suffering  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Fury of the Owlbear' (7wd)  mapping=hd/items/uniques.json#fury_of_the_owlbear  fallback=base item sprite sprites/items/weapon-sword-war_sword.webp
+  unique 'Gainsayer' (ci1)  mapping=hd/items/uniques.json#gainsayer  fallback=base item sprite sprites/items/armor-circlet-coronet.webp
+  unique 'Gale Song' (6lw)  mapping=hd/items/uniques.json#gale_song  fallback=base item sprite sprites/items/weapon-bow-long_war_bow.webp
+  unique 'Gambler's Glory' (ba7)  mapping=hd/items/uniques.json#gambler_s_glory  fallback=base item sprite sprites/items/armor-helmet-fanged_helm.webp
+  unique 'Gangrene Reaper' (hax)  mapping=hd/items/uniques.json#gangrene_reaper  fallback=base item sprite sprites/items/weapon-axe-hand_axe.webp
+  unique 'Garlana Firebolt' (8lx)  mapping=hd/items/uniques.json#garlana_firebolt  fallback=base item sprite sprites/items/weapon-bow-light_crossbow.webp
+  unique 'Gatecleaver' (7pa)  mapping=hd/items/uniques.json#gatecleaver  fallback=base item sprite sprites/items/weapon-polearm-poleaxe.webp
+  unique 'Gathering of Hawks' (dr7)  mapping=hd/items/uniques.json#gathering_of_hawks  fallback=base item sprite sprites/items/armor-pelt-hawk_helm.webp
+  unique 'Gemini Coat' (stu)  mapping=hd/items/uniques.json#gemini_coat  fallback=base item sprite sprites/items/armor-armor-studded_leather.webp
+  unique 'Genoa's Trust' (9mt)  mapping=hd/items/uniques.json#genoa_s_trust  fallback=base item sprite sprites/items/weapon-mace-morning_star.webp
+  unique 'Gharbad's Cry' (flb)  mapping=hd/items/uniques.json#gharbad_s_cry  fallback=base item sprite sprites/items/weapon-sword-flamberge.webp
+  unique 'Ghost Mount' (8lw)  mapping=hd/items/uniques.json#ghost_mount  fallback=base item sprite sprites/items/weapon-bow-long_war_bow.webp
+  unique 'Ghostly Chainmail' (uhn)  mapping=hd/items/uniques.json#ghostly_chainmail  fallback=base item sprite sprites/items/armor-armor-chain_mail.webp
+  unique 'Ghoul Spawner' (xsh)  mapping=hd/items/uniques.json#ghoul_spawner  fallback=base item sprite sprites/items/armor-shield-bone_shield.webp
+  unique 'Ghoulslayer' (xh9)  mapping=hd/items/uniques.json#ghoulslayer  fallback=base item sprite sprites/items/armor-helmet-bone_helm.webp
+  unique 'Giant Hair Crossbow' (8mx)  mapping=hd/items/uniques.json#giant_hair_crossbow  fallback=base item sprite sprites/items/weapon-bow-crossbow.webp
+  unique 'Gillian's Boots' (vbt)  mapping=hd/items/uniques.json#gillian_s_boots  fallback=base item sprite sprites/items/armor-boot-heavy_boots.webp
+  unique 'Gillian's Brazier' (xui)  mapping=hd/items/uniques.json#gillian_s_brazier  fallback=base item sprite sprites/items/armor-armor-quilted_armor.webp
+  unique 'Gillian's Tiara' (ci2)  mapping=hd/items/uniques.json#gillian_s_tiara  fallback=base item sprite sprites/items/armor-circlet-tiara.webp
+  unique 'Gladiator's Strike' (9cl)  mapping=hd/items/uniques.json#gladiator_s_strike  fallback=base item sprite sprites/items/weapon-club-club.webp
+  unique 'Glitterkill' (9qr)  mapping=hd/items/uniques.json#glitterkill  fallback=base item sprite sprites/items/weapon-h2h-scissors_katar.webp
+  unique 'Globe of Obstruction' (obb)  mapping=hd/items/uniques.json#globe_of_obstruction  fallback=base item sprite sprites/items/weapon-orb-eagle_orb.webp
+  unique 'Gloomform' (hla)  mapping=hd/items/uniques.json#gloomform  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
+  unique 'Gnat Sting' (whm)  mapping=hd/items/uniques.json#gnat_sting  fallback=base item sprite sprites/items/weapon-hammer-war_hammer.webp
+  unique 'Gnomebane' (9pi)  mapping=hd/items/uniques.json#gnomebane  fallback=base item sprite sprites/items/weapon-javelin-pilum.webp
+  unique 'Goblin Grin' (ne1)  mapping=hd/items/uniques.json#goblin_grin  fallback=base item sprite sprites/items/armor-voodoo_head-preserved_head.webp
+  unique 'Goblin Touch' (lgl)  mapping=hd/items/uniques.json#goblin_touch  fallback=base item sprite sprites/items/armor-glove-gloves_l.webp
+  unique 'God's Word' (pae)  mapping=hd/items/uniques.json#god_s_word  fallback=base item sprite sprites/items/armor-shield-aerin_shield.webp
+  unique 'Golden Lotus' (ucl)  mapping=hd/items/uniques.json#golden_lotus  fallback=base item sprite sprites/items/armor-armor-scale_mail.webp
+  unique 'Golden Wyndlass' (7b8)  mapping=hd/items/uniques.json#golden_wyndlass  fallback=base item sprite sprites/items/weapon-axe-balanced_axe.webp
+  unique 'Golem's Gain' (gth)  mapping=hd/items/uniques.json#golem_s_gain  fallback=base item sprite sprites/items/armor-armor-gothic_plate.webp
+  unique 'Golgomere' (6lb)  mapping=hd/items/uniques.json#golgomere  fallback=base item sprite sprites/items/weapon-bow-long_bow.webp
+  unique 'Golgomere's Shield' (sml)  mapping=hd/items/uniques.json#golgomere_s_shield  fallback=base item sprite sprites/items/armor-shield-small_shield.webp
+  unique 'Goreflood' (axe)  mapping=hd/items/uniques.json#goreflood  fallback=base item sprite sprites/items/weapon-axe-axe.webp
+  unique 'Gorgon Strength' (6ls)  mapping=hd/items/uniques.json#gorgon_strength  fallback=base item sprite sprites/items/weapon-staff-long_staff.webp
+  unique 'Gornnagal's Dirk' (dir)  mapping=hd/items/uniques.json#gornnagal_s_dirk  fallback=base item sprite sprites/items/weapon-knife-dirk.webp
+  unique 'Grace of Isis' (8bs)  mapping=hd/items/uniques.json#grace_of_isis  fallback=base item sprite sprites/items/weapon-staff-battle_staff.webp
+  unique 'Gracehunter' (lax)  mapping=hd/items/uniques.json#gracehunter  fallback=base item sprite sprites/items/weapon-axe-large_axe.webp
+  unique 'Grand Inquisitor' (paa)  mapping=hd/items/uniques.json#grand_inquisitor  fallback=base item sprite sprites/items/armor-shield-crown_shield.webp
+  unique 'Grandiose Dreams' (9ba)  mapping=hd/items/uniques.json#grandiose_dreams  fallback=base item sprite sprites/items/weapon-axe-broad_axe.webp
+  unique 'Grandmaster's Glory' (7gd)  mapping=hd/items/uniques.json#grandmaster_s_glory  fallback=base item sprite sprites/items/weapon-sword-great_sword.webp
+  unique 'Gravedancer's Union' (9gw)  mapping=hd/items/uniques.json#gravedancer_s_union  fallback=base item sprite sprites/items/weapon-wand-grim_wand.webp
+  unique 'Gravewood Grasp' (xtg)  mapping=hd/items/uniques.json#gravewood_grasp  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  unique 'Gray God's Mantle' (urs)  mapping=hd/items/uniques.json#gray_god_s_mantle  fallback=base item sprite sprites/items/armor-armor-breast_plate.webp
+  unique 'Green God's Bracers' (mgl)  mapping=hd/items/uniques.json#green_god_s_bracers  fallback=base item sprite sprites/items/armor-glove-bracers_m.webp
+  unique 'Grey Render' (6mx)  mapping=hd/items/uniques.json#grey_render  fallback=base item sprite sprites/items/weapon-bow-crossbow.webp
+  unique 'Greyhawk Dragon' (aar)  mapping=hd/items/uniques.json#greyhawk_dragon  fallback=base item sprite sprites/items/armor-armor-ancient_armor.webp
+  unique 'Griefspawn Touch' (9vo)  mapping=hd/items/uniques.json#griefspawn_touch  fallback=base item sprite sprites/items/weapon-polearm-voulge.webp
+  unique 'Griefspawn' (ulg)  mapping=hd/items/uniques.json#griefspawn  fallback=base item sprite sprites/items/armor-glove-gloves_l.webp
+  unique 'Grimleaper' (hbt)  mapping=hd/items/uniques.json#grimleaper  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
+  unique 'Grimlock' (9bs)  mapping=hd/items/uniques.json#grimlock  fallback=base item sprite sprites/items/weapon-sword-broad_sword.webp
+  unique 'Grimoire of Unholy Machinations' (wa5)  mapping=hd/items/uniques.json#grimoire_of_unholy_machinations  fallback=base item sprite sprites/items/armor-grimoires-grimoire.webp
+  unique 'Grimoire of the Obsidian Curse' (waa)  mapping=hd/items/uniques.json#grimoire_of_the_obsidian_curse  fallback=base item sprite sprites/items/armor-grimoires-grimoire.webp
+  unique 'Grimoire of the Riven Blade' (wa5)  mapping=hd/items/uniques.json#grimoire_of_the_riven_blade  fallback=base item sprite sprites/items/armor-grimoires-grimoire.webp
+  unique 'Grimoire of the Severed Will' (waa)  mapping=hd/items/uniques.json#grimoire_of_the_severed_will  fallback=base item sprite sprites/items/armor-grimoires-grimoire.webp
+  unique 'Grip of the Faithful' (utg)  mapping=hd/items/uniques.json#grip_of_the_faithful  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  unique 'Grip of the Gorgon' (pa2)  mapping=hd/items/uniques.json#grip_of_the_gorgon  fallback=base item sprite sprites/items/armor-shield-rondache.webp
+  unique 'Groundshatter' (9mp)  mapping=hd/items/uniques.json#groundshatter  fallback=base item sprite sprites/items/weapon-axe-military_pick.webp
+  unique 'Gryphon's Claw' (xtg)  mapping=hd/items/uniques.json#gryphon_s_claw  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  unique 'Hailstrike' (8s8)  mapping=hd/items/uniques.json#hailstrike  fallback=base item sprite sprites/items/weapon-bow-short_battle_bow.webp
+  unique 'Halbu's Gift' (xtb)  mapping=hd/items/uniques.json#halbu_s_gift  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  unique 'Halcyon Shroud' (ful)  mapping=hd/items/uniques.json#halcyon_shroud  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
+  unique 'Halfling's Blade' (9kr)  mapping=hd/items/uniques.json#halfling_s_blade  fallback=base item sprite sprites/items/weapon-knife-kriss.webp
+  unique 'Hammer of Jholm' (9wh)  mapping=hd/items/uniques.json#hammer_of_jholm  fallback=base item sprite sprites/items/weapon-hammer-war_hammer.webp
+  unique 'Hannibal's Crown' (ba9)  mapping=hd/items/uniques.json#hannibal_s_crown  fallback=base item sprite sprites/items/armor-helmet-assault_helmet.webp
+  unique 'Harbormaster's Victory' (9s8)  mapping=hd/items/uniques.json#harbormaster_s_victory  fallback=base item sprite sprites/items/weapon-polearm-scythe.webp
+  unique 'Harp of the Infernos' (6cb)  mapping=hd/items/uniques.json#harp_of_the_infernos  fallback=base item sprite sprites/items/weapon-bow-composite_bow.webp
+  unique 'Harper's Call' (8lw)  mapping=hd/items/uniques.json#harper_s_call  fallback=base item sprite sprites/items/weapon-bow-long_war_bow.webp
+  unique 'Harpo Bogglinn' (hxb)  mapping=hd/items/uniques.json#harpo_bogglinn  fallback=base item sprite sprites/items/weapon-bow-heavy_crossbow.webp
+  unique 'Harpy's Call' (fhl)  mapping=hd/items/uniques.json#harpy_s_call  fallback=base item sprite sprites/items/armor-helmet-full_helm.webp
+  unique 'Harvest of Souls' (92a)  mapping=hd/items/uniques.json#harvest_of_souls  fallback=base item sprite sprites/items/weapon-axe-double_axe.webp
+  unique 'Hastemaster' (am5)  mapping=hd/items/uniques.json#hastemaster  fallback=base item sprite sprites/items/weapon-javelin-maiden_javelin.webp
+  unique 'Hatemonger' (9s9)  mapping=hd/items/uniques.json#hatemonger  fallback=base item sprite sprites/items/weapon-javelin-short_spear.webp
+  unique 'Haven of Light' (obb)  mapping=hd/items/uniques.json#haven_of_light  fallback=base item sprite sprites/items/weapon-orb-eagle_orb.webp
+  unique 'Hawkfire' (am3)  mapping=hd/items/uniques.json#hawkfire  fallback=base item sprite sprites/items/weapon-spear-maiden_spear.webp
+  unique 'Healing Touch' (vgl)  mapping=hd/items/uniques.json#healing_touch  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
+  unique 'Heartbane' (xng)  mapping=hd/items/uniques.json#heartbane  fallback=base item sprite sprites/items/armor-armor-ring_mail.webp
+  unique 'Heartpiercer' (amc)  mapping=hd/items/uniques.json#heartpiercer  fallback=base item sprite sprites/items/weapon-bow-reflex_bow.webp
+  unique 'Heartseeker' (8l8)  mapping=hd/items/uniques.json#heartseeker  fallback=base item sprite sprites/items/weapon-bow-long_battle_bow.webp
+  unique 'Heat of Summer' (9xf)  mapping=hd/items/uniques.json#heat_of_summer  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Heaven Facet' (jew)  mapping=hd/items/uniques.json#heaven_facet  fallback=base item sprite sprites/items/misc-gem-jewels.webp
+  unique 'Heaven's Treasure' (utp)  mapping=hd/items/uniques.json#heaven_s_treasure  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
+  unique 'Heavenly Wrath' (9sc)  mapping=hd/items/uniques.json#heavenly_wrath  fallback=base item sprite sprites/items/weapon-scepter-scepter.webp
+  unique 'Hecuba's Tresses' (dre)  mapping=hd/items/uniques.json#hecuba_s_tresses  fallback=base item sprite sprites/items/armor-pelt-falcon_mask.webp
+  unique 'Hell's Messenger' (gis)  mapping=hd/items/uniques.json#hell_s_messenger  fallback=base item sprite sprites/items/weapon-sword-giant_sword.webp
+  unique 'Hellchatter' (pa4)  mapping=hd/items/uniques.json#hellchatter  fallback=base item sprite sprites/items/armor-shield-aerin_shield.webp
+  unique 'Hellhunger' (utg)  mapping=hd/items/uniques.json#hellhunger  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  unique 'Hellraiser's Casque' (ba9)  mapping=hd/items/uniques.json#hellraiser_s_casque  fallback=base item sprite sprites/items/armor-helmet-assault_helmet.webp
+  unique 'Hellshifter' (ult)  mapping=hd/items/uniques.json#hellshifter  fallback=base item sprite sprites/items/armor-armor-plate_mail.webp
+  unique 'Helm of Ra' (xlm)  mapping=hd/items/uniques.json#helm_of_ra  fallback=base item sprite sprites/items/armor-helmet-helm.webp
+  unique 'Helms Deep' (ba6)  mapping=hd/items/uniques.json#helms_deep  fallback=base item sprite sprites/items/armor-helmet-jawbone_cap.webp
+  unique 'Heroes Welcome' (7ga)  mapping=hd/items/uniques.json#heroes_welcome  fallback=base item sprite sprites/items/weapon-axe-great_axe.webp
+  unique 'Hidden Death' (ktr)  mapping=hd/items/uniques.json#hidden_death  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Hill Giant's Bludgeon' (9m9)  mapping=hd/items/uniques.json#hill_giant_s_bludgeon  fallback=base item sprite sprites/items/weapon-hammer-maul.webp
+  unique 'Hippogriff Wing' (jav)  mapping=hd/items/uniques.json#hippogriff_wing  fallback=base item sprite sprites/items/weapon-javelin-javelin.webp
+  unique 'Hollowed Ground' (umb)  mapping=hd/items/uniques.json#hollowed_ground  fallback=base item sprite sprites/items/armor-boot-chain_boots.webp
+  unique 'Holy Avenger' (7fb)  mapping=hd/items/uniques.json#holy_avenger  fallback=base item sprite sprites/items/weapon-sword-flamberge.webp
+  unique 'Honor Guard' (lsd)  mapping=hd/items/uniques.json#honor_guard  fallback=base item sprite sprites/items/weapon-sword-long_sword.webp
+  unique 'Hooves of Satan' (xlb)  mapping=hd/items/uniques.json#hooves_of_satan  fallback=base item sprite sprites/items/armor-boot-leather_boots.webp
+  unique 'Horseman's Gloves' (mgl)  mapping=hd/items/uniques.json#horseman_s_gloves  fallback=base item sprite sprites/items/armor-glove-bracers_m.webp
+  unique 'Hratlis Warden' (tow)  mapping=hd/items/uniques.json#hratlis_warden  fallback=base item sprite sprites/items/armor-shield-tower_shield.webp
+  unique 'Huclavee's Flinch' (9yw)  mapping=hd/items/uniques.json#huclavee_s_flinch  fallback=base item sprite sprites/items/weapon-wand-yew_wand.webp
+  unique 'Hunger of the Jungle' (aqv)  mapping=hd/items/uniques.json#hunger_of_the_jungle  fallback=base item sprite sprites/items/misc-quiver-arrows.webp
+  unique 'Hungerpang' (qui)  mapping=hd/items/uniques.json#hungerpang  fallback=base item sprite sprites/items/armor-armor-quilted_armor.webp
+  unique 'Hushmaker' (xap)  mapping=hd/items/uniques.json#hushmaker  fallback=base item sprite sprites/items/armor-helmet-cap_hat.webp
+  unique 'Hycandra' (mac)  mapping=hd/items/uniques.json#hycandra  fallback=base item sprite sprites/items/weapon-mace-mace.webp
+  unique 'Hylocan Axe' (bar)  mapping=hd/items/uniques.json#hylocan_axe  fallback=base item sprite sprites/items/weapon-polearm-bardiche.webp
+  unique 'Ice Mephit' (7sr)  mapping=hd/items/uniques.json#ice_mephit  fallback=base item sprite sprites/items/weapon-spear-spear.webp
+  unique 'Iceskin' (xar)  mapping=hd/items/uniques.json#iceskin  fallback=base item sprite sprites/items/armor-armor-ancient_armor.webp
+  unique 'Iceweaver' (8hb)  mapping=hd/items/uniques.json#iceweaver  fallback=base item sprite sprites/items/weapon-bow-hunters_bow.webp
+  unique 'Imperial Dragonlance' (9p9)  mapping=hd/items/uniques.json#imperial_dragonlance  fallback=base item sprite sprites/items/weapon-spear-pike.webp
+  unique 'Imperial Passion' (7br)  mapping=hd/items/uniques.json#imperial_passion  fallback=base item sprite sprites/items/weapon-spear-brandistock.webp
+  unique 'Iniquity Razor' (7ar)  mapping=hd/items/uniques.json#iniquity_razor  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Insight of the Ancients' (bae)  mapping=hd/items/uniques.json#insight_of_the_ancients  fallback=base item sprite sprites/items/armor-helmet-assault_helmet.webp
+  unique 'Instigator' (9b8)  mapping=hd/items/uniques.json#instigator  fallback=base item sprite sprites/items/weapon-axe-balanced_axe.webp
+  unique 'Invader's Glee' (ba4)  mapping=hd/items/uniques.json#invader_s_glee  fallback=base item sprite sprites/items/armor-helmet-assault_helmet.webp
+  unique 'Invisible Stalker' (7gl)  mapping=hd/items/uniques.json#invisible_stalker  fallback=base item sprite sprites/items/weapon-javelin-glaive.webp
+  unique 'Invoker' (sst)  mapping=hd/items/uniques.json#invoker  fallback=base item sprite sprites/items/weapon-staff-short_staff.webp
+  unique 'Ire of Astaroth' (ywn)  mapping=hd/items/uniques.json#ire_of_astaroth  fallback=base item sprite sprites/items/weapon-wand-yew_wand.webp
+  unique 'Irksome Edge' (7cr)  mapping=hd/items/uniques.json#irksome_edge  fallback=base item sprite sprites/items/weapon-sword-crystal_sword.webp
+  unique 'Ivywrap' (lbl)  mapping=hd/items/uniques.json#ivywrap  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  unique 'Jade Facet' (jew)  mapping=hd/items/uniques.json#jade_facet  fallback=base item sprite sprites/items/misc-gem-jewels.webp
+  unique 'Jadrik's Torment' (6ss)  mapping=hd/items/uniques.json#jadrik_s_torment  fallback=base item sprite sprites/items/weapon-staff-short_staff.webp
+  unique 'Jaguar's Claw' (7ja)  mapping=hd/items/uniques.json#jaguar_s_claw  fallback=base item sprite sprites/items/weapon-javelin-javelin.webp
+  unique 'Janglebright' (mxb)  mapping=hd/items/uniques.json#janglebright  fallback=base item sprite sprites/items/weapon-bow-crossbow.webp
+  unique 'Janus' Face' (ne6)  mapping=hd/items/uniques.json#janus_face  fallback=base item sprite sprites/items/armor-voodoo_head-preserved_head.webp
+  unique 'Jondars Horde' (ned)  mapping=hd/items/uniques.json#jondars_horde  fallback=base item sprite sprites/items/armor-voodoo_head-unraveller_head.webp
+  unique 'Jouster's Boast' (9p9)  mapping=hd/items/uniques.json#jouster_s_boast  fallback=base item sprite sprites/items/weapon-spear-pike.webp
+  unique 'JuJu Flame' (lea)  mapping=hd/items/uniques.json#juju_flame  fallback=base item sprite sprites/items/armor-armor-leather_armor.webp
+  unique 'Judas Kiss' (uhl)  mapping=hd/items/uniques.json#judas_kiss  fallback=base item sprite sprites/items/armor-helmet-full_helm.webp
+  unique 'Judge's Helmet' (ulm)  mapping=hd/items/uniques.json#judge_s_helmet  fallback=base item sprite sprites/items/armor-helmet-helm.webp
+  unique 'Kashya's Retort' (am2)  mapping=hd/items/uniques.json#kashya_s_retort  fallback=base item sprite sprites/items/weapon-bow-reflex_bow.webp
+  unique 'Kashya's Ward' (umc)  mapping=hd/items/uniques.json#kashya_s_ward  fallback=base item sprite sprites/items/armor-belt-belt_m.webp
+  unique 'Kaz's Battle Armor' (ful)  mapping=hd/items/uniques.json#kaz_s_battle_armor  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
+  unique 'Key to Hell' (9ar)  mapping=hd/items/uniques.json#key_to_hell  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Key to the Madhouse' (btl)  mapping=hd/items/uniques.json#key_to_the_madhouse  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Killer's Glee' (9wc)  mapping=hd/items/uniques.json#killer_s_glee  fallback=base item sprite sprites/items/weapon-polearm-war_scythe.webp
+  unique 'Killer's Watch' (ktr)  mapping=hd/items/uniques.json#killer_s_watch  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Killhunger' (kit)  mapping=hd/items/uniques.json#killhunger  fallback=base item sprite sprites/items/armor-shield-kite_shield.webp
+  unique 'Killing Blow' (aar)  mapping=hd/items/uniques.json#killing_blow  fallback=base item sprite sprites/items/armor-armor-ancient_armor.webp
+  unique 'Killing Spree' (9ja)  mapping=hd/items/uniques.json#killing_spree  fallback=base item sprite sprites/items/weapon-javelin-javelin.webp
+  unique 'King Conan's Rule' (urn)  mapping=hd/items/uniques.json#king_conan_s_rule  fallback=base item sprite sprites/items/armor-helmet-crown.webp
+  unique 'King Tut' (ne6)  mapping=hd/items/uniques.json#king_tut  fallback=base item sprite sprites/items/armor-voodoo_head-preserved_head.webp
+  unique 'King's Bounty' (7bs)  mapping=hd/items/uniques.json#king_s_bounty  fallback=base item sprite sprites/items/weapon-sword-broad_sword.webp
+  unique 'King's Guard' (pa5)  mapping=hd/items/uniques.json#king_s_guard  fallback=base item sprite sprites/items/armor-shield-crown_shield.webp
+  unique 'King's Nail' (rxb)  mapping=hd/items/uniques.json#king_s_nail  fallback=base item sprite sprites/items/weapon-bow-repeating_crossbow.webp
+  unique 'Kirre Strike' (lbb)  mapping=hd/items/uniques.json#kirre_strike  fallback=base item sprite sprites/items/weapon-bow-long_battle_bow.webp
+  unique 'Kiss of the Vampire' (ukp)  mapping=hd/items/uniques.json#kiss_of_the_vampire  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
+  unique 'Knave's Ascendence' (bar)  mapping=hd/items/uniques.json#knave_s_ascendence  fallback=base item sprite sprites/items/weapon-polearm-bardiche.webp
+  unique 'Knight's Crest' (xhl)  mapping=hd/items/uniques.json#knight_s_crest  fallback=base item sprite sprites/items/armor-helmet-full_helm.webp
+  unique 'Knight's Dawn' (tow)  mapping=hd/items/uniques.json#knight_s_dawn  fallback=base item sprite sprites/items/armor-shield-tower_shield.webp
+  unique 'Knight's Holy Sigil' (pa7)  mapping=hd/items/uniques.json#knight_s_holy_sigil  fallback=base item sprite sprites/items/armor-shield-rondache.webp
+  unique 'Knight's Prophet' (8bs)  mapping=hd/items/uniques.json#knight_s_prophet  fallback=base item sprite sprites/items/weapon-staff-battle_staff.webp
+  unique 'Konnan's Maul' (gma)  mapping=hd/items/uniques.json#konnan_s_maul  fallback=base item sprite sprites/items/weapon-hammer-great_maul.webp
+  unique 'Kraken's Fury' (7wc)  mapping=hd/items/uniques.json#kraken_s_fury  fallback=base item sprite sprites/items/weapon-polearm-war_scythe.webp
+  unique 'Kraken's Lash' (7fc)  mapping=hd/items/uniques.json#kraken_s_lash  fallback=base item sprite sprites/items/weapon-sword-falchion.webp
+  unique 'Kritchan's Ire' (9h9)  mapping=hd/items/uniques.json#kritchan_s_ire  fallback=base item sprite sprites/items/weapon-polearm-halberd.webp
+  unique 'Kuo-Toa's Plague' (amf)  mapping=hd/items/uniques.json#kuo_toa_s_plague  fallback=base item sprite sprites/items/weapon-javelin-maiden_javelin.webp
+  unique 'Kurast Bolts' (cqv)  mapping=hd/items/uniques.json#kurast_bolts  fallback=base item sprite sprites/items/misc-quiver-bolts.webp
+  unique 'Kydra's Judgement' (7vo)  mapping=hd/items/uniques.json#kydra_s_judgement  fallback=base item sprite sprites/items/weapon-polearm-voulge.webp
+  unique 'Kygragond' (ba3)  mapping=hd/items/uniques.json#kygragond  fallback=base item sprite sprites/items/armor-helmet-horned_helm.webp
+  unique 'Kyuss' Crossbow' (8lx)  mapping=hd/items/uniques.json#kyuss_crossbow  fallback=base item sprite sprites/items/weapon-bow-light_crossbow.webp
+  unique 'Lachdanan's Bracers' (umg)  mapping=hd/items/uniques.json#lachdanan_s_bracers  fallback=base item sprite sprites/items/armor-glove-bracers_m.webp
+  unique 'Lachdanan's Guard' (uow)  mapping=hd/items/uniques.json#lachdanan_s_guard  fallback=base item sprite sprites/items/armor-shield-tower_shield.webp
+  unique 'Lachdanan's Heart' (uth)  mapping=hd/items/uniques.json#lachdanan_s_heart  fallback=base item sprite sprites/items/armor-armor-gothic_plate.webp
+  unique 'Lachdanan's Wrap' (uhc)  mapping=hd/items/uniques.json#lachdanan_s_wrap  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
+  unique 'Ladrina's Enchantment' (ywn)  mapping=hd/items/uniques.json#ladrina_s_enchantment  fallback=base item sprite sprites/items/weapon-wand-yew_wand.webp
+  unique 'Lady in Waiting' (ama)  mapping=hd/items/uniques.json#lady_in_waiting  fallback=base item sprite sprites/items/weapon-javelin-maiden_javelin.webp
+  unique 'Landsplitter' (pax)  mapping=hd/items/uniques.json#landsplitter  fallback=base item sprite sprites/items/weapon-polearm-poleaxe.webp
+  unique 'Larissa's Aim' (6l7)  mapping=hd/items/uniques.json#larissa_s_aim  fallback=base item sprite sprites/items/weapon-bow-long_battle_bow.webp
+  unique 'Lashfire' (fla)  mapping=hd/items/uniques.json#lashfire  fallback=base item sprite sprites/items/weapon-mace-flail.webp
+  unique 'Laurana's Elven Bow' (amb)  mapping=hd/items/uniques.json#laurana_s_elven_bow  fallback=base item sprite sprites/items/weapon-bow-stag_bow.webp
+  unique 'Leader of the Pack' (dra)  mapping=hd/items/uniques.json#leader_of_the_pack  fallback=base item sprite sprites/items/armor-pelt-spirit_mask.webp
+  unique 'Leafrazor' (jav)  mapping=hd/items/uniques.json#leafrazor  fallback=base item sprite sprites/items/weapon-javelin-javelin.webp
+  unique 'Leash of Cerberus' (hbl)  mapping=hd/items/uniques.json#leash_of_cerberus  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
+  unique 'Legacy of the Eternals' (utp)  mapping=hd/items/uniques.json#legacy_of_the_eternals  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
+  unique 'Lepertouch' (lrg)  mapping=hd/items/uniques.json#lepertouch  fallback=base item sprite sprites/items/armor-shield-large_shield.webp
+  unique 'Lesson in Pain' (mac)  mapping=hd/items/uniques.json#lesson_in_pain  fallback=base item sprite sprites/items/weapon-mace-mace.webp
+  unique 'Lichward' (xsh)  mapping=hd/items/uniques.json#lichward  fallback=base item sprite sprites/items/armor-shield-bone_shield.webp
+  unique 'Lie Spreader' (skp)  mapping=hd/items/uniques.json#lie_spreader  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
+  unique 'Liege Reaver' (ces)  mapping=hd/items/uniques.json#liege_reaver  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Light Phasm' (lax)  mapping=hd/items/uniques.json#light_phasm  fallback=base item sprite sprites/items/weapon-axe-large_axe.webp
+  unique 'Light Reaper' (buc)  mapping=hd/items/uniques.json#light_reaper  fallback=base item sprite sprites/items/armor-shield-buckler.webp
+  unique 'Light of Ra' (6cs)  mapping=hd/items/uniques.json#light_of_ra  fallback=base item sprite sprites/items/weapon-staff-gnarled_staff.webp
+  unique 'Lilith's Crest' (usk)  mapping=hd/items/uniques.json#lilith_s_crest  fallback=base item sprite sprites/items/armor-helmet-mask.webp
+  unique 'Lilith's Heels' (tbt)  mapping=hd/items/uniques.json#lilith_s_heels  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  unique 'Lilt of the Dryad' (xtu)  mapping=hd/items/uniques.json#lilt_of_the_dryad  fallback=base item sprite sprites/items/armor-armor-studded_leather.webp
+  unique 'Locathah' (9sb)  mapping=hd/items/uniques.json#locathah  fallback=base item sprite sprites/items/weapon-sword-saber.webp
+  unique 'Long Suffering' (2ax)  mapping=hd/items/uniques.json#long_suffering  fallback=base item sprite sprites/items/weapon-axe-double_axe.webp
+  unique 'Lord of Riddles' (9ws)  mapping=hd/items/uniques.json#lord_of_riddles  fallback=base item sprite sprites/items/weapon-scepter-war_scepter.webp
+  unique 'Luck Chaser' (pil)  mapping=hd/items/uniques.json#luck_chaser  fallback=base item sprite sprites/items/weapon-javelin-pilum.webp
+  unique 'Lunatic Fringe' (ult)  mapping=hd/items/uniques.json#lunatic_fringe  fallback=base item sprite sprites/items/armor-armor-plate_mail.webp
+  unique 'Lungreaver' (2ax)  mapping=hd/items/uniques.json#lungreaver  fallback=base item sprite sprites/items/weapon-axe-double_axe.webp
+  unique 'Lustwander' (utb)  mapping=hd/items/uniques.json#lustwander  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  unique 'Lynx Talon' (clw)  mapping=hd/items/uniques.json#lynx_talon  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Madman's Bluster' (ba1)  mapping=hd/items/uniques.json#madman_s_bluster  fallback=base item sprite sprites/items/armor-helmet-jawbone_cap.webp
+  unique 'Madness of Chthulu' (ltp)  mapping=hd/items/uniques.json#madness_of_chthulu  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
+  unique 'Mako's Pierce' (tri)  mapping=hd/items/uniques.json#mako_s_pierce  fallback=base item sprite sprites/items/weapon-spear-trident.webp
+  unique 'Malefactor's Reward' (ba7)  mapping=hd/items/uniques.json#malefactor_s_reward  fallback=base item sprite sprites/items/armor-helmet-fanged_helm.webp
+  unique 'Mandrake' (9sr)  mapping=hd/items/uniques.json#mandrake  fallback=base item sprite sprites/items/weapon-spear-spear.webp
+  unique 'Mandrake's Bloom' (scl)  mapping=hd/items/uniques.json#mandrake_s_bloom  fallback=base item sprite sprites/items/armor-armor-scale_mail.webp
+  unique 'Manna from Heaven' (ob9)  mapping=hd/items/uniques.json#manna_from_heaven  fallback=base item sprite sprites/items/weapon-orb-clasped_orb.webp
+  unique 'Manticore's Retort' (ame)  mapping=hd/items/uniques.json#manticore_s_retort  fallback=base item sprite sprites/items/weapon-spear-maiden_pike.webp
+  unique 'Marathon Slipper' (lbt)  mapping=hd/items/uniques.json#marathon_slipper  fallback=base item sprite sprites/items/armor-boot-leather_boots.webp
+  unique 'Marauder's Claw' (xlg)  mapping=hd/items/uniques.json#marauder_s_claw  fallback=base item sprite sprites/items/armor-glove-gloves_l.webp
+  unique 'Marilith Edge' (7ha)  mapping=hd/items/uniques.json#marilith_edge  fallback=base item sprite sprites/items/weapon-axe-hand_axe.webp
+  unique 'Martial Law' (skr)  mapping=hd/items/uniques.json#martial_law  fallback=base item sprite sprites/items/weapon-h2h-scissors_katar.webp
+  unique 'Megaladon Wrap' (zvb)  mapping=hd/items/uniques.json#megaladon_wrap  fallback=base item sprite sprites/items/armor-belt-light_belt.webp
+  unique 'Megalodon's Bite' (7fc)  mapping=hd/items/uniques.json#megalodon_s_bite  fallback=base item sprite sprites/items/weapon-sword-falchion.webp
+  unique 'Mehtans Choice' (nee)  mapping=hd/items/uniques.json#mehtans_choice  fallback=base item sprite sprites/items/armor-voodoo_head-gargoyle_head.webp
+  unique 'Mephisto's Claw' (ulg)  mapping=hd/items/uniques.json#mephisto_s_claw  fallback=base item sprite sprites/items/armor-glove-gloves_l.webp
+  unique 'Meshif's Coil' (zmb)  mapping=hd/items/uniques.json#meshif_s_coil  fallback=base item sprite sprites/items/armor-belt-belt_m.webp
+  unique 'Mind Creche' (glv)  mapping=hd/items/uniques.json#mind_creche  fallback=base item sprite sprites/items/weapon-javelin-glaive.webp
+  unique 'Mirth Bringer' (bax)  mapping=hd/items/uniques.json#mirth_bringer  fallback=base item sprite sprites/items/weapon-axe-broad_axe.webp
+  unique 'Mongolian Trust' (xuc)  mapping=hd/items/uniques.json#mongolian_trust  fallback=base item sprite sprites/items/armor-shield-buckler.webp
+  unique 'Moon Blade' (7ax)  mapping=hd/items/uniques.json#moon_blade  fallback=base item sprite sprites/items/weapon-axe-axe.webp
+  unique 'Moon Shadow' (dr6)  mapping=hd/items/uniques.json#moon_shadow  fallback=base item sprite sprites/items/armor-pelt-wolf_head.webp
+  unique 'Moonlight Edge' (9pa)  mapping=hd/items/uniques.json#moonlight_edge  fallback=base item sprite sprites/items/weapon-polearm-poleaxe.webp
+  unique 'Moonsea Razor' (bld)  mapping=hd/items/uniques.json#moonsea_razor  fallback=base item sprite sprites/items/weapon-knife-blade.webp
+  unique 'Morning After' (dr1)  mapping=hd/items/uniques.json#morning_after  fallback=base item sprite sprites/items/armor-pelt-wolf_head.webp
+  unique 'Morning's Tears' (ghm)  mapping=hd/items/uniques.json#morning_s_tears  fallback=base item sprite sprites/items/armor-helmet-great_helm.webp
+  unique 'Muddled Thoughts' (ci0)  mapping=hd/items/uniques.json#muddled_thoughts  fallback=base item sprite sprites/items/armor-circlet-circlet.webp
+  unique 'Murder's Mistress' (am9)  mapping=hd/items/uniques.json#murder_s_mistress  fallback=base item sprite sprites/items/weapon-spear-maiden_pike.webp
+  unique 'Murdering Bloom' (wrb)  mapping=hd/items/uniques.json#murdering_bloom  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Murdering Shard' (ob7)  mapping=hd/items/uniques.json#murdering_shard  fallback=base item sprite sprites/items/weapon-orb-sacred_globe.webp
+  unique 'Mystery of Life' (ne7)  mapping=hd/items/uniques.json#mystery_of_life  fallback=base item sprite sprites/items/armor-voodoo_head-zombie_head.webp
+  unique 'Mystic Angel' (ci2)  mapping=hd/items/uniques.json#mystic_angel  fallback=base item sprite sprites/items/armor-circlet-tiara.webp
+  unique 'Mythslayer' (9gi)  mapping=hd/items/uniques.json#mythslayer  fallback=base item sprite sprites/items/weapon-axe-giant_axe.webp
+  unique 'Na-Krul's Power' (9b9)  mapping=hd/items/uniques.json#na_krul_s_power  fallback=base item sprite sprites/items/weapon-sword-bastard_sword.webp
+  unique 'Nail Flinger' (lxb)  mapping=hd/items/uniques.json#nail_flinger  fallback=base item sprite sprites/items/weapon-bow-light_crossbow.webp
+  unique 'Nameless Horror' (7gi)  mapping=hd/items/uniques.json#nameless_horror  fallback=base item sprite sprites/items/weapon-axe-giant_axe.webp
+  unique 'Nameweaver' (cap)  mapping=hd/items/uniques.json#nameweaver  fallback=base item sprite sprites/items/armor-helmet-cap_hat.webp
+  unique 'Neonate's Sallet' (xkp)  mapping=hd/items/uniques.json#neonate_s_sallet  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
+  unique 'Night Hag' (bax)  mapping=hd/items/uniques.json#night_hag  fallback=base item sprite sprites/items/weapon-axe-broad_axe.webp
+  unique 'Nightcrawler' (xth)  mapping=hd/items/uniques.json#nightcrawler  fallback=base item sprite sprites/items/armor-armor-gothic_plate.webp
+  unique 'Nightmare Razors' (btl)  mapping=hd/items/uniques.json#nightmare_razors  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Nightscape' (7fb)  mapping=hd/items/uniques.json#nightscape  fallback=base item sprite sprites/items/weapon-sword-flamberge.webp
+  unique 'Nightwrath' (7xf)  mapping=hd/items/uniques.json#nightwrath  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Nine Lives Stealer' (6s7)  mapping=hd/items/uniques.json#nine_lives_stealer  fallback=base item sprite sprites/items/weapon-bow-short_battle_bow.webp
+  unique 'No Quarter Given' (9b9)  mapping=hd/items/uniques.json#no_quarter_given  fallback=base item sprite sprites/items/weapon-sword-bastard_sword.webp
+  unique 'Nova Spine' (gax)  mapping=hd/items/uniques.json#nova_spine  fallback=base item sprite sprites/items/weapon-axe-great_axe.webp
+  unique 'Nullwand' (9gw)  mapping=hd/items/uniques.json#nullwand  fallback=base item sprite sprites/items/weapon-wand-grim_wand.webp
+  unique 'Oakheart' (spc)  mapping=hd/items/uniques.json#oakheart  fallback=base item sprite sprites/items/weapon-club-spiked_club.webp
+  unique 'Oakplume' (bal)  mapping=hd/items/uniques.json#oakplume  fallback=base item sprite sprites/items/weapon-axe-balanced_axe.webp
+  unique 'Obsidian Husk' (fld)  mapping=hd/items/uniques.json#obsidian_husk  fallback=base item sprite sprites/items/armor-armor-field_plate.webp
+  unique 'Occam's Razor' (mpi)  mapping=hd/items/uniques.json#occam_s_razor  fallback=base item sprite sprites/items/weapon-axe-military_pick.webp
+  unique 'Ocean's Embrace' (uld)  mapping=hd/items/uniques.json#ocean_s_embrace  fallback=base item sprite sprites/items/armor-armor-field_plate.webp
+  unique 'Ogden's Shroud' (lea)  mapping=hd/items/uniques.json#ogden_s_shroud  fallback=base item sprite sprites/items/armor-armor-leather_armor.webp
+  unique 'Ogden's Wisdom' (6ls)  mapping=hd/items/uniques.json#ogden_s_wisdom  fallback=base item sprite sprites/items/weapon-staff-long_staff.webp
+  unique 'Ogre Chieftain's Law' (7o7)  mapping=hd/items/uniques.json#ogre_chieftain_s_law  fallback=base item sprite sprites/items/weapon-polearm-bardiche.webp
+  unique 'Ogre's Breath' (9gi)  mapping=hd/items/uniques.json#ogre_s_breath  fallback=base item sprite sprites/items/weapon-axe-giant_axe.webp
+  unique 'Ogre's Embrace' (uhc)  mapping=hd/items/uniques.json#ogre_s_embrace  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
+  unique 'Old Wolf' (9sr)  mapping=hd/items/uniques.json#old_wolf  fallback=base item sprite sprites/items/weapon-spear-spear.webp
+  unique 'Omni-Slash' (bsd)  mapping=hd/items/uniques.json#omni_slash  fallback=base item sprite sprites/items/weapon-sword-broad_sword.webp
+  unique 'Oracle's Riddle' (obf)  mapping=hd/items/uniques.json#oracle_s_riddle  fallback=base item sprite sprites/items/weapon-orb-dragon_stone.webp
+  unique 'Orc Slayer' (wsd)  mapping=hd/items/uniques.json#orc_slayer  fallback=base item sprite sprites/items/weapon-sword-war_sword.webp
+  unique 'Oreseeker' (vou)  mapping=hd/items/uniques.json#oreseeker  fallback=base item sprite sprites/items/weapon-polearm-voulge.webp
+  unique 'Overlord's Helm' (uh9)  mapping=hd/items/uniques.json#overlord_s_helm  fallback=base item sprite sprites/items/armor-helmet-bone_helm.webp
+  unique 'Pain Harvester' (9bk)  mapping=hd/items/uniques.json#pain_harvester  fallback=base item sprite sprites/items/weapon-knife-balanced_knife.webp
+  unique 'Paingiver' (ne2)  mapping=hd/items/uniques.json#paingiver  fallback=base item sprite sprites/items/armor-voodoo_head-zombie_head.webp
+  unique 'Pandemonium' (hbl)  mapping=hd/items/uniques.json#pandemonium  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
+  unique 'Panic of Thousands' (xul)  mapping=hd/items/uniques.json#panic_of_thousands  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
+  unique 'Path of the Nightwalker' (9qr)  mapping=hd/items/uniques.json#path_of_the_nightwalker  fallback=base item sprite sprites/items/weapon-h2h-scissors_katar.webp
+  unique 'Pathfinder' (gts)  mapping=hd/items/uniques.json#pathfinder  fallback=base item sprite sprites/items/armor-shield-gothic_shield.webp
+  unique 'Patron of Perversity' (6sw)  mapping=hd/items/uniques.json#patron_of_perversity  fallback=base item sprite sprites/items/weapon-bow-short_war_bow.webp
+  unique 'Pegasus Wing' (amf)  mapping=hd/items/uniques.json#pegasus_wing  fallback=base item sprite sprites/items/weapon-javelin-maiden_javelin.webp
+  unique 'Pepin's Blessing' (xap)  mapping=hd/items/uniques.json#pepin_s_blessing  fallback=base item sprite sprites/items/armor-helmet-cap_hat.webp
+  unique 'Pepin's Grace' (mbt)  mapping=hd/items/uniques.json#pepin_s_grace  fallback=base item sprite sprites/items/armor-boot-chain_boots.webp
+  unique 'Phantom Pegasus' (6cb)  mapping=hd/items/uniques.json#phantom_pegasus  fallback=base item sprite sprites/items/weapon-bow-composite_bow.webp
+  unique 'Phoenix Fall' (dr9)  mapping=hd/items/uniques.json#phoenix_fall  fallback=base item sprite sprites/items/armor-pelt-falcon_mask.webp
+  unique 'Piercing Bolt' (mxb)  mapping=hd/items/uniques.json#piercing_bolt  fallback=base item sprite sprites/items/weapon-bow-crossbow.webp
+  unique 'Pirate's Faith' (tbl)  mapping=hd/items/uniques.json#pirate_s_faith  fallback=base item sprite sprites/items/armor-belt-heavy_belt.webp
+  unique 'Pitykiller' (ba2)  mapping=hd/items/uniques.json#pitykiller  fallback=base item sprite sprites/items/armor-helmet-fanged_helm.webp
+  unique 'Plate of Fistandantilus' (xtp)  mapping=hd/items/uniques.json#plate_of_fistandantilus  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
+  unique 'Pleasures of the Perverse' (9wb)  mapping=hd/items/uniques.json#pleasures_of_the_perverse  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Prancing Pike' (7p7)  mapping=hd/items/uniques.json#prancing_pike  fallback=base item sprite sprites/items/weapon-spear-pike.webp
+  unique 'PreCrafted Black Cleft' (cs1)  mapping=hd/items/uniques.json#precrafted_black_cleft  fallback=base item sprite sprites/items/misc-charm-charm_sunder.webp
+  unique 'PreCrafted Bone Break' (cs1)  mapping=hd/items/uniques.json#precrafted_bone_break  fallback=base item sprite sprites/items/misc-charm-charm_sunder.webp
+  unique 'PreCrafted Cold Rupture' (cs1)  mapping=hd/items/uniques.json#precrafted_cold_rupture  fallback=base item sprite sprites/items/misc-charm-charm_sunder.webp
+  unique 'PreCrafted Crack of the Heavens' (cs1)  mapping=hd/items/uniques.json#precrafted_crack_of_the_heavens  fallback=base item sprite sprites/items/misc-charm-charm_sunder.webp
+  unique 'PreCrafted Flame Rift' (cs1)  mapping=hd/items/uniques.json#precrafted_flame_rift  fallback=base item sprite sprites/items/misc-charm-charm_sunder.webp
+  unique 'PreCrafted Rotting Fissure' (cs1)  mapping=hd/items/uniques.json#precrafted_rotting_fissure  fallback=base item sprite sprites/items/misc-charm-charm_sunder.webp
+  unique 'Pride of the Barony' (uth)  mapping=hd/items/uniques.json#pride_of_the_barony  fallback=base item sprite sprites/items/armor-armor-gothic_plate.webp
+  unique 'Pride's Paradox' (8s8)  mapping=hd/items/uniques.json#pride_s_paradox  fallback=base item sprite sprites/items/weapon-bow-short_battle_bow.webp
+  unique 'Pridebreaker' (ssp)  mapping=hd/items/uniques.json#pridebreaker  fallback=base item sprite sprites/items/weapon-javelin-short_spear.webp
+  unique 'Primal Lust' (ba8)  mapping=hd/items/uniques.json#primal_lust  fallback=base item sprite sprites/items/armor-helmet-horned_helm.webp
+  unique 'Prismatic Gauntlets' (tgl)  mapping=hd/items/uniques.json#prismatic_gauntlets  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  unique 'Prisoner's Anguish' (dir)  mapping=hd/items/uniques.json#prisoner_s_anguish  fallback=base item sprite sprites/items/weapon-knife-dirk.webp
+  unique 'Pseudodragon' (9cr)  mapping=hd/items/uniques.json#pseudodragon  fallback=base item sprite sprites/items/weapon-sword-crystal_sword.webp
+  unique 'Pull of Darkness' (7gw)  mapping=hd/items/uniques.json#pull_of_darkness  fallback=base item sprite sprites/items/weapon-wand-grim_wand.webp
+  unique 'Puppeteer's Staff' (lst)  mapping=hd/items/uniques.json#puppeteer_s_staff  fallback=base item sprite sprites/items/weapon-staff-long_staff.webp
+  unique 'Pure Rancor' (9ha)  mapping=hd/items/uniques.json#pure_rancor  fallback=base item sprite sprites/items/weapon-axe-hand_axe.webp
+  unique 'Putrid Defiler' (nea)  mapping=hd/items/uniques.json#putrid_defiler  fallback=base item sprite sprites/items/armor-voodoo_head-demon_head.webp
+  unique 'Puzzler's Mystery' (sst)  mapping=hd/items/uniques.json#puzzler_s_mystery  fallback=base item sprite sprites/items/weapon-staff-short_staff.webp
+  unique 'Qikadar's Laughter' (flc)  mapping=hd/items/uniques.json#qikadar_s_laughter  fallback=base item sprite sprites/items/weapon-sword-falchion.webp
+  unique 'Quandary of the Queen' (oba)  mapping=hd/items/uniques.json#quandary_of_the_queen  fallback=base item sprite sprites/items/weapon-orb-dragon_stone.webp
+  unique 'Quartz Facet' (jew)  mapping=hd/items/uniques.json#quartz_facet  fallback=base item sprite sprites/items/misc-gem-jewels.webp
+  unique 'Quartz Star' (crs)  mapping=hd/items/uniques.json#quartz_star  fallback=base item sprite sprites/items/weapon-sword-crystal_sword.webp
+  unique 'Queasespreader' (ob1)  mapping=hd/items/uniques.json#queasespreader  fallback=base item sprite sprites/items/weapon-orb-eagle_orb.webp
+  unique 'Quickfeint' (clb)  mapping=hd/items/uniques.json#quickfeint  fallback=base item sprite sprites/items/weapon-club-club.webp
+  unique 'Quicksilver' (amc)  mapping=hd/items/uniques.json#quicksilver  fallback=base item sprite sprites/items/weapon-bow-reflex_bow.webp
+  unique 'Quiver of Amplified Slaying' (aqv)  mapping=hd/items/uniques.json#quiver_of_amplified_slaying  fallback=base item sprite sprites/items/misc-quiver-arrows.webp
+  unique 'Quiver of Pestilence' (aqv)  mapping=hd/items/uniques.json#quiver_of_pestilence  fallback=base item sprite sprites/items/misc-quiver-arrows.webp
+  unique 'Quiver of Piercing' (aqv)  mapping=hd/items/uniques.json#quiver_of_piercing  fallback=base item sprite sprites/items/misc-quiver-arrows.webp
+  unique 'Quiver of Resistance Slaying' (aqv)  mapping=hd/items/uniques.json#quiver_of_resistance_slaying  fallback=base item sprite sprites/items/misc-quiver-arrows.webp
+  unique 'Quiver of Slaying' (aqv)  mapping=hd/items/uniques.json#quiver_of_slaying  fallback=base item sprite sprites/items/misc-quiver-arrows.webp
+  unique 'Rabbit Slayer' (7ss)  mapping=hd/items/uniques.json#rabbit_slayer  fallback=base item sprite sprites/items/weapon-sword-short_sword.webp
+  unique 'Ragnarok' (uhm)  mapping=hd/items/uniques.json#ragnarok  fallback=base item sprite sprites/items/armor-helmet-great_helm.webp
+  unique 'Rainbow Cloak' (xui)  mapping=hd/items/uniques.json#rainbow_cloak  fallback=base item sprite sprites/items/armor-armor-quilted_armor.webp
+  unique 'Ranger's Path' (8cb)  mapping=hd/items/uniques.json#ranger_s_path  fallback=base item sprite sprites/items/weapon-bow-composite_bow.webp
+  unique 'Ranger's Sting' (swb)  mapping=hd/items/uniques.json#ranger_s_sting  fallback=base item sprite sprites/items/weapon-bow-short_war_bow.webp
+  unique 'Raptor Fang' (xpk)  mapping=hd/items/uniques.json#raptor_fang  fallback=base item sprite sprites/items/armor-shield-spiked_shield.webp
+  unique 'Raptorshaft' (am5)  mapping=hd/items/uniques.json#raptorshaft  fallback=base item sprite sprites/items/weapon-javelin-maiden_javelin.webp
+  unique 'Rapturous Blessings' (xmg)  mapping=hd/items/uniques.json#rapturous_blessings  fallback=base item sprite sprites/items/armor-glove-bracers_m.webp
+  unique 'Rathmas Desire' (ned)  mapping=hd/items/uniques.json#rathmas_desire  fallback=base item sprite sprites/items/armor-voodoo_head-unraveller_head.webp
+  unique 'Ratman's Rope' (vbl)  mapping=hd/items/uniques.json#ratman_s_rope  fallback=base item sprite sprites/items/armor-belt-light_belt.webp
+  unique 'Rattlesnake Bite' (9di)  mapping=hd/items/uniques.json#rattlesnake_bite  fallback=base item sprite sprites/items/weapon-knife-dirk.webp
+  unique 'Raven Myst' (8mx)  mapping=hd/items/uniques.json#raven_myst  fallback=base item sprite sprites/items/weapon-bow-crossbow.webp
+  unique 'Ravenstar' (9bk)  mapping=hd/items/uniques.json#ravenstar  fallback=base item sprite sprites/items/weapon-knife-balanced_knife.webp
+  unique 'Ravid's Bite' (9bt)  mapping=hd/items/uniques.json#ravid_s_bite  fallback=base item sprite sprites/items/weapon-axe-battle_axe.webp
+  unique 'Ravings of the Mad' (nef)  mapping=hd/items/uniques.json#ravings_of_the_mad  fallback=base item sprite sprites/items/armor-voodoo_head-demon_head.webp
+  unique 'Razor Knuckle' (9xf)  mapping=hd/items/uniques.json#razor_knuckle  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Razor Strike' (6hb)  mapping=hd/items/uniques.json#razor_strike  fallback=base item sprite sprites/items/weapon-bow-hunters_bow.webp
+  unique 'Razorbite Deflector' (xpk)  mapping=hd/items/uniques.json#razorbite_deflector  fallback=base item sprite sprites/items/armor-shield-spiked_shield.webp
+  unique 'Razorspine' (wrb)  mapping=hd/items/uniques.json#razorspine  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Reach of Mephisto' (aqv)  mapping=hd/items/uniques.json#reach_of_mephisto  fallback=base item sprite sprites/items/misc-quiver-arrows.webp
+  unique 'Readiness for War' (9m9)  mapping=hd/items/uniques.json#readiness_for_war  fallback=base item sprite sprites/items/weapon-hammer-maul.webp
+  unique 'Reaper Bolts' (cqv)  mapping=hd/items/uniques.json#reaper_bolts  fallback=base item sprite sprites/items/misc-quiver-bolts.webp
+  unique 'Reaper's Trophy' (neb)  mapping=hd/items/uniques.json#reaper_s_trophy  fallback=base item sprite sprites/items/armor-voodoo_head-preserved_head.webp
+  unique 'Rebuker' (scy)  mapping=hd/items/uniques.json#rebuker  fallback=base item sprite sprites/items/weapon-polearm-scythe.webp
+  unique 'Red Dragon Scales' (upl)  mapping=hd/items/uniques.json#red_dragon_scales  fallback=base item sprite sprites/items/armor-armor-splint_mail.webp
+  unique 'Reign of Deceit' (xrn)  mapping=hd/items/uniques.json#reign_of_deceit  fallback=base item sprite sprites/items/armor-helmet-crown.webp
+  unique 'Remorhaz' (8sw)  mapping=hd/items/uniques.json#remorhaz  fallback=base item sprite sprites/items/weapon-bow-short_war_bow.webp
+  unique 'Replenishing Bolt Case' (cqv)  mapping=hd/items/uniques.json#replenishing_bolt_case  fallback=base item sprite sprites/items/misc-quiver-bolts.webp
+  unique 'Replenishing Quiver' (aqv)  mapping=hd/items/uniques.json#replenishing_quiver  fallback=base item sprite sprites/items/misc-quiver-arrows.webp
+  unique 'Rethral Bolt' (lxb)  mapping=hd/items/uniques.json#rethral_bolt  fallback=base item sprite sprites/items/weapon-bow-light_crossbow.webp
+  unique 'Revoker' (ob3)  mapping=hd/items/uniques.json#revoker  fallback=base item sprite sprites/items/weapon-orb-smoked_sphere.webp
+  unique 'Rhinoceros Strength' (7ls)  mapping=hd/items/uniques.json#rhinoceros_strength  fallback=base item sprite sprites/items/weapon-sword-long_sword.webp
+  unique 'Rhyme of the Bard' (9ja)  mapping=hd/items/uniques.json#rhyme_of_the_bard  fallback=base item sprite sprites/items/weapon-javelin-javelin.webp
+  unique 'Rictus of the Joker' (ne8)  mapping=hd/items/uniques.json#rictus_of_the_joker  fallback=base item sprite sprites/items/armor-voodoo_head-unraveller_head.webp
+  unique 'Riddlesolver' (wst)  mapping=hd/items/uniques.json#riddlesolver  fallback=base item sprite sprites/items/weapon-staff-war_staff.webp
+  unique 'Ripskin' (hal)  mapping=hd/items/uniques.json#ripskin  fallback=base item sprite sprites/items/weapon-polearm-halberd.webp
+  unique 'River Stalker' (xhb)  mapping=hd/items/uniques.json#river_stalker  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
+  unique 'Road to Perdition' (6ss)  mapping=hd/items/uniques.json#road_to_perdition  fallback=base item sprite sprites/items/weapon-staff-short_staff.webp
+  unique 'Rogue Scout Arrows' (aqv)  mapping=hd/items/uniques.json#rogue_scout_arrows  fallback=base item sprite sprites/items/misc-quiver-arrows.webp
+  unique 'Rotbranch' (7sp)  mapping=hd/items/uniques.json#rotbranch  fallback=base item sprite sprites/items/weapon-club-spiked_club.webp
+  unique 'Royal Diadem' (ci3)  mapping=hd/items/uniques.json#royal_diadem  fallback=base item sprite sprites/items/armor-circlet-diadem.webp
+  unique 'Royal Plate' (xth)  mapping=hd/items/uniques.json#royal_plate  fallback=base item sprite sprites/items/armor-armor-gothic_plate.webp
+  unique 'Ruby Dawn' (8cs)  mapping=hd/items/uniques.json#ruby_dawn  fallback=base item sprite sprites/items/weapon-staff-gnarled_staff.webp
+  unique 'Ruemonger' (spt)  mapping=hd/items/uniques.json#ruemonger  fallback=base item sprite sprites/items/weapon-spear-spetum.webp
+  unique 'Runestar' (9sc)  mapping=hd/items/uniques.json#runestar  fallback=base item sprite sprites/items/weapon-scepter-scepter.webp
+  unique 'Russetfire' (spl)  mapping=hd/items/uniques.json#russetfire  fallback=base item sprite sprites/items/armor-armor-splint_mail.webp
+  unique 'Sabertooth' (9wb)  mapping=hd/items/uniques.json#sabertooth  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Sadira' (6hb)  mapping=hd/items/uniques.json#sadira  fallback=base item sprite sprites/items/weapon-bow-hunters_bow.webp
+  unique 'Safewarden' (urg)  mapping=hd/items/uniques.json#safewarden  fallback=base item sprite sprites/items/armor-shield-large_shield.webp
+  unique 'Sage's Retort' (cst)  mapping=hd/items/uniques.json#sage_s_retort  fallback=base item sprite sprites/items/weapon-staff-gnarled_staff.webp
+  unique 'Sahuagin' (9wd)  mapping=hd/items/uniques.json#sahuagin  fallback=base item sprite sprites/items/weapon-sword-war_sword.webp
+  unique 'Sajorn Jinx' (sbr)  mapping=hd/items/uniques.json#sajorn_jinx  fallback=base item sprite sprites/items/weapon-sword-saber.webp
+  unique 'Samantha's Fist' (ces)  mapping=hd/items/uniques.json#samantha_s_fist  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Sanctuary' (6bs)  mapping=hd/items/uniques.json#sanctuary  fallback=base item sprite sprites/items/weapon-staff-battle_staff.webp
+  unique 'Sanctuary's Scion' (drc)  mapping=hd/items/uniques.json#sanctuary_s_scion  fallback=base item sprite sprites/items/armor-pelt-hawk_helm.webp
+  unique 'Sandking' (btx)  mapping=hd/items/uniques.json#sandking  fallback=base item sprite sprites/items/weapon-axe-battle_axe.webp
+  unique 'Sapphire Facet' (jew)  mapping=hd/items/uniques.json#sapphire_facet  fallback=base item sprite sprites/items/misc-gem-jewels.webp
+  unique 'Satyr's Speech' (bhm)  mapping=hd/items/uniques.json#satyr_s_speech  fallback=base item sprite sprites/items/armor-helmet-bone_helm.webp
+  unique 'Savant Sin' (xrg)  mapping=hd/items/uniques.json#savant_sin  fallback=base item sprite sprites/items/armor-shield-large_shield.webp
+  unique 'Scalp Hunter' (ne3)  mapping=hd/items/uniques.json#scalp_hunter  fallback=base item sprite sprites/items/armor-voodoo_head-unraveller_head.webp
+  unique 'Scarab Cleaver' (9xf)  mapping=hd/items/uniques.json#scarab_cleaver  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Scarab of Protection' (stu)  mapping=hd/items/uniques.json#scarab_of_protection  fallback=base item sprite sprites/items/armor-armor-studded_leather.webp
+  unique 'Scars of the Forefathers' (xpl)  mapping=hd/items/uniques.json#scars_of_the_forefathers  fallback=base item sprite sprites/items/armor-armor-splint_mail.webp
+  unique 'Scavanger's Carapace' (xea)  mapping=hd/items/uniques.json#scavanger_s_carapace  fallback=base item sprite sprites/items/armor-armor-leather_armor.webp
+  unique 'Scream of Despair' (gwn)  mapping=hd/items/uniques.json#scream_of_despair  fallback=base item sprite sprites/items/weapon-wand-grim_wand.webp
+  unique 'Scripture of the IronBound' (wab)  mapping=hd/items/uniques.json#scripture_of_the_ironbound  fallback=base item sprite sprites/items/armor-grimoires-oldbook.webp
+  unique 'Seafarer's Security' (pa1)  mapping=hd/items/uniques.json#seafarer_s_security  fallback=base item sprite sprites/items/armor-shield-targe.webp
+  unique 'Seaflame' (xld)  mapping=hd/items/uniques.json#seaflame  fallback=base item sprite sprites/items/armor-armor-field_plate.webp
+  unique 'Secret of Steel' (pa3)  mapping=hd/items/uniques.json#secret_of_steel  fallback=base item sprite sprites/items/armor-shield-heraldic_shield.webp
+  unique 'Senmet's Boltcaster' (8hx)  mapping=hd/items/uniques.json#senmet_s_boltcaster  fallback=base item sprite sprites/items/weapon-bow-heavy_crossbow.webp
+  unique 'Sepia Shard' (am4)  mapping=hd/items/uniques.json#sepia_shard  fallback=base item sprite sprites/items/weapon-spear-maiden_pike.webp
+  unique 'Serendipity' (xtp)  mapping=hd/items/uniques.json#serendipity  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
+  unique 'Serpent's Sharp' (9cr)  mapping=hd/items/uniques.json#serpent_s_sharp  fallback=base item sprite sprites/items/weapon-sword-crystal_sword.webp
+  unique 'Shadazar's Answer' (wax)  mapping=hd/items/uniques.json#shadazar_s_answer  fallback=base item sprite sprites/items/weapon-axe-war_axe.webp
+  unique 'Shadowtrick' (uul)  mapping=hd/items/uniques.json#shadowtrick  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
+  unique 'Shadowy Places' (9lw)  mapping=hd/items/uniques.json#shadowy_places  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Shambling Mound' (xul)  mapping=hd/items/uniques.json#shambling_mound  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
+  unique 'Shapeshifter' (7ba)  mapping=hd/items/uniques.json#shapeshifter  fallback=base item sprite sprites/items/weapon-axe-broad_axe.webp
+  unique 'Shard of the North Star' (7tk)  mapping=hd/items/uniques.json#shard_of_the_north_star  fallback=base item sprite sprites/items/weapon-knife-throwing_knife.webp
+  unique 'Shattered Dreams' (zhb)  mapping=hd/items/uniques.json#shattered_dreams  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
+  unique 'Shattering Blow' (brs)  mapping=hd/items/uniques.json#shattering_blow  fallback=base item sprite sprites/items/armor-armor-breast_plate.webp
+  unique 'Shayira's Flight' (sbb)  mapping=hd/items/uniques.json#shayira_s_flight  fallback=base item sprite sprites/items/weapon-bow-short_battle_bow.webp
+  unique 'Sheera's Knives' (tkf)  mapping=hd/items/uniques.json#sheera_s_knives  fallback=base item sprite sprites/items/weapon-knife-throwing_knife.webp
+  unique 'Shield of Myth' (urg)  mapping=hd/items/uniques.json#shield_of_myth  fallback=base item sprite sprites/items/armor-shield-large_shield.webp
+  unique 'Shield of Osiris' (gts)  mapping=hd/items/uniques.json#shield_of_osiris  fallback=base item sprite sprites/items/armor-shield-gothic_shield.webp
+  unique 'Shieldmaiden's Pavise' (xow)  mapping=hd/items/uniques.json#shieldmaiden_s_pavise  fallback=base item sprite sprites/items/armor-shield-tower_shield.webp
+  unique 'Shieldmaiden's Toss' (am5)  mapping=hd/items/uniques.json#shieldmaiden_s_toss  fallback=base item sprite sprites/items/weapon-javelin-maiden_javelin.webp
+  unique 'Shirotachi' (9cm)  mapping=hd/items/uniques.json#shirotachi  fallback=base item sprite sprites/items/weapon-sword-claymore.webp
+  unique 'Siege Beast Arrows' (aqv)  mapping=hd/items/uniques.json#siege_beast_arrows  fallback=base item sprite sprites/items/misc-quiver-arrows.webp
+  unique 'Silence of the Sphinx' (8ls)  mapping=hd/items/uniques.json#silence_of_the_sphinx  fallback=base item sprite sprites/items/weapon-staff-long_staff.webp
+  unique 'Silent Shank' (7xf)  mapping=hd/items/uniques.json#silent_shank  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Silt Runner' (9tk)  mapping=hd/items/uniques.json#silt_runner  fallback=base item sprite sprites/items/weapon-knife-throwing_knife.webp
+  unique 'Silver Oak Bow' (cbw)  mapping=hd/items/uniques.json#silver_oak_bow  fallback=base item sprite sprites/items/weapon-bow-composite_bow.webp
+  unique 'Silver-Tipped Harpoons' (7ts)  mapping=hd/items/uniques.json#silver_tipped_harpoons  fallback=base item sprite sprites/items/weapon-javelin-throwing_spear.webp
+  unique 'Silverdawn' (am8)  mapping=hd/items/uniques.json#silverdawn  fallback=base item sprite sprites/items/weapon-spear-maiden_spear.webp
+  unique 'Silverskin' (dr3)  mapping=hd/items/uniques.json#silverskin  fallback=base item sprite sprites/items/armor-pelt-antlers.webp
+  unique 'Simpering Edge' (vou)  mapping=hd/items/uniques.json#simpering_edge  fallback=base item sprite sprites/items/weapon-polearm-voulge.webp
+  unique 'Simpering Sword' (crs)  mapping=hd/items/uniques.json#simpering_sword  fallback=base item sprite sprites/items/weapon-sword-crystal_sword.webp
+  unique 'Simpleton's Shadow' (ktr)  mapping=hd/items/uniques.json#simpleton_s_shadow  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Sin Sister' (7tw)  mapping=hd/items/uniques.json#sin_sister  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Sinister Smile' (ne4)  mapping=hd/items/uniques.json#sinister_smile  fallback=base item sprite sprites/items/armor-voodoo_head-gargoyle_head.webp
+  unique 'Sister of the Sun' (ama)  mapping=hd/items/uniques.json#sister_of_the_sun  fallback=base item sprite sprites/items/weapon-javelin-maiden_javelin.webp
+  unique 'Sisterhood Bolts' (cqv)  mapping=hd/items/uniques.json#sisterhood_bolts  fallback=base item sprite sprites/items/misc-quiver-bolts.webp
+  unique 'Skaadi's Claws' (7tw)  mapping=hd/items/uniques.json#skaadi_s_claws  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Skein of Deceit' (sml)  mapping=hd/items/uniques.json#skein_of_deceit  fallback=base item sprite sprites/items/armor-shield-small_shield.webp
+  unique 'Skein of Pain' (tgl)  mapping=hd/items/uniques.json#skein_of_pain  fallback=base item sprite sprites/items/armor-glove-light_gauntlets.webp
+  unique 'Skeleton's Claw' (bwn)  mapping=hd/items/uniques.json#skeleton_s_claw  fallback=base item sprite sprites/items/weapon-wand-bone_wand.webp
+  unique 'Skovos' Cuirass' (xrs)  mapping=hd/items/uniques.json#skovos_cuirass  fallback=base item sprite sprites/items/armor-armor-breast_plate.webp
+  unique 'Skull of Fistandantilus' (xh9)  mapping=hd/items/uniques.json#skull_of_fistandantilus  fallback=base item sprite sprites/items/armor-helmet-bone_helm.webp
+  unique 'Skyglow' (pil)  mapping=hd/items/uniques.json#skyglow  fallback=base item sprite sprites/items/weapon-javelin-pilum.webp
+  unique 'Slaver's Price' (ukp)  mapping=hd/items/uniques.json#slaver_s_price  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
+  unique 'Slayer of Fields' (scy)  mapping=hd/items/uniques.json#slayer_of_fields  fallback=base item sprite sprites/items/weapon-polearm-scythe.webp
+  unique 'Slayer of Trents' (9ax)  mapping=hd/items/uniques.json#slayer_of_trents  fallback=base item sprite sprites/items/weapon-axe-axe.webp
+  unique 'Slayer's Debt' (wsc)  mapping=hd/items/uniques.json#slayer_s_debt  fallback=base item sprite sprites/items/weapon-polearm-war_scythe.webp
+  unique 'Slayer's Glee' (ba8)  mapping=hd/items/uniques.json#slayer_s_glee  fallback=base item sprite sprites/items/armor-helmet-horned_helm.webp
+  unique 'Sleepthorn' (spr)  mapping=hd/items/uniques.json#sleepthorn  fallback=base item sprite sprites/items/weapon-spear-spear.webp
+  unique 'Slithertongue' (9cs)  mapping=hd/items/uniques.json#slithertongue  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Snowy Sky' (hal)  mapping=hd/items/uniques.json#snowy_sky  fallback=base item sprite sprites/items/weapon-polearm-halberd.webp
+  unique 'Solar Eclipse' (uml)  mapping=hd/items/uniques.json#solar_eclipse  fallback=base item sprite sprites/items/armor-shield-small_shield.webp
+  unique 'Solstice Edge' (tax)  mapping=hd/items/uniques.json#solstice_edge  fallback=base item sprite sprites/items/weapon-axe-throwing_axe.webp
+  unique 'Sommerstrike Edge' (wsc)  mapping=hd/items/uniques.json#sommerstrike_edge  fallback=base item sprite sprites/items/weapon-polearm-war_scythe.webp
+  unique 'Song of the Damned' (9fc)  mapping=hd/items/uniques.json#song_of_the_damned  fallback=base item sprite sprites/items/weapon-sword-falchion.webp
+  unique 'Sorcerer's Cache' (ci1)  mapping=hd/items/uniques.json#sorcerer_s_cache  fallback=base item sprite sprites/items/armor-circlet-coronet.webp
+  unique 'Soul Of The Tanar'Ri' (obd)  mapping=hd/items/uniques.json#soul_of_the_tanar_ri  fallback=base item sprite sprites/items/weapon-orb-smoked_sphere.webp
+  unique 'Soul Stinger' (ob3)  mapping=hd/items/uniques.json#soul_stinger  fallback=base item sprite sprites/items/weapon-orb-smoked_sphere.webp
+  unique 'Soulgatherer' (7mt)  mapping=hd/items/uniques.json#soulgatherer  fallback=base item sprite sprites/items/weapon-mace-morning_star.webp
+  unique 'Sparrow's Trill' (ob1)  mapping=hd/items/uniques.json#sparrow_s_trill  fallback=base item sprite sprites/items/weapon-orb-eagle_orb.webp
+  unique 'Spear of Hydragoon' (brn)  mapping=hd/items/uniques.json#spear_of_hydragoon  fallback=base item sprite sprites/items/weapon-spear-brandistock.webp
+  unique 'Spectral Image' (7yw)  mapping=hd/items/uniques.json#spectral_image  fallback=base item sprite sprites/items/weapon-wand-yew_wand.webp
+  unique 'Spectral Slayer' (bal)  mapping=hd/items/uniques.json#spectral_slayer  fallback=base item sprite sprites/items/weapon-axe-balanced_axe.webp
+  unique 'Spellbreaker' (xrg)  mapping=hd/items/uniques.json#spellbreaker  fallback=base item sprite sprites/items/armor-shield-large_shield.webp
+  unique 'Spikefiend Bracers' (xmg)  mapping=hd/items/uniques.json#spikefiend_bracers  fallback=base item sprite sprites/items/armor-glove-bracers_m.webp
+  unique 'Spikethrower' (hxb)  mapping=hd/items/uniques.json#spikethrower  fallback=base item sprite sprites/items/weapon-bow-heavy_crossbow.webp
+  unique 'Spinel Facet' (jew)  mapping=hd/items/uniques.json#spinel_facet  fallback=base item sprite sprites/items/misc-gem-jewels.webp
+  unique 'Spirit Crusher' (mau)  mapping=hd/items/uniques.json#spirit_crusher  fallback=base item sprite sprites/items/weapon-hammer-maul.webp
+  unique 'Spirit Hawk' (axf)  mapping=hd/items/uniques.json#spirit_hawk  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Spirit Light' (7st)  mapping=hd/items/uniques.json#spirit_light  fallback=base item sprite sprites/items/weapon-spear-spetum.webp
+  unique 'Spirit Naga' (9bt)  mapping=hd/items/uniques.json#spirit_naga  fallback=base item sprite sprites/items/weapon-axe-battle_axe.webp
+  unique 'Spirit of Lachdanan' (7st)  mapping=hd/items/uniques.json#spirit_of_lachdanan  fallback=base item sprite sprites/items/weapon-spear-spetum.webp
+  unique 'Spirit of the Land' (drd)  mapping=hd/items/uniques.json#spirit_of_the_land  fallback=base item sprite sprites/items/armor-pelt-antlers.webp
+  unique 'Spiritseeker' (vbl)  mapping=hd/items/uniques.json#spiritseeker  fallback=base item sprite sprites/items/armor-belt-light_belt.webp
+  unique 'Spleen Feaster' (tax)  mapping=hd/items/uniques.json#spleen_feaster  fallback=base item sprite sprites/items/weapon-axe-throwing_axe.webp
+  unique 'Splinterbeam' (tkf)  mapping=hd/items/uniques.json#splinterbeam  fallback=base item sprite sprites/items/weapon-knife-throwing_knife.webp
+  unique 'Splinterfreeze' (tsp)  mapping=hd/items/uniques.json#splinterfreeze  fallback=base item sprite sprites/items/weapon-javelin-throwing_spear.webp
+  unique 'Splitting Skulls' (7gs)  mapping=hd/items/uniques.json#splitting_skulls  fallback=base item sprite sprites/items/weapon-sword-giant_sword.webp
+  unique 'Staff of Shadows' (8ss)  mapping=hd/items/uniques.json#staff_of_shadows  fallback=base item sprite sprites/items/weapon-staff-short_staff.webp
+  unique 'Staff of Valere' (8cs)  mapping=hd/items/uniques.json#staff_of_valere  fallback=base item sprite sprites/items/weapon-staff-gnarled_staff.webp
+  unique 'Staff of the Arch-Magus' (bst)  mapping=hd/items/uniques.json#staff_of_the_arch_magus  fallback=base item sprite sprites/items/weapon-staff-battle_staff.webp
+  unique 'Stairway to Heaven' (utb)  mapping=hd/items/uniques.json#stairway_to_heaven  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  unique 'Stallion Hooves' (ulb)  mapping=hd/items/uniques.json#stallion_hooves  fallback=base item sprite sprites/items/armor-boot-leather_boots.webp
+  unique 'Star Dust' (7ma)  mapping=hd/items/uniques.json#star_dust  fallback=base item sprite sprites/items/weapon-mace-mace.webp
+  unique 'Star Facet' (jew)  mapping=hd/items/uniques.json#star_facet  fallback=base item sprite sprites/items/misc-gem-jewels.webp
+  unique 'Star of Bethlehem' (obb)  mapping=hd/items/uniques.json#star_of_bethlehem  fallback=base item sprite sprites/items/weapon-orb-eagle_orb.webp
+  unique 'Star of David' (obd)  mapping=hd/items/uniques.json#star_of_david  fallback=base item sprite sprites/items/weapon-orb-smoked_sphere.webp
+  unique 'Starbreaker' (ob8)  mapping=hd/items/uniques.json#starbreaker  fallback=base item sprite sprites/items/weapon-orb-smoked_sphere.webp
+  unique 'Starsong' (spl)  mapping=hd/items/uniques.json#starsong  fallback=base item sprite sprites/items/armor-armor-splint_mail.webp
+  unique 'Steel Weevil' (ne4)  mapping=hd/items/uniques.json#steel_weevil  fallback=base item sprite sprites/items/armor-voodoo_head-gargoyle_head.webp
+  unique 'Steelflesh' (rng)  mapping=hd/items/uniques.json#steelflesh  fallback=base item sprite sprites/items/armor-armor-ring_mail.webp
+  unique 'Sting of Humiliation' (glv)  mapping=hd/items/uniques.json#sting_of_humiliation  fallback=base item sprite sprites/items/weapon-javelin-glaive.webp
+  unique 'Stinkshroud' (hla)  mapping=hd/items/uniques.json#stinkshroud  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
+  unique 'Stirgi's Club' (7cl)  mapping=hd/items/uniques.json#stirgi_s_club  fallback=base item sprite sprites/items/weapon-club-club.webp
+  unique 'Stone Eater' (jav)  mapping=hd/items/uniques.json#stone_eater  fallback=base item sprite sprites/items/weapon-javelin-javelin.webp
+  unique 'Stone Hide' (drf)  mapping=hd/items/uniques.json#stone_hide  fallback=base item sprite sprites/items/armor-pelt-spirit_mask.webp
+  unique 'Stoneblaster' (6lx)  mapping=hd/items/uniques.json#stoneblaster  fallback=base item sprite sprites/items/weapon-bow-light_crossbow.webp
+  unique 'Storm Demon's Glare' (9ar)  mapping=hd/items/uniques.json#storm_demon_s_glare  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Storm Talons' (7wb)  mapping=hd/items/uniques.json#storm_talons  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Storms of Spring' (wrb)  mapping=hd/items/uniques.json#storms_of_spring  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Strange Alchemy' (bst)  mapping=hd/items/uniques.json#strange_alchemy  fallback=base item sprite sprites/items/weapon-staff-battle_staff.webp
+  unique 'Stunhummer' (whm)  mapping=hd/items/uniques.json#stunhummer  fallback=base item sprite sprites/items/weapon-hammer-war_hammer.webp
+  unique 'Stygian Harlot' (am4)  mapping=hd/items/uniques.json#stygian_harlot  fallback=base item sprite sprites/items/weapon-spear-maiden_pike.webp
+  unique 'Subtle Slice' (tkf)  mapping=hd/items/uniques.json#subtle_slice  fallback=base item sprite sprites/items/weapon-knife-throwing_knife.webp
+  unique 'Succulent Sin' (xlt)  mapping=hd/items/uniques.json#succulent_sin  fallback=base item sprite sprites/items/armor-armor-plate_mail.webp
+  unique 'Sudden Epiphany' (9cm)  mapping=hd/items/uniques.json#sudden_epiphany  fallback=base item sprite sprites/items/weapon-sword-claymore.webp
+  unique 'Summerstrike' (7pi)  mapping=hd/items/uniques.json#summerstrike  fallback=base item sprite sprites/items/weapon-javelin-pilum.webp
+  unique 'Summoner's Risk' (6bs)  mapping=hd/items/uniques.json#summoner_s_risk  fallback=base item sprite sprites/items/weapon-staff-battle_staff.webp
+  unique 'Sun Tormenter' (uuc)  mapping=hd/items/uniques.json#sun_tormenter  fallback=base item sprite sprites/items/armor-shield-buckler.webp
+  unique 'Sunblighter' (9la)  mapping=hd/items/uniques.json#sunblighter  fallback=base item sprite sprites/items/weapon-axe-large_axe.webp
+  unique 'Sunderblight' (9vo)  mapping=hd/items/uniques.json#sunderblight  fallback=base item sprite sprites/items/weapon-polearm-voulge.webp
+  unique 'Survival Instinct' (9s8)  mapping=hd/items/uniques.json#survival_instinct  fallback=base item sprite sprites/items/weapon-polearm-scythe.webp
+  unique 'Survivor's Sonata' (8ws)  mapping=hd/items/uniques.json#survivor_s_sonata  fallback=base item sprite sprites/items/weapon-staff-war_staff.webp
+  unique 'Swarming Blades' (7tk)  mapping=hd/items/uniques.json#swarming_blades  fallback=base item sprite sprites/items/weapon-knife-throwing_knife.webp
+  unique 'Sweet Agony' (92h)  mapping=hd/items/uniques.json#sweet_agony  fallback=base item sprite sprites/items/weapon-sword-two_handed_sword.webp
+  unique 'Sweet Whisper' (9di)  mapping=hd/items/uniques.json#sweet_whisper  fallback=base item sprite sprites/items/weapon-knife-dirk.webp
+  unique 'Swift Descent' (dr2)  mapping=hd/items/uniques.json#swift_descent  fallback=base item sprite sprites/items/armor-pelt-hawk_helm.webp
+  unique 'Swiftfoot Slash' (pa2)  mapping=hd/items/uniques.json#swiftfoot_slash  fallback=base item sprite sprites/items/armor-shield-rondache.webp
+  unique 'Sylvan Battle Bow' (swb)  mapping=hd/items/uniques.json#sylvan_battle_bow  fallback=base item sprite sprites/items/weapon-bow-short_war_bow.webp
+  unique 'Synthalus' (rxb)  mapping=hd/items/uniques.json#synthalus  fallback=base item sprite sprites/items/weapon-bow-repeating_crossbow.webp
+  unique 'Tarrasque Hide' (uhn)  mapping=hd/items/uniques.json#tarrasque_hide  fallback=base item sprite sprites/items/armor-armor-chain_mail.webp
+  unique 'Taskmaster's Curse' (gix)  mapping=hd/items/uniques.json#taskmaster_s_curse  fallback=base item sprite sprites/items/weapon-axe-giant_axe.webp
+  unique 'Teeth of Infinity' (ssp)  mapping=hd/items/uniques.json#teeth_of_infinity  fallback=base item sprite sprites/items/weapon-javelin-short_spear.webp
+  unique 'Teldicia's Sting' (8sb)  mapping=hd/items/uniques.json#teldicia_s_sting  fallback=base item sprite sprites/items/weapon-bow-short_bow.webp
+  unique 'Telena's War Bow' (lwb)  mapping=hd/items/uniques.json#telena_s_war_bow  fallback=base item sprite sprites/items/weapon-bow-long_war_bow.webp
+  unique 'Tendriculos' (btx)  mapping=hd/items/uniques.json#tendriculos  fallback=base item sprite sprites/items/weapon-axe-battle_axe.webp
+  unique 'Ter'Angreal' (8ls)  mapping=hd/items/uniques.json#ter_angreal  fallback=base item sprite sprites/items/weapon-staff-long_staff.webp
+  unique 'Terminus Rod' (ob6)  mapping=hd/items/uniques.json#terminus_rod  fallback=base item sprite sprites/items/weapon-orb-eagle_orb.webp
+  unique 'Tesla's Cuirass' (xrs)  mapping=hd/items/uniques.json#tesla_s_cuirass  fallback=base item sprite sprites/items/armor-armor-breast_plate.webp
+  unique 'Text of the Infernal Vanguard' (wa6)  mapping=hd/items/uniques.json#text_of_the_infernal_vanguard  fallback=base item sprite sprites/items/armor-grimoires-oldbook.webp
+  unique 'The Arreat Codex' (wa3)  mapping=hd/items/uniques.json#the_arreat_codex  fallback=base item sprite sprites/items/armor-grimoires-codex.webp
+  unique 'The Art of War' (zhb)  mapping=hd/items/uniques.json#the_art_of_war  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
+  unique 'The Black Oath Ledger' (wab)  mapping=hd/items/uniques.json#the_black_oath_ledger  fallback=base item sprite sprites/items/armor-grimoires-oldbook.webp
+  unique 'The Black Stag' (dr8)  mapping=hd/items/uniques.json#the_black_stag  fallback=base item sprite sprites/items/armor-pelt-antlers.webp
+  unique 'The Bloodletters Codex' (wa8)  mapping=hd/items/uniques.json#the_bloodletters_codex  fallback=base item sprite sprites/items/armor-grimoires-codex.webp
+  unique 'The Bloodsigil Testament' (wa9)  mapping=hd/items/uniques.json#the_bloodsigil_testament  fallback=base item sprite sprites/items/armor-grimoires-compendium.webp
+  unique 'The Branded Tome' (wa2)  mapping=hd/items/uniques.json#the_branded_tome  fallback=base item sprite sprites/items/armor-grimoires-tome_book.webp
+  unique 'The Defiler's Flesh' (xla)  mapping=hd/items/uniques.json#the_defiler_s_flesh  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
+  unique 'The Four Winds' (am7)  mapping=hd/items/uniques.json#the_four_winds  fallback=base item sprite sprites/items/weapon-bow-reflex_bow.webp
+  unique 'The Gambler's Fallacy' (uh9)  mapping=hd/items/uniques.json#the_gambler_s_fallacy  fallback=base item sprite sprites/items/armor-helmet-bone_helm.webp
+  unique 'The Hellbound Lexicon' (waf)  mapping=hd/items/uniques.json#the_hellbound_lexicon  fallback=base item sprite sprites/items/armor-grimoires-grimoire.webp
+  unique 'The Hellforged War Tome' (wa7)  mapping=hd/items/uniques.json#the_hellforged_war_tome  fallback=base item sprite sprites/items/armor-grimoires-tome_book.webp
+  unique 'The King's Heart' (dr6)  mapping=hd/items/uniques.json#the_king_s_heart  fallback=base item sprite sprites/items/armor-pelt-wolf_head.webp
+  unique 'The Mangler' (9gs)  mapping=hd/items/uniques.json#the_mangler  fallback=base item sprite sprites/items/weapon-sword-giant_sword.webp
+  unique 'The Ossuary Almanac' (wa1)  mapping=hd/items/uniques.json#the_ossuary_almanac  fallback=base item sprite sprites/items/armor-grimoires-oldbook.webp
+  unique 'The Quick and the Dead' (9gd)  mapping=hd/items/uniques.json#the_quick_and_the_dead  fallback=base item sprite sprites/items/weapon-sword-great_sword.webp
+  unique 'The Quickening' (fla)  mapping=hd/items/uniques.json#the_quickening  fallback=base item sprite sprites/items/weapon-mace-flail.webp
+  unique 'The Rendfathers Codex' (wad)  mapping=hd/items/uniques.json#the_rendfathers_codex  fallback=base item sprite sprites/items/armor-grimoires-codex.webp
+  unique 'The Saboteur's Bandolier' (umc)  mapping=hd/items/uniques.json#the_saboteur_s_bandolier  fallback=base item sprite sprites/items/armor-belt-belt_m.webp
+  unique 'The Sealed Tome of Caldeum' (wa7)  mapping=hd/items/uniques.json#the_sealed_tome_of_caldeum  fallback=base item sprite sprites/items/armor-grimoires-tome_book.webp
+  unique 'The Seventh Pact' (wae)  mapping=hd/items/uniques.json#the_seventh_pact  fallback=base item sprite sprites/items/armor-grimoires-compendium.webp
+  unique 'The Shadowed One' (rng)  mapping=hd/items/uniques.json#the_shadowed_one  fallback=base item sprite sprites/items/armor-armor-ring_mail.webp
+  unique 'The Strongest Link' (xcl)  mapping=hd/items/uniques.json#the_strongest_link  fallback=base item sprite sprites/items/armor-armor-scale_mail.webp
+  unique 'The True Names of the Pit' (wa9)  mapping=hd/items/uniques.json#the_true_names_of_the_pit  fallback=base item sprite sprites/items/armor-grimoires-compendium.webp
+  unique 'The Vizjerei Codex' (wa3)  mapping=hd/items/uniques.json#the_vizjerei_codex  fallback=base item sprite sprites/items/armor-grimoires-codex.webp
+  unique 'Thief's Lockpicker' (9bl)  mapping=hd/items/uniques.json#thief_s_lockpicker  fallback=base item sprite sprites/items/weapon-knife-blade.webp
+  unique 'Thoqqua's Slipper' (uvb)  mapping=hd/items/uniques.json#thoqqua_s_slipper  fallback=base item sprite sprites/items/armor-boot-heavy_boots.webp
+  unique 'Thor's Bolt' (6rx)  mapping=hd/items/uniques.json#thor_s_bolt  fallback=base item sprite sprites/items/weapon-bow-repeating_crossbow.webp
+  unique 'Thought Splinter' (ob4)  mapping=hd/items/uniques.json#thought_splinter  fallback=base item sprite sprites/items/weapon-orb-clasped_orb.webp
+  unique 'Threat of Retribution' (xhg)  mapping=hd/items/uniques.json#threat_of_retribution  fallback=base item sprite sprites/items/armor-glove-gaunlets_h.webp
+  unique 'Threat of Storms' (9la)  mapping=hd/items/uniques.json#threat_of_storms  fallback=base item sprite sprites/items/weapon-axe-large_axe.webp
+  unique 'Threatspeaker' (ci1)  mapping=hd/items/uniques.json#threatspeaker  fallback=base item sprite sprites/items/armor-circlet-coronet.webp
+  unique 'Thundercall' (9gd)  mapping=hd/items/uniques.json#thundercall  fallback=base item sprite sprites/items/weapon-sword-great_sword.webp
+  unique 'Thunderclap' (72h)  mapping=hd/items/uniques.json#thunderclap  fallback=base item sprite sprites/items/weapon-sword-two_handed_sword.webp
+  unique 'Tidrik's Initiator' (bkf)  mapping=hd/items/uniques.json#tidrik_s_initiator  fallback=base item sprite sprites/items/weapon-knife-balanced_knife.webp
+  unique 'Tiger Eye' (jew)  mapping=hd/items/uniques.json#tiger_eye  fallback=base item sprite sprites/items/misc-gem-jewels.webp
+  unique 'Timbersplitter' (bal)  mapping=hd/items/uniques.json#timbersplitter  fallback=base item sprite sprites/items/weapon-axe-balanced_axe.webp
+  unique 'Titan's Reach' (7vo)  mapping=hd/items/uniques.json#titan_s_reach  fallback=base item sprite sprites/items/weapon-polearm-voulge.webp
+  unique 'Tome of the Horazon Warrior' (wa2)  mapping=hd/items/uniques.json#tome_of_the_horazon_warrior  fallback=base item sprite sprites/items/armor-grimoires-tome_book.webp
+  unique 'Tome of the Pitborn Host' (wac)  mapping=hd/items/uniques.json#tome_of_the_pitborn_host  fallback=base item sprite sprites/items/armor-grimoires-tome_book.webp
+  unique 'Tonguecutter' (tax)  mapping=hd/items/uniques.json#tonguecutter  fallback=base item sprite sprites/items/weapon-axe-throwing_axe.webp
+  unique 'Tonstrike' (9ga)  mapping=hd/items/uniques.json#tonstrike  fallback=base item sprite sprites/items/weapon-axe-great_axe.webp
+  unique 'Topaz Facet' (jew)  mapping=hd/items/uniques.json#topaz_facet  fallback=base item sprite sprites/items/misc-gem-jewels.webp
+  unique 'Torn Flesh of Souls' (xla)  mapping=hd/items/uniques.json#torn_flesh_of_souls  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
+  unique 'Torturer's Trust' (7qr)  mapping=hd/items/uniques.json#torturer_s_trust  fallback=base item sprite sprites/items/weapon-h2h-scissors_katar.webp
+  unique 'Touch of Evil' (lst)  mapping=hd/items/uniques.json#touch_of_evil  fallback=base item sprite sprites/items/weapon-staff-long_staff.webp
+  unique 'Traitor's Mark' (buc)  mapping=hd/items/uniques.json#traitor_s_mark  fallback=base item sprite sprites/items/armor-shield-buckler.webp
+  unique 'Trial by Fire' (9pa)  mapping=hd/items/uniques.json#trial_by_fire  fallback=base item sprite sprites/items/weapon-polearm-poleaxe.webp
+  unique 'Trianthalon's Sprinkler' (9qs)  mapping=hd/items/uniques.json#trianthalon_s_sprinkler  fallback=base item sprite sprites/items/weapon-scepter-grand_scepter.webp
+  unique 'Trickster's Guise' (cap)  mapping=hd/items/uniques.json#trickster_s_guise  fallback=base item sprite sprites/items/armor-helmet-cap_hat.webp
+  unique 'Troglodyte' (9ls)  mapping=hd/items/uniques.json#troglodyte  fallback=base item sprite sprites/items/weapon-sword-long_sword.webp
+  unique 'Troll's Nail' (spc)  mapping=hd/items/uniques.json#troll_s_nail  fallback=base item sprite sprites/items/weapon-club-spiked_club.webp
+  unique 'Troll's Touch' (skr)  mapping=hd/items/uniques.json#troll_s_touch  fallback=base item sprite sprites/items/weapon-h2h-scissors_katar.webp
+  unique 'Troubled Thoughts' (xlm)  mapping=hd/items/uniques.json#troubled_thoughts  fallback=base item sprite sprites/items/armor-helmet-helm.webp
+  unique 'Trump of Jericho' (9pi)  mapping=hd/items/uniques.json#trump_of_jericho  fallback=base item sprite sprites/items/weapon-javelin-pilum.webp
+  unique 'Twilight Presence' (pa6)  mapping=hd/items/uniques.json#twilight_presence  fallback=base item sprite sprites/items/armor-shield-targe.webp
+  unique 'Umbral's Bat' (9sp)  mapping=hd/items/uniques.json#umbral_s_bat  fallback=base item sprite sprites/items/weapon-club-spiked_club.webp
+  unique 'Undead Beholder' (ne5)  mapping=hd/items/uniques.json#undead_beholder  fallback=base item sprite sprites/items/armor-voodoo_head-demon_head.webp
+  unique 'Undead Buckler' (xml)  mapping=hd/items/uniques.json#undead_buckler  fallback=base item sprite sprites/items/armor-shield-small_shield.webp
+  unique 'Under Dragon's Wing' (xit)  mapping=hd/items/uniques.json#under_dragon_s_wing  fallback=base item sprite sprites/items/armor-shield-kite_shield.webp
+  unique 'Unity of Mind' (obe)  mapping=hd/items/uniques.json#unity_of_mind  fallback=base item sprite sprites/items/weapon-orb-clasped_orb.webp
+  unique 'Unseeing Eye' (ob5)  mapping=hd/items/uniques.json#unseeing_eye  fallback=base item sprite sprites/items/weapon-orb-dragon_stone.webp
+  unique 'Usurper's Ambition' (xrn)  mapping=hd/items/uniques.json#usurper_s_ambition  fallback=base item sprite sprites/items/armor-helmet-crown.webp
+  unique 'Utterance of Power' (obc)  mapping=hd/items/uniques.json#utterance_of_power  fallback=base item sprite sprites/items/weapon-orb-sacred_globe.webp
+  unique 'Validator' (pa1)  mapping=hd/items/uniques.json#validator  fallback=base item sprite sprites/items/armor-shield-targe.webp
+  unique 'Valkyrie's Calling' (amd)  mapping=hd/items/uniques.json#valkyrie_s_calling  fallback=base item sprite sprites/items/weapon-spear-maiden_spear.webp
+  unique 'Valorsong' (paf)  mapping=hd/items/uniques.json#valorsong  fallback=base item sprite sprites/items/armor-shield-crown_shield.webp
+  unique 'Vampire's Fang' (dgr)  mapping=hd/items/uniques.json#vampire_s_fang  fallback=base item sprite sprites/items/weapon-knife-dagger.webp
+  unique 'Vanguard' (baa)  mapping=hd/items/uniques.json#vanguard  fallback=base item sprite sprites/items/armor-helmet-avenger_guard.webp
+  unique 'Vengeance of the Wronged' (7bw)  mapping=hd/items/uniques.json#vengeance_of_the_wronged  fallback=base item sprite sprites/items/weapon-wand-bone_wand.webp
+  unique 'Venomlord's Visage' (neb)  mapping=hd/items/uniques.json#venomlord_s_visage  fallback=base item sprite sprites/items/armor-voodoo_head-preserved_head.webp
+  unique 'Vile Temptress' (am8)  mapping=hd/items/uniques.json#vile_temptress  fallback=base item sprite sprites/items/weapon-spear-maiden_spear.webp
+  unique 'Vilifier' (gma)  mapping=hd/items/uniques.json#vilifier  fallback=base item sprite sprites/items/weapon-hammer-great_maul.webp
+  unique 'Violetwing' (sbw)  mapping=hd/items/uniques.json#violetwing  fallback=base item sprite sprites/items/weapon-bow-short_bow.webp
+  unique 'Viridian Gloves' (uvg)  mapping=hd/items/uniques.json#viridian_gloves  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
+  unique 'Voice of Reason' (7wn)  mapping=hd/items/uniques.json#voice_of_reason  fallback=base item sprite sprites/items/weapon-wand-wand.webp
+  unique 'Voice of the Prophet' (pa7)  mapping=hd/items/uniques.json#voice_of_the_prophet  fallback=base item sprite sprites/items/armor-shield-rondache.webp
+  unique 'Voltar's Feather' (dr4)  mapping=hd/items/uniques.json#voltar_s_feather  fallback=base item sprite sprites/items/armor-pelt-falcon_mask.webp
+  unique 'Vorpal Blade' (7cm)  mapping=hd/items/uniques.json#vorpal_blade  fallback=base item sprite sprites/items/weapon-sword-claymore.webp
+  unique 'Vow of Revenge' (ne9)  mapping=hd/items/uniques.json#vow_of_revenge  fallback=base item sprite sprites/items/armor-voodoo_head-gargoyle_head.webp
+  unique 'Wakazashi' (7ar)  mapping=hd/items/uniques.json#wakazashi  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
+  unique 'Wand of Fireballs' (9bw)  mapping=hd/items/uniques.json#wand_of_fireballs  fallback=base item sprite sprites/items/weapon-wand-bone_wand.webp
+  unique 'Warbreeder' (9gl)  mapping=hd/items/uniques.json#warbreeder  fallback=base item sprite sprites/items/weapon-javelin-glaive.webp
+  unique 'Warmth of Ash' (wst)  mapping=hd/items/uniques.json#warmth_of_ash  fallback=base item sprite sprites/items/weapon-staff-war_staff.webp
+  unique 'Warpwind' (cbw)  mapping=hd/items/uniques.json#warpwind  fallback=base item sprite sprites/items/weapon-bow-composite_bow.webp
+  unique 'Warrior Untamed' (wsd)  mapping=hd/items/uniques.json#warrior_untamed  fallback=base item sprite sprites/items/weapon-sword-war_sword.webp
+  unique 'Warrior's Challenge' (flb)  mapping=hd/items/uniques.json#warrior_s_challenge  fallback=base item sprite sprites/items/weapon-sword-flamberge.webp
+  unique 'Warriv's Snakeskin' (zlb)  mapping=hd/items/uniques.json#warriv_s_snakeskin  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  unique 'Warsummoner' (ba5)  mapping=hd/items/uniques.json#warsummoner  fallback=base item sprite sprites/items/armor-helmet-avenger_guard.webp
+  unique 'Wasteland Visage' (bad)  mapping=hd/items/uniques.json#wasteland_visage  fallback=base item sprite sprites/items/armor-helmet-horned_helm.webp
+  unique 'Wave Whipper' (zvb)  mapping=hd/items/uniques.json#wave_whipper  fallback=base item sprite sprites/items/armor-belt-light_belt.webp
+  unique 'Weakling's Whimper' (zmb)  mapping=hd/items/uniques.json#weakling_s_whimper  fallback=base item sprite sprites/items/armor-belt-belt_m.webp
+  unique 'Weeping at the Gate' (9pi)  mapping=hd/items/uniques.json#weeping_at_the_gate  fallback=base item sprite sprites/items/weapon-javelin-pilum.webp
+  unique 'Weightless Grace' (ltp)  mapping=hd/items/uniques.json#weightless_grace  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
+  unique 'Werewolf Slayer' (7la)  mapping=hd/items/uniques.json#werewolf_slayer  fallback=base item sprite sprites/items/weapon-axe-large_axe.webp
+  unique 'Werewolf Talons' (9lw)  mapping=hd/items/uniques.json#werewolf_talons  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Whirling Dervish' (xmb)  mapping=hd/items/uniques.json#whirling_dervish  fallback=base item sprite sprites/items/armor-boot-chain_boots.webp
+  unique 'Whyte Stag' (8hx)  mapping=hd/items/uniques.json#whyte_stag  fallback=base item sprite sprites/items/weapon-bow-heavy_crossbow.webp
+  unique 'Widow's Refrain' (8rx)  mapping=hd/items/uniques.json#widow_s_refrain  fallback=base item sprite sprites/items/weapon-bow-repeating_crossbow.webp
+  unique 'Wight Claw' (9lw)  mapping=hd/items/uniques.json#wight_claw  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Wight's Touch' (7sb)  mapping=hd/items/uniques.json#wight_s_touch  fallback=base item sprite sprites/items/weapon-sword-saber.webp
+  unique 'Wightslayer' (6mx)  mapping=hd/items/uniques.json#wightslayer  fallback=base item sprite sprites/items/weapon-bow-crossbow.webp
+  unique 'Wild Horses' (uhb)  mapping=hd/items/uniques.json#wild_horses  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
+  unique 'Will of the Zakarum' (xar)  mapping=hd/items/uniques.json#will_of_the_zakarum  fallback=base item sprite sprites/items/armor-armor-ancient_armor.webp
+  unique 'Will-O'-Wisp' (ucl)  mapping=hd/items/uniques.json#will_o_wisp  fallback=base item sprite sprites/items/armor-armor-scale_mail.webp
+  unique 'Willowsting' (sbb)  mapping=hd/items/uniques.json#willowsting  fallback=base item sprite sprites/items/weapon-bow-short_battle_bow.webp
+  unique 'Windrunner' (am6)  mapping=hd/items/uniques.json#windrunner  fallback=base item sprite sprites/items/weapon-bow-stag_bow.webp
+  unique 'Winged Serpent' (7ta)  mapping=hd/items/uniques.json#winged_serpent  fallback=base item sprite sprites/items/weapon-axe-throwing_axe.webp
+  unique 'Winter Solstice' (7s8)  mapping=hd/items/uniques.json#winter_solstice  fallback=base item sprite sprites/items/weapon-polearm-scythe.webp
+  unique 'Winter Wolf' (gax)  mapping=hd/items/uniques.json#winter_wolf  fallback=base item sprite sprites/items/weapon-axe-great_axe.webp
+  unique 'Winterquick' (clw)  mapping=hd/items/uniques.json#winterquick  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
+  unique 'Wintershock' (amc)  mapping=hd/items/uniques.json#wintershock  fallback=base item sprite sprites/items/weapon-bow-reflex_bow.webp
+  unique 'Winterswipe' (lsd)  mapping=hd/items/uniques.json#winterswipe  fallback=base item sprite sprites/items/weapon-sword-long_sword.webp
+  unique 'Wisdom of Thoth' (paa)  mapping=hd/items/uniques.json#wisdom_of_thoth  fallback=base item sprite sprites/items/armor-shield-crown_shield.webp
+  unique 'Wisdom's Wrap' (utc)  mapping=hd/items/uniques.json#wisdom_s_wrap  fallback=base item sprite sprites/items/armor-belt-heavy_belt.webp
+  unique 'Wishgranter' (xit)  mapping=hd/items/uniques.json#wishgranter  fallback=base item sprite sprites/items/armor-shield-kite_shield.webp
+  unique 'Wizard's Rule' (cst)  mapping=hd/items/uniques.json#wizard_s_rule  fallback=base item sprite sprites/items/weapon-staff-gnarled_staff.webp
+  unique 'Woodclaw' (pik)  mapping=hd/items/uniques.json#woodclaw  fallback=base item sprite sprites/items/weapon-spear-pike.webp
+  unique 'Woodland Beast' (7la)  mapping=hd/items/uniques.json#woodland_beast  fallback=base item sprite sprites/items/weapon-axe-large_axe.webp
+  unique 'Woundripper' (7pi)  mapping=hd/items/uniques.json#woundripper  fallback=base item sprite sprites/items/weapon-javelin-pilum.webp
+  unique 'Wraith Whisper' (dr5)  mapping=hd/items/uniques.json#wraith_whisper  fallback=base item sprite sprites/items/armor-pelt-spirit_mask.webp
+  unique 'Wraithshadow' (xsk)  mapping=hd/items/uniques.json#wraithshadow  fallback=base item sprite sprites/items/armor-helmet-mask.webp
+  unique 'Wraithwatch' (xhl)  mapping=hd/items/uniques.json#wraithwatch  fallback=base item sprite sprites/items/armor-helmet-full_helm.webp
+  unique 'Wrath Of Heaven' (7qs)  mapping=hd/items/uniques.json#wrath_of_heaven  fallback=base item sprite sprites/items/weapon-scepter-grand_scepter.webp
+  unique 'Wrath of the Seraphim' (7ws)  mapping=hd/items/uniques.json#wrath_of_the_seraphim  fallback=base item sprite sprites/items/weapon-scepter-war_scepter.webp
+  unique 'Wrathshifter' (am3)  mapping=hd/items/uniques.json#wrathshifter  fallback=base item sprite sprites/items/weapon-spear-maiden_spear.webp
+  unique 'Wreath of Suffering' (mbl)  mapping=hd/items/uniques.json#wreath_of_suffering  fallback=base item sprite sprites/items/armor-belt-belt_m.webp
+  unique 'Wyrmbane' (utu)  mapping=hd/items/uniques.json#wyrmbane  fallback=base item sprite sprites/items/armor-armor-studded_leather.webp
+  unique 'Xanadu Dreams' (chn)  mapping=hd/items/uniques.json#xanadu_dreams  fallback=base item sprite sprites/items/armor-armor-chain_mail.webp
+  unique 'Xenophobe' (zlb)  mapping=hd/items/uniques.json#xenophobe  fallback=base item sprite sprites/items/armor-belt-sash_l.webp
+  unique 'Yamanda's Token' (dr3)  mapping=hd/items/uniques.json#yamanda_s_token  fallback=base item sprite sprites/items/armor-pelt-antlers.webp
+  unique 'Yemista's Defender' (xuc)  mapping=hd/items/uniques.json#yemista_s_defender  fallback=base item sprite sprites/items/armor-shield-buckler.webp
+  unique 'Yuan-Ti's Venom' (bsw)  mapping=hd/items/uniques.json#yuan_ti_s_venom  fallback=base item sprite sprites/items/weapon-sword-bastard_sword.webp
+  unique 'Zapcaster' (ob4)  mapping=hd/items/uniques.json#zapcaster  fallback=base item sprite sprites/items/weapon-orb-clasped_orb.webp
+  unique 'Zaratan Hide' (ula)  mapping=hd/items/uniques.json#zaratan_hide  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
+  unique 'Zealot's Branch' (7tr)  mapping=hd/items/uniques.json#zealot_s_branch  fallback=base item sprite sprites/items/weapon-spear-trident.webp
+  unique 'Zebrastride' (xmb)  mapping=hd/items/uniques.json#zebrastride  fallback=base item sprite sprites/items/armor-boot-chain_boots.webp
+  unique 'Zenkiller' (kri)  mapping=hd/items/uniques.json#zenkiller  fallback=base item sprite sprites/items/weapon-knife-kriss.webp
+  unique 'Zero Effect' (utb)  mapping=hd/items/uniques.json#zero_effect  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  unique 't1 Splash Charm' (cm4)  mapping=hd/items/uniques.json#t1_splash_charm  fallback=base item sprite sprites/items/misc-charm-charm_small.webp
+  unique 't2 Splash Charm' (cm4)  mapping=hd/items/uniques.json#t2_splash_charm  fallback=base item sprite sprites/items/misc-charm-charm_small.webp
+  unique 't3 Splash Charm' (cm4)  mapping=hd/items/uniques.json#t3_splash_charm  fallback=base item sprite sprites/items/misc-charm-charm_small.webp
+  unique 't4 Splash Charm' (cm4)  mapping=hd/items/uniques.json#t4_splash_charm  fallback=base item sprite sprites/items/misc-charm-charm_small.webp
+  unique 't5 Splash Charm' (cm4)  mapping=hd/items/uniques.json#t5_splash_charm  fallback=base item sprite sprites/items/misc-charm-charm_small.webp
+  unique 't6 Splash Charm' (cm4)  mapping=hd/items/uniques.json#t6_splash_charm  fallback=base item sprite sprites/items/misc-charm-charm_small.webp
+  unique 't7 Splash Charm' (cm4)  mapping=hd/items/uniques.json#t7_splash_charm  fallback=base item sprite sprites/items/misc-charm-charm_small.webp
+  unique 't8 Splash Charm' (cm4)  mapping=hd/items/uniques.json#t8_splash_charm  fallback=base item sprite sprites/items/misc-charm-charm_small.webp
+

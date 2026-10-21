@@ -1,50 +1,20 @@
-=== Missing Translation Keys (47) ===
-Add these to your supplemental translation file to resolve them.
+=== Missing Translation Keys (8) ===
+Display keys referenced by keyed/*.json that neither the mod's own strings, the
+CASC base strings (--casc-data) nor Config/synthetic-strings.json
+resolve. Grouped by the exported document that referenced them.
 
-  Act 5 Combatant
-  Act 5 Townguard
-  Akara
-  Atma
-  Bunny
-  Charsi
-  DeckardCain
-  Drehya
-  Drognan
-  Elzix
-  Fara
-  Geglash
-  Gheed
-  Greiz
-  Injured Barbarian 1
-  Injured Barbarian 2
-  Injured Barbarian 3
-  Jamella
-  Jerhyn
-  Kaelan
-  Kashya
-  Larzuk
-  Lysander
-  Malachai
-  Malah
-  Meshif
-  Natalya
-  Nihlathak
-  Nihlathak Town
-  POW
-  Prison Door
-  Qual-Kehk
-  StrSkillRunWalkRange
-  Turret
-  Warriv
-  Worldstone Effect
-  a trap
-  alkor
-  asheara
-  compellingorb
-  halbu
-  hratli
-  meshif
-  navi
-  ormus
-  skillnameskele
-  tyrael
+Scope: explicit display keys, keyed-line arguments and core item identity keys.
+Structural identifiers and FallbackName literals are excluded; every language
+may fall back to the final enUS bundle.
+
+--- runewords.json (5) ---
+  Chromaskin
+  Insanity
+  Ravage
+  Unity
+  res-max-all
+
+--- uniques.json (3) ---
+  Confuse
+  balance
+  mansteal
