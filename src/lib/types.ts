@@ -57,6 +57,8 @@ export interface CatalogItem {
   Index?: string | number;
   /** Stable recipe identity from the exporter; see src/lib/cube-recipe-ids.ts. */
   Id?: string;
+  /** Grail progress key for same-name variants; see src/lib/grail-progress.ts. */
+  GrailKey?: string;
   NameKey?: string;
   Type?: string | { Name?: string; Index?: string; Class?: string };
   Vanilla?: string;
