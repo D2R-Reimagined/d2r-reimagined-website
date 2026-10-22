@@ -19,33 +19,14 @@ The website has no installation step of its own. It serves and imports the files
      --out ".\test-output" --website "..\d2r-reimagined-website"
    ```
 
-3. Run the website checks:
+3. Commit the `static/data` changes on their own, separate from code changes.
 
-   ```powershell
-   pnpm run check
-   pnpm test
-   pnpm run build
-   ```
-
-4. Review `git status` and `git diff --stat -- static/data`, then commit the generated-data
-   changes on their own, separate from code changes.
-
-## What the exporter guarantees
-
-The exporter owns validation and installation; see its `README.md` ("Website update") and
-`docs/WEBSITE-INTEGRATION.md`. It replaces `static/data` only after a run without errors whose
-manifest is schema 2, `Succeeded`, `Complete` and has every step `Written`, with portable,
-non-colliding paths and files matching their sizes and hashes. It refuses, changing nothing,
-when `static/data` holds anything its current manifest does not list, so hand-added files are
-never deleted. Generated files the new manifest no longer lists are removed, and an identical
-export changes nothing.
-
-Replacement goes through sibling working directories `static/.data.install-*`,
-`static/.data.backup-*` and `static/.data.failed-*`, which `.gitignore` excludes. A failed swap
-or verification restores the backup. If an export is interrupted between the two renames, the
-next export restores the single backup when `static/data` is missing; otherwise it refuses to
-run until the leftover backup is restored or deleted by hand. Leftover `.data.install-*`
-directories hold only copies and can be deleted.
+The exporter owns validating and installing the data. It only replaces `static/data` after a
+successful, complete export, and it refuses without changing anything if `static/data` holds
+files its current manifest does not list. For the details, see the exporter's `README.md`
+("Website update") and `docs/WEBSITE-INTEGRATION.md`. Its working directories
+`static/.data.install-*`, `static/.data.backup-*` and `static/.data.failed-*` sit beside
+`static/data`, and `.gitignore` excludes them.
 
 ## Retired migration scripts
 
@@ -55,5 +36,3 @@ recipe now ships a stable exporter `Id`. `src/lib/data/cube-recipe-aliases.json`
 compatibility data, so links saved with old recipe numbers still resolve through
 `src/lib/cube-recipe-ids.ts`. Do not edit exported recipe JSON or recipe identities to keep
 links working.
-
-`data:install` was removed once the exporter took over validating and installing exports.
