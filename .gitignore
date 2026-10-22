@@ -39,5 +39,5 @@ node_modules
 /build
 /artifacts
 
-# Interrupted `pnpm data:install` working directories (see docs/DATA-INSTALL.md)
+# D2R Multi-Export working directories beside static/data (see docs/DATA-INSTALL.md)
 /static/.data.*

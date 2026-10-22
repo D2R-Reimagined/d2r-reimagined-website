@@ -45,7 +45,7 @@ pnpm run build
 
 ## Game data
 
-`static/data` holds the generated D2R Multi-Export bundle. Install a bundle staged by the exporter's `publish --staging` command with `pnpm data:install --from <staging-directory>`. See [docs/DATA-INSTALL.md](docs/DATA-INSTALL.md).
+`static/data` holds the generated D2R Multi-Export bundle. The exporter validates and installs it directly when run with `--website <this checkout>` (or the desktop client's Website Repository setting); the website serves the files as they are. See [docs/DATA-INSTALL.md](docs/DATA-INSTALL.md).
 
 ## Production
 

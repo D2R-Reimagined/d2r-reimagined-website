@@ -15,7 +15,7 @@ remain the exact values the plugin expects. UI labels remain English.
 ## Updating the catalog
 
 Run `multi-export-tool` against the mod overlaid on extracted base data as usual.
-`keyed/loot-filter.json` is installed with the rest of the staged export bundle,
+`keyed/loot-filter.json` is installed with the rest of the export bundle,
 including the `strings/*.json` language bundles (see [DATA-INSTALL.md](DATA-INSTALL.md)).
 Never edit the generated JSON.
 See the exporter's `docs/LOOT-FILTER.md` for the wire contract.

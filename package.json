@@ -7,7 +7,6 @@
     "scripts": {
         "build": "vite build && node scripts/verify-build.mjs",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-        "data:install": "node scripts/install-data.mjs",
         "dependencies:check": "pnpm dlx npm-check-updates",
         "dependencies:update": "pnpm dlx npm-check-updates -u",
         "dependencies:update:minor": "pnpm dlx npm-check-updates -u --target minor",
