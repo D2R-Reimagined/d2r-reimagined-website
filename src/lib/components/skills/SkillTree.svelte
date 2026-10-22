@@ -9,6 +9,8 @@
     baseRanks = ranks,
     selectedSkillId,
     select,
+    preview,
+    endPreview,
     increase,
     decrease,
     canIncrease,
@@ -19,6 +21,8 @@
     baseRanks?: Record<number, number>;
     selectedSkillId: number | null;
     select: (skill: Skill) => void;
+    preview: (skill: Skill) => void;
+    endPreview: (skill: Skill) => void;
     increase: (skill: Skill, amount?: number) => void;
     decrease: (skill: Skill, amount?: number) => void;
     canIncrease: (skill: Skill) => boolean;
@@ -62,6 +66,8 @@
         selected={selectedSkillId === skill.Id}
         available={canIncrease(skill)}
         {select}
+        {preview}
+        {endPreview}
         {increase}
         {decrease}
         {readonly}

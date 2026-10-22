@@ -1,10 +1,6 @@
 <script lang="ts">
-  import { onDestroy } from 'svelte';
   import { i18n } from '$lib/i18n';
   import type { Skill } from '$lib/types';
-
-  /** The planner waits this long before a hover selects, so sweeping across the tree does not. */
-  const HOVER_SELECT_DELAY_MS = 1500;
 
   let {
     skill,
@@ -13,6 +9,8 @@
     selected,
     available,
     select,
+    preview,
+    endPreview,
     increase,
     decrease,
     readonly = false
@@ -23,6 +21,8 @@
     selected: boolean;
     available: boolean;
     select: (skill: Skill) => void;
+    preview: (skill: Skill) => void;
+    endPreview: (skill: Skill) => void;
     increase: (skill: Skill, amount?: number) => void;
     decrease: (skill: Skill, amount?: number) => void;
     readonly?: boolean;
@@ -32,32 +32,10 @@
   let initial = $derived(name.trim().charAt(0).toUpperCase() || '?');
   let failedIcon = $state('');
   let icon = $derived(skill.Icon ? `/data/${skill.Icon}` : '');
-  let hoverTimer: ReturnType<typeof setTimeout> | undefined;
 
-  function cancelHoverSelect(): void {
-    clearTimeout(hoverTimer);
-    hoverTimer = undefined;
-  }
-
-  function selectNow(): void {
-    cancelHoverSelect();
+  function pin(): void {
     select(skill);
   }
-
-  // Read-only previews keep instant hover selection; the planner delays it.
-  function scheduleHoverSelect(): void {
-    if (readonly) {
-      select(skill);
-      return;
-    }
-    cancelHoverSelect();
-    hoverTimer = setTimeout(() => {
-      hoverTimer = undefined;
-      select(skill);
-    }, HOVER_SELECT_DELAY_MS);
-  }
-
-  onDestroy(cancelHoverSelect);
 
   function addPointAmount(event: MouseEvent): number {
     if (event.shiftKey) return (skill.MaxLevel || 20) - rank;
@@ -72,13 +50,13 @@
   }
 
   function addPoint(event: MouseEvent): void {
-    selectNow();
+    pin();
     if (readonly) return;
     increase(skill, addPointAmount(event));
   }
 
   function removePoint(event: MouseEvent): void {
-    selectNow();
+    pin();
     if (readonly) return;
     decrease(skill, removePointAmount(event));
   }
@@ -107,9 +85,9 @@
       event.preventDefault();
       removePoint(event);
     }}
-    onfocus={selectNow}
-    onmouseenter={scheduleHoverSelect}
-    onmouseleave={cancelHoverSelect}
+    onfocus={pin}
+    onmouseenter={() => preview(skill)}
+    onmouseleave={() => endPreview(skill)}
     oncontextmenu={(event) => { if (!readonly) event.preventDefault(); }}
   >
     {#if icon && failedIcon !== icon}
