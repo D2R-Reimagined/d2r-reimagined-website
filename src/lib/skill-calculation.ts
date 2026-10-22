@@ -40,6 +40,28 @@ export function skillLineSynergyBonus(
   return line.scale ? skillSynergyBonus(skill, line.scale, skills, ranks, baseRanks) : 0;
 }
 
+/**
+ * Live values for a description line's `valuesCalc` expressions, one per numeric argument.
+ * `undefined` marks an argument with no expression, or one that cannot be evaluated, so
+ * the caller keeps the exported table value.
+ */
+export function skillLineCalcValues(
+  line: SkillDescriptionLine,
+  skill: Skill,
+  skills: Skill[],
+  ranks: Record<number, number>,
+  baseRanks: Record<number, number> = ranks
+): Array<number | undefined> {
+  return (line.valuesCalc ?? []).map((expression) => {
+    if (!expression) return undefined;
+    try {
+      return evaluateSkillCalc(expression, skill, skills, ranks, baseRanks);
+    } catch {
+      return undefined;
+    }
+  });
+}
+
 function safeEvaluate(
   expression: string | undefined,
   skill: Skill,

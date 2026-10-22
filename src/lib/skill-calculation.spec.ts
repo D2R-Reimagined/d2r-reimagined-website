@@ -1,9 +1,12 @@
+import { get } from 'svelte/store';
 import { describe, expect, it } from 'vitest';
 import skillClasses from '../../static/data/keyed/skills.json';
-import type { Skill, SkillClass } from '$lib/types';
+import type { Skill, SkillClass, SkillDescriptionLine } from '$lib/types';
+import { i18n, initializeI18n } from './i18n';
 import {
   applySkillSynergy,
   evaluateSkillCalc,
+  skillLineCalcValues,
   skillLineSynergyBonus,
   skillSynergyBonus
 } from './skill-calculation';
@@ -176,5 +179,73 @@ describe('skill synergy calculation', () => {
     expect(skillSynergyBonus(vines, 'physical', skills, { [vines.Id]: 20 })).toBe(0);
     expect(skillSynergyBonus(vines, 'physical', skills, ranks))
       .toBe(5 * (vines.Calculation!.Params[8] ?? 0));
+  });
+});
+
+describe('live description line calculations', () => {
+  const classes = skillClasses as SkillClass[];
+  const skills = classes.flatMap((entry) => entry.Tabs.flatMap((tab) => tab.Skills));
+  // The skilldesc.txt calc pair behind every SynergyCap line, as the exporter preserves it.
+  const valuesCalc = ["min(clc6+(skill('Raven'.clc5)-blvl),pa10)", 'pa10'];
+  const capped = skills.filter((entry) => entry.Descriptions?.Synergies.some((line) => line.key === 'SynergyCap'));
+  const capLine = (entry: Skill): SkillDescriptionLine =>
+    ({ ...entry.Descriptions!.Synergies.find((line) => line.key === 'SynergyCap')!, valuesCalc });
+  // Every summon's cap counts the same Raven clc5 plus its own clc6 list; read their members from the data.
+  const referenced = (expression: string) =>
+    [...expression.matchAll(/skill\('([^']+)'\.blvl\)/g)].map(([, code]) => skills.find((entry) => entry.Code === code)!);
+  const counterCode = /skill\('([^']+)'\.clc5\)/.exec(valuesCalc[0])![1];
+  const counter = skills.find((entry) => entry.Code === counterCode)!;
+  const ravenMembers = referenced(counter.Calculation!.Calcs[5]);
+
+  it('ships SynergyCap on the three Druid summons with the cap in Param10', () => {
+    expect(capped).toHaveLength(3);
+    for (const entry of capped) expect(entry.Calculation!.Params[10]).toBe(100);
+  });
+
+  it('reads zero with no synergy points and the own rank cancelled out', () => {
+    for (const entry of capped) {
+      expect(skillLineCalcValues(capLine(entry), entry, skills, {}), entry.Code).toEqual([0, 100]);
+      // The summon is itself a Raven clc5 member; `- blvl` removes it again.
+      expect(ravenMembers).toContain(entry);
+      const own = { [entry.Id]: 20 };
+      expect(skillLineCalcValues(capLine(entry), entry, skills, { [entry.Id]: 40 }, own), entry.Code).toEqual([0, 100]);
+    }
+  });
+
+  it('follows the hard points of the relevant synergy skills', () => {
+    for (const entry of capped) {
+      const own = referenced(entry.Calculation!.Calcs[6])[0];
+      const shared = ravenMembers.find((member) => member !== entry)!;
+      const line = capLine(entry);
+      const base = { [entry.Id]: 10, [own.Id]: 7, [shared.Id]: 4 };
+      expect(skillLineCalcValues(line, entry, skills, base, base)[0], entry.Code).toBe(11);
+      // +skills on a synergy source do not count: the cap reads hard points (blvl) only.
+      expect(skillLineCalcValues(line, entry, skills, { ...base, [own.Id]: 30 }, base)[0]).toBe(11);
+      expect(skillLineCalcValues(line, entry, skills, { ...base, [own.Id]: 2 }, { ...base, [own.Id]: 2 })[0]).toBe(6);
+    }
+  });
+
+  it('caps the counted synergy points at Param10', () => {
+    const ranks = Object.fromEntries(skills.map((entry) => [entry.Id, 25]));
+    for (const entry of capped) {
+      expect(skillLineCalcValues(capLine(entry), entry, skills, ranks), entry.Code).toEqual([100, 100]);
+    }
+  });
+
+  it('keeps the exported table where no expression is shipped or it cannot be evaluated', () => {
+    const entry = capped[0];
+    const exported = entry.Descriptions!.Synergies.find((line) => line.key === 'SynergyCap')!;
+    expect(skillLineCalcValues(exported, entry, skills, {})).toEqual([]);
+    expect(skillLineCalcValues({ ...exported, valuesCalc: ["skill('Missing'.blvl)", null] }, entry, skills, {}))
+      .toEqual([undefined, undefined]);
+
+    initializeI18n({ SynergyCap: 'Synergy cap: %d / %d' });
+    const render = (line: SkillDescriptionLine, ranks: Record<number, number>) => {
+      const live = skillLineCalcValues(line, entry, skills, ranks);
+      return get(i18n).skillLine(line, { hard: 1, bonus: 0 }, (value, index) => live[index] ?? value);
+    };
+    const ranks = { [ravenMembers.find((member) => member !== entry)!.Id]: 12 };
+    expect(render(exported, ranks)).toBe('Synergy cap: 0 / 100');
+    expect(render(capLine(entry), ranks)).toBe('Synergy cap: 12 / 100');
   });
 });

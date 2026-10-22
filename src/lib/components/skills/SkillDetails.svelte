@@ -1,6 +1,6 @@
 <script lang="ts">
   import { i18n } from '$lib/i18n';
-  import { applySkillSynergy, skillLineSynergyBonus } from '$lib/skill-calculation';
+  import { applySkillSynergy, skillLineCalcValues, skillLineSynergyBonus } from '$lib/skill-calculation';
   import {
     clampSkillPoints,
     skillBonusCap,
@@ -91,7 +91,8 @@
 
   function render(line: SkillDescriptionLine): string {
     const bonus = skill ? skillLineSynergyBonus(line, skill, skills, effectiveRanks, hardRanks) : 0;
-    return $i18n.skillLine(line, linePoints, (value) => applySkillSynergy(value, bonus));
+    const live = skill ? skillLineCalcValues(line, skill, skills, effectiveRanks, hardRanks) : [];
+    return $i18n.skillLine(line, linePoints, (value, index) => live[index] ?? applySkillSynergy(value, bonus));
   }
 
   // Clearing a number input yields '' — hold the current value rather than snapping.

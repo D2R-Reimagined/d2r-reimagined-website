@@ -114,10 +114,10 @@ function makeTools(s: I18nState) {
   const skillLine = (
     value: SkillDescriptionLine | undefined | null,
     points: SkillPoints,
-    transform: (value: number) => number = (number) => number
+    transform: (value: number, index: number) => number = (number) => number
   ): string => {
     if (!value) return '';
-    const numbers = skillLineNumbers(value, points).map(transform);
+    const numbers = skillLineNumbers(value, points).map((number, index) => transform(number, index));
     const key = value.pluralKey && numbers[0] !== 1 ? value.pluralKey : value.key;
     const template = lookup(s, key);
     const strings = (value.args ?? []).map((arg) => lookup(s, arg));

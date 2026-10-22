@@ -133,6 +133,13 @@ export interface SkillDescriptionLine {
    * character level.
    */
   valuesUlvl?: number[][][];
+  /**
+   * Optional skilldesc calc expression per numeric argument, aligned with `values`, shipped
+   * only for arguments that read other skills' live ranks (e.g. the Druid summons'
+   * `SynergyCap`). Same grammar as `scaleCalc`, evaluated against the planner's current
+   * ranks and hard points. A `null` entry, or one that fails to evaluate, keeps the table.
+   */
+  valuesCalc?: Array<string | null>;
 }
 
 export type SkillDamageScale = 'physical' | 'elemental' | 'elementalLength';
