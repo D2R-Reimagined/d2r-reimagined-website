@@ -10,9 +10,9 @@
 - `static/data/strings/**` — language bundles loaded on demand after English SSR.
 - `static/images/**` and `static/fonts/**` — public presentation assets.
 
-Everything under `static/data` is generated export output. Refresh it by running D2R Multi-Export
-with this checkout as its website target, as described in [docs/DATA-INSTALL.md](docs/DATA-INSTALL.md),
-and commit data changes separately.
+Everything under `static/data` is generated export output. Refresh it by selecting `static/data` as
+D2R Multi-Export's Output Files Directory and running the normal Import and Export action, as
+described in [docs/DATA-INSTALL.md](docs/DATA-INSTALL.md), and commit data changes separately.
 
 ## Conventions
 

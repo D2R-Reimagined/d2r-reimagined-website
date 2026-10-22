@@ -45,7 +45,7 @@ pnpm run build
 
 ## Game data
 
-`static/data` holds the generated D2R Multi-Export bundle. The exporter validates and installs it directly when run with `--website <this checkout>` (or the desktop client's Website Repository setting); the website serves the files as they are. See [docs/DATA-INSTALL.md](docs/DATA-INSTALL.md).
+`static/data` holds the generated D2R Multi-Export bundle, and the website serves the files as they are. To refresh it, select `static/data` as the exporter's Output Files Directory, run the normal Import and Export action, then commit and push the changes. Normal exports overwrite matching files and keep other existing files; the optional Destructive export (off by default) replaces everything. See [docs/DATA-INSTALL.md](docs/DATA-INSTALL.md).
 
 ## Production
 
