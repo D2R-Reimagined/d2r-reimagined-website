@@ -12,8 +12,10 @@ import {
   getLadders,
   getLadderSaveEnforcement,
   grantLadderAccess,
+  removeLadderD2RLoader,
   revokeLadderAccess,
-  updateLadderSaveEnforcement
+  updateLadderSaveEnforcement,
+  uploadLadderD2RLoader
 } from './admin';
 
 describe('admin ladder discovery', () => {
@@ -86,5 +88,20 @@ describe('admin ladder save enforcement', () => {
       ['/admin/ladders/ladder-id/save-enforcement', { cache: 'no-store' }, true],
       ['/admin/ladders/ladder-id/save-enforcement', { method: 'PUT', body: JSON.stringify(settings) }, true]
     ]);
+  });
+});
+
+describe('admin ladder D2RLoader pin', () => {
+  it('uploads the release ZIP with its trimmed version and removes the pin through authenticated routes', async () => {
+    mocks.upload.mockReset().mockResolvedValue(undefined);
+    mocks.api.mockReset().mockResolvedValue(undefined);
+    const file = new File([new Uint8Array([0x50, 0x4b])], 'D2RLoader-1.3.1-beta.zip');
+    await uploadLadderD2RLoader('ladder-id', file, ' 1.3.1-beta ');
+    await removeLadderD2RLoader('ladder-id');
+    const [path, body] = mocks.upload.mock.calls[0] as [string, FormData];
+    expect(path).toBe('/admin/ladders/ladder-id/d2rloader');
+    expect((body.get('file') as File).name).toBe('D2RLoader-1.3.1-beta.zip');
+    expect(body.get('version')).toBe('1.3.1-beta');
+    expect(mocks.api.mock.calls).toEqual([['/admin/ladders/ladder-id/d2rloader', { method: 'DELETE' }, true]]);
   });
 });

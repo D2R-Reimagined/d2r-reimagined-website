@@ -3,7 +3,7 @@
   import { goto } from '$app/navigation';
   import { CheckCircleSolid, InfoCircleSolid, LockSolid } from 'flowbite-svelte-icons';
   import { ApiError, authState, initializeAuth } from '$lib/auth';
-  import { equipMtx, fetchMtx, groupBySlot, ownedCount, type MtxItem, type MtxLoadout, type MtxSlot } from '$lib/mtx';
+  import { equipMtx, fetchMtx, groupBySlot, mtxPreview, ownedCount, type MtxItem, type MtxLoadout, type MtxSlot } from '$lib/mtx';
 
   const signInHref = '/profile?returnTo=%2Fmtx';
 
@@ -74,7 +74,14 @@
 
 {#snippet itemCard(slot: MtxSlot, item: MtxItem)}
   {@const equipped = slot.equipped?.id === item.id}
+  {@const preview = mtxPreview(item.id)}
   <article class={`panel flex flex-col rounded-lg p-5 ${equipped ? 'border-ember-400/70 shadow-2xl shadow-black/25' : ''} ${item.owned ? '' : 'opacity-75'}`}>
+    {#if preview}
+      <picture class="preview mb-4 block aspect-square overflow-hidden rounded-md">
+        <source media="(prefers-reduced-motion: reduce)" srcset={preview.still} />
+        <img src={preview.animated} alt={`${item.name} preview`} width="400" height="400" loading="lazy" decoding="async" class="h-full w-full object-contain" />
+      </picture>
+    {/if}
     <div class="flex items-start justify-between gap-3">
       <h3 class="display-text text-xl text-parchment-50">{item.name}</h3>
       {#if equipped}
@@ -181,6 +188,9 @@
 </section>
 
 <style>
+  /* The renders' own background, so the square blends into its frame. */
+  .preview { background: rgb(30 28 30); }
+
   .mtx-primary {
     background: var(--color-ember-500);
     color: white;

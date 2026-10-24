@@ -28,6 +28,14 @@ export interface MtxSlot {
 
 const slotLabels: Record<string, string> = { helmet: 'Helmet' };
 
+// Turntable renders in static/images/mtx (d2rr-models mtx/render_previews.py + assemble_previews.py).
+const previewIds = new Set(['pumpkin', 'pumpkin-lit', 'pumpkin-inferno']);
+
+/** The animated preview and its still frame, or null for catalog items without a render yet. */
+export function mtxPreview(id: string): { animated: string; still: string } | null {
+  return previewIds.has(id) ? { animated: `/images/mtx/${id}.webp`, still: `/images/mtx/${id}-still.webp` } : null;
+}
+
 export function slotLabel(slot: string): string {
   return slotLabels[slot] ?? slot.charAt(0).toUpperCase() + slot.slice(1);
 }

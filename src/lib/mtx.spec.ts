@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 vi.mock('$lib/auth', () => ({ apiRequest: vi.fn() }));
 import { apiRequest } from '$lib/auth';
-import { equipMtx, fetchMtx, groupBySlot, ownedCount, slotLabel, type MtxItem } from './mtx';
+import { equipMtx, fetchMtx, groupBySlot, mtxPreview, ownedCount, slotLabel, type MtxItem } from './mtx';
 
 beforeEach(() => vi.clearAllMocks());
 
@@ -25,6 +25,11 @@ describe('mtx catalog', () => {
     expect(groupBySlot({ items, loadout: {} })[0].equipped).toBeNull();
     // A loadout entry the catalog no longer lists equips nothing.
     expect(groupBySlot({ items, loadout: { helmet: 'retired' } })[0].equipped).toBeNull();
+  });
+
+  it('finds preview renders only for items that have one', () => {
+    expect(mtxPreview('pumpkin-lit')).toEqual({ animated: '/images/mtx/pumpkin-lit.webp', still: '/images/mtx/pumpkin-lit-still.webp' });
+    expect(mtxPreview('wings')).toBeNull();
   });
 
   it('counts owned items and labels unknown slots', () => {
