@@ -33,7 +33,7 @@ Each variant supports up to 40 sections:
 
 - Rich text with toolbar-assisted Markdown: headings, bold/italic/strikethrough, lists, links, quotations, tables, code, and dividers.
 - Tip, warning, strengths, and weaknesses callouts.
-- Catalog item references, including inline `[[item:uniques:key]]` tokens inserted by the item picker. The picker also supports sets, runewords, base items, and crafting recipes. References render the existing catalog card on hover, focus, or tap. Recipe references use the recipe's stable exporter `Id`; older row-number references still resolve (see [UPDATING-GAME-DATA.md](UPDATING-GAME-DATA.md#cube-recipe-links)).
+- Catalog item references, including inline `[[item:uniques:key]]` tokens inserted by the item picker. The picker also supports sets, runewords, base items, and crafting recipes. References render the existing catalog card on hover, focus, or tap. Recipe references use the recipe's stable exporter `Id`; older guides that reference recipes by row number still resolve through the frozen mapping in `src/lib/data/cube-recipe-aliases.json`, which does not need updating after exports.
 - Inline `[[skill:id:rank]]` skill references, which open a read-only description of that skill at that rank, without equipment or other skills' points.
 - An embedded editable skill planner with allocations saved per section; the public reader is read-only and does not alter the standalone planner's local state. See [SKILL-PLANNER.md](SKILL-PLANNER.md) for the planner and description rules.
 - Equipment and inventory snapshots from selectable uploaded characters, using the existing character viewer. Saving captures the snapshot; refresh is explicit. Copying a section or variant preserves its saved snapshot.

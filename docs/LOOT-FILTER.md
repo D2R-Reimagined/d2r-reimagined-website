@@ -14,10 +14,7 @@ remain the exact values the plugin expects. UI labels remain English.
 
 ## Updating the catalog
 
-The D2R Multi-Export tool writes `keyed/loot-filter.json` into `static/data` together
-with the rest of its output, including the `strings/*.json` language bundles, when
-`static/data` is its Output Files Directory (see
-[UPDATING-GAME-DATA.md](UPDATING-GAME-DATA.md)). Never edit the generated JSON.
+`static/data/keyed/loot-filter.json` is part of the normal D2R Multi-Export output.
 See the exporter's `docs/LOOT-FILTER.md` for the wire contract.
 
 The editor fetches that JSON on each visit, including when restoring an old filter.
