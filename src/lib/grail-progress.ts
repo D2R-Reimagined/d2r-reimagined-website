@@ -48,24 +48,38 @@ export function assignGrailKeys(items: CatalogItem[]): CatalogItem[] {
   });
 }
 
+/** The name inside a same-name variant key (`name|runes|types`, optionally `#n`). */
+function variantKeyName(key: string): string | undefined {
+  const parts = key.split('|');
+  return parts.length >= 3 ? parts.slice(0, -2).join('|') : undefined;
+}
+
 /**
  * Older saves and export strings marked a shared name once, which showed every variant of
- * that name as found. Keep that meaning by marking each variant found; keys this catalog
- * does not know are left untouched.
+ * that name as found. Keep that meaning by marking each variant found. A variant key saved
+ * while an export had several rows of that name moves back to the name once only one row of
+ * that name remains. Other keys this catalog does not know are left untouched.
  */
 export function migrateGrailProgress(found: GrailFoundMap, items: CatalogItem[]): GrailFoundMap {
   const keys = new Set(items.map(grailKey));
   const variants = new Map<string, string[]>();
+  const single = new Set<string>();
   for (const item of items) {
-    if (typeof item.GrailKey !== 'string') continue;
     const legacy = legacyGrailKey(item);
+    if (typeof item.GrailKey !== 'string') {
+      single.add(legacy);
+      continue;
+    }
     variants.set(legacy, [...(variants.get(legacy) ?? []), item.GrailKey]);
   }
   const migrated: GrailFoundMap = {};
   for (const [key, value] of Object.entries(found)) {
     const expanded = keys.has(key) ? undefined : variants.get(key);
-    if (!expanded) migrated[key] = migrated[key] || value;
-    else if (value) for (const variant of expanded) migrated[variant] = true;
+    const name = keys.has(key) || expanded ? undefined : variantKeyName(key);
+    if (expanded) {
+      if (value) for (const variant of expanded) migrated[variant] = true;
+    } else if (name !== undefined && single.has(name)) migrated[name] = migrated[name] || value;
+    else migrated[key] = migrated[key] || value;
   }
   return migrated;
 }
