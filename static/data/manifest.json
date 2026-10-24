@@ -1104,8 +1104,8 @@
     },
     {
       "Path": "keyed/weapons.json",
-      "Bytes": 365712,
-      "Sha256": "c70e6950872b57720bd98fad958dd223d884d44febbdfc184cac6196385d2802",
+      "Bytes": 360413,
+      "Sha256": "7504bc1a51b3268d3cca5aa9fef1e73b70f3afc908b9e0aa2b5bf3827394df09",
       "Producer": "keyed-core"
     },
     {

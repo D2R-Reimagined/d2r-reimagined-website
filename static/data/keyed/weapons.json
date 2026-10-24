@@ -4537,58 +4537,6 @@
   },
   {
     "EquipmentType": 1,
-    "NameKey": "d33",
-    "NormCode": "d33",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Knife",
-      "Index": "knifitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 1.5,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              1,
-              2
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
-        ]
-      },
-      {
-        "key": "strRequiredStrength",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "strRequiredDexterity",
-        "args": [
-          20
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
     "NameKey": "6rx",
     "NormCode": "rxb",
     "UberCode": "8rx",
@@ -9531,58 +9479,6 @@
   },
   {
     "EquipmentType": 1,
-    "NameKey": "hdm",
-    "NormCode": "hdm",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Hammer",
-      "Index": "hammitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 10.5,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              6,
-              15
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
-        ]
-      },
-      {
-        "key": "strRequiredStrength",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "strRequiredDexterity",
-        "args": [
-          15
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
     "NameKey": "hbw",
     "NormCode": "hbw",
     "UberCode": "8hb",
@@ -10375,98 +10271,6 @@
         "key": "strRequiredClass",
         "args": [
           "Assassin"
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
-    "NameKey": "qf1",
-    "NormCode": "fla",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Mace",
-      "Index": "maceitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 8,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              1,
-              15
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
-        ]
-      },
-      {
-        "key": "strRequiredStrength",
-        "args": [
-          41
-        ]
-      },
-      {
-        "key": "strRequiredDexterity",
-        "args": [
-          35
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
-    "NameKey": "qf2",
-    "NormCode": "fla",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Mace",
-      "Index": "maceitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 8,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              1,
-              15
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
         ]
       }
     ]
@@ -16643,58 +16447,6 @@
   },
   {
     "EquipmentType": 1,
-    "NameKey": "g33",
-    "NormCode": "g33",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Knife",
-      "Index": "knifitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 5,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              3,
-              7
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
-        ]
-      },
-      {
-        "key": "strRequiredStrength",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "strRequiredDexterity",
-        "args": [
-          25
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
     "NameKey": "7s8",
     "NormCode": "scy",
     "UberCode": "9s8",
@@ -18914,46 +18666,6 @@
             "key": "ModStre9v",
             "args": []
           }
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
-    "NameKey": "leg",
-    "NormCode": "leg",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Club",
-      "Index": "clubitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 5,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              2,
-              8
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
         ]
       }
     ]
