@@ -454,6 +454,11 @@
             <button type="button" disabled={busy} onclick={linkDiscord} class="mt-6 w-full rounded bg-[#5865f2] px-5 py-3 font-semibold text-white transition hover:bg-[#4752c4] disabled:opacity-60">{busy ? 'Please wait…' : 'Link Discord account'}</button>
           {/if}
         </div>
+        <div class="mt-8 border-t border-parchment-300/15 pt-7">
+          <h2 class="display-text text-2xl text-parchment-50">Cosmetics</h2>
+          <p class="mt-3 text-sm leading-6 text-parchment-300">See the cosmetics you have unlocked and choose what your characters wear in game.</p>
+          <a href="/mtx" class="mt-4 inline-block rounded border border-parchment-300/35 px-4 py-2 text-parchment-50 transition hover:bg-white/10">Choose cosmetics</a>
+        </div>
       </aside>
     </div>
     <CharacterManager />
