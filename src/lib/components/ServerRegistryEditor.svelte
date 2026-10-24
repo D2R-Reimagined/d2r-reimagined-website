@@ -24,6 +24,8 @@
   let editingRegionId = $state<string | null>(null);
   let regionDraft = $state<ServerRegion>({ id: '', name: '' });
   let regionsOpen = $state(false);
+  // Collapsed by default so live monitoring sits near the top; opens by itself with nothing configured yet.
+  let configurationOpen = $state(false);
   let mounted = false;
   let loadSequence = 0;
   const allowed = $derived(canManageServers($authState.user?.roles));
@@ -48,11 +50,12 @@
       if (!mounted || signal?.aborted || sequence !== loadSequence) return;
       servers = configured; regions = availableRegions; ladders = availableLadders;
       if (!regions.length) regionsOpen = true;
+      if (!servers.length) configurationOpen = true;
     } catch (e) { if (mounted && !signal?.aborted && sequence === loadSequence) error = problem(e); }
     finally { if (mounted && !signal?.aborted && sequence === loadSequence) loading = false; }
   }
   function addServer(): void {
-    editingId = null; draft = emptyServer(); formOpen = true; error = ''; notice = '';
+    editingId = null; draft = emptyServer(); formOpen = true; configurationOpen = true; error = ''; notice = '';
   }
   function editServer(server: ServerConfiguration): void {
     editingId = server.id; draft = serverDraft(server);
@@ -117,11 +120,12 @@
 {#if allowed}
   <section class="panel rounded-lg p-4 sm:p-5" aria-label="Server configuration">
     <div class="flex flex-wrap items-start justify-between gap-3">
-      <div><h3 class="display-text text-xl text-parchment-50">Server configuration</h3><p class="mt-1 text-sm text-parchment-300">Add servers and assign regions. Saved changes apply immediately.</p></div>
+      <div><h3 class="display-text text-xl text-parchment-50"><button type="button" class="flex items-center gap-2 text-left" aria-expanded={configurationOpen} aria-controls="server-configuration-body" onclick={() => configurationOpen = !configurationOpen}><span class="text-sm" aria-hidden="true">{configurationOpen ? '▼' : '▶'}</span>Server configuration</button></h3><p class="mt-1 text-sm text-parchment-300">{loading ? 'Loading…' : `${servers.length} server${servers.length === 1 ? '' : 's'} · ${regions.length} region${regions.length === 1 ? '' : 's'}`} · Add servers and assign regions. Saved changes apply immediately.</p></div>
       <div class="flex gap-2"><button class="control" disabled={loading || saving || formOpen} onclick={() => void load()}>Refresh</button><button class="control primary" disabled={loading || saving} onclick={addServer}>Add server</button></div>
     </div>
     {#if error}<p class="mt-4 rounded-lg border border-ember-400/40 bg-ember-700/20 p-3 text-sm text-parchment-50" role="alert">{error}</p>{/if}
     {#if notice}<p class="mt-4 text-sm text-emerald-300" role="status">{notice}</p>{/if}
+    <div id="server-configuration-body" hidden={!configurationOpen}>
     {#if loading}<p class="mt-4 text-sm text-parchment-300">Loading server configuration…</p>
     {:else}
       <div class="mt-4 space-y-2" aria-label="Configured servers">
@@ -173,6 +177,7 @@
         {/each}</div>
       </details>
     {/if}
+    </div>
   </section>
 {/if}
 
