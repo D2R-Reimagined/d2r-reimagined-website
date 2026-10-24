@@ -124,18 +124,24 @@ describe('skillLineNumbers', () => {
     expect(skillLineNumbers(ulvl, { hard: 0, bonus: 40, characterLevel: 0 })).toEqual([10]);
   });
 
-  it('ships Thorns as a character-level line whose top level matches the flat table', () => {
+  it('ships character-level lines (such as Thorns) whose top level matches the flat table', () => {
     const skills = (skillClasses as SkillClass[]).flatMap((entry) => entry.Tabs.flatMap((tab) => tab.Skills));
-    const thorns = skills.find((entry) => entry.Code === 'Thorns');
-    expect(skillReadsCharacterLevel(thorns)).toBe(true);
-    expect(skills.filter(skillReadsCharacterLevel).map((entry) => entry.Code)).toEqual(['Thorns']);
-    const line = [...thorns!.Descriptions!.Stats, ...thorns!.Descriptions!.Details].find((entry) => entry.valuesUlvl)!;
-    for (const rank of [1, 20, 60]) {
-      const points = { hard: Math.min(rank, 25), bonus: Math.max(rank - 25, 0) };
-      expect(skillLineNumbers(line, points)).toEqual(skillLineNumbers({ ...line, valuesUlvl: undefined }, points));
-      expect(skillLineNumbers(line, { ...points, characterLevel: 1 })[0])
-        .toBeLessThan(skillLineNumbers(line, points)[0]);
+    const readers = skills.filter(skillReadsCharacterLevel);
+    expect(readers.length).toBeGreaterThan(0);
+    let lowerAtLevelOne = 0;
+    for (const entry of readers) {
+      const lines = [...entry.Descriptions!.Stats, ...entry.Descriptions!.Details].filter((line) => line.valuesUlvl);
+      expect(lines.length, entry.Code).toBeGreaterThan(0);
+      for (const line of lines) {
+        for (const rank of [1, 20, 60]) {
+          const points = { hard: Math.min(rank, 25), bonus: Math.max(rank - 25, 0) };
+          expect(skillLineNumbers(line, points), entry.Code).toEqual(skillLineNumbers({ ...line, valuesUlvl: undefined }, points));
+          if (skillLineNumbers(line, { ...points, characterLevel: 1 })[0] < skillLineNumbers(line, points)[0]) lowerAtLevelOne++;
+        }
+      }
     }
+    // A supplied character level actually changes what those lines show.
+    expect(lowerAtLevelOne).toBeGreaterThan(0);
   });
 
   it('agrees with the flat table for pure hard points across the exported bundle', () => {

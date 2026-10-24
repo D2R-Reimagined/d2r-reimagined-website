@@ -12,12 +12,6 @@ import uniques from '../../static/data/keyed/uniques.json';
 import deDE from '../../static/data/strings/deDE.json';
 import enUS from '../../static/data/strings/enUS.json';
 
-function unique(name: string): CatalogItem {
-  const item = (uniques as CatalogItem[]).find((entry) => entry.Index === name);
-  expect(item, name).toBeDefined();
-  return item!;
-}
-
 function english() {
   initializeI18n(enUS);
   return get(i18n);
@@ -37,63 +31,89 @@ function present(item: CatalogItem) {
   };
 }
 
+// Shaped like the exported Renewed Flame Rift: ordinary lines, then six grouped affix rolls.
+const group = (n: number, weights: number[]): KeyedLine => ({
+  key: '', code: `Incendiary-Affix${n}`, nameKey: 'strPropertyGroupsProperty', pickMode: '2',
+  children: weights.map((chance, index) => ({ key: 'ModStr1a', args: [5 + index], chance }))
+});
+const flameRift: CatalogItem = {
+  Index: 'Crafted Flame Rift',
+  Lines: [
+    group(1, [1, 1, 1]), { key: 'mod_weight', args: [1] }, group(2, [1, 1]), group(3, [1, 1, 1]),
+    { key: 'ModItemMonFireSunder', args: [10] }, group(4, [1, 3, 1]), group(5, [1, 1]), group(6, [2, 2]), { key: 'ModStr1j', args: [20] }
+  ]
+};
+
 describe('property groups in the current export', () => {
   const grouped = (uniques as CatalogItem[]).filter((item) => (item.Lines ?? []).some(isAlternateGroup));
 
-  it('appear only as top-level unique lines: 38 groups on 8 items, all labelled strPropertyGroupsProperty', () => {
-    expect(grouped).toHaveLength(8);
+  it('appear only as top-level unique lines, all labelled strPropertyGroupsProperty', () => {
     const groups = grouped.flatMap((item) => (item.Lines ?? []).filter(isAlternateGroup));
-    expect(groups).toHaveLength(38);
-    expect(new Set(groups.map((group) => group.pickMode))).toEqual(new Set(['1', '2']));
-    expect(groups.every((group) => group.nameKey === 'strPropertyGroupsProperty' && group.key === '')).toBe(true);
-    expect(groups.every((group) => group.children!.every((child) => !child.children))).toBe(true);
+    for (const entry of groups) {
+      expect(['1', '2']).toContain(entry.pickMode);
+      expect(entry.nameKey === 'strPropertyGroupsProperty' && entry.key === '').toBe(true);
+      expect(entry.children!.every((child) => !child.children)).toBe(true);
+    }
     for (const catalog of [sets, runewords]) expect(JSON.stringify(catalog)).not.toContain('"pickMode"');
   });
 
-  it('splits Renewed Flame Rift into its ordinary lines and six groups, in exporter order', () => {
-    const item = unique('Crafted Flame Rift');
-    expect(english().t('Crafted Flame Rift')).toBe('Renewed Flame Rift');
-    const { visible, groups } = splitPropertyGroups(sortModifierLines(item.Lines));
-    expect(visible.map((line) => line.key)).toEqual(['mod_weight', 'ModItemMonFireSunder', 'ModStr1j']);
-    expect(groups.map((group) => group.code)).toEqual([1, 2, 3, 4, 5, 6].map((n) => `Incendiary-Affix${n}`));
-    // Child ownership: every child stays under the parent that exported it.
-    const exported = (item.Lines ?? []).filter((line) => line.children);
-    expect(groups.map((group) => group.children)).toEqual(exported.map((group) => group.children));
-    expect(groups.map((group) => group.children!.length)).toEqual([3, 2, 3, 3, 2, 2]);
-  });
-
-  it('renders Renewed Flame Rift with unchanged modifier text and percentages', () => {
-    const card = present(unique('Crafted Flame Rift'));
-    expect(card.title).toBe('Possible Property Rolls (6 groups)');
-    expect(card.groups.every((group) => group.heading === 'Random Grouped Affix')).toBe(true);
-    expect(card.groups[0].children).toHaveLength(3);
-    for (const text of card.groups[0].children) expect(text).toMatch(/ \(33\.3%\)$/);
-    expect(card.groups[0].children[0]).toContain('5-15');
-    // Relative weights 1/3/1 keep the existing share-of-siblings formatting.
-    expect(card.groups[3].children.map((text) => text.slice(text.lastIndexOf(' (')))).toEqual([' (20.0%)', ' (60.0%)', ' (20.0%)']);
-    expect(card.groups[4].children.map((text) => text.slice(text.lastIndexOf(' (')))).toEqual([' (50.0%)', ' (50.0%)']);
-    expect(JSON.stringify(card)).not.toContain('Incendiary-Affix');
-  });
-
-  it('keeps pick-mode 1 groups distinct, including a child without an exported chance', () => {
-    const magdam = (uniques as CatalogItem[]).flatMap((item) => item.Lines ?? []).find((line) => line.code === 'magdam-rand')!;
-    expect(magdam.pickMode).toBe('1');
-    expect(magdam.children!.map((child) => childChance(child, magdam.children!))).toEqual(Array(6).fill(' (16.7%)'));
-
-    const wraithstep = present(unique('Wraithstep'));
-    expect(wraithstep.title).toBe('Possible Property Rolls (1 group)');
-    expect(wraithstep.groups).toEqual([{ heading: 'Random Grouped Affix', children: ['+1 Random Skill Tab (Warlock Only)'] }]);
+  it('splits every exported grouped item into its ordinary lines and its groups, in exporter order', () => {
+    for (const item of grouped) {
+      const { visible, groups } = splitPropertyGroups(sortModifierLines(item.Lines));
+      const exported = (item.Lines ?? []).filter(isAlternateGroup);
+      // Child ownership: every child stays under the parent that exported it.
+      expect(groups, String(item.Index)).toEqual(exported);
+      expect(visible.length + groups.length).toBe((item.Lines ?? []).length);
+      expect(visible.some(isAlternateGroup)).toBe(false);
+      expect(present(item).title).toBe(propertyGroupsTitle(groups.length, english().t));
+    }
   });
 
   it('leaves items without groups exactly as before', () => {
     const tools = english();
-    for (const name of ['Harlequin Crest', "Puzzler's Mystery", "Neonate's Sallet"]) {
-      const item = unique(name);
+    const plain = (uniques as CatalogItem[]).filter((item) => !(item.Lines ?? []).some(isAlternateGroup));
+    expect(plain.length).toBeGreaterThan(0);
+    for (const item of plain) {
       const { visible, groups } = splitPropertyGroups(sortModifierLines(item.Lines));
       expect(groups).toEqual([]);
       expect(visible).toEqual(sortModifierLines(item.Lines));
+    }
+    for (const item of plain.slice(0, 50)) {
       expect(present(item).visible).toEqual(sortModifierLines(item.Lines).map((line) => tools.line(line)));
     }
+  });
+});
+
+describe('a grouped affix item', () => {
+  it('splits Renewed Flame Rift into its ordinary lines and six groups, in exporter order', () => {
+    expect(english().t('Crafted Flame Rift')).toBe('Renewed Flame Rift');
+    const { visible, groups } = splitPropertyGroups(sortModifierLines(flameRift.Lines));
+    expect(visible.map((line) => line.key)).toEqual(['mod_weight', 'ModItemMonFireSunder', 'ModStr1j']);
+    expect(groups.map((entry) => entry.code)).toEqual([1, 2, 3, 4, 5, 6].map((n) => `Incendiary-Affix${n}`));
+    const exported = (flameRift.Lines ?? []).filter((line) => line.children);
+    expect(groups.map((entry) => entry.children)).toEqual(exported.map((entry) => entry.children));
+    expect(groups.map((entry) => entry.children!.length)).toEqual([3, 2, 3, 3, 2, 2]);
+  });
+
+  it('renders Renewed Flame Rift with unchanged modifier text and percentages', () => {
+    const card = present(flameRift);
+    expect(card.title).toBe('Possible Property Rolls (6 groups)');
+    expect(card.groups.every((entry) => entry.heading === 'Random Grouped Affix')).toBe(true);
+    expect(card.groups[0].children).toEqual(['+5 to Strength (33.3%)', '+6 to Strength (33.3%)', '+7 to Strength (33.3%)']);
+    // Relative weights 1/3/1 keep the existing share-of-siblings formatting.
+    expect(card.groups[3].children.map((text) => text.slice(text.lastIndexOf(' (')))).toEqual([' (20.0%)', ' (60.0%)', ' (20.0%)']);
+    expect(card.groups[5].children.map((text) => text.slice(text.lastIndexOf(' (')))).toEqual([' (50.0%)', ' (50.0%)']);
+    expect(JSON.stringify(card)).not.toContain('Incendiary-Affix');
+  });
+
+  it('keeps pick-mode 1 groups distinct, including a single-roll group', () => {
+    const magdam: KeyedLine = { key: '', code: 'magdam-rand', nameKey: 'strPropertyGroupsProperty', pickMode: '1',
+      children: Array.from({ length: 6 }, (_, index) => ({ key: 'ModStr1a', args: [index + 1], chance: 1 })) };
+    expect(magdam.children!.map((child) => childChance(child, magdam.children!))).toEqual(Array(6).fill(' (16.7%)'));
+    const tab: KeyedLine = { key: 'strSkillTabRandomClassOnly', args: [1], selection: { stat: 'item_addskill_tab', min: 21, max: 23 }, classOnly: 'WarOnly' };
+    const card = present({ Index: 'Single group', Lines: [{ key: '', code: 'tab-rand', nameKey: 'strPropertyGroupsProperty', pickMode: '1', children: [tab] }] });
+    expect(card.title).toBe('Possible Property Rolls (1 group)');
+    expect(card.groups).toEqual([{ heading: 'Random Grouped Affix', children: ['+1 Random Skill Tab (Warlock Only)'] }]);
   });
 });
 

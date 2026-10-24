@@ -5,14 +5,11 @@ import recipes from '../../static/data/keyed/cube-recipes.json';
 import type { CatalogItem } from './types';
 
 const rows = recipes as CatalogItem[];
-// Recipes the mod deleted after links to them were saved. Their aliases keep naming the deleted
-// recipe so those links report it as removed instead of resolving to a different recipe.
-// cr-d0129779b6c23257: Gloves + Infusion Orb + Ruby + Cham + unique Jewel = +3% Crushing Blow
-// (mod commit 03d8a3b6 "remove crush from cube recipes").
-const removedTargets = new Set(['cr-d0129779b6c23257']);
+const aliases: Record<string, string | null> = recipeAliases.aliases;
 
 describe('Stable cube recipe keys', () => {
   it('gives every exported recipe a unique key that resolves back to it', () => {
+    expect(rows.length).toBeGreaterThan(0);
     const keys = rows.map(recipeKey);
     expect(new Set(keys).size).toBe(rows.length);
     for (const row of rows) expect(findRecipe(rows, recipeKey(row))).toBe(row);
@@ -26,29 +23,40 @@ describe('Stable cube recipe keys', () => {
     expect(findRecipe(items, '#7')).toBeUndefined();
   });
 
-  it('maps every legacy link onto a recipe of the current export', () => {
-    const aliases: Record<string, string | null> = recipeAliases.aliases;
-    const current = new Set(rows.map(recipeKey));
-    for (const target of Object.values(aliases)) {
-      if (target !== null && !removedTargets.has(target)) expect(current.has(target), target).toBe(true);
+  it('keeps the frozen alias table in the recipe key format', () => {
+    expect(Object.keys(aliases).length).toBeGreaterThan(0);
+    for (const [key, target] of Object.entries(aliases)) {
+      expect(key, key).toMatch(/^(\d+|#\d+)$/);
+      if (target !== null) expect(target, key).toMatch(/^(cr-[0-9a-f]{16}|#\d+)$/);
     }
-    // Recipes from Index 220 on were renumbered when 38 recipes were inserted ahead of them.
-    expect(findRecipe(rows, '249')?.Index).toBe(293);
-    expect(findRecipe(rows, '219')?.Index).toBe(219);
-    expect(findRecipe(rows, 'not-a-recipe')).toBeUndefined();
   });
 
-  it('reports legacy links to a deleted recipe as removed', () => {
-    const aliases: Record<string, string | null> = recipeAliases.aliases;
-    const current = new Set(rows.map(recipeKey));
-    for (const target of removedTargets) {
-      // Drop the entry once the recipe is back, so its links resolve again.
-      expect(current.has(target), target).toBe(false);
-      expect(Object.values(aliases)).toContain(target);
-      expect(findRecipe(rows, target)).toBeUndefined();
+  it('follows a legacy link to the renumbered recipe it named', () => {
+    // A link saved as `249` before 38 recipes were inserted ahead of it.
+    const target = aliases['249']!;
+    const moved: CatalogItem = { Index: 293, Id: target };
+    const other: CatalogItem = { Index: 249, Id: 'cr-0000000000000001' };
+    expect(findRecipe([other, moved], '249')).toBe(moved);
+    expect(findRecipe([other, moved], target)).toBe(moved);
+    expect(findRecipe([other, moved], 'not-a-recipe')).toBeUndefined();
+  });
+
+  it('reports a link to a deleted recipe as removed instead of resolving to another recipe', () => {
+    // `797` named the +3% Crushing Blow glove recipe, which later exports no longer ship.
+    const target = aliases['797']!;
+    expect(target).toBe('cr-d0129779b6c23257');
+    const remaining: CatalogItem[] = [{ Index: 797, Id: 'cr-0000000000000002' }, { Index: 831 }];
+    expect(findRecipe(remaining, '797')).toBeUndefined();
+    expect(findRecipe(remaining, target)).toBeUndefined();
+    expect(findRecipe([...remaining, { Index: 900, Id: target }], '797')?.Index).toBe(900);
+  });
+
+  it('resolves every legacy link of the active export to its target or to nothing', () => {
+    const byKey = new Map(rows.map((row) => [recipeKey(row), row]));
+    for (const [key, target] of Object.entries(aliases)) {
+      if (byKey.has(key)) continue;
+      // A removed target reports the link as removed; it never falls back to a different recipe.
+      expect(findRecipe(rows, key), key).toBe(target === null ? undefined : byKey.get(target));
     }
-    expect(aliases['797']).toBe('cr-d0129779b6c23257');
-    expect(findRecipe(rows, '797')).toBeUndefined();
-    expect(findRecipe(rows, '#831')).toBeUndefined();
   });
 });

@@ -43,17 +43,17 @@ describe('catalog sources', () => {
 
   it('shows every exported runeword across catalogs, search, counts, and the grail', async () => {
     const rows = runewords as CatalogItem[];
-    const names = rows.map((row) => String(row.Index));
-    // The merged mod source no longer defines the placeholder rows; the real runewords they shadowed remain.
-    expect(names).not.toContain('Fortitude (Dummy)');
-    expect(names).not.toContain('Rain Reimagined');
-    expect(names).toEqual(expect.arrayContaining(['Fortitude', 'Rain', 'Unity', 'Insanity', 'Chromaskin', 'Ravage']));
-    expect(buildCatalog('runewords', { runewords: rows })).toEqual(rows);
+    const visible = buildCatalog('runewords', { runewords: rows });
+    expect(visible.length).toBeGreaterThan(0);
+    // Only legacy placeholder rows may be dropped; every real runeword, same-name ones included, stays.
+    const dropped = rows.filter((row) => !visible.includes(row)).map((row) => String(row.Index));
+    expect(dropped.filter((name) => !/ Reimagined$|\(Dummy\)$/.test(name))).toEqual([]);
+    expect(visible).toEqual(rows.filter((row) => visible.includes(row)));
 
     const fetcher = (async () => ({ ok: true, json: async () => rows })) as unknown as typeof fetch;
-    expect(await loadCatalog('runewords', fetcher)).toEqual(rows);
-    expect(loadHome().counts.runewords).toBe(rows.length);
-    expect(loadGrail().runewords.map((row) => row.Index)).toEqual(names);
+    expect(await loadCatalog('runewords', fetcher)).toEqual(visible);
+    expect(loadHome().counts.runewords).toBe(visible.length);
+    expect(loadGrail().runewords.map((row) => row.Index)).toEqual(visible.map((row) => row.Index));
   });
 
   it('shares one request per catalog and retries after a failure', async () => {

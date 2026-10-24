@@ -139,11 +139,16 @@ describe('exported data', () => {
     expect(matched).toEqual(results);
   });
   it('agrees with the first table rows when many chances tie', () => {
-    const eye = data.Items.find(item => item.Id === "set:Tal Rasha's Lidless Eye")!;
-    const normal = calculateDrops(bosses, eye, { ...settings, difficulty: 0 });
-    const table = filterDropResults(normal, noFilters, translate).filter(hasPositiveChance);
-    const { top } = summarizeDropChances(normal);
-    expect(new Set(table.slice(0, 6).map(r => r.chance)).size).toBe(1);
+    // Eight bosses share one treasure class, so every calculated chance ties.
+    const tied: DropData = {
+      ...data,
+      Sources: Array.from({ length: 8 }, (_, i) => ({ ...results.find(hasPositiveChance)!.source, Id: `tied:${7 - i}`, NameKey: `Boss ${i}` }))
+    };
+    const rows = calculateDrops(tied, rune, settings);
+    const table = filterDropResults(rows, noFilters, translate).filter(hasPositiveChance);
+    const { top } = summarizeDropChances(rows);
+    expect(table.length).toBeGreaterThan(TOP_DROP_CHANCES);
+    expect(new Set(table.map(r => r.chance)).size).toBe(1);
     expect(top).toEqual(table.slice(0, TOP_DROP_CHANCES));
   });
 });

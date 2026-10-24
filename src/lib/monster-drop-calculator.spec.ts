@@ -85,13 +85,15 @@ describe('complete monster loot runs',()=>{
  });
  it('runs exported Desecrated classes only where their resolved difficulties allow and refuses heralds',()=>{
   const hell=exported as DropData;
-  const desecrated=hell.TreasureClasses.find(t=>t.ConditionDifficulties)!;
-  expect(desecrated.ConditionDifficulties).toEqual([2]);
-  const parent=hell.TreasureClasses.find(t=>!t.Condition&&t.Entries.some(e=>e.Code===desecrated.Code)&&!t.Code.includes('Herald'))!;
+  const desecrated=hell.TreasureClasses.find(t=>t.ConditionDifficulties?.length&&!t.ConditionRuntime)!;
+  expect(desecrated).toBeDefined();
+  // Whichever difficulties the export resolved the gate to: on where listed, an empty Void pick elsewhere.
+  const on=desecrated.ConditionDifficulties!, off=[0,1,2].filter(d=>!on.includes(d));
   const run=(difficulty:number)=>monsterDrops(hell,treasureClassSource(desecrated.Code,difficulty,85),{...settings,difficulty},10,1,false);
-  expect(run(2).rows.some(r=>r.quality!=='no drop')).toBe(true);
-  expect(run(1).rows.map(r=>r.id)).toEqual(['void']);
-  expect(monsterDrops(hell,treasureClassSource(parent.Code,2,85),settings,10,1,false).rows.length).toBeGreaterThan(0);
+  for(const d of on) expect(run(d).rows.some(r=>r.quality!=='no drop'),`${desecrated.Code} ${d}`).toBe(true);
+  for(const d of off) expect(run(d).rows.map(r=>r.id),`${desecrated.Code} ${d}`).toEqual(['void']);
+  const parent=hell.TreasureClasses.find(t=>!t.Condition&&t.Entries.some(e=>e.Code===desecrated.Code)&&!t.Code.includes('Herald'));
+  if(parent) expect(monsterDrops(hell,treasureClassSource(parent.Code,on[0],85),{...settings,difficulty:on[0]},10,1,false).rows.length).toBeGreaterThan(0);
   const herald=hell.TreasureClasses.find(t=>t.ConditionRuntime)!;
   expect(()=>monsterDrops(hell,treasureClassSource(herald.Code,2,85),settings,10,1,false)).toThrow('Conditional');
  });

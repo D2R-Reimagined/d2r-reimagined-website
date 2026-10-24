@@ -265,9 +265,10 @@ describe('live description line calculations', () => {
 
   it('keeps the exported table where no expression is shipped or it cannot be evaluated', () => {
     const entry = capped[0];
-    const exported = entry.Descriptions!.Synergies.find((line) => line.key === 'SynergyCap')!;
-    expect(skillLineCalcValues(exported, entry, skills, {})).toEqual([]);
-    expect(skillLineCalcValues({ ...exported, valuesCalc: ["skill('Missing'.blvl)", null] }, entry, skills, {}))
+    // Older exports shipped the line without its calc pair; current ones include it.
+    const { valuesCalc: _shipped, ...tableOnly } = entry.Descriptions!.Synergies.find((line) => line.key === 'SynergyCap')!;
+    expect(skillLineCalcValues(tableOnly, entry, skills, {})).toEqual([]);
+    expect(skillLineCalcValues({ ...tableOnly, valuesCalc: ["skill('Missing'.blvl)", null] }, entry, skills, {}))
       .toEqual([undefined, undefined]);
 
     initializeI18n({ SynergyCap: 'Synergy cap: %d / %d' });
@@ -276,7 +277,18 @@ describe('live description line calculations', () => {
       return get(i18n).skillLine(line, { hard: 1, bonus: 0 }, (value, index) => live[index] ?? value);
     };
     const ranks = { [ravenMembers.find((member) => member !== entry)!.Id]: 12 };
-    expect(render(exported, ranks)).toBe('Synergy cap: 0 / 100');
+    expect(render(tableOnly, ranks)).toBe('Synergy cap: 0 / 100');
+    expect(render({ ...tableOnly, valuesCalc: ["skill('Missing'.blvl)", null] }, ranks)).toBe('Synergy cap: 0 / 100');
     expect(render(capLine(entry), ranks)).toBe('Synergy cap: 12 / 100');
+  });
+
+  it('evaluates the calc pair the active export ships, where it ships one', () => {
+    for (const entry of capped) {
+      const shipped = entry.Descriptions!.Synergies.find((line) => line.key === 'SynergyCap')!;
+      if (!shipped.valuesCalc) continue;
+      expect(skillLineCalcValues(shipped, entry, skills, {}), entry.Code).toEqual(skillLineCalcValues(capLine(entry), entry, skills, {}));
+      const ranks = Object.fromEntries(ravenMembers.map((member) => [member.Id, 7]));
+      expect(skillLineCalcValues(shipped, entry, skills, ranks), entry.Code).toEqual(skillLineCalcValues(capLine(entry), entry, skills, ranks));
+    }
   });
 });

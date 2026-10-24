@@ -64,7 +64,9 @@ describe('Grail restored filters', () => {
     const filters = normalizeGrailFilters(legacy, data.sets, 'sets', tools);
     expect(filters.selectedType).toBe('amulitype');
     expect(filters.selectedEquipment).toBe('amu');
-    expect(filterGrailItems(data.sets, 'sets', filters, {}, false, tools).length).toBe(20);
+    const amulets = data.sets.filter((item) => item.Type === 'amulitype' && item.Equipment?.NameKey === 'amu');
+    expect(amulets.length).toBeGreaterThan(0);
+    expect(filterGrailItems(data.sets, 'sets', filters, {}, false, tools)).toEqual(amulets);
     expect(normalizeGrailFilters({ ...filters, selectedType: 'shieitype' }, data.sets, 'sets', tools).selectedEquipment).toBe('');
     expect(normalizeGrailFilters({ ...defaults(), selectedRunes: ['El'] }, data.runewords, 'runewords', tools).selectedRunes).toEqual(['r01']);
   });

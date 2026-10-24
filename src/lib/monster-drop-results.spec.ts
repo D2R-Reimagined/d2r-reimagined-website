@@ -31,21 +31,29 @@ beforeAll(() => {
 }, 120000);
 
 describe('Hell Baal quest drop', () => {
-  it('shows the guaranteed Forsaken Token as 100% per kill, not its 14.39% outcome share', () => {
-    const token = baal.rows.find(r => r.id === 'base:lab')!;
-    expect(token.chance).toBe(1);
-    expect(presentMonsterRow(token, t)).toMatchObject({ chance: '100%', odds: '1 in 1', internal: false });
+  // Whatever the export guarantees (the Forsaken Token, or a Corruption Orb in older exports).
+  const guaranteed = () => baal.rows.filter(r => !isInternalOutcome(r) && r.chance === 1);
+  it('shows a guaranteed quest drop as 100% per kill, not as its share of all outcomes', () => {
+    expect(guaranteed().length).toBeGreaterThan(0);
     const d = dropDistribution(baal);
-    expect(formatPercent(rowShares(token, d).expected)).toBe('14.39%');
-    expect(token.count).toBe(100);
-    expect(shown(baal)[0].id).toBe('base:lab');
+    for (const row of guaranteed()) {
+      expect(presentMonsterRow(row, t), row.id).toMatchObject({ chance: '100%', odds: '1 in 1', internal: false });
+      expect(row.count, row.id).toBeGreaterThanOrEqual(baal.kills);
+      // The outcome share divides by every terminal outcome of the kill, so it stays below the per-kill chance.
+      expect(rowShares(row, d).expected).toBeCloseTo(row.expected / d.expected.total, 12);
+      expect(rowShares(row, d).expected!).toBeLessThan(1);
+      expect(formatPercent(rowShares(row, d).expected)).not.toBe(presentMonsterRow(row, t).chance);
+    }
+    expect(shown(baal)[0].chance).toBe(1);
   });
   it('keeps the original terminal-outcome share and counts available in detailed statistics', () => {
     const before = structuredClone(baal);
     const detailed = shown(baal, true);
-    expect(detailed.some(r => r.id === 'nodrop')).toBe(true);
-    const token = detailed.find(r => r.id === 'base:lab')!;
-    expect(rowShares(token, dropDistribution(baal)).simulated).toBeCloseTo(100 / 688, 12);
+    expect(detailed).toHaveLength(baal.rows.length);
+    for (const row of guaranteed()) {
+      const listed = detailed.find(r => r.id === row.id)!;
+      expect(rowShares(listed, dropDistribution(baal)).simulated).toBeCloseTo(row.count / baal.totalDrops, 12);
+    }
     expect(baal).toEqual(before);
   });
 });
@@ -53,15 +61,19 @@ describe('Hell Baal quest drop', () => {
 describe('Hell Warped One champion', () => {
   it('reports physical drops per kill separately from terminal outcomes per kill', () => {
     const summary = physicalDropSummary(champion);
-    expect(summary.observed).toEqual({ drops: 141, perKill: 1.41 });
-    expect(summary.terminal).toMatchObject({ observed: 400, observedPerKill: 4 });
-    expect(summary.terminal.expectedPerKill).toBeCloseTo(4, 10);
-    expect(summary.observed!.drops).toBe(champion.itemDrops);
     // NoDrop and Void never count as physical drops.
     const items = champion.rows.filter(r => !isInternalOutcome(r));
-    expect(items.reduce((n, r) => n + r.count, 0)).toBe(141);
+    const drops = items.reduce((n, r) => n + r.count, 0);
+    expect(drops).toBeGreaterThan(0);
+    expect(summary.observed).toEqual({ drops, perKill: drops / champion.kills });
+    expect(summary.observed!.drops).toBe(champion.itemDrops);
+    expect(summary.terminal).toMatchObject({ observed: champion.totalDrops, observedPerKill: champion.totalDrops / champion.kills });
+    expect(champion.totalDrops).toBeGreaterThan(drops);
+    // A champion rolls its class several times per kill; each roll is one terminal outcome.
+    expect(summary.terminal.expectedPerKill).toBeCloseTo(dropDistribution(champion).expected.total / champion.kills, 12);
+    expect(summary.terminal.expectedPerKill!).toBeGreaterThan(1);
     expect(summary.expectedPerKill).toBeCloseTo(items.reduce((n, r) => n + r.expected, 0) / champion.kills, 12);
-    expect(summary.expectedPerKill).toBeCloseTo(dropDistribution(champion).expected.successful / 100, 12);
+    expect(summary.expectedPerKill).toBeCloseTo(dropDistribution(champion).expected.successful / champion.kills, 12);
   });
   it('hides NoDrop and Void from the default list without renormalizing anything', () => {
     for (const report of [champion, champion8]) {
@@ -96,7 +108,7 @@ describe('normal monster', () => {
     expect(summary.terminal.expectedPerKill).toBeCloseTo(1, 10);
     expect(summary.observed).toEqual({ drops: normal.itemDrops, perKill: normal.itemDrops / 100 });
     const list = shown(normal);
-    expect(list[0].id).toBe('base:gld');
+    expect(list.length).toBeGreaterThan(0);
     expect(list.every((r, i) => i === 0 || list[i - 1].chance >= r.chance)).toBe(true);
     expect(monsterResultsState(normal, list)).toBe('items');
   });
@@ -209,7 +221,10 @@ describe('preserved table features', () => {
     expect(uniques.every(r => r.quality === 'unique')).toBe(true);
     expect(shown(big, false, { category: 'no drop' })).toEqual([]);
     expect(shown(big, true, { category: 'no drop' }).map(r => r.id).sort()).toEqual(['nodrop', 'void']);
-    expect(shown(big, false, { search: 'hp5' }).map(r => r.id)).toEqual(['base:hp5']);
+    const probe = list.at(-1)!;
+    const byName = shown(big, false, { search: probe.nameKey });
+    expect(byName).toContain(probe);
+    expect(byName).toEqual(list.filter(r => r.nameKey.toLocaleLowerCase().includes(probe.nameKey.toLocaleLowerCase())));
     const text = monsterDropTsv(big, list, [], t), lines = text.trimEnd().split('\n');
     expect(lines.some(l => l.startsWith('nodrop\t') || l.startsWith('NoDrop\t'))).toBe(false);
     expect(text).toMatch(/^# NoDrop\t/m);

@@ -5,6 +5,7 @@ import { itemType } from './catalog';
 import { catalogTypeValues, matchesItemType, parseTypeChoice, typeChoiceValue, typeFamilyChoices } from './catalog-controls';
 import { readCatalogFilters, writeCatalogFilters } from './catalog-query';
 import { filterGrailItems } from './grail-filters';
+import { grailKey } from './grail-progress';
 import { readGrailFilters, writeGrailFilters } from './grail-query';
 import { filterSetPieces } from './set-filters';
 import { load as catalogLoad } from '../routes/data/[catalog]/+page.server';
@@ -78,48 +79,59 @@ describe('Helm URL compatibility', () => {
   });
 });
 
-describe('Helm filtering against the exported catalogs', () => {
-  it('separates ordinary unique helms from the helm family', () => {
-    const uniques = catalog('uniques');
-    expect(helms(uniques, true)).toHaveLength(64);
-    expect(helms(uniques, false)).toHaveLength(136);
-    expect(typeTally(helms(uniques, false))).toEqual({ helmitype: 64, peltitype: 30, phlmitype: 30, circitype: 12 });
-  });
+// Helm and its descendants (Druid pelts, Barbarian helms, circlets): the game's item type tree.
+const helmFamily = ['helmitype', 'peltitype', 'phlmitype', 'circitype'];
+const ofTypes = (items: CatalogItem[], types: string[]) => items.filter((item) => types.includes(itemType(item)));
 
-  it('separates ordinary helm bases from class headgear and circlets', () => {
-    const bases = catalog('bases');
-    expect(catalogTypeValues(bases.map(itemType), 'bases')).toContain('helmitype');
-    expect(typeTally(helms(bases, true))).toEqual({ helmitype: 24 });
-    expect(typeTally(helms(bases, false))).toEqual({ helmitype: 24, peltitype: 15, phlmitype: 15, circitype: 4 });
+describe('Helm filtering against the exported catalogs', () => {
+  it.each(['uniques', 'bases'] as const)('separates ordinary helms from the helm family in %s', (slug) => {
+    const items = catalog(slug);
+    expect(catalogTypeValues(items.map(itemType), slug)).toContain('helmitype');
+    expect(helms(items, true)).toEqual(ofTypes(items, ['helmitype']));
+    expect(helms(items, false)).toEqual(ofTypes(items, helmFamily));
+    expect(helms(items, true).length).toBeGreaterThan(0);
+    expect(Object.keys(typeTally(helms(items, false))).every((type) => helmFamily.includes(type))).toBe(true);
   });
 
   describe('set pieces', () => {
     const sets = catalog('sets');
-    const filtered = (exactType: boolean) => sets
+    const filtered = (source: CatalogItem[], exactType: boolean) => source
       .map((set) => filterSetPieces(set, { ...pieceFilters, exactType }, [], tools))
       .filter((set): set is CatalogItem => set !== null);
-    const pieces = (exactType: boolean) => filtered(exactType).flatMap((set) => set.SetItems ?? []);
-    const named = (exactType: boolean, name: string) => filtered(exactType).find((set) => set.Index === name);
+    const pieces = (exactType: boolean) => filtered(sets, exactType).flatMap((set) => set.SetItems ?? []);
+    const allPieces = sets.flatMap((set) => set.SetItems ?? []);
 
     it('keeps only ordinary helm pieces for Helm and adds descendants for Any Helm', () => {
-      expect(typeTally(pieces(true))).toEqual({ helmitype: 53 });
-      expect(typeTally(pieces(false))).toEqual({ helmitype: 53, peltitype: 4, phlmitype: 4, circitype: 8 });
+      expect(pieces(true).length).toBeGreaterThan(0);
+      expect(pieces(true)).toEqual(ofTypes(allPieces, ['helmitype']));
+      expect(pieces(false)).toEqual(ofTypes(allPieces, helmFamily));
     });
 
     it('scopes mixed-type sets to their matching pieces', () => {
-      expect(named(true, "Aldur's Watchtower")).toBeUndefined();
-      expect(named(false, "Aldur's Watchtower")?.SetItems?.map(itemType)).toEqual(['peltitype']);
-      expect(named(true, 'Immortal King')).toBeUndefined();
-      expect(named(false, 'Immortal King')?.SetItems?.map(itemType)).toEqual(['phlmitype']);
-      expect(named(true, "Iratha's Finery")?.SetItems?.map(itemType)).toEqual(['helmitype']);
-      expect(named(false, "M'avina's Battle Hymn")?.SetItems?.map(itemType)).toEqual(['circitype']);
-      expect(named(true, "Civerb's Vestments")).toBeUndefined();
+      const piece = (Index: string, Type: string): CatalogItem => ({ Index, Type });
+      const fixture: CatalogItem[] = [
+        { Index: 'Druid set', SetItems: [piece('pelt', 'peltitype'), piece('boots', 'bootitype')] },
+        { Index: 'Barbarian set', SetItems: [piece('primal', 'phlmitype'), piece('belt', 'beltitype')] },
+        { Index: 'Helm set', SetItems: [piece('helm', 'helmitype'), piece('armor', 'torsitype')] },
+        { Index: 'Circlet set', SetItems: [piece('circlet', 'circitype'), piece('bow', 'abowitype')] },
+        { Index: 'No helm set', SetItems: [piece('amulet', 'amulitype'), piece('ring', 'ringitype')] }
+      ];
+      const named = (exactType: boolean, name: string) => filtered(fixture, exactType).find((set) => set.Index === name);
+      expect(named(true, 'Druid set')).toBeUndefined();
+      expect(named(false, 'Druid set')?.SetItems?.map(itemType)).toEqual(['peltitype']);
+      expect(named(true, 'Barbarian set')).toBeUndefined();
+      expect(named(false, 'Barbarian set')?.SetItems?.map(itemType)).toEqual(['phlmitype']);
+      expect(named(true, 'Helm set')?.SetItems?.map(itemType)).toEqual(['helmitype']);
+      expect(named(false, 'Circlet set')?.SetItems?.map(itemType)).toEqual(['circitype']);
+      expect(named(false, 'No helm set')).toBeUndefined();
+      expect(fixture[2].SetItems).toHaveLength(2);
     });
 
     it('does not alter the source sets', () => {
-      const source = sets.find((set) => set.Index === "Iratha's Finery")!;
-      filtered(true);
-      expect(source.SetItems).toHaveLength(4);
+      const before = JSON.stringify(sets);
+      filtered(sets, true);
+      filtered(sets, false);
+      expect(JSON.stringify(sets)).toBe(before);
     });
   });
 });
@@ -133,10 +145,11 @@ describe('Grail Helm filtering', () => {
   };
 
   it('filters uniques and set pieces by exact and inherited helms', () => {
-    expect(shown('g-type=helmitype&g-exact=true')).toHaveLength(64);
-    expect(shown('g-type=helmitype')).toHaveLength(136);
-    expect(typeTally(shown('g-category=sets&g-type=helmitype&g-exact=true'))).toEqual({ helmitype: 53 });
-    expect(shown('g-category=sets&g-type=helmitype')).toHaveLength(69);
+    expect(shown('g-type=helmitype&g-exact=true').length).toBeGreaterThan(0);
+    expect(shown('g-type=helmitype&g-exact=true')).toEqual(ofTypes(data.uniques, ['helmitype']));
+    expect(shown('g-type=helmitype')).toEqual(ofTypes(data.uniques, helmFamily));
+    expect(shown('g-category=sets&g-type=helmitype&g-exact=true')).toEqual(ofTypes(data.sets, ['helmitype']));
+    expect(shown('g-category=sets&g-type=helmitype')).toEqual(ofTypes(data.sets, helmFamily));
   });
 
   it('round trips both choices and leaves runeword Exact behavior intact', () => {
@@ -151,10 +164,10 @@ describe('Grail Helm filtering', () => {
   });
 
   it('applies found progress without changing its keys', () => {
-    const found = { [String(shown('g-type=helmitype&g-exact=true')[0].Index)]: true };
+    const found = { [grailKey(shown('g-type=helmitype&g-exact=true')[0])]: true };
     const snapshot = JSON.stringify(found);
-    expect(shown('g-type=helmitype&g-exact=true', found, true)).toHaveLength(63);
-    expect(shown('g-type=helmitype', found, true)).toHaveLength(135);
+    expect(shown('g-type=helmitype&g-exact=true', found, true)).toHaveLength(shown('g-type=helmitype&g-exact=true').length - 1);
+    expect(shown('g-type=helmitype', found, true)).toHaveLength(shown('g-type=helmitype').length - 1);
     expect(JSON.stringify(found)).toBe(snapshot);
   });
 });

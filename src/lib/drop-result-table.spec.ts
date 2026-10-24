@@ -59,9 +59,12 @@ describe('switching views', () => {
     expect(JSON.stringify(results.map(r => presentDropRow(r, translate)))).toBe(views);
   });
   it('keeps filters, pagination, result count and order independent of the view', () => {
-    const visible = filterDropResults(results, noFilters, translate).filter(hasPositiveChance);
-    expect(visible.length).toBeGreaterThan(DROP_RESULTS_PAGE_SIZE);
-    for (const page of [0, 1]) expect(dropResultsPage(visible, page)).toEqual(visible.slice(page * 50, (page + 1) * 50));
+    // Enough rows for several pages regardless of how many bosses the export ships.
+    const many = Array.from({ length: DROP_RESULTS_PAGE_SIZE * 2 + 7 }, (_, i) => row(1 / (i + 2), { NameKey: `Boss ${i}` }));
+    const visible = filterDropResults([...many, row(0), row(null)], noFilters, translate).filter(hasPositiveChance);
+    expect(visible).toEqual(many);
+    for (const page of [0, 1, 2]) expect(dropResultsPage(visible, page)).toEqual(visible.slice(page * 50, (page + 1) * 50));
+    expect(dropResultsPage(visible, 2)).toHaveLength(7);
     expect(dropResultsPageCount(visible.length)).toBe(Math.ceil(visible.length / 50));
     // The view only selects columns; the rows on a page and their order are the same input either way.
     const compact = dropResultsPage(visible, 1).map(r => presentDropRow(r, translate));

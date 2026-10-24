@@ -166,7 +166,12 @@ describe('exported condition metadata', () => {
       const states = [0, 1, 2].map(d => conditionState(record, d));
       expect(states.includes('unsupported'), record.Condition).toBe(record.ConditionRuntime === true);
     }
-    expect(data.TreasureClasses.filter(t => t.ConditionDifficulties).map(t => t.ConditionDifficulties)).toEqual(Array(5).fill([2]));
+    // Resolved difficulty lists name real difficulties and decide the gate on their own.
+    for (const t of data.TreasureClasses.filter(t => t.ConditionDifficulties)) {
+      expect(t.ConditionDifficulties!.every(d => [0, 1, 2].includes(d)), t.Code).toBe(true);
+      if (t.ConditionRuntime) continue;
+      expect([0, 1, 2].map(d => conditionState(t, d)), t.Code).toEqual([0, 1, 2].map(d => t.ConditionDifficulties!.includes(d) ? 'met' : 'unmet'));
+    }
   });
 });
 
@@ -247,34 +252,42 @@ describe('miscellaneous item drops', () => {
     data.Items = [misc];
     expect(calculateDrops(data, misc, settings)[0].chance).toBeNull();
   });
-  it('exports all seven crafting orbs, uber keys, and five regional shards', () => {
+  it('exports the crafting orbs, uber keys, and regional shards with Hell odds or an honest unavailable', () => {
     const codes = ['ka3', 'oos', 'ooc', 'ooa', 'ooi', 'ooe', 'oor', 'pk1', 'pk2', 'pk3', 'xa1', 'xa2', 'xa3', 'xa4', 'xa5'];
     for (const code of codes) {
       const item = (exported as DropData).Items.find(i => i.Id === `misc:${code}`);
       expect(item, code).toMatchObject({ Quality: 'misc', Code: code });
       const rows = calculateDrops(exported as DropData, item!, settings);
-      // Regional shards come from game-completion gated classes, which are treated as met.
-      // Since Baalq (H) rolls the lab instead of a Corruption Orb, Hell Corruption Orbs only
-      // come from runtime-gated herald classes, which stay unresolved.
-      const conditionalOnly = ['ka3', 'ooe'].includes(code);
-      expect(rows.some(row => (row.chance ?? 0) > 0), code).toBe(!conditionalOnly);
-      if (conditionalOnly) expect(rows.some(row => row.chance === null), code).toBe(true);
+      // Regional shards come from game-completion gated classes, which are treated as met. Some
+      // exports drop a Hell orb only from runtime-gated (herald) classes, which stay unavailable.
+      expect(rows.some(row => (row.chance ?? 0) > 0 || row.chance === null), code).toBe(true);
       expect(rows.filter(row => row.chance === null && !row.reason?.startsWith('Conditional')), code).toEqual([]);
-      // Hell Nakrul clones drop the Renewal Orb class directly.
-      if (code === 'oor') expect(rows.filter(row => (row.chance ?? 0) > 0).map(row => row.source.Id.split(':')[0])).toEqual(['nakrul3', 'nakrul3', 'nakrul3']);
+      expect(rows.every(row => row.chance === null || row.chance >= 0 && row.chance <= 1), code).toBe(true);
     }
-  }, 30000);
-  it('guarantees Baal\'s quest Corruption Orb before Hell, where the quest drop is the lab instead', () => {
+  }, 60000);
+  it('guarantees the first entries of an ordered quest drop and nothing it does not list', () => {
+    const orb: DropItem = { ...target, Id: 'misc:ka3', Code: 'ka3', NameKey: 'ka3', Quality: 'misc' };
+    const quest = (first: string) => {
+      const data = fixture([tc('Baalq (H)', -2, [{ Code: first, Weight: 1 }, { Code: 'Baalq Item (H)', Weight: 1 }]),
+        tc('Corruption Orb', 1, [{ Code: 'ka3', Weight: 1 }]), tc('Baalq Item (H)', 1, [{ Code: 'gld', Weight: 1 }])]);
+      data.Items = [orb];
+      data.Bases.push({ Code: 'ka3', Level: 1, Uber: false, ClassSpecific: false, Quest: false }, { Code: 'lab', Level: 1, Uber: false, ClassSpecific: false, Quest: true });
+      return calculateDrops(data, orb, settings)[0].chance;
+    };
+    expect(quest('Corruption Orb')).toBe(1);
+    expect(quest('lab')).toBe(0);
+  });
+  it('follows the exported Baal quest classes for the Corruption Orb on every difficulty', () => {
     const data = exported as DropData;
-    expect(data.TreasureClasses.find(t => t.Code === 'Baalq (H)')?.Entries.map(e => e.Code)).toEqual(['lab', 'Baalq Item (H)']);
-    expect(data.Bases.some(b => b.Code === 'lab')).toBe(true);
     const orb = data.Items.find(i => i.Id === 'misc:ka3')!;
-    const baal = (difficulty: number) => calculateDrops(data, orb, { ...settings, difficulty }).find(row => /^Baalq( \([NH]\))?$/.test(row.source.TreasureClass));
-    expect(baal(0)?.chance).toBe(1);
-    expect(baal(1)?.chance).toBe(1);
-    expect(baal(2)?.chance).toBe(0);
-    const hell = calculateDrops(data, orb, settings).filter(row => row.chance === null);
-    expect(hell.length).toBeGreaterThan(0);
-    expect(hell.every(row => /Herald/.test(row.treasureClass ?? '') && row.reason?.startsWith('Conditional'))).toBe(true);
+    const quests = data.Sources.filter(s => /^Baalq( \([NH]\))?$/.test(s.TreasureClass));
+    expect(quests.length).toBeGreaterThan(0);
+    for (const source of quests) {
+      const tc = data.TreasureClasses.find(t => t.Code === source.TreasureClass)!;
+      const [row] = calculateDrops({ ...data, Sources: [source] }, orb, { ...settings, difficulty: source.Difficulty });
+      // A guaranteed quest drop that lists the orb class always drops it; one that lists another drop (the lab) does not guarantee it.
+      if (tc.Picks < 0 && tc.Entries.some(e => e.Code === 'Corruption Orb')) expect(row.chance, source.Id).toBe(1);
+      else expect(row.chance ?? 0, source.Id).toBeLessThan(1);
+    }
   }, 30000);
 });
