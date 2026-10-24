@@ -26,7 +26,23 @@ export interface TelemetryServer {
   receivedAtUtc: string | null; snapshot: MonitorSnapshot | null; sourceGaps: number;
   /** The d2rl-d2rds.dll its supervisor last reported installed; absent until it reports one. */
   serverBuild?: InstalledServerBuild | null;
+  /** The ladder bundle and D2RLoader its supervisor last reported installed; absent until it reports them. */
+  deployment?: ServerDeployment | null;
+  /** What its ladder wants now; absent from an API that predates it. */
+  ladderTarget?: LadderDeploymentTarget | null;
 }
+export interface ServerDeployment {
+  bundleId: string | null; revision: number | null;
+  /** D2RLoader.exe's product version; null on Linux hosts, where it cannot be read. */
+  d2rLoaderVersion: string | null;
+  /** Whether its D2RLoader files are the ladder's pinned build; null without a pin or files to compare. */
+  d2rLoaderMatchesPin: boolean | null;
+  reportedAtUtc: string;
+}
+export interface LadderDeploymentTarget {
+  bundleId: string | null; revision: number | null; minimumD2RLoaderVersion: string | null; pinnedD2RLoaderVersion: string | null;
+}
+export interface DeploymentLine { label: string; note: string; tone: 'ok' | 'warn' | null; title: string }
 export interface TelemetryLog {
   cursor: number; session: string; sourceId: number; timestamp: number; level: number; message: string;
 }
@@ -44,6 +60,51 @@ export function installedBuildSummary(installed: InstalledServerBuild | null | u
   const title = [installed ? `Installed SHA-256 ${installed.sha256}` : '', match === 'outdated' && current ? `Ladder current ${shortBuildId(current.id)} · ${current.sha256}` : '']
     .filter(Boolean).join('\n');
   return { label, title, match };
+}
+// A card's installed ladder bundle against the ladder's active one.
+export function bundleRevisionSummary(installed: ServerDeployment | null | undefined, ladder: LadderDeploymentTarget | null | undefined): DeploymentLine {
+  if (!installed) return { label: 'Not reported', note: '', tone: null, title: '' };
+  const current = ladder?.bundleId ? `Ladder active bundle ${ladder.bundleId} (revision ${ladder.revision})` : '';
+  if (!installed.bundleId) return { label: 'None recorded', note: ladder?.revision ? `ladder is on revision ${ladder.revision}` : '', tone: 'warn', title: current };
+  const label = `revision ${installed.revision}`;
+  const title = [`Installed bundle ${installed.bundleId}`, installed.bundleId === ladder?.bundleId ? '' : current].filter(Boolean).join('\n');
+  if (!ladder?.bundleId) return { label, note: '', tone: null, title };
+  return installed.bundleId === ladder.bundleId
+    ? { label, note: 'up to date', tone: 'ok', title }
+    : { label, note: `ladder is on revision ${ladder.revision}`, tone: 'warn', title };
+}
+// A card's D2RLoader against the ladder's pin, or without one the bundle's minimum version.
+export function d2rLoaderSummary(installed: ServerDeployment | null | undefined, ladder: LadderDeploymentTarget | null | undefined): DeploymentLine {
+  if (!installed) return { label: 'Not reported', note: '', tone: null, title: '' };
+  const pin = ladder?.pinnedD2RLoaderVersion;
+  const label = installed.d2rLoaderVersion ?? (pin && installed.d2rLoaderMatchesPin ? pin : 'Unknown version');
+  const title = installed.d2rLoaderVersion ? '' : 'This host did not report a version (Linux hosts cannot read it).';
+  if (pin) {
+    if (installed.d2rLoaderMatchesPin) return { label, note: 'matches the ladder\'s pin', tone: 'ok', title };
+    return { label, note: installed.d2rLoaderMatchesPin === false ? `not the ladder's pinned ${pin}` : `ladder pins ${pin}`, tone: 'warn', title };
+  }
+  const minimum = ladder?.minimumD2RLoaderVersion;
+  if (!minimum) return { label, note: '', tone: null, title };
+  const comparison = compareVersionCores(installed.d2rLoaderVersion, minimum);
+  if (comparison === null) return { label, note: `bundle needs ${minimum} or newer`, tone: null, title };
+  return comparison >= 0
+    ? { label, note: `meets the bundle's minimum ${minimum}`, tone: 'ok', title }
+    : { label, note: `below the bundle's minimum ${minimum}`, tone: 'warn', title };
+}
+// Compares the numeric part of two versions ("1.3.1-beta", "1.3.1.0"); null when either is not one.
+function compareVersionCores(left: string | null, right: string): number | null {
+  const parse = (value: string) => {
+    const parts = value.trim().replace(/^v/i, '').split(/[-+]/)[0].split('.');
+    return parts.length && parts.every(part => /^\d+$/.test(part)) ? parts.map(Number) : null;
+  };
+  const a = left ? parse(left) : null;
+  const b = parse(right);
+  if (!a || !b) return null;
+  for (let i = 0; i < Math.max(a.length, b.length, 3); i++) {
+    const difference = (a[i] ?? 0) - (b[i] ?? 0);
+    if (difference) return Math.sign(difference);
+  }
+  return 0;
 }
 export const getServers = (signal?: AbortSignal) => apiRequest<TelemetryFrame>('/admin/servers', { signal, cache: 'no-store' }, true);
 
