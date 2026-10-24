@@ -70,6 +70,13 @@
     });
 
     let selectedLadder = $derived(ladders.find((ladder) => ladder.id === selectedId) ?? null);
+    let currentLadders = $derived(ladders.filter((ladder) => !ladder.archivedAtUtc));
+    let archivedLadders = $derived(ladders.filter((ladder) => ladder.archivedAtUtc));
+    // Archived seasons stay folded away unless the one being viewed is among them.
+    let archivedOpen = $state(false);
+    $effect(() => {
+        if (selectedLadder?.archivedAtUtc) archivedOpen = true;
+    });
     // The API trims and ignores case too, so a stray space or shift key cannot block cleanup.
     let deleteNameMatches = $derived(!!selectedLadder
         && deleteConfirmName.trim().toLowerCase() === selectedLadder.name.trim().toLowerCase());
@@ -570,6 +577,22 @@
     <div class="mb-5 rounded-lg border border-set/40 bg-set/10 p-4 text-set">{notice}</div>
 {/if}
 
+{#snippet ladderButton(ladder: Ladder)}
+    <button
+            type="button"
+            onclick={() => editLadder(ladder)}
+            class={`rounded-lg border p-3 text-left transition ${selectedId === ladder.id ? 'border-ember-400 bg-ember-700/20' : 'border-parchment-300/20 hover:border-parchment-300/45'}`}
+    >
+        <span class="block text-parchment-50">{ladder.name}{ladder.isHidden ? ' — Hidden' : ''}</span>
+        <span class="mt-1 block text-xs text-parchment-300">{new Date(ladder.startDateUtc).toLocaleString()}
+            – {new Date(ladder.endDateUtc).toLocaleString()}</span>
+        <span class="mt-1 block text-xs text-rarity">
+            {ladder.allowedExtensions.filter((extension) => extension.isRequired).length} required,
+            {ladder.allowedExtensions.filter((extension) => !extension.isRequired).length} optional
+        </span>
+    </button>
+{/snippet}
+
 {#if loading}
     <div class="panel rounded-lg p-8 text-center text-parchment-300">Loading ladders…</div>
 {:else}
@@ -582,25 +605,23 @@
                 </button>
             </div>
             <div class="mt-4 grid gap-2">
-                {#each ladders as ladder}
-                    <button
-                            type="button"
-                            onclick={() => editLadder(ladder)}
-                            class={`rounded-lg border p-3 text-left transition ${selectedId === ladder.id ? 'border-ember-400 bg-ember-700/20' : 'border-parchment-300/20 hover:border-parchment-300/45'}`}
-                    >
-                        <span class="block text-parchment-50">{ladder.name}{ladder.isHidden ? ' — Hidden' : ''}{ladder.archivedAtUtc ? ' — Archived' : ''}</span>
-                        <span class="mt-1 block text-xs text-parchment-300">{new Date(ladder.startDateUtc).toLocaleString()}
-                            – {new Date(ladder.endDateUtc).toLocaleString()}</span>
-                        <span class="mt-1 block text-xs text-rarity">
-                            {ladder.allowedExtensions.filter((extension) => extension.isRequired).length} required,
-                            {ladder.allowedExtensions.filter((extension) => !extension.isRequired).length} optional
-                        </span>
-                    </button>
+                {#each currentLadders as ladder (ladder.id)}
+                    {@render ladderButton(ladder)}
                 {:else}
-                    <p class="rounded border border-dashed border-parchment-300/25 p-4 text-sm text-parchment-300">No
-                        ladders have been created.</p>
+                    <p class="rounded border border-dashed border-parchment-300/25 p-4 text-sm text-parchment-300">{archivedLadders.length
+                        ? 'No active ladders.' : 'No ladders have been created.'}</p>
                 {/each}
             </div>
+            {#if archivedLadders.length}
+                <details class="mt-4 border-t border-parchment-300/15 pt-4" bind:open={archivedOpen}>
+                    <summary class="cursor-pointer text-sm text-parchment-50">Archived <span class="text-parchment-300">({archivedLadders.length})</span></summary>
+                    <div class="mt-3 grid gap-2">
+                        {#each archivedLadders as ladder (ladder.id)}
+                            {@render ladderButton(ladder)}
+                        {/each}
+                    </div>
+                </details>
+            {/if}
         </aside>
 
         <form class="panel rounded-lg p-5 sm:p-7" onsubmit={(event) => { event.preventDefault(); void saveLadder(); }}>
