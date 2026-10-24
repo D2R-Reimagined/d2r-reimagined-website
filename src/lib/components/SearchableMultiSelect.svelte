@@ -19,20 +19,43 @@
   const selectedLabels = $derived(value.map((selected) => options.find((option) => option.value === selected)?.label ?? selected));
   const summary = $derived(value.length > 2 ? `${value.length} selected` : selectedLabels.join(', ') || placeholder);
 
-  function show() {
+  function position() {
+    if (!trigger) return;
     const rect = trigger.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) {
+      if (popup?.matches(':popover-open')) popup.hidePopover();
+      return;
+    }
     const below = window.innerHeight - rect.bottom;
     const above = rect.top;
     const useBelow = below >= 280 || below >= above;
-    const height = Math.min(360, Math.max(0, (useBelow ? below : above) - 12));
+    const height = Math.min(480, Math.max(0, (useBelow ? below : above) - 12));
     const width = Math.min(Math.max(rect.width, 240), window.innerWidth - 16);
     const left = Math.max(8, Math.min(rect.left, window.innerWidth - width - 8));
-    const top = useBelow ? rect.bottom + 4 : rect.top - height - 4;
-    popupStyle = `left:${left}px;top:${Math.max(4, top)}px;width:${width}px;max-height:${height}px`;
+    const vertical = useBelow ? `top:${rect.bottom + 4}px;bottom:auto` : `top:auto;bottom:${window.innerHeight - rect.top + 4}px`;
+    popupStyle = `left:${left}px;${vertical};width:${width}px;max-height:${height}px`;
+  }
+
+  function show() {
+    position();
     query = '';
     popup.showPopover();
     searchInput.focus();
   }
+
+  $effect(() => {
+    if (!open) return;
+    const onScroll = (event: Event) => {
+      if (popup && event.target instanceof Node && popup.contains(event.target)) return;
+      position();
+    };
+    window.addEventListener('scroll', onScroll, { capture: true, passive: true });
+    window.addEventListener('resize', position, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll, true);
+      window.removeEventListener('resize', position);
+    };
+  });
 
   function hide() {
     if (popup.matches(':popover-open')) popup.hidePopover();

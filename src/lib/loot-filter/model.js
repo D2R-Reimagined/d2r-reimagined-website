@@ -3,7 +3,7 @@
 const model = (() => {
   'use strict';
 
-  const RARITIES = ['inferior','normal','superior','magic','set','rare','unique'];
+  const RARITIES = ['inferior','normal','superior','magic','set','rare','unique','crafted'];
   const MINIMAP_SHAPES = ['circle','diamond','triangle','star'];
   const DROP_SOUNDS = Array.from({ length: 16 }, (_, i) => `Filter${String(i + 1).padStart(2, '0')}`);
   const CONDITION_KEYS = ['code','baseName','itemType','quantity','rarity','itemLevel','sockets','ethereal','identified'];
