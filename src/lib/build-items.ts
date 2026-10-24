@@ -1,5 +1,16 @@
 import { itemTitle, type SearchTools } from './catalog';
+import { findRecipe, recipeKey } from './cube-recipe-ids';
 import type { CatalogItem, CatalogSlug } from './types';
+
+/** The key a build reference stores for an item; recipes use a renumbering-proof key. */
+export function buildItemKey(item: CatalogItem, catalog: CatalogSlug): string {
+  return catalog === 'cube-recipes' ? recipeKey(item) : String(item.Index ?? item.NameKey ?? '');
+}
+
+/** Resolves a saved build reference key against the current catalog. */
+export function findBuildItem(items: CatalogItem[], catalog: CatalogSlug, key: string): CatalogItem | undefined {
+  return catalog === 'cube-recipes' ? findRecipe(items, key) : items.find(item => buildItemKey(item, catalog) === key);
+}
 
 export function isCraftRecipe(item: CatalogItem): boolean {
   return item.Notes?.some(note => note.key === 'strCubeNoteItemCrafting') ?? false;

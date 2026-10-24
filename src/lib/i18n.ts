@@ -3,6 +3,7 @@ import { derived, get, writable } from 'svelte/store';
 import { countNumericSlots, formatTemplate, type TemplateArg } from '../utilities/format-template';
 import { stripGenderTagsInPlace } from '../utilities/strip-gender-tags';
 import { UI_STRINGS } from '../utilities/ui-strings';
+import { skillLineNumbers, type SkillPoints } from './skill-points';
 import type { KeyedLine, SkillDescriptionLine } from './types';
 
 export const languages = [
@@ -108,17 +109,15 @@ function makeTools(s: I18nState) {
     return result;
   };
 
-  // A skill line is a template plus one value table per numeric argument. The exporter
-  // trims each table's constant tail, so reading past the end means "it stopped scaling".
+  // A skill line is a template plus one value table per numeric argument, read at a hard /
+  // bonus split (see skillLineNumbers for the table and clamping rules).
   const skillLine = (
     value: SkillDescriptionLine | undefined | null,
-    level: number,
-    transform: (value: number) => number = (number) => number
+    points: SkillPoints,
+    transform: (value: number, index: number) => number = (number) => number
   ): string => {
     if (!value) return '';
-    const numbers = (value.values ?? []).map(
-      (table) => transform(table[Math.min(Math.max(level, 1) - 1, table.length - 1)])
-    );
+    const numbers = skillLineNumbers(value, points).map((number, index) => transform(number, index));
     const key = value.pluralKey && numbers[0] !== 1 ? value.pluralKey : value.key;
     const template = lookup(s, key);
     const strings = (value.args ?? []).map((arg) => lookup(s, arg));

@@ -1,0 +1,51 @@
+=== Source Report: 46 input(s), 44 mod, 2 CASC, 0 bundled, 0 not found ===
+Mod data root:  C:\z_GitHub\d2r-reimagined-mod\data
+CASC data root: C:\z_Casc\data\data
+Precedence: the mod's copy, else the CASC copy (bundled reference tables last).
+
+  [mod] global/excel/armor.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\armor.txt
+  [mod] global/excel/automagic.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\automagic.txt
+  [mod] global/excel/charstats.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\charstats.txt
+  [mod] global/excel/cubemain.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\cubemain.txt
+  [mod] global/excel/gems.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\gems.txt
+  [mod] global/excel/itemratio.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\itemratio.txt
+  [mod] global/excel/itemstatcost.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\itemstatcost.txt
+  [mod] global/excel/itemtypes.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\itemtypes.txt
+  [mod] global/excel/levels.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\levels.txt
+  [mod] global/excel/magicprefix.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\magicprefix.txt
+  [mod] global/excel/magicsuffix.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\magicsuffix.txt
+  [mod] global/excel/misc.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\misc.txt
+  [casc] global/excel/misscalc.txt  C:\z_Casc\data\data\global\excel\misscalc.txt
+  [mod] global/excel/missiles.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\missiles.txt
+  [mod] global/excel/monlvl.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\monlvl.txt
+  [mod] global/excel/monprop.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\monprop.txt
+  [mod] global/excel/monstats.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\monstats.txt
+  [mod] global/excel/monumod.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\monumod.txt
+  [mod] global/excel/properties.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\properties.txt
+  [mod] global/excel/propertygroups.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\propertygroups.txt
+  [mod] global/excel/rareprefix.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\rareprefix.txt
+  [mod] global/excel/raresuffix.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\raresuffix.txt
+  [mod] global/excel/runes.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\runes.txt
+  [mod] global/excel/setitems.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\setitems.txt
+  [mod] global/excel/sets.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\sets.txt
+  [mod] global/excel/skillcalc.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\skillcalc.txt
+  [mod] global/excel/skilldesc.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\skilldesc.txt
+  [mod] global/excel/skills.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\skills.txt
+  [mod] global/excel/superuniques.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\superuniques.txt
+  [mod] global/excel/treasureclassex.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\treasureclassex.txt
+  [mod] global/excel/uniqueitems.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\uniqueitems.txt
+  [mod] global/excel/weapons.txt  C:\z_GitHub\d2r-reimagined-mod\data\global\excel\weapons.txt
+  [mod] hd/global/ui/panel/inventory/background_expanded2.sprite  C:\z_GitHub\d2r-reimagined-mod\data\hd\global\ui\panel\inventory\background_expanded2.sprite
+  [mod] hd/global/ui/spells/amazon/amskillicon.sprite  C:\z_GitHub\d2r-reimagined-mod\data\hd\global\ui\spells\amazon\amskillicon.sprite
+  [mod] hd/global/ui/spells/assassin/asskillicon.sprite  C:\z_GitHub\d2r-reimagined-mod\data\hd\global\ui\spells\assassin\asskillicon.sprite
+  [mod] hd/global/ui/spells/barbarian/baskillicon.sprite  C:\z_GitHub\d2r-reimagined-mod\data\hd\global\ui\spells\barbarian\baskillicon.sprite
+  [mod] hd/global/ui/spells/druid/drskillicon.sprite  C:\z_GitHub\d2r-reimagined-mod\data\hd\global\ui\spells\druid\drskillicon.sprite
+  [mod] hd/global/ui/spells/necromancer/neskillicon.sprite  C:\z_GitHub\d2r-reimagined-mod\data\hd\global\ui\spells\necromancer\neskillicon.sprite
+  [mod] hd/global/ui/spells/paladin/paskillicon.sprite  C:\z_GitHub\d2r-reimagined-mod\data\hd\global\ui\spells\paladin\paskillicon.sprite
+  [mod] hd/global/ui/spells/sorceress/soskillicon.sprite  C:\z_GitHub\d2r-reimagined-mod\data\hd\global\ui\spells\sorceress\soskillicon.sprite
+  [mod] hd/global/ui/spells/warlock/waskillicon.sprite  C:\z_GitHub\d2r-reimagined-mod\data\hd\global\ui\spells\warlock\waskillicon.sprite
+  [mod] hd/items/items.json  C:\z_GitHub\d2r-reimagined-mod\data\hd\items\items.json
+  [mod] hd/items/sets.json  C:\z_GitHub\d2r-reimagined-mod\data\hd\items\sets.json
+  [mod] hd/items/uniques.json  C:\z_GitHub\d2r-reimagined-mod\data\hd\items\uniques.json
+  [casc] local/lng/strings (casc)/  C:\z_Casc\data\data\local\lng\strings
+  [mod] local/lng/strings (mod)/  C:\z_GitHub\d2r-reimagined-mod\data\local\lng\strings

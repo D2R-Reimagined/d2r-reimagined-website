@@ -7,10 +7,11 @@ export interface PieceFilters {
   selectedClass: string;
   selectedEquipment: string;
   handFilter?: string;
+  exactType?: boolean;
 }
 
 export function matchesPiece(item: CatalogItem, filters: PieceFilters): boolean {
-  return matchesItemType([itemType(item)], filters.selectedType, false)
+  return matchesItemType([itemType(item)], filters.selectedType, Boolean(filters.exactType))
     && (!filters.selectedClass || itemClass(item) === filters.selectedClass)
     && (!filters.selectedEquipment || item.Equipment?.NameKey === filters.selectedEquipment)
     && (!filters.handFilter || passesHandFilter(item, filters.handFilter));

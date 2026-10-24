@@ -1,7 +1,9 @@
 export type DropQuality = 'unique' | 'set' | 'rune' | 'misc';
-export interface DropItem { Id: string; NameKey: string; Code: string; Quality: DropQuality; Level: number; Rarity: number; Random: boolean; Condition: string }
+/** Exporter-resolved condition metadata; both fields are omitted for an empty Condition. */
+export interface DropCondition { Condition: string; ConditionDifficulties?: number[]; ConditionRuntime?: boolean }
+export interface DropItem extends DropCondition { Id: string; NameKey: string; Code: string; Quality: DropQuality; Level: number; Rarity: number; Random: boolean }
 export interface DropSource { Id: string; NameKey: string; AreaKey: string; Difficulty: number; Kind: string; Level: number; TreasureClass: string }
-export interface DropClass { Code: string; Group: string; Level: number; Picks: number; Unique: number; Set: number; NoDrop: number; Entries: { Code: string; Weight: number }[]; Condition: string; QuestFlag: string; QuestFlagEx: string }
+export interface DropClass extends DropCondition { Code: string; Group: string; Level: number; Picks: number; Unique: number; Set: number; NoDrop: number; Entries: { Code: string; Weight: number }[]; QuestFlag: string; QuestFlagEx: string }
 export interface DropRatio { Version: number; Uber: number; ClassSpecific: number; Unique: number; UniqueDivisor: number; UniqueMin: number; Set: number; SetDivisor: number; SetMin: number }
 export interface DropData {
   Items: DropItem[];
@@ -36,6 +38,27 @@ export function simulateKills(chance: number, kills: number, random: () => numbe
 export function matchesDropSource(row: DropResult, treasureClass: string, minLevel: number, maxLevel: number): boolean {
   return (!treasureClass || (row.treasureClass ?? row.source.TreasureClass) === treasureClass) &&
     row.source.Level >= minLevel && row.source.Level <= maxLevel;
+}
+/** QuestFlagEx gates (e.g. Terrorize consumables) require the game to be completed; assume it is. */
+export const GAME_COMPLETED = true;
+export type ConditionState = 'met' | 'unmet' | 'unsupported';
+/** Live game state wins over difficulties; resolved difficulties (an empty list holds on none)
+ * win over the raw text; without metadata only the literal Hell gate is recognized. */
+export function conditionState(record: DropCondition, difficulty: number): ConditionState {
+  const condition = (record.Condition ?? '').trim().replace(/^"|"$/g, '').trim();
+  if (!condition) return 'met';
+  if (record.ConditionRuntime === true) return 'unsupported';
+  if (Array.isArray(record.ConditionDifficulties)) return record.ConditionDifficulties.includes(difficulty) ? 'met' : 'unmet';
+  if (/^cond\('Difficulty',\s*hell\)$/.test(condition)) return difficulty === 2 ? 'met' : 'unmet';
+  return 'unsupported';
+}
+/** True when the class is switched off by a difficulty or game-completion gate. */
+export function gatedOff(tc: DropClass, difficulty: number): boolean {
+  return conditionState(tc, difficulty) === 'unmet' || (!!tc.QuestFlagEx && !GAME_COMPLETED);
+}
+/** True when the class has a gate that cannot be evaluated. Difficulty only decides met or unmet. */
+export function unsupportedGate(tc: DropClass): boolean {
+  return conditionState(tc, 0) === 'unsupported' || !!tc.QuestFlag;
 }
 const key = (value: string) => value.toLowerCase();
 const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(min, Number.isFinite(n) ? Math.trunc(n) : min));
@@ -113,8 +136,8 @@ export function calculateDrops(data: DropData, target: DropItem, input: DropSett
       set = Math.max(set, Number(modifiers.find(m => m.startsWith('cs='))?.slice(3) ?? 0));
       const ratio = data.Ratios.find(r => r.Uber === Number(base.Uber) && r.ClassSpecific === Number(base.ClassSpecific));
       if (!ratio) throw new Error('Missing item ratio');
-      const eligible = peers.filter(i => i.Random && i.Level <= source.Level && i.Rarity > 0);
-      if (eligible.some(i => i.Condition)) throw new Error('Conditional item eligibility is not supported');
+      const eligible = peers.filter(i => i.Random && i.Level <= source.Level && i.Rarity > 0 && conditionState(i, source.Difficulty) !== 'unmet');
+      if (eligible.some(i => conditionState(i, source.Difficulty) === 'unsupported')) throw new Error('Conditional item eligibility is not supported');
       const weight = eligible.reduce((total, i) => total + i.Rarity, 0);
       if (weight === 0) return [0, 1];
       const u = qualityChance(ratio.Unique, ratio.UniqueDivisor, ratio.UniqueMin, source.Level - base.Level, mf, 250, unique);
@@ -125,11 +148,9 @@ export function calculateDrops(data: DropData, target: DropItem, input: DropSett
       if (capacity === 0) return [1];
       const tc = classes.get(key(code));
       if (!tc) return leaf(code, unique, set);
-      // Recognize the source's difficulty gate without evaluating arbitrary expressions.
-      const condition = tc.Condition.trim().replace(/^"|"$/g, '');
-      const hellOnly = /^cond\('Difficulty',\s*hell\)$/.test(condition);
-      if (hellOnly && source.Difficulty !== 2) return [1];
-      if (condition && !hellOnly || tc.QuestFlag || tc.QuestFlagEx) {
+      // Recognize difficulty and game-completion gates without evaluating arbitrary expressions.
+      if (gatedOff(tc, source.Difficulty)) return [1];
+      if (unsupportedGate(tc)) {
         let relevant = conditionalReach.get(key(code));
         if (relevant === undefined) { relevant = canContainTarget(code); conditionalReach.set(key(code), relevant); }
         if (relevant) throw new Error('Conditional treasure class is not supported for this item');

@@ -15,7 +15,7 @@
 - Use Svelte 5 runes for project components.
 - Keep data pages server-rendered. Initial HTML must contain meaningful catalog content.
 - Reuse `CatalogFilters`, `CatalogCard`, `KeyedLines`, and related shared components before adding route-specific markup.
-- Keep Holy Grail storage keys compatible with existing users.
+- Keep Holy Grail storage keys and saved progress compatible with existing users.
 - Put catalog pages under `/data/*`; keep `/grail` top-level.
 - Keep comments concise and explain only non-obvious implementation choices.
 

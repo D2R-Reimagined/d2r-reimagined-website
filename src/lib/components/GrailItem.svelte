@@ -24,6 +24,6 @@
     {#if item.Rarity}<span class="rarity-line block text-sm">{$i18n.t('label_rarity', [item.Rarity])}</span>{/if}
     {#if item.Equipment?.NameKey}<span class="base-line block">{$i18n.t(item.Equipment.NameKey)}</span>{/if}
     {#if item.Runes?.length}<span class="block text-parchment-200">{item.Runes.map((rune) => $i18n.t(rune.NameKey)).join(' + ')}</span>{/if}
-    <KeyedLines lines={(item.Lines ?? []).slice(0, 2)} class="property-line mt-1 text-sm" />
+    <KeyedLines lines={(item.Lines ?? []).slice(0, 2)} class="property-line mt-1 text-sm" collapsible={false} />
   </button>
 </div>

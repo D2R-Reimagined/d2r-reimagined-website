@@ -1,46 +1,156 @@
-import type { Skill, SkillDamageScale } from '$lib/types';
+import type { Skill, SkillDamageScale, SkillDescriptionLine } from '$lib/types';
 
 interface CalcContext {
   skill: Skill;
   skillsByCode: Map<string, Skill>;
+  /** `lvl` / `sklvl` — skill levels including +skills. */
   ranks: Record<number, number>;
+  /** `blvl` — hard points only, mirroring the exporter's CalcLevels.BaseLevel. */
+  baseRanks: Record<number, number>;
+  /** `ulvl` — the character level, when the caller has a real or user-chosen one. */
+  characterLevel?: number;
   expanding: Set<string>;
+  /** `stat('name')` references read during evaluation; the site has no character stats, so they read 0. */
+  stats: Set<string>;
 }
 
 export function skillSynergyBonus(
   skill: Skill,
   scale: SkillDamageScale,
   skills: Skill[],
-  ranks: Record<number, number>
+  ranks: Record<number, number>,
+  baseRanks: Record<number, number> = ranks,
+  characterLevel?: number
 ): number {
-  const expression = {
+  return safeEvaluate(scaleExpression(skill, scale), skill, skills, ranks, baseRanks, characterLevel);
+}
+
+function scaleExpression(skill: Skill, scale: SkillDamageScale): string | undefined {
+  return {
     physical: skill.Calculation?.PhysicalDamage,
     elemental: skill.Calculation?.ElementalDamage,
     elementalLength: skill.Calculation?.ElementalLength
   }[scale];
-  if (!expression) return 0;
+}
 
+/**
+ * The damage percentage for one description line: its own missile-sourced `scaleCalc` when
+ * present, otherwise the skill's `*SymPerCalc` named by `scale`, otherwise none.
+ */
+export function skillLineSynergyBonus(
+  line: SkillDescriptionLine,
+  skill: Skill,
+  skills: Skill[],
+  ranks: Record<number, number>,
+  baseRanks: Record<number, number> = ranks,
+  characterLevel?: number
+): number {
+  return safeEvaluate(lineScaleExpression(line, skill), skill, skills, ranks, baseRanks, characterLevel);
+}
+
+function lineScaleExpression(line: SkillDescriptionLine, skill: Skill): string | undefined {
+  if (line.scaleCalc) return line.scaleCalc;
+  return line.scale ? scaleExpression(skill, line.scale) : undefined;
+}
+
+/**
+ * Live values for a description line's `valuesCalc` expressions, one per numeric argument.
+ * `undefined` marks an argument with no expression, or one that cannot be evaluated, so
+ * the caller keeps the exported table value.
+ */
+export function skillLineCalcValues(
+  line: SkillDescriptionLine,
+  skill: Skill,
+  skills: Skill[],
+  ranks: Record<number, number>,
+  baseRanks: Record<number, number> = ranks,
+  characterLevel?: number
+): Array<number | undefined> {
+  return (line.valuesCalc ?? []).map((expression) => {
+    if (!expression) return undefined;
+    try {
+      return evaluateSkillCalc(expression, skill, skills, ranks, baseRanks, characterLevel);
+    } catch {
+      return undefined;
+    }
+  });
+}
+
+/**
+ * The `stat()` names a description line's live calculations read. The site has no character or
+ * equipment stats, so each one counted as 0 and the shown value leaves out its contribution.
+ * Expressions that fail fall back to the exported table and contribute nothing here.
+ */
+export function skillLineUnavailableStats(
+  line: SkillDescriptionLine,
+  skill: Skill,
+  skills: Skill[],
+  ranks: Record<number, number>,
+  baseRanks: Record<number, number> = ranks,
+  characterLevel?: number
+): string[] {
+  const stats = new Set<string>();
+  for (const expression of [lineScaleExpression(line, skill), ...(line.valuesCalc ?? [])]) {
+    if (!expression) continue;
+    try {
+      for (const stat of evaluate(expression, skill, skills, ranks, baseRanks, characterLevel).stats) stats.add(stat);
+    } catch {
+      // Not evaluated, so its stats were not used either.
+    }
+  }
+  return [...stats];
+}
+
+function safeEvaluate(
+  expression: string | undefined,
+  skill: Skill,
+  skills: Skill[],
+  ranks: Record<number, number>,
+  baseRanks: Record<number, number>,
+  characterLevel: number | undefined
+): number {
+  if (!expression) return 0;
   try {
-    return evaluateSkillCalc(expression, skill, skills, ranks);
+    return evaluateSkillCalc(expression, skill, skills, ranks, baseRanks, characterLevel);
   } catch {
     return 0;
   }
 }
 
-/** Evaluates one exported skills.txt calc expression and throws if its vocabulary is unsupported. */
+/**
+ * Evaluates one exported skills.txt calc expression and throws if its vocabulary is unsupported.
+ * `ulvl` throws unless a character level is given. `stat()` reads 0; see skillLineUnavailableStats.
+ */
 export function evaluateSkillCalc(
   expression: string,
   skill: Skill,
   skills: Skill[],
-  ranks: Record<number, number>
+  ranks: Record<number, number>,
+  baseRanks: Record<number, number> = ranks,
+  characterLevel?: number
 ): number {
+  return evaluate(expression, skill, skills, ranks, baseRanks, characterLevel).value;
+}
+
+function evaluate(
+  expression: string,
+  skill: Skill,
+  skills: Skill[],
+  ranks: Record<number, number>,
+  baseRanks: Record<number, number>,
+  characterLevel: number | undefined
+): { value: number; stats: Set<string> } {
   const context: CalcContext = {
     skill,
     skillsByCode: new Map(skills.map((entry) => [entry.Code.toLowerCase(), entry])),
     ranks,
-    expanding: new Set()
+    baseRanks,
+    characterLevel,
+    expanding: new Set(),
+    stats: new Set()
   };
-  return new Parser(balanceTerminalParentheses(expression.trim().replace(/^"|"$/g, '')), context).parse();
+  const value = new Parser(balanceTerminalParentheses(expression.trim().replace(/^"|"$/g, '')), context).parse();
+  return { value, stats: context.stats };
 }
 
 function balanceTerminalParentheses(expression: string): string {
@@ -176,7 +286,10 @@ class Parser {
     }
     this.expect(')');
 
-    if (name.toLowerCase() === 'stat') return 0;
+    if (name.toLowerCase() === 'stat') {
+      this.context.stats.add(target);
+      return 0;
+    }
     if (name.toLowerCase() !== 'skill' || fields.length !== 1) {
       throw new Error('Unsupported skillcalc reference.');
     }
@@ -188,8 +301,13 @@ class Parser {
 
   private resolveSymbol(symbol: string, context: CalcContext): number {
     const lower = symbol.toLowerCase();
-    if (lower === 'lvl' || lower === 'blvl' || lower === 'sklvl') {
+    if (lower === 'blvl') return context.baseRanks[context.skill.Id] ?? 0;
+    if (lower === 'lvl' || lower === 'sklvl') {
       return context.ranks[context.skill.Id] ?? 0;
+    }
+    if (lower === 'ulvl') {
+      if (context.characterLevel === undefined) throw new Error('No character level for ulvl.');
+      return context.characterLevel;
     }
 
     const param = /^(?:par([1-9])|pa(1[0-9]|20))$/.exec(lower);

@@ -26,7 +26,7 @@
       {
         "FileIndex": 24,
         "NameKey": "Milabrega's Robe",
-        "Sprite": "sprites/items/armor-armor-ancient_armor.webp"
+        "Sprite": "sprites/items/armor-armor-victors_silk.webp"
       },
       {
         "FileIndex": 177,
@@ -386,7 +386,7 @@
       {
         "FileIndex": 34,
         "NameKey": "Tancred's Skull",
-        "Sprite": "sprites/items/armor-helmet-bone_helm.webp"
+        "Sprite": "sprites/items/armor-helmet-wormskull.webp"
       },
       {
         "FileIndex": 172,
@@ -408,11 +408,6 @@
         "Sprite": "sprites/items/armor-armor-breast_plate.webp"
       },
       {
-        "FileIndex": 901,
-        "NameKey": "Breastplate of Gond",
-        "Sprite": "sprites/items/armor-armor-breast_plate.webp"
-      },
-      {
         "FileIndex": 902,
         "NameKey": "Shattering Blow",
         "Sprite": "sprites/items/armor-armor-breast_plate.webp"
@@ -422,7 +417,7 @@
       {
         "FileIndex": 15,
         "NameKey": "Isenhart's Case",
-        "Sprite": "sprites/items/armor-armor-breast_plate.webp"
+        "Sprite": "sprites/items/armor-armor-isenharts_case.webp"
       },
       {
         "FileIndex": 181,
@@ -508,7 +503,7 @@
       {
         "FileIndex": 71,
         "NameKey": "Biggin's Bonnet",
-        "Sprite": "sprites/items/armor-helmet-cap_hat.webp"
+        "Sprite": "sprites/items/armor-helmet-war_bonnet.webp"
       },
       {
         "FileIndex": 971,
@@ -530,7 +525,7 @@
       {
         "FileIndex": 123,
         "NameKey": "Sander's Paragon",
-        "Sprite": "sprites/items/armor-helmet-cap_hat.webp"
+        "Sprite": "sprites/items/armor-helmet-war_bonnet.webp"
       }
     ]
   },
@@ -549,11 +544,6 @@
       {
         "FileIndex": 900,
         "NameKey": "Xanadu Dreams",
-        "Sprite": "sprites/items/armor-armor-chain_mail.webp"
-      },
-      {
-        "FileIndex": 899,
-        "NameKey": "Ghostly Chainmail",
         "Sprite": "sprites/items/armor-armor-chain_mail.webp"
       }
     ],
@@ -768,13 +758,13 @@
     "Sprite": "sprites/items/armor-pelt-hawk_helm.webp",
     "UniqueSprites": [
       {
-        "FileIndex": 1284,
-        "NameKey": "Copperbite",
+        "FileIndex": 1283,
+        "NameKey": "Swift Descent",
         "Sprite": "sprites/items/armor-pelt-hawk_helm.webp"
       },
       {
-        "FileIndex": 1283,
-        "NameKey": "Swift Descent",
+        "FileIndex": 1284,
+        "NameKey": "Copperbite",
         "Sprite": "sprites/items/armor-pelt-hawk_helm.webp"
       }
     ],
@@ -840,7 +830,7 @@
       },
       {
         "FileIndex": 1289,
-        "NameKey": "Lion's Pride",
+        "NameKey": "Dire Wolf Might",
         "Sprite": "sprites/items/armor-pelt-spirit_mask.webp"
       }
     ],
@@ -911,7 +901,7 @@
       },
       {
         "FileIndex": 1296,
-        "NameKey": "Night Prowler",
+        "NameKey": "The Black Stag",
         "Sprite": "sprites/items/armor-pelt-antlers.webp"
       }
     ],
@@ -997,7 +987,7 @@
       },
       {
         "FileIndex": 1301,
-        "NameKey": "Eagle Eyes",
+        "NameKey": "Belenu's Blessing",
         "Sprite": "sprites/items/armor-pelt-hawk_helm.webp"
       }
     ],
@@ -1031,13 +1021,13 @@
     "Sprite": "sprites/items/armor-pelt-falcon_mask.webp",
     "UniqueSprites": [
       {
-        "FileIndex": 350,
-        "NameKey": "Ravenlore",
+        "FileIndex": 1304,
+        "NameKey": "Hecuba's Tresses",
         "Sprite": "sprites/items/armor-pelt-falcon_mask.webp"
       },
       {
-        "FileIndex": 1304,
-        "NameKey": "Hecuba's Tresses",
+        "FileIndex": 350,
+        "NameKey": "Ravenlore",
         "Sprite": "sprites/items/armor-pelt-falcon_mask.webp"
       }
     ],
@@ -1051,13 +1041,13 @@
     "Sprite": "sprites/items/armor-pelt-spirit_mask.webp",
     "UniqueSprites": [
       {
-        "FileIndex": 1306,
-        "NameKey": "Stone Feather",
+        "FileIndex": 1305,
+        "NameKey": "Call of the Kindred",
         "Sprite": "sprites/items/armor-pelt-spirit_mask.webp"
       },
       {
-        "FileIndex": 1305,
-        "NameKey": "Call of the Kindred",
+        "FileIndex": 1306,
+        "NameKey": "Stone Hide",
         "Sprite": "sprites/items/armor-pelt-spirit_mask.webp"
       }
     ],
@@ -1090,7 +1080,7 @@
       {
         "FileIndex": 16,
         "NameKey": "Isenhart's Horns",
-        "Sprite": "sprites/items/armor-helmet-full_helm.webp"
+        "Sprite": "sprites/items/armor-helmet-isenharts_horns.webp"
       },
       {
         "FileIndex": 167,
@@ -1114,11 +1104,6 @@
       {
         "FileIndex": 89,
         "NameKey": "Rockfleece",
-        "Sprite": "sprites/items/armor-armor-field_plate.webp"
-      },
-      {
-        "FileIndex": 907,
-        "NameKey": "Dreamscape",
         "Sprite": "sprites/items/armor-armor-field_plate.webp"
       }
     ],
@@ -1157,7 +1142,7 @@
       {
         "FileIndex": 31,
         "NameKey": "Tancred's Spine",
-        "Sprite": "sprites/items/armor-armor-full_plate_mail.webp"
+        "Sprite": "sprites/items/armor-armor-goldskin.webp"
       },
       {
         "FileIndex": 129,
@@ -1270,7 +1255,7 @@
       {
         "FileIndex": 14,
         "NameKey": "Isenhart's Parry",
-        "Sprite": "sprites/items/armor-shield-gothic_shield.webp"
+        "Sprite": "sprites/items/armor-shield-the_ward.webp"
       }
     ]
   },
@@ -1475,7 +1460,7 @@
       {
         "FileIndex": 44,
         "NameKey": "Berserker's Headgear",
-        "Sprite": "sprites/items/armor-helmet-helm.webp"
+        "Sprite": "sprites/items/armor-helmet-coif_of_glory.webp"
       }
     ]
   },
@@ -1506,7 +1491,7 @@
       {
         "FileIndex": 21,
         "NameKey": "Milabrega's Orb",
-        "Sprite": "sprites/items/armor-shield-kite_shield.webp"
+        "Sprite": "sprites/items/armor-shield-steelclash.webp"
       }
     ]
   },
@@ -1681,7 +1666,7 @@
       {
         "FileIndex": 0,
         "NameKey": "Civerb's Ward",
-        "Sprite": "sprites/items/armor-shield-large_shield.webp"
+        "Sprite": "sprites/items/armor-shield-stormguild.webp"
       },
       {
         "FileIndex": 154,
@@ -2111,6 +2096,11 @@
     "Sprite": "sprites/items/armor-voodoo_head-unraveller_head.webp",
     "UniqueSprites": [
       {
+        "FileIndex": 925,
+        "NameKey": "Heartbane",
+        "Sprite": "sprites/items/armor-voodoo_head-unraveller_head.webp"
+      },
+      {
         "FileIndex": 1225,
         "NameKey": "Jondars Horde",
         "Sprite": "sprites/items/armor-voodoo_head-unraveller_head.webp"
@@ -2137,13 +2127,18 @@
     "Sprite": "sprites/items/armor-voodoo_head-gargoyle_head.webp",
     "UniqueSprites": [
       {
-        "FileIndex": 1226,
-        "NameKey": "Mehtans Choice",
+        "FileIndex": 940,
+        "NameKey": "Nightcrawler",
         "Sprite": "sprites/items/armor-voodoo_head-gargoyle_head.webp"
       },
       {
         "FileIndex": 341,
         "NameKey": "Boneflame",
+        "Sprite": "sprites/items/armor-voodoo_head-gargoyle_head.webp"
+      },
+      {
+        "FileIndex": 1226,
+        "NameKey": "Mehtans Choice",
         "Sprite": "sprites/items/armor-voodoo_head-gargoyle_head.webp"
       }
     ],
@@ -2481,6 +2476,11 @@
     "Sprite": "sprites/items/armor-shield-aerin_shield.webp",
     "UniqueSprites": [
       {
+        "FileIndex": 907,
+        "NameKey": "Dreamscape",
+        "Sprite": "sprites/items/armor-shield-aerin_shield.webp"
+      },
+      {
         "FileIndex": 347,
         "NameKey": "Dragonscale",
         "Sprite": "sprites/items/armor-shield-aerin_shield.webp"
@@ -2509,6 +2509,11 @@
       {
         "FileIndex": 1253,
         "NameKey": "Valorsong",
+        "Sprite": "sprites/items/armor-shield-crown_shield.webp"
+      },
+      {
+        "FileIndex": 920,
+        "NameKey": "Scavanger's Carapace",
         "Sprite": "sprites/items/armor-shield-crown_shield.webp"
       },
       {
@@ -2639,11 +2644,6 @@
         "FileIndex": 898,
         "NameKey": "Mandrake's Bloom",
         "Sprite": "sprites/items/armor-armor-scale_mail.webp"
-      },
-      {
-        "FileIndex": 897,
-        "NameKey": "Red Dragon Scales",
-        "Sprite": "sprites/items/armor-armor-scale_mail.webp"
       }
     ],
     "SetSprites": [
@@ -2717,7 +2717,7 @@
       {
         "FileIndex": 7,
         "NameKey": "Cleglaw's Claw",
-        "Sprite": "sprites/items/armor-shield-small_shield.webp"
+        "Sprite": "sprites/items/armor-shield-umbral_disk.webp"
       }
     ]
   },
@@ -2956,7 +2956,7 @@
       },
       {
         "FileIndex": 1032,
-        "NameKey": "Bigby's Crushing Fist",
+        "NameKey": "Hratlis Warden",
         "Sprite": "sprites/items/armor-shield-tower_shield.webp"
       },
       {
@@ -2969,7 +2969,7 @@
       {
         "FileIndex": 40,
         "NameKey": "Sigon's Guard",
-        "Sprite": "sprites/items/armor-shield-tower_shield.webp"
+        "Sprite": "sprites/items/armor-shield-bverrit_keep.webp"
       }
     ]
   },
@@ -3014,19 +3014,19 @@
       {
         "FileIndex": 366,
         "NameKey": "Templar's Might",
-        "Sprite": "sprites/items/armor-armor-ancient_armor.webp"
+        "Sprite": "sprites/items/armor-uniquearmor-templars_might.webp"
       },
       {
         "FileIndex": 311,
         "NameKey": "Tyrael's Might",
-        "Sprite": "sprites/items/armor-armor-ancient_armor.webp"
+        "Sprite": "sprites/items/armor-uniquearmor-tyraels_might.webp"
       }
     ],
     "SetSprites": [
       {
         "FileIndex": 71,
         "NameKey": "Immortal King's Soul Cage",
-        "Sprite": "sprites/items/armor-armor-ancient_armor.webp"
+        "Sprite": "sprites/items/armor-armor-victors_silk.webp"
       },
       {
         "FileIndex": 242,
@@ -3124,7 +3124,7 @@
       {
         "FileIndex": 85,
         "NameKey": "Trang-Oul's Guise",
-        "Sprite": "sprites/items/armor-helmet-bone_helm.webp"
+        "Sprite": "sprites/items/armor-helmet-wormskull.webp"
       },
       {
         "FileIndex": 286,
@@ -3294,7 +3294,7 @@
       {
         "FileIndex": 103,
         "NameKey": "Ondal's Almighty",
-        "Sprite": "sprites/items/armor-helmet-great_helm.webp"
+        "Sprite": "sprites/items/armor-helmet-ondals_almighty.webp"
       },
       {
         "FileIndex": 373,
@@ -3318,6 +3318,11 @@
       {
         "FileIndex": 958,
         "NameKey": "Tarrasque Hide",
+        "Sprite": "sprites/items/armor-armor-chain_mail.webp"
+      },
+      {
+        "FileIndex": 899,
+        "NameKey": "Ghostly Chainmail",
         "Sprite": "sprites/items/armor-armor-chain_mail.webp"
       }
     ],
@@ -3803,7 +3808,7 @@
       {
         "FileIndex": 349,
         "NameKey": "Medusa's Gaze",
-        "Sprite": "sprites/items/armor-shield-tower_shield.webp"
+        "Sprite": "sprites/items/armor-shield-bverrit_keep.webp"
       },
       {
         "FileIndex": 1058,
@@ -3865,11 +3870,16 @@
       {
         "FileIndex": 961,
         "NameKey": "Diablo's Scale",
-        "Sprite": "sprites/items/armor-armor-splint_mail.webp"
+        "Sprite": "sprites/items/armor-uniquearmor-diablos_scale.webp"
       },
       {
         "FileIndex": 251,
         "NameKey": "Arkaine's Valor",
+        "Sprite": "sprites/items/armor-armor-splint_mail.webp"
+      },
+      {
+        "FileIndex": 897,
+        "NameKey": "Red Dragon Scales",
         "Sprite": "sprites/items/armor-armor-splint_mail.webp"
       }
     ],
@@ -3964,6 +3974,11 @@
         "FileIndex": 960,
         "NameKey": "Gray God's Mantle",
         "Sprite": "sprites/items/armor-armor-breast_plate.webp"
+      },
+      {
+        "FileIndex": 901,
+        "NameKey": "Breastplate of Gond",
+        "Sprite": "sprites/items/armor-armor-breast_plate.webp"
       }
     ],
     "SetSprites": [
@@ -3989,7 +4004,7 @@
       {
         "FileIndex": 390,
         "NameKey": "Head Hunter's Glory",
-        "Sprite": "sprites/items/armor-shield-bone_shield.webp"
+        "Sprite": "sprites/items/armor-shield-wall_of_the_eyeless.webp"
       },
       {
         "FileIndex": 1061,
@@ -4027,7 +4042,7 @@
       {
         "FileIndex": 135,
         "NameKey": "Horazon's Countenance",
-        "Sprite": "sprites/items/armor-helmet-mask.webp"
+        "Sprite": "sprites/items/armor-helmet-horazons_countenance.webp"
       },
       {
         "FileIndex": 278,
@@ -4177,6 +4192,11 @@
         "Sprite": "sprites/items/armor-armor-gothic_plate.webp"
       },
       {
+        "FileIndex": 941,
+        "NameKey": "Shambling Mound",
+        "Sprite": "sprites/items/armor-armor-gothic_plate.webp"
+      },
+      {
         "FileIndex": 965,
         "NameKey": "Lachdanan's Heart",
         "Sprite": "sprites/items/armor-armor-gothic_plate.webp"
@@ -4210,6 +4230,11 @@
       {
         "FileIndex": 968,
         "NameKey": "Heaven's Treasure",
+        "Sprite": "sprites/items/armor-armor-light_plate.webp"
+      },
+      {
+        "FileIndex": 931,
+        "NameKey": "Tesla's Cuirass",
         "Sprite": "sprites/items/armor-armor-light_plate.webp"
       },
       {
@@ -4253,7 +4278,7 @@
       {
         "FileIndex": 101,
         "NameKey": "Taebaek's Glory",
-        "Sprite": "sprites/items/armor-shield-gothic_shield.webp"
+        "Sprite": "sprites/items/armor-shield-heavens_taebaek.webp"
       }
     ]
   },
@@ -4365,6 +4390,11 @@
       {
         "FileIndex": 348,
         "NameKey": "Steel Carapace",
+        "Sprite": "sprites/items/armor-armor-full_plate_mail.webp"
+      },
+      {
+        "FileIndex": 918,
+        "NameKey": "Gillian's Brazier",
         "Sprite": "sprites/items/armor-armor-full_plate_mail.webp"
       },
       {
@@ -4736,7 +4766,8 @@
       },
       {
         "FileIndex": 411,
-        "NameKey": "Measured Wrath"
+        "NameKey": "Measured Wrath",
+        "Sprite": "sprites/items/armor-grimoires-measured_wrath.webp"
       }
     ],
     "SetSprites": []
@@ -4856,7 +4887,7 @@
       {
         "FileIndex": 410,
         "NameKey": "Ars Dul'Mephistos",
-        "Sprite": "sprites/items/armor-grimoires-tome_book.webp"
+        "Sprite": "sprites/items/armor-grimoires-ars_aldiablolos.webp"
       }
     ],
     "SetSprites": [
@@ -4889,7 +4920,7 @@
       {
         "FileIndex": 139,
         "NameKey": "Horazon's Secrets",
-        "Sprite": "sprites/items/armor-grimoires-codex.webp"
+        "Sprite": "sprites/items/armor-grimoires-ars_torbaalos.webp"
       }
     ]
   },
@@ -4903,7 +4934,7 @@
       {
         "FileIndex": 409,
         "NameKey": "Ars Tor'Baalos",
-        "Sprite": "sprites/items/armor-grimoires-compendium.webp"
+        "Sprite": "sprites/items/armor-grimoires-ars_aldiablolos.webp"
       },
       {
         "FileIndex": 1466,
@@ -4923,7 +4954,7 @@
       {
         "FileIndex": 408,
         "NameKey": "Ars Al'Diablolos",
-        "Sprite": "sprites/items/armor-grimoires-grimoire.webp"
+        "Sprite": "sprites/items/armor-grimoires-ars_aldiablolos.webp"
       },
       {
         "FileIndex": 1467,
@@ -5001,7 +5032,7 @@
       {
         "FileIndex": 82,
         "NameKey": "Griswold's Heart",
-        "Sprite": "sprites/items/armor-armor-ancient_armor.webp"
+        "Sprite": "sprites/items/armor-armor-corpsemourn.webp"
       },
       {
         "FileIndex": 371,
@@ -5069,11 +5100,6 @@
         "Sprite": "sprites/items/armor-armor-leather_armor.webp"
       },
       {
-        "FileIndex": 920,
-        "NameKey": "Scavanger's Carapace",
-        "Sprite": "sprites/items/armor-armor-leather_armor.webp"
-      },
-      {
         "FileIndex": 919,
         "NameKey": "Anaconda Skin",
         "Sprite": "sprites/items/armor-armor-leather_armor.webp"
@@ -5119,7 +5145,7 @@
       {
         "FileIndex": 62,
         "NameKey": "Natalya's Totem",
-        "Sprite": "sprites/items/armor-helmet-bone_helm.webp"
+        "Sprite": "sprites/items/armor-helmet-wormskull.webp"
       },
       {
         "FileIndex": 225,
@@ -5227,7 +5253,7 @@
       {
         "FileIndex": 114,
         "NameKey": "Sazabi's Mental Sheath",
-        "Sprite": "sprites/items/armor-helmet-full_helm.webp"
+        "Sprite": "sprites/items/armor-helmet-duskdeep.webp"
       },
       {
         "FileIndex": 361,
@@ -5323,7 +5349,7 @@
       {
         "FileIndex": 227,
         "NameKey": "Tiamat's Rebuke",
-        "Sprite": "sprites/items/armor-shield-kite_shield.webp"
+        "Sprite": "sprites/items/armor-shield-steelclash.webp"
       },
       {
         "FileIndex": 1042,
@@ -5353,7 +5379,8 @@
     "UniqueSprites": [
       {
         "FileIndex": 202,
-        "NameKey": "Rockstopper"
+        "NameKey": "Rockstopper",
+        "Sprite": "sprites/items/armor-helmet-rockstopper.webp"
       },
       {
         "FileIndex": 988,
@@ -5697,7 +5724,7 @@
       {
         "FileIndex": 225,
         "NameKey": "Moser's Blessed Circle1",
-        "Sprite": "sprites/items/armor-shield-small_shield.webp"
+        "Sprite": "sprites/items/armor-shield-mosers_blessed_circle.webp"
       },
       {
         "FileIndex": 1039,
@@ -5714,7 +5741,7 @@
       {
         "FileIndex": 107,
         "NameKey": "Whitstan's Guard",
-        "Sprite": "sprites/items/armor-shield-small_shield.webp"
+        "Sprite": "sprites/items/armor-shield-mosers_blessed_circle.webp"
       }
     ]
   },
@@ -5728,11 +5755,6 @@
       {
         "FileIndex": 213,
         "NameKey": "Spirit Forge",
-        "Sprite": "sprites/items/armor-armor-ring_mail.webp"
-      },
-      {
-        "FileIndex": 925,
-        "NameKey": "Heartbane",
         "Sprite": "sprites/items/armor-armor-ring_mail.webp"
       },
       {
@@ -5764,7 +5786,7 @@
       {
         "FileIndex": 228,
         "NameKey": "Gerke's Sanctuary1",
-        "Sprite": "sprites/items/armor-shield-tower_shield.webp"
+        "Sprite": "sprites/items/armor-shield-bverrit_keep.webp"
       },
       {
         "FileIndex": 1044,
@@ -5925,7 +5947,7 @@
       {
         "FileIndex": 108,
         "NameKey": "Hwanin's Splendor",
-        "Sprite": "sprites/items/armor-helmet-crown.webp"
+        "Sprite": "sprites/items/armor-helmet-crown_of_thieves.webp"
       },
       {
         "FileIndex": 196,
@@ -5947,11 +5969,6 @@
         "Sprite": "sprites/items/armor-armor-breast_plate.webp"
       },
       {
-        "FileIndex": 931,
-        "NameKey": "Tesla's Cuirass",
-        "Sprite": "sprites/items/armor-armor-breast_plate.webp"
-      },
-      {
         "FileIndex": 932,
         "NameKey": "Skovos' Cuirass",
         "Sprite": "sprites/items/armor-armor-breast_plate.webp"
@@ -5961,7 +5978,7 @@
       {
         "FileIndex": 102,
         "NameKey": "Haemosu's Adamant",
-        "Sprite": "sprites/items/armor-armor-breast_plate.webp"
+        "Sprite": "sprites/items/armor-armor-haemosus_adament.webp"
       }
     ]
   },
@@ -6107,7 +6124,7 @@
       },
       {
         "FileIndex": 1079,
-        "NameKey": "Warlock's Touch",
+        "NameKey": "Gravewood Grasp",
         "Sprite": "sprites/items/armor-glove-light_gauntlets.webp"
       }
     ],
@@ -6139,11 +6156,6 @@
       {
         "FileIndex": 220,
         "NameKey": "Atma's Wail",
-        "Sprite": "sprites/items/armor-armor-gothic_plate.webp"
-      },
-      {
-        "FileIndex": 940,
-        "NameKey": "Nightcrawler",
         "Sprite": "sprites/items/armor-armor-gothic_plate.webp"
       },
       {
@@ -6216,7 +6228,7 @@
       {
         "FileIndex": 229,
         "NameKey": "Radament's Sphere",
-        "Sprite": "sprites/items/armor-shield-gothic_shield.webp"
+        "Sprite": "sprites/items/armor-shield-the_ward.webp"
       },
       {
         "FileIndex": 1046,
@@ -6325,11 +6337,6 @@
         "FileIndex": 917,
         "NameKey": "Rainbow Cloak",
         "Sprite": "sprites/items/armor-armor-quilted_armor.webp"
-      },
-      {
-        "FileIndex": 918,
-        "NameKey": "Gillian's Brazier",
-        "Sprite": "sprites/items/armor-armor-quilted_armor.webp"
       }
     ],
     "SetSprites": [
@@ -6360,11 +6367,6 @@
       {
         "FileIndex": 221,
         "NameKey": "Black Hades",
-        "Sprite": "sprites/items/armor-armor-full_plate_mail.webp"
-      },
-      {
-        "FileIndex": 941,
-        "NameKey": "Shambling Mound",
         "Sprite": "sprites/items/armor-armor-full_plate_mail.webp"
       }
     ],
@@ -6754,7 +6756,7 @@
       {
         "FileIndex": 789,
         "NameKey": "Radament's Bite",
-        "Sprite": "sprites/items/weapon-bow-composite_bow.webp"
+        "Sprite": "sprites/items/weapon-bow-pullspite.webp"
       },
       {
         "FileIndex": 1439,
@@ -6774,7 +6776,7 @@
       {
         "FileIndex": 388,
         "NameKey": "Ondal's Wisdom",
-        "Sprite": "sprites/items/weapon-staff-gnarled_staff.webp"
+        "Sprite": "sprites/items/weapon-staff-lazarus_spire.webp"
       },
       {
         "FileIndex": 726,
@@ -6786,7 +6788,7 @@
       {
         "FileIndex": 120,
         "NameKey": "Naj's Puzzler",
-        "Sprite": "sprites/items/weapon-staff-gnarled_staff.webp"
+        "Sprite": "sprites/items/weapon-staff-lazarus_spire.webp"
       }
     ]
   },
@@ -6964,13 +6966,13 @@
     "Sprite": "sprites/items/weapon-bow-crossbow.webp",
     "UniqueSprites": [
       {
-        "FileIndex": 818,
-        "NameKey": "Grey Render",
+        "FileIndex": 817,
+        "NameKey": "Wightslayer",
         "Sprite": "sprites/items/weapon-bow-crossbow.webp"
       },
       {
-        "FileIndex": 817,
-        "NameKey": "Wightslayer",
+        "FileIndex": 818,
+        "NameKey": "Grey Render",
         "Sprite": "sprites/items/weapon-bow-crossbow.webp"
       }
     ],
@@ -7112,7 +7114,7 @@
       {
         "FileIndex": 322,
         "NameKey": "Mang Song's Lesson",
-        "Sprite": "sprites/items/weapon-staff-war_staff.webp"
+        "Sprite": "sprites/items/weapon-staff-skullcollector.webp"
       },
       {
         "FileIndex": 729,
@@ -7304,12 +7306,13 @@
     "UniqueSprites": [
       {
         "FileIndex": 292,
-        "NameKey": "Warshrike"
+        "NameKey": "Warshrike",
+        "Sprite": "sprites/items/weapon-knife-warshrike.webp"
       },
       {
         "FileIndex": 876,
         "NameKey": "Butcher's Paring Knives",
-        "Sprite": "sprites/items/weapon-knife-balanced_knife.webp"
+        "Sprite": "sprites/items/weapon-knife-warshrike.webp"
       },
       {
         "FileIndex": 886,
@@ -7435,7 +7438,7 @@
       {
         "FileIndex": 384,
         "NameKey": "Nord's Tenderizer",
-        "Sprite": "sprites/items/weapon-club-club.webp"
+        "Sprite": "sprites/items/weapon-club-felloak.webp"
       },
       {
         "FileIndex": 576,
@@ -7480,7 +7483,8 @@
     "UniqueSprites": [
       {
         "FileIndex": 259,
-        "NameKey": "Lightsabre"
+        "NameKey": "Lightsabre",
+        "Sprite": "sprites/items/weapon-sword-lightsabre.webp"
       },
       {
         "FileIndex": 500,
@@ -7664,7 +7668,7 @@
       {
         "FileIndex": 255,
         "NameKey": "Messerschmidt's Reaver",
-        "Sprite": "sprites/items/weapon-axe-great_axe.webp"
+        "Sprite": "sprites/items/weapon-axe-brainhew.webp"
       },
       {
         "FileIndex": 489,
@@ -7758,6 +7762,11 @@
     "Height": 3,
     "Sprite": "sprites/items/weapon-hammer-great_maul.webp",
     "UniqueSprites": [
+      {
+        "FileIndex": 585,
+        "NameKey": "Vilifier",
+        "Sprite": "sprites/items/weapon-hammer-great_maul.webp"
+      },
       {
         "FileIndex": 385,
         "NameKey": "Earth Shifter",
@@ -7858,7 +7867,7 @@
       {
         "FileIndex": 294,
         "NameKey": "Razor's Edge",
-        "Sprite": "sprites/items/weapon-axe-hand_axe.webp"
+        "Sprite": "sprites/items/weapon-axe-the_gnasher.webp"
       },
       {
         "FileIndex": 459,
@@ -7903,7 +7912,7 @@
       {
         "FileIndex": 170,
         "NameKey": "Blackbog's Sharp",
-        "Sprite": "sprites/items/weapon-knife-kriss.webp"
+        "Sprite": "sprites/items/weapon-knife-the_jade_tan_do.webp"
       },
       {
         "FileIndex": 640,
@@ -7955,7 +7964,7 @@
       {
         "FileIndex": 112,
         "NameKey": "Sazabi's Cobalt Redeemer",
-        "Sprite": "sprites/items/weapon-sword-long_sword.webp"
+        "Sprite": "sprites/items/weapon-sword-hellplague.webp"
       }
     ]
   },
@@ -8027,7 +8036,7 @@
       {
         "FileIndex": 100,
         "NameKey": "Dangoon's Teaching",
-        "Sprite": "sprites/items/weapon-mace-mace.webp"
+        "Sprite": "sprites/items/weapon-mace-dangoons_teaching.webp"
       }
     ]
   },
@@ -8061,7 +8070,7 @@
       {
         "FileIndex": 256,
         "NameKey": "Baranar's Star",
-        "Sprite": "sprites/items/weapon-mace-morning_star.webp"
+        "Sprite": "sprites/items/weapon-mace-bloodrise.webp"
       },
       {
         "FileIndex": 605,
@@ -8185,7 +8194,7 @@
       {
         "FileIndex": 63,
         "NameKey": "Natalya's Mark",
-        "Sprite": "sprites/items/weapon-h2h-scissors_katar.webp"
+        "Sprite": "sprites/items/weapon-h2h-natalyas_mark.webp"
       }
     ]
   },
@@ -8566,6 +8575,11 @@
       {
         "FileIndex": 314,
         "NameKey": "Death Cleaver",
+        "Sprite": "sprites/items/weapon-axe-war_axe.webp"
+      },
+      {
+        "FileIndex": 467,
+        "NameKey": "Night Hag",
         "Sprite": "sprites/items/weapon-axe-war_axe.webp"
       },
       {
@@ -9272,7 +9286,7 @@
       {
         "FileIndex": 130,
         "NameKey": "Butcher's Pupil",
-        "Sprite": "sprites/items/weapon-axe-axe.webp"
+        "Sprite": "sprites/items/weapon-axe-deathspade.webp"
       },
       {
         "FileIndex": 451,
@@ -9633,7 +9647,7 @@
       {
         "FileIndex": 158,
         "NameKey": "Ginther's Rift",
-        "Sprite": "sprites/items/weapon-sword-crystal_sword.webp"
+        "Sprite": "sprites/items/weapon-sword-ginthers_rift.webp"
       },
       {
         "FileIndex": 517,
@@ -9877,7 +9891,7 @@
       {
         "FileIndex": 138,
         "NameKey": "The Minotaur1",
-        "Sprite": "sprites/items/weapon-axe-giant_axe.webp"
+        "Sprite": "sprites/items/weapon-axe-the_minataur.webp"
       },
       {
         "FileIndex": 483,
@@ -10235,7 +10249,7 @@
       {
         "FileIndex": 132,
         "NameKey": "Pompeii's Wrath",
-        "Sprite": "sprites/items/weapon-axe-military_pick.webp"
+        "Sprite": "sprites/items/weapon-axe-mindrend.webp"
       },
       {
         "FileIndex": 455,
@@ -10416,7 +10430,7 @@
       {
         "FileIndex": 179,
         "NameKey": "Athena's Wrath",
-        "Sprite": "sprites/items/weapon-polearm-scythe.webp"
+        "Sprite": "sprites/items/weapon-polearm-athenas_wrath.webp"
       },
       {
         "FileIndex": 686,
@@ -11268,7 +11282,7 @@
       {
         "FileIndex": 332,
         "NameKey": "Blood Raven's Charge",
-        "Sprite": "sprites/items/weapon-bow-stag_bow.webp"
+        "Sprite": "sprites/items/weapon-bow-hellclap.webp"
       },
       {
         "FileIndex": 1151,
@@ -11497,11 +11511,6 @@
         "FileIndex": 468,
         "NameKey": "Mirth Bringer",
         "Sprite": "sprites/items/weapon-axe-broad_axe.webp"
-      },
-      {
-        "FileIndex": 467,
-        "NameKey": "Night Hag",
-        "Sprite": "sprites/items/weapon-axe-broad_axe.webp"
       }
     ],
     "SetSprites": []
@@ -11591,7 +11600,7 @@
       {
         "FileIndex": 30,
         "NameKey": "Griswold's Edge",
-        "Sprite": "sprites/items/weapon-sword-broad_sword.webp"
+        "Sprite": "sprites/items/weapon-sword-griswolds_edge.webp"
       },
       {
         "FileIndex": 502,
@@ -11603,7 +11612,7 @@
       {
         "FileIndex": 13,
         "NameKey": "Isenhart's Lightbrand",
-        "Sprite": "sprites/items/weapon-sword-broad_sword.webp"
+        "Sprite": "sprites/items/weapon-sword-griswolds_edge.webp"
       }
     ]
   },
@@ -11740,7 +11749,7 @@
       {
         "FileIndex": 126,
         "NameKey": "Sander's Superstition",
-        "Sprite": "sprites/items/weapon-wand-bone_wand.webp"
+        "Sprite": "sprites/items/weapon-wand-gravenspine.webp"
       },
       {
         "FileIndex": 149,
@@ -11759,7 +11768,7 @@
       {
         "FileIndex": 62,
         "NameKey": "Rogue's Bow",
-        "Sprite": "sprites/items/weapon-bow-composite_bow.webp"
+        "Sprite": "sprites/items/weapon-bow-piercerib.webp"
       },
       {
         "FileIndex": 758,
@@ -12107,7 +12116,7 @@
       {
         "FileIndex": 35,
         "NameKey": "Kinemil's Awl",
-        "Sprite": "sprites/items/weapon-sword-giant_sword.webp"
+        "Sprite": "sprites/items/weapon-sword-kinemils_awl.webp"
       },
       {
         "FileIndex": 539,
@@ -12177,11 +12186,6 @@
       {
         "FileIndex": 24,
         "NameKey": "Steeldriver",
-        "Sprite": "sprites/items/weapon-hammer-great_maul.webp"
-      },
-      {
-        "FileIndex": 585,
-        "NameKey": "Vilifier",
         "Sprite": "sprites/items/weapon-hammer-great_maul.webp"
       },
       {
@@ -12474,7 +12478,7 @@
       {
         "FileIndex": 132,
         "NameKey": "Bane's Oathmaker",
-        "Sprite": "sprites/items/weapon-knife-kriss.webp"
+        "Sprite": "sprites/items/weapon-knife-banes_spire.webp"
       }
     ]
   },
@@ -12615,7 +12619,7 @@
       {
         "FileIndex": 6,
         "NameKey": "Cleglaw's Tooth",
-        "Sprite": "sprites/items/weapon-sword-long_sword.webp"
+        "Sprite": "sprites/items/weapon-sword-hellplague.webp"
       }
     ]
   },
@@ -12772,7 +12776,7 @@
       {
         "FileIndex": 30,
         "NameKey": "Tancred's Crowbill",
-        "Sprite": "sprites/items/weapon-axe-military_pick.webp"
+        "Sprite": "sprites/items/weapon-axe-mindrend.webp"
       }
     ]
   },
@@ -13154,7 +13158,7 @@
       {
         "FileIndex": 354,
         "NameKey": "Death's Fathom",
-        "Sprite": "sprites/items/weapon-orb-dragon_stone.webp"
+        "Sprite": "sprites/items/weapon-uniqueweapon-deaths_fathom.webp"
       },
       {
         "FileIndex": 1200,
@@ -13624,6 +13628,11 @@
     "Height": 3,
     "Sprite": "sprites/items/weapon-staff-short_staff.webp",
     "UniqueSprites": [
+      {
+        "FileIndex": 1484,
+        "NameKey": "Thunderstep Test Staff",
+        "Sprite": "sprites/items/weapon-staff-short_staff.webp"
+      },
       {
         "FileIndex": 54,
         "NameKey": "Bane Ash",
@@ -14269,7 +14278,7 @@
       {
         "FileIndex": 1376,
         "NameKey": "Rat Lord's Curse",
-        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+        "Sprite": "sprites/items/misc-uniqueamulet-rat_lords_curse.webp"
       },
       {
         "FileIndex": 1377,
@@ -14279,7 +14288,7 @@
       {
         "FileIndex": 269,
         "NameKey": "The Cat's Eye",
-        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+        "Sprite": "sprites/items/misc-uniqueamulet-the_cats_eye.webp"
       },
       {
         "FileIndex": 417,
@@ -14289,12 +14298,12 @@
       {
         "FileIndex": 277,
         "NameKey": "Saracen's Chance",
-        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+        "Sprite": "sprites/items/misc-uniqueamulet-saracens_chance.webp"
       },
       {
         "FileIndex": 273,
         "NameKey": "Atma's Scarab",
-        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+        "Sprite": "sprites/items/misc-uniqueamulet-atmas_scarab.webp"
       },
       {
         "FileIndex": 270,
@@ -14304,17 +14313,17 @@
       {
         "FileIndex": 276,
         "NameKey": "Highlord's Wrath",
-        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+        "Sprite": "sprites/items/misc-uniqueamulet-highlords_wrath.webp"
       },
       {
         "FileIndex": 302,
         "NameKey": "Seraph's Hymn",
-        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+        "Sprite": "sprites/items/misc-uniqueamulet-seraphs_hymn.webp"
       },
       {
         "FileIndex": 272,
         "NameKey": "Mara's Kaleidoscope",
-        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+        "Sprite": "sprites/items/misc-uniqueamulet-maras_kaleidoscope.webp"
       },
       {
         "FileIndex": 271,
@@ -14344,7 +14353,7 @@
       {
         "FileIndex": 1469,
         "NameKey": "The Thief's Choker",
-        "Sprite": "sprites/items/misc-amulet-amulet.webp"
+        "Sprite": "sprites/items/misc-uniqueamulet-the_thiefs_choker.webp"
       }
     ],
     "SetSprites": [
@@ -14656,32 +14665,32 @@
       {
         "FileIndex": 420,
         "NameKey": "Defender's Bile",
-        "Sprite": "sprites/items/misc-gem-jewels.webp"
+        "Sprite": "sprites/items/misc-body_part-fragment_poison.webp"
       },
       {
         "FileIndex": 421,
         "NameKey": "Guardian's Thunder",
-        "Sprite": "sprites/items/misc-gem-jewels.webp"
+        "Sprite": "sprites/items/misc-body_part-fragment_lightning.webp"
       },
       {
         "FileIndex": 422,
         "NameKey": "Protector's Frost",
-        "Sprite": "sprites/items/misc-gem-jewels.webp"
+        "Sprite": "sprites/items/misc-body_part-fragment_cold.webp"
       },
       {
         "FileIndex": 423,
         "NameKey": "Defender's Fire",
-        "Sprite": "sprites/items/misc-gem-jewels.webp"
+        "Sprite": "sprites/items/misc-body_part-fragment_fire.webp"
       },
       {
         "FileIndex": 424,
         "NameKey": "Protector's Stone",
-        "Sprite": "sprites/items/misc-gem-jewels.webp"
+        "Sprite": "sprites/items/misc-body_part-fragment_physical.webp"
       },
       {
         "FileIndex": 425,
         "NameKey": "Guardian's Light",
-        "Sprite": "sprites/items/misc-gem-jewels.webp"
+        "Sprite": "sprites/items/misc-body_part-fragment_magic.webp"
       }
     ],
     "SetSprites": []
@@ -14696,7 +14705,7 @@
       {
         "FileIndex": 1381,
         "NameKey": "Autumn's Avatar",
-        "Sprite": "sprites/items/misc-charm-charm_small.webp"
+        "Sprite": "sprites/items/misc-uniquecharm-autumns_avatar.webp"
       },
       {
         "FileIndex": 1385,
@@ -14706,7 +14715,7 @@
       {
         "FileIndex": 1383,
         "NameKey": "Argo's Anchor",
-        "Sprite": "sprites/items/misc-charm-charm_small.webp"
+        "Sprite": "sprites/items/misc-uniquecharm-argos_anchor.webp"
       },
       {
         "FileIndex": 381,
@@ -14746,7 +14755,7 @@
       {
         "FileIndex": 1384,
         "NameKey": "Ogre King's Bowl",
-        "Sprite": "sprites/items/misc-charm-charm_medium.webp"
+        "Sprite": "sprites/items/misc-uniquecharm-ogre_kings_bowl.webp"
       },
       {
         "FileIndex": 400,
@@ -14781,7 +14790,7 @@
       {
         "FileIndex": 359,
         "NameKey": "Gheed's Fortune",
-        "Sprite": "sprites/items/misc-charm-charm_large.webp"
+        "Sprite": "sprites/items/misc-uniquecharm-gheeds_fortune.webp"
       },
       {
         "FileIndex": 1430,
@@ -14794,9 +14803,14 @@
         "Sprite": "sprites/items/misc-uniquecharm-conclave_of_elements.webp"
       },
       {
+        "FileIndex": 1483,
+        "NameKey": "Relic of the Ancients",
+        "Sprite": "sprites/items/misc-uniquecharm-relic_of_the_ancients.webp"
+      },
+      {
         "FileIndex": 1389,
         "NameKey": "Queen's Call",
-        "Sprite": "sprites/items/misc-charm-charm_large.webp"
+        "Sprite": "sprites/items/misc-uniquecharm-queens_call.webp"
       },
       {
         "FileIndex": 1427,
@@ -14866,7 +14880,7 @@
       {
         "FileIndex": 1409,
         "NameKey": "Collin's Destruction",
-        "Sprite": "sprites/items/misc-charm-charm_small.webp"
+        "Sprite": "sprites/items/misc-uniquecharm-collins_destruction.webp"
       }
     ],
     "SetSprites": []
@@ -15736,6 +15750,11 @@
         "Sprite": "sprites/items/misc-gem-perfect_diamond.webp"
       },
       {
+        "FileIndex": 1391,
+        "NameKey": "Jade Facet",
+        "Sprite": "sprites/items/misc-gem-jewels.webp"
+      },
+      {
         "FileIndex": 1392,
         "NameKey": "Topaz Facet",
         "Sprite": "sprites/items/misc-gem-jewels.webp"
@@ -15743,11 +15762,6 @@
       {
         "FileIndex": 1390,
         "NameKey": "Tiger Eye",
-        "Sprite": "sprites/items/misc-gem-jewels.webp"
-      },
-      {
-        "FileIndex": 1391,
-        "NameKey": "Jade Facet",
         "Sprite": "sprites/items/misc-gem-jewels.webp"
       },
       {
@@ -15829,6 +15843,15 @@
     "SetSprites": []
   },
   {
+    "Code": "lab",
+    "NameKey": "lab",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-quest-forsaken_token.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
     "Code": "lsp",
     "NameKey": "lsp",
     "Width": 1,
@@ -15856,6 +15879,222 @@
     "SetSprites": []
   },
   {
+    "Code": "mc1",
+    "NameKey": "mc1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mc2",
+    "NameKey": "mc2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mc3",
+    "NameKey": "mc3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mc4",
+    "NameKey": "mc4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mc5",
+    "NameKey": "mc5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mc6",
+    "NameKey": "mc6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "md1",
+    "NameKey": "md1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "md2",
+    "NameKey": "md2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "md3",
+    "NameKey": "md3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "md4",
+    "NameKey": "md4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "md5",
+    "NameKey": "md5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "md6",
+    "NameKey": "md6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "me1",
+    "NameKey": "me1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "me2",
+    "NameKey": "me2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "me3",
+    "NameKey": "me3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "me4",
+    "NameKey": "me4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "me5",
+    "NameKey": "me5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "me6",
+    "NameKey": "me6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mf1",
+    "NameKey": "mf1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mf2",
+    "NameKey": "mf2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mf3",
+    "NameKey": "mf3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mf4",
+    "NameKey": "mf4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mf5",
+    "NameKey": "mf5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mf6",
+    "NameKey": "mf6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
     "Code": "mfp",
     "NameKey": "mfp",
     "Width": 1,
@@ -15870,6 +16109,177 @@
     "Width": 1,
     "Height": 1,
     "Sprite": "sprites/items/misc-grabbers-perfect_diamond_grabber.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mh1",
+    "NameKey": "mh1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mh2",
+    "NameKey": "mh2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mh3",
+    "NameKey": "mh3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mh4",
+    "NameKey": "mh4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mh5",
+    "NameKey": "mh5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mh6",
+    "NameKey": "mh6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mi1",
+    "NameKey": "mi1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mi2",
+    "NameKey": "mi2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mi3",
+    "NameKey": "mi3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mi4",
+    "NameKey": "mi4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mi5",
+    "NameKey": "mi5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mi6",
+    "NameKey": "mi6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mk1",
+    "NameKey": "mk1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mk2",
+    "NameKey": "mk2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mk3",
+    "NameKey": "mk3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mk4",
+    "NameKey": "mk4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mk5",
+    "NameKey": "mk5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mk6",
+    "NameKey": "mk6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mor",
+    "NameKey": "mor",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-horadric_sextant.webp",
     "UniqueSprites": [],
     "SetSprites": []
   },
@@ -15946,6 +16356,69 @@
     "SetSprites": []
   },
   {
+    "Code": "mrl",
+    "NameKey": "mrl",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-vizjerei_prism.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "ms1",
+    "NameKey": "ms1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "ms2",
+    "NameKey": "ms2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "ms3",
+    "NameKey": "ms3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "ms4",
+    "NameKey": "ms4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "ms5",
+    "NameKey": "ms5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "ms6",
+    "NameKey": "ms6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
     "Code": "msp",
     "NameKey": "msp",
     "Width": 1,
@@ -15960,6 +16433,123 @@
     "Width": 1,
     "Height": 1,
     "Sprite": "sprites/items/misc-quest-mephisto_soul_stone.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mt1",
+    "NameKey": "mt1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mt2",
+    "NameKey": "mt2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mt3",
+    "NameKey": "mt3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mt4",
+    "NameKey": "mt4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mt5",
+    "NameKey": "mt5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mt6",
+    "NameKey": "mt6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mw1",
+    "NameKey": "mw1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mw2",
+    "NameKey": "mw2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mw3",
+    "NameKey": "mw3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mw4",
+    "NameKey": "mw4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mw5",
+    "NameKey": "mw5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mw6",
+    "NameKey": "mw6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "mws",
+    "NameKey": "mws",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-horadric_astrolabe.webp",
     "UniqueSprites": [],
     "SetSprites": []
   },
@@ -16414,6 +17004,60 @@
     "SetSprites": []
   },
   {
+    "Code": "r34",
+    "NameKey": "r34",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-rune-brak_rune.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "r35",
+    "NameKey": "r35",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-rune-zeph_rune.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "r36",
+    "NameKey": "r36",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-rune-myr_rune.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "r37",
+    "NameKey": "r37",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-rune-grit_rune.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "r38",
+    "NameKey": "r38",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-rune-dem_rune.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "r39",
+    "NameKey": "r39",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-rune-hev_rune.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
     "Code": "rgr",
     "NameKey": "rgr",
     "Width": 1,
@@ -16457,12 +17101,12 @@
       {
         "FileIndex": 1364,
         "NameKey": "Golem's Might",
-        "Sprite": "sprites/items/misc-ring-ring.webp"
+        "Sprite": "sprites/items/misc-uniquering-golems_might.webp"
       },
       {
         "FileIndex": 1436,
         "NameKey": "Barilzar's Mazed Band",
-        "Sprite": "sprites/items/misc-ring-ring.webp"
+        "Sprite": "sprites/items/misc-uniquering-barilzars_mazed_band.webp"
       },
       {
         "FileIndex": 1363,
@@ -16522,17 +17166,17 @@
       {
         "FileIndex": 300,
         "NameKey": "Nature's Peace",
-        "Sprite": "sprites/items/misc-ring-ring.webp"
+        "Sprite": "sprites/items/misc-uniquering-natures_peace.webp"
       },
       {
         "FileIndex": 1368,
         "NameKey": "Fellowship's Hope",
-        "Sprite": "sprites/items/misc-ring-ring.webp"
+        "Sprite": "sprites/items/misc-uniquering-fellowships_hope.webp"
       },
       {
         "FileIndex": 1367,
         "NameKey": "Jackal's Laughter",
-        "Sprite": "sprites/items/misc-ring-ring.webp"
+        "Sprite": "sprites/items/misc-uniquering-jackals_laughter.webp"
       },
       {
         "FileIndex": 319,
@@ -16547,7 +17191,7 @@
       {
         "FileIndex": 1370,
         "NameKey": "Jordan's Sigil",
-        "Sprite": "sprites/items/misc-ring-ring.webp"
+        "Sprite": "sprites/items/misc-uniquering-jordans_sigil.webp"
       },
       {
         "FileIndex": 263,
@@ -17005,6 +17649,60 @@
     "SetSprites": []
   },
   {
+    "Code": "s34",
+    "NameKey": "s34",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-rune-brak_rune_stacked.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "s35",
+    "NameKey": "s35",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-rune-zeph_rune_stacked.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "s36",
+    "NameKey": "s36",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-rune-myr_rune_stacked.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "s37",
+    "NameKey": "s37",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-rune-grit_rune_stacked.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "s38",
+    "NameKey": "s38",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-rune-dem_rune_stacked.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "s39",
+    "NameKey": "s39",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-rune-hev_rune_stacked.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
     "Code": "scs",
     "NameKey": "scs",
     "Width": 1,
@@ -17018,6 +17716,7 @@
     "NameKey": "scz",
     "Width": 1,
     "Height": 1,
+    "Sprite": "sprites/items/misc-body_part-soul.webp",
     "UniqueSprites": [],
     "SetSprites": []
   },
@@ -17391,11 +18090,551 @@
     "SetSprites": []
   },
   {
+    "Code": "xc1",
+    "NameKey": "xc1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xc2",
+    "NameKey": "xc2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xc3",
+    "NameKey": "xc3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xc4",
+    "NameKey": "xc4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xc5",
+    "NameKey": "xc5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xc6",
+    "NameKey": "xc6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xd1",
+    "NameKey": "xd1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xd2",
+    "NameKey": "xd2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xd3",
+    "NameKey": "xd3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xd4",
+    "NameKey": "xd4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xd5",
+    "NameKey": "xd5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xd6",
+    "NameKey": "xd6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xe1",
+    "NameKey": "xe1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xe2",
+    "NameKey": "xe2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xe3",
+    "NameKey": "xe3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xe4",
+    "NameKey": "xe4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xe5",
+    "NameKey": "xe5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xe6",
+    "NameKey": "xe6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xf1",
+    "NameKey": "xf1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xf2",
+    "NameKey": "xf2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xf3",
+    "NameKey": "xf3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xf4",
+    "NameKey": "xf4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xf5",
+    "NameKey": "xf5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xf6",
+    "NameKey": "xf6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xh1",
+    "NameKey": "xh1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xh2",
+    "NameKey": "xh2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xh3",
+    "NameKey": "xh3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xh4",
+    "NameKey": "xh4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xh5",
+    "NameKey": "xh5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xh6",
+    "NameKey": "xh6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xi1",
+    "NameKey": "xi1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xi2",
+    "NameKey": "xi2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xi3",
+    "NameKey": "xi3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xi4",
+    "NameKey": "xi4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xi5",
+    "NameKey": "xi5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xi6",
+    "NameKey": "xi6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xk1",
+    "NameKey": "xk1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xk2",
+    "NameKey": "xk2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xk3",
+    "NameKey": "xk3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xk4",
+    "NameKey": "xk4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xk5",
+    "NameKey": "xk5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xk6",
+    "NameKey": "xk6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
     "Code": "xpp",
     "NameKey": "xpp",
     "Width": 1,
     "Height": 1,
     "Sprite": "sprites/items/misc-potion-xppot1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xs1",
+    "NameKey": "xs1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xs2",
+    "NameKey": "xs2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xs3",
+    "NameKey": "xs3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xs4",
+    "NameKey": "xs4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xs5",
+    "NameKey": "xs5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xs6",
+    "NameKey": "xs6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xt1",
+    "NameKey": "xt1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xt2",
+    "NameKey": "xt2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xt3",
+    "NameKey": "xt3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xt4",
+    "NameKey": "xt4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xt5",
+    "NameKey": "xt5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xt6",
+    "NameKey": "xt6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xw1",
+    "NameKey": "xw1",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t1.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xw2",
+    "NameKey": "xw2",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t2.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xw3",
+    "NameKey": "xw3",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t3.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xw4",
+    "NameKey": "xw4",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t4.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xw5",
+    "NameKey": "xw5",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t5.webp",
+    "UniqueSprites": [],
+    "SetSprites": []
+  },
+  {
+    "Code": "xw6",
+    "NameKey": "xw6",
+    "Width": 1,
+    "Height": 1,
+    "Sprite": "sprites/items/misc-map-map_t6.webp",
     "UniqueSprites": [],
     "SetSprites": []
   },

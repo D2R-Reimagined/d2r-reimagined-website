@@ -152,11 +152,12 @@ function resolveIndexedArgs(
 }
 
 // `%d` is D2's own token for values it prints with a fraction — "Mana Cost: 2.5",
-// "Cold Length: 4.8 seconds" — so a fractional value keeps its single decimal place rather
-// than being truncated to a misleading whole number. Item properties always arrive as
-// integers and are unaffected.
+// "+0.375% Deadly Strike (Based on Character Level)" — so a fractional value keeps the
+// precision it was exported with rather than being truncated or rounded. Fifteen
+// significant digits is the most a double holds exactly, which drops float noise such as
+// 0.1 + 0.2 = 0.30000000000000004 without touching any meaningful decimal.
 function formatDecimal(value: number): string {
-    return Number.isInteger(value) ? value.toString() : Number(value.toFixed(1)).toString();
+    return Number.isInteger(value) ? value.toString() : Number(value.toPrecision(15)).toString();
 }
 
 function formatArg(value: TemplateArg, token: string): string {

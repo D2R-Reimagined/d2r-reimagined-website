@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { buildItemTitle, isCraftRecipe } from './build-items';
+import { buildItemKey, buildItemTitle, findBuildItem, isCraftRecipe } from './build-items';
 import { inlineTokens } from './build-markdown';
 import { searchText, type SearchTools } from './catalog';
+import recipeAliases from './data/cube-recipe-aliases.json';
 import recipes from '../../static/data/keyed/cube-recipes.json';
 import type { CatalogItem } from './types';
 
@@ -19,15 +20,37 @@ describe('Build craft references', () => {
     expect(inlineTokens('[[item:unknown:249]]')[0].kind).toBe('text');
   });
 
-  it('selects actual exported crafts and retains their additional output modifiers', () => {
+  it('resolves a legacy craft link and retains the craft\'s additional output modifiers', () => {
+    // Shaped like an exported craft; `249` is a link saved before recipes were renumbered.
+    const craft: CatalogItem = {
+      Index: 293, Id: recipeAliases.aliases['249']!, Description: '',
+      Inputs: [
+        { Name: { key: 'amu' }, Quantity: 1, Qualifiers: [{ key: 'strCubeQualifierRareItem' }] },
+        { Name: { key: 'r26' }, Quantity: 1, Qualifiers: [] }
+      ],
+      Outputs: { A: { Name: { key: 'strCubeOutputUseTypeOfInput1' }, Lines: [{ key: 'ModStr3k', args: [2] }] } },
+      Notes: [{ key: 'strCubeNoteItemCrafting' }]
+    };
+    const corruption: CatalogItem = { Index: 103, Id: 'cr-0000000000000003', Notes: [{ key: 'strCubeNoteOrbOfCorruption' }] };
+    const crafts = [corruption, craft].filter(isCraftRecipe);
+    expect(crafts).toEqual([craft]);
+    expect(findBuildItem(crafts, 'cube-recipes', '249')).toBe(craft);
+    expect(findBuildItem(crafts, 'cube-recipes', buildItemKey(craft, 'cube-recipes'))).toBe(craft);
+    expect(searchText(craft, tools)).toContain('modstr3k 2');
+    expect(buildItemTitle(craft, 'cube-recipes', tools)).toBe('amu strCubeQualifierRareItem + r26');
+    // A link whose recipe the current export dropped resolves to nothing rather than another craft.
+    expect(findBuildItem([corruption], 'cube-recipes', '249')).toBeUndefined();
+  });
+
+  it('links, titles and searches every craft of the active export', () => {
     const crafts = (recipes as CatalogItem[]).filter(isCraftRecipe);
     expect(crafts.length).toBeGreaterThan(0);
-    const craft = crafts.find(item => item.Index === 249)!;
-    expect(craft.Outputs?.A.Lines).toContainEqual({ key: 'ModStr3k', args: [2] });
-    expect(searchText(craft, tools)).toContain('modstr3k 2');
-    expect(buildItemTitle(craft, 'cube-recipes', tools)).toContain('amu strCubeQualifierRareItem');
-    expect(buildItemTitle(craft, 'cube-recipes', tools)).toContain('r26');
-    expect(isCraftRecipe({ Notes: [{ key: 'strCubeNoteOrbOfCorruption' }] })).toBe(false);
+    for (const craft of crafts) {
+      const key = buildItemKey(craft, 'cube-recipes');
+      expect(findBuildItem(crafts, 'cube-recipes', key), key).toBe(craft);
+      expect(buildItemTitle(craft, 'cube-recipes', tools), key).not.toBe('');
+      for (const line of craft.Outputs?.A?.Lines ?? []) expect(searchText(craft, tools), key).toContain(line.key.toLowerCase());
+    }
   });
 
   it('uses localized ingredients, quantities and qualifiers when the recipe is unnamed', () => {

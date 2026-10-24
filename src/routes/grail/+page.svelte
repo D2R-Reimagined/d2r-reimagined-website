@@ -10,6 +10,7 @@
   import { catalogTypeValues, equipmentNamesForType, sortOptions } from '$lib/catalog-controls';
   import { filterGrailItems, grailTypes, normalizeGrailFilters } from '$lib/grail-filters';
   import { readGrailFilters, writeGrailFilters, type GrailCategory } from '$lib/grail-query';
+  import { countGrailFound, grailKey, grailRenderKey, migrateGrailProgress } from '$lib/grail-progress';
   import { i18n } from '$lib/i18n';
   import type { CatalogItem } from '$lib/types';
 
@@ -44,10 +45,6 @@
     return data[categoryName] as CatalogItem[];
   }
 
-  function itemKey(item: CatalogItem): string {
-    return String(item.Index ?? item.NameKey ?? 'Unknown');
-  }
-
   let currentMap = $derived(mapFor(category));
   let currentItems = $derived(itemsFor(category));
   function options(values: string[]) {
@@ -61,7 +58,7 @@
     .sort((a, b) => a.value.localeCompare(b.value, undefined, { numeric: true })));
   let filtered = $derived(filterGrailItems(currentItems, category, filters, currentMap, hideFound, $i18n));
   let visible = $derived(filtered.slice(0, visibleCount));
-  let foundCount = $derived(Object.values(currentMap).filter(Boolean).length);
+  let foundCount = $derived(countGrailFound(currentItems, currentMap));
 
   $effect(() => { filtered; visibleCount = 60; });
 
@@ -98,10 +95,10 @@
     hideFound = false;
   }
 
-  function readMap(key: string): FoundMap {
+  function readMap(key: string, categoryName: Category): FoundMap {
     try {
       const raw = localStorage.getItem(key);
-      return raw ? JSON.parse(raw) as FoundMap : {};
+      return raw ? migrateGrailProgress(JSON.parse(raw) as FoundMap, itemsFor(categoryName)) : {};
     } catch { return {}; }
   }
 
@@ -114,7 +111,7 @@
   }
 
   function setFound(item: CatalogItem, value: boolean): void {
-    const key = itemKey(item);
+    const key = grailKey(item);
     if (category === 'uniques') foundUniques = { ...foundUniques, [key]: value };
     else if (category === 'sets') foundSets = { ...foundSets, [key]: value };
     else foundRunewords = { ...foundRunewords, [key]: value };
@@ -166,9 +163,9 @@
   function importProgress(merge: boolean): void {
     try {
       const parsed = JSON.parse(fromBase64(importValue.trim())) as Record<string, unknown>;
-      const incomingUniques = normalize(parsed.uniques);
-      const incomingSets = normalize(parsed.sets);
-      const incomingRunewords = normalize(parsed.runewords);
+      const incomingUniques = migrateGrailProgress(normalize(parsed.uniques), itemsFor('uniques'));
+      const incomingSets = migrateGrailProgress(normalize(parsed.sets), itemsFor('sets'));
+      const incomingRunewords = migrateGrailProgress(normalize(parsed.runewords), itemsFor('runewords'));
       foundUniques = merge ? { ...foundUniques, ...incomingUniques } : incomingUniques;
       foundSets = merge ? { ...foundSets, ...incomingSets } : incomingSets;
       foundRunewords = merge ? { ...foundRunewords, ...incomingRunewords } : incomingRunewords;
@@ -191,9 +188,9 @@
   onMount(() => {
     const legacy = localStorage.getItem('d2r-grail-items');
     if (legacy && !localStorage.getItem('d2r-grail-uniques')) localStorage.setItem('d2r-grail-uniques', legacy);
-    foundUniques = readMap('d2r-grail-uniques');
-    foundSets = readMap('d2r-grail-sets');
-    foundRunewords = readMap('d2r-grail-runewords');
+    foundUniques = readMap('d2r-grail-uniques', 'uniques');
+    foundSets = readMap('d2r-grail-sets', 'sets');
+    foundRunewords = readMap('d2r-grail-runewords', 'runewords');
   });
 </script>
 
@@ -241,8 +238,8 @@
   {/if}
 
   <div class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-    {#each visible as item (itemKey(item))}
-      {@const key = itemKey(item)}
+    {#each visible as item (grailRenderKey(category, item))}
+      {@const key = grailKey(item)}
       <GrailItem {item} ondetails={() => selectedItem = { item, category }} tone={category === 'sets' ? 'set' : 'unique'} found={Boolean(currentMap[key])} onchange={(value) => setFound(item, value)} />
     {/each}
   </div>

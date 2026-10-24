@@ -254,6 +254,35 @@ describe('displayStatLines', () => {
       perLevel: true
     });
   });
+
+  it('shows the two decimals kept by save decoding instead of rounding them to one', () => {
+    initializeI18n(strings);
+    const render = (stats: SaveStat[], presentation: ItemStatPresentationBundle, characterLevel?: number) =>
+      displayStatLines(stats, presentation, characterLevel ? { characterLevel } : {}).map((line) => get(i18n).line(line.keyed));
+    const deadlyStrike = exportedBundle.Stats.item_deadlystrike_perlevel;
+    // A per-level 0.375 is reduced to 0.38 by save decoding; it used to print as 0.4.
+    const shifted: ItemStatPresentationBundle = {
+      ...exportedBundle,
+      Stats: { ...exportedBundle.Stats, item_deadlystrike_perlevel: { ...deadlyStrike, ValueShift: 1 } }
+    };
+    const [halfStep] = displayStatLines([stat(251, 'item_deadlystrike_perlevel', 3)], shifted);
+    expect(halfStep.keyed).toEqual({ key: 'ModStr5q', args: [0.38], perLevel: true });
+    expect(render([stat(251, 'item_deadlystrike_perlevel', 3)], shifted))
+      .toEqual(['+0.38% Deadly Strike (Based on Character Level)']);
+
+    // Trade listings carry no character level, so per-level values stay fractional.
+    expect(render([stat(251, 'item_deadlystrike_perlevel', 3)], exportedBundle))
+      .toEqual(['+0.75% Deadly Strike (Based on Character Level)']);
+    // Characters multiply by their level before rounding.
+    expect(render([stat(251, 'item_deadlystrike_perlevel', 3)], exportedBundle, 99))
+      .toEqual(['+74.25% Deadly Strike (Based on Character Level)']);
+    expect(render([stat(251, 'item_deadlystrike_perlevel', 4)], exportedBundle, 99))
+      .toEqual(['+99% Deadly Strike (Based on Character Level)']);
+    // Function 5 scales by 100/128 and rounds to two decimals.
+    expect(exportedBundle.Stats.item_howl.Function).toBe(5);
+    expect(render([stat(113, 'item_howl', 10)], exportedBundle)).toEqual(['+7.81% Hits Cause Monsters to Flee']);
+    expect(render([stat(113, 'item_howl', 64)], exportedBundle)).toEqual(['+50% Hits Cause Monsters to Flee']);
+  });
 });
 
 describe('socketedItemStats', () => {

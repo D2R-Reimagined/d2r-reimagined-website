@@ -14,10 +14,20 @@ function visible(preset: PresetId, code: string, rarity = 'normal', sockets = 0,
   const rule = createPreset(preset).rules.find(rule => matches((rule.show ?? rule.hide).conditions));
   return !!rule?.show;
 }
+// Map item types arrived in Reimagined 3.0.13. A 3.0.12 export has no such types, so the
+// validator reports them as warnings there; they are never errors.
+const laterTypes = new Set(['mapi', 'mcur']);
+const presetTypes = (id: PresetId) => [...new Set(createPreset(id).rules.flatMap(rule => values((rule.show ?? rule.hide)!.conditions?.itemType)))];
 describe('conservative starter presets', () => {
   it.each(presets)('$name is valid and every type exists in the exported mod', preset => {
     const validation = M.validateFilter(createPreset(preset.id), catalog);
-    expect(validation.errors).toEqual([]); expect(validation.warnings).toEqual([]);
+    expect(validation.errors).toEqual([]);
+    const missing = presetTypes(preset.id).filter(type => !catalog.itemTypes.includes(type));
+    // A misspelled or retired type fails here; only types newer than the export may be absent.
+    expect(missing.filter(type => !laterTypes.has(type))).toEqual([]);
+    const warned = (type: string) => validation.warnings.some(warning => warning.includes(`itemType “${type}”`));
+    expect(validation.warnings.every(warning => missing.some(type => warning.includes(`itemType “${type}”`)))).toBe(true);
+    expect(missing.every(warned)).toBe(true);
     expect(createPreset(preset.id).rules.at(-1)).toEqual({ show: { ruleName: 'Keep everything else visible' } });
   });
   it('strictness progressively reduces ordinary equipment while protecting valuable categories', () => {

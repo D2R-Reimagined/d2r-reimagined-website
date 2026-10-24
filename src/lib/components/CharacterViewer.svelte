@@ -345,7 +345,7 @@
         </div>
         <p class="text-sm text-parchment-300"><span class="text-parchment-50">{allocatedSkillPoints}</span> hard points allocated</p>
       </div>
-      <SkillTreeView {skillClass} ranks={displayedSkillRanks} baseRanks={skillRanks} readonly />
+      <SkillTreeView {skillClass} ranks={displayedSkillRanks} baseRanks={skillRanks} characterLevel={details.character.level} readonly />
     </section>
   {/if}
 {/if}
