@@ -3,13 +3,16 @@ import skillClasses from '../../static/data/keyed/skills.json';
 import type { Skill, SkillClass, SkillDescriptionLine } from '$lib/types';
 import {
   clampSkillPoints,
+  keepSkillPreviewOverride,
   SKILL_LEVEL_CAP,
   skillBonusCap,
   skillHardPointCap,
   skillLineNumbers,
   skillPointsFromRank,
   skillPointsFromRanks,
-  skillReadsCharacterLevel
+  skillPreviewPoints,
+  skillReadsCharacterLevel,
+  type SkillPreviewOverride
 } from './skill-points';
 
 function skill(overrides: Partial<Skill> = {}): Skill {
@@ -63,6 +66,30 @@ describe('skill points', () => {
     expect(skillPointsFromRanks(skill(), 20, 27)).toEqual({ hard: 20, bonus: 7 });
     expect(skillPointsFromRanks(skill(), 0, 3)).toEqual({ hard: 0, bonus: 3 });
     expect(skillPointsFromRanks(skill(), 10, 8)).toEqual({ hard: 8, bonus: 0 });
+  });
+});
+
+describe('planner preview overrides', () => {
+  const pinned = skill({ Id: 1 });
+  const hovered = skill({ Id: 2 });
+  const override: SkillPreviewOverride = { skillId: 1, rank: 4, points: { hard: 9, bonus: 12 } };
+
+  it('defaults to the allocated rank, at least 1, with no bonus', () => {
+    expect(skillPreviewPoints(pinned, 4, null)).toEqual({ hard: 4, bonus: 0 });
+    expect(skillPreviewPoints(pinned, 0, null)).toEqual({ hard: 1, bonus: 0 });
+  });
+
+  it('keeps the pinned override through a hover preview of another skill', () => {
+    expect(skillPreviewPoints(pinned, 4, override)).toEqual({ hard: 9, bonus: 12 });
+    // Hovering shows another skill at its own defaults without discarding the override.
+    expect(skillPreviewPoints(hovered, 7, override)).toEqual({ hard: 7, bonus: 0 });
+    expect(keepSkillPreviewOverride(override, hovered, 7)).toBe(override);
+    expect(skillPreviewPoints(pinned, 4, keepSkillPreviewOverride(override, pinned, 4))).toEqual({ hard: 9, bonus: 12 });
+  });
+
+  it('drops the override once its own skill allocation changes', () => {
+    expect(skillPreviewPoints(pinned, 5, override)).toEqual({ hard: 5, bonus: 0 });
+    expect(keepSkillPreviewOverride(override, pinned, 5)).toBeNull();
   });
 });
 

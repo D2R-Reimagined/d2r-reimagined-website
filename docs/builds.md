@@ -33,8 +33,9 @@ Each variant supports up to 40 sections:
 
 - Rich text with toolbar-assisted Markdown: headings, bold/italic/strikethrough, lists, links, quotations, tables, code, and dividers.
 - Tip, warning, strengths, and weaknesses callouts.
-- Catalog item references, including inline `[[item:uniques:key]]` tokens inserted by the item picker. The picker also supports sets, runewords, and base items. References render the existing catalog card on hover, focus, or tap.
-- An embedded editable skill planner with allocations saved per section; the public reader is read-only and does not alter the standalone planner's local state.
+- Catalog item references, including inline `[[item:uniques:key]]` tokens inserted by the item picker. The picker also supports sets, runewords, base items, and crafting recipes. References render the existing catalog card on hover, focus, or tap. Recipe references use the recipe's stable exporter `Id`; older row-number references still resolve (see [UPDATING-GAME-DATA.md](UPDATING-GAME-DATA.md#cube-recipe-links)).
+- Inline `[[skill:id:rank]]` skill references, which open a read-only description of that skill at that rank, without equipment or other skills' points.
+- An embedded editable skill planner with allocations saved per section; the public reader is read-only and does not alter the standalone planner's local state. See [SKILL-PLANNER.md](SKILL-PLANNER.md) for the planner and description rules.
 - Equipment and inventory snapshots from selectable uploaded characters, using the existing character viewer. Saving captures the snapshot; refresh is explicit. Copying a section or variant preserves its saved snapshot.
 - HTTPS images with captions and supported YouTube links rendered through the privacy-enhanced embed domain.
 
@@ -55,11 +56,11 @@ Reporting queues, moderation audit history, bookmarks, a creator verification pr
 Normal website checks:
 
 ```powershell
-pnpm exec vitest run
-pnpm exec svelte-check --tsconfig ./tsconfig.json
-pnpm exec vite build
+pnpm run check
+pnpm test
+pnpm run build
 ```
 
-On this Windows host, verification used the installed `.cmd` binaries with the bundled Node runtime on `PATH`. Browser QA used the real UI and a disposable local API test host, at 1280 px desktop and 390 px mobile widths. It covered filtering, authoring, skills, item tooltips, section movement, variant duplication, saving, publishing, ratings, and comments. Wide skill trees scroll within their section rather than widening the page.
+When the Builds section was introduced, browser QA used the real UI and a disposable local API test host, at 1280 px desktop and 390 px mobile widths. It covered filtering, authoring, skills, item tooltips, section movement, variant duplication, saving, publishing, ratings, and comments. Wide skill trees scroll within their section rather than widening the page.
 
 Deploy the companion API and its `AddCommunityBuilds` migration before exposing this website release. The migration was generated but was not applied to a live database during implementation. See the API's `docs/builds.md` for the endpoints, tests, and local fixture instructions. The existing `PUBLIC_API_BASE_URL` configuration is unchanged.

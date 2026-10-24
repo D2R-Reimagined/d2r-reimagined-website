@@ -1,13 +1,21 @@
 <script lang="ts">
   import { i18n } from '$lib/i18n';
-  import { applySkillSynergy, skillLineCalcValues, skillLineSynergyBonus } from '$lib/skill-calculation';
+  import {
+    applySkillSynergy,
+    skillLineCalcValues,
+    skillLineSynergyBonus,
+    skillLineUnavailableStats
+  } from '$lib/skill-calculation';
   import {
     clampSkillPoints,
+    keepSkillPreviewOverride,
     skillBonusCap,
     skillHardPointCap,
     skillPointsFromRanks,
+    skillPreviewPoints,
     skillReadsCharacterLevel,
-    type SkillPoints
+    type SkillPoints,
+    type SkillPreviewOverride
   } from '$lib/skill-points';
   import type { Skill, SkillDescriptionLine } from '$lib/types';
 
@@ -44,11 +52,10 @@
   } = $props();
 
   // Hard points and +skills bonus are previewed independently, because the mod's formulas
-  // read them separately (blvl vs lvl). Hard points follow the allocation so the panel answers
-  // "what do I get for this next point?"; the bonus starts at 0. Either override sticks until
-  // the allocation changes again.
-  let hardOverride = $state<number | null>(null);
-  let bonusOverride = $state<number | null>(null);
+  // read them separately (blvl vs lvl). Hard points start at the allocated rank (at least 1)
+  // and the bonus at 0. The override sticks to its skill until that skill's allocation changes,
+  // so hovering another skill and coming back keeps it.
+  let override = $state<SkillPreviewOverride | null>(null);
   let failedIcon = $state('');
   // The planner has no character, so it previews the top exported level until one is chosen.
   let characterLevelOverride = $state<number | null>(null);
@@ -58,7 +65,7 @@
   let preview = $derived(
     readonly
       ? fixedPoints ? clampSkillPoints(skill, fixedPoints) : skillPointsFromRanks(skill, baseRank, rank)
-      : clampSkillPoints(skill, { hard: hardOverride ?? Math.max(rank, 1), bonus: bonusOverride ?? 0 })
+      : skillPreviewPoints(skill, rank, override)
   );
   let bonusCap = $derived(skillBonusCap(preview.hard));
   let readsCharacterLevel = $derived(skillReadsCharacterLevel(skill));
@@ -67,6 +74,8 @@
     readonly ? characterLevel : characterLevelOverride ?? characterLevel ?? characterLevelCap
   );
   let linePoints = $derived<SkillPoints>({ ...preview, characterLevel: previewCharacterLevel });
+  // `ulvl` in calc expressions only reads a level the reader can see: the chosen one or the character's.
+  let calcCharacterLevel = $derived(readsCharacterLevel ? previewCharacterLevel : characterLevel);
   let previewLevel = $derived(preview.hard + preview.bonus);
   let exportedLevel = $derived(descriptions?.MaxLevel ?? 0);
   let hasDescription = $derived(
@@ -76,13 +85,16 @@
   let effectiveRanks = $derived(skill ? { ...ranks, [skill.Id]: previewLevel } : ranks);
   let hardRanks = $derived(skill ? { ...synergyRanks, [skill.Id]: preview.hard } : synergyRanks);
 
-  // Reading both values inside the effect is what makes the overrides reset when either changes.
-  let allocation = $derived(`${skill?.Id ?? ''}:${rank}`);
+  // Stats the live formulas read but the site cannot supply; they count as 0 and are marked.
+  let unavailableStats = $derived(
+    [...new Set([...(descriptions?.Stats ?? []), ...(descriptions?.Details ?? []), ...(descriptions?.Synergies ?? [])]
+      .flatMap(lineUnavailableStats))]
+  );
+
   let icon = $derived(skill?.Icon ? `/data/${skill.Icon}` : '');
   $effect(() => {
-    void allocation;
-    hardOverride = null;
-    bonusOverride = null;
+    const kept = keepSkillPreviewOverride(override, skill, rank);
+    if (kept !== override) override = kept;
   });
 
   function prerequisiteName(id: number): string {
@@ -90,9 +102,13 @@
   }
 
   function render(line: SkillDescriptionLine): string {
-    const bonus = skill ? skillLineSynergyBonus(line, skill, skills, effectiveRanks, hardRanks) : 0;
-    const live = skill ? skillLineCalcValues(line, skill, skills, effectiveRanks, hardRanks) : [];
+    const bonus = skill ? skillLineSynergyBonus(line, skill, skills, effectiveRanks, hardRanks, calcCharacterLevel) : 0;
+    const live = skill ? skillLineCalcValues(line, skill, skills, effectiveRanks, hardRanks, calcCharacterLevel) : [];
     return $i18n.skillLine(line, linePoints, (value, index) => live[index] ?? applySkillSynergy(value, bonus));
+  }
+
+  function lineUnavailableStats(line: SkillDescriptionLine): string[] {
+    return skill ? skillLineUnavailableStats(line, skill, skills, effectiveRanks, hardRanks, calcCharacterLevel) : [];
   }
 
   // Clearing a number input yields '' — hold the current value rather than snapping.
@@ -104,17 +120,13 @@
   function chooseHard(raw: string): void {
     const hard = parsePoints(raw);
     if (hard === null) return;
-    const next = clampSkillPoints(skill, { hard, bonus: preview.bonus });
-    hardOverride = next.hard;
-    bonusOverride = next.bonus;
+    if (skill) override = { skillId: skill.Id, rank, points: clampSkillPoints(skill, { hard, bonus: preview.bonus }) };
   }
 
   function chooseBonus(raw: string): void {
     const bonus = parsePoints(raw);
     if (bonus === null) return;
-    const next = clampSkillPoints(skill, { hard: preview.hard, bonus });
-    hardOverride = next.hard;
-    bonusOverride = next.bonus;
+    if (skill) override = { skillId: skill.Id, rank, points: clampSkillPoints(skill, { hard: preview.hard, bonus }) };
   }
 
   function chooseCharacterLevel(raw: string): void {
@@ -248,10 +260,10 @@
 
         <ul class="stat-lines mt-4">
           {#each descriptions?.Stats ?? [] as line, index (index)}
-            <li>{render(line)}</li>
+            <li>{render(line)}{#if lineUnavailableStats(line).length}*{/if}</li>
           {/each}
           {#each descriptions?.Details ?? [] as line, index (index)}
-            <li class="detail">{render(line)}</li>
+            <li class="detail">{render(line)}{#if lineUnavailableStats(line).length}*{/if}</li>
           {/each}
         </ul>
       </section>
@@ -262,10 +274,14 @@
         <h3 class="display-text text-xs uppercase tracking-wider text-parchment-300">Synergies</h3>
         <ul class="stat-lines synergy mt-2">
           {#each descriptions.Synergies as line, index (index)}
-            <li>{render(line)}</li>
+            <li>{render(line)}{#if lineUnavailableStats(line).length}*{/if}</li>
           {/each}
         </ul>
       </section>
+    {/if}
+
+    {#if unavailableStats.length}
+      <p class="level-hint mt-3">* Calculated without the character or equipment stats these formulas also read ({unavailableStats.join(', ')}); they count as 0 here, so in-game values can differ.</p>
     {/if}
 
     {#if skill.PrerequisiteIds.length}

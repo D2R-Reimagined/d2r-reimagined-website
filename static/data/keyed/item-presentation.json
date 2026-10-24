@@ -1105,11 +1105,6 @@
         "FileIndex": 89,
         "NameKey": "Rockfleece",
         "Sprite": "sprites/items/armor-armor-field_plate.webp"
-      },
-      {
-        "FileIndex": 907,
-        "NameKey": "Dreamscape",
-        "Sprite": "sprites/items/armor-armor-field_plate.webp"
       }
     ],
     "SetSprites": [
@@ -2101,6 +2096,11 @@
     "Sprite": "sprites/items/armor-voodoo_head-unraveller_head.webp",
     "UniqueSprites": [
       {
+        "FileIndex": 925,
+        "NameKey": "Heartbane",
+        "Sprite": "sprites/items/armor-voodoo_head-unraveller_head.webp"
+      },
+      {
         "FileIndex": 1225,
         "NameKey": "Jondars Horde",
         "Sprite": "sprites/items/armor-voodoo_head-unraveller_head.webp"
@@ -2127,13 +2127,18 @@
     "Sprite": "sprites/items/armor-voodoo_head-gargoyle_head.webp",
     "UniqueSprites": [
       {
-        "FileIndex": 1226,
-        "NameKey": "Mehtans Choice",
+        "FileIndex": 940,
+        "NameKey": "Nightcrawler",
         "Sprite": "sprites/items/armor-voodoo_head-gargoyle_head.webp"
       },
       {
         "FileIndex": 341,
         "NameKey": "Boneflame",
+        "Sprite": "sprites/items/armor-voodoo_head-gargoyle_head.webp"
+      },
+      {
+        "FileIndex": 1226,
+        "NameKey": "Mehtans Choice",
         "Sprite": "sprites/items/armor-voodoo_head-gargoyle_head.webp"
       }
     ],
@@ -2471,6 +2476,11 @@
     "Sprite": "sprites/items/armor-shield-aerin_shield.webp",
     "UniqueSprites": [
       {
+        "FileIndex": 907,
+        "NameKey": "Dreamscape",
+        "Sprite": "sprites/items/armor-shield-aerin_shield.webp"
+      },
+      {
         "FileIndex": 347,
         "NameKey": "Dragonscale",
         "Sprite": "sprites/items/armor-shield-aerin_shield.webp"
@@ -2499,6 +2509,11 @@
       {
         "FileIndex": 1253,
         "NameKey": "Valorsong",
+        "Sprite": "sprites/items/armor-shield-crown_shield.webp"
+      },
+      {
+        "FileIndex": 920,
+        "NameKey": "Scavanger's Carapace",
         "Sprite": "sprites/items/armor-shield-crown_shield.webp"
       },
       {
@@ -4177,6 +4192,11 @@
         "Sprite": "sprites/items/armor-armor-gothic_plate.webp"
       },
       {
+        "FileIndex": 941,
+        "NameKey": "Shambling Mound",
+        "Sprite": "sprites/items/armor-armor-gothic_plate.webp"
+      },
+      {
         "FileIndex": 965,
         "NameKey": "Lachdanan's Heart",
         "Sprite": "sprites/items/armor-armor-gothic_plate.webp"
@@ -4210,6 +4230,11 @@
       {
         "FileIndex": 968,
         "NameKey": "Heaven's Treasure",
+        "Sprite": "sprites/items/armor-armor-light_plate.webp"
+      },
+      {
+        "FileIndex": 931,
+        "NameKey": "Tesla's Cuirass",
         "Sprite": "sprites/items/armor-armor-light_plate.webp"
       },
       {
@@ -4365,6 +4390,11 @@
       {
         "FileIndex": 348,
         "NameKey": "Steel Carapace",
+        "Sprite": "sprites/items/armor-armor-full_plate_mail.webp"
+      },
+      {
+        "FileIndex": 918,
+        "NameKey": "Gillian's Brazier",
         "Sprite": "sprites/items/armor-armor-full_plate_mail.webp"
       },
       {
@@ -5070,11 +5100,6 @@
         "Sprite": "sprites/items/armor-armor-leather_armor.webp"
       },
       {
-        "FileIndex": 920,
-        "NameKey": "Scavanger's Carapace",
-        "Sprite": "sprites/items/armor-armor-leather_armor.webp"
-      },
-      {
         "FileIndex": 919,
         "NameKey": "Anaconda Skin",
         "Sprite": "sprites/items/armor-armor-leather_armor.webp"
@@ -5733,11 +5758,6 @@
         "Sprite": "sprites/items/armor-armor-ring_mail.webp"
       },
       {
-        "FileIndex": 925,
-        "NameKey": "Heartbane",
-        "Sprite": "sprites/items/armor-armor-ring_mail.webp"
-      },
-      {
         "FileIndex": 926,
         "NameKey": "Adamantine Mail",
         "Sprite": "sprites/items/armor-armor-ring_mail.webp"
@@ -5949,11 +5969,6 @@
         "Sprite": "sprites/items/armor-armor-breast_plate.webp"
       },
       {
-        "FileIndex": 931,
-        "NameKey": "Tesla's Cuirass",
-        "Sprite": "sprites/items/armor-armor-breast_plate.webp"
-      },
-      {
         "FileIndex": 932,
         "NameKey": "Skovos' Cuirass",
         "Sprite": "sprites/items/armor-armor-breast_plate.webp"
@@ -6144,11 +6159,6 @@
         "Sprite": "sprites/items/armor-armor-gothic_plate.webp"
       },
       {
-        "FileIndex": 940,
-        "NameKey": "Nightcrawler",
-        "Sprite": "sprites/items/armor-armor-gothic_plate.webp"
-      },
-      {
         "FileIndex": 939,
         "NameKey": "Royal Plate",
         "Sprite": "sprites/items/armor-armor-gothic_plate.webp"
@@ -6327,11 +6337,6 @@
         "FileIndex": 917,
         "NameKey": "Rainbow Cloak",
         "Sprite": "sprites/items/armor-armor-quilted_armor.webp"
-      },
-      {
-        "FileIndex": 918,
-        "NameKey": "Gillian's Brazier",
-        "Sprite": "sprites/items/armor-armor-quilted_armor.webp"
       }
     ],
     "SetSprites": [
@@ -6362,11 +6367,6 @@
       {
         "FileIndex": 221,
         "NameKey": "Black Hades",
-        "Sprite": "sprites/items/armor-armor-full_plate_mail.webp"
-      },
-      {
-        "FileIndex": 941,
-        "NameKey": "Shambling Mound",
         "Sprite": "sprites/items/armor-armor-full_plate_mail.webp"
       }
     ],
@@ -7763,6 +7763,11 @@
     "Sprite": "sprites/items/weapon-hammer-great_maul.webp",
     "UniqueSprites": [
       {
+        "FileIndex": 585,
+        "NameKey": "Vilifier",
+        "Sprite": "sprites/items/weapon-hammer-great_maul.webp"
+      },
+      {
         "FileIndex": 385,
         "NameKey": "Earth Shifter",
         "Sprite": "sprites/items/weapon-hammer-great_maul.webp"
@@ -8570,6 +8575,11 @@
       {
         "FileIndex": 314,
         "NameKey": "Death Cleaver",
+        "Sprite": "sprites/items/weapon-axe-war_axe.webp"
+      },
+      {
+        "FileIndex": 467,
+        "NameKey": "Night Hag",
         "Sprite": "sprites/items/weapon-axe-war_axe.webp"
       },
       {
@@ -11501,11 +11511,6 @@
         "FileIndex": 468,
         "NameKey": "Mirth Bringer",
         "Sprite": "sprites/items/weapon-axe-broad_axe.webp"
-      },
-      {
-        "FileIndex": 467,
-        "NameKey": "Night Hag",
-        "Sprite": "sprites/items/weapon-axe-broad_axe.webp"
       }
     ],
     "SetSprites": []
@@ -12181,11 +12186,6 @@
       {
         "FileIndex": 24,
         "NameKey": "Steeldriver",
-        "Sprite": "sprites/items/weapon-hammer-great_maul.webp"
-      },
-      {
-        "FileIndex": 585,
-        "NameKey": "Vilifier",
         "Sprite": "sprites/items/weapon-hammer-great_maul.webp"
       },
       {
@@ -13628,6 +13628,11 @@
     "Height": 3,
     "Sprite": "sprites/items/weapon-staff-short_staff.webp",
     "UniqueSprites": [
+      {
+        "FileIndex": 1484,
+        "NameKey": "Thunderstep Test Staff",
+        "Sprite": "sprites/items/weapon-staff-short_staff.webp"
+      },
       {
         "FileIndex": 54,
         "NameKey": "Bane Ash",
@@ -15745,6 +15750,11 @@
         "Sprite": "sprites/items/misc-gem-perfect_diamond.webp"
       },
       {
+        "FileIndex": 1391,
+        "NameKey": "Jade Facet",
+        "Sprite": "sprites/items/misc-gem-jewels.webp"
+      },
+      {
         "FileIndex": 1392,
         "NameKey": "Topaz Facet",
         "Sprite": "sprites/items/misc-gem-jewels.webp"
@@ -15752,11 +15762,6 @@
       {
         "FileIndex": 1390,
         "NameKey": "Tiger Eye",
-        "Sprite": "sprites/items/misc-gem-jewels.webp"
-      },
-      {
-        "FileIndex": 1391,
-        "NameKey": "Jade Facet",
         "Sprite": "sprites/items/misc-gem-jewels.webp"
       },
       {

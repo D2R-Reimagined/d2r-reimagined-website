@@ -984,8 +984,8 @@
   "Files": [
     {
       "Path": "extras/asset-report.txt",
-      "Bytes": 195418,
-      "Sha256": "ae71e2df6b7bf512b37b88ffdc7ac0ad8559063015680fcd0401a8c1d4788f42",
+      "Bytes": 195600,
+      "Sha256": "4064fc646248920f8966d6dd0a69a3e5c456754a515185681add9b3c538792a6",
       "Producer": "extras/asset-report.txt"
     },
     {
@@ -996,14 +996,14 @@
     },
     {
       "Path": "extras/import-report.txt",
-      "Bytes": 267,
-      "Sha256": "738d0577b39ddb12bd799c2bd93bb7efa9078d9d4499e471fb3806c252416a50",
+      "Bytes": 1522,
+      "Sha256": "dcfe91b3804784727bc3ea25302f04ef991a030b43cef922b395af22c5cf7485",
       "Producer": "extras/import-report.txt"
     },
     {
       "Path": "extras/missing-translations.txt",
-      "Bytes": 586,
-      "Sha256": "a90b06e219a6a91b845ce16616ef8895c33cb25b7e0b32d1afbbadee6fef117b",
+      "Bytes": 525,
+      "Sha256": "781690ac681219414c83e4acd505609da702c405c027d1c234654380f3ec8293",
       "Producer": "extras/missing-translations.txt"
     },
     {
@@ -1020,56 +1020,56 @@
     },
     {
       "Path": "keyed/cube-recipes.json",
-      "Bytes": 1633125,
-      "Sha256": "33d664d984de6d33b0f93b8421106c23e2d26e044c4b9703b930ceebeb18af34",
+      "Bytes": 1579507,
+      "Sha256": "f52676108e67a560ce8ff26a44de148e97c6e583d447f0a84235c284fd251dec",
       "Producer": "keyed-core"
     },
     {
       "Path": "keyed/drop-calculator.json",
-      "Bytes": 3673767,
-      "Sha256": "8f0db84343960a7f141500709ca19f2081cf23d916682d1057d7e26fbc93e713",
+      "Bytes": 5930958,
+      "Sha256": "1a49f04b472f67b704cf3bdeff70df1cb58a618c2ed0afdc9d4432f3e71509e7",
       "Producer": "drop-calculator.json"
     },
     {
       "Path": "keyed/health-calculator.json",
-      "Bytes": 1319402,
-      "Sha256": "9afc2af30a6301935f442e5e0cb2daf74cacc6e7a0875fbbfd9193a4dd76ef6f",
+      "Bytes": 2603873,
+      "Sha256": "2bbce9480e999cf35d204c817e174f8a493993ed16936ca67a504219fdba0db4",
       "Producer": "health-calculator.json"
     },
     {
       "Path": "keyed/ias-calculator.json",
-      "Bytes": 157069,
-      "Sha256": "6fe646f58ffb13b2ce2fad98356d3dd7f3d1244107f87dc43b26dcd2f5295386",
+      "Bytes": 294751,
+      "Sha256": "b14a581b77eb19f1160975cd368b11841ba59b259d23183853f3b1512772a4f8",
       "Producer": "ias-calculator.json"
     },
     {
       "Path": "keyed/item-presentation.json",
-      "Bytes": 469541,
-      "Sha256": "f6648bef74fcdeb4809bb895a72eaf21071283a33bc3429ea21c479cb32a3eae",
+      "Bytes": 469716,
+      "Sha256": "e7df2e2a6b7a659ec4f472b16a534e108ec421da373a34cae8f6ebac29376065",
       "Producer": "item-presentation.json"
     },
     {
       "Path": "keyed/item-stat-presentation.json",
-      "Bytes": 142921,
-      "Sha256": "b395cd8869224e2d54554e3680950d0ad9c637251e03dec878ea2d5abda75f32",
+      "Bytes": 146379,
+      "Sha256": "675b3b4caf824ab2de636aa9729f15bbe1efca553d42dd68566a4b4d27438a89",
       "Producer": "item-stat-presentation.json"
     },
     {
       "Path": "keyed/loot-filter.json",
-      "Bytes": 321128,
-      "Sha256": "aac55e850c9df899c598adf4b4a983b6f6fc2996d75521be028a4af32d30b21d",
+      "Bytes": 321208,
+      "Sha256": "8f6aa98482b95ae178ef99de245b114f3fda61ac48fd238f1b1c32a48344cd35",
       "Producer": "loot-filter.json"
     },
     {
       "Path": "keyed/magicprefix.json",
-      "Bytes": 518426,
-      "Sha256": "44de696ddd84bdaa214f8035ad4906232a113d066bd26924772ad99fea01a836",
+      "Bytes": 519661,
+      "Sha256": "5c290578b0039271dff27cb94a9a4d762b1cb68426cada77a306865f31ee1add",
       "Producer": "keyed-core"
     },
     {
       "Path": "keyed/magicsuffix.json",
-      "Bytes": 352988,
-      "Sha256": "0c6fa05ff23378a699724ff5bbc0f49fdc49a996b9ea40077d9118eb7b982a7e",
+      "Bytes": 353549,
+      "Sha256": "51b7032ae0fb7e24d6a854a780fbf3a99def933f953a34c9b0945ede5d39029b",
       "Producer": "keyed-core"
     },
     {
@@ -1080,26 +1080,26 @@
     },
     {
       "Path": "keyed/runewords.json",
-      "Bytes": 463482,
-      "Sha256": "b9900f53c0fe5dcaef10883816f3740b34c3bb64eea54df7c743b7a80f48a8c6",
+      "Bytes": 463370,
+      "Sha256": "593c43ff28b90e812d94b8ed2248571bc6289b8c1a2cb8785ce1e2b9145fe9bf",
       "Producer": "keyed-core"
     },
     {
       "Path": "keyed/sets.json",
-      "Bytes": 984052,
-      "Sha256": "ce99af265c167485e17adc98ecde701f1b4061f61ef30d56c4b1e6ed323b6de2",
+      "Bytes": 984521,
+      "Sha256": "92d9e93e5c4895f91e1c88216c774f968ca952bb570005b23153a8109dd85862",
       "Producer": "keyed-core"
     },
     {
       "Path": "keyed/skills.json",
-      "Bytes": 1174926,
-      "Sha256": "24ebc8102e60fbc3835ea2e6495d767b0dafcd385a8a34248762dbba5a826b05",
+      "Bytes": 1211312,
+      "Sha256": "dd993405f4c1c79657c5a475242191e754f390a3d8ace1b73eb00ef29c044a11",
       "Producer": "keyed-core"
     },
     {
       "Path": "keyed/uniques.json",
-      "Bytes": 2477664,
-      "Sha256": "c090725e9bd7a809a36eac945ff5ab5b06f23f07016cf9f9a12a57f364587ef8",
+      "Bytes": 2482116,
+      "Sha256": "8ed069ff8420f4a495fbeac979d61fb30d26a7126e2becd4764561010b4a368e",
       "Producer": "keyed-core"
     },
     {
@@ -6222,80 +6222,80 @@
     },
     {
       "Path": "strings/deDE.json",
-      "Bytes": 273657,
-      "Sha256": "e8f429c33994411aa81d5d9c3876c5003476c8f38ec6eb1b0214832275a0b37c",
+      "Bytes": 275075,
+      "Sha256": "7c53a8cfcf6d1b8660b45e476e5ca3385a2a59bf74f107c3abf52e3034d3d952",
       "Producer": "strings"
     },
     {
       "Path": "strings/enUS.json",
-      "Bytes": 247454,
-      "Sha256": "f04fb0162b8fe6843f9862962090b14ca100c72ee1a406e7689b98480005b6c5",
+      "Bytes": 248846,
+      "Sha256": "d5cad20bb2bf315dce322ce8278877749498d549cb1fd16e92f979336e4155e5",
       "Producer": "strings"
     },
     {
       "Path": "strings/esES.json",
-      "Bytes": 279873,
-      "Sha256": "5198e485e2376b0951ccab5f0db2269ab6c2dc90d9f56af6966d8826ba64a22a",
+      "Bytes": 281363,
+      "Sha256": "a22dfdc0bbb11158cf35fe0e6406db7f5903fc3fd6a72f643661394f19f31447",
       "Producer": "strings"
     },
     {
       "Path": "strings/esMX.json",
-      "Bytes": 276544,
-      "Sha256": "c31408cc92e259c0615d5a7947bf3630bd8e35598482760869c19040ef1ae2f3",
+      "Bytes": 278034,
+      "Sha256": "c78946d9f0dc3ca220f9d189ea21fde6528e2ed9e0a67dac1045b34be7673b90",
       "Producer": "strings"
     },
     {
       "Path": "strings/frFR.json",
-      "Bytes": 282078,
-      "Sha256": "0347e1c1276c773391eb645424effc0339ca81a5621857af573485814a6c9e2a",
+      "Bytes": 283570,
+      "Sha256": "24b2cc1b9e86cbb03efe5b5527b5b8d8362b164ba56f78c5a76f63a9b69a7b4f",
       "Producer": "strings"
     },
     {
       "Path": "strings/itIT.json",
-      "Bytes": 272772,
-      "Sha256": "ad3df2a71cef11a5dbe904864baea7942a8159e602014cf1dd9d1b0efe8886ab",
+      "Bytes": 274181,
+      "Sha256": "9411c704b70927ccb1d6e25bc529842ced2fd5a889d99049b6c9a48760a0accb",
       "Producer": "strings"
     },
     {
       "Path": "strings/jaJP.json",
-      "Bytes": 292408,
-      "Sha256": "3c83b95a771c33236cabf9cc4419d4465853e86f7a62b3732149c9ed16d6fadc",
+      "Bytes": 293948,
+      "Sha256": "687cad740f2392d04976d2df076cd30b4acc9085641cf47a2661a48b0127ce25",
       "Producer": "strings"
     },
     {
       "Path": "strings/koKR.json",
-      "Bytes": 265981,
-      "Sha256": "bc7e8d0a42efab319244a47421067ad97a34671bc60670104e09c6d40e1dd37c",
+      "Bytes": 267415,
+      "Sha256": "d247ff1d5be98b8a010e5428afc844bac708e68de08b0de315331c295070cf60",
       "Producer": "strings"
     },
     {
       "Path": "strings/plPL.json",
-      "Bytes": 272893,
-      "Sha256": "ada3a6cb50b388fe0db8b88b0e1abd311e9e2a688928206a1113f16a3b3c2428",
+      "Bytes": 274313,
+      "Sha256": "e8f291a06677fd61b037f47005062952cb0c3de606364aa9ecd1493323210db0",
       "Producer": "strings"
     },
     {
       "Path": "strings/ptBR.json",
-      "Bytes": 278455,
-      "Sha256": "26a17479c74b50a9da2828d4db11f2cc9e3ccce89328d24e194e1f2d7904dbc2",
+      "Bytes": 279901,
+      "Sha256": "cb2c2b7e1de682b70b1390e703724906c9c4dc9c2acab5c94001a6fd8effd553",
       "Producer": "strings"
     },
     {
       "Path": "strings/ruRU.json",
-      "Bytes": 369969,
-      "Sha256": "846088679edab1077e0c82a11bb73bd9b86196d4060b6ebe8e171aef1aa59c91",
+      "Bytes": 371744,
+      "Sha256": "f5ad24d874eb7aa2be2d89726288d04b14043adcaa9334e7147b23675245398f",
       "Producer": "strings"
     },
     {
       "Path": "strings/zhCN.json",
-      "Bytes": 239631,
-      "Sha256": "71052bbf1e4592e57e69804c6772e0f2fcf8d76566bb8050265d3212dab3103f",
+      "Bytes": 241043,
+      "Sha256": "ed5ae4d448191401329537eff9356a4a2bdde50f3c3f3e4b53d82d6b520f4669",
       "Producer": "strings"
     },
     {
       "Path": "strings/zhTW.json",
-      "Bytes": 241252,
-      "Sha256": "2d4c3f3ba3702e779555bb8aa34af0cbc193fcffad5f5db544cca6d012b675e0",
+      "Bytes": 242661,
+      "Sha256": "944090d8feba92b8d3d20e9d46cd7f0346ac41ba123a082009e30cd732c149a0",
       "Producer": "strings"
     }
   ]

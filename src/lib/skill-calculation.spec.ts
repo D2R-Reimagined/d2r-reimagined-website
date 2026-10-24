@@ -8,6 +8,7 @@ import {
   evaluateSkillCalc,
   skillLineCalcValues,
   skillLineSynergyBonus,
+  skillLineUnavailableStats,
   skillSynergyBonus
 } from './skill-calculation';
 
@@ -77,6 +78,36 @@ describe('skill synergy calculation', () => {
       "(stat('energy'.accr)/par7)+(skill('Bone Wall'.blvl)*par8)";
 
     expect(skillSynergyBonus(teeth, 'elemental', [teeth, boneWall], { 67: 1, 78: 3 })).toBe(21);
+  });
+
+  it('reports the stat() references a line counted as zero', () => {
+    const teeth = skill(67, 'Teeth');
+    const boneWall = skill(78, 'Bone Wall');
+    teeth.Calculation!.Params[7] = 4;
+    teeth.Calculation!.ElementalDamage =
+      "(stat('energy'.accr)/par7)+(skill('Bone Wall'.blvl)*par8)";
+    teeth.Calculation!.Calcs[1] = "1 + stat('extra_teeth'.accr)";
+    const skills = [teeth, boneWall];
+
+    expect(skillLineUnavailableStats({ key: 'k', scale: 'elemental' }, teeth, skills, {})).toEqual(['energy']);
+    expect(skillLineUnavailableStats({ key: 'k', scale: 'physical' }, teeth, skills, {})).toEqual([]);
+    expect(skillLineUnavailableStats({ key: 'k', valuesCalc: ['clc1', "skill('Bone Wall'.blvl)"] }, teeth, skills, {}))
+      .toEqual(['extra_teeth']);
+    // An expression that cannot be evaluated keeps the exported table, so it reads no stats.
+    expect(skillLineUnavailableStats({ key: 'k', valuesCalc: ["stat('energy'.accr)+ulvl"] }, teeth, skills, {}))
+      .toEqual([]);
+  });
+
+  it('reads ulvl only from a supplied character level', () => {
+    const vines = skill(1, 'Vines');
+    const expression = 'ulvl * 3 / 4 + lvl';
+
+    expect(evaluateSkillCalc(expression, vines, [vines], { 1: 5 }, { 1: 5 }, 30)).toBe(22 + 5);
+    expect(evaluateSkillCalc("skill('Vines'.ulvl)", vines, [vines], {}, {}, 12)).toBe(12);
+    expect(() => evaluateSkillCalc(expression, vines, [vines], { 1: 5 })).toThrow();
+    expect(skillLineCalcValues({ key: 'k', valuesCalc: [expression] }, vines, [vines], { 1: 5 })).toEqual([undefined]);
+    expect(skillLineCalcValues({ key: 'k', valuesCalc: [expression] }, vines, [vines], { 1: 5 }, { 1: 5 }, 30))
+      .toEqual([27]);
   });
 
   it('reads blvl from hard points and lvl from levels including +skills', () => {

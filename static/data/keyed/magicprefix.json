@@ -30010,5 +30010,77 @@
     "ETypes": [],
     "PType": "Prefix",
     "Lines": []
+  },
+  {
+    "NameKey": "Prismatic",
+    "Level": 30,
+    "MaxLevel": 0,
+    "RequiredLevel": 30,
+    "Group": 209,
+    "ClassSpecific": "",
+    "Class": "",
+    "ClassLevelReq": 0,
+    "Types": [
+      "weapitype"
+    ],
+    "ETypes": [],
+    "PType": "Prefix",
+    "Lines": [
+      {
+        "key": "PenetrateElePen",
+        "args": [
+          3,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "NameKey": "Prismatic",
+    "Level": 50,
+    "MaxLevel": 0,
+    "RequiredLevel": 50,
+    "Group": 209,
+    "ClassSpecific": "",
+    "Class": "",
+    "ClassLevelReq": 0,
+    "Types": [
+      "weapitype"
+    ],
+    "ETypes": [],
+    "PType": "Prefix",
+    "Lines": [
+      {
+        "key": "PenetrateElePen",
+        "args": [
+          6,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "NameKey": "Prismatic",
+    "Level": 80,
+    "MaxLevel": 0,
+    "RequiredLevel": 80,
+    "Group": 209,
+    "ClassSpecific": "",
+    "Class": "",
+    "ClassLevelReq": 0,
+    "Types": [
+      "weapitype"
+    ],
+    "ETypes": [],
+    "PType": "Prefix",
+    "Lines": [
+      {
+        "key": "PenetrateElePen",
+        "args": [
+          10,
+          15
+        ]
+      }
+    ]
   }
 ]

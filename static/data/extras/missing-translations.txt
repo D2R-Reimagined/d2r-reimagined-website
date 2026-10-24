@@ -1,4 +1,4 @@
-=== Missing Translation Keys (8) ===
+=== Missing Translation Keys (5) ===
 Display keys referenced by keyed/*.json that neither the mod's own strings, the
 CASC base strings (--casc-data) nor Config/synthetic-strings.json
 resolve. Grouped by the exported document that referenced them.
@@ -11,10 +11,5 @@ may fall back to the final enUS bundle.
   Chromaskin
   Insanity
   Ravage
+  Shatter
   Unity
-  res-max-all
-
---- uniques.json (3) ---
-  Confuse
-  balance
-  mansteal

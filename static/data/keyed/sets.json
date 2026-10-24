@@ -7113,19 +7113,17 @@
         "DamageArmorEnhanced": false,
         "Lines": [
           {
-            "key": "ItemExpansiveChanc2",
-            "args": [
-              10,
-              1,
-              "Empowering Flame"
-            ]
-          },
-          {
             "key": "StrSklTabItem11",
             "args": [
               2
             ],
             "classOnly": "BarOnly"
+          },
+          {
+            "key": "ModStr4c",
+            "args": [
+              25
+            ]
           },
           {
             "key": "ModStr1i",
@@ -45160,6 +45158,13 @@
             "perLevel": true
           },
           {
+            "key": "ModStr1f",
+            "args": [
+              1
+            ],
+            "perLevel": true
+          },
+          {
             "key": "strSkillRandomFromSkillClass",
             "args": [
               3,
@@ -45282,6 +45287,14 @@
               ],
               "perLevel": true,
               "itemsRequired": 3
+            },
+            {
+              "key": "ModStr1f",
+              "args": [
+                1
+              ],
+              "perLevel": true,
+              "itemsRequired": 3
             }
           ]
         ],
@@ -45381,6 +45394,14 @@
           [
             {
               "key": "ModStr1g",
+              "args": [
+                1
+              ],
+              "perLevel": true,
+              "itemsRequired": 2
+            },
+            {
+              "key": "ModStr1f",
               "args": [
                 1
               ],

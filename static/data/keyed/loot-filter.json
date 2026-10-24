@@ -10008,7 +10008,7 @@
     },
     {
       "NameKey": "Night Hag",
-      "Code": "bax"
+      "Code": "7wa"
     },
     {
       "NameKey": "Mirth Bringer",
@@ -10480,7 +10480,7 @@
     },
     {
       "NameKey": "Vilifier",
-      "Code": "gma"
+      "Code": "7gm"
     },
     {
       "NameKey": "Hill Giant\u0027s Bludgeon",
@@ -11768,7 +11768,7 @@
     },
     {
       "NameKey": "Dreamscape",
-      "Code": "fld"
+      "Code": "pae"
     },
     {
       "NameKey": "Obsidian Husk",
@@ -11812,7 +11812,7 @@
     },
     {
       "NameKey": "Gillian\u0027s Brazier",
-      "Code": "xui"
+      "Code": "uul"
     },
     {
       "NameKey": "Anaconda Skin",
@@ -11820,7 +11820,7 @@
     },
     {
       "NameKey": "Scavanger\u0027s Carapace",
-      "Code": "xea"
+      "Code": "paf"
     },
     {
       "NameKey": "Torn Flesh of Souls",
@@ -11840,7 +11840,7 @@
     },
     {
       "NameKey": "Heartbane",
-      "Code": "xng"
+      "Code": "ned"
     },
     {
       "NameKey": "Adamantine Mail",
@@ -11864,7 +11864,7 @@
     },
     {
       "NameKey": "Tesla\u0027s Cuirass",
-      "Code": "xrs"
+      "Code": "utp"
     },
     {
       "NameKey": "Skovos\u0027 Cuirass",
@@ -11900,11 +11900,11 @@
     },
     {
       "NameKey": "Nightcrawler",
-      "Code": "xth"
+      "Code": "nee"
     },
     {
       "NameKey": "Shambling Mound",
-      "Code": "xul"
+      "Code": "uth"
     },
     {
       "NameKey": "Evening Sky",
@@ -14073,6 +14073,10 @@
     {
       "NameKey": "Relic of the Ancients",
       "Code": "cm3"
+    },
+    {
+      "NameKey": "Thunderstep Test Staff",
+      "Code": "sst"
     }
   ],
   "SetItems": [

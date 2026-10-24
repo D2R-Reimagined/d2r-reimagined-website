@@ -1,9 +1,9 @@
-=== Asset Report: 0 unresolved, 1313 fallback(s), 0 collision(s) ===
+=== Asset Report: 0 unresolved, 1314 fallback(s), 0 collision(s) ===
 Unresolved = no sprite was exported for the identifier (its Sprite/Icon is absent).
 Fallback   = a supported substitute was exported (e.g. the base item's art for a unique without its own).
 Collision  = two different sources resolved to the same output file; the first was kept.
 
---- item-presentation.json / Fallback (1313): no named artwork mapping (mod or CASC) ---
+--- item-presentation.json / Fallback (1314): no named artwork mapping (mod or CASC) ---
   set item 'Afterlife' (xla)  mapping=hd/items/sets.json#afterlife  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
   set item 'Alyssa's Essence' (xpl)  mapping=hd/items/sets.json#alyssa_s_essence  fallback=base item sprite sprites/items/armor-armor-splint_mail.webp
   set item 'Alyssa's Leafblighter' (8l8)  mapping=hd/items/sets.json#alyssa_s_leafblighter  fallback=base item sprite sprites/items/weapon-bow-long_battle_bow.webp
@@ -588,7 +588,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Dreadmother' (neg)  mapping=hd/items/uniques.json#dreadmother  fallback=base item sprite sprites/items/armor-voodoo_head-zombie_head.webp
   unique 'Dreadwall' (xts)  mapping=hd/items/uniques.json#dreadwall  fallback=base item sprite sprites/items/armor-shield-gothic_shield.webp
   unique 'Dreams of Empire' (9st)  mapping=hd/items/uniques.json#dreams_of_empire  fallback=base item sprite sprites/items/weapon-spear-spetum.webp
-  unique 'Dreamscape' (fld)  mapping=hd/items/uniques.json#dreamscape  fallback=base item sprite sprites/items/armor-armor-field_plate.webp
+  unique 'Dreamscape' (pae)  mapping=hd/items/uniques.json#dreamscape  fallback=base item sprite sprites/items/armor-shield-aerin_shield.webp
   unique 'Dreamsplitter' (ob6)  mapping=hd/items/uniques.json#dreamsplitter  fallback=base item sprite sprites/items/weapon-orb-eagle_orb.webp
   unique 'Dreamweaver' (ne9)  mapping=hd/items/uniques.json#dreamweaver  fallback=base item sprite sprites/items/armor-voodoo_head-gargoyle_head.webp
   unique 'Drehya's Globe' (ob7)  mapping=hd/items/uniques.json#drehya_s_globe  fallback=base item sprite sprites/items/weapon-orb-sacred_globe.webp
@@ -684,7 +684,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Ghoulslayer' (xh9)  mapping=hd/items/uniques.json#ghoulslayer  fallback=base item sprite sprites/items/armor-helmet-bone_helm.webp
   unique 'Giant Hair Crossbow' (8mx)  mapping=hd/items/uniques.json#giant_hair_crossbow  fallback=base item sprite sprites/items/weapon-bow-crossbow.webp
   unique 'Gillian's Boots' (vbt)  mapping=hd/items/uniques.json#gillian_s_boots  fallback=base item sprite sprites/items/armor-boot-heavy_boots.webp
-  unique 'Gillian's Brazier' (xui)  mapping=hd/items/uniques.json#gillian_s_brazier  fallback=base item sprite sprites/items/armor-armor-quilted_armor.webp
+  unique 'Gillian's Brazier' (uul)  mapping=hd/items/uniques.json#gillian_s_brazier  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
   unique 'Gillian's Tiara' (ci2)  mapping=hd/items/uniques.json#gillian_s_tiara  fallback=base item sprite sprites/items/armor-circlet-tiara.webp
   unique 'Gladiator's Strike' (9cl)  mapping=hd/items/uniques.json#gladiator_s_strike  fallback=base item sprite sprites/items/weapon-club-club.webp
   unique 'Glitterkill' (9qr)  mapping=hd/items/uniques.json#glitterkill  fallback=base item sprite sprites/items/weapon-h2h-scissors_katar.webp
@@ -743,7 +743,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Haven of Light' (obb)  mapping=hd/items/uniques.json#haven_of_light  fallback=base item sprite sprites/items/weapon-orb-eagle_orb.webp
   unique 'Hawkfire' (am3)  mapping=hd/items/uniques.json#hawkfire  fallback=base item sprite sprites/items/weapon-spear-maiden_spear.webp
   unique 'Healing Touch' (vgl)  mapping=hd/items/uniques.json#healing_touch  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
-  unique 'Heartbane' (xng)  mapping=hd/items/uniques.json#heartbane  fallback=base item sprite sprites/items/armor-armor-ring_mail.webp
+  unique 'Heartbane' (ned)  mapping=hd/items/uniques.json#heartbane  fallback=base item sprite sprites/items/armor-voodoo_head-unraveller_head.webp
   unique 'Heartpiercer' (amc)  mapping=hd/items/uniques.json#heartpiercer  fallback=base item sprite sprites/items/weapon-bow-reflex_bow.webp
   unique 'Heartseeker' (8l8)  mapping=hd/items/uniques.json#heartseeker  fallback=base item sprite sprites/items/weapon-bow-long_battle_bow.webp
   unique 'Heat of Summer' (9xf)  mapping=hd/items/uniques.json#heat_of_summer  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
@@ -900,8 +900,8 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Nameless Horror' (7gi)  mapping=hd/items/uniques.json#nameless_horror  fallback=base item sprite sprites/items/weapon-axe-giant_axe.webp
   unique 'Nameweaver' (cap)  mapping=hd/items/uniques.json#nameweaver  fallback=base item sprite sprites/items/armor-helmet-cap_hat.webp
   unique 'Neonate's Sallet' (xkp)  mapping=hd/items/uniques.json#neonate_s_sallet  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
-  unique 'Night Hag' (bax)  mapping=hd/items/uniques.json#night_hag  fallback=base item sprite sprites/items/weapon-axe-broad_axe.webp
-  unique 'Nightcrawler' (xth)  mapping=hd/items/uniques.json#nightcrawler  fallback=base item sprite sprites/items/armor-armor-gothic_plate.webp
+  unique 'Night Hag' (7wa)  mapping=hd/items/uniques.json#night_hag  fallback=base item sprite sprites/items/weapon-axe-war_axe.webp
+  unique 'Nightcrawler' (nee)  mapping=hd/items/uniques.json#nightcrawler  fallback=base item sprite sprites/items/armor-voodoo_head-gargoyle_head.webp
   unique 'Nightmare Razors' (btl)  mapping=hd/items/uniques.json#nightmare_razors  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
   unique 'Nightscape' (7fb)  mapping=hd/items/uniques.json#nightscape  fallback=base item sprite sprites/items/weapon-sword-flamberge.webp
   unique 'Nightwrath' (7xf)  mapping=hd/items/uniques.json#nightwrath  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
@@ -1036,7 +1036,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Scarab Cleaver' (9xf)  mapping=hd/items/uniques.json#scarab_cleaver  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
   unique 'Scarab of Protection' (stu)  mapping=hd/items/uniques.json#scarab_of_protection  fallback=base item sprite sprites/items/armor-armor-studded_leather.webp
   unique 'Scars of the Forefathers' (xpl)  mapping=hd/items/uniques.json#scars_of_the_forefathers  fallback=base item sprite sprites/items/armor-armor-splint_mail.webp
-  unique 'Scavanger's Carapace' (xea)  mapping=hd/items/uniques.json#scavanger_s_carapace  fallback=base item sprite sprites/items/armor-armor-leather_armor.webp
+  unique 'Scavanger's Carapace' (paf)  mapping=hd/items/uniques.json#scavanger_s_carapace  fallback=base item sprite sprites/items/armor-shield-crown_shield.webp
   unique 'Scream of Despair' (gwn)  mapping=hd/items/uniques.json#scream_of_despair  fallback=base item sprite sprites/items/weapon-wand-grim_wand.webp
   unique 'Scripture of the IronBound' (wab)  mapping=hd/items/uniques.json#scripture_of_the_ironbound  fallback=base item sprite sprites/items/armor-grimoires-oldbook.webp
   unique 'Seafarer's Security' (pa1)  mapping=hd/items/uniques.json#seafarer_s_security  fallback=base item sprite sprites/items/armor-shield-targe.webp
@@ -1049,7 +1049,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Shadazar's Answer' (wax)  mapping=hd/items/uniques.json#shadazar_s_answer  fallback=base item sprite sprites/items/weapon-axe-war_axe.webp
   unique 'Shadowtrick' (uul)  mapping=hd/items/uniques.json#shadowtrick  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
   unique 'Shadowy Places' (9lw)  mapping=hd/items/uniques.json#shadowy_places  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
-  unique 'Shambling Mound' (xul)  mapping=hd/items/uniques.json#shambling_mound  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
+  unique 'Shambling Mound' (uth)  mapping=hd/items/uniques.json#shambling_mound  fallback=base item sprite sprites/items/armor-armor-gothic_plate.webp
   unique 'Shapeshifter' (7ba)  mapping=hd/items/uniques.json#shapeshifter  fallback=base item sprite sprites/items/weapon-axe-broad_axe.webp
   unique 'Shard of the North Star' (7tk)  mapping=hd/items/uniques.json#shard_of_the_north_star  fallback=base item sprite sprites/items/weapon-knife-throwing_knife.webp
   unique 'Shattered Dreams' (zhb)  mapping=hd/items/uniques.json#shattered_dreams  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
@@ -1168,7 +1168,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Tendriculos' (btx)  mapping=hd/items/uniques.json#tendriculos  fallback=base item sprite sprites/items/weapon-axe-battle_axe.webp
   unique 'Ter'Angreal' (8ls)  mapping=hd/items/uniques.json#ter_angreal  fallback=base item sprite sprites/items/weapon-staff-long_staff.webp
   unique 'Terminus Rod' (ob6)  mapping=hd/items/uniques.json#terminus_rod  fallback=base item sprite sprites/items/weapon-orb-eagle_orb.webp
-  unique 'Tesla's Cuirass' (xrs)  mapping=hd/items/uniques.json#tesla_s_cuirass  fallback=base item sprite sprites/items/armor-armor-breast_plate.webp
+  unique 'Tesla's Cuirass' (utp)  mapping=hd/items/uniques.json#tesla_s_cuirass  fallback=base item sprite sprites/items/armor-armor-light_plate.webp
   unique 'Text of the Infernal Vanguard' (wa6)  mapping=hd/items/uniques.json#text_of_the_infernal_vanguard  fallback=base item sprite sprites/items/armor-grimoires-oldbook.webp
   unique 'The Arreat Codex' (wa3)  mapping=hd/items/uniques.json#the_arreat_codex  fallback=base item sprite sprites/items/armor-grimoires-codex.webp
   unique 'The Art of War' (zhb)  mapping=hd/items/uniques.json#the_art_of_war  fallback=base item sprite sprites/items/armor-belt-girdle_h.webp
@@ -1204,6 +1204,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Threatspeaker' (ci1)  mapping=hd/items/uniques.json#threatspeaker  fallback=base item sprite sprites/items/armor-circlet-coronet.webp
   unique 'Thundercall' (9gd)  mapping=hd/items/uniques.json#thundercall  fallback=base item sprite sprites/items/weapon-sword-great_sword.webp
   unique 'Thunderclap' (72h)  mapping=hd/items/uniques.json#thunderclap  fallback=base item sprite sprites/items/weapon-sword-two_handed_sword.webp
+  unique 'Thunderstep Test Staff' (sst)  mapping=hd/items/uniques.json#thunderstep_test_staff  fallback=base item sprite sprites/items/weapon-staff-short_staff.webp
   unique 'Tidrik's Initiator' (bkf)  mapping=hd/items/uniques.json#tidrik_s_initiator  fallback=base item sprite sprites/items/weapon-knife-balanced_knife.webp
   unique 'Tiger Eye' (jew)  mapping=hd/items/uniques.json#tiger_eye  fallback=base item sprite sprites/items/misc-gem-jewels.webp
   unique 'Timbersplitter' (bal)  mapping=hd/items/uniques.json#timbersplitter  fallback=base item sprite sprites/items/weapon-axe-balanced_axe.webp
@@ -1242,7 +1243,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Vengeance of the Wronged' (7bw)  mapping=hd/items/uniques.json#vengeance_of_the_wronged  fallback=base item sprite sprites/items/weapon-wand-bone_wand.webp
   unique 'Venomlord's Visage' (neb)  mapping=hd/items/uniques.json#venomlord_s_visage  fallback=base item sprite sprites/items/armor-voodoo_head-preserved_head.webp
   unique 'Vile Temptress' (am8)  mapping=hd/items/uniques.json#vile_temptress  fallback=base item sprite sprites/items/weapon-spear-maiden_spear.webp
-  unique 'Vilifier' (gma)  mapping=hd/items/uniques.json#vilifier  fallback=base item sprite sprites/items/weapon-hammer-great_maul.webp
+  unique 'Vilifier' (7gm)  mapping=hd/items/uniques.json#vilifier  fallback=base item sprite sprites/items/weapon-hammer-great_maul.webp
   unique 'Violetwing' (sbw)  mapping=hd/items/uniques.json#violetwing  fallback=base item sprite sprites/items/weapon-bow-short_bow.webp
   unique 'Viridian Gloves' (uvg)  mapping=hd/items/uniques.json#viridian_gloves  fallback=base item sprite sprites/items/armor-glove-heavy_gloves.webp
   unique 'Voice of Reason' (7wn)  mapping=hd/items/uniques.json#voice_of_reason  fallback=base item sprite sprites/items/weapon-wand-wand.webp

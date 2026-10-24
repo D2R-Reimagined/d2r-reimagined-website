@@ -54,6 +54,32 @@ export function skillPointsFromRanks(skill: Skill | undefined, base: number, eff
   return clampSkillPoints(skill, { hard, bonus: Math.max(0, effective - hard) });
 }
 
+/** Hard / bonus points the reader chose in the planner preview, tied to the skill and rank they were chosen at. */
+export interface SkillPreviewOverride {
+  skillId: number;
+  rank: number;
+  points: SkillPoints;
+}
+
+/**
+ * Planner preview points: the reader's override while the same skill is shown at the same rank,
+ * otherwise the allocated rank (at least 1) with no bonus. Another skill shown in between (a
+ * hover preview) does not discard the override.
+ */
+export function skillPreviewPoints(skill: Skill | undefined, rank: number, override: SkillPreviewOverride | null): SkillPoints {
+  const own = override && skill && override.skillId === skill.Id && override.rank === rank ? override.points : null;
+  return clampSkillPoints(skill, own ?? { hard: Math.max(rank, 1), bonus: 0 });
+}
+
+/** An override goes stale once its own skill's allocation changes; other skills shown meanwhile keep it. */
+export function keepSkillPreviewOverride(
+  override: SkillPreviewOverride | null,
+  skill: Skill | undefined,
+  rank: number
+): SkillPreviewOverride | null {
+  return override && skill?.Id === override.skillId && rank !== override.rank ? null : override;
+}
+
 /** True when any of the skill's description lines depends on the character level. */
 export function skillReadsCharacterLevel(skill: Skill | undefined): boolean {
   const descriptions = skill?.Descriptions;
