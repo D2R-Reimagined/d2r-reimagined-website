@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import { get } from 'svelte/store';
 import { i18n, initializeI18n } from './i18n';
 import { itemType } from './catalog';
-import { catalogTypeValues, matchesItemType, parseTypeChoice, typeChoiceValue, typeFamilyChoices } from './catalog-controls';
+import {
+  catalogTypeValues, matchesItemType, orderTypeChoices, parseTypeChoice, typeChoiceValue, typeFamilyChoices
+} from './catalog-controls';
 import { readCatalogFilters, writeCatalogFilters } from './catalog-query';
 import { filterGrailItems } from './grail-filters';
 import { grailKey } from './grail-progress';
@@ -48,6 +50,27 @@ describe('Helm and Any Helm choices', () => {
     expect(typeChoiceValue('helmitype', true)).toBe('exact:helmitype');
     expect(typeChoiceValue('helmitype', false)).toBe('helmitype');
     expect(typeChoiceValue('peltitype', true)).toBe('peltitype');
+  });
+
+  it('orders priority families, other families, then specific types by translated label', () => {
+    // Labels are deliberately unrelated to the codes so ordering cannot depend on English text.
+    const synthetic = [
+      { value: 'bootitype', label: 'A' }, { value: 'throitype', label: 'B' }, { value: 'shlditype', label: 'Z' },
+      { value: 'meleitype', label: 'C' }, { value: 'blunitype', label: 'D' }, { value: 'armoitype', label: 'E' },
+      { value: 'peltitype', label: 'F' }, { value: 'missitype', label: 'G' }, { value: 'weapitype', label: 'H' },
+      { value: 'helmitype', label: 'I' }, { value: 'exact:helmitype', label: 'J' }
+    ];
+    expect(orderTypeChoices(synthetic).map((option) => option.value)).toEqual([
+      'armoitype', 'helmitype', 'weapitype', 'meleitype', 'missitype', 'throitype',
+      'blunitype', 'shlditype',
+      'bootitype', 'peltitype', 'exact:helmitype'
+    ]);
+  });
+
+  it('treats Helm as specific when no separate exact choice exists', () => {
+    const synthetic = [{ value: 'peltitype', label: 'B' }, { value: 'helmitype', label: 'A' }, { value: 'weapitype', label: 'C' }];
+    expect(orderTypeChoices(synthetic)).toEqual([synthetic[2], synthetic[1], synthetic[0]]);
+    expect(synthetic.map((option) => option.value)).toEqual(['peltitype', 'helmitype', 'weapitype']);
   });
 
   it('localizes Any Helm in every UI language', () => {

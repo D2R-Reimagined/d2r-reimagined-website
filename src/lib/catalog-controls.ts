@@ -151,6 +151,33 @@ export function typeFamilyChoices(
     .sort((a, b) => a.label.localeCompare(b.label));
 }
 
+// Hierarchy nodes from typeParents that only group other types. The leading codes
+// keep the broadest families (Any Armor, Any Helm, Any Weapon, Melee, Missile,
+// Throwing) at the top; the rest follow by translated label.
+const priorityTypes = ['armoitype', 'helmitype', 'weapitype', 'meleitype', 'missitype', 'throitype'];
+const aggregateTypes = new Set([
+  ...priorityTypes, 'shlditype', 'bldeitype', 'spplitype', 'blunitype', 'roditype',
+  'combitype', 'clasitype', 'charitype', 'sockitype', 'miscitype'
+]);
+
+/** Aggregate type families first, then specific types, each alphabetical by translated label. */
+export function orderTypeChoices(
+  options: Array<{ value: string; label: string }>
+): Array<{ value: string; label: string }> {
+  const values = new Set(options.map((option) => option.value));
+  // A real type that is also a concrete item type (Helm) is only the family choice
+  // when its exact sibling is offered beside it.
+  const isAggregate = (value: string) => familyLabels[value]
+    ? values.has(`${exactChoicePrefix}${value}`)
+    : aggregateTypes.has(value);
+  const rank = (value: string) => {
+    if (!isAggregate(value)) return priorityTypes.length + 1;
+    const priority = priorityTypes.indexOf(value);
+    return priority === -1 ? priorityTypes.length : priority;
+  };
+  return [...options].sort((a, b) => rank(a.value) - rank(b.value) || a.label.localeCompare(b.label));
+}
+
 export function typeChoiceValue(selectedType: string, exact: boolean): string {
   return exact && familyLabels[selectedType] ? `${exactChoicePrefix}${selectedType}` : selectedType;
 }

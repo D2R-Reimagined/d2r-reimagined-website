@@ -1,6 +1,6 @@
 <script lang="ts">
     import type {CatalogSlug} from '$lib/types';
-    import {parseTypeChoice, typeChoiceValue, typeFamilyChoices, type CatalogSortMode, type RuneMatchMode} from '$lib/catalog-controls';
+    import {orderTypeChoices, parseTypeChoice, typeChoiceValue, typeFamilyChoices, type CatalogSortMode, type RuneMatchMode} from '$lib/catalog-controls';
     import {i18n} from '$lib/i18n';
     import SearchableSelect from './SearchableSelect.svelte';
     import SearchableMultiSelect from './SearchableMultiSelect.svelte';
@@ -54,7 +54,7 @@
     let expanded = $state(true);
     // Without the Exact toggle, the type list offers Helm and Any Helm as separate choices.
     const exactToggle = $derived(['affixes', 'runewords'].includes(slug));
-    const typeChoices = $derived(exactToggle ? typeOptions : typeFamilyChoices(typeOptions, (key) => $i18n.t(key)));
+    const typeChoices = $derived(orderTypeChoices(exactToggle ? typeOptions : typeFamilyChoices(typeOptions, (key) => $i18n.t(key))));
 
     function getTypeChoice(): string {
         return exactToggle ? selectedType : typeChoiceValue(selectedType, exactType);
