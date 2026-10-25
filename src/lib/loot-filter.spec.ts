@@ -62,6 +62,30 @@ describe('distributed UnHoarder 1.1.0 filter contract', () => {
     expect(result.errors).toEqual([]);
     expect(JSON.parse(result.json)).toEqual(filter);
   });
+  it('treats unchecked/undefined optional fields as omitted like JSON serialization', () => {
+    const rule = {
+      show: {
+        ruleName: undefined,
+        continue: undefined,
+        conditions: undefined,
+        name: undefined,
+        tooltip: undefined,
+        dropSound: undefined,
+        minimapIcon: undefined
+      }
+    };
+    const withPartial = {
+      show: {
+        conditions: { rarity: 'unique', code: undefined, ethereal: undefined, sockets: undefined },
+        tooltip: { textColor: 'RGBA(255, 180, 90, 1)', backgroundColor: undefined },
+        minimapIcon: { shape: 'diamond', borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(215, 175, 85, 1)', size: undefined }
+      }
+    };
+    const result = M.validateFilter({ version: 3, rules: [rule, withPartial] });
+    expect(result.errors).toEqual([]);
+    expect(M.summarizeRule(rule)).toMatchObject({ kind: 'show', conditionSummary: 'Catch-all', actionSummary: 'Visibility only' });
+    expect(M.summarizeRule(withPartial)).toMatchObject({ kind: 'show', conditionSummary: 'rarity: unique', actionSummary: 'Tooltip · Minimap' });
+  });
   it.each([{ quantity: { eq: 65536 } }, { quantity: { eq: NaN } }, { quantity: { eq: null } }, { sockets: { eq: 16 } }, { itemLevel: { eq: 100 } }, { code: 'toolong' }, { identified: 'yes' }, { uniqueName: 'Shako' }])('rejects unsupported conditions %j', conditions => {
     expect(validate({ conditions }).errors.length).toBeGreaterThan(0);
   });
