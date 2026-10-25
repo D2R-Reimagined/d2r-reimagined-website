@@ -258,6 +258,14 @@
   {#if checkoutEnabled && products?.recurring.length}
     <h2 class="display-text mt-14 text-3xl">Monthly memberships</h2>
     <p class="mt-2 text-parchment-300">Recurring support billed automatically each period. Cancel anytime{products.customerPortalUrl ? ' from the billing portal' : ''}.</p>
+    <p class="mt-1 flex items-center gap-1.5 text-sm text-parchment-300">
+      <DiscordSolid class="h-4 w-4 shrink-0" aria-hidden="true" />
+      {#if signedIn && !$authState.user?.discordId}
+        <span>Memberships include a Discord supporter role. <a class="text-ember-400 hover:text-white" href="/profile">Link your Discord account</a> to receive it.</span>
+      {:else}
+        <span>Memberships include a Discord supporter role while active, for accounts with Discord linked.</span>
+      {/if}
+    </p>
     <div class="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {#each products.recurring as product (product.priceId)}
         {@render productCard(product, true)}

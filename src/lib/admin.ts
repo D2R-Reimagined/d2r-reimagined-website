@@ -10,6 +10,25 @@ export interface Ladder extends LadderSummary {
   activeBundle: LadderBundle | null;
   /** A bundle counting down to activation; absent when none is. */
   pendingRelease?: LadderPendingRelease | null;
+  /** The exact D2RLoader build players must run; absent when the ladder does not pin one. */
+  requiredD2RLoader?: LadderD2RLoader | null;
+}
+
+export interface LadderD2RLoaderFile {
+  path: string;
+  sha256: string;
+  sizeBytes: number;
+}
+
+/** `sha256`/`sizeBytes` describe the uploaded ZIP; launchers match `files` byte-for-byte. */
+export interface LadderD2RLoader {
+  version: string;
+  fileName: string;
+  sha256: string;
+  sizeBytes: number;
+  files: LadderD2RLoaderFile[];
+  uploadedAtUtc: string;
+  downloadPath: string;
 }
 
 /** The current bundle stays valid for launches and saves until `activatesAtUtc`. */
@@ -398,6 +417,19 @@ export function uploadOptionalExtension(ladderId: string, file: File,
 
 export function removeOptionalExtension(ladderId: string, extensionId: string): Promise<Ladder> {
   return apiRequest<Ladder>(`/admin/ladders/${ladderId}/optional-extensions/${extensionId}`, {method: 'DELETE'}, true);
+}
+
+/** Pins the ladder to this D2RLoader release ZIP, replacing any earlier pin. */
+export function uploadLadderD2RLoader(ladderId: string, file: File, version: string,
+  onProgress?: (progress: ApiUploadProgress) => void): Promise<Ladder> {
+  const body = new FormData();
+  body.set('file', file, file.name);
+  body.set('version', version.trim());
+  return apiUploadRequest<Ladder>(`/admin/ladders/${ladderId}/d2rloader`, body, onProgress);
+}
+
+export function removeLadderD2RLoader(ladderId: string): Promise<Ladder> {
+  return apiRequest<Ladder>(`/admin/ladders/${ladderId}/d2rloader`, {method: 'DELETE'}, true);
 }
 
 export async function getLatestLadderBundlePublishJob(

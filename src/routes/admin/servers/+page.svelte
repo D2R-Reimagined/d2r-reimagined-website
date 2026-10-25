@@ -3,7 +3,8 @@
   import ServerRegistryEditor from '$lib/components/ServerRegistryEditor.svelte';
   import type { ServerConfiguration } from '$lib/server-registry';
   import { getServerBuilds, type ServerBuildState } from '$lib/admin';
-  import { appendLogs, connectServerTelemetry, getServers, installedBuildSummary, logLevels, type TelemetryLog, type TelemetryServer } from '$lib/server-telemetry';
+  import { appendLogs, bundleRevisionSummary, connectServerTelemetry, d2rLoaderSummary, getServers, installedBuildSummary, logLevels,
+    type DeploymentLine, type TelemetryLog, type TelemetryServer } from '$lib/server-telemetry';
 
   let servers = $state<TelemetryServer[]>([]);
   let configured = $state<ServerConfiguration[]>([]);
@@ -41,6 +42,7 @@
     if (server.status === 'disabled') return 'disabled';
     return age(server) > 30 ? 'offline' : age(server) > 10 ? 'delayed' : server.status;
   }
+  function toneClass(value: DeploymentLine['tone']): string { return value === 'ok' ? 'text-emerald-300' : value === 'warn' ? 'text-amber-300' : ''; }
   function tone(value: string): string {
     return value === 'online' ? 'text-emerald-300' : value === 'offline' || value === 'stalled' ? 'text-requirement' : 'text-amber-300';
   }
@@ -118,13 +120,17 @@
     <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3" aria-label="Dedicated servers">
       {#each servers as server (server.id)}
         {@const build = installedBuildSummary(server.serverBuild, ladderBuilds[server.ladderId])}
+        {@const revision = bundleRevisionSummary(server.deployment, server.ladderTarget)}
+        {@const loader = d2rLoaderSummary(server.deployment, server.ladderTarget)}
         <button onclick={() => choose(server.id)} aria-pressed={selectedId === server.id} class={`panel min-w-0 rounded-lg p-4 text-left transition hover:border-ember-400/65 ${selectedId === server.id ? 'border-ember-400/65 bg-ember-700/15' : ''}`}>
           <span class="flex items-center justify-between gap-2"><span class="display-text truncate text-lg text-parchment-50" title={server.id}>{displayName(server.id)}</span><span class={`text-xs uppercase tracking-wider ${tone(status(server))}`}>{status(server)}</span></span>
           <span class="mt-1 block text-xs text-parchment-300">{displayName(server.id) !== server.id ? `${server.id} · ` : ''}{server.address}{server.snapshot ? `:${server.snapshot.gamePort}` : ''}</span>
           {#if server.regionIds?.length}<span class="mt-1 block break-words text-xs text-parchment-300">{server.regionIds.join(' · ')}</span>{/if}
           <span class="mt-3 block text-sm text-parchment-200">{server.snapshot?.games.length ?? 0}{configuration(server.id)?.maxGames ? ` / ${configuration(server.id)?.maxGames}` : ''} lobbies · {server.snapshot?.games.reduce((n, g) => n + g.connectedCount, 0) ?? 0} connections</span>
           <span class="mt-1 block text-xs text-parchment-300">{server.receivedAtUtc ? `Last report ${duration(age(server))} ago` : 'Waiting for the first report'}</span>
-          <span class="mt-1 block text-xs text-parchment-300" title={build.title}>Server build <span class={`font-mono ${build.match === 'unknown-build' ? 'text-amber-300' : 'text-parchment-200'}`}>{build.label}</span>{server.serverBuild ? ` · reported ${duration(Math.max(0, (now + clockOffset - Date.parse(server.serverBuild.reportedAtUtc)) / 1000))} ago` : ''}{#if build.match === 'outdated'}<span class="text-amber-300"> · not the ladder's current build</span>{:else if build.match === 'up-to-date'}<span class="text-emerald-300"> · up to date</span>{/if}</span>
+          <span class="mt-1 block text-xs text-parchment-300" title={build.title}>Server build <span class={`font-mono ${build.match === 'unknown-build' ? 'text-amber-300' : 'text-parchment-200'}`}>{build.label}</span>{server.serverBuild ? ` · reported ${duration(Math.max(0, (now + clockOffset - Date.parse(server.serverBuild.reportedAtUtc)) / 1000))} ago` : ''}{#if build.match === 'outdated'}<span class="text-amber-300">{" · not the ladder's current build"}</span>{:else if build.match === 'up-to-date'}<span class="text-emerald-300">{' · up to date'}</span>{/if}</span>
+          <span class="mt-1 block text-xs text-parchment-300" title={revision.title}>Ladder bundle <span class={`font-mono ${revision.tone === 'warn' ? 'text-amber-300' : 'text-parchment-200'}`}>{revision.label}</span>{#if revision.note}<span class={toneClass(revision.tone)}>{` · ${revision.note}`}</span>{/if}{server.deployment ? ` · reported ${duration(Math.max(0, (now + clockOffset - Date.parse(server.deployment.reportedAtUtc)) / 1000))} ago` : ''}</span>
+          <span class="mt-1 block text-xs text-parchment-300" title={loader.title}>D2RLoader <span class={`font-mono ${loader.tone === 'warn' ? 'text-amber-300' : 'text-parchment-200'}`}>{loader.label}</span>{#if loader.note}<span class={toneClass(loader.tone)}>{` · ${loader.note}`}</span>{/if}</span>
         </button>
       {/each}
     </div>
