@@ -24584,6 +24584,12 @@
         ]
       },
       {
+        "key": "Modstr2v",
+        "args": [
+          300
+        ]
+      },
+      {
         "key": "Moditem2allattrib",
         "args": [
           30
@@ -24592,8 +24598,8 @@
       {
         "key": "ModStr1x",
         "args": [
-          100,
-          150
+          150,
+          200
         ]
       },
       {
@@ -25612,7 +25618,7 @@
     ]
   },
   {
-    "Index": "Purity",
+    "Index": "Solace",
     "Vanilla": "N",
     "Enabled": true,
     "Rarity": 0,

@@ -2644,15 +2644,30 @@
       "Index": "tpotitype",
       "Class": ""
     },
-    "DamageTypes": [],
+    "DamageTypes": [
+      {
+        "Type": 4,
+        "AverageDamage": 48,
+        "Lines": [
+          {
+            "key": "StrSkill8",
+            "args": [
+              48,
+              48
+            ]
+          },
+          {
+            "key": "StrSkill63",
+            "args": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
     "RequiredLevel": 16,
     "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strIndestructible",
-        "args": []
-      }
-    ]
+    "Lines": []
   },
   {
     "EquipmentType": 1,
@@ -6192,15 +6207,37 @@
       "Index": "tpotitype",
       "Class": ""
     },
-    "DamageTypes": [],
+    "DamageTypes": [
+      {
+        "Type": 2,
+        "AverageDamage": 10,
+        "Lines": [
+          {
+            "key": "strWeaponDamageThrow",
+            "args": [
+              8,
+              12
+            ]
+          }
+        ]
+      },
+      {
+        "Type": 4,
+        "AverageDamage": 13,
+        "Lines": [
+          {
+            "key": "StrSkill5",
+            "args": [
+              8,
+              18
+            ]
+          }
+        ]
+      }
+    ],
     "RequiredLevel": 12,
     "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strIndestructible",
-        "args": []
-      }
-    ]
+    "Lines": []
   },
   {
     "EquipmentType": 1,
@@ -6918,15 +6955,37 @@
       "Index": "tpotitype",
       "Class": ""
     },
-    "DamageTypes": [],
+    "DamageTypes": [
+      {
+        "Type": 2,
+        "AverageDamage": 4.5,
+        "Lines": [
+          {
+            "key": "strWeaponDamageThrow",
+            "args": [
+              2,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "Type": 4,
+        "AverageDamage": 5.5,
+        "Lines": [
+          {
+            "key": "StrSkill5",
+            "args": [
+              3,
+              8
+            ]
+          }
+        ]
+      }
+    ],
     "RequiredLevel": 0,
     "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strIndestructible",
-        "args": []
-      }
-    ]
+    "Lines": []
   },
   {
     "EquipmentType": 1,
@@ -12471,15 +12530,37 @@
       "Index": "tpotitype",
       "Class": ""
     },
-    "DamageTypes": [],
+    "DamageTypes": [
+      {
+        "Type": 2,
+        "AverageDamage": 21.5,
+        "Lines": [
+          {
+            "key": "strWeaponDamageThrow",
+            "args": [
+              13,
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "Type": 4,
+        "AverageDamage": 23.5,
+        "Lines": [
+          {
+            "key": "StrSkill5",
+            "args": [
+              13,
+              34
+            ]
+          }
+        ]
+      }
+    ],
     "RequiredLevel": 20,
     "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strIndestructible",
-        "args": []
-      }
-    ]
+    "Lines": []
   },
   {
     "EquipmentType": 1,
@@ -13056,15 +13137,30 @@
       "Index": "tpotitype",
       "Class": ""
     },
-    "DamageTypes": [],
+    "DamageTypes": [
+      {
+        "Type": 4,
+        "AverageDamage": 72,
+        "Lines": [
+          {
+            "key": "StrSkill8",
+            "args": [
+              72,
+              72
+            ]
+          },
+          {
+            "key": "StrSkill63",
+            "args": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
     "RequiredLevel": 24,
     "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strIndestructible",
-        "args": []
-      }
-    ]
+    "Lines": []
   },
   {
     "EquipmentType": 1,
@@ -15977,15 +16073,30 @@
       "Index": "tpotitype",
       "Class": ""
     },
-    "DamageTypes": [],
+    "DamageTypes": [
+      {
+        "Type": 4,
+        "AverageDamage": 24,
+        "Lines": [
+          {
+            "key": "StrSkill8",
+            "args": [
+              24,
+              24
+            ]
+          },
+          {
+            "key": "StrSkill63",
+            "args": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
     "RequiredLevel": 6,
     "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strIndestructible",
-        "args": []
-      }
-    ]
+    "Lines": []
   },
   {
     "EquipmentType": 1,

@@ -1,16 +1,4 @@
-=== Import Report: 0 error(s), 3 warning(s) ===
+=== Import Report: 0 error(s), 1 warning(s) ===
 
 --- DataLoader ---
-  [WARN] [DataLoader] monstats.txt: 649 row(s) carry an informational *hcIdx that differs from the engine row index (Id 'serpentlord': *hcIdx='2003', engine index 852; Id 'rmap_md1_0': *hcIdx='854', engine index 853; Id 'rmap_md1_1': *hcIdx='855', engine index 854; …). *hcIdx is ignored; identifiers come from the row position.
-
---- Unique ---
-  [WARN] [Unique] Haven of Light: Property line omitted for prop7 'enr%':
-    Source:   uniqueitems.txt parsed row 1196; par7=<blank>, min7=<blank>, max7=<blank>
-    Template: 'ModAttEnrPercent' ("%+d%% to Energy") needs a value, but min7 and max7 are blank or non-numeric.
-    Action: the line was omitted; no value was invented.
-
---- CubeRecipe ---
-  [WARN] [CubeRecipe] cr-89cb53ab93f59a36: 2 accepted recipes share this base ID; their identity cells (class, op, param, value, input 1-7) are identical.
-    Index 288 -> cr-89cb53ab93f59a36 (unsuffixed): description "CRAFT ITEM - Amulet Magic & Gems (1 of each type excl. Skull ) = Prismatic Amulet Magic"; inputs "amu,mag" + gmm + gmt + gms + gme + gmr + gmd; output "amu,mag,pre=387"
-    Index 471 -> cr-89cb53ab93f59a36-2: description "CRAFT ITEM VANILLA - 1 Amethyst + 1 Topaz + 1 Sapphire + 1 Emerald + 1 Ruby + 1 Diamond + 1 Magic Amulet -> Prismatic Amulet"; inputs "amu,mag" + gmm + gmt + gms + gme + gmr + gmd; output "amu,mag,pre=381"
-    Action: all 2 recipes were exported; the first accepted row keeps the base ID and the second received -2.
+  [WARN] [DataLoader] monstats.txt: 654 row(s) carry an informational *hcIdx that differs from the engine row index (Id 'serpentlord': *hcIdx='2003', engine index 853; Id 'rmap_md1_0': *hcIdx='855', engine index 854; Id 'rmap_md1_1': *hcIdx='856', engine index 855; …). *hcIdx is ignored; identifiers come from the row position.

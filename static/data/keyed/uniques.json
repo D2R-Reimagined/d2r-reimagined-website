@@ -14816,7 +14816,7 @@
       {
         "key": "ItemExpansiveChanc2",
         "args": [
-          0,
+          10,
           2,
           "skillname71"
         ]
@@ -74310,6 +74310,12 @@
         "args": [
           40
         ]
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          8
+        ]
       }
     ],
     "Equipment": {
@@ -123866,7 +123872,7 @@
     "Index": "The Grandfather",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 81,
     "Code": "7gd",
     "DamageArmorEnhanced": true,
@@ -125290,7 +125296,7 @@
     "Index": "Haven of Light",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 81,
     "Code": "obb",
     "DamageArmorEnhanced": false,
@@ -125328,6 +125334,13 @@
         "args": [
           20,
           30
+        ]
+      },
+      {
+        "key": "ModAttEnrPercent",
+        "args": [
+          10,
+          15
         ]
       },
       {
@@ -125380,7 +125393,7 @@
     "Index": "God's Word",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 81,
     "Code": "pae",
     "DamageArmorEnhanced": false,
@@ -128147,7 +128160,7 @@
     "Index": "Frost Wyrm",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 84,
     "Code": "7wa",
     "DamageArmorEnhanced": true,
@@ -128608,7 +128621,7 @@
     "Index": "Shadowtrick",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 84,
     "Code": "uul",
     "DamageArmorEnhanced": true,
@@ -131437,7 +131450,7 @@
     "Index": "Lachdanan's Heart",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 85,
     "Code": "uth",
     "DamageArmorEnhanced": true,
@@ -131523,7 +131536,7 @@
     "Index": "Legacy of the Eternals",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 85,
     "Code": "utp",
     "DamageArmorEnhanced": true,
@@ -131985,7 +131998,7 @@
     "Index": "Jondars Horde",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 85,
     "Code": "ned",
     "DamageArmorEnhanced": true,
@@ -132084,7 +132097,7 @@
     "Index": "Mehtans Choice",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 85,
     "Code": "nee",
     "DamageArmorEnhanced": true,
@@ -133189,7 +133202,7 @@
     "Index": "El Druin",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 85,
     "Code": "7gs",
     "DamageArmorEnhanced": true,
@@ -135358,7 +135371,7 @@
     "Index": "Fortress of Morpheus",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 88,
     "Code": "paf",
     "DamageArmorEnhanced": true,
@@ -136422,7 +136435,7 @@
     "Index": "Red Dragon Scales",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 90,
     "Code": "upl",
     "DamageArmorEnhanced": true,
@@ -136525,7 +136538,7 @@
     "Index": "Ghostly Chainmail",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 90,
     "Code": "uhn",
     "DamageArmorEnhanced": true,
@@ -136555,7 +136568,7 @@
         "key": "ModitemdamColdsk",
         "args": [
           20,
-          10
+          30
         ]
       },
       {
@@ -136628,7 +136641,7 @@
     "Index": "Breastplate of Gond",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 90,
     "Code": "urs",
     "DamageArmorEnhanced": true,
@@ -137051,7 +137064,7 @@
     "Index": "Insight of the Ancients",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 90,
     "Code": "bae",
     "DamageArmorEnhanced": true,
@@ -137411,7 +137424,7 @@
     "Index": "Siege Beast Arrows",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 90,
     "Code": "aqv",
     "DamageArmorEnhanced": false,
@@ -137471,7 +137484,7 @@
     "Index": "Echoes of Harrogath",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 90,
     "Code": "cqv",
     "DamageArmorEnhanced": false,
@@ -137773,7 +137786,7 @@
     "Index": "Harrogaths Last Stand",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 104,
+    "ItemLevel": 105,
     "RequiredLevel": 92,
     "Code": "7fb",
     "DamageArmorEnhanced": true,

@@ -5246,240 +5246,244 @@
       "LineKey": "strSkillRandomFromSkill"
     },
     "528": {
-      "FallbackName": "slord_vortex",
+      "FallbackName": "labdiabloloot",
       "LineKey": "strSkillRandomFromSkill"
     },
     "529": {
-      "FallbackName": "slord_fangs",
+      "FallbackName": "diabloAura",
       "LineKey": "strSkillRandomFromSkill"
     },
     "530": {
-      "FallbackName": "slord_globe",
+      "FallbackName": "diabloice",
       "LineKey": "strSkillRandomFromSkill"
     },
     "531": {
+      "FallbackName": "nakrulwave",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "532": {
+      "FallbackName": "slord_vortex",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "533": {
+      "FallbackName": "slord_fangs",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "534": {
+      "FallbackName": "slord_globe",
+      "LineKey": "strSkillRandomFromSkill"
+    },
+    "535": {
       "NameKey": "CleaveName",
       "FallbackName": "Cleave",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "532": {
+    "536": {
       "FallbackName": "slord_brood",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "533": {
+    "537": {
       "FallbackName": "rmap_sapping",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "534": {
+    "538": {
       "FallbackName": "rmap_withering",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "535": {
+    "539": {
       "FallbackName": "rmap_unhallowed",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "536": {
+    "540": {
       "FallbackName": "rmap_frailty",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "537": {
+    "541": {
       "FallbackName": "rmap_ruin",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "538": {
+    "542": {
       "FallbackName": "rmap_agony",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "539": {
+    "543": {
       "FallbackName": "rmap_fortune",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "540": {
+    "544": {
       "NameKey": "skillname123",
       "FallbackName": "Conviction",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "541": {
+    "545": {
       "NameKey": "skillname98",
       "FallbackName": "Might",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "542": {
+    "546": {
       "NameKey": "skillname122",
       "FallbackName": "Fanaticism",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "543": {
+    "547": {
       "FallbackName": "rmap_warden_haste",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "544": {
+    "548": {
       "FallbackName": "rmap_plague_nova",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "545": {
+    "549": {
       "FallbackName": "rmap_blight_bolt",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "546": {
+    "550": {
       "FallbackName": "rmap_miasma",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "547": {
+    "551": {
       "FallbackName": "rmap_hellfire",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "548": {
+    "552": {
       "FallbackName": "rmap_magma_rift",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "549": {
+    "553": {
       "FallbackName": "rmap_brimstone",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "550": {
+    "554": {
       "FallbackName": "rmap_glacial_orb",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "551": {
+    "555": {
       "FallbackName": "rmap_blizzard",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "552": {
+    "556": {
       "FallbackName": "rmap_pyre_bolt",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "553": {
+    "557": {
       "FallbackName": "rmap_flame_sentinel",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "554": {
+    "558": {
       "FallbackName": "rmap_sentinel_shot",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "555": {
+    "559": {
       "FallbackName": "rmap_burning_divide",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "556": {
+    "560": {
       "FallbackName": "rmap_judgment",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "557": {
+    "561": {
       "FallbackName": "rmap_heavens_wrath",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "558": {
+    "562": {
       "FallbackName": "rmap_sandstorm",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "559": {
+    "563": {
       "FallbackName": "rmap_seismic_slam",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "560": {
+    "564": {
       "FallbackName": "rmap_rift_wave",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "561": {
+    "565": {
       "FallbackName": "rmap_sunfall",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "562": {
+    "566": {
       "FallbackName": "rmap_static_spray",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "563": {
+    "567": {
       "FallbackName": "rmap_scorch_pulse",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "564": {
+    "568": {
       "FallbackName": "rmap_ember_volley",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "565": {
+    "569": {
       "FallbackName": "rmap_immolation_arrow",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "566": {
+    "570": {
       "FallbackName": "rmap_cinder_rain",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "567": {
+    "571": {
       "FallbackName": "rmap_ash_skull",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "568": {
+    "572": {
       "FallbackName": "rmap_ash_spirit",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "569": {
+    "573": {
       "FallbackName": "rmap_ashen_curse",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "570": {
+    "574": {
       "FallbackName": "rmap_ember_burst",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "571": {
+    "575": {
       "FallbackName": "azm_globe",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "572": {
+    "576": {
       "NameKey": "Skillname250",
       "FallbackName": "Armageddon",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "573": {
+    "577": {
       "FallbackName": "azm_mark",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "574": {
+    "578": {
       "FallbackName": "azm_invasion",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "575": {
+    "579": {
       "FallbackName": "azm_bile",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "576": {
+    "580": {
       "FallbackName": "azm_bilepool",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "577": {
+    "581": {
       "FallbackName": "azm_beam",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "578": {
+    "582": {
       "FallbackName": "azm_ring",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "579": {
+    "583": {
       "FallbackName": "azm_molt1",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "580": {
+    "584": {
       "FallbackName": "azm_molt2",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "581": {
+    "585": {
       "FallbackName": "cyd_silkvolley",
       "LineKey": "strSkillRandomFromSkill"
     },
-    "582": {
+    "586": {
       "FallbackName": "cyd_venomkiss",
-      "LineKey": "strSkillRandomFromSkill"
-    },
-    "583": {
-      "FallbackName": "labdiabloloot",
-      "LineKey": "strSkillRandomFromSkill"
-    },
-    "584": {
-      "FallbackName": "diabloAura",
-      "LineKey": "strSkillRandomFromSkill"
-    },
-    "585": {
-      "FallbackName": "diabloice",
       "LineKey": "strSkillRandomFromSkill"
     }
   },

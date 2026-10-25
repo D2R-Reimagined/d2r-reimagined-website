@@ -29996,22 +29996,6 @@
     ]
   },
   {
-    "NameKey": "rmapaffix_quality_prefix",
-    "Level": 1,
-    "MaxLevel": 0,
-    "RequiredLevel": 0,
-    "Group": 2000,
-    "ClassSpecific": "",
-    "Class": "",
-    "ClassLevelReq": 0,
-    "Types": [
-      "mapiitype"
-    ],
-    "ETypes": [],
-    "PType": "Prefix",
-    "Lines": []
-  },
-  {
     "NameKey": "Prismatic",
     "Level": 30,
     "MaxLevel": 0,
@@ -30082,5 +30066,21 @@
         ]
       }
     ]
+  },
+  {
+    "NameKey": "rmapaffix_quality_prefix",
+    "Level": 1,
+    "MaxLevel": 0,
+    "RequiredLevel": 0,
+    "Group": 2000,
+    "ClassSpecific": "",
+    "Class": "",
+    "ClassLevelReq": 0,
+    "Types": [
+      "mapiitype"
+    ],
+    "ETypes": [],
+    "PType": "Prefix",
+    "Lines": []
   }
 ]

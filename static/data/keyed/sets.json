@@ -22533,7 +22533,15 @@
               "itemsRequired": 2
             }
           ],
-          [],
+          [
+            {
+              "key": "StrSkill13",
+              "args": [
+                8
+              ],
+              "itemsRequired": 3
+            }
+          ],
           [
             {
               "key": "ModStr4e",
