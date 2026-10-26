@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { afterNavigate, replaceState } from '$app/navigation';
+  import { afterNavigate, goto } from '$app/navigation';
   import { page } from '$app/state';
 
-  import { searchText } from '$lib/catalog';
-  import { matchesSearch, tokenizeSearch } from '$lib/catalog-controls';
-  import KeyedLines from '$lib/components/KeyedLines.svelte';
-  import { debounced } from '$lib/debounce.svelte';
-  import { i18n } from '$lib/i18n';
-  import type { Orb, OrbOutcome, OrbTarget } from '$lib/orbs';
+  import { searchText } from '#lib/catalog.js';
+  import { matchesSearch, tokenizeSearch } from '#lib/catalog-controls.js';
+  import KeyedLines from '#lib/components/KeyedLines.svelte';
+  import { debounced } from '#lib/debounce.svelte.js';
+  import { i18n } from '#lib/i18n.js';
+  import type { Orb, OrbOutcome, OrbTarget } from '#lib/orbs.js';
 
   let { data }: { data: { definition: { title: string; description: string }; orbs: Orb[] } } = $props();
 
@@ -69,11 +69,16 @@
   // router only exists after hydration, so the first pass — which also rewrites an inbound
   // `?q=` from the all-data search into this page's `search` — waits for it.
   let routerReady = $state(false);
-  afterNavigate(() => (routerReady = true));
+
+  afterNavigate(({ shallow, type }) => {
+    if (shallow && type === 'goto') return;
+
+    return routerReady = true;
+  });
 
   let synced = page.url.search;
   $effect(() => {
-    const next = new URL(page.url);
+    const next = new URL(page.url.href);
     next.searchParams.delete('q');
     for (const [key, value] of [['orb', selectedOrb], ['type', selectedTarget], ['search', query]]) {
       if (value) next.searchParams.set(key, value);
@@ -81,7 +86,7 @@
     }
     if (!routerReady || next.search === synced) return;
     synced = next.search;
-    replaceState(next, page.state);
+    goto(next, { shallow: true, replace: true, state: page.state });
   });
 
   function reset(): void {
@@ -158,63 +163,63 @@
     </div>
 
     {#if expanded}
-    <div id="orb-filter-controls">
-    <div class="mt-3 flex flex-wrap items-end gap-3">
-      <label class="min-w-56 grow sm:max-w-sm">
+      <div id="orb-filter-controls">
+        <div class="mt-3 flex flex-wrap items-end gap-3">
+          <label class="min-w-56 grow sm:max-w-sm">
         <span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Search</span>
-        <input
-          class="field"
-          type="search"
-          placeholder="Try “All Skills”, “sockets”, or “ethereal”"
-          autocomplete="off"
-          bind:value={search}
-        />
-      </label>
-      {#if selectedOrb || selectedTarget || search}
-        <button
-          type="button"
-          class="rounded-md border border-parchment-300/30 px-3 py-2 text-sm text-parchment-200 transition hover:border-ember-400/70 hover:text-white"
-          onclick={reset}
+            <input
+              class="field"
+              type="search"
+              placeholder="Try “All Skills”, “sockets”, or “ethereal”"
+              autocomplete="off"
+              bind:value={search}
+            />
+          </label>
+          {#if selectedOrb || selectedTarget || search}
+            <button
+              type="button"
+              class="rounded-md border border-parchment-300/30 px-3 py-2 text-sm text-parchment-200 transition hover:border-ember-400/70 hover:text-white"
+              onclick={reset}
         >
           Reset
         </button>
-      {/if}
-    </div>
+          {/if}
+        </div>
 
-    <div class="mt-3">
+        <div class="mt-3">
       <span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Orb</span>
       <div class="flex flex-wrap gap-1.5" role="group" aria-label="Filter by orb">
-        {#each orbTabs as tab}
-          <button
-            type="button"
-            aria-pressed={selectedOrb === tab.value}
-            class:active={selectedOrb === tab.value}
-            class="type-chip rounded border border-parchment-300/25 px-3 py-1.5 text-sm text-parchment-200 transition hover:border-ember-400/70 hover:text-white"
-            onclick={() => selectedOrb = tab.value}
+            {#each orbTabs as tab}
+              <button
+                type="button"
+                aria-pressed={selectedOrb === tab.value}
+                class:active={selectedOrb === tab.value}
+                class="type-chip rounded border border-parchment-300/25 px-3 py-1.5 text-sm text-parchment-200 transition hover:border-ember-400/70 hover:text-white"
+                onclick={() => selectedOrb = tab.value}
           >
             {tab.label}
           </button>
-        {/each}
-      </div>
-    </div>
+            {/each}
+          </div>
+        </div>
 
-    <div class="mt-3">
+        <div class="mt-3">
       <span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Item type</span>
       <div class="flex flex-wrap gap-1.5" role="group" aria-label="Filter by item type">
-        {#each targetTabs as tab}
-          <button
-            type="button"
-            aria-pressed={selectedTarget === tab.value}
-            class:active={selectedTarget === tab.value}
-            class="type-chip rounded border border-parchment-300/25 px-3 py-1.5 text-sm text-parchment-200 transition hover:border-ember-400/70 hover:text-white"
-            onclick={() => selectedTarget = tab.value}
+            {#each targetTabs as tab}
+              <button
+                type="button"
+                aria-pressed={selectedTarget === tab.value}
+                class:active={selectedTarget === tab.value}
+                class="type-chip rounded border border-parchment-300/25 px-3 py-1.5 text-sm text-parchment-200 transition hover:border-ember-400/70 hover:text-white"
+                onclick={() => selectedTarget = tab.value}
           >
             {tab.label}
           </button>
-        {/each}
+            {/each}
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
     {/if}
   </section>
 

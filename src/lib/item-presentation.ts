@@ -1,4 +1,4 @@
-import type { SaveItem } from '$lib/characters';
+import type { SaveItem } from '#lib/characters.js';
 import type { ItemUpgradeTiers } from './item-upgrade-tiers';
 
 export interface ItemSpriteVariant {

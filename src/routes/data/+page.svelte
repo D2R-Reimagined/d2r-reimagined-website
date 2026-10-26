@@ -1,15 +1,15 @@
 <script lang="ts">
-  import { browser } from '$app/environment';
-  import { replaceState } from '$app/navigation';
+  import { browser } from '$app/env';
+  import { goto } from '$app/navigation';
   import { page } from '$app/state';
 
-  import CatalogCard from '$lib/components/CatalogCard.svelte';
-  import { searchText } from '$lib/catalog';
-  import { matchesSearch, tokenizeSearch } from '$lib/catalog-controls';
-  import { loadCatalog } from '$lib/catalog-sources';
-  import { debounced } from '$lib/debounce.svelte';
-  import { i18n } from '$lib/i18n';
-  import { iasCalculatorDefinition, dropCalculatorDefinition, catalogDefinitions, catalogSlugs, skillPlannerDefinition, type CatalogItem, type CatalogSlug } from '$lib/types';
+  import CatalogCard from '#lib/components/CatalogCard.svelte';
+  import { searchText } from '#lib/catalog.js';
+  import { matchesSearch, tokenizeSearch } from '#lib/catalog-controls.js';
+  import { loadCatalog } from '#lib/catalog-sources.js';
+  import { debounced } from '#lib/debounce.svelte.js';
+  import { i18n } from '#lib/i18n.js';
+  import { iasCalculatorDefinition, dropCalculatorDefinition, catalogDefinitions, catalogSlugs, skillPlannerDefinition, type CatalogItem, type CatalogSlug } from '#lib/types.js';
 
   type Status = 'idle' | 'loading' | 'ready' | 'error';
   type Group = { slug: CatalogSlug; title: string; busy: boolean; failed: boolean; matches: CatalogItem[] };
@@ -39,10 +39,9 @@
       status[slug] = 'loading';
       loadCatalog(slug)
         .then((rows) => {
-          items[slug] = rows;
-          status[slug] = 'ready';
-        })
-        .catch(() => (status[slug] = 'error'));
+        items[slug] = rows;
+        status[slug] = 'ready';
+      }).catch(() => status[slug] = 'error');
     }
   });
 
@@ -55,9 +54,10 @@
     syncedQuery = next;
 
     const url = new URL(location.href);
-    if (next) url.searchParams.set('q', next);
-    else url.searchParams.delete('q');
-    replaceState(url, page.state);
+
+    if (next) url.searchParams.set('q', next); else url.searchParams.delete('q');
+
+    goto(url, { shallow: true, replace: true, state: page.state });
   });
 
   let groups = $derived.by((): Group[] => {
@@ -151,7 +151,7 @@
           {:else}
             <div class="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
               {#each group.matches.slice(0, preview) as item, index (`${String(item.Index ?? item.NameKey ?? index)}-${index}`)}
-                <CatalogCard {item} slug={group.slug} />
+                <CatalogCard item={item} slug={group.slug} />
               {/each}
             </div>
           {/if}

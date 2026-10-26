@@ -1,8 +1,8 @@
 <script lang="ts">
-    import {untrack} from 'svelte';
-    import {afterNavigate, replaceState} from '$app/navigation';
-    import {page} from '$app/state';
-    import {i18n} from '$lib/i18n';
+    import { untrack } from 'svelte';
+    import { afterNavigate, goto } from '$app/navigation';
+    import { page } from '$app/state';
+    import { i18n } from '#lib/i18n.js';
     import {
         calculateIas,
         canDualWield,
@@ -12,31 +12,31 @@
         skillAvailable,
         weaponAvailable,
         writeIasUrl
-    } from '$lib/ias-calculator';
+    } from '#lib/ias-calculator.js';
 
     let {data} = $props();
-    let setup = $state(untrack(() => readIasUrl(page.url, data.ias)));
+    let setup = $state(untrack(() => readIasUrl(new URL(page.url.href), data.ias)));
     let ready = $state(false);
     let shareStatus = $state('');
     let weaponSearch = $state('');
-    let skills = $derived(data.ias.Skills.filter(s => skillAvailable(s, setup.character, setup.form)));
-    let skill = $derived(skills.find(s => s.Code === setup.skill));
-    let weapons = $derived(data.ias.Weapons.filter(w => weaponAvailable(w, setup.character, skill)).sort((a, b) => $i18n.t(a.NameKey).localeCompare($i18n.t(b.NameKey))));
-    let visibleWeapons = $derived(weapons.filter(w => w.Code === setup.weapon || $i18n.t(w.NameKey).toLocaleLowerCase().includes(weaponSearch.toLocaleLowerCase())));
-    let weapon = $derived(weapons.find(w => w.Code === setup.weapon));
+    let skills = $derived(data.ias.Skills.filter((s) => skillAvailable(s, setup.character, setup.form)));
+    let skill = $derived(skills.find((s) => s.Code === setup.skill));
+    let weapons = $derived(data.ias.Weapons.filter((w) => weaponAvailable(w, setup.character, skill)).sort((a, b) => $i18n.t(a.NameKey).localeCompare($i18n.t(b.NameKey))));
+    let visibleWeapons = $derived(weapons.filter((w) => w.Code === setup.weapon || $i18n.t(w.NameKey).toLocaleLowerCase().includes(weaponSearch.toLocaleLowerCase())));
+    let weapon = $derived(weapons.find((w) => w.Code === setup.weapon));
     let dualAllowed = $derived(!!skill?.Rule.DualAllowed && !!weapon && canDualWield(weapon, setup.character) && setup.form === 'human');
-    let secondWeapons = $derived(weapons.filter(w => canDualWield(w, setup.character)));
+    let secondWeapons = $derived(weapons.filter((w) => canDualWield(w, setup.character)));
     let result = $derived(calculateIas(data.ias, setup));
-    let buffs = $derived(data.ias.Buffs.filter(b => b.Code !== 'Maul' && (b.Code !== 'Wearwolf' || setup.form === 'wolf')));
+    let buffs = $derived(data.ias.Buffs.filter((b) => b.Code !== 'Maul' && (b.Code !== 'Wearwolf' || setup.form === 'wolf')));
 
     function normalizeInputs() {
-        setup = readIasUrl(writeIasUrl(page.url, setup, data.ias), data.ias);
+        setup = readIasUrl(writeIasUrl(new URL(page.url.href), setup, data.ias), data.ias);
     }
 
     function reconcile() {
-        const selected = data.ias.Skills.find(s => s.Code === setup.skill && skillAvailable(s, setup.character, setup.form));
+        const selected = data.ias.Skills.find((s) => s.Code === setup.skill && skillAvailable(s, setup.character, setup.form));
         if (!selected) setup.skill = normalAttack;
-        const primary = data.ias.Weapons.find(w => w.Code === setup.weapon && weaponAvailable(w, setup.character, selected));
+        const primary = data.ias.Weapons.find((w) => w.Code === setup.weapon && weaponAvailable(w, setup.character, selected));
         if (!primary) {
             setup.weapon = '';
             setup.weaponIas = 0;
@@ -44,7 +44,7 @@
         if (!selected?.Rule.DualAllowed || !primary || !canDualWield(primary, setup.character) || setup.form !== 'human') {
             setup.secondary = '';
             setup.secondaryIas = 0;
-        } else if (!data.ias.Weapons.some(w => w.Code === setup.secondary && weaponAvailable(w, setup.character, selected) && canDualWield(w, setup.character))) {
+        } else if (!data.ias.Weapons.some((w) => w.Code === setup.secondary && weaponAvailable(w, setup.character, selected) && canDualWield(w, setup.character))) {
             setup.secondary = '';
             setup.secondaryIas = 0;
         }
@@ -54,23 +54,25 @@
         weaponSearch = '';
     }
 
-    afterNavigate(() => {
-        setup = readIasUrl(page.url, data.ias);
+    afterNavigate(({ shallow, type }) => {
+        if (shallow && type === 'goto') return;
+
+        setup = readIasUrl(new URL(page.url.href), data.ias);
         reconcile();
         ready = true;
     });
     $effect(() => {
         if (!ready) return;
-        const url = writeIasUrl(page.url, setup, data.ias);
+        const url = writeIasUrl(new URL(page.url.href), setup, data.ias);
         if (url.href !== page.url.href) {
-            replaceState(url, page.state);
+            goto(url, { shallow: true, replace: true, state: page.state });
             shareStatus = '';
         }
     });
 
     async function copyLink() {
         try {
-            await navigator.clipboard.writeText(writeIasUrl(page.url, setup, data.ias).href);
+            await navigator.clipboard.writeText(writeIasUrl(new URL(page.url.href), setup, data.ias).href);
             shareStatus = 'Link copied';
         } catch {
             shareStatus = 'Copy the address from your browser to share this setup.';
@@ -85,10 +87,11 @@
 </svelte:head>
 
 <section class="mx-auto max-w-7xl px-5 py-12 sm:py-16">
-    <div class="mb-10 flex flex-wrap items-end justify-between gap-5">
-        <div>
-            <h1 class="display-text mt-3 text-4xl sm:text-6xl">IAS Calculator</h1>
-        </div>
+    <div
+        class="mb-10 flex flex-wrap items-end justify-between gap-5"
+    >
+        <div><h1 class="display-text mt-3 text-4xl sm:text-6xl">IAS Calculator</h1></div>
+
         <div>
             <button class="share" onclick={copyLink}>Copy setup link ↗</button>
             <p class="mt-2 text-xs text-parchment-300" aria-live="polite">{shareStatus}</p></div>
@@ -160,8 +163,10 @@
                 </div>
             </section>
 
-            <details class="panel rounded-lg p-5"
-                     open={Object.values(setup.buffs).some(n => n > 0) || setup.slow > 0 || setup.chilled || setup.extraSpeed !== 0}>
+            <details
+                class="panel rounded-lg p-5"
+                open={Object.values(setup.buffs).some((n) => n > 0) || setup.slow > 0 || setup.chilled || setup.extraSpeed !== 0}
+            >
                 <summary class="display-text cursor-pointer text-xl">Buffs & slowing effects</summary>
                 <p class="mt-3 text-xs leading-relaxed text-parchment-300">Use effective skill levels, including
                     +skills. Zero disables a buff. Only enable effects active on your character.</p>
@@ -194,21 +199,30 @@
                         <div class="border-b border-parchment-300/15 bg-ember-950/20 p-6">
                             <p class="text-xs uppercase tracking-[0.2em] text-ember-400">{table.label}</p>
                             <div class="mt-4 grid gap-5 sm:grid-cols-2">
-                                <div><p class="text-xs text-parchment-300">Current frame pattern</p>
-                                    <p class="display-text mt-1 break-words text-3xl text-parchment-50">{table.current.frames.join(' / ')}</p>
-                                    <p class="mt-2 text-sm text-parchment-300">{table.current.attacksPerSecond.toFixed(2)}
-                                        attacks per second</p></div>
-                                <div><p class="text-xs text-parchment-300">Next breakpoint</p>
-                                    {#if table.next}<p class="display-text mt-1 text-3xl text-ember-400">
-                                        +{table.next.ias - (Number(setup.ias) || 0)}% IAS</p>
-                                        <p class="mt-2 text-sm text-parchment-300">{table.next.ias}% equipment IAS
-                                            total</p>{:else}<p class="display-text mt-1 text-2xl text-set">No later
-                                        breakpoint</p>
-                                        <p class="mt-2 text-sm text-parchment-300">Within the {maxIas.toLocaleString()}%
-                                            equipment IAS range.</p>{/if}
+                                <div>
+                                    <p class="text-xs text-parchment-300">Current frame pattern</p>
+
+                                    <p
+                                        class="display-text mt-1 break-words text-3xl text-parchment-50"
+                                    >{table.current.frames.join(' / ')}</p>
+
+                                    <p class="mt-2 text-sm text-parchment-300">{table.current.attacksPerSecond.toFixed(2)} attacks per second</p>
+                                </div>
+
+                                <div>
+                                    <p class="text-xs text-parchment-300">Next breakpoint</p>
+
+                                    {#if table.next}
+                                        <p class="display-text mt-1 text-3xl text-ember-400">+{table.next.ias - (Number(setup.ias) || 0)}% IAS</p>
+                                        <p class="mt-2 text-sm text-parchment-300">{table.next.ias}% equipment IAS total</p>
+                                    {:else}
+                                        <p class="display-text mt-1 text-2xl text-set">No later breakpoint</p>
+                                        <p class="mt-2 text-sm text-parchment-300">Within the {maxIas.toLocaleString()}% equipment IAS range.</p>
+                                    {/if}
                                 </div>
                             </div>
                         </div>
+
                         <div class="overflow-x-auto">
                             <table class="w-full text-left text-sm">
                                 <caption class="sr-only">{table.label} equipment IAS breakpoints</caption>

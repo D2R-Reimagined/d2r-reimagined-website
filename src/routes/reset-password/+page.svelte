@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
-  import { resetPassword } from '$lib/auth';
+  import { resetPassword } from '#lib/auth.js';
 
   const userId = $derived(page.url.searchParams.get('uid') ?? '');
   const token = $derived(page.url.searchParams.get('token') ?? '');

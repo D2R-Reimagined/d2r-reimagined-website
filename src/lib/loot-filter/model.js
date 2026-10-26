@@ -3,7 +3,7 @@
 const model = (() => {
   'use strict';
 
-  const RARITIES = ['inferior','normal','superior','magic','set','rare','unique'];
+  const RARITIES = ['inferior','normal','superior','magic','set','rare','unique','crafted'];
   const MINIMAP_SHAPES = ['circle','diamond','triangle','star'];
   const DROP_SOUNDS = Array.from({ length: 16 }, (_, i) => `Filter${String(i + 1).padStart(2, '0')}`);
   const CONDITION_KEYS = ['code','baseName','itemType','quantity','rarity','itemLevel','sockets','ethereal','identified'];
@@ -207,6 +207,14 @@ const model = (() => {
     return [value];
   }
 
+  function definedKeys(obj) {
+    return Object.keys(obj).filter(k => obj[k] !== undefined);
+  }
+
+  function hasDefined(obj, key) {
+    return Boolean(obj) && Object.prototype.hasOwnProperty.call(obj, key) && obj[key] !== undefined;
+  }
+
   function isNaturalInt(v) {
     return Number.isInteger(v) && v >= 0 && v <= 0xFFFFFFFF;
   }
@@ -236,10 +244,10 @@ const model = (() => {
   }
 
   function validateNumberTest(name, value, min, max, errors, path) {
-    if (!value || typeof value !== 'object' || Array.isArray(value) || !Object.keys(value).length) {
+    if (!value || typeof value !== 'object' || Array.isArray(value) || !definedKeys(value).length) {
       errors.push(`${path} must be a non-empty comparison object.`); return;
     }
-    const keys = Object.keys(value);
+    const keys = definedKeys(value);
     const allowed = ['eq','gt','gte','lt','lte'];
     keys.filter(k => !allowed.includes(k)).forEach(k => errors.push(`${path}.${k} is not a supported comparator.`));
     if (keys.filter(k => k === 'gt' || k === 'gte').length > 1) errors.push(`${path} can contain only one minimum bound (gt or gte).`);
@@ -261,23 +269,23 @@ const model = (() => {
     rules.forEach((entry, idx) => {
       const p = `Rule ${idx + 1}`;
       if (!entry || typeof entry !== 'object' || Array.isArray(entry)) { errors.push(`${p} must be an object.`); return; }
-      const keys = Object.keys(entry);
-      const hasShow = Object.prototype.hasOwnProperty.call(entry,'show');
-      const hasHide = Object.prototype.hasOwnProperty.call(entry,'hide');
+      const keys = definedKeys(entry);
+      const hasShow = hasDefined(entry, 'show');
+      const hasHide = hasDefined(entry, 'hide');
       if (keys.length !== 1 || hasShow === hasHide) { errors.push(`${p} must contain exactly one show or hide wrapper.`); return; }
       const block = entry[hasShow ? 'show' : 'hide'];
       if (!block || typeof block !== 'object' || Array.isArray(block)) { errors.push(`${p} wrapper must contain an object.`); return; }
-      Object.keys(block).filter(k => !BLOCK_KEYS.includes(k)).forEach(k => errors.push(`${p}.${k} is not supported in schema v3.`));
-      if ('ruleName' in block && typeof block.ruleName !== 'string') errors.push(`${p}.ruleName must be a string.`);
-      if ('continue' in block && typeof block.continue !== 'boolean') errors.push(`${p}.continue must be true or false.`);
+      definedKeys(block).filter(k => !BLOCK_KEYS.includes(k)).forEach(k => errors.push(`${p}.${k} is not supported in schema v3.`));
+      if (hasDefined(block, 'ruleName') && typeof block.ruleName !== 'string') errors.push(`${p}.ruleName must be a string.`);
+      if (hasDefined(block, 'continue') && typeof block.continue !== 'boolean') errors.push(`${p}.continue must be true or false.`);
 
-      if ('conditions' in block) {
+      if (hasDefined(block, 'conditions')) {
         const c = block.conditions;
-        if (!c || typeof c !== 'object' || Array.isArray(c) || !Object.keys(c).length) errors.push(`${p}.conditions must be a non-empty object.`);
+        if (!c || typeof c !== 'object' || Array.isArray(c) || !definedKeys(c).length) errors.push(`${p}.conditions must be a non-empty object.`);
         else {
-          Object.keys(c).filter(k => !CONDITION_KEYS.includes(k)).forEach(k => errors.push(`${p}.conditions.${k} is not supported.`));
+          definedKeys(c).filter(k => !CONDITION_KEYS.includes(k)).forEach(k => errors.push(`${p}.conditions.${k} is not supported.`));
           ['code','baseName','itemType'].forEach(key => {
-            if (!(key in c)) return;
+            if (!hasDefined(c, key)) return;
             const values = asArray(c[key]);
             if (!(typeof c[key] === 'string' || Array.isArray(c[key])) || values.length < 1 || values.length > 64) {
               errors.push(`${p}.conditions.${key} must be a string or array of 1..64 values.`); return;
@@ -290,20 +298,20 @@ const model = (() => {
             if (catalog && key === 'baseName' && catalog.baseNames.length) values.filter(v => !catalog.baseNames.includes(v)).forEach(v => warnings.push(`${p}: baseName “${v}” is not present in the loaded weapons/armor tables.`));
             if (catalog && key === 'itemType' && catalog.itemTypes.length) values.filter(v => !catalog.itemTypes.includes(v)).forEach(v => warnings.push(`${p}: itemType “${v}” is not present in the loaded ItemTypes catalog.`));
           });
-          if ('rarity' in c) {
+          if (hasDefined(c, 'rarity')) {
             const values = asArray(c.rarity);
             if (!(typeof c.rarity === 'string' || Array.isArray(c.rarity)) || values.length < 1 || values.length > RARITIES.length) errors.push(`${p}.conditions.rarity must be a name or array of 1..${RARITIES.length} names.`);
             else values.filter(v => !RARITIES.includes(v)).forEach(v => errors.push(`${p}.conditions.rarity contains unsupported value “${v}”.`));
           }
-          if ('identified' in c && typeof c.identified !== 'boolean') errors.push(`${p}.conditions.identified must be true or false.`);
-          if ('ethereal' in c && typeof c.ethereal !== 'boolean') errors.push(`${p}.conditions.ethereal must be true or false.`);
-          if ('itemLevel' in c) validateNumberTest('itemLevel', c.itemLevel, 1, 99, errors, `${p}.conditions.itemLevel`);
-          if ('quantity' in c) validateNumberTest('quantity', c.quantity, 0, 65535, errors, `${p}.conditions.quantity`);
-          if ('sockets' in c) validateNumberTest('sockets', c.sockets, 0, 15, errors, `${p}.conditions.sockets`);
+          if (hasDefined(c, 'identified') && typeof c.identified !== 'boolean') errors.push(`${p}.conditions.identified must be true or false.`);
+          if (hasDefined(c, 'ethereal') && typeof c.ethereal !== 'boolean') errors.push(`${p}.conditions.ethereal must be true or false.`);
+          if (hasDefined(c, 'itemLevel')) validateNumberTest('itemLevel', c.itemLevel, 1, 99, errors, `${p}.conditions.itemLevel`);
+          if (hasDefined(c, 'quantity')) validateNumberTest('quantity', c.quantity, 0, 65535, errors, `${p}.conditions.quantity`);
+          if (hasDefined(c, 'sockets')) validateNumberTest('sockets', c.sockets, 0, 15, errors, `${p}.conditions.sockets`);
         }
       }
 
-      if ('name' in block) {
+      if (hasDefined(block, 'name')) {
         if (typeof block.name !== 'string') errors.push(`${p}.name must be a string.`);
         else {
           const bytes = new TextEncoder().encode(block.name).length;
@@ -313,26 +321,26 @@ const model = (() => {
           }
         }
       }
-      if ('tooltip' in block) {
+      if (hasDefined(block, 'tooltip')) {
         const t = block.tooltip;
         if (!t || typeof t !== 'object' || Array.isArray(t)) errors.push(`${p}.tooltip must be an object.`);
         else {
-          const keys = Object.keys(t);
+          const keys = definedKeys(t);
           if (!keys.length || keys.length > 2 || keys.some(k => !['backgroundColor','textColor'].includes(k))) errors.push(`${p}.tooltip may contain only backgroundColor/textColor and needs at least one.`);
           keys.forEach(k => { if (!parseRgba(t[k])) errors.push(`${p}.tooltip.${k} must be RGBA(r, g, b, a), RGB 0..255 and alpha 0..1.`); });
         }
       }
-      if ('dropSound' in block && (typeof block.dropSound !== 'string' || !DROP_SOUNDS.includes(block.dropSound))) errors.push(`${p}.dropSound must be one of Filter01..Filter16.`);
-      if ('minimapIcon' in block) {
+      if (hasDefined(block, 'dropSound') && (typeof block.dropSound !== 'string' || !DROP_SOUNDS.includes(block.dropSound))) errors.push(`${p}.dropSound must be one of Filter01..Filter16.`);
+      if (hasDefined(block, 'minimapIcon')) {
         const m = block.minimapIcon;
         if (!m || typeof m !== 'object' || Array.isArray(m)) errors.push(`${p}.minimapIcon must be an object.`);
         else {
-          const keys = Object.keys(m);
-          if (!['shape','borderColor','fillColor'].every(k => k in m) || keys.some(k => !['shape','borderColor','fillColor','size'].includes(k))) errors.push(`${p}.minimapIcon requires shape, borderColor and fillColor; size is optional.`);
+          const keys = definedKeys(m);
+          if (!['shape','borderColor','fillColor'].every(k => hasDefined(m, k)) || keys.some(k => !['shape','borderColor','fillColor','size'].includes(k))) errors.push(`${p}.minimapIcon requires shape, borderColor and fillColor; size is optional.`);
           if (!MINIMAP_SHAPES.includes(m.shape)) errors.push(`${p}.minimapIcon.shape must be circle, diamond, triangle or star.`);
           if (!parseRgba(m.borderColor)) errors.push(`${p}.minimapIcon.borderColor is not valid RGBA.`);
           if (!parseRgba(m.fillColor)) errors.push(`${p}.minimapIcon.fillColor is not valid RGBA.`);
-          if ('size' in m && !Number.isInteger(m.size)) errors.push(`${p}.minimapIcon.size must be an integer. Values are clamped by UnHoarder to 12..40 px.`);
+          if (hasDefined(m, 'size') && !Number.isInteger(m.size)) errors.push(`${p}.minimapIcon.size must be an integer. Values are clamped by UnHoarder to 12..40 px.`);
           if (Number.isInteger(m.size) && (m.size < 12 || m.size > 40)) warnings.push(`${p}: minimap size ${m.size}px will be clamped to ${Math.max(12, Math.min(40, m.size))}px by UnHoarder.`);
         }
       }
@@ -349,7 +357,7 @@ const model = (() => {
   }
 
   function ruleKind(entry) {
-    return entry && Object.prototype.hasOwnProperty.call(entry, 'hide') ? 'hide' : 'show';
+    return hasDefined(entry, 'hide') ? 'hide' : 'show';
   }
 
   function ruleBlock(entry) {
@@ -382,17 +390,17 @@ const model = (() => {
     const kind = ruleKind(entry), block = ruleBlock(entry), c = block.conditions || {};
     const parts = [];
     ['baseName','code','itemType'].forEach(k => {
-      if (k in c) {
+      if (hasDefined(c, k)) {
         const vals = asArray(c[k]);
         parts.push(`${k}: ${vals.slice(0,2).join(', ')}${vals.length > 2 ? ` +${vals.length - 2}` : ''}`);
       }
     });
-    if ('rarity' in c) parts.push(`rarity: ${asArray(c.rarity).join('/')}`);
-    if ('sockets' in c) parts.push(`sockets ${summarizeNumberTest(c.sockets)}`);
-    if ('itemLevel' in c) parts.push(`ilvl ${summarizeNumberTest(c.itemLevel)}`);
-    if ('quantity' in c) parts.push(`qty ${summarizeNumberTest(c.quantity)}`);
-    if ('ethereal' in c) parts.push(`ethereal: ${c.ethereal}`);
-    if ('identified' in c) parts.push(`identified: ${c.identified}`);
+    if (hasDefined(c, 'rarity')) parts.push(`rarity: ${asArray(c.rarity).join('/')}`);
+    if (hasDefined(c, 'sockets')) parts.push(`sockets ${summarizeNumberTest(c.sockets)}`);
+    if (hasDefined(c, 'itemLevel')) parts.push(`ilvl ${summarizeNumberTest(c.itemLevel)}`);
+    if (hasDefined(c, 'quantity')) parts.push(`qty ${summarizeNumberTest(c.quantity)}`);
+    if (hasDefined(c, 'ethereal')) parts.push(`ethereal: ${c.ethereal}`);
+    if (hasDefined(c, 'identified')) parts.push(`identified: ${c.identified}`);
     if (!parts.length) parts.push('Catch-all');
     const actions = [];
     if (block.continue) actions.push('Continue');
@@ -411,11 +419,11 @@ const model = (() => {
   function summarizeNumberTest(test) {
     if (!test) return '';
     const parts=[];
-    if ('eq' in test) parts.push(`= ${test.eq}`);
-    if ('gt' in test) parts.push(`> ${test.gt}`);
-    if ('gte' in test) parts.push(`≥ ${test.gte}`);
-    if ('lt' in test) parts.push(`< ${test.lt}`);
-    if ('lte' in test) parts.push(`≤ ${test.lte}`);
+    if (hasDefined(test, 'eq')) parts.push(`= ${test.eq}`);
+    if (hasDefined(test, 'gt')) parts.push(`> ${test.gt}`);
+    if (hasDefined(test, 'gte')) parts.push(`≥ ${test.gte}`);
+    if (hasDefined(test, 'lt')) parts.push(`< ${test.lt}`);
+    if (hasDefined(test, 'lte')) parts.push(`≤ ${test.lte}`);
     return parts.join(' & ');
   }
 

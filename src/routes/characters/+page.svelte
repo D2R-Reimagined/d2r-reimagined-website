@@ -1,14 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import { characterSkillTreeAllocations } from '$lib/character-directory';
+  import { characterSkillTreeAllocations } from '#lib/character-directory.js';
   import {
     getCharacterDirectory,
     type CharacterDirectoryEntry
-  } from '$lib/characters';
-  import { i18n } from '$lib/i18n';
-  import { loadSkillClasses } from '$lib/skills';
-  import type { SkillClass } from '$lib/types';
+  } from '#lib/characters.js';
+  import { i18n } from '#lib/i18n.js';
+  import { loadSkillClasses } from '#lib/skills.js';
+  import type { SkillClass } from '#lib/types.js';
 
   const pageSize = 24;
 

@@ -2,12 +2,12 @@
   import { goto } from '$app/navigation';
   import { page } from '$app/state';
   import { onMount } from 'svelte';
-  import { authState, authorizeLauncher, initializeAuth } from '$lib/auth';
+  import { authState, authorizeLauncher, initializeAuth } from '#lib/auth.js';
   import {
     launcherCancellationUrl,
     readLauncherAuthorizationParameters,
     type LauncherAuthorizationParameters
-  } from '$lib/launcher-auth';
+  } from '#lib/launcher-auth.js';
 
   let parameters = $state<LauncherAuthorizationParameters | null>(null);
   let ready = $state(false);
@@ -40,7 +40,7 @@
   }
 
   onMount(async () => {
-    parameters = readLauncherAuthorizationParameters(page.url.searchParams);
+    parameters = readLauncherAuthorizationParameters(new URLSearchParams(page.url.search));
     if (!parameters) {
       error = 'This launcher sign-in request is invalid or incomplete.';
       ready = true;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { matchesSubstring, type LabelMatcher } from '$lib/search-terms';
+  import { matchesSubstring, type LabelMatcher } from '#lib/search-terms.js';
 
   type Option = { value: string; label: string };
 
@@ -26,21 +26,45 @@
   const matches = $derived(choices.filter((option) => match(option.label, query)));
   const selectedLabel = $derived(choices.find((option) => option.value === value)?.label ?? placeholder);
 
-  function show() {
+  function position() {
+    if (!trigger) return;
     const rect = trigger.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) {
+      if (popup?.matches(':popover-open')) popup.hidePopover();
+      return;
+    }
     const below = window.innerHeight - rect.bottom;
     const above = rect.top;
-    const height = Math.min(300, Math.max(160, (below >= 220 ? below : above) - 12));
-    const top = below >= 220 || below >= above ? rect.bottom + 4 : rect.top - height - 4;
+    const useBelow = below >= 220 || below >= above;
+    const height = Math.min(300, Math.max(160, (useBelow ? below : above) - 12));
     const width = Math.min(Math.max(rect.width, 224), window.innerWidth - 16);
-    const left = Math.min(rect.left, window.innerWidth - width - 8);
-    popupStyle = `left:${Math.max(8, left)}px;top:${Math.max(4, top)}px;width:${width}px;max-height:${height}px`;
+    const left = Math.max(8, Math.min(rect.left, window.innerWidth - width - 8));
+    const vertical = useBelow ? `top:${rect.bottom + 4}px;bottom:auto` : `top:auto;bottom:${window.innerHeight - rect.top + 4}px`;
+    popupStyle = `left:${left}px;${vertical};width:${width}px;max-height:${height}px`;
+  }
+
+  function show() {
+    position();
     open = true;
     query = '';
     active = 0;
     popup.showPopover();
     requestAnimationFrame(() => searchInput?.focus());
   }
+
+  $effect(() => {
+    if (!open) return;
+    const onScroll = (event: Event) => {
+      if (popup && event.target instanceof Node && popup.contains(event.target)) return;
+      position();
+    };
+    window.addEventListener('scroll', onScroll, { capture: true, passive: true });
+    window.addEventListener('resize', position, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll, true);
+      window.removeEventListener('resize', position);
+    };
+  });
 
   function hide() {
     if (popup.matches(':popover-open')) popup.hidePopover();

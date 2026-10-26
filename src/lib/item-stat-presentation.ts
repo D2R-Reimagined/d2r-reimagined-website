@@ -1,5 +1,5 @@
-import type { SaveStat } from '$lib/characters';
-import type { KeyedLine } from '$lib/types';
+import type { SaveStat } from '#lib/characters.js';
+import type { KeyedLine } from '#lib/types.js';
 
 export interface ItemStatPresentation {
   Priority?: number;

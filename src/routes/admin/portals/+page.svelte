@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { apiRequest } from '$lib/auth';
-  import { searchAdminUsers, type AdminUser } from '$lib/admin';
-  import NormalCompletionRewards from '$lib/components/NormalCompletionRewards.svelte';
+  import { apiRequest } from '#lib/auth.js';
+  import { searchAdminUsers, type AdminUser } from '#lib/admin.js';
+  import NormalCompletionRewards from '#lib/components/NormalCompletionRewards.svelte';
   type Pack = { id: string; name: string; isActive: boolean; portalIds: string[] };
   type Access = { portalIds: string[]; packIds: string[]; supporterTier: string | null; effective: { portals: { id: string; unlocked: boolean }[] } };
   let users = $state<AdminUser[]>([]), packs = $state<Pack[]>([]), catalog = $state<string[]>([]);

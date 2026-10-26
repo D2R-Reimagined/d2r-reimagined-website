@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { i18n } from '$lib/i18n';
-  import type { Skill } from '$lib/types';
+  import { i18n } from '#lib/i18n.js';
+  import type { Skill } from '#lib/types.js';
 
   let {
     skill,

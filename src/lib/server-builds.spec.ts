@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { ServerBuild, ServerBuildState } from '$lib/admin';
+import type { ServerBuild, ServerBuildState } from '#lib/admin.js';
 import {
   currentServerBuild,
   installedBuildMatch,

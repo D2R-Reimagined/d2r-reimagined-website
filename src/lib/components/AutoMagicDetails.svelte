@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { presentAutoMagic } from '$lib/automagic';
-  import { i18n } from '$lib/i18n';
-  import type { CatalogItem } from '$lib/types';
+  import { presentAutoMagic } from '#lib/automagic.js';
+  import { i18n } from '#lib/i18n.js';
+  import type { CatalogItem } from '#lib/types.js';
 
   let { item }: { item: CatalogItem } = $props();
 

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import { getAnnouncementListeners, sendAnnouncement, type AnnouncementListeners } from '$lib/admin';
-  import { ApiError } from '$lib/auth';
+  import { getAnnouncementListeners, sendAnnouncement, type AnnouncementListeners } from '#lib/admin.js';
+  import { ApiError } from '#lib/auth.js';
 
   let message = $state('');
   let sending = $state(false);

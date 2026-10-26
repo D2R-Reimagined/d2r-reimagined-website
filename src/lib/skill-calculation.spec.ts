@@ -1,7 +1,7 @@
 import { get } from 'svelte/store';
 import { describe, expect, it } from 'vitest';
 import skillClasses from '../../static/data/keyed/skills.json';
-import type { Skill, SkillClass, SkillDescriptionLine } from '$lib/types';
+import type { Skill, SkillClass, SkillDescriptionLine } from '#lib/types.js';
 import { i18n, initializeI18n } from './i18n';
 import {
   applySkillSynergy,
@@ -394,8 +394,13 @@ describe('skillcalc.txt formula codes in shipped valuesCalc', () => {
     expect(skillLineCalcValues(lineOf(grizzly, 'StrSkill4'), grizzly, skills, { [grizzly.Id]: 10 })).toEqual([undefined, undefined]);
     const abyss = byCode('Abyss');
     expect(skillLineCalcValues(lineOf(abyss, 'StrSkill18'), abyss, skills, { [abyss.Id]: 10 })).toEqual([undefined]);
+  });
+
+  it('evaluates cells once the export resolves their passive and difficulty terms', () => {
     const skeleton = byCode('Raise Skeleton');
-    expect(skillLineCalcValues(lineOf(skeleton, 'StrSkill42'), skeleton, skills, { [skeleton.Id]: 10 })).toEqual([undefined]);
+    const line = lineOf(skeleton, 'StrSkill42');
+    // pst1 and cond('Difficulty', …) are now exported as plain expressions, so the formula agrees with the table.
+    expect(skillLineCalcValues(line, skeleton, skills, { [skeleton.Id]: 10 })).toEqual([line.values![0][9]]);
   });
 });
 

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { i18n } from '$lib/i18n';
-  import { sortModifierLines } from '$lib/catalog-controls';
-  import { childChance, groupHeading, propertyGroupsTitle, splitPropertyGroups } from '$lib/property-groups';
-  import { getSkillPoolLookup, resolveSkillPool } from '$lib/skill-selection';
-  import type { KeyedLine } from '$lib/types';
+  import { i18n } from '#lib/i18n.js';
+  import { sortModifierLines } from '#lib/catalog-controls.js';
+  import { childChance, groupHeading, propertyGroupsTitle, splitPropertyGroups } from '#lib/property-groups.js';
+  import { getSkillPoolLookup, resolveSkillPool } from '#lib/skill-selection.js';
+  import type { KeyedLine } from '#lib/types.js';
 
   let {
     lines = [],

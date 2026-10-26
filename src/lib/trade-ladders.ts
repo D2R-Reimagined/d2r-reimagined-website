@@ -16,7 +16,7 @@ export interface TradeRealm {
 }
 
 export interface TradeMarketplacePageData {
-  initialListings: import('$lib/trades').TradeListingPage | null;
+  initialListings: import('#lib/trades.js').TradeListingPage | null;
   ladders: TradeLadder[];
   realm: TradeRealm;
 }

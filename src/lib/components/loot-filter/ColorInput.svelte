@@ -1,5 +1,5 @@
 <script lang="ts">
-  import M from '$lib/loot-filter/model.js';
+  import M from '#lib/loot-filter/model.js';
   let { label, value, onchange }: { label: string; value: string; onchange: (value: string) => void } = $props();
   const color = $derived(M.rgbaToHex(value));
 </script>

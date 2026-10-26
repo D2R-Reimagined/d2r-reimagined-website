@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
-vi.mock('$lib/auth', () => ({ apiRequest: vi.fn() }));
-import { apiRequest } from '$lib/auth';
+vi.mock('#lib/auth.js', () => ({ apiRequest: vi.fn() }));
+import { apiRequest } from '#lib/auth.js';
 import { duplicateVariant, getBuild, newBlock, newBuild, publicationErrors, safeMediaUrl, saveBuild, youtubeEmbedUrl } from './builds';
 import { inlineTokens, markdownBlocks, safeLink } from './build-markdown';
 

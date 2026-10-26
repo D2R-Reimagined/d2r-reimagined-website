@@ -1,15 +1,15 @@
-import { browser } from '$app/environment';
-import { initializeAuth, apiRequest } from '$lib/auth';
+import { browser } from '$app/env';
+import { initializeAuth, apiRequest } from '#lib/auth.js';
 import type { PageLoad } from './$types';
-import { env } from '$env/dynamic/public';
-import { defaultLadder, type LadderSummary } from '$lib/ladder-schedule';
-import { leaderboardClass, leaderboardQuery, type LeaderboardResponse } from '$lib/leaderboard-entries';
+import { PUBLIC_API_BASE_URL } from '$app/env/public';
+import { defaultLadder, type LadderSummary } from '#lib/ladder-schedule.js';
+import { leaderboardClass, leaderboardQuery, type LeaderboardResponse } from '#lib/leaderboard-entries.js';
 
 // The page keeps its own copy for client-side paging.
 const pageSize = 25;
 
 function apiBaseUrl(): string {
-  return (env.PUBLIC_API_BASE_URL || 'http://localhost:5000').replace(/\/$/, '');
+  return (PUBLIC_API_BASE_URL || 'http://localhost:5000').replace(/\/$/, '');
 }
 
 // Public SSR is refreshed with the signed-in viewer's ladders during hydration.
@@ -37,8 +37,8 @@ export const load: PageLoad = async ({ fetch, url, setHeaders }) => {
   // An unknown id in the URL falls back rather than rendering an empty board
   // that looks like nobody has played.
   const selected = requestedLadderId !== null
-    ? (ladders.find((ladder) => ladder.id === requestedLadderId)?.id ?? null)
-    : (defaultLadder(ladders)?.id ?? null);
+    ? ladders.find((ladder) => ladder.id === requestedLadderId)?.id ?? null
+    : defaultLadder(ladders)?.id ?? null;
 
   const query = leaderboardQuery({ skip: 0, count: pageSize, ladderId: selected, characterClass: selectedClass });
 

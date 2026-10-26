@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { i18n } from '$lib/i18n';
-  import type { CatalogItem } from '$lib/types';
-  import type { GrailCategory } from '$lib/grail-query';
+  import { i18n } from '#lib/i18n.js';
+  import type { CatalogItem } from '#lib/types.js';
+  import type { GrailCategory } from '#lib/grail-query.js';
   import CatalogCard from './CatalogCard.svelte';
 
   let { item, category, onclose }: { item: CatalogItem; category: GrailCategory; onclose: () => void } = $props();

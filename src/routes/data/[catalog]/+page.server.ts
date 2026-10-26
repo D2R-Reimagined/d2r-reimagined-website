@@ -9,9 +9,9 @@ import sets from '../../../../static/data/keyed/sets.json';
 import skillClasses from '../../../../static/data/keyed/skills.json';
 import uniques from '../../../../static/data/keyed/uniques.json';
 import weapons from '../../../../static/data/keyed/weapons.json';
-import { buildCatalog } from '$lib/catalog-sources';
-import { buildSkillPoolLookup, type SkillPoolLookup } from '$lib/skill-selection';
-import { catalogDefinitions, catalogSlugs, type CatalogItem, type CatalogSlug, type SkillClass } from '$lib/types';
+import { buildCatalog } from '#lib/catalog-sources.js';
+import { buildSkillPoolLookup, type SkillPoolLookup } from '#lib/skill-selection.js';
+import { catalogDefinitions, catalogSlugs, type CatalogItem, type CatalogSlug, type SkillClass } from '#lib/types.js';
 
 // Bundled here so catalog content is server-rendered; the all-data search fetches the same
 // files at runtime. Both shape their items through buildCatalog.

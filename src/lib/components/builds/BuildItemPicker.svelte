@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { loadCatalog } from '$lib/catalog-sources';
-  import { searchText } from '$lib/catalog';
-  import { buildItemKey, buildItemTitle, isCraftRecipe } from '$lib/build-items';
-  import { i18n } from '$lib/i18n';
-  import type { CatalogItem } from '$lib/types';
-  import type { BuildItemReference } from '$lib/builds';
+  import { loadCatalog } from '#lib/catalog-sources.js';
+  import { searchText } from '#lib/catalog.js';
+  import { buildItemKey, buildItemTitle, isCraftRecipe } from '#lib/build-items.js';
+  import { i18n } from '#lib/i18n.js';
+  import type { CatalogItem } from '#lib/types.js';
+  import type { BuildItemReference } from '#lib/builds.js';
   let { onchoose }: { onchoose: (reference: BuildItemReference) => void } = $props();
   let catalog = $state<BuildItemReference['catalog']>('uniques');
   let search = $state('');

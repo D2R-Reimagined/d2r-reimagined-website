@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import skillClasses from '../../static/data/keyed/skills.json';
-import type { Skill, SkillClass, SkillDescriptionLine } from '$lib/types';
+import type { Skill, SkillClass, SkillDescriptionLine } from '#lib/types.js';
 import {
   clampSkillPoints,
   keepSkillPreviewOverride,

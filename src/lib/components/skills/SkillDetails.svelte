@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { i18n } from '$lib/i18n';
+  import { i18n } from '#lib/i18n.js';
   import {
     applySkillSynergy,
     skillLineCalcValues,
     skillLineSynergyBonus,
     skillLineUnavailableStats
-  } from '$lib/skill-calculation';
+  } from '#lib/skill-calculation.js';
   import {
     clampSkillPoints,
     keepSkillPreviewOverride,
@@ -16,8 +16,8 @@
     skillReadsCharacterLevel,
     type SkillPoints,
     type SkillPreviewOverride
-  } from '$lib/skill-points';
-  import type { Skill, SkillDescriptionLine } from '$lib/types';
+  } from '#lib/skill-points.js';
+  import type { Skill, SkillDescriptionLine } from '#lib/types.js';
 
   let {
     skill,

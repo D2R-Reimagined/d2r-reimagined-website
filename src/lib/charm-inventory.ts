@@ -3,7 +3,7 @@
 //
 // Nothing here imports a value, only the item type, so that modules under unit
 // test can use it without dragging in the API client `characters.ts` also holds.
-import type { SaveItem } from '$lib/characters';
+import type { SaveItem } from '#lib/characters.js';
 
 /**
  * The stored page the charm panel occupies.

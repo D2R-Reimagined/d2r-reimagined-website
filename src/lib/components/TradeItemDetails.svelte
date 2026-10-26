@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import ItemTooltip from '$lib/components/ItemTooltip.svelte';
-  import type { SaveItem } from '$lib/characters';
-  import { itemSprite, loadItemPresentation, type ItemPresentation } from '$lib/item-presentation';
-  import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
-  import { loadItemStatPresentation, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
+  import ItemTooltip from '#lib/components/ItemTooltip.svelte';
+  import type { SaveItem } from '#lib/characters.js';
+  import { itemSprite, loadItemPresentation, type ItemPresentation } from '#lib/item-presentation.js';
+  import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
+  import { loadItemStatPresentation, type ItemStatPresentationBundle } from '#lib/item-stat-presentation.js';
 
   let {
     item,

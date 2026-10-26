@@ -2,13 +2,13 @@
   import { page } from '$app/state';
   import { invalidateAll } from '$app/navigation';
   import { untrack } from 'svelte';
-  import { authState } from '$lib/auth';
-  import Footer from '$lib/components/Footer.svelte';
-  import Header from '$lib/components/Header.svelte';
-  import BackToTop from '$lib/components/BackToTop.svelte';
-  import RouteLoading from '$lib/components/RouteLoading.svelte';
-  import TradeChatDock from '$lib/components/TradeChatDock.svelte';
-  import { initializeI18n } from '$lib/i18n';
+  import { authState } from '#lib/auth.js';
+  import Footer from '#lib/components/Footer.svelte';
+  import Header from '#lib/components/Header.svelte';
+  import BackToTop from '#lib/components/BackToTop.svelte';
+  import RouteLoading from '#lib/components/RouteLoading.svelte';
+  import TradeChatDock from '#lib/components/TradeChatDock.svelte';
+  import { initializeI18n } from '#lib/i18n.js';
   import '../app.css';
 
   let { children, data } = $props();

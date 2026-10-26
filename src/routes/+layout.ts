@@ -1,7 +1,7 @@
-import { browser } from '$app/environment';
-import { initializeAuth } from '$lib/auth';
-import { getActiveLadders } from '$lib/ladders';
-import { buildTradeLadders } from '$lib/trade-ladders';
+import { browser } from '$app/env';
+import { initializeAuth } from '#lib/auth.js';
+import { getActiveLadders } from '#lib/ladders.js';
+import { buildTradeLadders } from '#lib/trade-ladders.js';
 import type { LayoutLoad } from './$types';
 
 export const load: LayoutLoad = async ({ data, url, depends }) => {

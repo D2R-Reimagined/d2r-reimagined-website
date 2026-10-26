@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { inlineTokens, markdownBlocks } from '$lib/build-markdown';
-  import type { BuildItemReference } from '$lib/builds';
+  import { inlineTokens, markdownBlocks } from '#lib/build-markdown.js';
+  import type { BuildItemReference } from '#lib/builds.js';
   import BuildItemLink from './BuildItemLink.svelte';
   import BuildSkillLink from './BuildSkillLink.svelte';
   let { text }: { text: string } = $props();

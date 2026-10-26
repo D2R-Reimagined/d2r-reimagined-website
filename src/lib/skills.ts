@@ -1,4 +1,4 @@
-import type { SkillClass } from '$lib/types';
+import type { SkillClass } from '#lib/types.js';
 
 let classesPromise: Promise<SkillClass[]> | undefined;
 

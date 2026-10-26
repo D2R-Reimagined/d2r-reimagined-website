@@ -1,8 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { get } from 'svelte/store';
 
-vi.mock('$app/environment', () => ({ browser: true }));
-vi.mock('$env/dynamic/public', () => ({ env: { PUBLIC_API_BASE_URL: 'https://api.example' } }));
+vi.mock('$app/env', () => ({ browser: true }));
+vi.mock('$app/env/public', () => ({ PUBLIC_API_BASE_URL: 'https://api.example' }));
 import {
   authState,
   completeSteamSignIn,

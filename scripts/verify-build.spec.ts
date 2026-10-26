@@ -68,13 +68,32 @@ describe('verifyBuild', () => {
     expect(problems.some((p) => p.startsWith('the client bundle references several globals'))).toBe(true);
   });
 
+  it('accepts a SvelteKit 3 build whose server carries the global name and whose client never reads it', async () => {
+    const sha = '97001d16438d1e41f93877c4b1a53365c7fe410b';
+    await write({
+      'client/_app/version.json': JSON.stringify({ version: sha }),
+      'client/_app/immutable/entry/start.js': 'export{s as start};',
+      'server/chunks/instance.js': `const global = "__sveltekit_${versionHash(sha)}";`,
+      'server/__sveltekit_env.js': 'globalThis.__sveltekit_env = {};'
+    });
+    const result = await verifyBuild(root);
+    expect(result.problems).toEqual([]);
+    expect(result).toMatchObject({ server: [versionHash(sha)], client: [] });
+  });
+
+  it('rejects a SvelteKit 3 server global that does not match the build version', async () => {
+    await write({
+      'client/_app/version.json': '{"version":"1791700514735"}',
+      'server/chunks/instance.js': `const global = "__sveltekit_${versionHash('1791700513755')}";`
+    });
+    const { problems } = await verifyBuild(root);
+    expect(problems).toContain('server version_hash 1ncedmk does not match version 1791700514735 (te44wt)');
+  });
+
   it('rejects output where the identifiers cannot be found', async () => {
     await write({ 'client/_app/version.json': '{"version":"v1"}', 'client/_app/a.js': '', 'server/index.js': '' });
     const { problems } = await verifyBuild(root);
-    expect(problems).toEqual([
-      'expected one version_hash in the server bundle, found none',
-      'the client bundle references no __sveltekit_<hash> global'
-    ]);
+    expect(problems).toEqual(['expected one version hash in the server bundle, found none']);
   });
 
   it('rejects a missing build', async () => {

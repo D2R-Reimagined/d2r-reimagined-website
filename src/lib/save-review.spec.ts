@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => ({ api: vi.fn() }));
-vi.mock('$lib/auth', () => ({ apiRequest: mocks.api }));
+vi.mock('#lib/auth.js', () => ({ apiRequest: mocks.api }));
 
 import { flagKindInfo, formatEvidence, getCharacterSaveReview, resolveSaveReviewFlag } from './save-review';
 

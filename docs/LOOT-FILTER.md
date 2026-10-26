@@ -80,8 +80,10 @@ only starts following an explicit click and plays at 50% volume.
 
 ## Installing filters
 
-Place `filter.json` beside `unhoarder.dll` in
-`mods/Reimagined/d2rloader/plugins`. UnHoarder reloads stable file changes, or use
+Save a filter to your account, then select it from the dropdown in the Reimagined
+Launcher and click **Apply filter**. You can also download `filter.json` manually
+and place it in `mods/Reimagined/d2rloader/config` (or
+`mods/ReimaginedLadder/d2rloader/config` for Ladder) with `unhoarder.dll` in `d2rloader/plugins`. UnHoarder reloads stable file changes, or use
 Ctrl+Shift+F9. Ordered rules stop at the first match unless Continue is enabled.
 Unique/set search shortcuts match base + rarity, never a specific hidden identity.
 The installed starter filter shows everything; the builder starts empty.

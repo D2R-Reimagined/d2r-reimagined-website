@@ -1,25 +1,25 @@
 <script lang="ts">
   import { onDestroy, onMount, untrack } from 'svelte';
-  import { afterNavigate, replaceState } from '$app/navigation';
+  import { afterNavigate, goto } from '$app/navigation';
   import { page as routePage } from '$app/state';
-  import { i18n } from '$lib/i18n';
+  import { i18n } from '#lib/i18n.js';
   import SearchableSelect from './SearchableSelect.svelte';
-  import { matchesAllTerms } from '$lib/search-terms';
-  import type { DropData } from '$lib/drop-calculator';
-  import { treasureClassSource, type MonsterDropReport } from '$lib/monster-drop-calculator';
-  import { countAdvancedMonsterDropSettings, readMonsterDropUrl, writeMonsterDropUrl, type MonsterDropSourceType } from '$lib/monster-drop-url';
-  import { currentUrl } from '$lib/current-url';
-  import { monsterDropTsv } from '$lib/monster-drop-export';
-  import { DROP_RESULTS_PAGE_SIZE, dropResultsPage, dropResultsPageCount } from '$lib/drop-result-table';
-  import { coverage, dropDistribution, formatPercent, rowShares, share } from '$lib/monster-drop-stats';
+  import { matchesAllTerms } from '#lib/search-terms.js';
+  import type { DropData } from '#lib/drop-calculator.js';
+  import { treasureClassSource, type MonsterDropReport } from '#lib/monster-drop-calculator.js';
+  import { countAdvancedMonsterDropSettings, readMonsterDropUrl, writeMonsterDropUrl, type MonsterDropSourceType } from '#lib/monster-drop-url.js';
+  import { currentUrl } from '#lib/current-url.js';
+  import { monsterDropTsv } from '#lib/monster-drop-export.js';
+  import { DROP_RESULTS_PAGE_SIZE, dropResultsPage, dropResultsPageCount } from '#lib/drop-result-table.js';
+  import { coverage, dropDistribution, formatPercent, rowShares, share } from '#lib/monster-drop-stats.js';
   import { DEFAULT_MONSTER_SORT, MONSTER_RESULT_COLUMNS, NOTABLE_CATEGORY, NOTABLE_CATEGORY_LABEL, categoryFilterLabel, defaultSortDesc, filterMonsterRows, isInternalOutcome,
     monsterCategories, monsterResultColumns, monsterResultsState, notableDrops, physicalDropSummary, presentMonsterRow, sortMonsterRows,
-    type MonsterColumn, type MonsterColumnId } from '$lib/monster-drop-results';
+    type MonsterColumn, type MonsterColumnId } from '#lib/monster-drop-results.js';
   import { RESULT_PERSPECTIVES, activeFilters, leavesFor, missingItemHint, notableRecovery, perspectiveInfo, perspectiveOf, resultBasis, resultControls,
-    type NotableRecovery } from '$lib/monster-drop-perspective';
+    type NotableRecovery } from '#lib/monster-drop-perspective.js';
 
   let { data }: { data: DropData } = $props();
-  // Reads and writes start from the address bar: `routePage.url` misses shallow `replaceState` updates.
+  // Reads and writes start from the address bar: `routePage.url` misses shallow navigation updates.
   const initial = untrack(() => readMonsterDropUrl(currentUrl(routePage.url)));
   let sourceType = $state<MonsterDropSourceType>(initial.sourceType), treasureClass = $state(initial.treasureClass), level = $state(initial.level);
   let collapse = $state(initial.collapse), leaves = $state(initial.leaves), lastSimulate = false;
@@ -141,10 +141,12 @@
   }
   // The settings above were already read from the address bar, so syncing can start on mount.
   // `afterNavigate` alone is not enough: it only fires for navigations completed after mounting,
-  // and switching modes mounts this component without a navigation (only a shallow replaceState).
+  // and switching modes mounts this component without a navigation (only a shallow navigation).
   onMount(() => { ready = true; });
   // Back/Forward and other real navigations restore the settings of the entry being shown.
-  afterNavigate(() => {
+  afterNavigate(({ shallow, type }) => {
+    // This component's own URL writes are shallow gotos; they must not reset the settings.
+    if (shallow && type === 'goto') return;
     invalidate();
     const restored = readMonsterDropUrl(currentUrl(routePage.url));
     sourceType = restored.sourceType; treasureClass = restored.treasureClass; level = restored.level; collapse = restored.collapse; leaves = restored.leaves;
@@ -157,7 +159,7 @@
     if (!ready) return;
     const current = currentUrl(routePage.url);
     const url = writeMonsterDropUrl(current,{sourceType,sourceId,treasureClass,level,difficulty,kills,players,party,magicFind,seed,collapse,leaves});
-    if (url.href !== current.href) replaceState(url,routePage.state);
+    if (url.href !== current.href) goto(url, { shallow: true, replace: true, state: routePage.state });
   });
   async function copyLink() {
     const url = writeMonsterDropUrl(currentUrl(routePage.url),{sourceType,sourceId,treasureClass,level,difficulty,kills,players,party,magicFind,seed,collapse,leaves});

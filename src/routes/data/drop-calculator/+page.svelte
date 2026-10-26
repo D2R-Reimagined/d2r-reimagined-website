@@ -1,22 +1,22 @@
 <script lang="ts">
   import { onDestroy, tick, untrack } from 'svelte';
-  import { afterNavigate, replaceState } from '$app/navigation';
+  import { afterNavigate, goto } from '$app/navigation';
   import { page as routePage } from '$app/state';
-  import { countAdvancedDropFilters, readDropMode, readDropUrl, writeDropMode, writeDropUrl, type DropMode } from '$lib/drop-calculator-url';
-  import { currentUrl } from '$lib/current-url';
-  import { resumeItemMode } from '$lib/drop-mode-switch';
-  import { checkDropForm, describeLevelRange, magicFindApplies, magicFindNote, maxLevelText, monsterLevelRange, partyForPlayers } from '$lib/drop-calculator-form';
-  import { i18n } from '$lib/i18n';
-  import MonsterDropSimulator from '$lib/components/MonsterDropSimulator.svelte';
-  import SearchableSelect from '$lib/components/SearchableSelect.svelte';
-  import type { DropItem, DropResult } from '$lib/drop-calculator';
-  import { filterDropResults, hasPositiveChance, NEAR_CERTAIN_CHANCE, summarizeDropChances } from '$lib/drop-result-summary';
-  import { DROP_DIFFICULTY_LABELS, DROP_KIND_LABELS, DROP_RESULTS_PAGE_SIZE, dropResultColumns, dropResultsPage, dropResultsPageCount, presentDropRow } from '$lib/drop-result-table';
-  import { buildDropSearchIndex, categoryAllows, dropCategoryLabels, dropSuggestionLabel, MIN_DROP_QUERY_LENGTH, normalizeDropQuery, searchDropItems, showsDropBase, type DropCategory } from '$lib/drop-item-search';
+  import { countAdvancedDropFilters, readDropMode, readDropUrl, writeDropMode, writeDropUrl, type DropMode } from '#lib/drop-calculator-url.js';
+  import { currentUrl } from '#lib/current-url.js';
+  import { resumeItemMode } from '#lib/drop-mode-switch.js';
+  import { checkDropForm, describeLevelRange, magicFindApplies, magicFindNote, maxLevelText, monsterLevelRange, partyForPlayers } from '#lib/drop-calculator-form.js';
+  import { i18n } from '#lib/i18n.js';
+  import MonsterDropSimulator from '#lib/components/MonsterDropSimulator.svelte';
+  import SearchableSelect from '#lib/components/SearchableSelect.svelte';
+  import type { DropItem, DropResult } from '#lib/drop-calculator.js';
+  import { filterDropResults, hasPositiveChance, NEAR_CERTAIN_CHANCE, summarizeDropChances } from '#lib/drop-result-summary.js';
+  import { DROP_DIFFICULTY_LABELS, DROP_KIND_LABELS, DROP_RESULTS_PAGE_SIZE, dropResultColumns, dropResultsPage, dropResultsPageCount, presentDropRow } from '#lib/drop-result-table.js';
+  import { buildDropSearchIndex, categoryAllows, dropCategoryLabels, dropSuggestionLabel, MIN_DROP_QUERY_LENGTH, normalizeDropQuery, searchDropItems, showsDropBase, type DropCategory } from '#lib/drop-item-search.js';
 
   let { data } = $props();
   const levels = untrack(() => monsterLevelRange(data.drops.Sources));
-  // Every read and write starts from the address bar: after shallow `replaceState` updates,
+  // Every read and write starts from the address bar: after shallow navigations,
   // `routePage.url` (and the URL SvelteKit restores on Back/Forward) still holds the URL from
   // before the latest selection changes, and reading it would restore a cleared item or category.
   const initial = untrack(() => readDropUrl(currentUrl(routePage.url), data.drops.Items, levels));
@@ -27,7 +27,7 @@
   function switchMode(next: DropMode) {
     if (next === mode) return;
     mode = next;
-    replaceState(writeDropMode(currentUrl(routePage.url), next), routePage.state);
+    goto(writeDropMode(currentUrl(routePage.url), next), { shallow: true, replace: true, state: routePage.state });
     if (next === 'item' && resumeItemMode({ selected, calculatedItem, hasResults: results !== null, busy, error }) === 'calculate') calculate();
   }
   let ready = $state(false);
@@ -65,8 +65,15 @@
   const advancedActive = $derived(countAdvancedDropFilters({ kind, party, treasureClass, minLevel, maxLevel, kills }));
   const treasureClasses = $derived(data.drops.TreasureClasses.map(tc => tc.Code).sort((a, b) => a.localeCompare(b)));
   const treasureClassOptions = $derived([
-    ...(treasureClass && !treasureClasses.includes(treasureClass) ? [{ value: treasureClass, label: `${treasureClass} (unavailable)` }] : []),
-    ...treasureClasses.map(code => ({ value: code, label: code }))
+    ...treasureClass && !treasureClasses.includes(treasureClass)
+      ? [
+        {
+          value: treasureClass,
+          label: `${treasureClass} (unavailable)`
+        }
+      ]
+      : [],
+    ...treasureClasses.map((code) => ({ value: code, label: code }))
   ]);
   let worker: Worker | undefined;
   // The index depends only on the data and the active language, not on each keystroke.
@@ -104,7 +111,9 @@
   const kinds = DROP_KIND_LABELS;
   const pageSize = DROP_RESULTS_PAGE_SIZE;
 
-  afterNavigate(() => {
+  afterNavigate(({ shallow, type }) => {
+    // The page's own URL writes are shallow gotos; they must not restore or recalculate.
+    if (shallow && type === 'goto') return;
     const address = currentUrl(routePage.url);
     mode = readDropMode(address);
     const restored = readDropUrl(address, data.drops.Items, levels);
@@ -126,7 +135,7 @@
     const current = currentUrl(routePage.url);
     const url = writeDropUrl(current, state);
     if (url.href !== current.href) {
-      replaceState(url, routePage.state);
+      goto(url, { shallow: true, replace: true, state: routePage.state });
       shareStatus = '';
     }
   });
@@ -192,11 +201,15 @@
     worker?.terminate(); busy = true; error = ''; results = null; page = 0;
     calculatedItem = selected;
     try {
-    worker = new Worker(new URL('../../../lib/drop-calculator.worker.ts', import.meta.url), { type: 'module' });
-    worker.onmessage = event => {
-      results = event.data.results ?? null; error = event.data.error ?? ''; busy = false;
-      worker?.terminate(); worker = undefined;
-    };
+      worker = new Worker(new URL('../../../lib/drop-calculator.worker.ts', import.meta.url), { type: 'module' });
+
+      worker.onmessage = (event) => {
+        results = event.data.results ?? null;
+        error = event.data.error ?? '';
+        busy = false;
+        worker?.terminate();
+        worker = undefined;
+      };
     worker.onerror = () => { error = 'Unable to calculate drops. Please try again.'; busy = false; worker?.terminate(); };
     worker.postMessage($state.snapshot({ data: data.drops, target: selected, kills, settings: { difficulty, kind, players, party, magicFind } }));
     } catch {
@@ -343,7 +356,7 @@
     </div>
   </form>
 
-  <div class="mt-8" aria-live="polite" aria-busy={busy}>
+    <div class="mt-8" aria-live="polite" aria-busy={busy}>
     {#if busy}<div class="panel rounded-lg p-10 text-center text-parchment-300">Calculating monster drop chances…</div>
     {:else if error}<p role="alert" class="text-requirement">{error}</p>
     {:else if results !== null}

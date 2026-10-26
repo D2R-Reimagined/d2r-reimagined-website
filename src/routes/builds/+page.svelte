@@ -1,20 +1,20 @@
 <script lang="ts">
   import { Button } from 'flowbite-svelte';
     import {page} from '$app/state';
-    import {buildClasses, buildCategories, buildBudgets} from '$lib/builds';
-    import BuildCard from '$lib/components/builds/BuildCard.svelte';
+    import {buildClasses, buildCategories, buildBudgets} from '#lib/builds.js';
+    import BuildCard from '#lib/components/builds/BuildCard.svelte';
 
     let {data} = $props();
 
     function filtered(key: string, value: string) {
-        const params = new URLSearchParams(page.url.searchParams);
+        const params = new URLSearchParams(page.url.search);
         params.delete('skip');
         if (value) params.set(key, value); else params.delete(key);
         return `/builds?${params}`;
     }
 
     function pageLink(skip: number) {
-        const params = new URLSearchParams(page.url.searchParams);
+        const params = new URLSearchParams(page.url.search);
         params.set('skip', String(skip));
         return `/builds?${params}`;
     }

@@ -1,7 +1,7 @@
 import type {
   TradePropertyFilterGroup,
   TradePropertyGroupType
-} from '$lib/trades';
+} from '#lib/trades.js';
 
 export interface TradePropertyFilterDraft {
   id: number;

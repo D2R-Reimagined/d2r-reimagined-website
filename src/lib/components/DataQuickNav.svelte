@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from '$app/state';
 
-  import { iasCalculatorDefinition, dropCalculatorDefinition, catalogDefinitions, skillPlannerDefinition } from '$lib/types';
+  import { iasCalculatorDefinition, dropCalculatorDefinition, catalogDefinitions, skillPlannerDefinition } from '#lib/types.js';
 
   const links = [
     { href: '/data', label: 'All Data' },

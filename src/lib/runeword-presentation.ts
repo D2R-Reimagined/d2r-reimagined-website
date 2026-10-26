@@ -1,5 +1,5 @@
-import type { SaveItem } from '$lib/characters';
-import type { CatalogItem } from '$lib/types';
+import type { SaveItem } from '#lib/characters.js';
+import type { CatalogItem } from '#lib/types.js';
 
 function recipeKey(codes: string[]): string {
   return codes.map((code) => code.trim().toLowerCase()).join(',');

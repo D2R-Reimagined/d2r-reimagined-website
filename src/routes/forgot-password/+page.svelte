@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { requestPasswordReset } from '$lib/auth';
+  import { requestPasswordReset } from '#lib/auth.js';
 
   let email = $state('');
   let sentTo = $state('');

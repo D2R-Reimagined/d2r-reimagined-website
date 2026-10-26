@@ -1,6 +1,6 @@
 <script lang="ts">
     import {untrack} from 'svelte';
-    import {i18n} from '$lib/i18n';
+    import {i18n} from '#lib/i18n.js';
     import {
         calculateHealth,
         healthInputs,
@@ -8,7 +8,7 @@
         type HealthInputs,
         type HealthKind,
         type HealthMonster
-    } from '$lib/health-calculator';
+    } from '#lib/health-calculator.js';
 
     let {data} = $props();
     let selected = $state(untrack(() => data.health.Monsters.find(m => m.Enabled && m.Killable)!.Id));

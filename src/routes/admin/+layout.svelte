@@ -3,8 +3,8 @@
   import { page } from '$app/state';
   import { onMount } from 'svelte';
 
-  import { authState, initializeAuth } from '$lib/auth';
-  import { canAccessAdminPage, canReviewFeedback } from '$lib/admin-access';
+  import { authState, initializeAuth } from '#lib/auth.js';
+  import { canAccessAdminPage, canReviewFeedback } from '#lib/admin-access.js';
 
   let { children } = $props();
 

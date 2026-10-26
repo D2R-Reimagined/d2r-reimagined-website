@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { resolveLauncherDownloads, type GitHubReleaseAsset } from '$lib/launcher-downloads';
+import { resolveLauncherDownloads, type GitHubReleaseAsset } from '#lib/launcher-downloads.js';
 
 const releasesUrl = 'https://github.com/D2R-Reimagined/reimagined-launcher/releases';
 

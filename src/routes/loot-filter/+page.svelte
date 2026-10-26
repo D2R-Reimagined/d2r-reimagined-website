@@ -1,5 +1,5 @@
 <script lang="ts">
-  import FilterLibrary from '$lib/components/loot-filter/FilterLibrary.svelte';
+  import FilterLibrary from '#lib/components/loot-filter/FilterLibrary.svelte';
 </script>
 
 <svelte:head>

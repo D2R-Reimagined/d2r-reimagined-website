@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { authState, initializeAuth } from '$lib/auth';
-  import { connectTradeEvents, isTradeNotification, tradeEvent, tradeNotificationTitle, type TradeEvent } from '$lib/trade-realtime';
-  import { tradeChatRequest } from '$lib/trade-chat';
+  import { authState, initializeAuth } from '#lib/auth.js';
+  import { connectTradeEvents, isTradeNotification, tradeEvent, tradeNotificationTitle, type TradeEvent } from '#lib/trade-realtime.js';
+  import { tradeChatRequest } from '#lib/trade-chat.js';
   import {
     getTradeConversation,
     getTradeConversations,
@@ -10,7 +10,7 @@
     startTradeConversation,
     type TradeConversation,
     type TradeConversationSummary
-  } from '$lib/trades';
+  } from '#lib/trades.js';
 
   let open = $state(false);
   let conversations = $state<TradeConversationSummary[]>([]);

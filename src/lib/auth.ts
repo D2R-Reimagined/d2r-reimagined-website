@@ -1,5 +1,5 @@
-import { browser } from '$app/environment';
-import { env } from '$env/dynamic/public';
+import { browser } from '$app/env';
+import { PUBLIC_API_BASE_URL } from '$app/env/public';
 import { get, writable } from 'svelte/store';
 
 const tokenStorageKey = 'd2r_reimagined_access_token';
@@ -22,24 +22,10 @@ export interface UserProfile {
   createdAtUtc: string;
 }
 
-interface AuthResponse {
-  accessToken: string;
-  expiresAtUtc: string;
-  user: UserProfile;
-}
-
-interface AccountLinkTicketResponse {
-  url: string;
-}
-
-interface LauncherAuthorizationResponse {
-  redirectUrl: string;
-}
-
-interface AuthState {
-  ready: boolean;
-  user: UserProfile | null;
-}
+interface AuthResponse { accessToken: string; expiresAtUtc: string; user: UserProfile }
+interface AccountLinkTicketResponse { url: string }
+interface LauncherAuthorizationResponse { redirectUrl: string }
+interface AuthState { ready: boolean; user: UserProfile | null }
 
 export class ApiError extends Error {
   constructor(
@@ -56,7 +42,7 @@ let initialization: Promise<void> | null = null;
 let refreshRequest: Promise<boolean> | null = null;
 
 function apiBaseUrl(): string {
-  return (env.PUBLIC_API_BASE_URL || 'http://localhost:5000').replace(/\/$/, '');
+  return (PUBLIC_API_BASE_URL || 'http://localhost:5000').replace(/\/$/, '');
 }
 
 export function apiWebSocketUrl(path: string): string {

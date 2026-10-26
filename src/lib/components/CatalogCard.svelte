@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Badge } from 'flowbite-svelte';
 
-  import { itemTitle, itemType } from '$lib/catalog';
-  import { i18n } from '$lib/i18n';
-  import type { CatalogItem, CatalogSlug, KeyedLine } from '$lib/types';
+  import { itemTitle, itemType } from '#lib/catalog.js';
+  import { i18n } from '#lib/i18n.js';
+  import type { CatalogItem, CatalogSlug, KeyedLine } from '#lib/types.js';
   import AutoMagicDetails from './AutoMagicDetails.svelte';
   import KeyedLines from './KeyedLines.svelte';
 

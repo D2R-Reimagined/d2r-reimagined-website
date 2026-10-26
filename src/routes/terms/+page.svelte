@@ -1,5 +1,5 @@
 <script lang="ts">
-  import LegalPage from '$lib/components/LegalPage.svelte';
+  import LegalPage from '#lib/components/LegalPage.svelte';
 </script>
 
 <LegalPage title="Terms of Service" description="Rules and conditions for using the D2R Reimagined website, accounts, downloads, and connected community services.">

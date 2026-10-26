@@ -1,13 +1,13 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { getLadders, type Ladder } from '$lib/admin';
-  import { authState } from '$lib/auth';
-  import { canManageServers } from '$lib/admin-access';
+  import { getLadders, type Ladder } from '#lib/admin.js';
+  import { authState } from '#lib/auth.js';
+  import { canManageServers } from '#lib/admin-access.js';
   import {
     getServerConfigurations, getServerRegions, createServerConfiguration, updateServerConfiguration,
     createServerRegion, updateServerRegion, deleteServerRegion, serverConfigurationInput, serverRegionInput,
     serverDraft, serverLabel, MAX_GAMES_PER_SERVER, DEFAULT_MAX_GAMES, type ServerConfiguration, type ServerRegion, type ServerDraft
-  } from '$lib/server-registry';
+  } from '#lib/server-registry.js';
 
   let { onchange, onconfigured }: {
     onchange?: () => Promise<void>;

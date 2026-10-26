@@ -1,4 +1,4 @@
-import type { SaveItem } from '$lib/characters';
+import type { SaveItem } from '#lib/characters.js';
 
 export interface RareNamePresentation {
   Names: Array<string | null>;

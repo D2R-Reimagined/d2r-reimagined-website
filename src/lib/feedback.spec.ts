@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { canAccessAdminPage, canReviewFeedback } from './admin-access';
-vi.mock('$lib/auth', () => ({ apiRequest: vi.fn() }));
-import { apiRequest } from '$lib/auth';
+vi.mock('#lib/auth.js', () => ({ apiRequest: vi.fn() }));
+import { apiRequest } from '#lib/auth.js';
 import { feedbackTypeLabel, searchFeedback, updateFeedbackStatus } from './feedback';
 
 beforeEach(() => vi.clearAllMocks());

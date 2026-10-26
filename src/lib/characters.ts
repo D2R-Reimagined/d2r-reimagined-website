@@ -1,6 +1,6 @@
-import { apiRequest } from '$lib/auth';
-import { validateCharacterSave } from '$lib/character-save';
-import type { CharacterSource } from '$lib/leaderboard-entries';
+import { apiRequest } from '#lib/auth.js';
+import { validateCharacterSave } from '#lib/character-save.js';
+import type { CharacterSource } from '#lib/leaderboard-entries.js';
 
 export type { CharacterSource };
 

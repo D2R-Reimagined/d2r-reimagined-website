@@ -1,5 +1,5 @@
-import type { CharacterDetailsResponse, SaveItem } from '$lib/characters';
-import type { TradeInventory } from '$lib/trades';
+import type { CharacterDetailsResponse, SaveItem } from '#lib/characters.js';
+import type { TradeInventory } from '#lib/trades.js';
 
 /**
  * An item the trade-sell plugin read in game (item-sdk's snapshot, version 1).

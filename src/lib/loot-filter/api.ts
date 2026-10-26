@@ -1,4 +1,4 @@
-import { apiRequest } from '$lib/auth';
+import { apiRequest } from '#lib/auth.js';
 import type { Filter } from './types';
 export interface FilterSummary { id: string; name: string; ruleCount: number; revision: number; updatedAtUtc: string; lastUsedAtUtc: string }
 export interface FilterDetails extends FilterSummary { document: Filter }

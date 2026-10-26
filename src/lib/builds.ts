@@ -1,5 +1,5 @@
-import { apiRequest } from '$lib/auth';
-import type { CharacterDetailsResponse } from '$lib/characters';
+import { apiRequest } from '#lib/auth.js';
+import type { CharacterDetailsResponse } from '#lib/characters.js';
 import { gearErrors, type BuildGearEntry } from './build-gear';
 
 export const buildClasses = ['Amazon', 'Assassin', 'Barbarian', 'Druid', 'Necromancer', 'Paladin', 'Sorceress', 'Warlock'];

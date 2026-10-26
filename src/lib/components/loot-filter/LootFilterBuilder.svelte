@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onMount, untrack } from 'svelte';
-  import { i18n } from '$lib/i18n';
-  import M from '$lib/loot-filter/model.js';
-  import { fromExport } from '$lib/loot-filter/catalog.js';
-  import { playSound, stopSound, soundPreview } from '$lib/loot-filter/sound-preview';
-  import { blockOf, kindOf, values, type Catalog, type CatalogItem, type Filter, type Visibility } from '$lib/loot-filter/types';
+  import { i18n } from '#lib/i18n.js';
+  import M from '#lib/loot-filter/model.js';
+  import { fromExport } from '#lib/loot-filter/catalog.js';
+  import { playSound, stopSound, soundPreview } from '#lib/loot-filter/sound-preview.js';
+  import { blockOf, kindOf, values, type Catalog, type CatalogItem, type Filter, type Visibility } from '#lib/loot-filter/types.js';
   import RuleEditor from './RuleEditor.svelte';
 
   let { filter = $bindable(), selected = $bindable(-1), onedit, onimport }: {
@@ -109,7 +109,7 @@
     const url = URL.createObjectURL(new Blob([validation.json], { type: 'application/json' }));
     const link = document.createElement('a'); link.href = url; link.download = 'filter.json'; link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    message = 'Downloaded filter.json. Place it beside unhoarder.dll in your Reimagined plugins folder.';
+    message = 'Downloaded filter.json. Place it in mods/Reimagined/d2rloader/config (or mods/ReimaginedLadder/d2rloader/config for Ladder).';
   }
   async function copy() {
     try { await navigator.clipboard.writeText(validation.json); message = 'Copied filter JSON.'; }
@@ -122,7 +122,7 @@
 <section class="mx-auto max-w-[1800px] px-4 pb-8 pt-5 sm:px-6 lg:px-8">
   <header class="flex flex-wrap items-end justify-between gap-5">
     <div>
-      <p class="text-xs uppercase tracking-[0.2em] text-ember-400">Reimagined · UnHoarder 1.1.0</p>
+      <p class="text-xs uppercase tracking-[0.2em] text-ember-400">Reimagined · UnHoarder</p>
       <p class="mt-3 text-parchment-300">Choose what drops stand out. Reimagined item data is loaded for you.</p>
     </div>
     <div class="flex flex-wrap gap-2">
@@ -138,7 +138,7 @@
   </div>
   <details class="mt-3 text-sm text-parchment-300">
     <summary class="cursor-pointer text-parchment-200">How to install your filter</summary>
-    <p class="mt-2 max-w-4xl leading-relaxed">Download <code>filter.json</code> and place it beside <code>unhoarder.dll</code> in <code class="break-all">mods/Reimagined/d2rloader/plugins</code>. Saving the file reloads it in game; Ctrl+Shift+F9 also reloads manually. Use Save to account to sync your filter across devices; edits are also saved in this browser. Keep a downloaded backup before clearing site data.</p>
+    <p class="mt-2 max-w-4xl leading-relaxed">Use <strong>Save to account</strong>, then choose your filter in the launcher dropdown and click <strong>Apply filter</strong>. You can also download <code>filter.json</code> manually and place it in <code class="break-all">mods/Reimagined/d2rloader/config</code> (or <code class="break-all">mods/ReimaginedLadder/d2rloader/config</code> for Ladder) with <code>unhoarder.dll</code> installed in <code>d2rloader/plugins</code>. Saving or applying a filter reloads it in game; Ctrl+Shift+F9 also reloads manually. Edits are also saved in this browser—keep a downloaded backup before clearing site data.</p>
   </details>
   {#if message}<p class="mt-4 rounded border border-parchment-300/25 p-3 text-sm text-parchment-200" role="status">{message}</p>{/if}
 

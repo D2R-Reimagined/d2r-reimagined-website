@@ -3,21 +3,24 @@
   import NumericCondition from './NumericCondition.svelte';
   import ColorInput from './ColorInput.svelte';
   import SoundPicker from './SoundPicker.svelte';
-  import M from '$lib/loot-filter/model.js';
-  import { type Catalog, type Conditions, type RuleBlock, type Visibility } from '$lib/loot-filter/types';
+  import M from '#lib/loot-filter/model.js';
+  import { type Catalog, type Conditions, type RuleBlock, type Visibility } from '#lib/loot-filter/types.js';
   let { block = $bindable(), kind, catalog, onkind }: { block: RuleBlock; kind: Visibility; catalog: Catalog; onkind: (kind: Visibility) => void } = $props();
   const codes = $derived([...new Map(catalog.baseItems.map(item => [item.code!, { value: item.code!, label: `${item.displayName || item.name || item.code} (${item.code})` }])).values()]);
   const names = $derived(catalog.baseNames.map(value => ({ value, label: value })));
   const types = $derived(catalog.itemTypes.map(value => ({ value, label: value })));
+  function set<K extends keyof RuleBlock>(key: K, value: RuleBlock[K]) {
+    if (value === undefined) delete block[key]; else block[key] = value;
+  }
   function condition<K extends keyof Conditions>(key: K, value: Conditions[K]) {
     const next = { ...block.conditions };
     if (value === undefined) delete next[key]; else next[key] = value;
-    block.conditions = Object.keys(next).length ? next : undefined;
+    set('conditions', Object.keys(next).length ? next : undefined);
   }
   function tooltip(key: 'backgroundColor' | 'textColor', value?: string) {
     const next = { ...block.tooltip };
     if (value === undefined) delete next[key]; else next[key] = value;
-    block.tooltip = Object.keys(next).length ? next : undefined;
+    set('tooltip', Object.keys(next).length ? next : undefined);
   }
   function booleanValue(value: string): boolean | undefined { return value === '' ? undefined : value === 'true'; }
 </script>
@@ -31,10 +34,10 @@
     </div>
   </div>
   <label class="block space-y-1.5"><span class="field-label">Rule name</span>
-    <input class="field" placeholder="e.g. High-value currency" value={block.ruleName ?? ''} oninput={event => block.ruleName = event.currentTarget.value || undefined} />
+    <input class="field" placeholder="e.g. High-value currency" value={block.ruleName ?? ''} oninput={event => set('ruleName', event.currentTarget.value || undefined)} />
   </label>
   <label class="flex items-start gap-3 text-sm text-parchment-200">
-    <input type="checkbox" checked={block.continue === true} onchange={event => block.continue = event.currentTarget.checked || undefined} />
+    <input type="checkbox" checked={block.continue === true} onchange={event => set('continue', event.currentTarget.checked || undefined)} />
     <span>Continue evaluating later rules<span class="mt-1 block text-xs text-parchment-300">Normally, the first matching rule stops evaluation. Continue lets later rules add or override actions.</span></span>
   </label>
 
@@ -70,7 +73,7 @@
     <section class="space-y-4 border-t border-parchment-300/20 pt-5" aria-label="Rule actions">
       <h3 class="display-text text-lg">Actions</h3>
       <label class="block space-y-1.5"><span class="field-label">Custom ground name</span>
-        <textarea class="field min-h-20" placeholder="Use the original item name" value={block.name ?? ''} oninput={event => block.name = event.currentTarget.value || undefined}></textarea>
+        <textarea class="field min-h-20" placeholder="Use the original item name" value={block.name ?? ''} oninput={event => set('name', event.currentTarget.value || undefined)}></textarea>
         <span class="block text-xs text-parchment-300">Up to 3 non-empty lines, 55 characters per line, 79 ASCII bytes total.</span>
       </label>
       <div class="grid gap-4 sm:grid-cols-2">
@@ -78,17 +81,17 @@
           {@const key = color.key as 'backgroundColor' | 'textColor'}
           <div class="space-y-3 rounded border border-parchment-300/20 p-3">
             <label class="flex items-center gap-2 text-sm"><input type="checkbox" checked={block.tooltip?.[key] !== undefined} onchange={event => tooltip(key, event.currentTarget.checked ? color.default : undefined)} />{color.label}</label>
-            {#if block.tooltip?.[key]}<ColorInput label={color.label} value={block.tooltip[key]!} onchange={value => tooltip(key, value)} />{/if}
+            {#if block.tooltip?.[key] !== undefined}<ColorInput label={color.label} value={block.tooltip[key]!} onchange={value => tooltip(key, value)} />{/if}
           </div>
         {/each}
       </div>
-      <SoundPicker value={block.dropSound} onchange={value => block.dropSound = value} />
+      <SoundPicker value={block.dropSound} onchange={value => set('dropSound', value)} />
       <div class="space-y-4 rounded border border-parchment-300/20 p-3">
-        <label class="flex items-center gap-2 text-sm"><input type="checkbox" checked={!!block.minimapIcon} onchange={event => block.minimapIcon = event.currentTarget.checked ? { shape: 'diamond', size: 20, borderColor: 'RGBA(225, 205, 255, 1)', fillColor: 'RGBA(180, 140, 255, 0.82)' } : undefined} />Minimap icon</label>
+        <label class="flex items-center gap-2 text-sm"><input type="checkbox" checked={!!block.minimapIcon} onchange={event => set('minimapIcon', event.currentTarget.checked ? { shape: 'diamond', size: 20, borderColor: 'RGBA(225, 205, 255, 1)', fillColor: 'RGBA(180, 140, 255, 0.82)' } : undefined)} />Minimap icon</label>
         {#if block.minimapIcon}
           <div class="grid grid-cols-2 gap-3">
             <label class="space-y-1.5"><span class="field-label">Shape</span><select class="field" bind:value={block.minimapIcon.shape}>{#each M.MINIMAP_SHAPES as shape}<option value={shape}>{shape}</option>{/each}</select></label>
-            <label class="space-y-1.5"><span class="field-label">Size (px)</span><input class="field" type="number" min="12" max="40" step="1" value={block.minimapIcon.size ?? 12} oninput={event => { if (block.minimapIcon) block.minimapIcon.size = event.currentTarget.value === '' ? undefined : Number(event.currentTarget.value); }} /></label>
+            <label class="space-y-1.5"><span class="field-label">Size (px)</span><input class="field" type="number" min="12" max="40" step="1" placeholder="12" value={block.minimapIcon.size ?? ''} oninput={event => { if (!block.minimapIcon) return; if (event.currentTarget.value === '') delete block.minimapIcon.size; else block.minimapIcon.size = Number(event.currentTarget.value); }} /></label>
           </div>
           <div class="grid gap-3 sm:grid-cols-2">
             <ColorInput label="Icon border" value={block.minimapIcon.borderColor} onchange={value => { if (block.minimapIcon) block.minimapIcon.borderColor = value; }} />

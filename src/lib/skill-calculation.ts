@@ -1,4 +1,4 @@
-import type { Skill, SkillDamageScale, SkillDescriptionLine } from '$lib/types';
+import type { Skill, SkillDamageScale, SkillDescriptionLine } from '#lib/types.js';
 
 interface CalcContext {
   skill: Skill;

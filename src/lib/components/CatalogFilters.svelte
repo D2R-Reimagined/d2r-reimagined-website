@@ -1,7 +1,7 @@
 <script lang="ts">
-    import type {CatalogSlug} from '$lib/types';
-    import {orderTypeChoices, parseTypeChoice, typeChoiceValue, typeFamilyChoices, type CatalogSortMode, type RuneMatchMode} from '$lib/catalog-controls';
-    import {i18n} from '$lib/i18n';
+    import type {CatalogSlug} from '#lib/types.js';
+    import {orderTypeChoices, parseTypeChoice, typeChoiceValue, typeFamilyChoices, type CatalogSortMode, type RuneMatchMode} from '#lib/catalog-controls.js';
+    import {i18n} from '#lib/i18n.js';
     import SearchableSelect from './SearchableSelect.svelte';
     import SearchableMultiSelect from './SearchableMultiSelect.svelte';
 

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { apiRequest } from '$lib/auth';
+  import { apiRequest } from '#lib/auth.js';
 
   let { busy = $bindable(false), onGranted }: { busy?: boolean; onGranted: () => Promise<void> } = $props();
   type Ladder = { id: string; name: string; archivedAtUtc: string | null };

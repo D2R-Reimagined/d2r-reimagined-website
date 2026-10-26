@@ -1,4 +1,4 @@
-import type { Skill, SkillDescriptionLine } from '$lib/types';
+import type { Skill, SkillDescriptionLine } from '#lib/types.js';
 
 /**
  * Highest combined level (hard + `+skills` bonus) the previews offer. The export does not carry

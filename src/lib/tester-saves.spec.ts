@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-vi.mock('$lib/auth', () => ({ apiRequest: vi.fn() }));
-import { apiRequest } from '$lib/auth';
+vi.mock('#lib/auth.js', () => ({ apiRequest: vi.fn() }));
+import { apiRequest } from '#lib/auth.js';
 import { canUseTesterSaves, getTesterLadders, testerSaveError, uploadTesterSave } from './tester-saves';
 
 describe('tester save uploads', () => {

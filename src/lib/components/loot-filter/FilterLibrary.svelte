@@ -1,7 +1,7 @@
 <script lang="ts">
     import {onMount, untrack} from 'svelte';
-    import {authState} from '$lib/auth';
-    import M from '$lib/loot-filter/model.js';
+    import {authState} from '#lib/auth.js';
+    import M from '#lib/loot-filter/model.js';
     import {
         listFilters,
         getFilter,
@@ -9,7 +9,7 @@
         saveFilter,
         deleteFilter,
         type FilterSummary
-    } from '$lib/loot-filter/api';
+    } from '#lib/loot-filter/api.js';
     import {
         newDraft,
         fromRemote,
@@ -17,11 +17,11 @@
         contentKey,
         type FilterDraft,
         type LocalLibrary
-    } from '$lib/loot-filter/library';
-    import {loadLibrary, saveLibrary} from '$lib/loot-filter/workspace';
-    import {createPreset, presets, protectedLoot} from '$lib/loot-filter/presets';
-    import {stopSound} from '$lib/loot-filter/sound-preview';
-    import type {Filter} from '$lib/loot-filter/types';
+    } from '#lib/loot-filter/library.js';
+    import {loadLibrary, saveLibrary} from '#lib/loot-filter/workspace.js';
+    import {createPreset, presets, protectedLoot} from '#lib/loot-filter/presets.js';
+    import {stopSound} from '#lib/loot-filter/sound-preview.js';
+    import type {Filter} from '#lib/loot-filter/types.js';
     import LootFilterBuilder from './LootFilterBuilder.svelte';
 
     let entries = $state<FilterDraft[]>([]);

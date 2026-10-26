@@ -2,8 +2,8 @@
   import { goto } from '$app/navigation';
   import { page } from '$app/state';
   import { onMount } from 'svelte';
-  import CharacterManager from '$lib/components/CharacterManager.svelte';
-  import { safeInternalReturnTo } from '$lib/launcher-auth';
+  import CharacterManager from '#lib/components/CharacterManager.svelte';
+  import { safeInternalReturnTo } from '#lib/launcher-auth.js';
 
   import {
     authState,
@@ -22,7 +22,7 @@
     unlinkBattleNet,
     unlinkSteam,
     updateProfile
-  } from '$lib/auth';
+  } from '#lib/auth.js';
 
   let mode = $state<'signin' | 'register'>('signin');
   let email = $state('');
@@ -268,7 +268,7 @@
       busy = false;
       if ((steamStatus || battleNetStatus || discordStatus) && (!returnTo || $authState.user?.requiresUsername)) {
         const cleanUrl = new URL(profileUrl());
-        await goto(cleanUrl.pathname + cleanUrl.search, { replaceState: true, noScroll: true });
+        await goto(cleanUrl.pathname + cleanUrl.search, { replaceState: true, reset: false });
       }
     }
   });

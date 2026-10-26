@@ -2,9 +2,9 @@
   import { Button } from 'flowbite-svelte';
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
-  import { apiRequest, authState, initializeAuth } from '$lib/auth';
-  import type { BuildPage, BuildSummary } from '$lib/builds';
-  import BuildCard from '$lib/components/builds/BuildCard.svelte';
+  import { apiRequest, authState, initializeAuth } from '#lib/auth.js';
+  import type { BuildPage, BuildSummary } from '#lib/builds.js';
+  import BuildCard from '#lib/components/builds/BuildCard.svelte';
   let result = $state<BuildPage<BuildSummary>>({ items:[],total:0,skip:0,count:24 });
   let busy = $state(true); let error = $state('');
   async function load(skip = 0) {

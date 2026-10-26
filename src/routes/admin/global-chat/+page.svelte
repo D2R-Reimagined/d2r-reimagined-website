@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte';
-  import { apiWebSocketUrl, authState, refreshProfile } from '$lib/auth';
-  import { createGlobalChatClient, roleLabel, roleNameClass, type GlobalChatState } from '$lib/global-chat';
+  import { apiWebSocketUrl, authState, refreshProfile } from '#lib/auth.js';
+  import { createGlobalChatClient, roleLabel, roleNameClass, type GlobalChatState } from '#lib/global-chat.js';
 
   let chat = $state<GlobalChatState>({ status: 'connecting', messages: [], sending: false, error: '' });
   let draft = $state('');

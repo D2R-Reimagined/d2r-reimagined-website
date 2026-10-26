@@ -4,8 +4,8 @@
     updateLadderSaveEnforcement,
     type LadderSaveEnforcement,
     type LadderSaveEnforcementSettings
-  } from '$lib/admin';
-  import { ApiError } from '$lib/auth';
+  } from '#lib/admin.js';
+  import { ApiError } from '#lib/auth.js';
 
   type SettingKey = keyof LadderSaveEnforcementSettings;
 

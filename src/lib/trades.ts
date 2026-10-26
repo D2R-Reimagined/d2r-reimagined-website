@@ -1,6 +1,6 @@
-import { apiRequest } from '$lib/auth';
-import type { CharacterDetailsResponse, SaveItem } from '$lib/characters';
-import type { GameItemPayload } from '$lib/trade-game-item';
+import { apiRequest } from '#lib/auth.js';
+import type { CharacterDetailsResponse, SaveItem } from '#lib/characters.js';
+import type { GameItemPayload } from '#lib/trade-game-item.js';
 
 export type TradeListingStatus = 'Active' | 'Reserved' | 'Completed' | 'Cancelled' | 'Expired';
 export type TradeOfferStatus = 'Pending' | 'Accepted' | 'Declined' | 'Withdrawn';

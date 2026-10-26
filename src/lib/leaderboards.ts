@@ -1,10 +1,10 @@
-import { apiRequest } from '$lib/auth';
+import { apiRequest } from '#lib/auth.js';
 import {
   leaderboardQuery,
   type LeaderboardRequest,
   type LeaderboardResponse,
   type MyLeaderboardResponse
-} from '$lib/leaderboard-entries';
+} from '#lib/leaderboard-entries.js';
 
 export type {
   CharacterSource,
@@ -13,8 +13,8 @@ export type {
   LeaderboardRequest,
   LeaderboardResponse,
   MyLeaderboardResponse
-} from '$lib/leaderboard-entries';
-export { entryStanding, formatExperience, leaderboardQuery } from '$lib/leaderboard-entries';
+} from '#lib/leaderboard-entries.js';
+export { entryStanding, formatExperience, leaderboardQuery } from '#lib/leaderboard-entries.js';
 
 export function getLeaderboard(request: LeaderboardRequest = {}): Promise<LeaderboardResponse> {
   return apiRequest<LeaderboardResponse>(`/leaderboards/characters?${leaderboardQuery(request)}`, {}, 'optional');
