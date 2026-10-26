@@ -10,6 +10,10 @@ export function isVanilla(item: CatalogItem): boolean {
   return String(item.Vanilla ?? '').toUpperCase() === 'Y';
 }
 
+export function isDropOnly(item: CatalogItem): boolean {
+  return item.ItemLevel != null && item.ItemLevel >= 100;
+}
+
 export function itemType(item: CatalogItem): string {
   if (typeof item.Type === 'string') return item.Type;
   return item.Type?.Index ?? item.Type?.Name ?? '';
