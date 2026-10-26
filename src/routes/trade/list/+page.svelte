@@ -2,25 +2,25 @@
   import { goto } from '$app/navigation';
   import { page } from '$app/state';
   import { onMount } from 'svelte';
-  import CharacterViewer from '$lib/components/CharacterViewer.svelte';
-  import TradeStashPicker from '$lib/components/TradeStashPicker.svelte';
-  import { getLadders, type LadderSummary } from '$lib/ladders';
-  import { authState, initializeAuth } from '$lib/auth';
-  import type { CharacterDetailsResponse, SaveItem } from '$lib/characters';
-  import { i18n } from '$lib/i18n';
-  import { isItemIdentified, itemDisplayLabel } from '$lib/item-identification';
-  import { itemVariant, loadItemPresentation, type ItemPresentation } from '$lib/item-presentation';
-  import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
-  import { loadCatalog } from '$lib/catalog-sources';
-  import type { CatalogItem } from '$lib/types';
+  import CharacterViewer from '#lib/components/CharacterViewer.svelte';
+  import TradeStashPicker from '#lib/components/TradeStashPicker.svelte';
+  import { getLadders, type LadderSummary } from '#lib/ladders.js';
+  import { authState, initializeAuth } from '#lib/auth.js';
+  import type { CharacterDetailsResponse, SaveItem } from '#lib/characters.js';
+  import { i18n } from '#lib/i18n.js';
+  import { isItemIdentified, itemDisplayLabel } from '#lib/item-identification.js';
+  import { itemVariant, loadItemPresentation, type ItemPresentation } from '#lib/item-presentation.js';
+  import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
+  import { loadCatalog } from '#lib/catalog-sources.js';
+  import type { CatalogItem } from '#lib/types.js';
   import {
     createTradeListing,
     getTradeInventory,
     resolveGameItem,
     type SharedStash,
     type TradeInventory
-  } from '$lib/trades';
-  import { decodeGameItemHash, findGameItemInInventory, type GameItemPayload } from '$lib/trade-game-item';
+  } from '#lib/trades.js';
+  import { decodeGameItemHash, findGameItemInInventory, type GameItemPayload } from '#lib/trade-game-item.js';
 
   type ItemOrigin = 'character' | 'stash' | 'game';
 

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { tick } from 'svelte';
-  import { gearSlots, emptyGear, type BuildGearEntry, type GearSlot } from '$lib/build-gear';
+  import { gearSlots, emptyGear, type BuildGearEntry, type GearSlot } from '#lib/build-gear.js';
   import BuildItemLink from './BuildItemLink.svelte';
   import BuildItemPicker from './BuildItemPicker.svelte';
   let { entries = $bindable([]), readonly = false }: { entries?: BuildGearEntry[]; readonly?: boolean } = $props();

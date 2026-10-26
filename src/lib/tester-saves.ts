@@ -1,4 +1,4 @@
-import { apiRequest } from '$lib/auth';
+import { apiRequest } from '#lib/auth.js';
 
 export interface TesterLadder {
   id: string;

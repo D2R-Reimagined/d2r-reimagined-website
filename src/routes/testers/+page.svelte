@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { authState, initializeAuth } from '$lib/auth';
+  import { authState, initializeAuth } from '#lib/auth.js';
   import {
     canUseTesterSaves, getTesterLadders, testerSaveError, uploadTesterSave,
     type TesterLadder
-  } from '$lib/tester-saves';
+  } from '#lib/tester-saves.js';
 
   let ladders = $state<TesterLadder[]>([]);
   let ladderId = $state('');

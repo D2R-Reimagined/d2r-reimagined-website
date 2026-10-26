@@ -1,9 +1,9 @@
 <script lang="ts">
   import { untrack } from 'svelte';
-  import { loadSkillClasses } from '$lib/skills';
-  import { i18n } from '$lib/i18n';
-  import { skillPreviewRank } from '$lib/build-skills';
-  import type { SkillClass } from '$lib/types';
+  import { loadSkillClasses } from '#lib/skills.js';
+  import { i18n } from '#lib/i18n.js';
+  import { skillPreviewRank } from '#lib/build-skills.js';
+  import type { SkillClass } from '#lib/types.js';
 
   let { characterClass, onchoose }: { characterClass: string; onchoose: (id: number, rank: number) => void } = $props();
   let selectedClass = $state(untrack(() => characterClass));

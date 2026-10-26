@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { i18n } from '$lib/i18n';
+  import { i18n } from '#lib/i18n.js';
 
   let visible = $state(false);
 

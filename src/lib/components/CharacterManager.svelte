@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import { ApiError } from '$lib/auth';
-  import { sameCharacterName, validateCharacterSave } from '$lib/character-save';
+  import { ApiError } from '#lib/auth.js';
+  import { sameCharacterName, validateCharacterSave } from '#lib/character-save.js';
   import {
     createCharacter,
     deleteCharacter,
@@ -11,7 +11,7 @@
     parseCharacterSave,
     updateCharacter,
     type CharacterResponse
-  } from '$lib/characters';
+  } from '#lib/characters.js';
 
   interface OverwriteCandidate {
     character: CharacterResponse;

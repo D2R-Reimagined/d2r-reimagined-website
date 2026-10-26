@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
-  import { loadCatalog } from '$lib/catalog-sources';
-  import { buildItemTitle } from '$lib/build-items';
-  import { i18n } from '$lib/i18n';
-  import type { CatalogItem } from '$lib/types';
-  import type { BuildItemReference } from '$lib/builds';
-  import CatalogCard from '$lib/components/CatalogCard.svelte';
+  import { loadCatalog } from '#lib/catalog-sources.js';
+  import { buildItemTitle } from '#lib/build-items.js';
+  import { i18n } from '#lib/i18n.js';
+  import type { CatalogItem } from '#lib/types.js';
+  import type { BuildItemReference } from '#lib/builds.js';
+  import CatalogCard from '#lib/components/CatalogCard.svelte';
 
   let { reference }: { reference: BuildItemReference } = $props();
   let item = $state<CatalogItem | null>(null);

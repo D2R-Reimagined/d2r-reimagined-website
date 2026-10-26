@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte';
-  import ServerRegistryEditor from '$lib/components/ServerRegistryEditor.svelte';
-  import type { ServerConfiguration } from '$lib/server-registry';
-  import { getServerBuilds, type ServerBuildState } from '$lib/admin';
+  import ServerRegistryEditor from '#lib/components/ServerRegistryEditor.svelte';
+  import type { ServerConfiguration } from '#lib/server-registry.js';
+  import { getServerBuilds, type ServerBuildState } from '#lib/admin.js';
   import { appendLogs, bundleRevisionSummary, connectServerTelemetry, d2rLoaderSummary, getServers, installedBuildSummary, logLevels,
-    type DeploymentLine, type TelemetryLog, type TelemetryServer } from '$lib/server-telemetry';
+    type DeploymentLine, type TelemetryLog, type TelemetryServer } from '#lib/server-telemetry.js';
 
   let servers = $state<TelemetryServer[]>([]);
   let configured = $state<ServerConfiguration[]>([]);

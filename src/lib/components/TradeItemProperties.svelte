@@ -1,14 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import type { SaveItem, SaveStat } from '$lib/characters';
-  import { i18n } from '$lib/i18n';
+  import type { SaveItem, SaveStat } from '#lib/characters.js';
+  import { i18n } from '#lib/i18n.js';
   import {
     displayStatLines,
     loadItemStatPresentation,
     socketedItemStats,
     type DisplayStatLine,
     type ItemStatPresentationBundle
-  } from '$lib/item-stat-presentation';
+  } from '#lib/item-stat-presentation.js';
 
   let {
     item,

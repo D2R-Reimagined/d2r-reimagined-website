@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { loadSkillClasses } from '$lib/skills';
-  import type { SkillClass } from '$lib/types';
-  import type { CharacterDetailsResponse } from '$lib/characters';
-  import { safeMediaUrl, youtubeEmbedUrl, type BuildContent } from '$lib/builds';
-  import CharacterViewer from '$lib/components/CharacterViewer.svelte';
-  import SkillPlanner from '$lib/components/skills/SkillPlanner.svelte';
+  import { loadSkillClasses } from '#lib/skills.js';
+  import type { SkillClass } from '#lib/types.js';
+  import type { CharacterDetailsResponse } from '#lib/characters.js';
+  import { safeMediaUrl, youtubeEmbedUrl, type BuildContent } from '#lib/builds.js';
+  import CharacterViewer from '#lib/components/CharacterViewer.svelte';
+  import SkillPlanner from '#lib/components/skills/SkillPlanner.svelte';
   import BuildMarkdown from './BuildMarkdown.svelte';
   import BuildItemLink from './BuildItemLink.svelte';
   import BuildGear from './BuildGear.svelte';

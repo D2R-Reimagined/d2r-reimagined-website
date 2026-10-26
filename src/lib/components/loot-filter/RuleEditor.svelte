@@ -3,8 +3,8 @@
   import NumericCondition from './NumericCondition.svelte';
   import ColorInput from './ColorInput.svelte';
   import SoundPicker from './SoundPicker.svelte';
-  import M from '$lib/loot-filter/model.js';
-  import { type Catalog, type Conditions, type RuleBlock, type Visibility } from '$lib/loot-filter/types';
+  import M from '#lib/loot-filter/model.js';
+  import { type Catalog, type Conditions, type RuleBlock, type Visibility } from '#lib/loot-filter/types.js';
   let { block = $bindable(), kind, catalog, onkind }: { block: RuleBlock; kind: Visibility; catalog: Catalog; onkind: (kind: Visibility) => void } = $props();
   const codes = $derived([...new Map(catalog.baseItems.map(item => [item.code!, { value: item.code!, label: `${item.displayName || item.name || item.code} (${item.code})` }])).values()]);
   const names = $derived(catalog.baseNames.map(value => ({ value, label: value })));

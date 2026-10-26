@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const mocks = vi.hoisted(() => ({ browser: true, api: vi.fn(), initialize: vi.fn() }));
 vi.mock('$app/environment', () => ({ get browser() { return mocks.browser; } }));
 vi.mock('$env/dynamic/public', () => ({ env: { PUBLIC_API_BASE_URL: 'https://api.example' } }));
-vi.mock('$lib/auth', () => ({ apiRequest: mocks.api, initializeAuth: mocks.initialize }));
+vi.mock('#lib/auth.js', () => ({ apiRequest: mocks.api, initializeAuth: mocks.initialize }));
 
 import { getActiveLadders, getLadders } from './ladders';
 import { getLeaderboard } from './leaderboards';

@@ -3,7 +3,7 @@
   import { goto } from '$app/navigation';
   import { page } from '$app/state';
   import { CheckCircleSolid, CreditCardSolid, DiscordSolid, HeartSolid, LockSolid, ServerSolid } from 'flowbite-svelte-icons';
-  import { ApiError, apiRequest, authState } from '$lib/auth';
+  import { ApiError, apiRequest, authState } from '#lib/auth.js';
   import {
     activeMembership,
     billingPeriod,
@@ -19,7 +19,7 @@
     sourceLabel,
     type SupportProduct,
     type SupportPurchase
-  } from '$lib/support';
+  } from '#lib/support.js';
 
   let { data } = $props();
 

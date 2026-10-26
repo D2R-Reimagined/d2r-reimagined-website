@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { buildDate, type BuildSummary } from '$lib/builds';
+  import { buildDate, type BuildSummary } from '#lib/builds.js';
   let { build, manage = false }: { build: BuildSummary; manage?: boolean } = $props();
   const colors: Record<string, string> = { Amazon:'#ab9560', Assassin:'#aa8eae', Barbarian:'#bc7967', Druid:'#8ea773', Necromancer:'#89a99b', Paladin:'#ccae66', Sorceress:'#85a1c0', Warlock:'#b985aa' };
 </script>

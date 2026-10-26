@@ -1,4 +1,4 @@
-import { apiRequest } from '$lib/auth';
+import { apiRequest } from '#lib/auth.js';
 
 export interface ServerRegion { id: string; name: string }
 export interface ServerConfiguration {

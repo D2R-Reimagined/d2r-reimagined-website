@@ -1,6 +1,6 @@
 <script lang="ts">
-  import SkillPlanner from '$lib/components/skills/SkillPlanner.svelte';
-  import { skillPlannerDefinition } from '$lib/types';
+  import SkillPlanner from '#lib/components/skills/SkillPlanner.svelte';
+  import { skillPlannerDefinition } from '#lib/types.js';
 
   let { data } = $props();
 </script>

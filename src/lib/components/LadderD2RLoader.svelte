@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { removeLadderD2RLoader, uploadLadderD2RLoader, type Ladder } from '$lib/admin';
-  import { ApiError } from '$lib/auth';
-  import { d2rLoaderUploadProblem, d2rLoaderVersionFromFileName, maxD2RLoaderBytes } from '$lib/d2rloader-release';
-  import { shortSha } from '$lib/server-builds';
+  import { removeLadderD2RLoader, uploadLadderD2RLoader, type Ladder } from '#lib/admin.js';
+  import { ApiError } from '#lib/auth.js';
+  import { d2rLoaderUploadProblem, d2rLoaderVersionFromFileName, maxD2RLoaderBytes } from '#lib/d2rloader-release.js';
+  import { shortSha } from '#lib/server-builds.js';
 
   // Pins the ladder to one D2RLoader build. Launchers compare the root files
   // by SHA-256 and install this ZIP, up or down, whenever they differ.

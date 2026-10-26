@@ -1,6 +1,6 @@
 <script lang="ts">
-  import M from '$lib/loot-filter/model.js';
-  import { playSound, stopSound, soundPreview } from '$lib/loot-filter/sound-preview';
+  import M from '#lib/loot-filter/model.js';
+  import { playSound, stopSound, soundPreview } from '#lib/loot-filter/sound-preview.js';
   let { value, onchange }: { value?: string; onchange: (value?: string) => void } = $props();
   let audition = $state(true);
   function choose(sound: string) { onchange(sound); if (audition) void playSound(sound); else stopSound(); }

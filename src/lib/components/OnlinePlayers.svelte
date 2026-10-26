@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import { getOnlinePlayers } from '$lib/players';
+  import { getOnlinePlayers } from '#lib/players.js';
 
   interface Props {
     /** How often to refresh, in milliseconds. */

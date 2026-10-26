@@ -8,8 +8,8 @@ import runewords from '../../../../static/data/keyed/runewords.json';
 import sets from '../../../../static/data/keyed/sets.json';
 import uniques from '../../../../static/data/keyed/uniques.json';
 import weapons from '../../../../static/data/keyed/weapons.json';
-import { buildCatalog } from '$lib/catalog-sources';
-import { catalogDefinitions, catalogSlugs, type CatalogItem, type CatalogSlug } from '$lib/types';
+import { buildCatalog } from '#lib/catalog-sources.js';
+import { catalogDefinitions, catalogSlugs, type CatalogItem, type CatalogSlug } from '#lib/types.js';
 
 // Bundled here so catalog content is server-rendered; the all-data search fetches the same
 // files at runtime. Both shape their items through buildCatalog.

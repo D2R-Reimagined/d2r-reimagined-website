@@ -6,8 +6,8 @@
     searchAdminUsers,
     type AdminUser,
     type LadderAccessGrant
-  } from '$lib/admin';
-  import { ApiError } from '$lib/auth';
+  } from '#lib/admin.js';
+  import { ApiError } from '#lib/auth.js';
 
   let { ladderId, ladderName, isHidden }: { ladderId: string; ladderName: string; isHidden: boolean } = $props();
 

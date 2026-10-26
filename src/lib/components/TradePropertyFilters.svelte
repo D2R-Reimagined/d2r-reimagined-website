@@ -1,16 +1,16 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { i18n } from '$lib/i18n';
+  import { i18n } from '#lib/i18n.js';
   import {
     loadItemStatPresentation,
     type ItemStatPresentation
-  } from '$lib/item-stat-presentation';
+  } from '#lib/item-stat-presentation.js';
   import {
     createTradePropertyFilter,
     createTradePropertyGroup,
     type TradePropertyFilterDraft,
     type TradePropertyGroupDraft
-  } from '$lib/trade-property-filters';
+  } from '#lib/trade-property-filters.js';
 
   interface PropertyDefinition {
     stat: string;

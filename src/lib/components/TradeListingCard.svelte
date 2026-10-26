@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import TradeItemProperties from '$lib/components/TradeItemProperties.svelte';
-  import type { SaveItem } from '$lib/characters';
-  import { itemSprite, loadItemPresentation, type ItemPresentation } from '$lib/item-presentation';
-  import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
-  import type { TradeListing } from '$lib/trades';
+  import TradeItemProperties from '#lib/components/TradeItemProperties.svelte';
+  import type { SaveItem } from '#lib/characters.js';
+  import { itemSprite, loadItemPresentation, type ItemPresentation } from '#lib/item-presentation.js';
+  import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
+  import type { TradeListing } from '#lib/trades.js';
 
   let {
     listing,

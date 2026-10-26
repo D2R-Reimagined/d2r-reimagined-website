@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onDestroy } from 'svelte';
-  import { loadSkillClasses } from '$lib/skills';
-  import { findBuildSkill, skillPreviewRank } from '$lib/build-skills';
-  import { i18n } from '$lib/i18n';
-  import type { Skill } from '$lib/types';
-  import SkillDetails from '$lib/components/skills/SkillDetails.svelte';
+  import { loadSkillClasses } from '#lib/skills.js';
+  import { findBuildSkill, skillPreviewRank } from '#lib/build-skills.js';
+  import { i18n } from '#lib/i18n.js';
+  import type { Skill } from '#lib/types.js';
+  import SkillDetails from '#lib/components/skills/SkillDetails.svelte';
 
   let { skillId, rank = 1 }: { skillId: number; rank?: number } = $props();
   let skill = $state<Skill | undefined>();

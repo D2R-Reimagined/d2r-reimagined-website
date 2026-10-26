@@ -1,4 +1,4 @@
-import type { SaveItem } from '$lib/characters';
+import type { SaveItem } from '#lib/characters.js';
 
 export function isItemIdentified(item: Pick<SaveItem, 'flags'>): boolean {
   return item.flags.names.some((name) => name.toLowerCase() === 'identified');

@@ -1,7 +1,7 @@
-import { ApiError, apiRequest, apiStreamRequest } from '$lib/auth';
-import type { ServerBuildState } from '$lib/admin';
+import { ApiError, apiRequest, apiStreamRequest } from '#lib/auth.js';
+import type { ServerBuildState } from '#lib/admin.js';
 import { currentServerBuild, installedBuildLabels, installedBuildMatch, shortBuildId, type InstalledBuildMatch,
-  type InstalledServerBuild } from '$lib/server-builds';
+  type InstalledServerBuild } from '#lib/server-builds.js';
 
 export interface MonitorPlayer {
   name: string; clientId: number; class: string; state: string; stateCode: number;

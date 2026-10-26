@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onDestroy, untrack } from 'svelte';
-  import { afterNavigate, replaceState } from '$app/navigation';
+  import { afterNavigate, goto } from '$app/navigation';
   import { page as routePage } from '$app/state';
-  import { readDropUrl, writeDropUrl } from '$lib/drop-calculator-url';
-  import { i18n } from '$lib/i18n';
-  import MonsterDropSimulator from '$lib/components/MonsterDropSimulator.svelte';
-  import SearchableSelect from '$lib/components/SearchableSelect.svelte';
-  import { itemSuggestions, matchesDropSource, type DropItem, type DropQuality, type DropResult } from '$lib/drop-calculator';
+  import { readDropUrl, writeDropUrl } from '#lib/drop-calculator-url.js';
+  import { i18n } from '#lib/i18n.js';
+  import MonsterDropSimulator from '#lib/components/MonsterDropSimulator.svelte';
+  import SearchableSelect from '#lib/components/SearchableSelect.svelte';
+  import { itemSuggestions, matchesDropSource, type DropItem, type DropQuality, type DropResult } from '#lib/drop-calculator.js';
 
   let { data } = $props();
   const initial = untrack(() => readDropUrl(routePage.url, data.drops.Items));
@@ -15,7 +15,7 @@
     invalidate(); mode = next;
     const url = new URL(routePage.url);
     if (next === 'simulate') url.searchParams.set('mode', next); else url.searchParams.delete('mode');
-    replaceState(url, routePage.state);
+    goto(url, { shallow: true, replace: true, state: routePage.state });
   }
   let ready = $state(false);
   let shareStatus = $state('');
@@ -40,25 +40,29 @@
   let maxLevel = $state(initial.maxLevel);
   let kills = $state(initial.kills);
   let page = $state(0);
-  const treasureClasses = $derived(data.drops.TreasureClasses.map(tc => tc.Code).sort((a, b) => a.localeCompare(b)));
+  const treasureClasses = $derived(data.drops.TreasureClasses.map((tc) => tc.Code).sort((a, b) => a.localeCompare(b)));
   const treasureClassOptions = $derived([
-    ...(treasureClass && !treasureClasses.includes(treasureClass) ? [{ value: treasureClass, label: `${treasureClass} (unavailable)` }] : []),
-    ...treasureClasses.map(code => ({ value: code, label: code }))
+    ...treasureClass && !treasureClasses.includes(treasureClass)
+      ? [
+        {
+          value: treasureClass,
+          label: `${treasureClass} (unavailable)`
+        }
+      ]
+      : [],
+    ...treasureClasses.map((code) => ({ value: code, label: code }))
   ]);
   let worker: Worker | undefined;
   let suggestions = $derived(itemSuggestions(data.drops.Items, query, quality, $i18n.t));
-  let visible = $derived((results ?? []).filter(row =>
-    matchesDropSource(row, treasureClass, minLevel, maxLevel) &&
-    (showZero || (row.chance !== null && row.chance > 0)) &&
-    `${$i18n.t(row.source.NameKey)} ${$i18n.t(row.source.AreaKey)}`.toLocaleLowerCase().includes(filter.toLocaleLowerCase())));
-  let unavailable = $derived((results ?? []).filter(row => row.chance === null &&
-    matchesDropSource(row, treasureClass, minLevel, maxLevel) &&
-    `${$i18n.t(row.source.NameKey)} ${$i18n.t(row.source.AreaKey)}`.toLocaleLowerCase().includes(filter.toLocaleLowerCase())).length);
+  let visible = $derived((results ?? []).filter((row) => matchesDropSource(row, treasureClass, minLevel, maxLevel) && (showZero || row.chance !== null && row.chance > 0) && `${$i18n.t(row.source.NameKey)} ${$i18n.t(row.source.AreaKey)}`.toLocaleLowerCase().includes(filter.toLocaleLowerCase())));
+  let unavailable = $derived((results ?? []).filter((row) => row.chance === null && matchesDropSource(row, treasureClass, minLevel, maxLevel) && `${$i18n.t(row.source.NameKey)} ${$i18n.t(row.source.AreaKey)}`.toLocaleLowerCase().includes(filter.toLocaleLowerCase())).length);
   const difficulties = ['Normal', 'Nightmare', 'Hell'];
   const kinds: Record<string, string> = { all: 'All monsters', normal: 'Normal', champion: 'Champion', unique: 'Unique', superunique: 'Superunique', boss: 'Boss', quest: 'Quest boss' };
   const pageSize = 50;
 
-  afterNavigate(() => {
+  afterNavigate(({ shallow, type }) => {
+    if (shallow && type === 'goto') return;
+
     mode = routePage.url.searchParams.get('mode') === 'simulate' ? 'simulate' : 'item';
     const restored = readDropUrl(routePage.url, data.drops.Items);
     invalidate();
@@ -77,7 +81,7 @@
     const state = { selected, quality, difficulty, kind, players, party, magicFind, filter, showZero, treasureClass, minLevel, maxLevel, kills };
     const url = writeDropUrl(routePage.url, state);
     if (url.href !== routePage.url.href) {
-      replaceState(url, routePage.state);
+      goto(url, { shallow: true, replace: true, state: routePage.state });
       shareStatus = '';
     }
   });
@@ -115,11 +119,15 @@
     worker?.terminate(); busy = true; error = ''; results = null; page = 0;
     calculatedItem = selected;
     try {
-    worker = new Worker(new URL('../../../lib/drop-calculator.worker.ts', import.meta.url), { type: 'module' });
-    worker.onmessage = event => {
-      results = event.data.results ?? null; error = event.data.error ?? ''; busy = false;
-      worker?.terminate(); worker = undefined;
-    };
+      worker = new Worker(new URL('../../../lib/drop-calculator.worker.ts', import.meta.url), { type: 'module' });
+
+      worker.onmessage = (event) => {
+        results = event.data.results ?? null;
+        error = event.data.error ?? '';
+        busy = false;
+        worker?.terminate();
+        worker = undefined;
+      };
     worker.onerror = () => { error = 'Unable to calculate drops. Please try again.'; busy = false; worker?.terminate(); };
     worker.postMessage($state.snapshot({ data: data.drops, target: selected, kills, settings: { difficulty, kind, players, party, magicFind } }));
     } catch {
@@ -151,90 +159,272 @@
     <MonsterDropSimulator data={data.drops} />
   {:else}
   <form class="panel rounded-lg p-5 sm:p-7" onsubmit={calculate}>
-    <div class="grid gap-5 sm:grid-cols-[12rem_1fr]">
+      <div class="grid gap-5 sm:grid-cols-[12rem_1fr]">
       <label class="space-y-2"><span class="block text-parchment-200">Item type</span>
         <select class="field w-full" bind:value={quality} onchange={() => { invalidate(); selected = null; query = ''; open = false; }}>
           <option value="unique">Unique items</option><option value="set">Set items</option><option value="rune">Runes</option><option value="misc">Misc items</option>
-        </select>
-      </label>
-      <div class="relative space-y-2">
-        <label for="drop-item" class="block text-parchment-200">Find an item</label>
+          </select>
+        </label>
+        <div class="relative space-y-2">
+          <label for="drop-item" class="block text-parchment-200">Find an item</label>
         <input id="drop-item" class="field w-full" role="combobox" aria-autocomplete="list" aria-expanded={open && suggestions.length > 0}
           aria-controls="drop-suggestions" aria-activedescendant={open && active >= 0 ? `drop-option-${active}` : undefined}
           autocomplete="off" placeholder="Type at least 3 characters…" bind:value={query}
           oninput={() => { invalidate(); selected = null; open = true; active = -1; }} onkeydown={keyboard}
           onfocus={() => { if (!selected) open = true; }} onblur={() => { open = false; }} />
-        {#if open && query.trim().length >= 3}
+          {#if open && query.trim().length >= 3}
           <div class="suggestions absolute z-20 max-h-72 w-full overflow-y-auto rounded border border-parchment-300/30 bg-abyss-900 shadow-xl" role="listbox" id="drop-suggestions" aria-label="Matching items">
-            {#each suggestions as item, index}
+              {#each suggestions as item, index}
               <button id={`drop-option-${index}`} type="button" role="option" aria-selected={active === index}
-                class="block w-full border-b border-white/5 px-4 py-3 text-left hover:bg-white/10"
-                class:highlighted={active === index} onpointerdown={event => event.preventDefault()} onclick={() => select(item)}>
-                <span class:text-set={quality === 'set'} class:text-unique={quality === 'unique'}>{$i18n.t(item.NameKey)}</span>
-              </button>
+                  class="block w-full border-b border-white/5 px-4 py-3 text-left hover:bg-white/10"
+                  class:highlighted={active === index}
+                  onpointerdown={(event) => event.preventDefault()}
+                  onclick={() => select(item)}
+                >
+                  <span
+                    class:text-set={quality === 'set'}
+                    class:text-unique={quality === 'unique'}
+                  >{$i18n.t(item.NameKey)}</span>
+                </button>
             {:else}<div class="px-4 py-3 text-parchment-300">No matching items.</div>{/each}
-          </div>
-        {/if}
+            </div>
+          {/if}
+        </div>
       </div>
-    </div>
-    <div class="drop-settings mt-5 grid gap-5 sm:grid-cols-2">
-      <label class="space-y-2"><span class="block text-parchment-200">Difficulty</span><select class="field w-full" bind:value={difficulty} onchange={invalidate}>
-        <option value={-1}>All difficulties</option>{#each difficulties as label, value}<option {value}>{label}</option>{/each}
-      </select></label>
-      <label class="space-y-2"><span class="block text-parchment-200">Monster type</span><select class="field w-full" bind:value={kind} onchange={invalidate}>
-        {#each Object.entries(kinds) as [value, label]}<option {value}>{label}</option>{/each}
-      </select></label>
-      <label class="space-y-2"><span class="block text-parchment-200">Players in game</span><select class="field w-full" bind:value={players} onchange={() => { party = Math.min(party, players); invalidate(); }}>
-        {#each Array.from({ length: 8 }, (_, i) => i + 1) as value}<option {value}>{value}</option>{/each}
-      </select></label>
-      <label class="space-y-2"><span class="block text-parchment-200">Nearby party <span class="text-xs">(incl. you)</span></span><select class="field w-full" bind:value={party} onchange={invalidate}>
-        {#each Array.from({ length: players }, (_, i) => i + 1) as value}<option {value}>{value}</option>{/each}
-      </select></label>
-      <label class="space-y-2"><span class="block text-parchment-200">Magic find %</span><input class="field w-full" type="number" min="0" max="10000" step="1" bind:value={magicFind} oninput={invalidate} disabled={quality === 'rune' || quality === 'misc'} /></label>
-    </div>
-    <div class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      <SearchableSelect id="drop-treasure-class" label="Treasure class (TC)"
-        placeholder="All treasure classes" options={treasureClassOptions}
-        bind:value={() => treasureClass, value => { treasureClass = value; page = 0; }} />
-      <label class="space-y-2"><span class="block text-parchment-200">Minimum monster level</span><input class="field w-full" type="number" min="1" max="999" required bind:value={minLevel} oninput={() => page = 0} /></label>
-      <label class="space-y-2"><span class="block text-parchment-200">Maximum monster level</span><input class="field w-full" type="number" min={minLevel} max="999" required bind:value={maxLevel} oninput={() => page = 0} /></label>
-      <label class="space-y-2"><span class="block text-parchment-200">Kills per monster</span><input class="field w-full" type="number" min="1" max="100000" required bind:value={kills} oninput={invalidate} /></label>
-    </div>
-    <p class="mt-3 text-sm text-parchment-300">TC filters use the monster's treasure class after level upgrades. Set both levels to the same number for an exact level.</p>
+
+      <div
+        class="drop-settings mt-5 grid gap-5 sm:grid-cols-2"
+      >
+        <label class="space-y-2">
+          <span class="block text-parchment-200">Difficulty</span>
+
+          <select
+            class="field w-full"
+            bind:value={difficulty}
+            onchange={invalidate}
+          >
+            <option value={-1}>All difficulties</option>
+
+            {#each difficulties as label, value}
+              <option value={value}>{label}</option>
+            {/each}
+          </select>
+        </label>
+
+        <label class="space-y-2">
+          <span class="block text-parchment-200">Monster type</span>
+
+          <select
+            class="field w-full"
+            bind:value={kind}
+            onchange={invalidate}
+          >
+            {#each Object.entries(kinds) as [value, label]}
+              <option value={value}>{label}</option>
+            {/each}
+          </select>
+        </label>
+
+        <label class="space-y-2">
+          <span class="block text-parchment-200">Players in game</span>
+
+          <select
+            class="field w-full"
+            bind:value={players}
+            onchange={() => {
+              party = Math.min(party, players);
+              invalidate();
+            }}
+          >
+            {#each Array.from({ length: 8 }, (_, i) => i + 1) as value}
+              <option value={value}>{value}</option>
+            {/each}
+          </select>
+        </label>
+
+        <label class="space-y-2">
+          <span class="block text-parchment-200">
+            Nearby party 
+            <span class="text-xs">(incl. you)</span>
+          </span>
+
+          <select
+            class="field w-full"
+            bind:value={party}
+            onchange={invalidate}
+          >
+            {#each Array.from({ length: players }, (_, i) => i + 1) as value}
+              <option value={value}>{value}</option>
+            {/each}
+          </select>
+        </label>
+
+        <label class="space-y-2">
+          <span class="block text-parchment-200">Magic find %</span>
+
+          <input
+            class="field w-full"
+            type="number"
+            min="0"
+            max="10000"
+            step="1"
+            bind:value={magicFind}
+            oninput={invalidate}
+            disabled={quality === 'rune' || quality === 'misc'}
+          />
+        </label>
+      </div>
+
+      <div
+        class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        <SearchableSelect
+          id="drop-treasure-class"
+          label="Treasure class (TC)"
+          placeholder="All treasure classes"
+          options={treasureClassOptions}
+          bind:value={() => treasureClass, (value) => {
+            treasureClass = value;
+            page = 0;
+          }}
+        />
+
+        <label class="space-y-2">
+          <span class="block text-parchment-200">Minimum monster level</span>
+
+          <input
+            class="field w-full"
+            type="number"
+            min="1"
+            max="999"
+            required
+            bind:value={minLevel}
+            oninput={() => page = 0}
+          />
+        </label>
+
+        <label class="space-y-2">
+          <span class="block text-parchment-200">Maximum monster level</span>
+
+          <input
+            class="field w-full"
+            type="number"
+            min={minLevel}
+            max="999"
+            required
+            bind:value={maxLevel}
+            oninput={() => page = 0}
+          />
+        </label>
+
+        <label class="space-y-2">
+          <span class="block text-parchment-200">Kills per monster</span>
+
+          <input
+            class="field w-full"
+            type="number"
+            min="1"
+            max="100000"
+            required
+            bind:value={kills}
+            oninput={invalidate}
+          />
+        </label>
+      </div>
+      <p class="mt-3 text-sm text-parchment-300">TC filters use the monster's treasure class after level upgrades. Set both levels to the same number for an exact level.</p>
     <div class="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-parchment-300/15 pt-5">
       <p class="max-w-2xl text-sm text-parchment-300">{quality === 'misc' ? 'Magic find does not affect these miscellaneous item drops.' : quality === 'rune' ? 'Magic find does not affect rune drops.' : 'Magic find improves item quality; more players reduce the chance of no drop.'} For solo /players settings, leave nearby party at 1.</p>
-      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-3">
         <button type="button" class="rounded border border-parchment-300/30 px-4 py-3 disabled:opacity-40" disabled={!selected} onclick={copyLink}>Copy link</button>
         <button class="calculate rounded border border-ember-400/50 bg-ember-700 px-7 py-3 text-parchment-50 hover:bg-ember-500 disabled:cursor-not-allowed disabled:opacity-40" disabled={!selected || busy} type="submit">{busy ? 'Calculating…' : 'Find drops & simulate'}</button>
+        </div>
       </div>
-    </div>
     {#if shareStatus}<p class="mt-3 text-sm text-parchment-300" role="status">{shareStatus}</p>{/if}
-  </form>
+    </form>
 
-  <div class="mt-8" aria-live="polite" aria-busy={busy}>
+    <div class="mt-8" aria-live="polite" aria-busy={busy}>
     {#if busy}<div class="panel rounded-lg p-10 text-center text-parchment-300">Calculating monster drop chances…</div>
     {:else if error}<p role="alert" class="text-requirement">{error}</p>
-    {:else if results !== null}
-      <div class="mb-5 flex flex-wrap items-end justify-between gap-4">
-        <div><p class="text-sm text-parchment-300">Where to farm</p><h2 class="display-text mt-1 text-2xl">{$i18n.t(calculatedItem?.NameKey)}</h2><p class="mt-2 text-sm text-parchment-300">{visible.length.toLocaleString()} monster / area results · Highest chance first</p></div>
-        <div class="flex flex-wrap items-center gap-4"><label><span class="sr-only">Filter monsters or areas</span><input class="field" placeholder="Filter monster or area…" bind:value={filter} oninput={() => page = 0} /></label><label class="text-sm"><input type="checkbox" bind:checked={showZero} onchange={() => page = 0} /> Include zero / unavailable</label></div>
-      </div>
-      <p class="mb-4 text-sm text-parchment-300">Simulation: {kills.toLocaleString()} independent kills per monster. Successful kills counts kills dropping at least one selected item, not total copies. Each run varies; expected results are averages.</p>
+      {:else if results !== null}
+        <div
+          class="mb-5 flex flex-wrap items-end justify-between gap-4"
+        >
+          <div>
+            <p class="text-sm text-parchment-300">Where to farm</p>
+            <h2 class="display-text mt-1 text-2xl">{$i18n.t(calculatedItem?.NameKey)}</h2>
+            <p class="mt-2 text-sm text-parchment-300">{visible.length.toLocaleString()} monster / area results · Highest chance first</p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4">
+            <label>
+              <span class="sr-only">Filter monsters or areas</span>
+
+              <input
+                class="field"
+                placeholder="Filter monster or area…"
+                bind:value={filter}
+                oninput={() => page = 0}
+              />
+            </label>
+
+            <label class="text-sm">
+              <input
+                type="checkbox"
+                bind:checked={showZero}
+                onchange={() => page = 0}
+              />
+
+              Include zero / unavailable
+            </label>
+          </div>
+        </div>
+
+        <p class="mb-4 text-sm text-parchment-300">Simulation: {kills.toLocaleString()} independent kills per monster. Successful kills counts kills dropping at least one selected item, not total copies. Each run varies; expected results are averages.</p>
       {#if unavailable}<p class="mb-4 text-sm text-parchment-300">{unavailable} results use conditional or unresolved drop rules and have no percentage. Enable “Include zero / unavailable” for details.</p>{/if}
-      <!-- svelte-ignore a11y_no_noninteractive_tabindex (Keyboard users need to focus this region to scroll the table.) -->
+        <!-- svelte-ignore a11y_no_noninteractive_tabindex (Keyboard users need to focus this region to scroll the table.) -->
       <div class="drop-results panel overflow-x-auto rounded-lg" role="region" aria-label="Drop results, scroll horizontally on smaller screens" tabindex="0">
         <table class="w-full text-left text-sm"><thead class="border-b border-parchment-300/20 bg-white/5 text-parchment-300"><tr><th>Monster</th><th>Area</th><th>Difficulty</th><th>Level</th><th>Treasure class</th><th class="text-right">Chance / kill</th><th class="text-right">Average kills</th><th class="text-right">Simulated successful kills</th><th class="text-right">Expected successful kills</th><th class="text-right">Chance of at least one success</th></tr></thead>
           <tbody>{#each visible.slice(page * pageSize, (page + 1) * pageSize) as row}
             <tr class="border-b border-white/5 hover:bg-white/5"><td><span class="text-parchment-50">{$i18n.t(row.source.NameKey)}</span><span class="mt-1 block text-xs text-parchment-300">{kinds[row.source.Kind] ?? row.source.Kind}</span></td><td class="text-parchment-200">{row.source.AreaKey ? $i18n.t(row.source.AreaKey) : 'Fixed / summoned spawn'}</td><td>{difficulties[row.source.Difficulty]}</td><td>{row.source.Level}</td><td>{row.treasureClass ?? row.source.TreasureClass}</td><td class="text-right tabular-nums text-unique">{#if row.chance === null}<span title={row.reason}>Unavailable</span>{:else}{percent(row.chance)}{/if}</td><td class="text-right tabular-nums">{row.chance ? `1 in ${(1 / row.chance).toLocaleString('en-US', { maximumFractionDigits: 0 })}` : '—'}</td><td class="text-right tabular-nums">{row.simulation?.successes.toLocaleString() ?? '—'}</td><td class="text-right tabular-nums">{row.simulation?.expected.toLocaleString('en-US', { maximumFractionDigits: 2 }) ?? '—'}</td><td class="text-right tabular-nums">{row.simulation ? percent(row.simulation.atLeastOne) : '—'}</td></tr>
           {:else}<tr><td colspan="10" class="py-10 text-center text-parchment-300">No matching monster drops. Try another difficulty or filter. Some items only come from recipes, objects, or scripted rewards.</td></tr>{/each}</tbody>
-        </table>
-      </div>
-      {#if visible.length > pageSize}<div class="mt-4 flex items-center justify-end gap-4 text-sm"><button type="button" class="rounded border border-parchment-300/25 px-4 py-2 disabled:opacity-30" disabled={page === 0} onclick={() => page--}>Previous</button><span>Page {page + 1} of {Math.ceil(visible.length / pageSize)}</span><button type="button" class="rounded border border-parchment-300/25 px-4 py-2 disabled:opacity-30" disabled={(page + 1) * pageSize >= visible.length} onclick={() => page++}>Next</button></div>{/if}
-    {:else}<div class="panel rounded-lg px-6 py-10 text-center"><h2 class="display-text text-xl">What are you hunting?</h2><p class="mt-3 text-parchment-300">Search for a unique item, set piece, rune, or miscellaneous item above, then choose a suggestion to compare its drops.</p></div>{/if}
-  </div>
-  <details class="mt-8 text-sm text-parchment-300"><summary class="cursor-pointer text-parchment-200">How to read these chances</summary><div class="mt-3 max-w-4xl space-y-3 leading-relaxed">
-    <p>Chance / kill is the probability of at least one selected item dropping from one monster. Average kills is the reciprocal of that chance, not a guarantee. Results use the current exported Reimagined data, treasure-class upgrades, item rarity, magic find, player no-drop scaling, and the six-item drop limit.</p>
-    <p>Quest boss results assume the quest drop is active. These results cover ordinary, non-terrorized monsters. Conditional drops are marked unavailable. Unique items are assumed not to have already dropped in the current game. Area entries come from monster spawn tables; scripted spawns may not have an area listed.</p>
+          </table>
+        </div>
+
+        {#if visible.length > pageSize}
+          <div
+            class="mt-4 flex items-center justify-end gap-4 text-sm"
+          >
+            <button
+              type="button"
+              class="rounded border border-parchment-300/25 px-4 py-2 disabled:opacity-30"
+              disabled={page === 0}
+              onclick={() => page--}
+            >Previous</button>
+
+            <span>Page {page + 1} of {Math.ceil(visible.length / pageSize)}</span>
+
+            <button
+              type="button"
+              class="rounded border border-parchment-300/25 px-4 py-2 disabled:opacity-30"
+              disabled={(page + 1) * pageSize >= visible.length}
+              onclick={() => page++}
+            >Next</button>
+          </div>
+        {/if}
+      {:else}
+        <div class="panel rounded-lg px-6 py-10 text-center">
+          <h2 class="display-text text-xl">What are you hunting?</h2>
+          <p class="mt-3 text-parchment-300">Search for a unique item, set piece, rune, or miscellaneous item above, then choose a suggestion to compare its drops.</p>
+        </div>
+      {/if}
+    </div>
+
+    <details class="mt-8 text-sm text-parchment-300">
+      <summary class="cursor-pointer text-parchment-200">How to read these chances</summary>
+
+      <div class="mt-3 max-w-4xl space-y-3 leading-relaxed">
+        <p>Chance / kill is the probability of at least one selected item dropping from one monster. Average kills is the reciprocal of that chance, not a guarantee. Results use the current exported Reimagined data, treasure-class upgrades, item rarity, magic find, player no-drop scaling, and the six-item drop limit.</p>
+        <p>Quest boss results assume the quest drop is active. These results cover ordinary, non-terrorized monsters. Conditional drops are marked unavailable. Unique items are assumed not to have already dropped in the current game. Area entries come from monster spawn tables; scripted spawns may not have an area listed.</p>
   </div></details>
   {/if}
 </section>

@@ -1,4 +1,4 @@
-import { apiRequest, apiWebSocketUrl } from '$lib/auth';
+import { apiRequest, apiWebSocketUrl } from '#lib/auth.js';
 import { writable } from 'svelte/store';
 
 export interface TradeEvent {

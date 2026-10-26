@@ -2,18 +2,18 @@
   import { Button } from 'flowbite-svelte';
   import { onMount } from 'svelte';
   import { beforeNavigate, goto } from '$app/navigation';
-  import { apiRequest, authState, initializeAuth } from '$lib/auth';
-  import { getMyCharacters, type CharacterResponse, type CharacterDetailsResponse } from '$lib/characters';
-  import { loadSkillClasses } from '$lib/skills';
-  import type { SkillClass } from '$lib/types';
+  import { apiRequest, authState, initializeAuth } from '#lib/auth.js';
+  import { getMyCharacters, type CharacterResponse, type CharacterDetailsResponse } from '#lib/characters.js';
+  import { loadSkillClasses } from '#lib/skills.js';
+  import type { SkillClass } from '#lib/types.js';
   import { blockKinds, blockLabels, buildClasses, buildCategories, buildBudgets, duplicateVariant, getBuild,
     newBlock, newBuild, newVariant, publicationErrors, saveBuild, type BuildBlock, type BuildContent,
-    type BuildDetails, type BuildItemReference } from '$lib/builds';
-  import SkillPlanner from '$lib/components/skills/SkillPlanner.svelte';
+    type BuildDetails, type BuildItemReference } from '#lib/builds.js';
+  import SkillPlanner from '#lib/components/skills/SkillPlanner.svelte';
   import BuildItemLink from './BuildItemLink.svelte';
   import BuildItemPicker from './BuildItemPicker.svelte';
   import BuildSkillPicker from './BuildSkillPicker.svelte';
-  import { insertSkillReference } from '$lib/build-skills';
+  import { insertSkillReference } from '#lib/build-skills.js';
   import BuildRenderer from './BuildRenderer.svelte';
   import BuildGear from './BuildGear.svelte';
 
@@ -42,11 +42,11 @@
   let textareas: Record<string, HTMLTextAreaElement> = {};
   let fontColor = $state('#e9ab74');
   let dirty = $derived(ready && JSON.stringify(content) !== baseline);
-  let variant = $derived(content.document.variants.find(v => v.id === activeVariantId) ?? content.document.variants[0]);
-  let skillClass = $derived(classes.find(c => c.Class === content.characterClass));
+  let variant = $derived(content.document.variants.find((v) => v.id === activeVariantId) ?? content.document.variants[0]);
+  let skillClass = $derived(classes.find((c) => c.Class === content.characterClass));
   let issues = $derived(publicationErrors(content));
   let storageKey = $derived(`d2r-build-draft:${$authState.user?.id ?? 'guest'}:${id ?? 'new'}`);
-  let matchingCharacters = $derived(characters.filter(c => c.class === content.characterClass));
+  let matchingCharacters = $derived(characters.filter((c) => c.class === content.characterClass));
 
   onMount(async () => {
     await initializeAuth();
@@ -61,10 +61,15 @@
           && local.content.document.variants.length && JSON.stringify(local.content) !== baseline) recovery = local;
       } catch { storageNotice = 'Local draft recovery is unavailable in this browser.'; }
       ready = true;
-    } catch (value) { error = message(value); }
-    finally { loading = false; }
-    loadSkillClasses().then(value => classes = value).catch(() => skillError = 'Skill trees could not load. Refresh to retry.');
-    if ($authState.user) getMyCharacters().then(value => characters = value).catch(() => characterError = 'Characters could not load. Refresh to retry.');
+    } catch(value) {
+      error = message(value);
+    } finally {
+      loading = false;
+    }
+
+    loadSkillClasses().then((value) => classes = value).catch(() => skillError = 'Skill trees could not load. Refresh to retry.');
+
+    if ($authState.user) getMyCharacters().then((value) => characters = value).catch(() => characterError = 'Characters could not load. Refresh to retry.');
   });
 
   $effect(() => {
@@ -77,7 +82,10 @@
     }, 400);
     return () => clearTimeout(timer);
   });
-  beforeNavigate(({ cancel }) => {
+
+  beforeNavigate(({ cancel, shallow, type }) => {
+    if (shallow && type === 'goto') return;
+
     backupNow();
     if (dirty && !busy && !window.confirm('You have changes that are not saved to your account. Leave the editor?')) cancel();
   });
@@ -103,7 +111,17 @@
     revision = recovery.revision;
     recovery = null; notice = 'Recovered your local changes. Review them before saving.';
   }
-  function discardRecovery() { recovery = null; try { localStorage.removeItem(storageKey); } catch { /* optional */ } }
+
+  function discardRecovery() {
+    recovery = null; /* optional */
+
+    try {
+      localStorage.removeItem(storageKey);
+    } catch {
+      /* optional */
+    }
+  }
+
   async function persist(publish = false) {
     if (busy || !ready) return;
     if (!$authState.user) { error = 'Sign in to save this build to your account. Your local draft stays in this browser.'; return; }
@@ -141,14 +159,16 @@
   }
   function removeVariant() {
     if (content.document.variants.length <= 1 || !window.confirm(`Remove the “${variant.name}” variant from this draft?`)) return;
-    content.document.variants = content.document.variants.filter(v => v.id !== variant.id); activeVariantId = content.document.variants[0].id;
+
+    content.document.variants = content.document.variants.filter((v) => v.id !== variant.id);
+    activeVariantId = content.document.variants[0].id;
   }
   function moveBlock(index: number, delta: number) {
     const next = [...variant.blocks]; [next[index], next[index + delta]] = [next[index + delta], next[index]]; variant.blocks = next;
   }
   function removeBlock(block: BuildBlock) {
     if (!window.confirm(`Remove “${block.title}” from this draft?`)) return;
-    variant.blocks = variant.blocks.filter(b => b.id !== block.id);
+    variant.blocks = variant.blocks.filter((b) => b.id !== block.id);
   }
   function copyBlock(block: BuildBlock) {
     if (variant.blocks.length >= 40) return;
@@ -158,7 +178,7 @@
   }
   function changeClass(next: string) {
     if (next === content.characterClass) return;
-    const hasPlans = content.document.variants.some(v => v.blocks.some(b => Object.values(b.ranks).some(n => n > 0) || b.characterId));
+    const hasPlans = content.document.variants.some((v) => v.blocks.some((b) => Object.values(b.ranks).some((n) => n > 0) || b.characterId));
     if (hasPlans && !window.confirm('Changing class clears all skill allocations and equipment selections in this draft. Continue?')) return;
     content.characterClass = next;
     for (const v of content.document.variants) for (const b of v.blocks) { b.ranks = {}; b.characterId = null; }
@@ -173,7 +193,7 @@
   }
   function chooseItem(block: BuildBlock, reference: BuildItemReference) {
     if (block.kind === 'items') {
-      if (block.items.length < 40 && !block.items.some(i => i.catalog === reference.catalog && i.key === reference.key)) block.items.push(reference);
+      if (block.items.length < 40 && !block.items.some((i) => i.catalog === reference.catalog && i.key === reference.key)) block.items.push(reference);
     } else insert(block, `[[item:${reference.catalog}:${reference.key}]]`, '', '');
     pickerFor = '';
   }
@@ -187,8 +207,12 @@
   }
 </script>
 
-<svelte:window onbeforeunload={beforeUnload} />
-<svelte:head><title>{content.title || 'Create a build'} · Build workshop | D2R Reimagined</title><meta name="robots" content="noindex" /></svelte:head>
+<svelte:window onbeforeunload={beforeUnload}></svelte:window>
+
+<svelte:head>
+  <title>{content.title || 'Create a build'} · Build workshop | D2R Reimagined</title>
+  <meta name="robots" content="noindex" />
+</svelte:head>
 
 <div class="workshop">
   <div class="breadcrumb"><a href="/builds">Builds</a><span>/</span><a href="/builds/mine">My builds</a><span>/</span><span>Workshop</span></div>
@@ -221,25 +245,176 @@
       </div>
     {/if}
     {#if preview}
-      <div class="preview-heading"><span class="eyebrow">READER PREVIEW</span><h2>{content.title || 'Untitled build'}</h2><p>{content.summary}</p></div>
-      <BuildRenderer {content} {equipment} bind:activeVariantId />
+      <div class="preview-heading">
+        <span class="eyebrow">READER PREVIEW</span>
+        <h2>{content.title || 'Untitled build'}</h2>
+        <p>{content.summary}</p>
+      </div>
+
+      <BuildRenderer
+        content={content}
+        equipment={equipment}
+        bind:activeVariantId
+      />
     {:else}
       <fieldset disabled={busy} class="editor-fields">
-        <div class="metadata panel-box panel"><div class="panel-title"><span>01</span><h2>The essentials</h2><p>Help the right players find your build.</p></div>
-          <label class="wide">Build title<input class="field" maxlength="120" bind:value={content.title} placeholder="e.g. Frozen Orb Sorceress — from starter to endgame" /></label>
-          <label class="wide">Short summary<textarea class="field" rows="2" maxlength="400" bind:value={content.summary} placeholder="What does this build do, who is it for, and what makes it worth playing?"></textarea><small>{content.summary.length}/400</small></label>
-          <label>Class<select class="field" value={content.characterClass} onchange={event => { changeClass(event.currentTarget.value); event.currentTarget.value = content.characterClass; }}>{#each buildClasses as name}<option>{name}</option>{/each}</select></label>
-          <label>Build focus<select class="field" bind:value={content.category}>{#each buildCategories as name}<option>{name}</option>{/each}</select></label>
-          <label>Gear budget<select class="field" bind:value={content.budget}>{#each buildBudgets as name}<option>{name}</option>{/each}</select></label>
-          <label>Game version / patch<input class="field" bind:value={content.patch} maxlength="40" placeholder="e.g. Reimagined 3.1" /></label>
-          <label class="wide">Tags <span class="label-note">Up to 8, separated by commas</span><input class="field" value={content.tags.join(', ')} maxlength="198" onchange={event => content.tags = [...new Set(event.currentTarget.value.split(',').map(s => s.trim()).filter(Boolean))].slice(0, 8)} placeholder="Beginner friendly, Hardcore, Solo self-found…" /></label>
+        <div class="metadata panel-box panel">
+          <div class="panel-title">
+            <span>01</span>
+            <h2>The essentials</h2>
+            <p>Help the right players find your build.</p>
+          </div>
+
+          <label class="wide">
+            Build title
+
+            <input
+              class="field"
+              maxlength="120"
+              bind:value={content.title}
+              placeholder="e.g. Frozen Orb Sorceress — from starter to endgame"
+            />
+          </label>
+
+          <label class="wide">
+            Short summary
+
+            <textarea
+              class="field"
+              rows="2"
+              maxlength="400"
+              bind:value={content.summary}
+              placeholder="What does this build do, who is it for, and what makes it worth playing?"
+            ></textarea>
+
+            <small>{content.summary.length}/400</small>
+          </label>
+
+          <label>
+            Class
+
+            <select
+              class="field"
+              value={content.characterClass}
+              onchange={(event) => {
+                changeClass(event.currentTarget.value);
+                event.currentTarget.value = content.characterClass;
+              }}
+            >
+              {#each buildClasses as name}
+                <option>{name}</option>
+              {/each}
+            </select>
+          </label>
+
+          <label>
+            Build focus
+
+            <select class="field" bind:value={content.category}>
+              {#each buildCategories as name}
+                <option>{name}</option>
+              {/each}
+            </select>
+          </label>
+
+          <label>
+            Gear budget
+
+            <select class="field" bind:value={content.budget}>
+              {#each buildBudgets as name}
+                <option>{name}</option>
+              {/each}
+            </select>
+          </label>
+
+          <label>
+            Game version / patch
+
+            <input
+              class="field"
+              bind:value={content.patch}
+              maxlength="40"
+              placeholder="e.g. Reimagined 3.1"
+            />
+          </label>
+
+          <label class="wide">
+            Tags 
+            <span class="label-note">Up to 8, separated by commas</span>
+
+            <input
+              class="field"
+              value={content.tags.join(', ')}
+              maxlength="198"
+              onchange={(event) => content.tags = [
+                ...new Set(event.currentTarget.value.split(',').map((s) => s.trim()).filter(Boolean))
+              ].slice(0, 8)}
+              placeholder="Beginner friendly, Hardcore, Solo self-found…"
+            />
+          </label>
         </div>
 
-        <div class="variant-editor panel-box panel"><div class="panel-title"><span>02</span><h2>Build your guide</h2><p>Arrange sections and create different setups.</p></div>
-          <div class="variant-tabs">{#each content.document.variants as v}<button type="button" class:active={variant.id === v.id} aria-pressed={variant.id === v.id} onclick={() => activeVariantId = v.id}>{v.name || 'Unnamed setup'}</button>{/each}
-            <button type="button" disabled={content.document.variants.length >= 8} onclick={() => addVariant()}>＋ Add variant</button></div>
-          <div class="variant-info"><label>Variant name<input class="field" maxlength="60" bind:value={variant.name} placeholder="Starter, Budget, Endgame…" /></label><label>When to use this setup<input class="field" maxlength="400" bind:value={variant.description} placeholder="Explain what changes and when players should switch." /></label></div>
-          <div class="variant-tools"><button type="button" disabled={content.document.variants.length >= 8} onclick={() => addVariant(true)}>Duplicate variant</button><button type="button" disabled={content.document.variants.length <= 1} onclick={removeVariant}>Remove variant</button></div>
+        <div class="variant-editor panel-box panel">
+          <div class="panel-title">
+            <span>02</span>
+            <h2>Build your guide</h2>
+            <p>Arrange sections and create different setups.</p>
+          </div>
+
+          <div class="variant-tabs">
+            {#each content.document.variants as v}
+              <button
+                type="button"
+                class:active={variant.id === v.id}
+                aria-pressed={variant.id === v.id}
+                onclick={() => activeVariantId = v.id}
+              >{v.name || 'Unnamed setup'}</button>
+            {/each}
+
+            <button
+              type="button"
+              disabled={content.document.variants.length >= 8}
+              onclick={() => addVariant()}
+            >＋ Add variant</button>
+          </div>
+
+          <div class="variant-info">
+            <label>
+              Variant name
+
+              <input
+                class="field"
+                maxlength="60"
+                bind:value={variant.name}
+                placeholder="Starter, Budget, Endgame…"
+              />
+            </label>
+
+            <label>
+              When to use this setup
+
+              <input
+                class="field"
+                maxlength="400"
+                bind:value={variant.description}
+                placeholder="Explain what changes and when players should switch."
+              />
+            </label>
+          </div>
+
+          <div class="variant-tools">
+            <button
+              type="button"
+              disabled={content.document.variants.length >= 8}
+              onclick={() => addVariant(true)}
+            >Duplicate variant</button>
+
+            <button
+              type="button"
+              disabled={content.document.variants.length <= 1}
+              onclick={removeVariant}
+            >Remove variant</button>
+          </div>
 
           {#each variant.blocks as block, index (block.id)}
             <div class="block-editor"><div class="block-toolbar"><span class="block-type">{String(index + 1).padStart(2, '0')} · {blockLabels[block.kind]}</span>
@@ -249,7 +424,22 @@
               {#if block.kind === 'skills'}
                 {#if skillClass}<SkillPlanner classes={[skillClass]} classCode={skillClass.ClassCode} bind:ranks={block.ranks} persist={false} compact />{:else}<p class="hint">{skillError || 'Loading skill planner…'}</p>{/if}
               {:else if block.kind === 'equipment'}
-                <label>Equipment source<select class="field" value={block.equipmentMode ?? 'character'} onchange={event => { block.equipmentMode = event.currentTarget.value as 'character' | 'manual'; block.manualGear ??= []; }}><option value="character">Character snapshot</option><option value="manual">Build gear manually</option></select></label>
+                <label>
+                  Equipment source
+
+                  <select
+                    class="field"
+                    value={block.equipmentMode ?? 'character'}
+                    onchange={(event) => {
+                      block.equipmentMode = event.currentTarget.value as 'character' | 'manual';
+                      block.manualGear ??= [];
+                    }}
+                  >
+                    <option value="character">Character snapshot</option>
+                    <option value="manual">Build gear manually</option>
+                  </select>
+                </label>
+
                 {#if block.equipmentMode === 'manual'}
                   <BuildGear bind:entries={block.manualGear} />
                 {:else}
@@ -259,8 +449,29 @@
                 {#if equipment[block.id]}<p class="hint">Captured: {equipment[block.id].character.name}. Use preview to inspect equipment.</p><Button type="button" color="alternative" size="sm" onclick={() => { block.snapshotVersion++; notice = 'Equipment will be refreshed from the character when you save.'; }}>Refresh snapshot on next save</Button>{/if}
                 {/if}
               {:else if block.kind === 'items'}
-                <div class="chosen-items">{#each block.items as reference, itemIndex}<span><BuildItemLink {reference} /><button type="button" aria-label={`Remove ${reference.key}`} onclick={() => block.items.splice(itemIndex, 1)}>×</button></span>{/each}</div>
-                <Button color="alternative" size="sm" type="button" onclick={() => { pickerFor = pickerFor === block.id ? '' : block.id; skillPickerFor = ''; }}>＋ Find an item</Button>
+                <div class="chosen-items">
+                  {#each block.items as reference, itemIndex}
+                    <span>
+                      <BuildItemLink reference={reference} />
+
+                      <button
+                        type="button"
+                        aria-label={`Remove ${reference.key}`}
+                        onclick={() => block.items.splice(itemIndex, 1)}
+                      >×</button>
+                    </span>
+                  {/each}
+                </div>
+
+                <Button
+                  color="alternative"
+                  size="sm"
+                  type="button"
+                  onclick={() => {
+                    pickerFor = pickerFor === block.id ? '' : block.id;
+                    skillPickerFor = '';
+                  }}
+                >＋ Find an item</Button>
               {:else if block.kind === 'image' || block.kind === 'video'}
                 <label>{block.kind === 'image' ? 'HTTPS image URL' : 'YouTube video URL'}<input class="field" type="url" maxlength="2000" bind:value={block.url} placeholder="https://…" /></label>
                 <label>{block.kind === 'image' ? 'Description / alt text' : 'Caption'}<input class="field" maxlength="400" bind:value={block.caption} /></label>
@@ -275,9 +486,33 @@
                 <button type="button" onclick={() => { pickerFor = pickerFor === block.id ? '' : block.id; skillPickerFor = ''; }}>Item tooltip</button>
                 <button type="button" onclick={() => { skillPickerFor = skillPickerFor === block.id ? '' : block.id; pickerFor = ''; }}>Skill tooltip</button>
               </div>
-              {#if pickerFor === block.id}<BuildItemPicker onchoose={reference => chooseItem(block, reference)} />{/if}
-              {#if skillPickerFor === block.id}<BuildSkillPicker characterClass={content.characterClass} onchoose={(id, rank) => chooseSkill(block, id, rank)} />{/if}
-              <label>{['text','callout'].includes(block.kind) ? 'Section content' : 'Notes (optional)'}<textarea class="field" bind:this={textareas[block.id]} rows={['text','callout'].includes(block.kind) ? 7 : 3} maxlength="20000" bind:value={block.body} placeholder="Write your guide. Use the toolbar or Markdown to format it."></textarea></label>
+
+              {#if pickerFor === block.id}
+                <BuildItemPicker
+                  onchoose={(reference) => chooseItem(block, reference)}
+                />
+              {/if}
+
+              {#if skillPickerFor === block.id}
+                <BuildSkillPicker
+                  characterClass={content.characterClass}
+                  onchoose={(id, rank) => chooseSkill(block, id, rank)}
+                />
+              {/if}
+
+              <label>
+                {['text', 'callout'].includes(block.kind) ? 'Section content' : 'Notes (optional)'}
+
+                <textarea
+                  class="field"
+                  bind:this={textareas[block.id]}
+                  rows={['text', 'callout'].includes(block.kind) ? 7 : 3}
+                  maxlength="20000"
+                  bind:value={block.body}
+                  placeholder="Write your guide. Use the toolbar or Markdown to format it."
+                ></textarea>
+              </label>
+
               <p class="hint">Markdown: **bold**, *italic*, headings, lists, tables, quotes, code, links, and inline item or skill tooltips. Select a skill name and use Skill tooltip to replace it with a hoverable link. Select text within a line and apply a font color. Remove the [color=…] and [/color] markers to reset it. HTML is displayed as text.</p>
             </div>
           {/each}

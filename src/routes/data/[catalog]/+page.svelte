@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { afterNavigate, beforeNavigate, replaceState } from '$app/navigation';
+  import { afterNavigate, beforeNavigate, goto } from '$app/navigation';
   import { page } from '$app/state';
   import { untrack } from 'svelte';
-  import CatalogCard from '$lib/components/CatalogCard.svelte';
-  import CatalogFilters from '$lib/components/CatalogFilters.svelte';
+  import CatalogCard from '#lib/components/CatalogCard.svelte';
+  import CatalogFilters from '#lib/components/CatalogFilters.svelte';
   import {
     affixMatchesProperty,
     affixPropertyOptions,
@@ -23,13 +23,13 @@
     sortOptions,
     type CatalogSortMode,
     type RuneMatchMode
-  } from '$lib/catalog-controls';
-  import { readCatalogFilters, writeCatalogFilters, type CatalogFilterState } from '$lib/catalog-query';
-  import { isVanilla, itemClass, itemType, searchText } from '$lib/catalog';
-  import { filterSetPieces, scopesSetPieces } from '$lib/set-filters';
-  import { debounced } from '$lib/debounce.svelte';
-  import { i18n } from '$lib/i18n';
-  import type { CatalogItem, CatalogSlug, KeyedLine } from '$lib/types';
+  } from '#lib/catalog-controls.js';
+  import { readCatalogFilters, writeCatalogFilters, type CatalogFilterState } from '#lib/catalog-query.js';
+  import { isVanilla, itemClass, itemType, searchText } from '#lib/catalog.js';
+  import { filterSetPieces, scopesSetPieces } from '#lib/set-filters.js';
+  import { debounced } from '#lib/debounce.svelte.js';
+  import { i18n } from '#lib/i18n.js';
+  import type { CatalogItem, CatalogSlug, KeyedLine } from '#lib/types.js';
 
   type Option = { value: string; label: string };
 
@@ -218,14 +218,18 @@
       maxLevel, exactType, recipeType, selectedRunes, runeMatch, sortMode, handFilter
     };
     const url = writeCatalogFilters(new URL(page.url), filters, data.definition.slug);
-    if (url.search !== page.url.search) replaceState(url, {});
+    if (url.search !== page.url.search) goto(url, { shallow: true, replace: true });
   });
 
-  beforeNavigate(() => {
+  beforeNavigate(({ shallow, type }) => {
+    if (shallow && type === 'goto') return;
+
     navigationInProgress = true;
   });
 
-  afterNavigate(({ to }) => {
+  afterNavigate(({ to, shallow, type }) => {
+    if (shallow && type === 'goto') return;
+
     if (!routerReady) {
       routerReady = true;
       return;
@@ -256,7 +260,7 @@
     handFilter = filters.handFilter;
 
     const normalizedUrl = writeCatalogFilters(new URL(destination), filters, data.definition.slug);
-    if (normalizedUrl.search !== page.url.search) replaceState(normalizedUrl, {});
+    if (normalizedUrl.search !== page.url.search) goto(normalizedUrl, { shallow: true, replace: true });
     navigationInProgress = false;
   });
 
@@ -302,13 +306,13 @@
 <section class="data-page-content mx-auto max-w-screen-2xl px-4 py-8">
   <CatalogFilters
     slug={data.definition.slug}
-    {typeOptions}
-    {classOptions}
-    {equipmentOptions}
-    {propertyOptions}
-    {recipeTypeOptions}
-    {runeOptions}
-    {sortOptions}
+    typeOptions={typeOptions}
+    classOptions={classOptions}
+    equipmentOptions={equipmentOptions}
+    propertyOptions={propertyOptions}
+    recipeTypeOptions={recipeTypeOptions}
+    runeOptions={runeOptions}
+    sortOptions={sortOptions}
     bind:search
     bind:selectedType
     bind:selectedClass
@@ -327,7 +331,7 @@
     bind:runeMatch
     bind:sortMode
     bind:handFilter
-    {reset}
+    reset={reset}
   />
 
   {#if data.definition.slug === 'sets' && scopesSetPieces({ selectedType, selectedClass, selectedEquipment, handFilter })}
@@ -345,7 +349,7 @@
             {#each group.families as family (family.key)}
               <div class="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
                 {#each family.items as item, index (`${String(item.Index ?? item.NameKey ?? index)}-${index}`)}
-                  <CatalogCard {item} slug={data.definition.slug} />
+                  <CatalogCard item={item} slug={data.definition.slug} />
                 {/each}
               </div>
             {/each}
@@ -359,16 +363,19 @@
       {/if}
     {:else}
     <div class="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
-      {#each visible as item, index (`${String(item.Index ?? item.NameKey ?? index)}-${index}`)}
-        <CatalogCard {item} slug={data.definition.slug}
-          scopedSet={data.definition.slug === 'sets' && scopesSetPieces({ selectedType, selectedClass, selectedEquipment, handFilter })} />
-      {/each}
-    </div>
-    {#if visible.length < filtered.length}
-      <div class="mt-8 text-center">
-        <button type="button" onclick={() => visibleCount += 48} class="rounded-md border border-ember-500/60 px-6 py-3 text-ember-400 hover:bg-ember-700 hover:text-white">Load 48 more</button>
+        {#each visible as item, index (`${String(item.Index ?? item.NameKey ?? index)}-${index}`)}
+          <CatalogCard
+            item={item}
+            slug={data.definition.slug}
+            scopedSet={data.definition.slug === 'sets' && scopesSetPieces({ selectedType, selectedClass, selectedEquipment, handFilter })}
+          />
+        {/each}
       </div>
-    {/if}
+      {#if visible.length < filtered.length}
+        <div class="mt-8 text-center">
+        <button type="button" onclick={() => visibleCount += 48} class="rounded-md border border-ember-500/60 px-6 py-3 text-ember-400 hover:bg-ember-700 hover:text-white">Load 48 more</button>
+        </div>
+      {/if}
     {/if}
   {:else}
     <div class="panel mx-auto max-w-xl rounded-lg p-10 text-center">

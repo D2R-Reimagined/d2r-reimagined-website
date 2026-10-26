@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { authState } from '$lib/auth';
-  import { updateCharacterLeaderboardBlacklist, type CharacterResponse } from '$lib/characters';
+  import { authState } from '#lib/auth.js';
+  import { updateCharacterLeaderboardBlacklist, type CharacterResponse } from '#lib/characters.js';
 
   let { character }: { character: CharacterResponse } = $props();
   let updated = $state<CharacterResponse | null>(null);

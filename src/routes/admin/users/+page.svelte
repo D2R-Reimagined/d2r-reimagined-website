@@ -10,10 +10,10 @@
     type AdminUser,
     type Ladder,
     type LadderAccessGrant
-  } from '$lib/admin';
-  import { ApiError, authState } from '$lib/auth';
-  import ParticipationEditor from '$lib/components/ParticipationEditor.svelte';
-  import RoleToggle from '$lib/components/RoleToggle.svelte';
+  } from '#lib/admin.js';
+  import { ApiError, authState } from '#lib/auth.js';
+  import ParticipationEditor from '#lib/components/ParticipationEditor.svelte';
+  import RoleToggle from '#lib/components/RoleToggle.svelte';
 
   const pageSize = 25;
 

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { authState } from '$lib/auth';
-  import type { CharacterResponse } from '$lib/characters';
+  import { authState } from '#lib/auth.js';
+  import type { CharacterResponse } from '#lib/characters.js';
   import {
     flagKindInfo,
     formatEvidence,
@@ -8,7 +8,7 @@
     resolveSaveReviewFlag,
     type CharacterSaveReview,
     type SaveReviewFlag
-  } from '$lib/save-review';
+  } from '#lib/save-review.js';
 
   let { character }: { character: CharacterResponse } = $props();
 

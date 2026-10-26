@@ -1,4 +1,4 @@
-import { apiRequest } from '$lib/auth';
+import { apiRequest } from '#lib/auth.js';
 
 /** Mirrors the API's SaveReviewFlagKind, serialized by name. */
 export type SaveReviewFlagKind =

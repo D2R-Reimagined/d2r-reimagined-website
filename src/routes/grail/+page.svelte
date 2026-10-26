@@ -1,17 +1,17 @@
 <script lang="ts">
   import { onMount, untrack } from 'svelte';
-  import { afterNavigate, beforeNavigate, replaceState } from '$app/navigation';
+  import { afterNavigate, beforeNavigate, goto } from '$app/navigation';
   import { page } from '$app/state';
 
-  import GrailItemDetails from '$lib/components/GrailItemDetails.svelte';
-  import GrailItem from '$lib/components/GrailItem.svelte';
-  import CatalogFilters from '$lib/components/CatalogFilters.svelte';
-  import { itemClass } from '$lib/catalog';
-  import { catalogTypeValues, equipmentNamesForType, sortOptions } from '$lib/catalog-controls';
-  import { filterGrailItems, grailTypes, normalizeGrailFilters } from '$lib/grail-filters';
-  import { readGrailFilters, writeGrailFilters, type GrailCategory } from '$lib/grail-query';
-  import { i18n } from '$lib/i18n';
-  import type { CatalogItem } from '$lib/types';
+  import GrailItemDetails from '#lib/components/GrailItemDetails.svelte';
+  import GrailItem from '#lib/components/GrailItem.svelte';
+  import CatalogFilters from '#lib/components/CatalogFilters.svelte';
+  import { itemClass } from '#lib/catalog.js';
+  import { catalogTypeValues, equipmentNamesForType, sortOptions } from '#lib/catalog-controls.js';
+  import { filterGrailItems, grailTypes, normalizeGrailFilters } from '#lib/grail-filters.js';
+  import { readGrailFilters, writeGrailFilters, type GrailCategory } from '#lib/grail-query.js';
+  import { i18n } from '#lib/i18n.js';
+  import type { CatalogItem } from '#lib/types.js';
 
   type Category = GrailCategory;
   type FoundMap = Record<string, boolean>;
@@ -81,11 +81,24 @@
   $effect(() => {
     if (!routerReady || navigationInProgress) return;
     const url = writeGrailFilters(new URL(page.url), { category, hideFound, catalog: filters });
-    if (url.search !== page.url.search) replaceState(url, {});
+    if (url.search !== page.url.search) goto(url, { shallow: true, replace: true });
   });
-  beforeNavigate(() => { navigationInProgress = true; });
-  afterNavigate(({ to }) => {
-    if (!routerReady) { routerReady = true; return; }
+
+  beforeNavigate(({ shallow, type }) => {
+    if (shallow && type === 'goto') return;
+
+    navigationInProgress = true;
+  });
+
+  afterNavigate(({ to, shallow, type }) => {
+    if (shallow && type === 'goto') return;
+
+    if (!routerReady) {
+      routerReady = true;
+
+      return;
+    }
+
     const restored = readGrailFilters((to?.url ?? page.url).searchParams);
     category = restored.category;
     filters = normalizeGrailFilters(restored.catalog, data[restored.category], restored.category, $i18n);
@@ -228,12 +241,27 @@
     </div>
   </div>
 
-  <CatalogFilters slug={category} grail {typeOptions} {classOptions} {equipmentOptions}
-    propertyOptions={[]} recipeTypeOptions={[]} {runeOptions} {sortOptions}
-    bind:search={filters.search} bind:selectedType={filters.selectedType}
-    bind:selectedClass={filters.selectedClass} bind:selectedEquipment={filters.selectedEquipment}
-    bind:hideVanilla={filters.hideVanilla} bind:runeCount={filters.runeCount}
-    bind:selectedRunes={filters.selectedRunes} bind:runeMatch={filters.runeMatch} bind:exactType={filters.exactType} reset={resetFilters} />
+  <CatalogFilters
+    slug={category}
+    grail
+    typeOptions={typeOptions}
+    classOptions={classOptions}
+    equipmentOptions={equipmentOptions}
+    propertyOptions={[]}
+    recipeTypeOptions={[]}
+    runeOptions={runeOptions}
+    sortOptions={sortOptions}
+    bind:search={filters.search}
+    bind:selectedType={filters.selectedType}
+    bind:selectedClass={filters.selectedClass}
+    bind:selectedEquipment={filters.selectedEquipment}
+    bind:hideVanilla={filters.hideVanilla}
+    bind:runeCount={filters.runeCount}
+    bind:selectedRunes={filters.selectedRunes}
+    bind:runeMatch={filters.runeMatch}
+    bind:exactType={filters.exactType}
+    reset={resetFilters}
+  />
 
   <p class="mb-5 text-center text-parchment-300" aria-live="polite"><span class="set-line">{foundCount.toLocaleString()}</span> / {currentItems.length.toLocaleString()} found · {filtered.length.toLocaleString()} shown</p>
   {#if !filtered.length}
@@ -243,7 +271,14 @@
   <div class="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
     {#each visible as item (itemKey(item))}
       {@const key = itemKey(item)}
-      <GrailItem {item} ondetails={() => selectedItem = { item, category }} tone={category === 'sets' ? 'set' : 'unique'} found={Boolean(currentMap[key])} onchange={(value) => setFound(item, value)} />
+
+      <GrailItem
+        item={item}
+        ondetails={() => selectedItem = { item, category }}
+        tone={category === 'sets' ? 'set' : 'unique'}
+        found={Boolean(currentMap[key])}
+        onchange={(value) => setFound(item, value)}
+      />
     {/each}
   </div>
 

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { i18n } from '$lib/i18n';
-  import type { Skill, SkillTab } from '$lib/types';
+  import { i18n } from '#lib/i18n.js';
+  import type { Skill, SkillTab } from '#lib/types.js';
   import SkillNode from './SkillNode.svelte';
 
   let {

@@ -1,5 +1,5 @@
-import type { CharacterDirectoryEntry } from '$lib/characters';
-import type { SkillClass } from '$lib/types';
+import type { CharacterDirectoryEntry } from '#lib/characters.js';
+import type { SkillClass } from '#lib/types.js';
 
 export interface SkillTreeAllocation {
   page: number;

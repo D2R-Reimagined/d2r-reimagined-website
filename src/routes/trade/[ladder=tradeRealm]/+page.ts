@@ -2,7 +2,7 @@
 export const ssr = false;
 import { redirect } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
-import { loadTradeMarketplace } from '$lib/trade-marketplace';
+import { loadTradeMarketplace } from '#lib/trade-marketplace.js';
 
 export const load: PageLoad = async ({ fetch, params, parent, url }) => {
   const { tradeLadders } = await parent();

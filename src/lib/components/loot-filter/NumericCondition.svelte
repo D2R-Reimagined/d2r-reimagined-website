@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { NumberTest } from '$lib/loot-filter/types';
+  import type { NumberTest } from '#lib/loot-filter/types.js';
   type Operator = keyof NumberTest;
   let { label, min, max, value, onchange }: { label: string; min: number; max: number; value?: NumberTest; onchange: (next?: NumberTest) => void } = $props();
   const comparisons: { value: Operator; label: string }[] = [

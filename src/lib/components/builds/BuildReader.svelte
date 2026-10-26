@@ -2,8 +2,8 @@
   import { Button } from 'flowbite-svelte';
   import { onMount } from 'svelte';
   import { page } from '$app/state';
-  import { apiRequest, authState, initializeAuth } from '$lib/auth';
-  import { buildDate, getBuild, type BuildComment, type BuildDetails, type BuildPage } from '$lib/builds';
+  import { apiRequest, authState, initializeAuth } from '#lib/auth.js';
+  import { buildDate, getBuild, type BuildComment, type BuildDetails, type BuildPage } from '#lib/builds.js';
   import BuildRenderer from './BuildRenderer.svelte';
   let { initial, initialVariant = '' }: { initial: BuildDetails; initialVariant?: string } = $props();
   // svelte-ignore state_referenced_locally

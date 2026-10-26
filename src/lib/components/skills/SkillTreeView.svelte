@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Skill, SkillClass } from '$lib/types';
+  import type { Skill, SkillClass } from '#lib/types.js';
   import SkillDetails from './SkillDetails.svelte';
   import SkillTree from './SkillTree.svelte';
 

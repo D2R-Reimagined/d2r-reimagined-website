@@ -2,11 +2,11 @@
   import { page } from '$app/state';
   import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
-  import TradeItemDetails from '$lib/components/TradeItemDetails.svelte';
-  import { authState, initializeAuth } from '$lib/auth';
-  import { openTradeChat } from '$lib/trade-chat';
-  import { tradeEvent } from '$lib/trade-realtime';
-  import type { SaveItem } from '$lib/characters';
+  import TradeItemDetails from '#lib/components/TradeItemDetails.svelte';
+  import { authState, initializeAuth } from '#lib/auth.js';
+  import { openTradeChat } from '#lib/trade-chat.js';
+  import { tradeEvent } from '#lib/trade-realtime.js';
+  import type { SaveItem } from '#lib/characters.js';
   import {
     acceptTradeOffer,
     createTradeOffer,
@@ -18,7 +18,7 @@
     type TradeListing,
     type TradeListingStatus,
     type TradeOffer
-  } from '$lib/trades';
+  } from '#lib/trades.js';
 
   let listing = $state<TradeListing | null>(null);
   let offers = $state<TradeOffer[]>([]);

@@ -1,5 +1,5 @@
-// Ladder shapes and the date arithmetic over them. Kept free of `$lib` imports
-// so it stays unit-testable; `$lib/ladders` adds the API calls on top.
+// Ladder shapes and the date arithmetic over them. Kept free of `#lib` imports
+// so it stays unit-testable; `#lib/ladders.js` adds the API calls on top.
 
 export type LadderExtensionKind = 'Plugin' | 'Patch';
 

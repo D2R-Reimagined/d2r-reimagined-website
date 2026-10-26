@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { i18n } from '$lib/i18n';
-  import { isItemIdentified, itemDisplayLabel } from '$lib/item-identification';
-  import { itemVariant, type ItemPresentation } from '$lib/item-presentation';
-  import type { ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
-  import { displayStatLines, isHiddenItemStat, socketedItemStats, type DisplayStatLine, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
-  import type { SaveItem, SaveStat } from '$lib/characters';
+  import { i18n } from '#lib/i18n.js';
+  import { isItemIdentified, itemDisplayLabel } from '#lib/item-identification.js';
+  import { itemVariant, type ItemPresentation } from '#lib/item-presentation.js';
+  import type { ItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
+  import { displayStatLines, isHiddenItemStat, socketedItemStats, type DisplayStatLine, type ItemStatPresentationBundle } from '#lib/item-stat-presentation.js';
+  import type { SaveItem, SaveStat } from '#lib/characters.js';
 
   let {
     item,

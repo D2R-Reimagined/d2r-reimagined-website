@@ -1,30 +1,30 @@
 <script lang="ts">
     import {onMount} from 'svelte';
     import {goto} from '$app/navigation';
-    import TradeListingCard from '$lib/components/TradeListingCard.svelte';
-    import TradePropertyFilters from '$lib/components/TradePropertyFilters.svelte';
-    import {authState, initializeAuth} from '$lib/auth';
-    import {openTradeChat} from '$lib/trade-chat';
-    import {loadCatalog} from '$lib/catalog-sources';
-    import type {CatalogItem} from '$lib/types';
+    import TradeListingCard from '#lib/components/TradeListingCard.svelte';
+    import TradePropertyFilters from '#lib/components/TradePropertyFilters.svelte';
+    import {authState, initializeAuth} from '#lib/auth.js';
+    import {openTradeChat} from '#lib/trade-chat.js';
+    import {loadCatalog} from '#lib/catalog-sources.js';
+    import type {CatalogItem} from '#lib/types.js';
     import {
         createTradeOffer,
         getTradeListings,
         type TradeFilters,
         type TradeListing
-    } from '$lib/trades';
+    } from '#lib/trades.js';
     import {
         activeTradePropertyCount,
         createTradePropertyGroup,
         invalidTradePropertyQuery,
         toTradePropertyFilterGroups,
         type TradePropertyGroupDraft
-    } from '$lib/trade-property-filters';
+    } from '#lib/trade-property-filters.js';
     import {
         lastTradeRealmStorageKey,
         tradeLadderPath,
         type TradeMarketplacePageData
-    } from '$lib/trade-ladders';
+    } from '#lib/trade-ladders.js';
 
     let {data}: { data: TradeMarketplacePageData } = $props();
 

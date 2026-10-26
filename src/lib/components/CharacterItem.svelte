@@ -1,13 +1,13 @@
 <script lang="ts">
   import { tick } from 'svelte';
-  import ItemTooltip from '$lib/components/ItemTooltip.svelte';
-  import { isItemIdentified, itemDisplayLabel } from '$lib/item-identification';
-  import { hasUnknownItemVariant, itemSprite, itemVariant, type ItemPresentation } from '$lib/item-presentation';
-  import type { ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
-  import type { ItemStatPresentationBundle } from '$lib/item-stat-presentation';
-  import { i18n } from '$lib/i18n';
-  import { rareItemName, type RareNamePresentation } from '$lib/rare-name-presentation';
-  import type { SaveItem } from '$lib/characters';
+  import ItemTooltip from '#lib/components/ItemTooltip.svelte';
+  import { isItemIdentified, itemDisplayLabel } from '#lib/item-identification.js';
+  import { hasUnknownItemVariant, itemSprite, itemVariant, type ItemPresentation } from '#lib/item-presentation.js';
+  import type { ItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
+  import type { ItemStatPresentationBundle } from '#lib/item-stat-presentation.js';
+  import { i18n } from '#lib/i18n.js';
+  import { rareItemName, type RareNamePresentation } from '#lib/rare-name-presentation.js';
+  import type { SaveItem } from '#lib/characters.js';
 
   let {
     item,

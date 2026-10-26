@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import CharacterItem from '$lib/components/CharacterItem.svelte';
-  import type { SaveItem } from '$lib/characters';
-  import { loadItemPresentation, type ItemPresentation } from '$lib/item-presentation';
-  import { loadItemStatPresentation, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
-  import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
-  import { loadRareNamePresentation, type RareNamePresentation } from '$lib/rare-name-presentation';
+  import CharacterItem from '#lib/components/CharacterItem.svelte';
+  import type { SaveItem } from '#lib/characters.js';
+  import { loadItemPresentation, type ItemPresentation } from '#lib/item-presentation.js';
+  import { loadItemStatPresentation, type ItemStatPresentationBundle } from '#lib/item-stat-presentation.js';
+  import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
+  import { loadRareNamePresentation, type RareNamePresentation } from '#lib/rare-name-presentation.js';
 
   let {
     items,

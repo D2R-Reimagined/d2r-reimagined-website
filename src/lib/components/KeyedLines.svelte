@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { i18n } from '$lib/i18n';
-  import { sortModifierLines } from '$lib/catalog-controls';
-  import type { KeyedLine } from '$lib/types';
+  import { i18n } from '#lib/i18n.js';
+  import { sortModifierLines } from '#lib/catalog-controls.js';
+  import type { KeyedLine } from '#lib/types.js';
 
   let {
     lines = [],

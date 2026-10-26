@@ -1,4 +1,4 @@
-import type { ServerBuild, ServerBuildState } from '$lib/admin';
+import type { ServerBuild, ServerBuildState } from '#lib/admin.js';
 
 // Pure helpers for the server build channel (d2rl-d2rds.dll), shared by the
 // ladder admin panel and the monitoring cards.

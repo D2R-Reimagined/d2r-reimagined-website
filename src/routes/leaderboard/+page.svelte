@@ -1,12 +1,12 @@
 <script lang="ts">
   import { untrack } from 'svelte';
-  import { replaceState } from '$app/navigation';
+  import { goto } from '$app/navigation';
   import { page } from '$app/state';
-  import { leaderboardClasses as classes, leaderboardFilterUrl } from '$lib/leaderboard-entries';
-  import { authState } from '$lib/auth';
-  import OnlinePlayers from '$lib/components/OnlinePlayers.svelte';
-  import { debounced } from '$lib/debounce.svelte';
-  import { isLadderRunning } from '$lib/ladder-schedule';
+  import { leaderboardClasses as classes, leaderboardFilterUrl } from '#lib/leaderboard-entries.js';
+  import { authState } from '#lib/auth.js';
+  import OnlinePlayers from '#lib/components/OnlinePlayers.svelte';
+  import { debounced } from '#lib/debounce.svelte.js';
+  import { isLadderRunning } from '#lib/ladder-schedule.js';
   import {
     entryStanding,
     formatExperience,
@@ -14,7 +14,7 @@
     getMyLeaderboardEntries,
     type LeaderboardEntry,
     type LeaderboardResponse
-  } from '$lib/leaderboards';
+  } from '#lib/leaderboards.js';
   import type { PageData } from './$types';
 
   let { data }: { data: PageData } = $props();
@@ -142,12 +142,12 @@
     ladderChoice = next;
 
     // Keeps a shared link pointing at the board being looked at.
-    replaceState(leaderboardFilterUrl(page.url, next, selectedClass), page.state);
+    goto(leaderboardFilterUrl(page.url, next, selectedClass), { shallow: true, replace: true, state: page.state });
   }
 
   function chooseClass(next: string): void {
     classChoice = next;
-    replaceState(leaderboardFilterUrl(page.url, ladderId, next), page.state);
+    goto(leaderboardFilterUrl(page.url, ladderId, next), { shallow: true, replace: true, state: page.state });
   }
 
   function standingLabel(entry: LeaderboardEntry): string {
@@ -172,7 +172,12 @@
     name="description"
     content="Ladder standings for D2R Reimagined - the top characters by level and experience, updated as players save."
   />
-  <meta property="og:title" content="Leaderboard | D2R Reimagined" />
+
+  <meta
+    property="og:title"
+    content="Leaderboard | D2R Reimagined"
+  />
+
   <meta
     property="og:description"
     content="Ladder standings for D2R Reimagined - the top characters by level and experience, updated as players save."

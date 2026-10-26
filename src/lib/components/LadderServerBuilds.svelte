@@ -8,8 +8,8 @@
     type LadderPendingRelease,
     type ServerBuild,
     type ServerBuildState
-  } from '$lib/admin';
-  import { ApiError } from '$lib/auth';
+  } from '#lib/admin.js';
+  import { ApiError } from '#lib/auth.js';
   import {
     currentServerBuild,
     isServerBuildRollback,
@@ -20,7 +20,7 @@
     serverBuildUploadProblem,
     shortBuildId,
     shortSha
-  } from '$lib/server-builds';
+  } from '#lib/server-builds.js';
 
   // The dedicated-server plugin. Deliberately nothing here fetches a build's
   // bytes: the API has no admin download, only the ladder's servers get one.

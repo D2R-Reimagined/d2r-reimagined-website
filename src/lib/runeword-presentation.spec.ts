@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { SaveItem } from '$lib/characters';
+import type { SaveItem } from '#lib/characters.js';
 import { buildRunewordNameMap, runewordNameKey } from './runeword-presentation';
 
 function socket(codeText: string): SaveItem {

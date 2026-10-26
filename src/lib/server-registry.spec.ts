@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-vi.mock('$lib/auth', () => ({ apiRequest: vi.fn() }));
-import { apiRequest } from '$lib/auth';
+vi.mock('#lib/auth.js', () => ({ apiRequest: vi.fn() }));
+import { apiRequest } from '#lib/auth.js';
 import { canAccessAdminPage, canManageServers } from './admin-access';
 import { createServerConfiguration, updateServerConfiguration, getServerConfigurations, getServerRegions,
   createServerRegion, updateServerRegion, deleteServerRegion, serverConfigurationInput, serverRegionInput, serverLabel, serverDraft, MAX_GAMES_PER_SERVER, DEFAULT_MAX_GAMES, type ServerDraft, type ServerConfiguration } from './server-registry';

@@ -1,12 +1,12 @@
-import { env } from '$env/dynamic/public';
+import { PUBLIC_API_BASE_URL } from '$app/env/public';
 import type { PageServerLoad } from './$types';
-import type { SupportProducts, SupportSummary } from '$lib/support';
+import type { SupportProducts, SupportSummary } from '#lib/support.js';
 
 export const load: PageServerLoad = async ({ fetch, setHeaders }) => {
   // The API caches both for a few minutes; a short page cache keeps the total fresh after a purchase.
   setHeaders({ 'cache-control': 'public, max-age=60' });
 
-  const api = (env.PUBLIC_API_BASE_URL || 'http://localhost:5000').replace(/\/$/, '');
+  const api = (PUBLIC_API_BASE_URL || 'http://localhost:5000').replace(/\/$/, '');
   async function get<T>(path: string): Promise<T | null> {
     try {
       const response = await fetch(`${api}${path}`);

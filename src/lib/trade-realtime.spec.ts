@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 const request = vi.hoisted(() => vi.fn());
-vi.mock('$lib/auth', () => ({ apiRequest: request, apiWebSocketUrl: () => 'wss://api.example/ws/trades' }));
+vi.mock('#lib/auth', () => ({ apiRequest: request, apiWebSocketUrl: () => 'wss://api.example/ws/trades' }));
 import { connectTradeEvents, isTradeNotification, parseTradeEvent } from './trade-realtime';
 
 class Socket {

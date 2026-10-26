@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { i18n } from '$lib/i18n';
-  import type { CatalogItem } from '$lib/types';
-  import { grailTypes } from '$lib/grail-filters';
+  import { i18n } from '#lib/i18n.js';
+  import type { CatalogItem } from '#lib/types.js';
+  import { grailTypes } from '#lib/grail-filters.js';
   import KeyedLines from './KeyedLines.svelte';
 
   let {

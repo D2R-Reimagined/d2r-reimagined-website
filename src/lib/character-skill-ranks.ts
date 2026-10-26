@@ -1,6 +1,6 @@
-import type { CharacterSaveDetails, SaveItem, SaveStat } from '$lib/characters';
-import { isCharmInventoryItem } from '$lib/charm-inventory';
-import type { Skill, SkillClass } from '$lib/types';
+import type { CharacterSaveDetails, SaveItem, SaveStat } from '#lib/characters.js';
+import { isCharmInventoryItem } from '#lib/charm-inventory.js';
+import type { Skill, SkillClass } from '#lib/types.js';
 
 export interface CharacterSkillRanks {
   base: Record<number, number>;

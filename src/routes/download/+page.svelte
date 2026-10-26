@@ -6,7 +6,7 @@
     formatDownloadSize,
     type LauncherDownload,
     type LauncherPlatform
-  } from '$lib/launcher-downloads';
+  } from '#lib/launcher-downloads.js';
 
   let { data } = $props();
   let detectedPlatform = $state<LauncherPlatform>('unknown');

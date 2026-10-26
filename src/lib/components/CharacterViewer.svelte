@@ -1,20 +1,20 @@
 ﻿<script lang="ts">
-  import CharacterItem from '$lib/components/CharacterItem.svelte';
-  import CharacterLeaderboardModeration from '$lib/components/CharacterLeaderboardModeration.svelte';
-  import CharacterSaveReview from '$lib/components/CharacterSaveReview.svelte';
-  import SkillTreeView from '$lib/components/skills/SkillTreeView.svelte';
-  import { formatLastLogged } from '$lib/character-activity';
-  import { characterSkillRanks } from '$lib/character-skill-ranks';
-  import type { CharacterDetailsResponse, SaveItem } from '$lib/characters';
-  import { charmInventoryColumns, charmInventoryRows, isCharmInventoryItem } from '$lib/charm-inventory';
-  import { loadItemPresentation, type ItemPresentation } from '$lib/item-presentation';
-  import { loadItemStatPresentation, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
-  import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '$lib/item-upgrade-tiers';
-  import { loadCatalog } from '$lib/catalog-sources';
-  import { buildRunewordNameMap, runewordNameKey } from '$lib/runeword-presentation';
-  import { loadRareNamePresentation, type RareNamePresentation } from '$lib/rare-name-presentation';
-  import { loadSkillClasses } from '$lib/skills';
-  import type { SkillClass } from '$lib/types';
+  import CharacterItem from '#lib/components/CharacterItem.svelte';
+  import CharacterLeaderboardModeration from '#lib/components/CharacterLeaderboardModeration.svelte';
+  import CharacterSaveReview from '#lib/components/CharacterSaveReview.svelte';
+  import SkillTreeView from '#lib/components/skills/SkillTreeView.svelte';
+  import { formatLastLogged } from '#lib/character-activity.js';
+  import { characterSkillRanks } from '#lib/character-skill-ranks.js';
+  import type { CharacterDetailsResponse, SaveItem } from '#lib/characters.js';
+  import { charmInventoryColumns, charmInventoryRows, isCharmInventoryItem } from '#lib/charm-inventory.js';
+  import { loadItemPresentation, type ItemPresentation } from '#lib/item-presentation.js';
+  import { loadItemStatPresentation, type ItemStatPresentationBundle } from '#lib/item-stat-presentation.js';
+  import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
+  import { loadCatalog } from '#lib/catalog-sources.js';
+  import { buildRunewordNameMap, runewordNameKey } from '#lib/runeword-presentation.js';
+  import { loadRareNamePresentation, type RareNamePresentation } from '#lib/rare-name-presentation.js';
+  import { loadSkillClasses } from '#lib/skills.js';
+  import type { SkillClass } from '#lib/types.js';
   import { onMount } from 'svelte';
 
   let {

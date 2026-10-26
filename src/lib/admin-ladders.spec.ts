@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => ({ api: vi.fn(), upload: vi.fn() }));
-vi.mock('$lib/auth', () => ({ apiRequest: mocks.api, apiUploadRequest: mocks.upload }));
+vi.mock('#lib/auth.js', () => ({ apiRequest: mocks.api, apiUploadRequest: mocks.upload }));
 
 import {
   activateServerBuild,

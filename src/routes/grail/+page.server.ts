@@ -1,8 +1,8 @@
 import runewords from '../../../static/data/keyed/runewords.json';
 import sets from '../../../static/data/keyed/sets.json';
 import uniques from '../../../static/data/keyed/uniques.json';
-import type { CatalogItem } from '$lib/types';
-import { buildCatalog } from '$lib/catalog-sources';
+import type { CatalogItem } from '#lib/types.js';
+import { buildCatalog } from '#lib/catalog-sources.js';
 
 function grailItem(item: CatalogItem): CatalogItem {
   return {

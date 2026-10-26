@@ -1,8 +1,8 @@
 <script lang="ts">
   import { page } from '$app/state';
   import { onMount } from 'svelte';
-  import CharacterViewer from '$lib/components/CharacterViewer.svelte';
-  import { getCharacterDetails, type CharacterDetailsResponse } from '$lib/characters';
+  import CharacterViewer from '#lib/components/CharacterViewer.svelte';
+  import { getCharacterDetails, type CharacterDetailsResponse } from '#lib/characters.js';
 
   let details = $state<CharacterDetailsResponse | null>(null);
   let loading = $state(true);

@@ -22,13 +22,13 @@
         type LadderBundleSummary,
         type LadderBundlePublishJob,
         type LadderInput
-    } from '$lib/admin';
-    import {ApiError} from '$lib/auth';
-    import LadderAccessManager from '$lib/components/LadderAccessManager.svelte';
-    import LadderD2RLoader from '$lib/components/LadderD2RLoader.svelte';
-    import LadderSaveEnforcementEditor from '$lib/components/LadderSaveEnforcementEditor.svelte';
-    import LadderServerBuilds from '$lib/components/LadderServerBuilds.svelte';
-    import {isSha256, normalizeSha256} from '$lib/sha256';
+    } from '#lib/admin.js';
+    import {ApiError} from '#lib/auth.js';
+    import LadderAccessManager from '#lib/components/LadderAccessManager.svelte';
+    import LadderD2RLoader from '#lib/components/LadderD2RLoader.svelte';
+    import LadderSaveEnforcementEditor from '#lib/components/LadderSaveEnforcementEditor.svelte';
+    import LadderServerBuilds from '#lib/components/LadderServerBuilds.svelte';
+    import {isSha256, normalizeSha256} from '#lib/sha256.js';
 
     interface LadderDraft {
         isHidden: boolean;

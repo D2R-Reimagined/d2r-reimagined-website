@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Button } from 'flowbite-svelte';
     import {page} from '$app/state';
-    import {buildClasses, buildCategories, buildBudgets} from '$lib/builds';
-    import BuildCard from '$lib/components/builds/BuildCard.svelte';
+    import {buildClasses, buildCategories, buildBudgets} from '#lib/builds.js';
+    import BuildCard from '#lib/components/builds/BuildCard.svelte';
 
     let {data} = $props();
 

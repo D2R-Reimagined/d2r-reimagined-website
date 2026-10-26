@@ -1,8 +1,8 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
-  import { authState, initializeAuth } from '$lib/auth';
-  import { getMyTradeListings, type TradeListing, type TradeListingStatus } from '$lib/trades';
+  import { authState, initializeAuth } from '#lib/auth.js';
+  import { getMyTradeListings, type TradeListing, type TradeListingStatus } from '#lib/trades.js';
 
   let listings = $state<TradeListing[]>([]);
   let status = $state<'All' | TradeListingStatus>('All');

@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onMount, untrack } from 'svelte';
-  import { i18n } from '$lib/i18n';
-  import M from '$lib/loot-filter/model.js';
-  import { fromExport } from '$lib/loot-filter/catalog.js';
-  import { playSound, stopSound, soundPreview } from '$lib/loot-filter/sound-preview';
-  import { blockOf, kindOf, values, type Catalog, type CatalogItem, type Filter, type Visibility } from '$lib/loot-filter/types';
+  import { i18n } from '#lib/i18n.js';
+  import M from '#lib/loot-filter/model.js';
+  import { fromExport } from '#lib/loot-filter/catalog.js';
+  import { playSound, stopSound, soundPreview } from '#lib/loot-filter/sound-preview.js';
+  import { blockOf, kindOf, values, type Catalog, type CatalogItem, type Filter, type Visibility } from '#lib/loot-filter/types.js';
   import RuleEditor from './RuleEditor.svelte';
 
   let { filter = $bindable(), selected = $bindable(-1), onedit, onimport }: {

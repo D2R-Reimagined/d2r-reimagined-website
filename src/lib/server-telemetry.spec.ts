@@ -1,8 +1,8 @@
 import { afterEach, expect, it, vi } from 'vitest';
 const stream = vi.hoisted(() => vi.fn());
-vi.mock('$lib/auth', () => ({ apiRequest: vi.fn(), apiStreamRequest: stream,
+vi.mock('#lib/auth.js', () => ({ apiRequest: vi.fn(), apiStreamRequest: stream,
   ApiError: class extends Error { constructor(message: string, public status: number) { super(message); } } }));
-import { ApiError } from '$lib/auth';
+import { ApiError } from '#lib/auth.js';
 import { appendLogs, bundleRevisionSummary, connectServerTelemetry, d2rLoaderSummary, installedBuildSummary, TelemetryEventParser, type TelemetryFrame, type TelemetryLog } from './server-telemetry';
 const frame: TelemetryFrame = { nowUtc: '2026-10-02T12:00:00Z', servers: [], serverId: 'eu-1', cursor: 1, gap: false,
   entries: [{ cursor: 1, session: 'one', sourceId: 1, timestamp: 1, level: 1, message: 'Aurelia joined 漢' }] };

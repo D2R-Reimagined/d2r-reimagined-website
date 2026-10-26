@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { ApiError } from '$lib/auth';
-  import { feedbackTypeLabel, getFeedbackTypes, searchFeedback, updateFeedbackStatus, type Feedback, type FeedbackStatus } from '$lib/feedback';
+  import { ApiError } from '#lib/auth.js';
+  import { feedbackTypeLabel, getFeedbackTypes, searchFeedback, updateFeedbackStatus, type Feedback, type FeedbackStatus } from '#lib/feedback.js';
 
   const pageSize = 25;
   let reports = $state<Feedback[]>([]);

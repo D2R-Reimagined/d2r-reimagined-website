@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { updateUserParticipation, type AdminUser } from '$lib/admin';
+  import { updateUserParticipation, type AdminUser } from '#lib/admin.js';
 
   let { user, onsaved, oncancel }: { user: AdminUser; onsaved: (user: AdminUser) => void; oncancel: () => void } = $props();
   // svelte-ignore state_referenced_locally

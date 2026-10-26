@@ -2,8 +2,8 @@
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
   import { CheckCircleSolid, InfoCircleSolid, LockSolid } from 'flowbite-svelte-icons';
-  import { ApiError, authState, initializeAuth } from '$lib/auth';
-  import { equipMtx, fetchMtx, groupBySlot, mtxPreview, ownedCount, type MtxItem, type MtxLoadout, type MtxSlot } from '$lib/mtx';
+  import { ApiError, authState, initializeAuth } from '#lib/auth.js';
+  import { equipMtx, fetchMtx, groupBySlot, mtxPreview, ownedCount, type MtxItem, type MtxLoadout, type MtxSlot } from '#lib/mtx.js';
 
   const signInHref = '/profile?returnTo=%2Fmtx';
 

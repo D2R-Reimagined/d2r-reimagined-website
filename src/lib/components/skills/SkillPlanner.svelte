@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import { i18n } from '$lib/i18n';
-  import type { Skill, SkillClass } from '$lib/types';
+  import { i18n } from '#lib/i18n.js';
+  import type { Skill, SkillClass } from '#lib/types.js';
   import SkillTreeView from './SkillTreeView.svelte';
 
   let { classes, ranks = $bindable({}), classCode, persist = true, readonly = false, compact = false }: {

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import skillClasses from '../../static/data/keyed/skills.json';
-import type { Skill, SkillClass } from '$lib/types';
+import type { Skill, SkillClass } from '#lib/types.js';
 import { applySkillSynergy, evaluateSkillCalc, skillSynergyBonus } from './skill-calculation';
 
 function skill(id: number, code: string, overrides: Partial<Skill> = {}): Skill {

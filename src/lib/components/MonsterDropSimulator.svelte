@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onDestroy, untrack } from 'svelte';
-  import { afterNavigate, replaceState } from '$app/navigation';
+  import { afterNavigate, goto } from '$app/navigation';
   import { page as routePage } from '$app/state';
-  import { i18n } from '$lib/i18n';
+  import { i18n } from '#lib/i18n.js';
   import SearchableSelect from './SearchableSelect.svelte';
-  import type { DropData } from '$lib/drop-calculator';
-  import type { MonsterDropReport } from '$lib/monster-drop-calculator';
-  import { readMonsterDropUrl, writeMonsterDropUrl } from '$lib/monster-drop-url';
+  import type { DropData } from '#lib/drop-calculator.js';
+  import type { MonsterDropReport } from '#lib/monster-drop-calculator.js';
+  import { readMonsterDropUrl, writeMonsterDropUrl } from '#lib/monster-drop-url.js';
 
   let { data }: { data: DropData } = $props();
   const initial = untrack(() => readMonsterDropUrl(routePage.url));
@@ -18,26 +18,63 @@
   let worker: Worker | undefined;
   let form: HTMLFormElement;
   const difficulties = ['Normal', 'Nightmare', 'Hell'];
-  const options = $derived(data.Sources.filter(s => s.Difficulty === difficulty).map(s => ({ value: s.Id,
+
+  const options = $derived(data.Sources.filter((s) => s.Difficulty === difficulty).map((s) => ({
+    value: s.Id,
     label: `${$i18n.t(s.NameKey)} — ${s.Kind === 'quest' ? 'Quest boss' : s.Kind} · ${s.AreaKey ? $i18n.t(s.AreaKey) : 'Fixed / summoned spawn'} · Level ${s.Level}`
-  })).sort((a,b) => a.label.localeCompare(b.label)));
-  const source = $derived(data.Sources.find(s => s.Id === sourceId && s.Difficulty === difficulty));
+  })).sort((a, b) => a.label.localeCompare(b.label)));
+  const source = $derived(data.Sources.find((s) => s.Id === sourceId && s.Difficulty === difficulty));
   const categories = ['all', 'unique', 'set', 'rune', 'misc', 'other equipment'];
-  const visible = $derived((report?.rows ?? []).filter(row => (category === 'all' || row.quality === category) &&
-    (!droppedOnly || !report?.simulated || row.count > 0) && $i18n.t(row.nameKey).toLocaleLowerCase().includes(search.toLocaleLowerCase())));
-  const percent = (chance: number) => `${(chance * 100).toLocaleString('en-US', {maximumSignificantDigits:5})}%`;
-  function invalidate() { worker?.terminate(); worker = undefined; busy = false; report = null; error = ''; page = 0; }
+  const visible = $derived((report?.rows ?? []).filter((row) => (category === 'all' || row.quality === category) && (!droppedOnly || !report?.simulated || row.count > 0) && $i18n.t(row.nameKey).toLocaleLowerCase().includes(search.toLocaleLowerCase())));
+  const percent = (chance: number) => `${(chance * 100).toLocaleString('en-US', { maximumSignificantDigits: 5 })}%`;
+
+  function invalidate() {
+    worker?.terminate();
+    worker = undefined;
+    busy = false;
+    report = null;
+    error = '';
+    page = 0;
+  }
+
   function run(simulate: boolean) {
     if (!source || !form?.reportValidity()) return;
     invalidate(); busy = true;
     try {
       worker = new Worker(new URL('../monster-drop-calculator.worker.ts', import.meta.url), { type: 'module' });
-      worker.onmessage = event => { report = event.data.report ?? null; error = event.data.error ?? ''; busy = false; worker?.terminate(); worker = undefined; };
-      worker.onerror = () => { error = 'Unable to calculate this monster. Please try again.'; busy = false; worker?.terminate(); worker = undefined; };
-      worker.postMessage($state.snapshot({data, sourceId, settings:{players,party,magicFind,difficulty,kind:'all'},kills,seed,simulate}));
-    } catch { busy = false; error = 'Unable to start the calculator.'; }
+
+      worker.onmessage = (event) => {
+        report = event.data.report ?? null;
+        error = event.data.error ?? '';
+        busy = false;
+        worker?.terminate();
+        worker = undefined;
+      };
+
+      worker.onerror = () => {
+        error = 'Unable to calculate this monster. Please try again.';
+        busy = false;
+        worker?.terminate();
+        worker = undefined;
+      };
+
+      worker.postMessage($state.snapshot({
+        data,
+        sourceId,
+        settings: { players, party, magicFind, difficulty, kind: 'all' },
+        kills,
+        seed,
+        simulate
+      }));
+    } catch {
+      busy = false;
+      error = 'Unable to start the calculator.';
+    }
   }
-  afterNavigate(() => {
+
+  afterNavigate(({ shallow, type }) => {
+    if (shallow && type === 'goto') return;
+
     invalidate();
     const restored = readMonsterDropUrl(routePage.url);
     sourceId = restored.sourceId; difficulty = restored.difficulty; kills = restored.kills;
@@ -47,8 +84,8 @@
   });
   $effect(() => {
     if (!ready) return;
-    const url = writeMonsterDropUrl(routePage.url,{sourceId,difficulty,kills,players,party,magicFind,seed});
-    if (url.href !== routePage.url.href) replaceState(url,routePage.state);
+    const url = writeMonsterDropUrl(routePage.url, { sourceId, difficulty, kills, players, party, magicFind, seed });
+    if (url.href !== routePage.url.href) goto(url, { shallow: true, replace: true, state: routePage.state });
   });
   async function copyLink() {
     try { await navigator.clipboard.writeText(routePage.url.href); status = 'Link copied'; }
@@ -57,22 +94,144 @@
   onDestroy(() => worker?.terminate());
 </script>
 
-<form bind:this={form} class="panel rounded-lg p-5 sm:p-7" onsubmit={event => {event.preventDefault();run(false);}}>
-  <h2 class="display-text text-2xl">Monster drops &amp; simulation</h2>
+<form
+  bind:this={form}
+  class="panel rounded-lg p-5 sm:p-7"
+  onsubmit={(event) => {
+    event.preventDefault();
+    run(false);
+  }}
+>
+  <h2 class="display-text text-2xl">Monster drops & simulation</h2>
   <p class="mt-2 text-sm text-parchment-300">Choose a monster to see its loot table, then simulate a full run of kills.</p>
-  <div class="mt-5 grid items-end gap-5 sm:grid-cols-[12rem_1fr]">
-    <label><span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Difficulty</span><select class="field w-full" bind:value={difficulty} onchange={() => {sourceId='';invalidate();}}>{#each difficulties as label,value}<option {value}>{label}</option>{/each}</select></label>
-    <SearchableSelect id="simulation-monster" label="Monster / area" placeholder="Search for a monster…" {options}
-      bind:value={() => sourceId, value => {sourceId=value;invalidate();}} />
+
+  <div
+    class="mt-5 grid items-end gap-5 sm:grid-cols-[12rem_1fr]"
+  >
+    <label>
+      <span
+        class="mb-1 block text-xs uppercase tracking-widest text-parchment-300"
+      >Difficulty</span>
+
+      <select
+        class="field w-full"
+        bind:value={difficulty}
+        onchange={() => {
+          sourceId = '';
+          invalidate();
+        }}
+      >
+        {#each difficulties as label, value}
+          <option value={value}>{label}</option>
+        {/each}
+      </select>
+    </label>
+
+    <SearchableSelect
+      id="simulation-monster"
+      label="Monster / area"
+      placeholder="Search for a monster…"
+      options={options}
+      bind:value={() => sourceId, (value) => {
+        sourceId = value;
+        invalidate();
+      }}
+    />
   </div>
-  {#if sourceId && !source}<p class="mt-3 text-requirement">This monster selection is no longer available. Choose another source.</p>{/if}
-  {#if source}<p class="mt-3 text-sm text-parchment-300">{difficulties[source.Difficulty]} · Level {source.Level} · {source.TreasureClass}{source.Kind === 'quest' ? ' · Assumes the quest drop is active' : ''}</p>{/if}
-  <div class="mt-5 grid items-end gap-5 sm:grid-cols-2 xl:grid-cols-5">
-    <label><span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Kills to simulate</span><input class="field w-full" type="number" min="1" max="100000" required bind:value={kills} oninput={invalidate}/></label>
-    <label><span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Players in game</span><select class="field w-full" bind:value={players} onchange={() => {party=Math.min(party,players);invalidate();}}>{#each Array.from({length:8},(_,i)=>i+1) as value}<option {value}>{value}</option>{/each}</select></label>
-    <label><span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Nearby party (incl. you)</span><select class="field w-full" bind:value={party} onchange={invalidate}>{#each Array.from({length:players},(_,i)=>i+1) as value}<option {value}>{value}</option>{/each}</select></label>
-    <label><span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Magic find %</span><input class="field w-full" type="number" min="0" max="10000" required bind:value={magicFind} oninput={invalidate}/></label>
-    <label><span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Simulation seed</span><input class="field w-full" type="number" min="0" max="4294967295" required bind:value={seed} oninput={invalidate}/></label>
+
+  {#if sourceId && !source}
+    <p class="mt-3 text-requirement">This monster selection is no longer available. Choose another source.</p>
+  {/if}
+
+  {#if source}
+    <p class="mt-3 text-sm text-parchment-300">{difficulties[source.Difficulty]} · Level {source.Level} · {source.TreasureClass}{source.Kind === 'quest' ? ' · Assumes the quest drop is active' : ''}</p>
+  {/if}
+
+  <div
+    class="mt-5 grid items-end gap-5 sm:grid-cols-2 xl:grid-cols-5"
+  >
+    <label>
+      <span
+        class="mb-1 block text-xs uppercase tracking-widest text-parchment-300"
+      >Kills to simulate</span>
+
+      <input
+        class="field w-full"
+        type="number"
+        min="1"
+        max="100000"
+        required
+        bind:value={kills}
+        oninput={invalidate}
+      />
+    </label>
+
+    <label>
+      <span
+        class="mb-1 block text-xs uppercase tracking-widest text-parchment-300"
+      >Players in game</span>
+
+      <select
+        class="field w-full"
+        bind:value={players}
+        onchange={() => {
+          party = Math.min(party, players);
+          invalidate();
+        }}
+      >
+        {#each Array.from({ length: 8 }, (_, i) => i + 1) as value}
+          <option value={value}>{value}</option>
+        {/each}
+      </select>
+    </label>
+
+    <label>
+      <span
+        class="mb-1 block text-xs uppercase tracking-widest text-parchment-300"
+      >Nearby party (incl. you)</span>
+
+      <select
+        class="field w-full"
+        bind:value={party}
+        onchange={invalidate}
+      >
+        {#each Array.from({ length: players }, (_, i) => i + 1) as value}
+          <option value={value}>{value}</option>
+        {/each}
+      </select>
+    </label>
+
+    <label>
+      <span
+        class="mb-1 block text-xs uppercase tracking-widest text-parchment-300"
+      >Magic find %</span>
+
+      <input
+        class="field w-full"
+        type="number"
+        min="0"
+        max="10000"
+        required
+        bind:value={magicFind}
+        oninput={invalidate}
+      />
+    </label>
+
+    <label>
+      <span
+        class="mb-1 block text-xs uppercase tracking-widest text-parchment-300"
+      >Simulation seed</span>
+
+      <input
+        class="field w-full"
+        type="number"
+        min="0"
+        max="4294967295"
+        required
+        bind:value={seed}
+        oninput={invalidate}
+      />
+    </label>
   </div>
   <p class="mt-3 text-sm text-parchment-300">The same seed and settings repeat the same loot run. Change the seed for a fresh roll. For solo /players, leave nearby party at 1.</p>
   <div class="mt-5 flex flex-wrap gap-3">
@@ -91,9 +250,42 @@
     <p class="mt-2 text-sm text-parchment-300">{report.rows.length.toLocaleString()} possible item results · {report.treasureClass}</p>
     {#if report.simulated}<p class="mt-2 text-parchment-200">{report.totalDrops.toLocaleString()} drops · {report.emptyKills.toLocaleString()} empty kills · Seed {report.seed}</p>{/if}
     <div class="my-5 flex flex-wrap items-center gap-4">
-      <label><span class="sr-only">Filter loot items</span><input class="field" placeholder="Filter loot items…" bind:value={search} oninput={() => page=0}/></label>
-      <label><span class="sr-only">Loot category</span><select class="field" bind:value={category} onchange={() => page=0}>{#each categories as value}<option {value}>{value === 'all' ? 'All item types' : value}</option>{/each}</select></label>
-      {#if report.simulated}<label><input type="checkbox" bind:checked={droppedOnly} onchange={() => page=0}/> Only items dropped this run</label>{/if}
+      <label>
+        <span class="sr-only">Filter loot items</span>
+
+        <input
+          class="field"
+          placeholder="Filter loot items…"
+          bind:value={search}
+          oninput={() => page = 0}
+        />
+      </label>
+
+      <label>
+        <span class="sr-only">Loot category</span>
+
+        <select
+          class="field"
+          bind:value={category}
+          onchange={() => page = 0}
+        >
+          {#each categories as value}
+            <option value={value}>{value === 'all' ? 'All item types' : value}</option>
+          {/each}
+        </select>
+      </label>
+
+      {#if report.simulated}
+        <label>
+          <input
+            type="checkbox"
+            bind:checked={droppedOnly}
+            onchange={() => page = 0}
+          />
+
+          Only items dropped this run
+        </label>
+      {/if}
     </div>
     <p class="mb-3 text-sm text-parchment-300">Chance / kill means at least one. Expected drops counts copies across {report.kills.toLocaleString()} kills. Gold and stacked items count drop events, not their quantities. Other equipment groups non-unique/set results by base, without affixes.</p>
     <div class="panel overflow-x-auto rounded-lg">

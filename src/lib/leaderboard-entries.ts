@@ -1,5 +1,5 @@
-// Leaderboard shapes and the pure helpers over them. Kept free of `$lib`
-// imports so it stays unit-testable; `$lib/leaderboards` adds the API calls.
+// Leaderboard shapes and the pure helpers over them. Kept free of `#lib`
+// imports so it stays unit-testable; `#lib/leaderboards.js` adds the API calls.
 
 /**
  * Where a leaderboard row's numbers came from.
