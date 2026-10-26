@@ -1092,8 +1092,8 @@
     },
     {
       "Path": "keyed/skills.json",
-      "Bytes": 1211312,
-      "Sha256": "dd993405f4c1c79657c5a475242191e754f390a3d8ace1b73eb00ef29c044a11",
+      "Bytes": 1212835,
+      "Sha256": "947d14c384be3bc85ffa684a0c2d6d1fc335dd7340c1b81e624947f4735282fa",
       "Producer": "keyed-core"
     },
     {
