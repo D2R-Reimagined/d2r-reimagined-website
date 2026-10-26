@@ -9,6 +9,8 @@
     selected,
     available,
     select,
+    preview,
+    endPreview,
     increase,
     decrease,
     readonly = false
@@ -19,6 +21,8 @@
     selected: boolean;
     available: boolean;
     select: (skill: Skill) => void;
+    preview: (skill: Skill) => void;
+    endPreview: (skill: Skill) => void;
     increase: (skill: Skill, amount?: number) => void;
     decrease: (skill: Skill, amount?: number) => void;
     readonly?: boolean;
@@ -28,6 +32,10 @@
   let initial = $derived(name.trim().charAt(0).toUpperCase() || '?');
   let failedIcon = $state('');
   let icon = $derived(skill.Icon ? `/data/${skill.Icon}` : '');
+
+  function pin(): void {
+    select(skill);
+  }
 
   function addPointAmount(event: MouseEvent): number {
     if (event.shiftKey) return (skill.MaxLevel || 20) - rank;
@@ -42,13 +50,13 @@
   }
 
   function addPoint(event: MouseEvent): void {
-    select(skill);
+    pin();
     if (readonly) return;
     increase(skill, addPointAmount(event));
   }
 
   function removePoint(event: MouseEvent): void {
-    select(skill);
+    pin();
     if (readonly) return;
     decrease(skill, removePointAmount(event));
   }
@@ -77,8 +85,9 @@
       event.preventDefault();
       removePoint(event);
     }}
-    onfocus={() => select(skill)}
-    onmouseenter={() => select(skill)}
+    onfocus={pin}
+    onmouseenter={() => preview(skill)}
+    onmouseleave={() => endPreview(skill)}
     oncontextmenu={(event) => { if (!readonly) event.preventDefault(); }}
   >
     {#if icon && failedIcon !== icon}

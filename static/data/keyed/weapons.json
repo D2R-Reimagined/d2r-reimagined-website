@@ -248,7 +248,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Bow 1",
+        "Code": "Bow 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -262,7 +262,7 @@
         ]
       },
       {
-        "NameKey": "Bow 2",
+        "Code": "Bow 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -276,7 +276,7 @@
         ]
       },
       {
-        "NameKey": "Bow 3",
+        "Code": "Bow 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -449,7 +449,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -521,7 +521,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -713,7 +713,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -1040,7 +1040,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -2082,7 +2082,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Bow 1",
+        "Code": "Bow 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -2096,7 +2096,7 @@
         ]
       },
       {
-        "NameKey": "Bow 2",
+        "Code": "Bow 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -2110,7 +2110,7 @@
         ]
       },
       {
-        "NameKey": "Bow 3",
+        "Code": "Bow 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -2197,7 +2197,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "A Jav 1",
+        "Code": "A Jav 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -2215,7 +2215,7 @@
         ]
       },
       {
-        "NameKey": "A Jav 2",
+        "Code": "A Jav 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -2233,7 +2233,7 @@
         ]
       },
       {
-        "NameKey": "A Jav 3",
+        "Code": "A Jav 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -2311,7 +2311,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Spear 1",
+        "Code": "Spear 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -2325,7 +2325,7 @@
         ]
       },
       {
-        "NameKey": "Spear 2",
+        "Code": "Spear 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -2339,7 +2339,7 @@
         ]
       },
       {
-        "NameKey": "Spear 3",
+        "Code": "Spear 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -2413,7 +2413,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Spear 1",
+        "Code": "Spear 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -2427,7 +2427,7 @@
         ]
       },
       {
-        "NameKey": "Spear 2",
+        "Code": "Spear 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -2441,7 +2441,7 @@
         ]
       },
       {
-        "NameKey": "Spear 3",
+        "Code": "Spear 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -2644,15 +2644,30 @@
       "Index": "tpotitype",
       "Class": ""
     },
-    "DamageTypes": [],
+    "DamageTypes": [
+      {
+        "Type": 4,
+        "AverageDamage": 48,
+        "Lines": [
+          {
+            "key": "StrSkill8",
+            "args": [
+              48,
+              48
+            ]
+          },
+          {
+            "key": "StrSkill63",
+            "args": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
     "RequiredLevel": 16,
     "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strIndestructible",
-        "args": []
-      }
-    ]
+    "Lines": []
   },
   {
     "EquipmentType": 1,
@@ -2802,7 +2817,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -2816,7 +2831,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -2830,7 +2845,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -2844,7 +2859,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -2858,7 +2873,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -2872,7 +2887,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -2886,7 +2901,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -2900,7 +2915,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -2914,7 +2929,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -2928,7 +2943,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -2942,7 +2957,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -2956,7 +2971,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -2970,7 +2985,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -3195,7 +3210,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -3209,7 +3224,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -3223,7 +3238,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -3237,7 +3252,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -3251,7 +3266,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -3265,7 +3280,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -3279,7 +3294,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -3293,7 +3308,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -3307,7 +3322,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -3321,7 +3336,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -3335,7 +3350,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -3349,7 +3364,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -3363,7 +3378,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -4097,7 +4112,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -4111,7 +4126,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -4125,7 +4140,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -4139,7 +4154,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -4153,7 +4168,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -4167,7 +4182,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -4181,7 +4196,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -4195,7 +4210,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -4209,7 +4224,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -4223,7 +4238,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -4237,7 +4252,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -4251,7 +4266,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -4265,7 +4280,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -4537,58 +4552,6 @@
   },
   {
     "EquipmentType": 1,
-    "NameKey": "d33",
-    "NormCode": "d33",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Knife",
-      "Index": "knifitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 1.5,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              1,
-              2
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
-        ]
-      },
-      {
-        "key": "strRequiredStrength",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "strRequiredDexterity",
-        "args": [
-          20
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
     "NameKey": "6rx",
     "NormCode": "rxb",
     "UberCode": "8rx",
@@ -4683,7 +4646,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -4697,7 +4660,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -4711,7 +4674,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -4725,7 +4688,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -4739,7 +4702,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -4753,7 +4716,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -4767,7 +4730,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -4781,7 +4744,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -4795,7 +4758,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -4809,7 +4772,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -4823,7 +4786,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -4837,7 +4800,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -4851,7 +4814,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -5066,7 +5029,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -5080,7 +5043,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -5094,7 +5057,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -5108,7 +5071,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -5122,7 +5085,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -5136,7 +5099,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -5150,7 +5113,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -5164,7 +5127,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -5178,7 +5141,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -5192,7 +5155,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -5206,7 +5169,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -5220,7 +5183,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -5234,7 +5197,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -5483,7 +5446,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -5497,7 +5460,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -5511,7 +5474,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -5525,7 +5488,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -5539,7 +5502,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -5553,7 +5516,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -5567,7 +5530,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -5581,7 +5544,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -5595,7 +5558,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -5609,7 +5572,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -5623,7 +5586,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -5637,7 +5600,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -5651,7 +5614,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -5814,7 +5777,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -5828,7 +5791,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -5842,7 +5805,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -5856,7 +5819,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -5870,7 +5833,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -5884,7 +5847,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -5898,7 +5861,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -5912,7 +5875,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -5926,7 +5889,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -5940,7 +5903,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -5954,7 +5917,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -5968,7 +5931,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -5982,7 +5945,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -6244,15 +6207,37 @@
       "Index": "tpotitype",
       "Class": ""
     },
-    "DamageTypes": [],
+    "DamageTypes": [
+      {
+        "Type": 2,
+        "AverageDamage": 10,
+        "Lines": [
+          {
+            "key": "strWeaponDamageThrow",
+            "args": [
+              8,
+              12
+            ]
+          }
+        ]
+      },
+      {
+        "Type": 4,
+        "AverageDamage": 13,
+        "Lines": [
+          {
+            "key": "StrSkill5",
+            "args": [
+              8,
+              18
+            ]
+          }
+        ]
+      }
+    ],
     "RequiredLevel": 12,
     "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strIndestructible",
-        "args": []
-      }
-    ]
+    "Lines": []
   },
   {
     "EquipmentType": 1,
@@ -6789,7 +6774,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -6867,7 +6852,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -6945,7 +6930,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -6970,15 +6955,37 @@
       "Index": "tpotitype",
       "Class": ""
     },
-    "DamageTypes": [],
+    "DamageTypes": [
+      {
+        "Type": 2,
+        "AverageDamage": 4.5,
+        "Lines": [
+          {
+            "key": "strWeaponDamageThrow",
+            "args": [
+              2,
+              7
+            ]
+          }
+        ]
+      },
+      {
+        "Type": 4,
+        "AverageDamage": 5.5,
+        "Lines": [
+          {
+            "key": "StrSkill5",
+            "args": [
+              3,
+              8
+            ]
+          }
+        ]
+      }
+    ],
     "RequiredLevel": 0,
     "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strIndestructible",
-        "args": []
-      }
-    ]
+    "Lines": []
   },
   {
     "EquipmentType": 1,
@@ -7098,7 +7105,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -7483,7 +7490,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -7594,7 +7601,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -7608,7 +7615,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -7622,7 +7629,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -7636,7 +7643,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -7650,7 +7657,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -7664,7 +7671,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -7678,7 +7685,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -7692,7 +7699,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -7706,7 +7713,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -7720,7 +7727,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -7734,7 +7741,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -7748,7 +7755,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -7762,7 +7769,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -8134,7 +8141,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Bow 1",
+        "Code": "Bow 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -8148,7 +8155,7 @@
         ]
       },
       {
-        "NameKey": "Bow 2",
+        "Code": "Bow 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -8162,7 +8169,7 @@
         ]
       },
       {
-        "NameKey": "Bow 3",
+        "Code": "Bow 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -8482,7 +8489,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -9017,7 +9024,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -9186,7 +9193,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -9200,7 +9207,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -9214,7 +9221,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -9228,7 +9235,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -9242,7 +9249,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -9256,7 +9263,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -9270,7 +9277,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -9284,7 +9291,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -9298,7 +9305,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -9312,7 +9319,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -9326,7 +9333,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -9340,7 +9347,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -9354,7 +9361,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -9531,58 +9538,6 @@
   },
   {
     "EquipmentType": 1,
-    "NameKey": "hdm",
-    "NormCode": "hdm",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Hammer",
-      "Index": "hammitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 10.5,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              6,
-              15
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
-        ]
-      },
-      {
-        "key": "strRequiredStrength",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "strRequiredDexterity",
-        "args": [
-          15
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
     "NameKey": "hbw",
     "NormCode": "hbw",
     "UberCode": "8hb",
@@ -9690,7 +9645,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -9869,7 +9824,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -10026,7 +9981,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -10040,7 +9995,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -10054,7 +10009,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -10068,7 +10023,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -10082,7 +10037,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -10096,7 +10051,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -10110,7 +10065,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -10124,7 +10079,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -10138,7 +10093,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -10152,7 +10107,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -10166,7 +10121,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -10180,7 +10135,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -10194,7 +10149,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -10263,7 +10218,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -10375,98 +10330,6 @@
         "key": "strRequiredClass",
         "args": [
           "Assassin"
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
-    "NameKey": "qf1",
-    "NormCode": "fla",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Mace",
-      "Index": "maceitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 8,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              1,
-              15
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
-        ]
-      },
-      {
-        "key": "strRequiredStrength",
-        "args": [
-          41
-        ]
-      },
-      {
-        "key": "strRequiredDexterity",
-        "args": [
-          35
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
-    "NameKey": "qf2",
-    "NormCode": "fla",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Mace",
-      "Index": "maceitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 8,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              1,
-              15
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
         ]
       }
     ]
@@ -11377,7 +11240,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "A Jav 1",
+        "Code": "A Jav 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -11395,7 +11258,7 @@
         ]
       },
       {
-        "NameKey": "A Jav 2",
+        "Code": "A Jav 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -11413,7 +11276,7 @@
         ]
       },
       {
-        "NameKey": "A Jav 3",
+        "Code": "A Jav 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -11491,7 +11354,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Spear 1",
+        "Code": "Spear 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -11505,7 +11368,7 @@
         ]
       },
       {
-        "NameKey": "Spear 2",
+        "Code": "Spear 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -11519,7 +11382,7 @@
         ]
       },
       {
-        "NameKey": "Spear 3",
+        "Code": "Spear 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -11593,7 +11456,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Spear 1",
+        "Code": "Spear 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -11607,7 +11470,7 @@
         ]
       },
       {
-        "NameKey": "Spear 2",
+        "Code": "Spear 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -11621,7 +11484,7 @@
         ]
       },
       {
-        "NameKey": "Spear 3",
+        "Code": "Spear 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -11790,7 +11653,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Bow 1",
+        "Code": "Bow 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -11804,7 +11667,7 @@
         ]
       },
       {
-        "NameKey": "Bow 2",
+        "Code": "Bow 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -11818,7 +11681,7 @@
         ]
       },
       {
-        "NameKey": "Bow 3",
+        "Code": "Bow 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -11905,7 +11768,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "A Jav 1",
+        "Code": "A Jav 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -11923,7 +11786,7 @@
         ]
       },
       {
-        "NameKey": "A Jav 2",
+        "Code": "A Jav 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -11941,7 +11804,7 @@
         ]
       },
       {
-        "NameKey": "A Jav 3",
+        "Code": "A Jav 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -12019,7 +11882,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Spear 1",
+        "Code": "Spear 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -12033,7 +11896,7 @@
         ]
       },
       {
-        "NameKey": "Spear 2",
+        "Code": "Spear 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -12047,7 +11910,7 @@
         ]
       },
       {
-        "NameKey": "Spear 3",
+        "Code": "Spear 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -12121,7 +11984,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Spear 1",
+        "Code": "Spear 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -12135,7 +11998,7 @@
         ]
       },
       {
-        "NameKey": "Spear 2",
+        "Code": "Spear 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -12149,7 +12012,7 @@
         ]
       },
       {
-        "NameKey": "Spear 3",
+        "Code": "Spear 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -12667,15 +12530,37 @@
       "Index": "tpotitype",
       "Class": ""
     },
-    "DamageTypes": [],
+    "DamageTypes": [
+      {
+        "Type": 2,
+        "AverageDamage": 21.5,
+        "Lines": [
+          {
+            "key": "strWeaponDamageThrow",
+            "args": [
+              13,
+              30
+            ]
+          }
+        ]
+      },
+      {
+        "Type": 4,
+        "AverageDamage": 23.5,
+        "Lines": [
+          {
+            "key": "StrSkill5",
+            "args": [
+              13,
+              34
+            ]
+          }
+        ]
+      }
+    ],
     "RequiredLevel": 20,
     "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strIndestructible",
-        "args": []
-      }
-    ]
+    "Lines": []
   },
   {
     "EquipmentType": 1,
@@ -12985,7 +12870,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -13252,15 +13137,30 @@
       "Index": "tpotitype",
       "Class": ""
     },
-    "DamageTypes": [],
+    "DamageTypes": [
+      {
+        "Type": 4,
+        "AverageDamage": 72,
+        "Lines": [
+          {
+            "key": "StrSkill8",
+            "args": [
+              72,
+              72
+            ]
+          },
+          {
+            "key": "StrSkill63",
+            "args": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
     "RequiredLevel": 24,
     "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strIndestructible",
-        "args": []
-      }
-    ]
+    "Lines": []
   },
   {
     "EquipmentType": 1,
@@ -13367,7 +13267,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Bow 1",
+        "Code": "Bow 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -13381,7 +13281,7 @@
         ]
       },
       {
-        "NameKey": "Bow 2",
+        "Code": "Bow 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -13395,7 +13295,7 @@
         ]
       },
       {
-        "NameKey": "Bow 3",
+        "Code": "Bow 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -13907,7 +13807,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -13921,7 +13821,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -13935,7 +13835,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -13949,7 +13849,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -13963,7 +13863,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -13977,7 +13877,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -13991,7 +13891,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -14005,7 +13905,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -14019,7 +13919,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -14033,7 +13933,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -14047,7 +13947,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -14061,7 +13961,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -14075,7 +13975,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -14860,7 +14760,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -15168,7 +15068,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -15279,7 +15179,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -15293,7 +15193,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -15307,7 +15207,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -15321,7 +15221,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -15335,7 +15235,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -15349,7 +15249,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -15363,7 +15263,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -15377,7 +15277,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -15391,7 +15291,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -15405,7 +15305,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -15419,7 +15319,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -15433,7 +15333,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -15447,7 +15347,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -15509,7 +15409,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -15523,7 +15423,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -15537,7 +15437,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -15551,7 +15451,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -15565,7 +15465,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -15579,7 +15479,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -15593,7 +15493,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -15607,7 +15507,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -15621,7 +15521,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -15635,7 +15535,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -15649,7 +15549,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -15663,7 +15563,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -15677,7 +15577,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -15856,7 +15756,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -16013,7 +15913,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Bow 1",
+        "Code": "Bow 1",
         "Level": 1,
         "RequiredLevel": 15,
         "Lines": [
@@ -16027,7 +15927,7 @@
         ]
       },
       {
-        "NameKey": "Bow 2",
+        "Code": "Bow 2",
         "Level": 40,
         "RequiredLevel": 30,
         "Lines": [
@@ -16041,7 +15941,7 @@
         ]
       },
       {
-        "NameKey": "Bow 3",
+        "Code": "Bow 3",
         "Level": 60,
         "RequiredLevel": 45,
         "Lines": [
@@ -16173,15 +16073,30 @@
       "Index": "tpotitype",
       "Class": ""
     },
-    "DamageTypes": [],
+    "DamageTypes": [
+      {
+        "Type": 4,
+        "AverageDamage": 24,
+        "Lines": [
+          {
+            "key": "StrSkill8",
+            "args": [
+              24,
+              24
+            ]
+          },
+          {
+            "key": "StrSkill63",
+            "args": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
     "RequiredLevel": 6,
     "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strIndestructible",
-        "args": []
-      }
-    ]
+    "Lines": []
   },
   {
     "EquipmentType": 1,
@@ -16301,7 +16216,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -16412,7 +16327,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -16426,7 +16341,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -16440,7 +16355,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -16454,7 +16369,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -16468,7 +16383,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -16482,7 +16397,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -16496,7 +16411,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -16510,7 +16425,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -16524,7 +16439,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -16538,7 +16453,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -16552,7 +16467,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -16566,7 +16481,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -16580,7 +16495,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -16637,58 +16552,6 @@
         "key": "strRequiredStrength",
         "args": [
           101
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
-    "NameKey": "g33",
-    "NormCode": "g33",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Knife",
-      "Index": "knifitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 5,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              3,
-              7
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
-        ]
-      },
-      {
-        "key": "strRequiredStrength",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "strRequiredDexterity",
-        "args": [
-          25
         ]
       }
     ]
@@ -16805,7 +16668,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -16877,7 +16740,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -16949,7 +16812,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -17576,7 +17439,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Mana 1",
+        "Code": "Mana 1",
         "Level": 3,
         "RequiredLevel": 2,
         "Lines": [
@@ -17590,7 +17453,7 @@
         ]
       },
       {
-        "NameKey": "HP 1",
+        "Code": "HP 1",
         "Level": 1,
         "RequiredLevel": 3,
         "Lines": [
@@ -17604,7 +17467,7 @@
         ]
       },
       {
-        "NameKey": "HP 2",
+        "Code": "HP 2",
         "Level": 11,
         "RequiredLevel": 8,
         "Lines": [
@@ -17618,7 +17481,7 @@
         ]
       },
       {
-        "NameKey": "Mana 2",
+        "Code": "Mana 2",
         "Level": 12,
         "RequiredLevel": 9,
         "Lines": [
@@ -17632,7 +17495,7 @@
         ]
       },
       {
-        "NameKey": "Mana 3",
+        "Code": "Mana 3",
         "Level": 23,
         "RequiredLevel": 16,
         "Lines": [
@@ -17646,7 +17509,7 @@
         ]
       },
       {
-        "NameKey": "HP 3",
+        "Code": "HP 3",
         "Level": 27,
         "RequiredLevel": 20,
         "Lines": [
@@ -17660,7 +17523,7 @@
         ]
       },
       {
-        "NameKey": "Mana 4",
+        "Code": "Mana 4",
         "Level": 34,
         "RequiredLevel": 26,
         "Lines": [
@@ -17674,7 +17537,7 @@
         ]
       },
       {
-        "NameKey": "HP 4",
+        "Code": "HP 4",
         "Level": 43,
         "RequiredLevel": 35,
         "Lines": [
@@ -17688,7 +17551,7 @@
         ]
       },
       {
-        "NameKey": "Mana 5",
+        "Code": "Mana 5",
         "Level": 45,
         "RequiredLevel": 37,
         "Lines": [
@@ -17702,7 +17565,7 @@
         ]
       },
       {
-        "NameKey": "Mana 6",
+        "Code": "Mana 6",
         "Level": 56,
         "RequiredLevel": 48,
         "Lines": [
@@ -17716,7 +17579,7 @@
         ]
       },
       {
-        "NameKey": "HP 5",
+        "Code": "HP 5",
         "Level": 59,
         "RequiredLevel": 51,
         "Lines": [
@@ -17730,7 +17593,7 @@
         ]
       },
       {
-        "NameKey": "Mana 7",
+        "Code": "Mana 7",
         "Level": 67,
         "RequiredLevel": 59,
         "Lines": [
@@ -17744,7 +17607,7 @@
         ]
       },
       {
-        "NameKey": "HP 6",
+        "Code": "HP 6",
         "Level": 75,
         "RequiredLevel": 67,
         "Lines": [
@@ -18049,7 +17912,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -18277,7 +18140,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -18750,7 +18613,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -18828,7 +18691,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -18906,7 +18769,7 @@
     ],
     "AutoMagicGroups": [
       {
-        "NameKey": "Replinish Quant",
+        "Code": "Replinish Quant",
         "Level": 1,
         "RequiredLevel": 1,
         "Lines": [
@@ -18914,46 +18777,6 @@
             "key": "ModStre9v",
             "args": []
           }
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
-    "NameKey": "leg",
-    "NormCode": "leg",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Club",
-      "Index": "clubitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 5,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              2,
-              8
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
         ]
       }
     ]

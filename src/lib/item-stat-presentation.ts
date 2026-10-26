@@ -12,7 +12,9 @@ export interface ItemStatPresentation {
 }
 
 export interface ItemStatSkillPresentation {
-  NameKey: string;
+  /** Absent for skills with no localized name (monster-only skills); use FallbackName. */
+  NameKey?: string;
+  /** Raw English name, never a translation key. */
   FallbackName: string;
   LineKey: string;
   ClassOnlyKey?: string;
@@ -67,6 +69,12 @@ export function loadItemStatPresentation(): Promise<ItemStatPresentationBundle> 
     return await response.json() as ItemStatPresentationBundle;
   });
   return presentationPromise;
+}
+
+// Line arguments are resolved through i18n, which returns an unknown string verbatim, so the
+// English FallbackName renders as-is when the export ships no NameKey for the skill.
+function skillNameArg(skill: ItemStatSkillPresentation): string {
+  return skill.NameKey || skill.FallbackName;
 }
 
 function words(value: string): string {
@@ -157,7 +165,7 @@ function skillLine(
 ): DisplayStatLine | null {
   const skill = bundle.Skills[String(stat.layer)];
   if (!skill) return null;
-  const args: Array<string | number> = [valueOf(stat, bundle, context), skill.NameKey];
+  const args: Array<string | number> = [valueOf(stat, bundle, context), skillNameArg(skill)];
   if (skill.ClassOnlyKey) args.push(skill.ClassOnlyKey);
   return {
     keyed: { key: skill.LineKey, args },
@@ -202,7 +210,7 @@ function displayedSkillLine(
   const value = valueOf(stat, bundle, context);
   const aura = metadata.Function === 16;
   return {
-    keyed: { key, args: [value, skill.NameKey] },
+    keyed: { key, args: [value, skillNameArg(skill)] },
     fallback: aura
       ? `Level ${value} ${skill.FallbackName} Aura When Equipped`
       : `+${value} to ${skill.FallbackName} (oskill)`
@@ -249,7 +257,7 @@ export function isHiddenItemStat(
   if (hiddenStatNames.has(stat.name)) return true;
   if (stat.name !== 'item_nonclassskill' && stat.name !== 'item_singleskill') return false;
   const skill = bundle?.Skills[String(stat.layer)];
-  return hiddenSkillIds.has(stat.layer) || hiddenSkillNameKeys.has(skill?.NameKey.toLowerCase() ?? '');
+  return hiddenSkillIds.has(stat.layer) || hiddenSkillNameKeys.has(skill?.NameKey?.toLowerCase() ?? '');
 }
 
 function eventSkillLine(
@@ -264,7 +272,7 @@ function eventSkillLine(
   const { skill, level } = packedSkill(stat, bundle);
   if (!skill) return keyedLine(stat, bundle, context);
   return {
-    keyed: { key, args: [valueOf(stat, bundle, context), level, skill.NameKey] },
+    keyed: { key, args: [valueOf(stat, bundle, context), level, skillNameArg(skill)] },
     fallback: `${valueOf(stat, bundle, context)}% chance to cast level ${level} ${skill.FallbackName}`
   };
 }
@@ -288,7 +296,7 @@ function chargedSkillLine(
   const charges = stat.value & 0xff;
   const maximum = (stat.value >> 8) & 0xff;
   return {
-    keyed: { key: 'strSkillCharges', args: [level, skill.NameKey, charges, maximum] },
+    keyed: { key: 'strSkillCharges', args: [level, skillNameArg(skill), charges, maximum] },
     fallback: `Level ${level} ${skill.FallbackName} (${charges}/${maximum} Charges)`
   };
 }

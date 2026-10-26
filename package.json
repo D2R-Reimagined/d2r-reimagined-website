@@ -5,7 +5,7 @@
     "type": "module",
     "packageManager": "pnpm@11.28.8",
     "scripts": {
-        "build": "vite build",
+        "build": "vite build && node scripts/verify-build.mjs",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "dependencies:check": "pnpm dlx npm-check-updates",
         "dependencies:update": "pnpm dlx npm-check-updates -u",

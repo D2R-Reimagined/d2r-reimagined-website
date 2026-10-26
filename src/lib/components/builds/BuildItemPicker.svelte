@@ -1,7 +1,7 @@
 <script lang="ts">
   import { loadCatalog } from '#lib/catalog-sources.js';
   import { searchText } from '#lib/catalog.js';
-  import { buildItemTitle, isCraftRecipe } from '#lib/build-items.js';
+  import { buildItemKey, buildItemTitle, isCraftRecipe } from '#lib/build-items.js';
   import { i18n } from '#lib/i18n.js';
   import type { CatalogItem } from '#lib/types.js';
   import type { BuildItemReference } from '#lib/builds.js';
@@ -25,7 +25,7 @@
   <div class="picker-fields"><label>Catalog<select class="field" bind:value={catalog}><option value="uniques">Unique items</option><option value="sets">Sets</option><option value="runewords">Runewords</option><option value="bases">Item bases</option><option value="cube-recipes">Crafts</option></select></label>
     <label>Find an item<input class="field" bind:value={search} placeholder="Search item names…" /></label></div>
   {#if error}<p role="alert">{error}</p>{:else if loading}<p>Loading catalog…</p>
-  {:else}<div class="results">{#each results as item}<button type="button" onclick={() => onchoose({ catalog, key: String(item.Index ?? item.NameKey ?? '') })}>{buildItemTitle(item, catalog, $i18n)}<span>＋</span></button>{/each}
+  {:else}<div class="results">{#each results as item}<button type="button" onclick={() => onchoose({ catalog, key: buildItemKey(item, catalog) })}>{buildItemTitle(item, catalog, $i18n)}<span>＋</span></button>{/each}
     {#if !results.length}<p>No items found.</p>{/if}</div>{/if}
 </div>
 <style>

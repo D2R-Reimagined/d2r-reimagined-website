@@ -38,3 +38,6 @@ node_modules
 /.svelte-kit
 /build
 /artifacts
+
+# Temporary directories from destructive exports
+/static/data/.d2r-export-*/

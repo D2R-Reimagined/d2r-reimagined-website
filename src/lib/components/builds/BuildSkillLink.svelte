@@ -3,6 +3,7 @@
   import { loadSkillClasses } from '#lib/skills.js';
   import { findBuildSkill, skillPreviewRank } from '#lib/build-skills.js';
   import { i18n } from '#lib/i18n.js';
+  import { skillPointsFromRank } from '#lib/skill-points.js';
   import type { Skill } from '#lib/types.js';
   import SkillDetails from '#lib/components/skills/SkillDetails.svelte';
 
@@ -79,7 +80,7 @@
         <button type="button" class="pin" aria-label={pinned ? 'Unpin skill details' : 'Pin skill details'} aria-pressed={pinned} onclick={togglePin}>{pinned ? 'Unpin' : 'Pin'}</button>
         <button type="button" class="close" onclick={() => { trigger.focus(); close(); }} aria-label="Close skill details">×</button>
       </span>
-      {#if skill}<SkillDetails {skill} {skills} ranks={{}} rank={skillPreviewRank(skill, rank)} available={false} increase={() => {}} decrease={() => {}} readonly headingLabel="Skill preview - no equipment or synergy bonuses" />{:else}<span class="fallback">{error || "Loading skill..."}</span>{/if}
+      {#if skill}<SkillDetails {skill} {skills} ranks={{}} rank={skillPreviewRank(skill, rank)} points={skillPointsFromRank(skill, rank)} available={false} increase={() => {}} decrease={() => {}} readonly headingLabel="Skill preview - other skills at rank 0" />{:else}<span class="fallback">{error || "Loading skill..."}</span>{/if}
     </span>
   {/if}
 </span>

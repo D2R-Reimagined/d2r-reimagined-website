@@ -66,9 +66,9 @@
         confirming = false;
       }
       // Keep the thank-you banner but drop the session id from the address bar and history.
-      const url = new URL(page.url);
+      const url = new URL(page.url.href);
       url.searchParams.delete('session_id');
-      await goto(url, { replaceState: true, noScroll: true, keepFocus: true });
+      await goto(url, { replaceState: true, reset: false });
     }
     if ($authState.user) await loadPurchases();
   });

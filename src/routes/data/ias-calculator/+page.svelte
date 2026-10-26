@@ -15,7 +15,7 @@
     } from '#lib/ias-calculator.js';
 
     let {data} = $props();
-    let setup = $state(untrack(() => readIasUrl(page.url, data.ias)));
+    let setup = $state(untrack(() => readIasUrl(new URL(page.url.href), data.ias)));
     let ready = $state(false);
     let shareStatus = $state('');
     let weaponSearch = $state('');
@@ -30,7 +30,7 @@
     let buffs = $derived(data.ias.Buffs.filter((b) => b.Code !== 'Maul' && (b.Code !== 'Wearwolf' || setup.form === 'wolf')));
 
     function normalizeInputs() {
-        setup = readIasUrl(writeIasUrl(page.url, setup, data.ias), data.ias);
+        setup = readIasUrl(writeIasUrl(new URL(page.url.href), setup, data.ias), data.ias);
     }
 
     function reconcile() {
@@ -57,13 +57,13 @@
     afterNavigate(({ shallow, type }) => {
         if (shallow && type === 'goto') return;
 
-        setup = readIasUrl(page.url, data.ias);
+        setup = readIasUrl(new URL(page.url.href), data.ias);
         reconcile();
         ready = true;
     });
     $effect(() => {
         if (!ready) return;
-        const url = writeIasUrl(page.url, setup, data.ias);
+        const url = writeIasUrl(new URL(page.url.href), setup, data.ias);
         if (url.href !== page.url.href) {
             goto(url, { shallow: true, replace: true, state: page.state });
             shareStatus = '';
@@ -72,7 +72,7 @@
 
     async function copyLink() {
         try {
-            await navigator.clipboard.writeText(writeIasUrl(page.url, setup, data.ias).href);
+            await navigator.clipboard.writeText(writeIasUrl(new URL(page.url.href), setup, data.ias).href);
             shareStatus = 'Link copied';
         } catch {
             shareStatus = 'Copy the address from your browser to share this setup.';

@@ -142,12 +142,12 @@
     ladderChoice = next;
 
     // Keeps a shared link pointing at the board being looked at.
-    goto(leaderboardFilterUrl(page.url, next, selectedClass), { shallow: true, replace: true, state: page.state });
+    goto(leaderboardFilterUrl(new URL(page.url.href), next, selectedClass), { shallow: true, replace: true, state: page.state });
   }
 
   function chooseClass(next: string): void {
     classChoice = next;
-    goto(leaderboardFilterUrl(page.url, ladderId, next), { shallow: true, replace: true, state: page.state });
+    goto(leaderboardFilterUrl(new URL(page.url.href), ladderId, next), { shallow: true, replace: true, state: page.state });
   }
 
   function standingLabel(entry: LeaderboardEntry): string {

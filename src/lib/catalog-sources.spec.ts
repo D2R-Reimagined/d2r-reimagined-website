@@ -36,17 +36,24 @@ describe('catalog sources', () => {
     expect(buildCatalog('uniques', { uniques: rows })).toEqual(rows);
   });
 
-  it('hides only the removed runewords across catalogs, search, counts, and the grail', async () => {
-    const removed = ['Fortitude (Dummy)', 'Rain Reimagined'];
+  it('still hides the legacy placeholder runewords if an export ships them', () => {
+    const rows: CatalogItem[] = [{ Index: 'Rain' }, { Index: 'Rain Reimagined' }, { Index: 'Fortitude (Dummy)' }, { Index: 'Fortitude' }];
+    expect(buildCatalog('runewords', { runewords: rows })).toEqual([rows[0], rows[3]]);
+  });
+
+  it('shows every exported runeword across catalogs, search, counts, and the grail', async () => {
     const rows = runewords as CatalogItem[];
-    expect(rows.filter((row) => removed.includes(String(row.Index)))).toHaveLength(2);
-    const expected = rows.filter((row) => !removed.includes(String(row.Index)));
-    expect(buildCatalog('runewords', { runewords: rows })).toEqual(expected);
+    const visible = buildCatalog('runewords', { runewords: rows });
+    expect(visible.length).toBeGreaterThan(0);
+    // Only legacy placeholder rows may be dropped; every real runeword, same-name ones included, stays.
+    const dropped = rows.filter((row) => !visible.includes(row)).map((row) => String(row.Index));
+    expect(dropped.filter((name) => !/ Reimagined$|\(Dummy\)$/.test(name))).toEqual([]);
+    expect(visible).toEqual(rows.filter((row) => visible.includes(row)));
 
     const fetcher = (async () => ({ ok: true, json: async () => rows })) as unknown as typeof fetch;
-    expect(await loadCatalog('runewords', fetcher)).toEqual(expected);
-    expect(loadHome().counts.runewords).toBe(expected.length);
-    expect(loadGrail().runewords.map((row) => row.Index)).toEqual(expected.map((row) => row.Index));
+    expect(await loadCatalog('runewords', fetcher)).toEqual(visible);
+    expect(loadHome().counts.runewords).toBe(visible.length);
+    expect(loadGrail().runewords.map((row) => row.Index)).toEqual(visible.map((row) => row.Index));
   });
 
   it('shares one request per catalog and retries after a failure', async () => {

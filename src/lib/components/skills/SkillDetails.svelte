@@ -1,6 +1,22 @@
 <script lang="ts">
   import { i18n } from '#lib/i18n.js';
-  import { applySkillSynergy, skillSynergyBonus } from '#lib/skill-calculation.js';
+  import {
+    applySkillSynergy,
+    skillLineCalcValues,
+    skillLineSynergyBonus,
+    skillLineUnavailableStats
+  } from '#lib/skill-calculation.js';
+  import {
+    clampSkillPoints,
+    keepSkillPreviewOverride,
+    skillBonusCap,
+    skillHardPointCap,
+    skillPointsFromRanks,
+    skillPreviewPoints,
+    skillReadsCharacterLevel,
+    type SkillPoints,
+    type SkillPreviewOverride
+  } from '#lib/skill-points.js';
   import type { Skill, SkillDescriptionLine } from '#lib/types.js';
 
   let {
@@ -10,11 +26,13 @@
     synergyRanks = ranks,
     rank,
     baseRank = rank,
+    points: fixedPoints,
     available,
     increase,
     decrease,
     readonly = false,
-    headingLabel
+    headingLabel,
+    characterLevel
   }: {
     skill: Skill | undefined;
     skills: Skill[];
@@ -22,32 +40,61 @@
     synergyRanks?: Record<number, number>;
     rank: number;
     baseRank?: number;
+    /** Readonly views only: the exact hard / bonus split to render. Defaults to baseRank / rank. */
+    points?: SkillPoints;
     available: boolean;
     increase: (skill: Skill, amount?: number) => void;
     decrease: (skill: Skill, amount?: number) => void;
     readonly?: boolean;
     headingLabel?: string;
+    /** Character level for `ulvl` lines (Thorns). The planner lets the reader choose one. */
+    characterLevel?: number;
   } = $props();
 
-  // The preview follows the points you have allocated, so the panel answers "what do I get
-  // for this next point?" without any fiddling. Dragging the slider past that — into the
-  // levels +skills gear grants — sticks until the allocation changes again.
-  let previewOverride = $state<number | null>(null);
+  // Hard points and +skills bonus are previewed independently, because the mod's formulas
+  // read them separately (blvl vs lvl). Hard points start at the allocated rank (at least 1)
+  // and the bonus at 0. The override sticks to its skill until that skill's allocation changes,
+  // so hovering another skill and coming back keeps it.
+  let override = $state<SkillPreviewOverride | null>(null);
   let failedIcon = $state('');
+  // The planner has no character, so it previews the top exported level until one is chosen.
+  let characterLevelOverride = $state<number | null>(null);
 
   let descriptions = $derived(skill?.Descriptions);
-  let maxPreviewLevel = $derived(descriptions?.MaxLevel ?? skill?.MaxLevel ?? 20);
-  let previewLevel = $derived(Math.min(Math.max(previewOverride ?? rank, 1), maxPreviewLevel));
+  let hardCap = $derived(skillHardPointCap(skill));
+  let preview = $derived(
+    readonly
+      ? fixedPoints ? clampSkillPoints(skill, fixedPoints) : skillPointsFromRanks(skill, baseRank, rank)
+      : skillPreviewPoints(skill, rank, override)
+  );
+  let bonusCap = $derived(skillBonusCap(preview.hard));
+  let readsCharacterLevel = $derived(skillReadsCharacterLevel(skill));
+  let characterLevelCap = $derived(descriptions?.CharacterLevelCap ?? 100);
+  let previewCharacterLevel = $derived(
+    readonly ? characterLevel : characterLevelOverride ?? characterLevel ?? characterLevelCap
+  );
+  let linePoints = $derived<SkillPoints>({ ...preview, characterLevel: previewCharacterLevel });
+  // `ulvl` in calc expressions only reads a level the reader can see: the chosen one or the character's.
+  let calcCharacterLevel = $derived(readsCharacterLevel ? previewCharacterLevel : characterLevel);
+  let previewLevel = $derived(preview.hard + preview.bonus);
+  let exportedLevel = $derived(descriptions?.MaxLevel ?? 0);
   let hasDescription = $derived(
     (descriptions?.Stats.length ?? 0) + (descriptions?.Details.length ?? 0) > 0
   );
+  // The previewed skill's own rank comes from the preview; every other skill keeps its rank.
+  let effectiveRanks = $derived(skill ? { ...ranks, [skill.Id]: previewLevel } : ranks);
+  let hardRanks = $derived(skill ? { ...synergyRanks, [skill.Id]: preview.hard } : synergyRanks);
 
-  // Reading both values inside the effect is what makes the override reset when either changes.
-  let allocation = $derived(`${skill?.Id ?? ''}:${rank}`);
+  // Stats the live formulas read but the site cannot supply; they count as 0 and are marked.
+  let unavailableStats = $derived(
+    [...new Set([...(descriptions?.Stats ?? []), ...(descriptions?.Details ?? []), ...(descriptions?.Synergies ?? [])]
+      .flatMap(lineUnavailableStats))]
+  );
+
   let icon = $derived(skill?.Icon ? `/data/${skill.Icon}` : '');
   $effect(() => {
-    void allocation;
-    previewOverride = null;
+    const kept = keepSkillPreviewOverride(override, skill, rank);
+    if (kept !== override) override = kept;
   });
 
   function prerequisiteName(id: number): string {
@@ -55,15 +102,37 @@
   }
 
   function render(line: SkillDescriptionLine): string {
-    const bonus = skill && line.scale ? skillSynergyBonus(skill, line.scale, skills, synergyRanks) : 0;
-    return $i18n.skillLine(line, previewLevel, (value) => applySkillSynergy(value, bonus));
+    const bonus = skill ? skillLineSynergyBonus(line, skill, skills, effectiveRanks, hardRanks, calcCharacterLevel) : 0;
+    const live = skill ? skillLineCalcValues(line, skill, skills, effectiveRanks, hardRanks, calcCharacterLevel) : [];
+    return $i18n.skillLine(line, linePoints, (value, index) => live[index] ?? applySkillSynergy(value, bonus));
   }
 
-  // Clearing the number input yields '' — hold the current level rather than snapping to 1.
-  function choosePreviewLevel(raw: string): void {
+  function lineUnavailableStats(line: SkillDescriptionLine): string[] {
+    return skill ? skillLineUnavailableStats(line, skill, skills, effectiveRanks, hardRanks, calcCharacterLevel) : [];
+  }
+
+  // Clearing a number input yields '' — hold the current value rather than snapping.
+  function parsePoints(raw: string): number | null {
     const parsed = Number(raw);
-    if (!Number.isFinite(parsed) || raw === '') return;
-    previewOverride = Math.min(Math.max(Math.trunc(parsed), 1), maxPreviewLevel);
+    return raw === '' || !Number.isFinite(parsed) ? null : Math.trunc(parsed);
+  }
+
+  function chooseHard(raw: string): void {
+    const hard = parsePoints(raw);
+    if (hard === null) return;
+    if (skill) override = { skillId: skill.Id, rank, points: clampSkillPoints(skill, { hard, bonus: preview.bonus }) };
+  }
+
+  function chooseBonus(raw: string): void {
+    const bonus = parsePoints(raw);
+    if (bonus === null) return;
+    if (skill) override = { skillId: skill.Id, rank, points: clampSkillPoints(skill, { hard: preview.hard, bonus }) };
+  }
+
+  function chooseCharacterLevel(raw: string): void {
+    const level = parsePoints(raw);
+    if (level === null) return;
+    characterLevelOverride = Math.min(Math.max(level, 1), characterLevelCap);
   }
 </script>
 
@@ -103,43 +172,98 @@
       <section class="mt-5">
         {#if !readonly}
           <div class="level-control">
-            <label class="display-text text-xs uppercase tracking-wider text-parchment-300" for="skill-preview-level">
-              Preview at level
+            <label class="display-text text-xs uppercase tracking-wider text-parchment-300" for="skill-preview-hard">
+              Hard points
             </label>
             <input
-              id="skill-preview-level"
+              id="skill-preview-hard"
               type="number"
-              min="1"
-              max={maxPreviewLevel}
-              value={previewLevel}
-              oninput={(event) => choosePreviewLevel(event.currentTarget.value)}
+              min="0"
+              max={hardCap}
+              value={preview.hard}
+              oninput={(event) => chooseHard(event.currentTarget.value)}
               class="level-number"
             />
           </div>
           <input
             type="range"
-            min="1"
-            max={maxPreviewLevel}
-            value={previewLevel}
-            aria-label={`Preview ${$i18n.t(skill.NameKey)} at skill level`}
-            oninput={(event) => choosePreviewLevel(event.currentTarget.value)}
+            min="0"
+            max={hardCap}
+            value={preview.hard}
+            aria-label={`Preview ${$i18n.t(skill.NameKey)} with hard points`}
+            oninput={(event) => chooseHard(event.currentTarget.value)}
             class="level-slider"
           />
+          <div class="level-control mt-3">
+            <label class="display-text text-xs uppercase tracking-wider text-parchment-300" for="skill-preview-bonus">
+              + Skills bonus
+            </label>
+            <input
+              id="skill-preview-bonus"
+              type="number"
+              min={preview.hard === 0 ? 1 : 0}
+              max={bonusCap}
+              value={preview.bonus}
+              oninput={(event) => chooseBonus(event.currentTarget.value)}
+              class="level-number"
+            />
+          </div>
+          <input
+            type="range"
+            min={preview.hard === 0 ? 1 : 0}
+            max={bonusCap}
+            value={preview.bonus}
+            aria-label={`Preview ${$i18n.t(skill.NameKey)} with bonus skill levels`}
+            oninput={(event) => chooseBonus(event.currentTarget.value)}
+            class="level-slider"
+          />
+          {#if readsCharacterLevel}
+            <div class="level-control mt-3">
+              <label class="display-text text-xs uppercase tracking-wider text-parchment-300" for="skill-preview-character-level">
+                Character level
+              </label>
+              <input
+                id="skill-preview-character-level"
+                type="number"
+                min="1"
+                max={characterLevelCap}
+                value={previewCharacterLevel}
+                oninput={(event) => chooseCharacterLevel(event.currentTarget.value)}
+                class="level-number"
+              />
+            </div>
+            <input
+              type="range"
+              min="1"
+              max={characterLevelCap}
+              value={previewCharacterLevel}
+              aria-label={`Preview ${$i18n.t(skill.NameKey)} at character level`}
+              oninput={(event) => chooseCharacterLevel(event.currentTarget.value)}
+              class="level-slider"
+            />
+          {/if}
           <p class="level-hint">
-            {#if previewLevel > (skill.MaxLevel || 20)}
-              +{previewLevel - (skill.MaxLevel || 20)} above the hard-point cap — reachable with +skills gear.
-            {:else}
-              Slide past {skill.MaxLevel || 20} to see what +skills gear adds.
+            Level {previewLevel}: {preview.hard} hard + {preview.bonus} from gear.
+            {#if preview.hard === 0}
+              No hard points — an item-granted skill.
             {/if}
           </p>
+        {:else if preview.bonus > 0}
+          <p class="level-hint">Level {previewLevel}: {preview.hard} hard + {preview.bonus} from gear.</p>
+        {/if}
+        {#if readonly && readsCharacterLevel && characterLevel}
+          <p class="level-hint">Shown at character level {characterLevel}.</p>
+        {/if}
+        {#if exportedLevel && previewLevel > exportedLevel}
+          <p class="level-hint">Past the exported range — values hold at level {exportedLevel}.</p>
         {/if}
 
         <ul class="stat-lines mt-4">
           {#each descriptions?.Stats ?? [] as line, index (index)}
-            <li>{render(line)}</li>
+            <li>{render(line)}{#if lineUnavailableStats(line).length}*{/if}</li>
           {/each}
           {#each descriptions?.Details ?? [] as line, index (index)}
-            <li class="detail">{render(line)}</li>
+            <li class="detail">{render(line)}{#if lineUnavailableStats(line).length}*{/if}</li>
           {/each}
         </ul>
       </section>
@@ -150,10 +274,14 @@
         <h3 class="display-text text-xs uppercase tracking-wider text-parchment-300">Synergies</h3>
         <ul class="stat-lines synergy mt-2">
           {#each descriptions.Synergies as line, index (index)}
-            <li>{render(line)}</li>
+            <li>{render(line)}{#if lineUnavailableStats(line).length}*{/if}</li>
           {/each}
         </ul>
       </section>
+    {/if}
+
+    {#if unavailableStats.length}
+      <p class="level-hint mt-3">* Calculated without the character or equipment stats these formulas also read ({unavailableStats.join(', ')}); they count as 0 here, so in-game values can differ.</p>
     {/if}
 
     {#if skill.PrerequisiteIds.length}

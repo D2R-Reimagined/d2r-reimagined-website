@@ -7,14 +7,14 @@
     let {data} = $props();
 
     function filtered(key: string, value: string) {
-        const params = new URLSearchParams(page.url.searchParams);
+        const params = new URLSearchParams(page.url.search);
         params.delete('skip');
         if (value) params.set(key, value); else params.delete(key);
         return `/builds?${params}`;
     }
 
     function pageLink(skip: number) {
-        const params = new URLSearchParams(page.url.searchParams);
+        const params = new URLSearchParams(page.url.search);
         params.set('skip', String(skip));
         return `/builds?${params}`;
     }

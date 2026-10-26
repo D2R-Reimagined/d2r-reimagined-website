@@ -9,6 +9,7 @@
     baseRanks = ranks,
     readonly = false,
     floatDetails = false,
+    characterLevel,
     increase = () => undefined,
     decrease = () => undefined,
     canIncrease = () => false
@@ -18,21 +19,34 @@
     baseRanks?: Record<number, number>;
     readonly?: boolean;
     floatDetails?: boolean;
+    characterLevel?: number;
     increase?: (skill: Skill, amount?: number) => void;
     decrease?: (skill: Skill, amount?: number) => void;
     canIncrease?: (skill: Skill) => boolean;
   } = $props();
 
-  let selectedSkillId = $state<number | null>(null);
+  /** The skill the user clicked or focused; it persists while the pointer is elsewhere. */
+  let pinnedSkillId = $state<number | null>(null);
+  /** The hovered skill, shown in place of the pinned one until the pointer leaves it. */
+  let previewSkillId = $state<number | null>(null);
   let skills = $derived(skillClass.Tabs.flatMap((tab) => tab.Skills));
   let selectedSkill = $derived(
-    skills.find((skill) => skill.Id === selectedSkillId)
+    skills.find((skill) => skill.Id === previewSkillId)
+      ?? skills.find((skill) => skill.Id === pinnedSkillId)
       ?? skills.find((skill) => (ranks[skill.Id] ?? 0) > 0)
       ?? skills[0]
   );
 
   function select(skill: Skill): void {
-    selectedSkillId = skill.Id;
+    pinnedSkillId = skill.Id;
+  }
+
+  function preview(skill: Skill): void {
+    previewSkillId = skill.Id;
+  }
+
+  function endPreview(skill: Skill): void {
+    if (previewSkillId === skill.Id) previewSkillId = null;
   }
 </script>
 
@@ -46,6 +60,8 @@
           {baseRanks}
           selectedSkillId={selectedSkill?.Id ?? null}
           {select}
+          {preview}
+          {endPreview}
           {increase}
           {decrease}
           {canIncrease}
@@ -67,6 +83,7 @@
       {increase}
       {decrease}
       {readonly}
+      {characterLevel}
     />
   </div>
 </div>

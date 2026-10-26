@@ -268,7 +268,7 @@
       busy = false;
       if ((steamStatus || battleNetStatus || discordStatus) && (!returnTo || $authState.user?.requiresUsername)) {
         const cleanUrl = new URL(profileUrl());
-        await goto(cleanUrl.pathname + cleanUrl.search, { replaceState: true, noScroll: true });
+        await goto(cleanUrl.pathname + cleanUrl.search, { replaceState: true, reset: false });
       }
     }
   });

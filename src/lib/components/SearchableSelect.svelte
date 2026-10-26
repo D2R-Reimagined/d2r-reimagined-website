@@ -1,12 +1,17 @@
 <script lang="ts">
+  import { matchesSubstring, type LabelMatcher } from '#lib/search-terms.js';
+
   type Option = { value: string; label: string };
 
-  let { id, label, placeholder, options, value = $bindable('') }: {
+  // `matches` and `hint` are optional: without them the selector filters exactly as before.
+  let { id, label, placeholder, options, value = $bindable(''), matches: match = matchesSubstring, hint }: {
     id: string;
     label: string;
     placeholder: string;
     options: Option[];
     value?: string;
+    matches?: LabelMatcher;
+    hint?: string;
   } = $props();
 
   let open = $state(false);
@@ -18,7 +23,7 @@
   let popup: HTMLDivElement;
   let popupStyle = $state('');
   const choices = $derived([{ value: '', label: placeholder }, ...options]);
-  const matches = $derived(choices.filter((option) => option.label.toLocaleLowerCase().includes(query.toLocaleLowerCase())));
+  const matches = $derived(choices.filter((option) => match(option.label, query)));
   const selectedLabel = $derived(choices.find((option) => option.value === value)?.label ?? placeholder);
 
   function position() {
@@ -98,7 +103,8 @@
     <div bind:this={popup} popover="auto" ontoggle={(event) => open = event.newState === 'open'}
       style={popupStyle} class="fixed z-50 m-0 min-w-56 rounded-md border border-parchment-300/30 bg-stone-950 p-1 shadow-xl">
       <input bind:this={searchInput} type="search" class="field mb-1 w-full" placeholder="Type to filter…"
-        aria-label={`Search ${label}`} autocomplete="off" bind:value={query} oninput={() => active = 0} onkeydown={keys} />
+        aria-label={`Search ${label}`} aria-describedby={hint ? `${id}-hint` : undefined} autocomplete="off" bind:value={query} oninput={() => active = 0} onkeydown={keys} />
+      {#if hint}<p id={`${id}-hint`} class="mb-1 px-2 text-xs text-parchment-300">{hint}</p>{/if}
       <div id={`${id}-choices`} role="listbox" aria-label={label} class="max-h-60 overflow-y-auto">
         {#each matches as option, index (option.value)}
           <button type="button" role="option" aria-selected={option.value === value} data-option-index={index}

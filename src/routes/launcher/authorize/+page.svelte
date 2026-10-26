@@ -40,7 +40,7 @@
   }
 
   onMount(async () => {
-    parameters = readLauncherAuthorizationParameters(page.url.searchParams);
+    parameters = readLauncherAuthorizationParameters(new URLSearchParams(page.url.search));
     if (!parameters) {
       error = 'This launcher sign-in request is invalid or incomplete.';
       ready = true;

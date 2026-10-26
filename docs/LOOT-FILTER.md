@@ -14,9 +14,7 @@ remain the exact values the plugin expects. UI labels remain English.
 
 ## Updating the catalog
 
-Run `multi-export-tool` against the mod overlaid on extracted base data as usual.
-Copy `keyed/loot-filter.json` to `static/data/keyed/loot-filter.json` alongside the
-normal `strings/*.json` language bundle update. Never edit the generated JSON.
+`static/data/keyed/loot-filter.json` is part of the normal D2R Multi-Export output.
 See the exporter's `docs/LOOT-FILTER.md` for the wire contract.
 
 The editor fetches that JSON on each visit, including when restoring an old filter.

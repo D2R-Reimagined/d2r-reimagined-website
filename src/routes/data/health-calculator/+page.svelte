@@ -27,7 +27,7 @@
     let changed = $derived(calculateHealth(data.health, input, players));
     let areas = $derived(data.health.Areas.filter(a => monster.Areas[difficulty].includes(a.Id)));
     let visible = $derived(data.health.Monsters.filter(m => (showInactive || (m.Enabled && m.Killable)) &&
-        `${$i18n.t(m.NameKey)} ${m.Id}`.toLocaleLowerCase().includes(search.toLocaleLowerCase())));
+        `${monsterName(m)} ${m.Id}`.toLocaleLowerCase().includes(search.toLocaleLowerCase())));
     const fields: { key: Exclude<keyof HealthInputs, 'noRatio'>; label: string; source: string }[] = [
         {key: 'level', label: 'Base monster level', source: 'monstats / levels'},
         {key: 'min', label: 'Minimum HP value', source: 'monstats: minHP'},
@@ -38,6 +38,10 @@
         {key: 'extraPercent', label: 'Additional life bonus (%)', source: 'Manual scenario modifier'},
         {key: 'flatLife', label: 'Additional flat life', source: 'Manual scenario modifier'}
     ];
+
+    function monsterName(m: HealthMonster): string {
+        return m.NameKey ? $i18n.t(m.NameKey) : m.FallbackName ?? m.Id;
+    }
 
     function edit(key: typeof fields[number]['key'], value: number) {
         edits[key] = value;
@@ -116,7 +120,7 @@
                         <tr class:chosen={m.Id === selected}>
                             <td>
                                 <button class="text-left hover:text-ember-400"
-                                        onclick={() => select(m)}>{$i18n.t(m.NameKey)}<small
+                                        onclick={() => select(m)}>{monsterName(m)}<small
                                         class="block break-all text-parchment-300">{m.Id}</small></button>
                             </td>
                             <td>{m.Stats[difficulty].Level}</td>
@@ -132,7 +136,7 @@
         <div class="min-w-0 space-y-6">
             <section class="panel rounded-lg p-5">
                 <div class="flex flex-wrap items-center justify-between gap-3">
-                    <div><h2 class="display-text text-2xl">{$i18n.t(monster.NameKey)}</h2>
+                    <div><h2 class="display-text text-2xl">{monsterName(monster)}</h2>
                         <p class="text-sm text-parchment-300">{monster.Id}{monster.Boss ? ' · Boss' : ''}</p></div>
                     <button class="rounded border border-white/20 px-3 py-2 hover:border-ember-400"
                             onclick={() => edits = {}}>Reset tweaks

@@ -4,6 +4,7 @@
   import { itemTitle, itemType } from '#lib/catalog.js';
   import { i18n } from '#lib/i18n.js';
   import type { CatalogItem, CatalogSlug, KeyedLine } from '#lib/types.js';
+  import AutoMagicDetails from './AutoMagicDetails.svelte';
   import KeyedLines from './KeyedLines.svelte';
 
   let { item, slug, scopedSet = false }: { item: CatalogItem; slug: CatalogSlug; scopedSet?: boolean } = $props();
@@ -110,6 +111,7 @@
     <KeyedLines lines={byKeys(item.Lines, requirements)} class="requirement-line" />
     {#if item.RequiredLevel != null}<p class="requirement-line">{$i18n.t('strRequiredLevel', [item.RequiredLevel])}</p>{/if}
     {#if item.GemSockets}<p class="mt-2 text-sm text-parchment-300">Sockets: {String(item.GemSockets)}</p>{/if}
+    <AutoMagicDetails {item} />
   {:else if slug === 'affixes'}
     <p class="base-line mb-1">{item.PType} · Level {String(item.Level ?? 0)}{Number(item.MaxLevel) ? `–${String(item.MaxLevel)}` : '+'}</p>
     {#if item.ClassSpecific}<p class="requirement-line">{String(item.ClassSpecific)}</p>{/if}

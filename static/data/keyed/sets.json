@@ -37,7 +37,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              1
+              1,
+              2
             ]
           }
         ],
@@ -191,7 +192,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              1
+              1,
+              2
             ]
           }
         ],
@@ -653,7 +655,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              0
+              0,
+              2
             ]
           }
         ],
@@ -924,9 +927,9 @@
         "fullSet": true
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr5q",
         "args": [
-          15
+          25
         ],
         "fullSet": true
       },
@@ -1113,7 +1116,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              1
+              1,
+              2
             ]
           }
         ],
@@ -1599,7 +1603,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              0
+              0,
+              2
             ]
           }
         ],
@@ -1736,16 +1741,19 @@
             ]
           },
           {
-            "key": "strModLightningDamageRange",
+            "key": "strLightningDamageRolls",
             "args": [
               1,
+              1,
+              20,
               40
             ]
           },
           {
             "key": "strSocketedCount",
             "args": [
-              0
+              0,
+              1
             ]
           }
         ],
@@ -1791,12 +1799,14 @@
             },
             {
               "Type": 4,
-              "AverageDamage": 20.5,
+              "AverageDamage": 15.5,
               "Lines": [
                 {
-                  "key": "strElementalDamage",
+                  "key": "strElementalDamageRange",
                   "args": [
                     1,
+                    1,
+                    20,
                     40
                   ]
                 }
@@ -2149,7 +2159,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              0
+              0,
+              2
             ]
           }
         ],
@@ -2594,12 +2605,14 @@
             },
             {
               "Type": 4,
-              "AverageDamage": 10,
+              "AverageDamage": 7.5,
               "Lines": [
                 {
-                  "key": "strElementalDamage",
+                  "key": "strElementalDamageRange",
                   "args": [
                     0,
+                    0,
+                    10,
                     20
                   ]
                 }
@@ -2650,7 +2663,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              0
+              0,
+              2
             ]
           }
         ],
@@ -2734,7 +2748,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              0
+              0,
+              2
             ]
           }
         ],
@@ -3101,7 +3116,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              0
+              0,
+              2
             ]
           }
         ],
@@ -3623,7 +3639,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              0
+              0,
+              2
             ]
           }
         ],
@@ -4751,6 +4768,13 @@
                 75
               ],
               "itemsRequired": 2
+            },
+            {
+              "key": "StrSkill13",
+              "args": [
+                3
+              ],
+              "itemsRequired": 2
             }
           ],
           [
@@ -4834,9 +4858,9 @@
         "fullSet": true
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr5q",
         "args": [
-          10
+          25
         ],
         "fullSet": true
       },
@@ -4975,7 +4999,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              0
+              0,
+              2
             ]
           }
         ],
@@ -5248,6 +5273,13 @@
                 30
               ],
               "itemsRequired": 3
+            },
+            {
+              "key": "StrSkill13",
+              "args": [
+                2
+              ],
+              "itemsRequired": 3
             }
           ]
         ],
@@ -5384,7 +5416,14 @@
           {
             "key": "strModColdDamageRange",
             "args": [
+              10,
               10
+            ]
+          },
+          {
+            "key": "StrSkill13",
+            "args": [
+              2
             ]
           },
           {
@@ -5562,6 +5601,13 @@
         "key": "Moditem2ExpG",
         "args": [
           10
+        ],
+        "fullSet": true
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
         ],
         "fullSet": true
       }
@@ -6179,7 +6225,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              2
+              2,
+              4
             ]
           }
         ],
@@ -6326,8 +6373,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                20,
+                20
               ]
             },
             {
@@ -6464,7 +6511,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              2
+              2,
+              3
             ]
           }
         ],
@@ -6692,7 +6740,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              2
+              2,
+              5
             ]
           }
         ],
@@ -6910,7 +6959,7 @@
       {
         "key": "ModStr5c",
         "args": [
-          20
+          15
         ],
         "fullSet": true
       },
@@ -6965,7 +7014,12 @@
             "args": [
               2,
               "Barbarian"
-            ]
+            ],
+            "selection": {
+              "stat": "item_singleskill",
+              "min": 126,
+              "max": 155
+            }
           },
           {
             "key": "ModStr1i",
@@ -7059,19 +7113,17 @@
         "DamageArmorEnhanced": false,
         "Lines": [
           {
-            "key": "ItemExpansiveChanc2",
-            "args": [
-              10,
-              1,
-              "Empowering Flame"
-            ]
-          },
-          {
             "key": "StrSklTabItem11",
             "args": [
               2
             ],
             "classOnly": "BarOnly"
+          },
+          {
+            "key": "ModStr4c",
+            "args": [
+              25
+            ]
           },
           {
             "key": "ModStr1i",
@@ -7184,7 +7236,12 @@
             "args": [
               2,
               "Barbarian"
-            ]
+            ],
+            "selection": {
+              "stat": "item_singleskill",
+              "min": 126,
+              "max": 155
+            }
           },
           {
             "key": "ModStr1i",
@@ -7274,8 +7331,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                28,
+                28
               ]
             },
             {
@@ -7311,7 +7368,12 @@
             "args": [
               2,
               "Barbarian"
-            ]
+            ],
+            "selection": {
+              "stat": "item_singleskill",
+              "min": 126,
+              "max": 155
+            }
           },
           {
             "key": "ModStr1i",
@@ -7394,8 +7456,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                28,
+                28
               ]
             },
             {
@@ -7435,7 +7497,12 @@
             "args": [
               2,
               "Barbarian"
-            ]
+            ],
+            "selection": {
+              "stat": "item_singleskill",
+              "min": 126,
+              "max": 155
+            }
           },
           {
             "key": "ModStr1i",
@@ -7511,8 +7578,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                28,
+                28
               ]
             },
             {
@@ -7563,8 +7630,7 @@
           {
             "key": "ModStr5c",
             "args": [
-              15,
-              25
+              10
             ]
           },
           {
@@ -7601,6 +7667,13 @@
               "args": [
                 250,
                 500
+              ],
+              "itemsRequired": 4
+            },
+            {
+              "key": "StrSkill13",
+              "args": [
+                6
               ],
               "itemsRequired": 4
             }
@@ -7764,7 +7837,12 @@
             "args": [
               2,
               "Sorceress"
-            ]
+            ],
+            "selection": {
+              "stat": "item_singleskill",
+              "min": 36,
+              "max": 65
+            }
           },
           {
             "key": "ModStr1b",
@@ -7833,8 +7911,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                20,
+                20
               ]
             },
             {
@@ -7875,7 +7953,12 @@
             "args": [
               2,
               "Sorceress"
-            ]
+            ],
+            "selection": {
+              "stat": "item_singleskill",
+              "min": 36,
+              "max": 65
+            }
           },
           {
             "key": "ModStr1u",
@@ -8182,7 +8265,12 @@
             "args": [
               3,
               "Sorceress"
-            ]
+            ],
+            "selection": {
+              "stat": "item_singleskill",
+              "min": 36,
+              "max": 65
+            }
           },
           {
             "key": "ModStr1i",
@@ -8372,7 +8460,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              2
+              2,
+              4
             ]
           }
         ],
@@ -8464,7 +8553,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              2
+              2,
+              4
             ]
           }
         ],
@@ -8678,7 +8768,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              2
+              2,
+              4
             ]
           }
         ],
@@ -9195,8 +9286,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                20,
+                20
               ]
             },
             {
@@ -9302,8 +9393,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                26,
+                26
               ]
             },
             {
@@ -9640,6 +9731,12 @@
             ]
           },
           {
+            "key": "StrSkill13",
+            "args": [
+              4
+            ]
+          },
+          {
             "key": "ModStr1i",
             "args": [
               3
@@ -9686,6 +9783,13 @@
                 300
               ],
               "itemsRequired": 4
+            },
+            {
+              "key": "StrSkill13",
+              "args": [
+                4
+              ],
+              "itemsRequired": 4
             }
           ],
           [
@@ -9715,8 +9819,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                22,
+                22
               ]
             },
             {
@@ -9799,8 +9903,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                18,
+                18
               ]
             },
             {
@@ -10145,8 +10249,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                20,
+                20
               ]
             },
             {
@@ -10233,8 +10337,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                16,
+                16
               ]
             },
             {
@@ -10289,7 +10393,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              0
+              0,
+              4
             ]
           }
         ],
@@ -10414,8 +10519,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                24,
+                24
               ]
             },
             {
@@ -10550,6 +10655,13 @@
               "args": [
                 100,
                 200
+              ],
+              "itemsRequired": 3
+            },
+            {
+              "key": "StrSkill13",
+              "args": [
+                4
               ],
               "itemsRequired": 3
             }
@@ -10846,7 +10958,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              0
+              0,
+              4
             ]
           }
         ],
@@ -11015,9 +11128,9 @@
         "SetBonuses": [
           [
             {
-              "key": "ModStr5c",
+              "key": "ModStrDamPierce",
               "args": [
-                15
+                10
               ],
               "itemsRequired": 2
             }
@@ -11129,8 +11242,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                22,
+                22
               ]
             },
             {
@@ -11214,8 +11327,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                18,
+                18
               ]
             },
             {
@@ -12501,7 +12614,7 @@
       {
         "key": "ModStr5c",
         "args": [
-          25
+          15
         ],
         "fullSet": true
       },
@@ -13633,7 +13746,9 @@
           [
             {
               "key": "ModStr1h",
-              "args": [],
+              "args": [
+                25
+              ],
               "itemsRequired": 2
             }
           ],
@@ -14008,13 +14123,13 @@
             },
             {
               "Type": 4,
-              "AverageDamage": 6,
+              "AverageDamage": 2.5,
               "Lines": [
                 {
                   "key": "strElementalDamage",
                   "args": [
-                    4,
-                    8
+                    2,
+                    3
                   ]
                 }
               ]
@@ -14471,9 +14586,10 @@
             ]
           },
           {
-            "key": "ModStr5c",
+            "key": "Moditemenresfiresk",
             "args": [
-              10
+              10,
+              15
             ]
           },
           {
@@ -14535,8 +14651,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                16,
+                16
               ]
             },
             {
@@ -14632,8 +14748,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                26,
+                26
               ]
             },
             {
@@ -15240,6 +15356,13 @@
               "args": [
                 10,
                 30
+              ],
+              "itemsRequired": 2
+            },
+            {
+              "key": "StrSkill13",
+              "args": [
+                3
               ],
               "itemsRequired": 2
             }
@@ -16761,7 +16884,13 @@
         "DamageArmorEnhanced": false,
         "Lines": [
           {
-            "key": "ModStr5c",
+            "key": "ModStr5q",
+            "args": [
+              15
+            ]
+          },
+          {
+            "key": "ModStr3m",
             "args": [
               10
             ]
@@ -16955,6 +17084,12 @@
               10,
               20
             ]
+          },
+          {
+            "key": "StrSkill13",
+            "args": [
+              4
+            ]
           }
         ],
         "SetBonuses": [
@@ -17041,7 +17176,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              1
+              1,
+              4
             ]
           }
         ],
@@ -18873,8 +19009,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                22,
+                22
               ]
             },
             {
@@ -19624,8 +19760,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                16,
+                16
               ]
             },
             {
@@ -20519,8 +20655,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                16,
+                16
               ]
             },
             {
@@ -20680,8 +20816,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                18,
+                18
               ]
             },
             {
@@ -20955,8 +21091,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                20,
+                20
               ]
             },
             {
@@ -21002,7 +21138,30 @@
         "SetBonuses": [
           [
             {
-              "key": "ModStr1p",
+              "key": "strModFireDamageRange",
+              "args": [
+                25,
+                100
+              ],
+              "itemsRequired": 6
+            },
+            {
+              "key": "strModColdDamageRange",
+              "args": [
+                25,
+                100
+              ],
+              "itemsRequired": 6
+            },
+            {
+              "key": "StrSkill13",
+              "args": [
+                4
+              ],
+              "itemsRequired": 6
+            },
+            {
+              "key": "strModLightningDamageRange",
               "args": [
                 25,
                 100
@@ -21686,8 +21845,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                16,
+                16
               ]
             },
             {
@@ -21896,7 +22055,7 @@
       {
         "key": "ModStr5q",
         "args": [
-          0.38
+          0.375
         ],
         "perLevel": true,
         "itemsRequired": 2
@@ -22374,7 +22533,15 @@
               "itemsRequired": 2
             }
           ],
-          [],
+          [
+            {
+              "key": "StrSkill13",
+              "args": [
+                8
+              ],
+              "itemsRequired": 3
+            }
+          ],
           [
             {
               "key": "ModStr4e",
@@ -23587,8 +23754,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                32,
+                32
               ]
             },
             {
@@ -24484,8 +24651,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                26,
+                26
               ]
             },
             {
@@ -24556,7 +24723,15 @@
               "itemsRequired": 3
             }
           ],
-          []
+          [
+            {
+              "key": "StrSkill13",
+              "args": [
+                10.24
+              ],
+              "itemsRequired": 4
+            }
+          ]
         ],
         "Equipment": {
           "EquipmentType": 1,
@@ -24968,8 +25143,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                20,
+                20
               ]
             },
             {
@@ -25593,8 +25768,8 @@
             {
               "key": "ItemExpansiveChanc1",
               "args": [
-                8,
-                12,
+                10,
+                50,
                 "skillname56"
               ],
               "itemsRequired": 4
@@ -25602,7 +25777,7 @@
           ],
           [
             {
-              "key": "ModStr5c",
+              "key": "Moditemenresfiresk",
               "args": [
                 25
               ],
@@ -25847,7 +26022,7 @@
             {
               "key": "ModStr5c",
               "args": [
-                20
+                10
               ],
               "itemsRequired": 3
             }
@@ -26081,8 +26256,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                22,
+                22
               ]
             },
             {
@@ -26189,8 +26364,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                20,
+                20
               ]
             },
             {
@@ -26279,8 +26454,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                22,
+                22
               ]
             },
             {
@@ -26623,6 +26798,7 @@
           {
             "key": "strModMagicDamageRange",
             "args": [
+              122,
               122
             ]
           },
@@ -26697,8 +26873,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                22,
+                22
               ]
             },
             {
@@ -27320,8 +27496,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                20,
+                20
               ]
             },
             {
@@ -27716,12 +27892,6 @@
             ]
           },
           {
-            "key": "ModStr3m",
-            "args": [
-              25
-            ]
-          },
-          {
             "key": "Modstr2v",
             "args": [
               150,
@@ -27738,9 +27908,9 @@
         "SetBonuses": [
           [
             {
-              "key": "ModStr5c",
+              "key": "ModStr3m",
               "args": [
-                15
+                25
               ],
               "itemsRequired": 2
             }
@@ -27780,8 +27950,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                32,
+                32
               ]
             },
             {
@@ -28097,8 +28267,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                26,
+                26
               ]
             },
             {
@@ -28218,7 +28388,7 @@
       {
         "key": "ModStr5c",
         "args": [
-          50
+          15
         ],
         "fullSet": true
       },
@@ -28645,6 +28815,13 @@
         "args": [
           150,
           250
+        ],
+        "fullSet": true
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          8
         ],
         "fullSet": true
       },
@@ -29778,8 +29955,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                22,
+                22
               ]
             },
             {
@@ -29872,8 +30049,8 @@
             {
               "key": "strDurability",
               "args": [
-                48,
-                48
+                52,
+                52
               ]
             },
             {
@@ -30502,8 +30679,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                20,
+                20
               ]
             },
             {
@@ -30710,6 +30887,13 @@
               "args": [
                 50,
                 100
+              ],
+              "itemsRequired": 3
+            },
+            {
+              "key": "StrSkill13",
+              "args": [
+                1
               ],
               "itemsRequired": 3
             }
@@ -31015,6 +31199,13 @@
                 100
               ],
               "itemsRequired": 2
+            },
+            {
+              "key": "StrSkill13",
+              "args": [
+                1
+              ],
+              "itemsRequired": 2
             }
           ],
           [
@@ -31143,20 +31334,11 @@
           ],
           [
             {
-              "key": "ModStr5c",
-              "args": [
-                15
-              ],
-              "itemsRequired": 3
-            }
-          ],
-          [
-            {
               "key": "ModStr4c",
               "args": [
                 20
               ],
-              "itemsRequired": 4
+              "itemsRequired": 3
             }
           ],
           [
@@ -31165,7 +31347,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 5
+              "itemsRequired": 4
             }
           ],
           [
@@ -31174,7 +31356,7 @@
               "args": [
                 250
               ],
-              "itemsRequired": 6
+              "itemsRequired": 5
             }
           ]
         ],
@@ -31400,8 +31582,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                28,
+                28
               ]
             },
             {
@@ -31546,6 +31728,12 @@
             "args": [
               100,
               150
+            ]
+          },
+          {
+            "key": "StrSkill13",
+            "args": [
+              6
             ]
           },
           {
@@ -31841,8 +32029,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                16,
+                16
               ]
             },
             {
@@ -32306,8 +32494,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                22,
+                22
               ]
             },
             {
@@ -32389,8 +32577,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                24,
+                24
               ]
             },
             {
@@ -32939,8 +33127,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                24,
+                24
               ]
             },
             {
@@ -33053,8 +33241,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                28,
+                28
               ]
             },
             {
@@ -33635,7 +33823,7 @@
           {
             "key": "ModStr1i",
             "args": [
-              1.62
+              1.625
             ],
             "perLevel": true
           }
@@ -33717,6 +33905,13 @@
         "args": [
           200,
           250
+        ],
+        "fullSet": true
+      },
+      {
+        "key": "StrSkill13",
+        "args": [
+          4
         ],
         "fullSet": true
       },
@@ -34168,7 +34363,7 @@
             {
               "key": "ModStr1e",
               "args": [
-                0.62
+                0.625
               ],
               "perLevel": true,
               "itemsRequired": 5
@@ -34284,7 +34479,7 @@
       {
         "key": "ModStr1w",
         "args": [
-          3.12
+          3.125
         ],
         "perLevel": true,
         "fullSet": true
@@ -34384,7 +34579,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              1
+              1,
+              4
             ]
           }
         ],
@@ -34543,8 +34739,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                26,
+                26
               ]
             },
             {
@@ -34864,7 +35060,7 @@
           {
             "key": "ModStr1i",
             "args": [
-              1.62
+              1.625
             ],
             "perLevel": true
           },
@@ -34921,8 +35117,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                24,
+                24
               ]
             },
             {
@@ -35472,8 +35668,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                26,
+                26
               ]
             },
             {
@@ -35773,8 +35969,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                20,
+                20
               ]
             },
             {
@@ -36151,8 +36347,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                18,
+                18
               ]
             },
             {
@@ -36576,8 +36772,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                22,
+                22
               ]
             },
             {
@@ -36899,8 +37095,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                22,
+                22
               ]
             },
             {
@@ -36990,8 +37186,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                26,
+                26
               ]
             },
             {
@@ -37068,8 +37264,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                22,
+                22
               ]
             },
             {
@@ -37395,8 +37591,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                20,
+                20
               ]
             },
             {
@@ -37552,7 +37748,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              1
+              1,
+              3
             ]
           }
         ],
@@ -37704,8 +37901,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                28,
+                28
               ]
             },
             {
@@ -37759,8 +37956,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                28,
+                28
               ]
             },
             {
@@ -38192,8 +38389,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                20,
+                20
               ]
             },
             {
@@ -38275,8 +38472,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                20,
+                20
               ]
             },
             {
@@ -38455,6 +38652,12 @@
             "args": [
               25,
               100
+            ]
+          },
+          {
+            "key": "StrSkill13",
+            "args": [
+              4
             ]
           },
           {
@@ -38870,8 +39073,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                16,
+                16
               ]
             },
             {
@@ -39284,8 +39487,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                32,
+                32
               ]
             },
             {
@@ -39378,8 +39581,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                22,
+                22
               ]
             },
             {
@@ -39505,6 +39708,7 @@
             {
               "key": "strModMinDamageRange",
               "args": [
+                50,
                 50
               ],
               "itemsRequired": 3
@@ -39620,6 +39824,7 @@
             {
               "key": "strModMagicDamageRange",
               "args": [
+                200,
                 200
               ],
               "itemsRequired": 5
@@ -39721,6 +39926,7 @@
             {
               "key": "strModMagicDamageRange",
               "args": [
+                50,
                 50
               ],
               "itemsRequired": 4
@@ -39827,8 +40033,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                20,
+                20
               ]
             },
             {
@@ -39899,6 +40105,7 @@
             {
               "key": "strModMagicDamageRange",
               "args": [
+                50,
                 50
               ],
               "itemsRequired": 4
@@ -39929,8 +40136,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                20,
+                20
               ]
             },
             {
@@ -39984,7 +40191,7 @@
       {
         "key": "ModStr5c",
         "args": [
-          35
+          15
         ],
         "fullSet": true
       },
@@ -40431,9 +40638,9 @@
         "itemsRequired": 2
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr3m",
         "args": [
-          20
+          25
         ],
         "itemsRequired": 3
       }
@@ -40837,8 +41044,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                18,
+                18
               ]
             },
             {
@@ -41153,8 +41360,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                26,
+                26
               ]
             },
             {
@@ -41243,8 +41450,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                22,
+                22
               ]
             },
             {
@@ -41688,8 +41895,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                32,
+                32
               ]
             },
             {
@@ -41792,8 +41999,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                32,
+                32
               ]
             },
             {
@@ -41868,8 +42075,8 @@
             {
               "key": "strDurability",
               "args": [
-                24,
-                24
+                32,
+                32
               ]
             },
             {
@@ -41921,7 +42128,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              2
+              2,
+              3
             ]
           }
         ],
@@ -42323,8 +42531,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                18,
+                18
               ]
             },
             {
@@ -42416,8 +42624,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                18,
+                18
               ]
             },
             {
@@ -42470,9 +42678,9 @@
         "fullSet": true
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          25
+          20
         ],
         "fullSet": true
       },
@@ -42536,7 +42744,8 @@
           {
             "key": "strSocketedCount",
             "args": [
-              1
+              1,
+              2
             ]
           }
         ],
@@ -42622,13 +42831,13 @@
             ]
           },
           {
-            "key": "ModStr5c",
+            "key": "ModStr5q",
             "args": [
               15
             ]
           },
           {
-            "key": "ModStr5q",
+            "key": "ModStr3m",
             "args": [
               15
             ]
@@ -42835,8 +43044,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                16,
+                16
               ]
             },
             {
@@ -42945,8 +43154,8 @@
             {
               "key": "strDurability",
               "args": [
-                18,
-                18
+                26,
+                26
               ]
             },
             {
@@ -43836,8 +44045,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                22,
+                22
               ]
             },
             {
@@ -44957,6 +45166,13 @@
             "perLevel": true
           },
           {
+            "key": "ModStr1f",
+            "args": [
+              1
+            ],
+            "perLevel": true
+          },
+          {
             "key": "strSkillRandomFromSkillClass",
             "args": [
               3,
@@ -45079,6 +45295,14 @@
               ],
               "perLevel": true,
               "itemsRequired": 3
+            },
+            {
+              "key": "ModStr1f",
+              "args": [
+                1
+              ],
+              "perLevel": true,
+              "itemsRequired": 3
             }
           ]
         ],
@@ -45183,6 +45407,14 @@
               ],
               "perLevel": true,
               "itemsRequired": 2
+            },
+            {
+              "key": "ModStr1f",
+              "args": [
+                1
+              ],
+              "perLevel": true,
+              "itemsRequired": 2
             }
           ],
           [
@@ -45210,8 +45442,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                20,
+                20
               ]
             },
             {
@@ -45808,8 +46040,8 @@
             {
               "key": "strDurability",
               "args": [
-                14,
-                14
+                22,
+                22
               ]
             },
             {
@@ -45899,8 +46131,8 @@
             {
               "key": "strDurability",
               "args": [
-                12,
-                12
+                16,
+                16
               ]
             },
             {
@@ -46011,8 +46243,8 @@
             {
               "key": "strDurability",
               "args": [
-                16,
-                16
+                24,
+                24
               ]
             },
             {

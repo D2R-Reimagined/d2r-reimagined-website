@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { adjustedNoDrop, calculateDrops, simulateKills, matchesDropSource, itemSuggestions, qualityChance, type DropClass, type DropData, type DropItem } from './drop-calculator';
+import { adjustedNoDrop, calculateDrops, conditionState, simulateKills, matchesDropSource, itemSuggestions, qualityChance, type DropClass, type DropData, type DropItem } from './drop-calculator';
 import exported from '../../static/data/keyed/drop-calculator.json';
 
 const target: DropItem = { Id: 'rune:r01', Code: 'r01', NameKey: 'El Rune', Quality: 'rune', Level: 1, Rarity: 1, Random: true, Condition: '' };
@@ -35,8 +35,13 @@ describe('drop probabilities', () => {
     const data = fixture([tc('root', -2, [{ Code: 'empty', Weight: 1 }, { Code: 'r01', Weight: 1 }]), tc('empty', 0, [])]);
     expect(chance(data)).toBe(1);
   });
+  it('treats game-completion quest gates as met', () => {
+    const completed = { ...tc('completed', 1, [{ Code: 'gld', Weight: 1 }]), QuestFlagEx: '40' };
+    expect(chance(fixture([tc('root', -7, [{ Code: 'completed', Weight: 6 }, { Code: 'r01', Weight: 1 }]), completed]))).toBe(0);
+    expect(chance(fixture([tc('root', -2, [{ Code: 'completed', Weight: 1 }, { Code: 'r01', Weight: 1 }]), completed]))).toBe(1);
+  });
   it('proves unrelated conditional drops cannot change odds when capacity remains', () => {
-    const conditional = { ...tc('conditional', 1, [{ Code: 'gld', Weight: 1 }]), QuestFlagEx: '40' };
+    const conditional = { ...tc('conditional', 1, [{ Code: 'gld', Weight: 1 }]), QuestFlag: '1' };
     expect(chance(fixture([tc('root', -2, [{ Code: 'conditional', Weight: 1 }, { Code: 'r01', Weight: 1 }]), conditional]))).toBe(1);
     expect(chance(fixture([tc('root', -7, [{ Code: 'conditional', Weight: 6 }, { Code: 'r01', Weight: 1 }]), conditional]))).toBeNull();
   });
@@ -74,6 +79,99 @@ describe('drop probabilities', () => {
     expect(chance(data)).toBe(1);
     data.Sources[0].Level = 69;
     expect(chance(data)).toBe(0);
+  });
+});
+
+describe('exported condition metadata', () => {
+  const nonliteral = "\"cond('Difficulty', nightmare) + cond('Difficulty', hell)\"";
+  const herald = "(stat('heraldtier'.accr) >=4) ";
+  const gate = (extra: Partial<DropClass>, Entries: DropClass['Entries'] = [{ Code: 'r01', Weight: 1 }]) => ({ ...tc('gated', 1, Entries), ...extra });
+  // One source per difficulty, so each row reports that difficulty's odds.
+  function perDifficulty(classes: DropClass[]) {
+    const data = fixture(classes);
+    data.Sources = [0, 1, 2].map(Difficulty => ({ ...data.Sources[0], Id: `mob:${Difficulty}`, Difficulty }));
+    return (difficulty: number) => calculateDrops(data, target, { ...settings, difficulty })[0];
+  }
+  it('classifies resolved, runtime, legacy and unknown conditions', () => {
+    for (const difficulties of [[0], [1], [2], [0, 2], [1, 2]]) {
+      expect([0, 1, 2].map(d => conditionState({ Condition: nonliteral, ConditionDifficulties: difficulties }, d)))
+        .toEqual([0, 1, 2].map(d => difficulties.includes(d) ? 'met' : 'unmet'));
+    }
+    // An explicit empty list holds on no difficulty; it is not missing metadata.
+    expect([0, 1, 2].map(d => conditionState({ Condition: nonliteral, ConditionDifficulties: [] }, d))).toEqual(['unmet', 'unmet', 'unmet']);
+    expect([0, 1, 2].map(d => conditionState({ Condition: nonliteral, ConditionDifficulties: [2], ConditionRuntime: false }, d))).toEqual(['unmet', 'unmet', 'met']);
+    expect(conditionState({ Condition: herald, ConditionRuntime: true }, 2)).toBe('unsupported');
+    expect(conditionState({ Condition: herald, ConditionRuntime: true, ConditionDifficulties: [2] }, 2)).toBe('unsupported');
+    // Without metadata only the historical literal is understood.
+    expect([0, 1, 2].map(d => conditionState({ Condition: "\"cond('Difficulty', hell)\"" }, d))).toEqual(['unmet', 'unmet', 'met']);
+    expect(conditionState({ Condition: nonliteral }, 2)).toBe('unsupported');
+    expect(conditionState({ Condition: herald }, 2)).toBe('unsupported');
+    expect(conditionState({ Condition: herald, ConditionRuntime: false }, 2)).toBe('unsupported');
+    expect(conditionState({ Condition: '' }, 0)).toBe('met');
+    expect(conditionState({ Condition: '""' }, 0)).toBe('met');
+  });
+  it('uses resolved difficulties for a nonliteral expression on Normal, Nightmare and Hell', () => {
+    const odds = perDifficulty([tc('root', -1, [{ Code: 'gated', Weight: 1 }]), gate({ Condition: nonliteral, ConditionDifficulties: [1, 2], ConditionRuntime: false })]);
+    // Ineligible on Normal is a known zero, not an unavailable result.
+    expect([0, 1, 2].map(d => odds(d).chance)).toEqual([0, 1, 1]);
+    expect(odds(0).reason).toBeUndefined();
+  });
+  it('switches every difficulty off for an explicit empty list', () => {
+    const odds = perDifficulty([tc('root', -1, [{ Code: 'gated', Weight: 1 }]), gate({ Condition: nonliteral, ConditionDifficulties: [] })]);
+    expect([0, 1, 2].map(d => odds(d).chance)).toEqual([0, 0, 0]);
+  });
+  it('keeps the literal Hell gate and refuses unknown conditions without metadata', () => {
+    const literal = perDifficulty([tc('root', -1, [{ Code: 'gated', Weight: 1 }]), gate({ Condition: "\"cond('Difficulty', hell)\"" })]);
+    expect([0, 1, 2].map(d => literal(d).chance)).toEqual([0, 0, 1]);
+    const unknown = perDifficulty([tc('root', -1, [{ Code: 'gated', Weight: 1 }]), gate({ Condition: nonliteral })]);
+    for (const d of [0, 1, 2]) expect(unknown(d)).toMatchObject({ chance: null, reason: expect.stringMatching(/^Conditional/) });
+  });
+  it('leaves runtime herald conditions unavailable instead of zero or guaranteed', () => {
+    const odds = perDifficulty([tc('root', -1, [{ Code: 'gated', Weight: 1 }]), gate({ Condition: herald, ConditionRuntime: true })]);
+    for (const d of [0, 1, 2]) expect(odds(d)).toMatchObject({ chance: null, reason: expect.stringMatching(/^Conditional/) });
+  });
+  it('applies resolved gates to nested conditional classes', () => {
+    const odds = perDifficulty([tc('root', -1, [{ Code: 'outer', Weight: 1 }]), tc('outer', 1, [{ Code: 'gated', Weight: 1 }, { Code: 'gld', Weight: 1 }]),
+      gate({ Condition: nonliteral, ConditionDifficulties: [2] })]);
+    expect([0, 1, 2].map(d => odds(d).chance)).toEqual([0, 0, 0.5]);
+  });
+  it('frees six-item capacity only where a resolved gate is off', () => {
+    // Six gold picks fill every slot before the rune when the gate holds.
+    const root = tc('root', -7, [{ Code: 'gated', Weight: 6 }, { Code: 'r01', Weight: 1 }]);
+    const resolved = perDifficulty([root, gate({ Condition: nonliteral, ConditionDifficulties: [2] }, [{ Code: 'gld', Weight: 1 }])]);
+    expect([0, 1, 2].map(d => resolved(d).chance)).toEqual([1, 1, 0]);
+    const runtime = perDifficulty([root, gate({ Condition: herald, ConditionRuntime: true }, [{ Code: 'gld', Weight: 1 }])]);
+    expect([0, 1, 2].map(d => runtime(d).chance)).toEqual([null, null, null]);
+    // An unrelated runtime class that cannot reach the cap still leaves exact odds.
+    const roomy = perDifficulty([tc('root', -2, [{ Code: 'gated', Weight: 1 }, { Code: 'r01', Weight: 1 }]), gate({ Condition: herald, ConditionRuntime: true }, [{ Code: 'gld', Weight: 1 }])]);
+    expect(roomy(2).chance).toBe(1);
+  });
+  it('filters named item eligibility by resolved conditions', () => {
+    const unique: DropItem = { ...target, Id: 'unique:test', Quality: 'unique', Rarity: 1 };
+    const data = fixture([{ ...tc('root', 1, [{ Code: 'r01', Weight: 1 }]), Unique: 1024 }]);
+    data.Ratios = [{ Version: 1, Uber: 0, ClassSpecific: 0, Unique: 400, UniqueDivisor: 1, UniqueMin: 6400, Set: 160, SetDivisor: 2, SetMin: 5600 }];
+    const other: DropItem = { ...unique, Id: 'unique:other', Rarity: 3, Condition: nonliteral, ConditionDifficulties: [1] };
+    data.Items = [unique, other];
+    expect(calculateDrops(data, unique, settings)[0].chance).toBe(1);
+    data.Items = [unique, { ...other, ConditionDifficulties: [2] }];
+    expect(calculateDrops(data, unique, settings)[0].chance).toBeCloseTo(0.25, 12);
+    data.Items = [unique, { ...other, ConditionDifficulties: undefined, ConditionRuntime: true }];
+    expect(calculateDrops(data, unique, settings)[0].chance).toBeNull();
+  });
+  it('resolves every exported condition except runtime state', () => {
+    const data = exported as DropData;
+    const conditional = [...data.Items, ...data.TreasureClasses].filter(r => r.Condition?.trim());
+    expect(conditional.length).toBeGreaterThan(0);
+    for (const record of conditional) {
+      const states = [0, 1, 2].map(d => conditionState(record, d));
+      expect(states.includes('unsupported'), record.Condition).toBe(record.ConditionRuntime === true);
+    }
+    // Resolved difficulty lists name real difficulties and decide the gate on their own.
+    for (const t of data.TreasureClasses.filter(t => t.ConditionDifficulties)) {
+      expect(t.ConditionDifficulties!.every(d => [0, 1, 2].includes(d)), t.Code).toBe(true);
+      if (t.ConditionRuntime) continue;
+      expect([0, 1, 2].map(d => conditionState(t, d)), t.Code).toEqual([0, 1, 2].map(d => t.ConditionDifficulties!.includes(d) ? 'met' : 'unmet'));
+    }
   });
 });
 
@@ -154,16 +252,42 @@ describe('miscellaneous item drops', () => {
     data.Items = [misc];
     expect(calculateDrops(data, misc, settings)[0].chance).toBeNull();
   });
-  it('exports all seven crafting orbs, uber keys, and five regional shards', () => {
+  it('exports the crafting orbs, uber keys, and regional shards with Hell odds or an honest unavailable', () => {
     const codes = ['ka3', 'oos', 'ooc', 'ooa', 'ooi', 'ooe', 'oor', 'pk1', 'pk2', 'pk3', 'xa1', 'xa2', 'xa3', 'xa4', 'xa5'];
     for (const code of codes) {
       const item = (exported as DropData).Items.find(i => i.Id === `misc:${code}`);
       expect(item, code).toMatchObject({ Quality: 'misc', Code: code });
       const rows = calculateDrops(exported as DropData, item!, settings);
-      const conditionalOnly = ['ooe', 'oor', 'xa1', 'xa2', 'xa3', 'xa4', 'xa5'].includes(code);
-      expect(rows.some(row => (row.chance ?? 0) > 0), code).toBe(!conditionalOnly);
-      if (conditionalOnly) expect(rows.some(row => row.chance === null), code).toBe(true);
+      // Regional shards come from game-completion gated classes, which are treated as met. Some
+      // exports drop a Hell orb only from runtime-gated (herald) classes, which stay unavailable.
+      expect(rows.some(row => (row.chance ?? 0) > 0 || row.chance === null), code).toBe(true);
       expect(rows.filter(row => row.chance === null && !row.reason?.startsWith('Conditional')), code).toEqual([]);
+      expect(rows.every(row => row.chance === null || row.chance >= 0 && row.chance <= 1), code).toBe(true);
+    }
+  }, 60000);
+  it('guarantees the first entries of an ordered quest drop and nothing it does not list', () => {
+    const orb: DropItem = { ...target, Id: 'misc:ka3', Code: 'ka3', NameKey: 'ka3', Quality: 'misc' };
+    const quest = (first: string) => {
+      const data = fixture([tc('Baalq (H)', -2, [{ Code: first, Weight: 1 }, { Code: 'Baalq Item (H)', Weight: 1 }]),
+        tc('Corruption Orb', 1, [{ Code: 'ka3', Weight: 1 }]), tc('Baalq Item (H)', 1, [{ Code: 'gld', Weight: 1 }])]);
+      data.Items = [orb];
+      data.Bases.push({ Code: 'ka3', Level: 1, Uber: false, ClassSpecific: false, Quest: false }, { Code: 'lab', Level: 1, Uber: false, ClassSpecific: false, Quest: true });
+      return calculateDrops(data, orb, settings)[0].chance;
+    };
+    expect(quest('Corruption Orb')).toBe(1);
+    expect(quest('lab')).toBe(0);
+  });
+  it('follows the exported Baal quest classes for the Corruption Orb on every difficulty', () => {
+    const data = exported as DropData;
+    const orb = data.Items.find(i => i.Id === 'misc:ka3')!;
+    const quests = data.Sources.filter(s => /^Baalq( \([NH]\))?$/.test(s.TreasureClass));
+    expect(quests.length).toBeGreaterThan(0);
+    for (const source of quests) {
+      const tc = data.TreasureClasses.find(t => t.Code === source.TreasureClass)!;
+      const [row] = calculateDrops({ ...data, Sources: [source] }, orb, { ...settings, difficulty: source.Difficulty });
+      // A guaranteed quest drop that lists the orb class always drops it; one that lists another drop (the lab) does not guarantee it.
+      if (tc.Picks < 0 && tc.Entries.some(e => e.Code === 'Corruption Orb')) expect(row.chance, source.Id).toBe(1);
+      else expect(row.chance ?? 0, source.Id).toBeLessThan(1);
     }
   }, 30000);
 });

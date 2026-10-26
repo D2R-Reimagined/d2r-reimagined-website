@@ -78,7 +78,7 @@
 
   let synced = page.url.search;
   $effect(() => {
-    const next = new URL(page.url);
+    const next = new URL(page.url.href);
     next.searchParams.delete('q');
     for (const [key, value] of [['orb', selectedOrb], ['type', selectedTarget], ['search', query]]) {
       if (value) next.searchParams.set(key, value);

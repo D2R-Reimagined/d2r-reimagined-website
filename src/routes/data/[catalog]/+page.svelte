@@ -11,6 +11,7 @@
     baseFamilyKey,
     baseTier,
     equipmentNamesForType,
+    excludesItemType,
     groupBases,
     catalogTypeValues,
     matchesSearch,
@@ -29,13 +30,15 @@
   import { filterSetPieces, scopesSetPieces } from '#lib/set-filters.js';
   import { debounced } from '#lib/debounce.svelte.js';
   import { i18n } from '#lib/i18n.js';
+  import { setSkillPoolLookup } from '#lib/skill-selection.js';
   import type { CatalogItem, CatalogSlug, KeyedLine } from '#lib/types.js';
 
   type Option = { value: string; label: string };
 
   let { data } = $props();
+  setSkillPoolLookup(() => data.skillPools);
   const initialFilters = untrack(() => normalizeFilters(
-    readCatalogFilters(page.url.searchParams, page.params.catalog as CatalogSlug),
+    readCatalogFilters(new URLSearchParams(page.url.search), page.params.catalog as CatalogSlug),
     options(catalogTypeValues(data.items.flatMap(typesFor), data.definition.slug)),
     options(data.items.flatMap((item: CatalogItem) => item.Runes ?? []).map((rune: { NameKey?: string }) => rune.NameKey ?? ''))
   ));
@@ -147,13 +150,14 @@
 
     const candidates = data.definition.slug === 'sets'
       ? data.items.map((item: CatalogItem) => filterSetPieces(item,
-          { selectedType, selectedClass, selectedEquipment, handFilter }, searchGroups, $i18n))
+          { selectedType, selectedClass, selectedEquipment, handFilter, exactType }, searchGroups, $i18n))
           .filter((item: CatalogItem | null): item is CatalogItem => item !== null)
       : data.items;
     const matches = candidates.filter((item: CatalogItem) => {
       if (hideVanilla && isVanilla(item)) return false;
       if (!matchesItemType(typesFor(item), selectedType, exactType,
         data.definition.slug === 'runewords' || data.definition.slug === 'affixes')) return false;
+      if (data.definition.slug === 'affixes' && excludesItemType(item.ETypes ?? [], selectedType)) return false;
       if (selectedClass && !classesFor(item).includes(selectedClass)) return false;
       if (selectedEquipment && !equipmentFor(item).includes(selectedEquipment)) return false;
       if (subtype && item.source !== subtype) return false;
@@ -217,7 +221,7 @@
       selectedEquipment, selectedTier, selectedSockets, propertyType, minLevel,
       maxLevel, exactType, recipeType, selectedRunes, runeMatch, sortMode, handFilter
     };
-    const url = writeCatalogFilters(new URL(page.url), filters, data.definition.slug);
+    const url = writeCatalogFilters(new URL(page.url.href), filters, data.definition.slug);
     if (url.search !== page.url.search) goto(url, { shallow: true, replace: true });
   });
 
@@ -236,7 +240,7 @@
     }
     const destination = to?.url ?? page.url;
     const filters = normalizeFilters(
-      readCatalogFilters(destination.searchParams, data.definition.slug),
+      readCatalogFilters(new URLSearchParams(destination.search), data.definition.slug),
       typeOptions,
       runeOptions
     );
@@ -259,7 +263,7 @@
     sortMode = filters.sortMode;
     handFilter = filters.handFilter;
 
-    const normalizedUrl = writeCatalogFilters(new URL(destination), filters, data.definition.slug);
+    const normalizedUrl = writeCatalogFilters(new URL(destination.href), filters, data.definition.slug);
     if (normalizedUrl.search !== page.url.search) goto(normalizedUrl, { shallow: true, replace: true });
     navigationInProgress = false;
   });
