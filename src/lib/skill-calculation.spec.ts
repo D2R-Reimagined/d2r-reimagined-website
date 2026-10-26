@@ -292,3 +292,122 @@ describe('live description line calculations', () => {
     }
   });
 });
+
+describe('skillcalc.txt formula codes in shipped valuesCalc', () => {
+  const classes = skillClasses as SkillClass[];
+  const skills = classes.flatMap((entry) => entry.Tabs.flatMap((tab) => tab.Skills));
+  const byCode = (code: string) => skills.find((entry) => entry.Code === code)!;
+  const lineOf = (entry: Skill, key: string) =>
+    [...entry.Descriptions!.Stats, ...entry.Descriptions!.Details, ...entry.Descriptions!.Synergies]
+      .find((line) => line.key === key && line.valuesCalc)!;
+  const shipped = skills.flatMap((entry) =>
+    [...(entry.Descriptions?.Stats ?? []), ...(entry.Descriptions?.Details ?? []), ...(entry.Descriptions?.Synergies ?? [])]
+      .filter((line) => line.valuesCalc)
+      .map((line) => ({ entry, line })));
+  const at = <T>(table: T[], index: number): T => table[Math.min(index, table.length - 1)];
+
+  it('reproduces the exported no-other-points tables at every level for every expression it evaluates', () => {
+    const mismatches: string[] = [];
+    let evaluated = 0;
+    for (const { entry, line } of shipped) {
+      if (line.valuesUlvl) continue;
+      const hardCap = entry.Descriptions!.HardPointCap ?? entry.MaxLevel;
+      for (let level = 1; level <= entry.Descriptions!.MaxLevel; level++) {
+        const hard = Math.min(level, hardCap);
+        const live = skillLineCalcValues(line, entry, skills, { [entry.Id]: level }, { [entry.Id]: hard }, 1);
+        live.forEach((value, index) => {
+          if (value === undefined) return;
+          evaluated++;
+          const expected = line.values2d
+            ? at(at(line.values2d[index], hard), level - hard)
+            : at(line.values![index], level - 1);
+          if (value !== expected && mismatches.length < 10) {
+            mismatches.push(`${entry.Code} ${line.key}[${index}] level ${level}: ${value} != ${expected}`);
+          }
+        });
+      }
+    }
+    expect(mismatches).toEqual([]);
+    expect(evaluated).toBeGreaterThan(5000);
+  });
+
+  it('falls back only for expressions that need source data the export does not carry', () => {
+    // pstN/astN: skills.txt passivecalc/aurastatcalc cells; pnma/pxma/edmn/edmx: damage columns;
+    // sklvl/miss: rows outside the export. See docs/SKILL-PLANNER.md.
+    const missing = /\b(?:pst\d|ps1\d|ast\d|pnma|pxma|edmn|edmx)\b|\b(?:sklvl|miss)\(/;
+    const unresolved: string[] = [];
+    for (const { entry, line } of shipped) {
+      const ranks = { [entry.Id]: 10 };
+      skillLineCalcValues(line, entry, skills, ranks, ranks, 50).forEach((value, index) => {
+        const expression = line.valuesCalc![index];
+        if (value === undefined && expression && !missing.test(expression)) unresolved.push(`${entry.Code}: ${expression}`);
+      });
+    }
+    expect(unresolved).toEqual([]);
+  });
+
+  it('follows invested points of the synergy skills behind Strafe ln12, not their +skills', () => {
+    const strafe = byCode('Strafe');
+    const line = lineOf(strafe, 'StrSkillDamagePercent');
+    const guided = byCode('Guided Arrow');
+    const multiple = byCode('Multiple Shot');
+    // ln12 = par1 + (lvl - 1) * par2 reads Strafe's effective level; the synergies read blvl.
+    const ranks = { [strafe.Id]: 10, [guided.Id]: 20, [multiple.Id]: 2 };
+    const hard = { [strafe.Id]: 8, [guided.Id]: 4, [multiple.Id]: 2 };
+    expect(skillLineCalcValues(line, strafe, skills, ranks, hard)).toEqual([5 + 9 * 5 + 4 * 10 + 2 * 5]);
+    expect(skillLineCalcValues(line, strafe, skills, { [strafe.Id]: 10 }, { [strafe.Id]: 8 })).toEqual([at(line.values![0], 9)]);
+  });
+
+  it('evaluates the truncating dmXY form against live synergy points', () => {
+    const findItem = byCode('Find Item');
+    const findPotion = byCode('Find Potion');
+    // dm12 at level 10: (110*10)/(10+6) = 68, then 68*(60-5)/100 + 5 = 42.
+    expect(skillLineCalcValues(lineOf(findItem, 'StrSkill24'), findItem, skills, { [findItem.Id]: 10, [findPotion.Id]: 6 }))
+      .toEqual([42 + 6]);
+
+    const bindDemon = byCode('Bind Demon');
+    const deathMark = byCode('Death Mark');
+    // dm34 at level 10: 68*(64-12)/100 + 12 = 47, plus Death Mark blvl*par8/100.
+    expect(skillLineCalcValues(lineOf(bindDemon, 'StrSkillChanceToSucceed'), bindDemon, skills,
+      { [bindDemon.Id]: 10, [deathMark.Id]: 9 }, { [bindDemon.Id]: 10, [deathMark.Id]: 5 })).toEqual([47 + 5]);
+  });
+
+  it('reads clc0 as Calc10 and the Param11/Param12 progression ln21', () => {
+    const echoing = byCode('Echoing Strike');
+    const mirrored = byCode('Mirrored Blades');
+    const warp = byCode('Blade Warp');
+    const line = lineOf(echoing, 'StrSkillDamagePercentage');
+    expect(line.valuesCalc).toEqual(['ln12+clc0']);
+    expect(skillLineCalcValues(line, echoing, skills, { [echoing.Id]: 10, [mirrored.Id]: 3, [warp.Id]: 2 }))
+      .toEqual([25 + 9 * 5 + (3 + 2) * 5]);
+
+    const hexPurge = byCode('Hex Purge');
+    const sigil = byCode('Sigil Death');
+    // clc2 = (ln21 + Sigil Death blvl * pa10) / 100, ln21 = pa11 + (lvl - 1) * pa12.
+    expect(skillLineCalcValues(lineOf(hexPurge, 'StrSkillExplodeChance'), hexPurge, skills, { [hexPurge.Id]: 10, [sigil.Id]: 2 }))
+      .toEqual([Math.trunc((6900 + 9 * 50 + 2 * 100) / 100)]);
+  });
+
+  it('keeps the exported tables where a cell needs data the export does not carry', () => {
+    const grizzly = byCode('Summon Grizzly');
+    // pnma (skills.txt physical damage columns) and pst3 (passivecalc3) are not exported.
+    expect(skillLineCalcValues(lineOf(grizzly, 'StrSkill4'), grizzly, skills, { [grizzly.Id]: 10 })).toEqual([undefined, undefined]);
+    const abyss = byCode('Abyss');
+    expect(skillLineCalcValues(lineOf(abyss, 'StrSkill18'), abyss, skills, { [abyss.Id]: 10 })).toEqual([undefined]);
+    const skeleton = byCode('Raise Skeleton');
+    expect(skillLineCalcValues(lineOf(skeleton, 'StrSkill42'), skeleton, skills, { [skeleton.Id]: 10 })).toEqual([undefined]);
+  });
+});
+
+describe('skillcalc.txt formula codes', () => {
+  it('evaluate in the scope that names them', () => {
+    const mastery = skill(1, 'Golem Mastery', { Calculation: { Params: { 5: 20, 6: 5 }, Calcs: {} } });
+    const golem = skill(2, 'IronGolem', { Calculation: { Params: { 5: 1, 6: 1, 8: 3 }, Calcs: {} } });
+    const ranks = { 1: 4, 2: 10 };
+    expect(evaluateSkillCalc('ln56', golem, [mastery, golem], ranks)).toBe(1 + 9 * 1);
+    expect(evaluateSkillCalc("skill('Golem Mastery'.ln56) + (lvl*par8)", golem, [mastery, golem], ranks)).toBe(20 + 3 * 5 + 30);
+    expect(evaluateSkillCalc('ln91', skill(3, 'X', { Calculation: { Params: { 9: 7, 10: 2 }, Calcs: {} } }), [], { 3: 3 })).toBe(11);
+    expect(() => evaluateSkillCalc('ln99', golem, [golem], ranks)).toThrow();
+    expect(() => evaluateSkillCalc('constructor', golem, [golem], ranks)).toThrow();
+  });
+});

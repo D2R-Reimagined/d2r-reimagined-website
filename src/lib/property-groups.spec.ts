@@ -26,7 +26,7 @@ function present(item: CatalogItem) {
     title: groups.length ? propertyGroupsTitle(groups.length, tools.t) : null,
     groups: groups.map((group) => ({
       heading: groupHeading(group, tools.t),
-      children: (group.children ?? []).map((child) => tools.line(child) + childChance(child, group.children ?? []))
+      children: (group.children ?? []).map((child) => tools.line(child) + childChance(child, group))
     }))
   };
 }
@@ -109,7 +109,7 @@ describe('a grouped affix item', () => {
   it('keeps pick-mode 1 groups distinct, including a single-roll group', () => {
     const magdam: KeyedLine = { key: '', code: 'magdam-rand', nameKey: 'strPropertyGroupsProperty', pickMode: '1',
       children: Array.from({ length: 6 }, (_, index) => ({ key: 'ModStr1a', args: [index + 1], chance: 1 })) };
-    expect(magdam.children!.map((child) => childChance(child, magdam.children!))).toEqual(Array(6).fill(' (16.7%)'));
+    expect(magdam.children!.map((child) => childChance(child, magdam))).toEqual(Array(6).fill(' (1%)'));
     const tab: KeyedLine = { key: 'strSkillTabRandomClassOnly', args: [1], selection: { stat: 'item_addskill_tab', min: 21, max: 23 }, classOnly: 'WarOnly' };
     const card = present({ Index: 'Single group', Lines: [{ key: '', code: 'tab-rand', nameKey: 'strPropertyGroupsProperty', pickMode: '1', children: [tab] }] });
     expect(card.title).toBe('Possible Property Rolls (1 group)');
@@ -185,10 +185,53 @@ describe('group labels', () => {
 });
 
 describe('childChance', () => {
-  it('matches the existing share-of-siblings annotation', () => {
-    const siblings: KeyedLine[] = [{ key: 'a', chance: 3 }, { key: 'b', chance: 1 }, { key: 'c' }];
-    expect(siblings.map((child) => childChance(child, siblings))).toEqual([' (60.0%)', ' (20.0%)', '']);
-    expect(childChance({ key: 'x', chance: 0 }, [{ key: 'x', chance: 0 }])).toBe('');
+  const parent = (pickMode: string | undefined, children: KeyedLine[]): KeyedLine => ({ key: '', pickMode, children });
+
+  it('reads pick-mode 2 chances as relative weights among the siblings', () => {
+    const weighted = parent('2', [{ key: 'a', chance: 3 }, { key: 'b', chance: 1 }, { key: 'c', chance: 1 }]);
+    expect(weighted.children!.map((child) => childChance(child, weighted))).toEqual([' (60.0%)', ' (20.0%)', ' (20.0%)']);
+    const zero = parent('2', [{ key: 'x', chance: 0 }]);
+    expect(childChance(zero.children![0], zero)).toBe('');
+  });
+
+  it('never invents a weight or a percentage for a missing chance', () => {
+    const partial = parent('2', [{ key: 'a', chance: 3 }, { key: 'b' }]);
+    expect(partial.children!.map((child) => childChance(child, partial))).toEqual(['', '']);
+    const direct = parent('1', [{ key: 'a', chance: 25 }, { key: 'b' }]);
+    expect(direct.children!.map((child) => childChance(child, direct))).toEqual([' (25%)', '']);
+  });
+
+  it('reads every other pick mode as a direct percentage, independent of the siblings', () => {
+    const direct = parent('1', [{ key: 'a', chance: 1 }, { key: 'b', chance: 1 }, { key: 'c', chance: 40 }]);
+    expect(direct.children!.map((child) => childChance(child, direct))).toEqual([' (1%)', ' (1%)', ' (40%)']);
+    expect(childChance({ key: 'a', chance: 5 }, parent(undefined, [{ key: 'a', chance: 5 }]))).toBe(' (5%)');
+  });
+});
+
+describe('exported property-group chances', () => {
+  const lineWithCode = (item: CatalogItem | undefined, code: string) => (item?.Lines ?? []).find((line) => line.code === code);
+
+  it('shows Opalvein\'s magdam-rand children as their exported 1% each, not a share of six', () => {
+    const opalvein = (uniques as CatalogItem[]).find((item) => item.Index === 'Opalvein');
+    const magdam = lineWithCode(opalvein, 'magdam-rand');
+    expect(magdam?.pickMode).toBe('1');
+    expect(magdam!.children).toHaveLength(6);
+    expect(magdam!.children!.every((child) => child.chance === 1)).toBe(true);
+    const card = present(opalvein!);
+    const group = card.groups[(opalvein!.Lines ?? []).filter(isAlternateGroup).indexOf(magdam!)];
+    expect(group.children).toHaveLength(6);
+    for (const text of group.children) expect(text.endsWith(' (1%)'), text).toBe(true);
+    expect(JSON.stringify(card)).not.toContain('16.7%');
+  });
+
+  it('keeps the exported weighted affix groups as shares of their siblings', () => {
+    const flame = (uniques as CatalogItem[]).find((item) => item.Index === 'Crafted Flame Rift');
+    const affix4 = lineWithCode(flame, 'Incendiary-Affix4')!;
+    expect(affix4.pickMode).toBe('2');
+    expect(affix4.children!.map((child) => child.chance)).toEqual([1, 3, 1]);
+    expect(affix4.children!.map((child) => childChance(child, affix4))).toEqual([' (20.0%)', ' (60.0%)', ' (20.0%)']);
+    const affix1 = lineWithCode(flame, 'Incendiary-Affix1')!;
+    expect(affix1.children!.map((child) => childChance(child, affix1))).toEqual(Array(3).fill(' (33.3%)'));
   });
 });
 

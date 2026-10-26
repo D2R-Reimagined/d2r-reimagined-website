@@ -44,7 +44,7 @@
 
 {#snippet groupChildren(keyedLine: KeyedLine)}
   {#each keyedLine.children ?? [] as child}
-    <p>{$i18n.line(child)}{childChance(child, keyedLine.children ?? [])}</p>
+    <p>{$i18n.line(child)}{childChance(child, keyedLine)}</p>
     {@render pool(child)}
   {/each}
 {/snippet}

@@ -45,6 +45,13 @@ formulas. Both use the other skills' points as currently allocated.
   synergy formula contributes 0%.
 - `stat(...)` references evaluate to 0, and `valuesCalc` formulas that read `ulvl` fall back to
   the table value.
+- The evaluator understands `skillcalc.txt`'s formula codes (`ln12`…`ln92`, `dm12`…`dm92`, the
+  latter in the exporter's truncating `calcFormulaOverrides` form) and `clc0` (Calc10). The
+  export does not carry the source data behind some other codes, so `valuesCalc` cells using them
+  keep the no-other-points table: `pstN`/`astN` (skills.txt `passivecalc`/`aurastatcalc` cells),
+  `pnma`/`pxma`/`edmn`/`edmx` (damage columns), `sklvl(...)` of a skill outside the export and
+  `miss(...)` (missiles.txt). These lines do not follow other skills' points until the exporter
+  expands or exports that data.
 - Bonus `+skills` apply only to the previewed skill; synergy sources use their hard points.
 
 ## Read-only displays

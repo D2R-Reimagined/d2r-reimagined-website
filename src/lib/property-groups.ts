@@ -1,4 +1,5 @@
 import type { TemplateArg } from '../utilities/format-template';
+import { childSelection } from './automagic';
 import type { KeyedLine } from './types';
 
 type Translate = (key: string | number | undefined | null, args?: ReadonlyArray<TemplateArg>) => string;
@@ -42,11 +43,17 @@ export function propertyGroupsTitle(count: number, t: Translate): string {
 }
 
 /**
- * The existing card annotation for a group child: its chance as a share of the chances of
- * its own siblings (a missing chance counts as 1), or nothing when no chance was exported.
+ * The card annotation for a child of `group`. The exporter's `chance` is a relative weight
+ * when the group's `pickMode` is "2", so the child shows its share of its siblings' weights;
+ * under every other pick mode it already is the percentage. Nothing is shown when the child
+ * has no exported chance, or when a weighted share would need a sibling's missing weight.
  */
-export function childChance(line: KeyedLine, siblings: KeyedLine[]): string {
-  if (line.chance == null) return '';
-  const total = siblings.reduce((sum, sibling) => sum + (sibling.chance ?? 1), 0);
-  return total > 0 ? ` (${((line.chance / total) * 100).toFixed(1)}%)` : '';
+export function childChance(line: KeyedLine, group: KeyedLine): string {
+  const selection = childSelection(line, group.pickMode);
+  if (!selection) return '';
+  if (selection.kind === 'percent') return ` (${selection.value}%)`;
+  const weights = (group.children ?? []).map((sibling) => childSelection(sibling, group.pickMode)?.value);
+  if (weights.some((weight) => weight === undefined)) return '';
+  const total = weights.reduce((sum: number, weight) => sum + (weight ?? 0), 0);
+  return total > 0 ? ` (${((selection.value / total) * 100).toFixed(1)}%)` : '';
 }

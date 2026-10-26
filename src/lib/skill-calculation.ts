@@ -14,6 +14,34 @@ interface CalcContext {
   stats: Set<string>;
 }
 
+/**
+ * skillcalc.txt's formula-shaped codes: `lnXY` is a linear progression and `dmXY` the diminishing
+ * one over a Param pair. The digits do not always name the Params (`ln91` reads Param9/Param10,
+ * `ln21` Param11/Param12, …), so the pairs are listed as the table spells them. `dmXY` uses the
+ * exporter's `calcFormulaOverrides` form, which truncates `(110*lvl)/(lvl+6)` before applying it,
+ * as the game does. Each is evaluated in the scope that names it: inside `skill('X'.ln56)` the
+ * Params and `lvl` are X's.
+ */
+const FORMULA_PARAMS: Record<string, [string, string]> = {
+  '12': ['par1', 'par2'],
+  '34': ['par3', 'par4'],
+  '56': ['par5', 'par6'],
+  '78': ['par7', 'par8'],
+  '91': ['par9', 'pa10'],
+  '21': ['pa11', 'pa12'],
+  '43': ['pa13', 'pa14'],
+  '65': ['pa15', 'pa16'],
+  '87': ['pa17', 'pa18'],
+  '92': ['pa19', 'pa20']
+};
+
+const FORMULAS = new Map<string, string>(
+  Object.entries(FORMULA_PARAMS).flatMap(([digits, [base, step]]): Array<[string, string]> => [
+    [`ln${digits}`, `${base} + (lvl - 1) * ${step}`],
+    [`dm${digits}`, `((110 * lvl) / (lvl + 6)) * (${step} - ${base}) / 100 + ${base}`]
+  ])
+);
+
 export function skillSynergyBonus(
   skill: Skill,
   scale: SkillDamageScale,
@@ -316,9 +344,13 @@ class Parser {
       return context.skill.Calculation?.Params[index] ?? 0;
     }
 
-    const calc = /^clc([1-9]|10)$/.exec(lower);
+    const formula = FORMULAS.get(lower);
+    if (formula) return new Parser(formula, context).parse();
+
+    // skillcalc.txt spells the calc10 alias `clc0`.
+    const calc = /^clc([0-9])$/.exec(lower);
     if (calc) {
-      const index = Number(calc[1]);
+      const index = Number(calc[1]) || 10;
       const expression = context.skill.Calculation?.Calcs[index];
       if (!expression) throw new Error(`Missing Calc${index}.`);
       const key = `${context.skill.Id}:clc${index}`;
