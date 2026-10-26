@@ -7,7 +7,7 @@ export const presets = [
   { id: 'strict', name: 'Strict', description: 'For farming when ordinary magic equipment is no longer useful to you.', hides: 'Inferior, normal, superior and magic unsocketed, non-ethereal ordinary weapons and armor.' }
 ] as const;
 export type PresetId = typeof presets[number]['id'];
-export const protectedLoot = 'All uniques, sets, rares, currencies, runes, gems, maps, quest items, charms, jewels, jewelry, class-specific gear, ethereal gear and socketed bases.';
+export const protectedLoot = 'All uniques, sets, rares, crafted items, currencies, runes, gems, maps, quest items, charms, jewels, jewelry, class-specific gear, ethereal gear and socketed bases.';
 
 // Rules are deliberately conservative: hide only known equipment families and
 // end with Show. New mod item families therefore stay visible until reviewed.
@@ -20,7 +20,7 @@ export function createPreset(id: PresetId): Filter {
     show('Maps and map currency', { itemType: ['mapi', 'mcur'] }, { minimapIcon: icon('RGBA(190, 120, 255, 1)') }),
     show('Runes, gems and Reimagined currencies', { itemType: ['rune', 'runx', 'gem', 'gemx', 'gemo', 'pgem', 'elix', 'orbx', 'stor', 'grab'] }, { tooltip: { textColor: 'RGBA(255, 180, 90, 1)' } }),
     show('Charms, jewels and jewelry', { itemType: ['char', 'jewl', 'cjwl', 'csch', 'ring', 'amul', 'circ', 'torc'] }),
-    show('Rare equipment', { rarity: 'rare' }),
+    show('Rare and crafted equipment', { rarity: ['rare', 'crafted'] }),
     show('Class-specific and mercenary equipment', { itemType: ['clas', 'merc', 'helm'] }),
     show('Ethereal equipment', { ethereal: true }),
     show('Socketed bases', { sockets: { gte: 1 } })

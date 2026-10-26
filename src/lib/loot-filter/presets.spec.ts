@@ -24,17 +24,17 @@ describe('conservative starter presets', () => {
     expect(['starter', 'semi-strict', 'strict'].map(id => visible(id as PresetId, 'hax'))).toEqual([true, false, false]);
     expect(['starter', 'semi-strict', 'strict'].map(id => visible(id as PresetId, 'hax', 'magic'))).toEqual([true, true, false]);
     for (const id of presets.map(p => p.id)) {
-      for (const rarity of ['rare', 'unique', 'set']) expect(visible(id, 'hax', rarity)).toBe(true);
+      for (const rarity of ['rare', 'crafted', 'unique', 'set']) expect(visible(id, 'hax', rarity)).toBe(true);
       expect(visible(id, 'hax', 'normal', 3)).toBe(true);
       expect(visible(id, 'hax', 'normal', 0, true)).toBe(true);
       for (const code of ['mor', 'md1', 'r39', 's39', 'gpv', 'cm1', 'jew', 'cjw', 'box', 'rin', 'amu', 'hp1', 'gld', 'UNKNOWN']) expect(visible(id, code)).toBe(true);
     }
   });
-  it('keeps every misc item and all unique/set/rare drops visible across the real catalog', () => {
+  it('keeps every misc item and all unique/set/rare/crafted drops visible across the real catalog', () => {
     for (const item of catalog.baseItems) {
       for (const id of presets.map(p => p.id)) {
         if (item.kind === 'misc') expect(visible(id, item.code!), `${id}:${item.code}`).toBe(true);
-        for (const rarity of ['unique', 'set', 'rare']) expect(visible(id, item.code!, rarity)).toBe(true);
+        for (const rarity of ['unique', 'set', 'rare', 'crafted']) expect(visible(id, item.code!, rarity)).toBe(true);
       }
     }
   });
@@ -42,5 +42,7 @@ describe('conservative starter presets', () => {
     const first = createPreset('starter'), second = createPreset('starter');
     first.rules[0].show!.ruleName = 'Edited';
     expect(second.rules[0].show!.ruleName).toBe('Uniques and sets');
+    expect(M.RARITIES).toContain('crafted');
+    expect(M.validateFilter({ version: 3, rules: [{ show: { conditions: { rarity: 'crafted' } } }] }, catalog).errors).toEqual([]);
   });
 });
