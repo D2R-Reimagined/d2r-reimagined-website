@@ -1,4 +1,5 @@
-=== Import Report: 0 error(s), 1 warning(s) ===
+=== Import Report: 0 error(s), 2 warning(s) ===
 
 --- DataLoader ---
+  [WARN] [DataLoader] skills.txt: 11 row(s) carry an informational *Id that differs from the engine row index (skill 'labdiabloloot': *Id='583', engine index 528; skill 'diabloAura': *Id='584', engine index 529; skill 'diabloice': *Id='585', engine index 530; …). *Id is ignored; identifiers come from the row position.
   [WARN] [DataLoader] monstats.txt: 654 row(s) carry an informational *hcIdx that differs from the engine row index (Id 'serpentlord': *hcIdx='2003', engine index 853; Id 'rmap_md1_0': *hcIdx='855', engine index 854; Id 'rmap_md1_1': *hcIdx='856', engine index 855; …). *hcIdx is ignored; identifiers come from the row position.

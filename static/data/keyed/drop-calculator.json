@@ -155072,6 +155072,60 @@
       "TreasureClass": "Lab T3 Unique"
     },
     {
+      "Id": "labtotem1:161:2:normal",
+      "NameKey": "LightningSpire",
+      "AreaKey": "Depths of the Forsaken",
+      "Difficulty": 2,
+      "Kind": "normal",
+      "Level": 108,
+      "TreasureClass": "Lab T3 Normal"
+    },
+    {
+      "Id": "labtotem1:161:2:champion",
+      "NameKey": "LightningSpire",
+      "AreaKey": "Depths of the Forsaken",
+      "Difficulty": 2,
+      "Kind": "champion",
+      "Level": 110,
+      "TreasureClass": "Lab T3 Champion"
+    },
+    {
+      "Id": "labtotem1:161:2:unique",
+      "NameKey": "LightningSpire",
+      "AreaKey": "Depths of the Forsaken",
+      "Difficulty": 2,
+      "Kind": "unique",
+      "Level": 111,
+      "TreasureClass": "Lab T3 Unique"
+    },
+    {
+      "Id": "labtotem1:164:2:normal",
+      "NameKey": "LightningSpire",
+      "AreaKey": "Depths of the Forsaken",
+      "Difficulty": 2,
+      "Kind": "normal",
+      "Level": 110,
+      "TreasureClass": "Lab T3 Normal"
+    },
+    {
+      "Id": "labtotem1:164:2:champion",
+      "NameKey": "LightningSpire",
+      "AreaKey": "Depths of the Forsaken",
+      "Difficulty": 2,
+      "Kind": "champion",
+      "Level": 112,
+      "TreasureClass": "Lab T3 Champion"
+    },
+    {
+      "Id": "labtotem1:164:2:unique",
+      "NameKey": "LightningSpire",
+      "AreaKey": "Depths of the Forsaken",
+      "Difficulty": 2,
+      "Kind": "unique",
+      "Level": 113,
+      "TreasureClass": "Lab T3 Unique"
+    },
+    {
       "Id": "skeletonking:0:2:normal",
       "NameKey": "skeletonking",
       "AreaKey": "",

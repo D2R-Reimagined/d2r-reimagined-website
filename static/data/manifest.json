@@ -996,8 +996,8 @@
     },
     {
       "Path": "extras/import-report.txt",
-      "Bytes": 398,
-      "Sha256": "6eaecef25a56e567065674da6e2078ac82567f8ae1c19585c66aa98551e04d83",
+      "Bytes": 720,
+      "Sha256": "7159123f8d968539af5c88021835be382f176d87df283b7c5ecb612ce6c80f72",
       "Producer": "extras/import-report.txt"
     },
     {
@@ -1026,20 +1026,20 @@
     },
     {
       "Path": "keyed/drop-calculator.json",
-      "Bytes": 5930151,
-      "Sha256": "8b76baf69fc9fb6819f54a17a4879ce0a732b30c0576755596828c5106c75726",
+      "Bytes": 5931627,
+      "Sha256": "08849eb789e1e42b055bcba8a7339e988302066a8f9f5c374a8317ea7821081a",
       "Producer": "drop-calculator.json"
     },
     {
       "Path": "keyed/health-calculator.json",
-      "Bytes": 2603264,
-      "Sha256": "c2f7ee2c260553029e38b43c8c15ab8b8bd64888f833a848de6bcd51a98b58b0",
+      "Bytes": 2603248,
+      "Sha256": "81d8d69bab6f56503ac5b589c7326d56d6a32bbfccf1bb188ed461bbd2a1894e",
       "Producer": "health-calculator.json"
     },
     {
       "Path": "keyed/ias-calculator.json",
       "Bytes": 294751,
-      "Sha256": "d058847876fa688b4aa93bb8253e92b21acf85ef918a64678e9e89f4b899e12c",
+      "Sha256": "4fa581846e3c7130c1b450973d8172d8ce5e6f189323763ed54181aafeb12acf",
       "Producer": "ias-calculator.json"
     },
     {
