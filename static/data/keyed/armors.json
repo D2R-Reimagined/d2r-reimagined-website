@@ -12,6 +12,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 79,
     "RequiredLevel": 59,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -63,6 +64,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 20,
     "RequiredLevel": 15,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -307,6 +309,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 40,
     "RequiredLevel": 30,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -551,6 +554,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 35,
     "RequiredLevel": 26,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -795,6 +799,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 26,
     "RequiredLevel": 26,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -839,6 +844,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 40,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -877,6 +883,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 56,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -928,6 +935,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 16,
     "RequiredLevel": 12,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -972,6 +980,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 84,
     "RequiredLevel": 63,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -1010,6 +1019,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 68,
     "RequiredLevel": 51,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
@@ -1048,6 +1058,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 20,
     "RequiredLevel": 15,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -1092,6 +1103,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 24,
     "RequiredLevel": 18,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -1136,6 +1148,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 76,
     "RequiredLevel": 57,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -1174,6 +1187,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 42,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -1225,6 +1239,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 45,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -1263,6 +1278,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 49,
     "RequiredLevel": 25,
     "GemSockets": "",
     "Lines": [
@@ -1301,6 +1317,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 49,
     "RequiredLevel": 25,
     "GemSockets": "",
     "Lines": [
@@ -1346,6 +1363,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 49,
     "RequiredLevel": 25,
     "GemSockets": "",
     "Lines": [
@@ -1384,6 +1402,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 12,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -1421,6 +1440,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 68,
     "RequiredLevel": 51,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -1472,6 +1492,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 81,
     "RequiredLevel": 60,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -1656,6 +1677,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 85,
     "RequiredLevel": 65,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -1840,6 +1862,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 62,
     "RequiredLevel": 46,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -1884,6 +1907,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 85,
     "RequiredLevel": 65,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -2024,6 +2048,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 22,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -2062,6 +2087,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 19,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -2113,6 +2139,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 84,
     "RequiredLevel": 63,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
@@ -2151,6 +2178,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 72,
     "RequiredLevel": 54,
     "GemSockets": "",
     "Lines": [
@@ -2196,6 +2224,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 62,
     "RequiredLevel": 47,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -2234,6 +2263,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 3,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -2273,6 +2303,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 57,
     "RequiredLevel": 42,
     "GemSockets": "",
     "Lines": [
@@ -2311,6 +2342,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 18,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -2349,6 +2381,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 1,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 1 - (26-40): 1 - (41+): 1",
     "Lines": [
@@ -2394,6 +2427,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 24,
     "RequiredLevel": 24,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -2578,6 +2612,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 49,
     "RequiredLevel": 36,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -2718,6 +2753,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 1,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -2750,6 +2786,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 60,
     "RequiredLevel": 45,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -2794,6 +2831,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 42,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -2832,6 +2870,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 12,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -2877,6 +2916,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 12,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -2915,6 +2955,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 15,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -2953,6 +2994,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 61,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -2991,6 +3033,7 @@
       "Index": "circitype",
       "Class": ""
     },
+    "ItemLevel": 24,
     "RequiredLevel": 16,
     "GemSockets": "(1-25): 1 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -3029,6 +3072,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 12,
     "RequiredLevel": 12,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -3213,6 +3257,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 85,
     "RequiredLevel": 67,
     "GemSockets": "",
     "Lines": [
@@ -3251,6 +3296,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 15,
     "RequiredLevel": 15,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -3435,6 +3481,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 80,
     "RequiredLevel": 60,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -3479,6 +3526,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 85,
     "RequiredLevel": 66,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
@@ -3517,6 +3565,7 @@
       "Index": "circitype",
       "Class": ""
     },
+    "ItemLevel": 52,
     "RequiredLevel": 39,
     "GemSockets": "(1-25): 1 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -3555,6 +3604,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 24,
     "RequiredLevel": 18,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -3799,6 +3849,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 29,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 3",
     "Lines": [
@@ -3837,6 +3888,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 76,
     "RequiredLevel": 57,
     "GemSockets": "",
     "Lines": [
@@ -3875,6 +3927,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 47,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -3913,6 +3966,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 33,
     "RequiredLevel": 33,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -4097,6 +4151,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 29,
     "RequiredLevel": 29,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -4281,6 +4336,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 48,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 3",
     "Lines": [
@@ -4319,6 +4375,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 34,
     "RequiredLevel": 22,
     "GemSockets": "(1-25): 1 - (26-40): 1 - (41+): 1",
     "Lines": [
@@ -4370,6 +4427,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 24,
     "RequiredLevel": 18,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -4510,6 +4568,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 74,
     "RequiredLevel": 55,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
@@ -4548,6 +4607,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 37,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -4586,6 +4646,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 36,
     "RequiredLevel": 24,
     "GemSockets": "",
     "Lines": [
@@ -4631,6 +4692,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 33,
     "RequiredLevel": 21,
     "GemSockets": "",
     "Lines": [
@@ -4669,6 +4731,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 36,
     "RequiredLevel": 24,
     "GemSockets": "",
     "Lines": [
@@ -4707,6 +4770,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 73,
     "RequiredLevel": 54,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -4751,6 +4815,7 @@
       "Index": "circitype",
       "Class": ""
     },
+    "ItemLevel": 85,
     "RequiredLevel": 64,
     "GemSockets": "(1-25): 1 - (26-40): 2 - (41+): 4",
     "Lines": [
@@ -4789,6 +4854,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 72,
     "RequiredLevel": 54,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -4827,6 +4893,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 45,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -4878,6 +4945,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 85,
     "RequiredLevel": 66,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -4922,6 +4990,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 65,
     "RequiredLevel": 49,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -4960,6 +5029,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 76,
     "RequiredLevel": 57,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -5004,6 +5074,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 58,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -5042,6 +5113,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 20,
     "RequiredLevel": 15,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -5086,6 +5158,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 8,
     "RequiredLevel": 6,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -5130,6 +5203,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 39,
     "RequiredLevel": 29,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -5270,6 +5344,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 28,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -5308,6 +5383,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 59,
     "RequiredLevel": 44,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -5492,6 +5568,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 15,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -5530,6 +5607,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 37,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -5568,6 +5646,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 66,
     "RequiredLevel": 49,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -5612,6 +5691,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 20,
     "RequiredLevel": 15,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -5752,6 +5832,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 27,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -5790,6 +5871,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 34,
     "RequiredLevel": 22,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -5828,6 +5910,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 54,
     "RequiredLevel": 40,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
@@ -5866,6 +5949,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 51,
     "RequiredLevel": 38,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -6110,6 +6194,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 32,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -6148,6 +6233,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 30,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -6199,6 +6285,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 55,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 3",
     "Lines": [
@@ -6237,6 +6324,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 75,
     "RequiredLevel": 56,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -6275,6 +6363,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 23,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 3",
     "Lines": [
@@ -6313,6 +6402,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 27,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -6358,6 +6448,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 40,
     "RequiredLevel": 30,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -6402,6 +6493,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 50,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -6440,6 +6532,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 48,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -6491,6 +6584,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 18,
     "RequiredLevel": 18,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -6675,6 +6769,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 85,
     "RequiredLevel": 65,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -6719,6 +6814,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 5,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -6757,6 +6853,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 8,
     "RequiredLevel": 6,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -6801,6 +6898,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 58,
     "RequiredLevel": 43,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -6852,6 +6950,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 20,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -6889,6 +6988,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 7,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -6934,6 +7034,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 43,
     "RequiredLevel": 25,
     "GemSockets": "",
     "Lines": [
@@ -6972,6 +7073,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 7,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -7004,6 +7106,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 78,
     "RequiredLevel": 59,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -7042,6 +7145,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 67,
     "RequiredLevel": 50,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -7182,6 +7286,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 11,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -7220,6 +7325,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 16,
     "RequiredLevel": 12,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -7464,6 +7570,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 54,
     "RequiredLevel": 40,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -7604,6 +7711,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 16,
     "RequiredLevel": 12,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -7648,6 +7756,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 46,
     "RequiredLevel": 29,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -7692,6 +7801,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 63,
     "RequiredLevel": 47,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
@@ -7730,6 +7840,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 64,
     "RequiredLevel": 54,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -7781,6 +7892,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 4,
     "RequiredLevel": 3,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -7825,6 +7937,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 33,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -7869,6 +7982,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 15,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -7920,6 +8034,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 81,
     "RequiredLevel": 61,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -7958,6 +8073,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 74,
     "RequiredLevel": 55,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -8202,6 +8318,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 82,
     "RequiredLevel": 62,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -8240,6 +8357,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 11,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -8291,6 +8409,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 3,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -8329,6 +8448,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 3,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -8361,6 +8481,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 7,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -8392,6 +8513,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 20,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -8430,6 +8552,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 35,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -8468,6 +8591,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 20,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -8513,6 +8637,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 42,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -8551,6 +8676,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 38,
     "RequiredLevel": 29,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -8595,6 +8721,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 73,
     "RequiredLevel": 55,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -8633,6 +8760,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 61,
     "RequiredLevel": 45,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -8684,6 +8812,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 60,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -8722,6 +8851,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 19,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 3",
     "Lines": [
@@ -8760,6 +8890,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 45,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -8798,6 +8929,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 43,
     "RequiredLevel": 25,
     "GemSockets": "",
     "Lines": [
@@ -8836,6 +8968,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 43,
     "RequiredLevel": 25,
     "GemSockets": "",
     "Lines": [
@@ -8881,6 +9014,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 59,
     "RequiredLevel": 44,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -9021,6 +9155,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 81,
     "RequiredLevel": 60,
     "GemSockets": "",
     "Lines": [
@@ -9066,6 +9201,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 75,
     "RequiredLevel": 56,
     "GemSockets": "",
     "Lines": [
@@ -9104,6 +9240,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 72,
     "RequiredLevel": 54,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -9155,6 +9292,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 33,
     "RequiredLevel": 24,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -9295,6 +9433,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 85,
     "RequiredLevel": 65,
     "GemSockets": "",
     "Lines": [
@@ -9340,6 +9479,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 66,
     "RequiredLevel": 50,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -9524,6 +9664,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 67,
     "RequiredLevel": 49,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -9708,6 +9849,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 85,
     "RequiredLevel": 64,
     "GemSockets": "",
     "Lines": [
@@ -9746,6 +9888,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 3,
     "RequiredLevel": 3,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -9930,6 +10073,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 64,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -9968,6 +10112,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 66,
     "RequiredLevel": 49,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -10108,6 +10253,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 50,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -10159,6 +10305,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 24,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -10197,6 +10344,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 27,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -10235,6 +10383,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 36,
     "RequiredLevel": 36,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -10419,6 +10568,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 40,
     "RequiredLevel": 40,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -10603,6 +10753,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 4,
     "RequiredLevel": 3,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -10743,6 +10894,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 46,
     "RequiredLevel": 34,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -10987,6 +11139,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 1,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -11025,6 +11178,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 44,
     "RequiredLevel": 29,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -11069,6 +11223,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 11,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -11107,6 +11262,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 8,
     "RequiredLevel": 6,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -11351,6 +11507,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 37,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -11402,6 +11559,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 55,
     "RequiredLevel": 41,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -11646,6 +11804,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 49,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -11684,6 +11843,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 85,
     "RequiredLevel": 66,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -11722,6 +11882,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 50,
     "RequiredLevel": 32,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -11766,6 +11927,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 70,
     "RequiredLevel": 52,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -12010,6 +12172,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 63,
     "RequiredLevel": 47,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -12254,6 +12417,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 37,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -12292,6 +12456,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 3,
     "RequiredLevel": 0,
     "GemSockets": "",
     "Lines": [
@@ -12323,6 +12488,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 49,
     "RequiredLevel": 32,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -12367,6 +12533,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 13,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -12405,6 +12572,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 68,
     "RequiredLevel": 51,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -12443,6 +12611,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 66,
     "RequiredLevel": 49,
     "GemSockets": "",
     "Lines": [
@@ -12488,6 +12657,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 42,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -12539,6 +12709,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 36,
     "RequiredLevel": 24,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -12577,6 +12748,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 45,
     "RequiredLevel": 33,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -12717,6 +12889,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 83,
     "RequiredLevel": 64,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -12755,6 +12928,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 58,
     "RequiredLevel": 43,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
@@ -12793,6 +12967,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 39,
     "RequiredLevel": 25,
     "GemSockets": "",
     "Lines": [
@@ -12831,6 +13006,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 39,
     "RequiredLevel": 25,
     "GemSockets": "",
     "Lines": [
@@ -12876,6 +13052,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 39,
     "RequiredLevel": 25,
     "GemSockets": "",
     "Lines": [
@@ -12914,6 +13091,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 55,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -12952,6 +13130,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 5,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -12990,6 +13169,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 83,
     "RequiredLevel": 62,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -13034,6 +13214,7 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "ItemLevel": 54,
     "RequiredLevel": 40,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -13078,6 +13259,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 5,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -13129,6 +13311,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 61,
     "RequiredLevel": 46,
     "GemSockets": "",
     "Lines": [
@@ -13167,6 +13350,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 11,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -13218,6 +13402,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 79,
     "RequiredLevel": 59,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
@@ -13256,6 +13441,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 24,
     "RequiredLevel": 18,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -13300,6 +13486,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 20,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -13338,6 +13525,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 8,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -13376,6 +13564,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 81,
     "RequiredLevel": 60,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -13516,6 +13705,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 69,
     "RequiredLevel": 51,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -13560,6 +13750,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 4,
     "RequiredLevel": 3,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -13804,6 +13995,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 52,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -13842,6 +14034,7 @@
       "Index": "circitype",
       "Class": ""
     },
+    "ItemLevel": 70,
     "RequiredLevel": 52,
     "GemSockets": "(1-25): 1 - (26-40): 2 - (41+): 3",
     "Lines": [
@@ -13880,6 +14073,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 43,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -13918,6 +14112,7 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "ItemLevel": 6,
     "RequiredLevel": 6,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -14102,6 +14297,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 55,
     "RequiredLevel": 41,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -14146,6 +14342,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 22,
     "RequiredLevel": 0,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -14197,6 +14394,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 40,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -14235,6 +14433,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 82,
     "RequiredLevel": 62,
     "GemSockets": "",
     "Lines": [
@@ -14273,6 +14472,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 76,
     "RequiredLevel": 57,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -14324,6 +14524,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 16,
     "RequiredLevel": 12,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -14464,6 +14665,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 69,
     "RequiredLevel": 51,
     "GemSockets": "",
     "Lines": [
@@ -14502,6 +14704,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 63,
     "RequiredLevel": 47,
     "GemSockets": "",
     "Lines": [
@@ -14540,6 +14743,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 68,
     "RequiredLevel": 51,
     "GemSockets": "",
     "Lines": [
@@ -14578,6 +14782,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 85,
     "RequiredLevel": 66,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -14822,6 +15027,7 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "ItemLevel": 54,
     "RequiredLevel": 25,
     "GemSockets": "",
     "Lines": [
@@ -14860,6 +15066,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 54,
     "RequiredLevel": 25,
     "GemSockets": "",
     "Lines": [
@@ -14905,6 +15112,7 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "ItemLevel": 54,
     "RequiredLevel": 25,
     "GemSockets": "",
     "Lines": [
@@ -14943,6 +15151,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 34,
     "RequiredLevel": 22,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
@@ -14981,6 +15190,7 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "ItemLevel": 84,
     "RequiredLevel": 63,
     "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 4",
     "Lines": [
@@ -15032,6 +15242,7 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "ItemLevel": 51,
     "RequiredLevel": 25,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 3",
     "Lines": [
@@ -15070,6 +15281,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 70,
     "RequiredLevel": 53,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -15108,6 +15320,7 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "ItemLevel": 4,
     "RequiredLevel": 3,
     "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
@@ -15152,6 +15365,7 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "ItemLevel": 60,
     "RequiredLevel": 45,
     "GemSockets": "",
     "Lines": [
@@ -15197,6 +15411,7 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "ItemLevel": 67,
     "RequiredLevel": 50,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -15235,6 +15450,7 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "ItemLevel": 82,
     "RequiredLevel": 61,
     "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
@@ -15479,6 +15695,7 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "ItemLevel": 8,
     "RequiredLevel": 6,
     "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [

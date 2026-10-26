@@ -1,4 +1,5 @@
 import type { CatalogItem, CatalogSlug, DamageType, KeyedLine } from './types';
+import { isDropOnly } from './catalog';
 
 export interface SearchToken {
   term: string;
@@ -6,6 +7,21 @@ export interface SearchToken {
 }
 
 export type SearchGroups = SearchToken[][];
+export type SearchPredicate = (term: string) => boolean | undefined;
+
+const dropOnlySearchTerms = new Set(['drop', 'drop-only']);
+
+export function dropOnlySearchPredicate(item: CatalogItem): SearchPredicate {
+  return (term) => dropOnlySearchTerms.has(term) ? isDropOnly(item) : undefined;
+}
+
+export function catalogSearchPredicate(slug: CatalogSlug, item: CatalogItem): SearchPredicate | undefined {
+  return slug === 'uniques' ? dropOnlySearchPredicate(item) : undefined;
+}
+
+export function hasDropOnlySearch(groups: SearchGroups): boolean {
+  return groups.some((group) => group.some(({ term }) => dropOnlySearchTerms.has(term)));
+}
 
 export type CatalogSortMode =
   | ''
@@ -276,10 +292,10 @@ export function tokenizeSearch(input: string | undefined | null): SearchGroups {
     .filter((group) => group.length > 0);
 }
 
-export function matchesSearch(haystack: string, groups: SearchGroups): boolean {
+export function matchesSearch(haystack: string, groups: SearchGroups, predicate?: SearchPredicate): boolean {
   if (!groups.length) return true;
   return groups.some((group) => group.every(({ term, negated }) =>
-    negated ? !haystack.includes(term) : haystack.includes(term)
+    negated ? !(predicate?.(term) ?? haystack.includes(term)) : (predicate?.(term) ?? haystack.includes(term))
   ));
 }
 

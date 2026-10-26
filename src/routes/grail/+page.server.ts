@@ -10,6 +10,7 @@ function grailItem(item: CatalogItem): CatalogItem {
     Index: item.Index,
     GrailKey: item.GrailKey,
     Rarity: item.Rarity,
+    ItemLevel: item.ItemLevel,
     RequiredLevel: item.RequiredLevel,
     PartialBonuses: item.PartialBonuses,
     FullBonuses: item.FullBonuses,

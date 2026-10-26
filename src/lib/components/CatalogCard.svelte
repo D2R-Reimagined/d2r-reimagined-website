@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Badge } from 'flowbite-svelte';
 
-  import { itemTitle, itemType } from '#lib/catalog.js';
+  import { isDropOnly, itemTitle, itemType } from '#lib/catalog.js';
   import { i18n } from '#lib/i18n.js';
   import type { CatalogItem, CatalogSlug, KeyedLine } from '#lib/types.js';
   import AutoMagicDetails from './AutoMagicDetails.svelte';
@@ -58,7 +58,12 @@
         <Badge color={item.Vanilla === 'Y' ? 'gray' : 'red'}>{item.Vanilla === 'Y' ? 'Vanilla' : 'Reimagined'}</Badge>
       {/if}
       {#if item.source}<Badge color="gray">{item.source}</Badge>{/if}
-      {#if item.RequiredLevel != null}<Badge color="gray">Level {item.RequiredLevel}</Badge>{/if}
+      {#if slug === 'bases' || slug === 'uniques'}
+        {#if item.ItemLevel != null}<Badge color="gray">Item Level {item.ItemLevel}</Badge>{/if}
+      {:else if item.RequiredLevel != null}
+        <Badge color="gray">Level {item.RequiredLevel}</Badge>
+      {/if}
+      {#if slug === 'uniques' && isDropOnly(item)}<Badge color="purple">Drop Only</Badge>{/if}
     </div>
   </header>
 
@@ -77,7 +82,11 @@
     <div class="mt-2 space-y-5">
       {#each item.SetItems ?? [] as setItem}
         <section>
-          <h3 class="set-line text-lg">{$i18n.t(setItem.Index)}</h3>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <h3 class="set-line text-lg">{$i18n.t(setItem.Index)}</h3>
+            {#if setItem.ItemLevel != null}<Badge color="gray">Item Level {setItem.ItemLevel}</Badge>{/if}
+            {#if isDropOnly(setItem)}<Badge color="purple">Drop Only</Badge>{/if}
+          </div>
           {#if setItem.Rarity}
             <p class="rarity-line text-sm">{$i18n.t('label_rarity', [setItem.Rarity])}</p>
           {/if}

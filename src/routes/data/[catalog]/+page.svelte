@@ -10,6 +10,7 @@
     baseHasSockets,
     baseFamilyKey,
     baseTier,
+    catalogSearchPredicate,
     equipmentNamesForType,
     excludesItemType,
     groupBases,
@@ -67,6 +68,7 @@
   // Filtering redraws up to 48 cards, so it waits for a pause rather than every keystroke.
   const settled = debounced(() => search);
   let query = $derived(settled.current);
+  let searchGroups = $derived(tokenizeSearch(query));
 
   function typeValue(value: string | { Index?: string; Name?: string }): string {
     return typeof value === 'string' ? value : value.Index ?? value.Name ?? '';
@@ -140,7 +142,6 @@
   }
 
   let filtered = $derived.by(() => {
-    const searchGroups = tokenizeSearch(query);
     const matchingBaseFamilies = data.definition.slug === 'bases' && searchGroups.length
       ? new Set<string>(data.items.filter((item: CatalogItem) =>
           matchesSearch(searchText(item, $i18n), searchGroups)).map(baseFamilyKey))
@@ -171,7 +172,8 @@
       if (recipeType && !recipeTypesFor(item).includes(recipeType)) return false;
       if (handFilter && !passesHandFilter(item, handFilter)) return false;
       // Guarded so an unsearched page never pays for flattening every item.
-      if (data.definition.slug !== 'sets' && searchGroups.length && !matchesSearch(searchText(item, $i18n), searchGroups)
+      if (data.definition.slug !== 'sets' && searchGroups.length
+        && !matchesSearch(searchText(item, $i18n), searchGroups, catalogSearchPredicate(data.definition.slug, item))
         && !matchingBaseFamilies?.has(baseFamilyKey(item))) return false;
       if (String(item.Index ?? '').toLowerCase().includes('grabber')) return false;
       return true;
@@ -338,7 +340,7 @@
     reset={reset}
   />
 
-  {#if data.definition.slug === 'sets' && scopesSetPieces({ selectedType, selectedClass, selectedEquipment, handFilter })}
+  {#if data.definition.slug === 'sets' && scopesSetPieces({ selectedType, selectedClass, selectedEquipment, handFilter }, searchGroups)}
     <p class="mb-3 text-center text-sm text-parchment-300">Search applies to individual pieces matching your filters.</p>
   {/if}
 
@@ -371,7 +373,7 @@
           <CatalogCard
             item={item}
             slug={data.definition.slug}
-            scopedSet={data.definition.slug === 'sets' && scopesSetPieces({ selectedType, selectedClass, selectedEquipment, handFilter })}
+            scopedSet={data.definition.slug === 'sets' && scopesSetPieces({ selectedType, selectedClass, selectedEquipment, handFilter }, searchGroups)}
           />
         {/each}
       </div>

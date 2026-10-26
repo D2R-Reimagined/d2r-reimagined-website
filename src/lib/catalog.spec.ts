@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { collectText, searchText, type SearchTools } from './catalog';
+import { collectText, isDropOnly, searchText, type SearchTools } from './catalog';
 import { matchesSearch, tokenizeSearch } from './catalog-controls';
 import { formatTemplate } from '../utilities/format-template';
 import type { CatalogItem, KeyedLine } from './types';
@@ -80,5 +80,17 @@ describe('catalog search text', () => {
 
   it('leaves lines untouched when no renderer is supplied', () => {
     expect(collectText(shield, tools().t)).not.toContain('+5 to all skills');
+  });
+});
+
+describe('drop-only item levels', () => {
+  it.each([
+    [{ ItemLevel: 99 }, false],
+    [{ ItemLevel: 100 }, true],
+    [{ ItemLevel: 101 }, true],
+    [{}, false],
+    [{ ItemLevel: 50, RequiredLevel: 120 }, false]
+  ] as const)('classifies %o as drop-only: %s', (item, expected) => {
+    expect(isDropOnly(item)).toBe(expected);
   });
 });

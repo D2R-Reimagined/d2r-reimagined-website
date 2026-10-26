@@ -1014,8 +1014,8 @@
     },
     {
       "Path": "keyed/armors.json",
-      "Bytes": 296715,
-      "Sha256": "6fd1e0d0c134664df6cbabb52a45583a0492e74401de8e12c45ba9ed7495771d",
+      "Bytes": 301465,
+      "Sha256": "0094cb9c3d65cca9415a5d077b93b3cf3226c40977d80cd2eac509820937863d",
       "Producer": "keyed-core"
     },
     {
@@ -1104,8 +1104,8 @@
     },
     {
       "Path": "keyed/weapons.json",
-      "Bytes": 362444,
-      "Sha256": "22b948f3e40a14ed0b4d804d021883f81ca1aef69b03316431720fd8591e200c",
+      "Bytes": 368947,
+      "Sha256": "37343f1d782938ced2f1cdede02b716fe600386006424721d5c2efc136fee8fe",
       "Producer": "keyed-core"
     },
     {

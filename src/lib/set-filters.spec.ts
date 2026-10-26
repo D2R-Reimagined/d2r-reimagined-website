@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { get } from 'svelte/store';
 import { i18n, initializeI18n } from './i18n';
 import { tokenizeSearch } from './catalog-controls';
-import { filterSetPieces } from './set-filters';
+import { filterSetPieces, scopesSetPieces } from './set-filters';
 import type { CatalogItem } from './types';
 import strings from '../../static/data/strings/enUS.json';
 import sets from '../../static/data/keyed/sets.json';
@@ -53,5 +53,65 @@ describe('set piece filtering', () => {
     const civerb = (sets as CatalogItem[]).find((item) => item.Index === "Civerb's Vestments")!;
     expect(filter({ selectedType: 'amulitype' }, 'faster block rate', civerb)).toBeNull();
     expect(filter({ selectedType: 'amulitype' }, "civerb", civerb)?.SetItems?.map((item) => item.Index)).toEqual(["Civerb's Icon"]);
+  });
+
+  it('filters drop-only searches per piece, preserving bonuses and the source set', () => {
+    const mixed: CatalogItem = {
+      Index: 'Mixed Set',
+      ItemLevel: 101,
+      PartialBonuses: [{ key: 'shared partial bonus' }],
+      FullBonuses: [{ key: 'shared full bonus' }],
+      SetItems: [
+        { Index: 'Fire Drop Piece', ItemLevel: 100, RequiredLevel: 99, Lines: [{ key: 'fire' }] },
+        { Index: 'Cold Drop Piece', ItemLevel: 101, Lines: [{ key: 'cold' }] },
+        { Index: 'Fire Regular Piece', ItemLevel: 99, Lines: [{ key: 'fire' }] },
+        { Index: 'Missing Level Fire Piece', RequiredLevel: 100, Lines: [{ key: 'fire' }] }
+      ]
+    };
+    const apply = (query: string) => filterSetPieces(mixed, defaults, tokenizeSearch(query), tools);
+    const dropResult = apply('drop');
+    const negativeResult = apply('-drop');
+
+    expect(dropResult?.SetItems?.map((piece) => piece.Index)).toEqual(['Fire Drop Piece', 'Cold Drop Piece']);
+    expect(apply('drop-only')?.SetItems).toEqual(dropResult?.SetItems);
+    expect(negativeResult?.SetItems?.map((piece) => piece.Index))
+      .toEqual(['Fire Regular Piece', 'Missing Level Fire Piece']);
+    expect(apply('-drop-only')?.SetItems).toEqual(negativeResult?.SetItems);
+    expect(dropResult?.PartialBonuses).toBe(mixed.PartialBonuses);
+    expect(dropResult?.FullBonuses).toBe(mixed.FullBonuses);
+    expect(mixed.SetItems).toHaveLength(4);
+    expect(mixed.ItemLevel).toBe(101);
+  });
+
+  it('requires combined drop and ordinary terms to match the same piece', () => {
+    const mixed: CatalogItem = {
+      Index: 'Combined Set',
+      SetItems: [
+        { Index: 'Fire Piece', ItemLevel: 100 },
+        { Index: 'Cold Piece', ItemLevel: 101 },
+        { Index: 'Fire Regular Piece', ItemLevel: 99 }
+      ]
+    };
+
+    expect(filterSetPieces(mixed, defaults, tokenizeSearch('drop+fire'), tools)?.SetItems?.map((piece) => piece.Index))
+      .toEqual(['Fire Piece']);
+    expect(filterSetPieces(mixed, defaults, tokenizeSearch('-drop+fire'), tools)?.SetItems?.map((piece) => piece.Index))
+      .toEqual(['Fire Regular Piece']);
+  });
+
+  it('omits sets with no matching drop-only pieces', () => {
+    const regularSet: CatalogItem = {
+      Index: 'Regular Set',
+      ItemLevel: 101,
+      SetItems: [{ Index: 'Regular Piece', ItemLevel: 99 }, { Index: 'Unleveled Piece' }]
+    };
+
+    expect(filterSetPieces(regularSet, defaults, tokenizeSearch('drop'), tools)).toBeNull();
+  });
+
+  it('marks drop-only searches as piece-scoped for the existing set presentation', () => {
+    expect(scopesSetPieces(defaults, tokenizeSearch('drop'))).toBe(true);
+    expect(scopesSetPieces(defaults, tokenizeSearch('-drop-only'))).toBe(true);
+    expect(scopesSetPieces(defaults, tokenizeSearch('fire'))).toBe(false);
   });
 });

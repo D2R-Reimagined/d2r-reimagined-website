@@ -6,7 +6,9 @@ import {
   affixMatchesProperty,
   baseHasSockets,
   baseTier,
+  catalogSearchPredicate,
   catalogTypeValues,
+  dropOnlySearchPredicate,
   equipmentNamesForType,
   excludesItemType,
   groupBases,
@@ -26,6 +28,61 @@ describe('catalog search', () => {
     expect(matchesSearch('fire damage increased', query)).toBe(true);
     expect(matchesSearch('fire cold damage', query)).toBe(false);
     expect(matchesSearch('lightning resistance', query)).toBe(true);
+  });
+
+  it('matches drop-only by ItemLevel, including the 99/100 boundary and missing levels', () => {
+    const items: CatalogItem[] = [
+      { Index: 'drop-only', ItemLevel: 99, RequiredLevel: 99 },
+      { Index: 'drop-only', ItemLevel: 100, RequiredLevel: 1 },
+      { Index: 'drop-only', ItemLevel: 101, RequiredLevel: 1 },
+      { Index: 'drop-only', RequiredLevel: 100 }
+    ];
+    const positive = tokenizeSearch('drop');
+    const negative = tokenizeSearch('-drop-only');
+
+    expect(items.map((item) => matchesSearch(String(item.Index), positive, catalogSearchPredicate('uniques', item))))
+      .toEqual([false, true, true, false]);
+    expect(items.map((item) => matchesSearch(String(item.Index), negative, catalogSearchPredicate('uniques', item))))
+      .toEqual([true, false, false, true]);
+    expect(dropOnlySearchPredicate(items[0])?.('drop-only')).toBe(false);
+    expect(dropOnlySearchPredicate(items[1])?.('drop')).toBe(true);
+  });
+
+  it('treats positive and negative aliases as exact equivalent filters', () => {
+    const regular: CatalogItem = { Index: 'drop-only', ItemLevel: 99 };
+    const dropOnly: CatalogItem = { Index: 'drop-only', ItemLevel: 100 };
+    const searches = (query: string, item: CatalogItem) => matchesSearch(
+      'drop-only annihilus fire', tokenizeSearch(query), catalogSearchPredicate('uniques', item)
+    );
+
+    for (const query of ['drop', 'drop-only']) {
+      expect(searches(query, dropOnly)).toBe(true);
+      expect(searches(query, regular)).toBe(false);
+    }
+    for (const query of ['-drop', '-drop-only', '!drop', '!drop-only']) {
+      expect(searches(query, regular)).toBe(true);
+      expect(searches(query, dropOnly)).toBe(false);
+    }
+  });
+
+  it('composes drop-only with AND, OR, and ordinary negation without changing other catalogs', () => {
+    const dropOnly: CatalogItem = { ItemLevel: 100 };
+    const regular: CatalogItem = { ItemLevel: 99 };
+    const search = (query: string, item: CatalogItem) => matchesSearch(
+      'annihilus fire cold', tokenizeSearch(query), catalogSearchPredicate('uniques', item)
+    );
+
+    expect(search('drop+annihilus', dropOnly)).toBe(true);
+    expect(search('drop+fire', dropOnly)).toBe(true);
+    expect(search('-drop+fire', regular)).toBe(true);
+    expect(search('-drop+fire', dropOnly)).toBe(false);
+    expect(search('drop, drop-only', dropOnly)).toBe(search('drop', dropOnly));
+    expect(search('drop+annihilus -cold', dropOnly)).toBe(false);
+    expect(search('fire+cold', regular)).toBe(true);
+    expect(matchesSearch('drop-only runeword', tokenizeSearch('drop'), catalogSearchPredicate('runewords', regular)))
+      .toBe(true);
+    expect(matchesSearch('drop-only base', tokenizeSearch('drop'), catalogSearchPredicate('bases', regular)))
+      .toBe(true);
   });
 });
 

@@ -3,8 +3,11 @@ import { get } from 'svelte/store';
 import { i18n, initializeI18n } from './i18n';
 import { filterGrailItems, normalizeGrailFilters } from './grail-filters';
 import { readGrailFilters, writeGrailFilters } from './grail-query';
+import type { CatalogItem } from './types';
 import { load } from '../routes/grail/+page.server';
 import strings from '../../static/data/strings/enUS.json';
+import sourceSets from '../../static/data/keyed/sets.json';
+import sourceUniques from '../../static/data/keyed/uniques.json';
 
 initializeI18n(strings);
 const tools = get(i18n);
@@ -31,6 +34,72 @@ describe('Grail restored filters', () => {
     expect(data.sets.some((item) => Boolean(item.Equipment?.RequiredClass))).toBe(true);
     expect(data.uniques.some((item) => Boolean(item.Type))).toBe(true);
     expect(data.runewords.some((item) => Boolean(item.Types?.length))).toBe(true);
+  });
+  it('preserves source ItemLevel on uniques and individual set pieces', () => {
+    const sourceAnnihilus = (sourceUniques as CatalogItem[]).find((item) => item.Index === 'Annihilus')!;
+    const annihilus = data.uniques.find((item) => item.Index === 'Annihilus')!;
+    const sourceWarlordPiece = (sourceSets as CatalogItem[]).flatMap((set) => set.SetItems ?? [])
+      .find((item) => item.Index === "Warlord's Conquest")!;
+    const warlordPiece = data.sets.find((item) => item.Index === "Warlord's Conquest")!;
+
+    expect(annihilus.ItemLevel).toBe(sourceAnnihilus.ItemLevel);
+    expect(annihilus.ItemLevel).toBe(110);
+    expect(warlordPiece.ItemLevel).toBe(sourceWarlordPiece.ItemLevel);
+    expect(warlordPiece.ItemLevel).toBe(100);
+  });
+  it('filters drop-only by ItemLevel and keeps the search aliases exact', () => {
+    const items: CatalogItem[] = [
+      { Index: 'Drop-only Fire 99', ItemLevel: 99, RequiredLevel: 120 },
+      { Index: 'Fire 100', ItemLevel: 100, RequiredLevel: 1 },
+      { Index: 'Cold 101', ItemLevel: 101, RequiredLevel: 1 },
+      { Index: 'Fire Missing Level', RequiredLevel: 120 }
+    ];
+    const search = (query: string) => filterGrailItems(items, 'uniques', { ...defaults(), search: query }, {}, false, tools);
+    const indices = (query: string) => search(query).map((item) => item.Index);
+
+    expect(indices('drop')).toEqual(['Fire 100', 'Cold 101']);
+    expect(indices('drop-only')).toEqual(indices('drop'));
+    expect(indices('-drop')).toEqual(['Drop-only Fire 99', 'Fire Missing Level']);
+    expect(indices('-drop-only')).toEqual(indices('-drop'));
+    expect(indices('!drop')).toEqual(indices('-drop'));
+    expect(indices('!drop-only')).toEqual(indices('-drop'));
+    expect(indices('fire')).toEqual(['Drop-only Fire 99', 'Fire 100', 'Fire Missing Level']);
+    expect(indices('drop+fire')).toEqual(['Fire 100']);
+    expect(indices('-drop+fire')).toEqual(['Drop-only Fire 99', 'Fire Missing Level']);
+    expect(indices('drop+fire, cold')).toEqual(['Fire 100', 'Cold 101']);
+    expect(indices('drop, drop-only')).toEqual(indices('drop'));
+  });
+  it('filters mixed-level set pieces independently and composes with Hide Found and Hide Vanilla', () => {
+    const items: CatalogItem[] = [
+      { Index: 'Fire Drop Piece', ItemLevel: 100, GrailKey: 'found-drop', Vanilla: 'Y' },
+      { Index: 'Fire Regular Piece', ItemLevel: 99 },
+      { Index: 'Cold Drop Piece', ItemLevel: 101, GrailKey: 'found-cold' },
+      { Index: 'Fire Missing Level', RequiredLevel: 120 }
+    ];
+    const search = (query: string, found: Record<string, boolean> = {}, hideFound = false, hideVanilla = false) =>
+      filterGrailItems(items, 'sets', { ...defaults(), search: query, hideVanilla }, found, hideFound, tools)
+        .map((item) => item.Index);
+
+    expect(search('drop')).toEqual(['Fire Drop Piece', 'Cold Drop Piece']);
+    expect(search('drop+fire')).toEqual(['Fire Drop Piece']);
+    expect(search('-drop+fire')).toEqual(['Fire Regular Piece', 'Fire Missing Level']);
+    expect(search('drop', { 'found-drop': true }, true)).toEqual(['Cold Drop Piece']);
+    expect(search('drop', {}, false, true)).toEqual(['Cold Drop Piece']);
+  });
+  it('leaves Runewords on ordinary search and checks source catalog drop-only results', () => {
+    const runewords: CatalogItem[] = [
+      { Index: 'Drop-only Runeword', ItemLevel: 99 },
+      { Index: 'High Level Runeword', ItemLevel: 100 }
+    ];
+    expect(filterGrailItems(runewords, 'runewords', { ...defaults(), search: 'drop' }, {}, false, tools)
+      .map((item) => item.Index)).toEqual(['Drop-only Runeword']);
+
+    const uniques = filterGrailItems(data.uniques, 'uniques', { ...defaults(), search: 'drop' }, {}, false, tools);
+    const sets = filterGrailItems(data.sets, 'sets', { ...defaults(), search: 'drop' }, {}, false, tools);
+    expect(uniques.every((item) => Number(item.ItemLevel) >= 100)).toBe(true);
+    expect(sets.every((item) => Number(item.ItemLevel) >= 100)).toBe(true);
+    expect(uniques.map((item) => item.Index)).toContain('Annihilus');
+    expect(sets.map((item) => item.Index)).toContain("Warlord's Conquest");
   });
   it('combines type, equipment, search syntax, hide found, and hide vanilla on individual pieces', () => {
     const filters = { ...defaults(), selectedType: 'amulitype', selectedEquipment: 'amu', search: 'civerb + mana -block' };
