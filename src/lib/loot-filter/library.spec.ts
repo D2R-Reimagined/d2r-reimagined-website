@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { contentKey, fromRemote, isDirty, newDraft } from './library';
+import { contentKey, filterPath, fromRemote, isDirty, newDraft } from './library';
 import type { FilterDetails } from './api';
 
 describe('filter library drafts', () => {
-  const details: FilterDetails = { id: 'server-id', name: 'Starter', ruleCount: 1, revision: 2, updatedAtUtc: '2026-09-29T12:00:00Z', lastUsedAtUtc: '2026-09-29T13:00:00Z', document: { version: 3, rules: [{ show: {} }] } };
+  const details: FilterDetails = { id: 'server-id', name: 'Starter', ruleCount: 1, revision: 2, updatedAtUtc: '2026-09-29T12:00:00Z', lastUsedAtUtc: '2026-09-29T13:00:00Z', isPublic: false, document: { version: 3, rules: [{ show: {} }] } };
   it('tracks account changes independently of selection and metadata', () => {
     const draft = fromRemote(details); expect(isDirty(draft)).toBe(false);
     draft.selected = -1; draft.lastUsedAt++; expect(isDirty(draft)).toBe(false);
@@ -20,5 +20,11 @@ describe('filter library drafts', () => {
     const fresh = fromRemote({ ...details, revision: 3 }, old);
     expect(fresh.id).toBe(old.id); expect(fresh.revision).toBe(3); expect(fresh.selected).toBe(0);
     expect(fresh.savedContent).toBe(contentKey(fresh.name, fresh.document));
+  });
+  it('carries sharing state from the account and shares the editor URL', () => {
+    expect(fromRemote({ ...details, isPublic: true }).isPublic).toBe(true);
+    expect(fromRemote(details).isPublic).toBe(false);
+    expect(filterPath(details.id)).toBe('/loot-filter/server-id');
+    expect(filterPath(null)).toBe('/loot-filter');
   });
 });

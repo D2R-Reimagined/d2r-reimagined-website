@@ -149,10 +149,12 @@ export interface LadderBundlePublishJob {
   message: string;
   detail: string | null;
   error: string | null;
-  processedFiles: number | null;
-  totalFiles: number | null;
-  processedBytes: number | null;
-  totalBytes: number | null;
+  // The API omits null fields, and the last stage before completion clears
+  // these, so a finished job usually arrives without them.
+  processedFiles?: number | null;
+  totalFiles?: number | null;
+  processedBytes?: number | null;
+  totalBytes?: number | null;
   createdAtUtc: string;
   updatedAtUtc: string;
   startedAtUtc: string | null;
