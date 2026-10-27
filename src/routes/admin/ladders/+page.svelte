@@ -886,11 +886,11 @@
                                 {#if bundleJob.detail}
                                     <p class="mt-2 text-xs text-parchment-300">{bundleJob.detail}</p>
                                 {/if}
-                                {#if bundleJob.processedFiles !== null && bundleJob.totalFiles !== null}
+                                {#if bundleJob.processedFiles != null && bundleJob.totalFiles != null}
                                     <p class="mt-1 text-xs text-parchment-300">{bundleJob.processedFiles.toLocaleString()} of {bundleJob.totalFiles.toLocaleString()} files</p>
                                 {/if}
                             {:else}
-                                <p class={`text-sm ${bundleJob.status === 'Failed' ? 'text-requirement' : 'text-set'}`}>{bundleJob.status === 'Failed' ? 'Publishing failed' : `Publishing complete${bundleJob.totalFiles === null ? '' : ` — ${bundleJob.totalFiles.toLocaleString()} files packaged`}`}</p>
+                                <p class={`text-sm ${bundleJob.status === 'Failed' ? 'text-requirement' : 'text-set'}`}>{bundleJob.status === 'Failed' ? 'Publishing failed' : `Publishing complete${bundleJob.totalFiles == null ? '' : ` — ${bundleJob.totalFiles.toLocaleString()} files packaged`}`}</p>
                                 <p class="mt-1 text-xs text-parchment-300">{bundleJob.message}</p>
                                 {#if bundleJob.detail}
                                     <p class="mt-1 text-xs text-parchment-300">{bundleJob.detail}</p>
