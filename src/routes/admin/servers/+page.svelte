@@ -29,7 +29,6 @@
   const visibleLogs = $derived((paused ? frozen : logs).filter(e => e.level >= severity && e.message.toLowerCase().includes(search.toLowerCase())));
   const stalled = $derived(snapshot?.games.flatMap(g => g.players).filter(p => p.stalled).length ?? 0);
   // Each ladder's server builds, fetched once per ladder seen and every minute, only to flag cards running another build.
-  let ladderBuilds = $state<Record<string, ServerBuildState>>({});
   const ladderIds = $derived([...new Set(servers.map(s => s.ladderId))].sort().join(','));
   $effect(() => { if (ladderIds) void loadLadderBuilds(ladderIds.split(',')); });
 
