@@ -6,31 +6,38 @@
   import { appendLogs, bundleRevisionSummary, connectServerTelemetry, d2rLoaderSummary, getServers, installedBuildSummary, logLevels,
     type DeploymentLine, type TelemetryLog, type TelemetryServer } from '#lib/server-telemetry.js';
 
-  let servers = $state<TelemetryServer[]>([]);
-  let configured = $state<ServerConfiguration[]>([]);
-  let selectedId = $state('');
-  let loading = $state(true);
-  let connection = $state('Connecting');
-  let error = $state('');
-  let logs = $state<TelemetryLog[]>([]);
-  let frozen = $state<TelemetryLog[]>([]);
-  let paused = $state(false);
-  let follow = $state(true);
-  let severity = $state(0);
-  let search = $state('');
-  let historyGap = $state(false);
-  let now = $state(Date.now());
-  let clockOffset = $state(0);
-  let logPane: HTMLDivElement | undefined = $state();
-  let disconnect: (() => void) | undefined;
-  let mounted = false;
-  const selected = $derived(servers.find(s => s.id === selectedId));
-  const snapshot = $derived(selected?.snapshot);
-  const visibleLogs = $derived((paused ? frozen : logs).filter(e => e.level >= severity && e.message.toLowerCase().includes(search.toLowerCase())));
-  const stalled = $derived(snapshot?.games.flatMap(g => g.players).filter(p => p.stalled).length ?? 0);
-  // Each ladder's server builds, fetched once per ladder seen and every minute, only to flag cards running another build.
-  const ladderIds = $derived([...new Set(servers.map(s => s.ladderId))].sort().join(','));
-  $effect(() => { if (ladderIds) void loadLadderBuilds(ladderIds.split(',')); });
+    let servers = $state<TelemetryServer[]>([]);
+    let configured = $state<ServerConfiguration[]>([]);
+    let selectedId = $state('');
+    let loading = $state(true);
+    let connection = $state('Connecting');
+    let error = $state('');
+    let logs = $state<TelemetryLog[]>([]);
+    let frozen = $state<TelemetryLog[]>([]);
+    let paused = $state(false);
+    let follow = $state(true);
+    let severity = $state(0);
+    let search = $state('');
+    let historyGap = $state(false);
+    let now = $state(Date.now());
+    let clockOffset = $state(0);
+    let logPane: HTMLDivElement | undefined = $state();
+    let disconnect: (() => void) | undefined;
+    let mounted = false;
+    const selected = $derived(servers.find(s => s.id === selectedId));
+    const snapshot = $derived(selected?.snapshot);
+    const visibleLogs = $derived((paused ? frozen : logs).filter(e => e.level >= severity && e.message.toLowerCase().includes(search.toLowerCase())));
+    const stalled = $derived(snapshot?.games.flatMap(g => g.players).filter(p => p.stalled).length ?? 0);
+    // Each ladder's server builds, fetched once per ladder seen and every minute, only to flag cards running another build.
+    let ladderBuilds = $state<Record<string, ServerBuildState>>({});
+    const ladderIds = $derived([...new Set(servers.map(s => s.ladderId))].sort().join(','));
+    $effect(() => {
+        if (ladderIds) void loadLadderBuilds(ladderIds.split(','));
+    });
+
+    function configuration(id: string): ServerConfiguration | undefined {
+        return configured.find(s => s.id === id);
+    }
 
   function configuration(id: string): ServerConfiguration | undefined { return configured.find(s => s.id === id); }
   function displayName(id: string): string { return configuration(id)?.name?.trim() || id; }
