@@ -3,6 +3,7 @@
     import { afterNavigate, goto } from '$app/navigation';
     import { page } from '$app/state';
     import { i18n } from '#lib/i18n.js';
+    import { currentUrl } from '#lib/current-url.js';
     import {
         calculateIas,
         canDualWield,
@@ -15,7 +16,7 @@
     } from '#lib/ias-calculator.js';
 
     let {data} = $props();
-    let setup = $state(untrack(() => readIasUrl(new URL(page.url.href), data.ias)));
+    let setup = $state(untrack(() => readIasUrl(currentUrl(page.url), data.ias)));
     let ready = $state(false);
     let shareStatus = $state('');
     let weaponSearch = $state('');
@@ -30,7 +31,7 @@
     let buffs = $derived(data.ias.Buffs.filter((b) => b.Code !== 'Maul' && (b.Code !== 'Wearwolf' || setup.form === 'wolf')));
 
     function normalizeInputs() {
-        setup = readIasUrl(writeIasUrl(new URL(page.url.href), setup, data.ias), data.ias);
+        setup = readIasUrl(writeIasUrl(currentUrl(page.url), setup, data.ias), data.ias);
     }
 
     function reconcile() {
@@ -57,22 +58,25 @@
     afterNavigate(({ shallow, type }) => {
         if (shallow && type === 'goto') return;
 
-        setup = readIasUrl(new URL(page.url.href), data.ias);
+        setup = readIasUrl(currentUrl(page.url), data.ias);
         reconcile();
         ready = true;
     });
     $effect(() => {
         if (!ready) return;
-        const url = writeIasUrl(new URL(page.url.href), setup, data.ias);
-        if (url.href !== page.url.href) {
-            goto(url, { shallow: true, replace: true, state: page.state });
+        // Shallow gotos leave `page.url` unchanged and replace `page.state` with a new object, so
+        // compare against the address bar and keep the state read untracked to avoid a goto loop.
+        const current = currentUrl(page.url);
+        const url = writeIasUrl(current, setup, data.ias);
+        if (url.href !== current.href) {
+            goto(url, { shallow: true, replace: true, state: untrack(() => page.state) });
             shareStatus = '';
         }
     });
 
     async function copyLink() {
         try {
-            await navigator.clipboard.writeText(writeIasUrl(new URL(page.url.href), setup, data.ias).href);
+            await navigator.clipboard.writeText(writeIasUrl(currentUrl(page.url), setup, data.ias).href);
             shareStatus = 'Link copied';
         } catch {
             shareStatus = 'Copy the address from your browser to share this setup.';
