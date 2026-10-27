@@ -1,5 +1,6 @@
 <script lang="ts">
     import {onMount, untrack} from 'svelte';
+    import {goto} from '$app/navigation';
     import {authState} from '#lib/auth.js';
     import M from '#lib/loot-filter/model.js';
     import {
@@ -8,13 +9,16 @@
         useFilter,
         saveFilter,
         deleteFilter,
-        type FilterSummary
+        setFilterVisibility,
+        type FilterSummary,
+        type PublicFilterDetails
     } from '#lib/loot-filter/api.js';
     import {
         newDraft,
         fromRemote,
         isDirty,
         contentKey,
+        filterPath,
         type FilterDraft,
         type LocalLibrary
     } from '#lib/loot-filter/library.js';
@@ -24,13 +28,22 @@
     import type {Filter} from '#lib/loot-filter/types.js';
     import LootFilterBuilder from './LootFilterBuilder.svelte';
 
+    let {linkId = null, shared = null, sharedError = ''}: {
+        linkId?: string | null; shared?: PublicFilterDetails | null; sharedError?: string
+    } = $props();
     let entries = $state<FilterDraft[]>([]);
     let remote = $state<FilterSummary[]>([]);
     let lastId = $state<string | null>(null);
     let owner = $state('');
     let loaded = $state(false);
     let busy = $state(false);
-    let screen = $state<'library' | 'editor'>('library');
+    let screen = $state<'library' | 'editor' | 'shared'>('library');
+    // The filter ID from the URL stays pending until it opens in the editor, so signing in
+    // as its owner after landing on a shared or private link still resolves it.
+    // svelte-ignore state_referenced_locally
+    let pendingLink = $state<string | null>(linkId);
+    let viewing = $state<PublicFilterDetails | null>(null);
+    let linkError = $state('');
     let error = $state('');
     let notice = $state('');
     let localStatus = $state('Loading filters…');
@@ -48,7 +61,8 @@
     const cards = $derived([
         ...entries.map(entry => ({
             id: entry.id, remoteId: entry.remoteId, name: entry.name, ruleCount: entry.document.rules.length,
-            revision: entry.revision, modified: entry.updatedAt, dirty: isDirty(entry), local: true
+            revision: entry.revision, modified: entry.updatedAt, dirty: isDirty(entry), local: true,
+            isPublic: !!entry.remoteId && !!entry.isPublic
         })),
         ...remote.filter(row => !entries.some(entry => entry.remoteId === row.id)).map(row => ({
             id: row.id,
@@ -58,9 +72,14 @@
             revision: row.revision,
             modified: Date.parse(row.updatedAtUtc),
             dirty: false,
-            local: false
+            local: false,
+            isPublic: row.isPublic
         }))
     ].sort((a, b) => b.modified - a.modified));
+    const viewingRules = $derived(viewing ? viewing.document.rules.slice(0, 500).map(rule => M.summarizeRule(rule)) : []);
+    // Saved filters own a shareable URL; browser-only drafts stay on the library URL.
+    const currentPath = $derived(screen === 'editor' && active?.remoteId ? filterPath(active.remoteId)
+        : screen === 'shared' && viewing ? filterPath(viewing.id) : filterPath(pendingLink));
 
     function flush() {
         if (timer) clearTimeout(timer);
@@ -108,6 +127,10 @@
             if (timer) clearTimeout(timer);
         };
     });
+    $effect(() => {
+        const path = currentPath;
+        if (loaded && location.pathname !== path) void goto(path, {shallow: true, replace: true});
+    });
     onMount(() => {
         const hide = () => {
             if (document.visibilityState === 'hidden') void flush();
@@ -133,11 +156,13 @@
         loaded = false;
         busy = false;
         screen = 'library';
+        viewing = null;
         entries = [];
         remote = [];
         lastId = null;
         error = '';
         notice = '';
+        linkError = '';
         cloudUnavailable = false;
         try {
             await persisted;
@@ -154,8 +179,12 @@
                 const library = await listFilters();
                 if (request !== epoch) return;
                 remote = library.items;
-                entries = entries.map(entry => entry.remoteId && !remote.some(row => row.id === entry.remoteId)
-                    ? {...entry, remoteId: undefined, revision: 0, savedContent: undefined} : entry);
+                entries = entries.map(entry => {
+                    if (!entry.remoteId) return entry;
+                    const row = remote.find(row => row.id === entry.remoteId);
+                    return row ? {...entry, isPublic: row.isPublic}
+                        : {...entry, remoteId: undefined, revision: 0, savedContent: undefined, isPublic: false};
+                });
                 // A dirty local draft is never silently replaced by a newer server document.
                 const localLast = entries.find(entry => entry.id === lastId);
                 const latest = remote.find(row => row.id === library.lastUsedId);
@@ -177,7 +206,25 @@
         if (request === epoch) {
             loaded = true;
             localStatus = 'Saved in this browser';
+            await resolveLink(request);
         }
+    }
+
+    async function resolveLink(request: number) {
+        const id = pendingLink;
+        if (!id || request !== epoch) return;
+        const cached = entries.find(entry => entry.remoteId === id);
+        if (account && (cached || remote.some(row => row.id === id))) {
+            await open(cached?.id ?? id, !!cached, id, true);
+            if (request === epoch && screen === 'editor') pendingLink = null;
+            return;
+        }
+        if (shared?.id.toLowerCase() === id.toLowerCase()) {
+            viewing = shared;
+            screen = 'shared';
+            return;
+        }
+        linkError = sharedError || 'This loot filter is private or no longer available.';
     }
 
     function explain(failure: unknown, fallback: string) {
@@ -204,18 +251,23 @@
         const draft = newDraft(name.trim().slice(0, 80) || 'Untitled filter', document);
         entries.push(draft);
         lastId = draft.id;
+        pendingLink = null;
+        viewing = null;
+        linkError = '';
         screen = 'editor';
         error = '';
         notice = '';
         stopSound();
     }
 
-    async function open(id: string, local: boolean, remoteId?: string) {
+    async function open(id: string, local: boolean, remoteId?: string, fromLink = false) {
         if (busy || !leaveInvalid()) return;
         const request = epoch;
+        if (!fromLink) pendingLink = null;
         busy = true;
         error = '';
         notice = '';
+        linkError = '';
         stopSound();
         await flush();
         try {
@@ -271,6 +323,7 @@
                 current.revision = details.revision;
                 current.savedContent = contentKey(details.name, details.document);
                 current.updatedAt = Date.parse(details.updatedAtUtc);
+                current.isPublic = details.isPublic;
                 if (contentKey(current.name, current.document) === contentKey(snapshot.name, snapshot.document)) current.name = details.name;
             }
             remote = [details, ...remote.filter(row => row.id !== details.id)];
@@ -340,10 +393,70 @@
         }
     }
 
+    async function setVisibility(isPublic: boolean) {
+        if (!active?.remoteId || busy) return;
+        const request = epoch, id = active.id, remoteId = active.remoteId;
+        busy = true;
+        error = '';
+        notice = '';
+        try {
+            const details = await setFilterVisibility(remoteId, isPublic);
+            if (request !== epoch) return;
+            const current = entries.find(entry => entry.id === id);
+            if (current) current.isPublic = details.isPublic;
+            remote = remote.map(row => row.id === remoteId ? {...row, isPublic: details.isPublic} : row);
+            notice = details.isPublic
+                ? 'This filter is public. Anyone with the link can view and copy it, and it is listed in Public filters.'
+                : 'This filter is private. Only you can open its link.';
+        } catch (failure) {
+            if (request === epoch) error = explain(failure, 'Could not change who can see this filter.');
+        } finally {
+            if (request === epoch) busy = false;
+        }
+    }
+
+    async function copyLink(id: string) {
+        const url = new URL(filterPath(id), location.origin).href;
+        try {
+            await navigator.clipboard.writeText(url);
+            notice = 'Link copied.';
+        } catch {
+            notice = `Clipboard access was blocked. Share this link: ${url}`;
+        }
+    }
+
+    function downloadShared() {
+        if (!viewing) return;
+        const checked = M.validateFilter(viewing.document);
+        if (checked.errors.length) {
+            error = 'This shared filter is not valid for the current builder.';
+            return;
+        }
+        const url = URL.createObjectURL(new Blob([checked.json], {type: 'application/json'}));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'filter.json';
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        notice = 'Downloaded filter.json. Place it in mods/Reimagined/d2rloader/config (or mods/ReimaginedLadder/d2rloader/config for Ladder).';
+    }
+
+    async function copyShared() {
+        if (!viewing) return;
+        const source = viewing;
+        await create(source.name, $state.snapshot(source.document) as Filter);
+        if (screen === 'editor') notice = account
+            ? 'Copied to this browser. Use Save to account to keep it with your filters.'
+            : 'Copied to this browser. Sign in to save it to your account.';
+    }
+
     function back() {
         if (leaveInvalid()) {
             void flush();
             stopSound();
+            pendingLink = null;
+            viewing = null;
+            linkError = '';
             screen = 'library';
         }
     }
@@ -352,19 +465,25 @@
 <section class="mx-auto max-w-[1800px] px-4 pt-8 sm:px-6 lg:px-8">
     <div class="flex flex-wrap items-center justify-between gap-3">
         <div>
-            <h1 class="display-text mt-2 text-3xl">{screen === 'library' ? 'Loot Filter Library' : 'Loot Filter Builder'}</h1>
+            <h1 class="display-text mt-2 text-3xl">{screen === 'library' ? 'Loot Filter Library' : screen === 'shared' ? 'Shared Loot Filter' : 'Loot Filter Builder'}</h1>
         </div>
-        {#if screen === 'editor'}
+        {#if screen === 'library'}
+            <a class="trade-secondary-button" href="/loot-filter/public">Browse public filters</a>
+        {:else}
             <button class="trade-secondary-button" onclick={back}>← My filters</button>
         {/if}
     </div>
-    <div class="mt-4 flex flex-wrap justify-between gap-2 text-sm text-parchment-300">
-        <span>{account ? 'Private account library · edits also stay in this browser' : 'Browser library · sign in to save across devices'}</span>
-        <span role="status">{loaded ? localStatus : 'Loading filters…'}</span>
-    </div>
+    {#if screen !== 'shared'}
+        <div class="mt-4 flex flex-wrap justify-between gap-2 text-sm text-parchment-300">
+            <span>{account ? 'Account library · edits also stay in this browser' : 'Browser library · sign in to save across devices'}</span>
+            <span role="status">{loaded ? localStatus : 'Loading filters…'}</span>
+        </div>
+    {/if}
     {#if error}<p role="alert" class="mt-4 rounded border border-requirement/40 p-3 text-sm text-requirement">{error}
         Your browser draft has not been replaced.</p>{/if}
-    {#if notice}<p role="status" class="mt-4 rounded border border-parchment-300/25 p-3 text-sm">{notice}</p>{/if}
+    {#if linkError}<p role="alert" class="mt-4 rounded border border-requirement/40 p-3 text-sm text-requirement">{linkError}
+        {#if !account && loaded}<a class="underline" href="/profile">Sign in</a> if it is yours.{/if}</p>{/if}
+    {#if notice}<p role="status" class="mt-4 break-words rounded border border-parchment-300/25 p-3 text-sm">{notice}</p>{/if}
 
     {#if screen === 'library'}
         {#if loaded && active}
@@ -436,7 +555,7 @@
                                 <div class="min-w-0"><h3
                                         class="break-words text-parchment-50">{card.name || 'Untitled filter'}</h3>
                                     <p class="mt-1 text-xs text-parchment-300">{card.ruleCount} rules
-                                        · {card.remoteId ? (card.dirty ? 'Account + edited browser draft' : 'Saved to account') : 'Browser only'}</p>
+                                        · {card.remoteId ? (card.dirty ? 'Account + edited browser draft' : 'Saved to account') : 'Browser only'}{card.isPublic ? ' · Public' : ''}</p>
                                 </div>
                                 <button class="text-xs text-parchment-300 hover:text-requirement" disabled={busy}
                                         aria-label={`Delete ${card.name}`} onclick={() => remove(card)}>Delete
@@ -453,7 +572,44 @@
                 </ul>
             </section>
         </div>
-    {:else if active}
+    {:else if screen === 'shared' && viewing}
+        <div class="panel mt-6 rounded-lg p-5 sm:p-6">
+            <div class="flex flex-wrap items-start justify-between gap-4">
+                <div class="min-w-0">
+                    <h2 class="display-text break-words text-2xl">{viewing.name}</h2>
+                    <p class="mt-1 text-sm text-parchment-300">Shared by {viewing.authorName} · {viewing.ruleCount} rules ·
+                        updated {new Date(viewing.updatedAtUtc).toLocaleDateString()}</p>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <button class="trade-primary-button" disabled={busy || !loaded || entries.length >= 50}
+                            onclick={copyShared}>Copy to my filters
+                    </button>
+                    <button class="trade-secondary-button" onclick={downloadShared}>Download filter.json</button>
+                    <button class="trade-secondary-button" onclick={() => copyLink(viewing!.id)}>Copy link</button>
+                </div>
+            </div>
+            <p class="mt-3 text-xs text-parchment-300">Copy it to edit your own version. The original stays with its
+                author.</p>
+            <ol class="mt-5 max-h-[36rem] space-y-2 overflow-y-auto" aria-label="Shared filter rules">
+                {#each viewingRules as summary, index}
+                    <li class="rounded border border-parchment-300/20 bg-abyss-950 p-3">
+                        <span class="text-xs uppercase tracking-widest" class:text-set={summary.kind === 'show'}
+                              class:text-requirement={summary.kind === 'hide'}>{summary.kind} <span
+                                class="text-parchment-300">#{index + 1}</span></span>
+                        <span class="mt-1 block break-words text-sm text-parchment-50">{summary.ruleName || 'Unnamed rule'}</span>
+                        <span class="mt-1 block break-words text-xs text-parchment-300">{summary.conditionSummary}</span>
+                        <span class="mt-1 block text-xs text-parchment-300/70">{summary.actionSummary}</span>
+                    </li>
+                {:else}
+                    <li class="py-8 text-center text-sm text-parchment-300">This filter has no rules.</li>
+                {/each}
+            </ol>
+            {#if viewing.document.rules.length > viewingRules.length}
+                <p class="mt-2 text-xs text-parchment-300">Showing the first {viewingRules.length} rules. Copy or download
+                    the filter to see all {viewing.document.rules.length}.</p>
+            {/if}
+        </div>
+    {:else if screen === 'editor' && active}
         <div class="panel mt-5 flex flex-wrap items-end gap-3 rounded-lg p-4">
             <label class="min-w-0 flex-1 text-xs uppercase tracking-widest text-parchment-300">Filter name<input
                     class="field mt-2" maxlength="80" disabled={busy} bind:value={active.name}
@@ -477,6 +633,22 @@
                 <button class="text-xs text-ember-400 hover:underline" disabled={busy} onclick={reloadAccount}>Reload
                     saved account version
                 </button>
+            {/if}
+            {#if account}
+                <div class="flex w-full flex-wrap items-center gap-x-4 gap-y-2 border-t border-parchment-300/15 pt-3 text-xs"
+                     aria-label="Sharing">
+                    {#if active.remoteId}
+                        <span class="text-parchment-200">{active.isPublic ? 'Public · anyone with the link can view and copy it' : 'Private · only you can open its link'}</span>
+                        <button class="text-ember-400 hover:underline" disabled={busy}
+                                onclick={() => setVisibility(!active!.isPublic)}>{active.isPublic ? 'Make private' : 'Make public'}</button>
+                        <button class="text-ember-400 hover:underline" onclick={() => copyLink(active!.remoteId!)}>Copy
+                            link
+                        </button>
+                        {#if active.isPublic && isDirty(active)}<span class="text-parchment-300">Others see your last saved version.</span>{/if}
+                    {:else}
+                        <span class="text-parchment-300">Save to account to get a link you can share.</span>
+                    {/if}
+                </div>
             {/if}
         </div>
     {/if}
