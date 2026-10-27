@@ -27,6 +27,7 @@
     type RuneMatchMode
   } from '#lib/catalog-controls.js';
   import { readCatalogFilters, writeCatalogFilters, type CatalogFilterState } from '#lib/catalog-query.js';
+  import { currentUrl } from '#lib/current-url.js';
   import { isVanilla, itemClass, itemType, searchText } from '#lib/catalog.js';
   import { filterSetPieces, scopesSetPieces } from '#lib/set-filters.js';
   import { debounced } from '#lib/debounce.svelte.js';
@@ -223,8 +224,11 @@
       selectedEquipment, selectedTier, selectedSockets, propertyType, minLevel,
       maxLevel, exactType, recipeType, selectedRunes, runeMatch, sortMode, handFilter
     };
-    const url = writeCatalogFilters(new URL(page.url.href), filters, data.definition.slug);
-    if (url.search !== page.url.search) goto(url, { shallow: true, replace: true });
+    // Shallow gotos leave `page.url` at the last full navigation, so compare against the address bar.
+    // `writeCatalogFilters` edits the URL it is given, so read the current search first.
+    const currentSearch = currentUrl(page.url).search;
+    const url = writeCatalogFilters(currentUrl(page.url), filters, data.definition.slug);
+    if (url.search !== currentSearch) goto(url, { shallow: true, replace: true });
   });
 
   beforeNavigate(({ shallow, type }) => {
@@ -266,7 +270,7 @@
     handFilter = filters.handFilter;
 
     const normalizedUrl = writeCatalogFilters(new URL(destination.href), filters, data.definition.slug);
-    if (normalizedUrl.search !== page.url.search) goto(normalizedUrl, { shallow: true, replace: true });
+    if (normalizedUrl.search !== currentUrl(page.url).search) goto(normalizedUrl, { shallow: true, replace: true });
     navigationInProgress = false;
   });
 
