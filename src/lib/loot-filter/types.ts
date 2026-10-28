@@ -17,7 +17,7 @@ export interface RuleBlock {
   conditions?: Conditions;
   continue?: boolean;
   name?: string;
-  tooltip?: { backgroundColor?: string; textColor?: string };
+  tooltip?: { backgroundColor?: string; borderColor?: string; textColor?: string };
   dropSound?: string;
   minimapIcon?: { shape: string; borderColor: string; fillColor: string; size?: number };
 }

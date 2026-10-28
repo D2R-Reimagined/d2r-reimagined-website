@@ -4,7 +4,7 @@ const model = (() => {
   'use strict';
 
   const RARITIES = ['inferior','normal','superior','magic','set','rare','unique','crafted'];
-  const MINIMAP_SHAPES = ['circle','diamond','triangle','star'];
+  const MINIMAP_SHAPES = ['circle','square','diamond','triangle','triangleDown','star','spark','kite','hexagon','cross','chevron','bullseye'];
   const DROP_SOUNDS = Array.from({ length: 16 }, (_, i) => `Filter${String(i + 1).padStart(2, '0')}`);
   const CONDITION_KEYS = ['code','baseName','itemType','quantity','rarity','itemLevel','sockets','ethereal','identified'];
   const BLOCK_KEYS = ['ruleName','conditions','continue','name','tooltip','dropSound','minimapIcon'];
@@ -326,7 +326,7 @@ const model = (() => {
         if (!t || typeof t !== 'object' || Array.isArray(t)) errors.push(`${p}.tooltip must be an object.`);
         else {
           const keys = definedKeys(t);
-          if (!keys.length || keys.length > 2 || keys.some(k => !['backgroundColor','textColor'].includes(k))) errors.push(`${p}.tooltip may contain only backgroundColor/textColor and needs at least one.`);
+          if (!keys.length || keys.length > 3 || keys.some(k => !['backgroundColor','borderColor','textColor'].includes(k))) errors.push(`${p}.tooltip may contain only backgroundColor/borderColor/textColor and needs at least one.`);
           keys.forEach(k => { if (!parseRgba(t[k])) errors.push(`${p}.tooltip.${k} must be RGBA(r, g, b, a), RGB 0..255 and alpha 0..1.`); });
         }
       }
@@ -337,7 +337,7 @@ const model = (() => {
         else {
           const keys = definedKeys(m);
           if (!['shape','borderColor','fillColor'].every(k => hasDefined(m, k)) || keys.some(k => !['shape','borderColor','fillColor','size'].includes(k))) errors.push(`${p}.minimapIcon requires shape, borderColor and fillColor; size is optional.`);
-          if (!MINIMAP_SHAPES.includes(m.shape)) errors.push(`${p}.minimapIcon.shape must be circle, diamond, triangle or star.`);
+          if (!MINIMAP_SHAPES.includes(m.shape)) errors.push(`${p}.minimapIcon.shape must be one of ${MINIMAP_SHAPES.join(', ')}.`);
           if (!parseRgba(m.borderColor)) errors.push(`${p}.minimapIcon.borderColor is not valid RGBA.`);
           if (!parseRgba(m.fillColor)) errors.push(`${p}.minimapIcon.fillColor is not valid RGBA.`);
           if (hasDefined(m, 'size') && !Number.isInteger(m.size)) errors.push(`${p}.minimapIcon.size must be an integer. Values are clamped by UnHoarder to 12..40 px.`);
