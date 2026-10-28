@@ -17,7 +17,7 @@
     if (value === undefined) delete next[key]; else next[key] = value;
     set('conditions', Object.keys(next).length ? next : undefined);
   }
-  function tooltip(key: 'backgroundColor' | 'textColor', value?: string) {
+  function tooltip(key: 'backgroundColor' | 'borderColor' | 'textColor', value?: string) {
     const next = { ...block.tooltip };
     if (value === undefined) delete next[key]; else next[key] = value;
     set('tooltip', Object.keys(next).length ? next : undefined);
@@ -76,9 +76,9 @@
         <textarea class="field min-h-20" placeholder="Use the original item name" value={block.name ?? ''} oninput={event => set('name', event.currentTarget.value || undefined)}></textarea>
         <span class="block text-xs text-parchment-300">Up to 3 non-empty lines, 55 characters per line, 79 ASCII bytes total.</span>
       </label>
-      <div class="grid gap-4 sm:grid-cols-2">
-        {#each [{ key: 'backgroundColor', label: 'Tooltip background', default: 'RGBA(110, 35, 160, 0.82)' }, { key: 'textColor', label: 'Tooltip text', default: 'RGBA(180, 140, 255, 1)' }] as color}
-          {@const key = color.key as 'backgroundColor' | 'textColor'}
+      <div class="grid gap-4 sm:grid-cols-3">
+        {#each [{ key: 'backgroundColor', label: 'Tooltip background', default: 'RGBA(110, 35, 160, 0.82)' }, { key: 'borderColor', label: 'Tooltip border', default: 'RGBA(225, 205, 255, 1)' }, { key: 'textColor', label: 'Tooltip text', default: 'RGBA(180, 140, 255, 1)' }] as color}
+          {@const key = color.key as 'backgroundColor' | 'borderColor' | 'textColor'}
           <div class="space-y-3 rounded border border-parchment-300/20 p-3">
             <label class="flex items-center gap-2 text-sm"><input type="checkbox" checked={block.tooltip?.[key] !== undefined} onchange={event => tooltip(key, event.currentTarget.checked ? color.default : undefined)} />{color.label}</label>
             {#if block.tooltip?.[key] !== undefined}<ColorInput label={color.label} value={block.tooltip[key]!} onchange={value => tooltip(key, value)} />{/if}
