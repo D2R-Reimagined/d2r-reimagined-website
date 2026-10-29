@@ -196,7 +196,10 @@ describe('group roll counts', () => {
 
   it('keeps the plain heading when the roll count is missing or unusable', () => {
     const { t } = english();
-    for (const value of [undefined, null, {}, { min: 1 }, { min: 3, max: 1 }, { min: 0, max: 0 }, { min: 1.5, max: 2 }, { min: '1', max: '3' }]) {
+    for (const value of [
+      undefined, null, {}, [1, 3], { min: 1 }, { max: 3 }, { min: 3, max: 1 }, { min: 0, max: 0 }, { min: -1, max: 2 },
+      { min: 1.5, max: 2 }, { min: 1, max: Infinity }, { min: Number.NaN, max: 1 }, { min: '1', max: '3' }
+    ]) {
       expect(groupRollCount(rolled(value), t), JSON.stringify(value)).toBe('');
       expect(groupHeading(rolled(value), t)).toBe('Random Grouped Affix');
     }
@@ -295,18 +298,66 @@ describe('exported property-group chances', () => {
   });
 });
 
+/**
+ * The English heading a group's exported roll count should produce, spelled out here rather
+ * than taken from groupRollCount: plain when the count is missing or not a whole-number range.
+ */
+function expectedHeading(rollCount: unknown): string {
+  const { min, max } = (rollCount ?? {}) as Record<string, unknown>;
+  if (!Number.isInteger(min) || !Number.isInteger(max)) return 'Random Grouped Affix';
+  const [low, high] = [min as number, max as number];
+  if (low < 0 || high < 1 || low > high) return 'Random Grouped Affix';
+  if (low !== high) return `Random Grouped Affix (${low}-${high} rolls)`;
+  return `Random Grouped Affix (${high} ${high === 1 ? 'roll' : 'rolls'})`;
+}
+
+/** A copy of `item` whose groups carry no roll count, to compare everything else against. */
+function withoutRollCounts(item: CatalogItem): CatalogItem {
+  const copy = structuredClone(item);
+  for (const line of copy.Lines ?? []) delete line.rollCount;
+  return copy;
+}
+
+const percentSuffix = / \(\d+(\.\d)?%\)$/;
+
 describe('exported property-group roll counts', () => {
   const find = (index: string) => (uniques as CatalogItem[]).find((item) => item.Index === index)!;
 
-  it('heads Wraithstep\'s single group with its 1-3 roll range, keeping the wrapper and child shares', () => {
+  it('heads Wraithstep\'s groups with whatever roll count was exported, keeping the wrapper and child shares', () => {
     const wraithstep = find('Wraithstep');
-    expect(wraithstep.Lines!.find((line) => line.code === 'skilltab-all')!.rollCount).toEqual({ min: 1, max: 3 });
+    const exported = wraithstep.Lines!.filter(isAlternateGroup);
+    expect(exported.length).toBeGreaterThan(0);
     const card = present(wraithstep);
-    expect(card.title).toBe('Possible Property Rolls (1 group)');
-    expect(card.groups).toHaveLength(1);
-    expect(card.groups[0].heading).toBe('Random Grouped Affix (1-3 rolls)');
-    expect(card.groups[0].children[0]).toBe('+1 Random Skill Tab (Amazon Only) (12.5%)');
-    expect(card.groups[0].children.every((text) => text.endsWith(' (12.5%)'))).toBe(true);
+    expect(card.groups.map((entry) => entry.heading)).toEqual(exported.map((line) => expectedHeading(line.rollCount)));
+
+    // The roll count only extends the headings: wrapper, visible lines and child shares are as without it.
+    const plain = present(withoutRollCounts(wraithstep));
+    expect(plain.groups.every((entry) => entry.heading === 'Random Grouped Affix')).toBe(true);
+    expect(card.title).toBe(exported.length === 1 ? 'Possible Property Rolls (1 group)' : `Possible Property Rolls (${exported.length} groups)`);
+    expect(card.title).toBe(plain.title);
+    expect(card.visible).toEqual(plain.visible);
+    expect(card.groups.map((entry) => entry.children)).toEqual(plain.groups.map((entry) => entry.children));
+    card.groups.forEach((entry, index) => {
+      expect(entry.children).toHaveLength(exported[index].children!.length);
+      for (const text of entry.children) expect(text, text).toMatch(percentSuffix);
+    });
+  });
+
+  it.each([
+    [{ min: 1, max: 1 }, 'Random Grouped Affix (1 roll)'],
+    [{ min: 2, max: 2 }, 'Random Grouped Affix (2 rolls)'],
+    [{ min: 1, max: 3 }, 'Random Grouped Affix (1-3 rolls)'],
+    [undefined, 'Random Grouped Affix'],
+    [{ min: 3, max: 1 }, 'Random Grouped Affix'],
+    [{ min: '1', max: '3' }, 'Random Grouped Affix']
+  ])('heads Wraithstep\'s groups for an exported roll count of %j as %s, with unchanged children', (rollCount, heading) => {
+    const wraithstep = withoutRollCounts(find('Wraithstep'));
+    const plain = present(wraithstep);
+    for (const line of wraithstep.Lines!.filter(isAlternateGroup)) Object.assign(line, { rollCount });
+    const card = present(wraithstep);
+    expect(card.groups.map((entry) => entry.heading)).toEqual(plain.groups.map(() => heading));
+    expect(card.groups.map((entry) => entry.children)).toEqual(plain.groups.map((entry) => entry.children));
+    expect(card.title).toBe(plain.title);
   });
 
   it('heads Renewed Flame Rift\'s fixed single-roll groups as 1 roll and leaves the group without data unchanged', () => {
