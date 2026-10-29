@@ -68,7 +68,7 @@ describe('fractional exported properties', () => {
   const deadlyStrike = exportedLine(uniques, 'ModStr5q', [0.375]);
   const coldResist = exportedLine(magicsuffix, 'ModStr1k', [0.625]);
   const coldLength = exportedLine(uniques, 'StrSkill13', [0.12]);
-  const setColdLength = exportedLine(sets, 'StrSkill13', [10.24]);
+  const setColdLength = exportedLine(sets, 'StrSkill13', [3]);
   const rangedColdLength = exportedLine(runewords, 'StrSkill13', [3, 10.24]);
 
   it('keeps exported precision on per-level and fractional lines in English', () => {
@@ -80,7 +80,7 @@ describe('fractional exported properties', () => {
     expect(line(coldResist)).toBe('+0.625% Cold Resistance (Based on Character Level)');
     expect(line(coldLength)).toBe('Cold Length: 0.12 seconds');
     expect(line(rangedColdLength)).toBe('Cold Length: 3-10.24 seconds');
-    expect(line({ ...setColdLength, itemsRequired: undefined })).toBe('Cold Length: 10.24 seconds');
+    expect(line({ ...setColdLength, itemsRequired: undefined })).toBe('Cold Length: 3 seconds');
   });
 
   it('keeps exported precision in localized templates with a different argument order', () => {

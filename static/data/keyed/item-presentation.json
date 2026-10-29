@@ -509,11 +509,6 @@
         "FileIndex": 971,
         "NameKey": "Trickster's Guise",
         "Sprite": "sprites/items/armor-helmet-cap_hat.webp"
-      },
-      {
-        "FileIndex": 970,
-        "NameKey": "Nameweaver",
-        "Sprite": "sprites/items/armor-helmet-cap_hat.webp"
       }
     ],
     "SetSprites": [
@@ -961,6 +956,11 @@
     "Sprite": "sprites/items/armor-pelt-wolf_head.webp",
     "UniqueSprites": [
       {
+        "FileIndex": 973,
+        "NameKey": "Devourer of Dreams",
+        "Sprite": "sprites/items/armor-pelt-wolf_head.webp"
+      },
+      {
         "FileIndex": 310,
         "NameKey": "Cerberus' Bite",
         "Sprite": "sprites/items/armor-pelt-wolf_head.webp"
@@ -1009,6 +1009,11 @@
         "FileIndex": 1303,
         "NameKey": "Spirit of the Land",
         "Sprite": "sprites/items/armor-pelt-antlers.webp"
+      },
+      {
+        "FileIndex": 1306,
+        "NameKey": "Stone Hide",
+        "Sprite": "sprites/items/armor-pelt-antlers.webp"
       }
     ],
     "SetSprites": []
@@ -1041,13 +1046,18 @@
     "Sprite": "sprites/items/armor-pelt-spirit_mask.webp",
     "UniqueSprites": [
       {
-        "FileIndex": 1305,
-        "NameKey": "Call of the Kindred",
+        "FileIndex": 1116,
+        "NameKey": "Hemlirs Demise",
         "Sprite": "sprites/items/armor-pelt-spirit_mask.webp"
       },
       {
-        "FileIndex": 1306,
-        "NameKey": "Stone Hide",
+        "FileIndex": 970,
+        "NameKey": "Nameweaver",
+        "Sprite": "sprites/items/armor-pelt-spirit_mask.webp"
+      },
+      {
+        "FileIndex": 1305,
+        "NameKey": "Call of the Kindred",
         "Sprite": "sprites/items/armor-pelt-spirit_mask.webp"
       }
     ],
@@ -2662,11 +2672,6 @@
     "Sprite": "sprites/items/armor-helmet-skull_cap.webp",
     "UniqueSprites": [
       {
-        "FileIndex": 973,
-        "NameKey": "Devourer of Dreams",
-        "Sprite": "sprites/items/armor-helmet-skull_cap.webp"
-      },
-      {
         "FileIndex": 72,
         "NameKey": "Tarnhelm",
         "Sprite": "sprites/items/armor-helmet-skull_cap.webp"
@@ -3151,13 +3156,13 @@
         "Sprite": "sprites/items/armor-boot-plate_boots.webp"
       },
       {
-        "FileIndex": 1116,
-        "NameKey": "Wild Horses",
+        "FileIndex": 309,
+        "NameKey": "Shadow Dancer",
         "Sprite": "sprites/items/armor-boot-plate_boots.webp"
       },
       {
-        "FileIndex": 309,
-        "NameKey": "Shadow Dancer",
+        "FileIndex": 1107,
+        "NameKey": "Zero Effect",
         "Sprite": "sprites/items/armor-boot-plate_boots.webp"
       }
     ],
@@ -4071,11 +4076,6 @@
       {
         "FileIndex": 1114,
         "NameKey": "Stairway to Heaven",
-        "Sprite": "sprites/items/armor-boot-light_plate_boots.webp"
-      },
-      {
-        "FileIndex": 1107,
-        "NameKey": "Zero Effect",
         "Sprite": "sprites/items/armor-boot-light_plate_boots.webp"
       },
       {
@@ -7070,6 +7070,11 @@
         "FileIndex": 722,
         "NameKey": "Road to Perdition",
         "Sprite": "sprites/items/weapon-staff-short_staff.webp"
+      },
+      {
+        "FileIndex": 716,
+        "NameKey": "Staff of Valere",
+        "Sprite": "sprites/items/weapon-staff-short_staff.webp"
       }
     ],
     "SetSprites": []
@@ -7518,6 +7523,11 @@
     "Sprite": "sprites/items/weapon-h2h-hatchet_hands.webp",
     "UniqueSprites": [
       {
+        "FileIndex": 1318,
+        "NameKey": "Liege Reaver",
+        "Sprite": "sprites/items/weapon-h2h-hatchet_hands.webp"
+      },
+      {
         "FileIndex": 334,
         "NameKey": "Shadow Killer",
         "Sprite": "sprites/items/weapon-h2h-shadowkiller.webp"
@@ -7564,13 +7574,13 @@
     "Sprite": "sprites/items/weapon-knife-dirk.webp",
     "UniqueSprites": [
       {
-        "FileIndex": 639,
-        "NameKey": "Fall Of Myth Drannor",
+        "FileIndex": 414,
+        "NameKey": "Bloodpact Shard",
         "Sprite": "sprites/items/weapon-knife-dirk.webp"
       },
       {
-        "FileIndex": 414,
-        "NameKey": "Bloodpact Shard",
+        "FileIndex": 639,
+        "NameKey": "Fall Of Myth Drannor",
         "Sprite": "sprites/items/weapon-knife-dirk.webp"
       },
       {
@@ -8603,6 +8613,11 @@
         "Sprite": "sprites/items/weapon-h2h-katar.webp"
       },
       {
+        "FileIndex": 496,
+        "NameKey": "Chromablade",
+        "Sprite": "sprites/items/weapon-h2h-katar.webp"
+      },
+      {
         "FileIndex": 1354,
         "NameKey": "Storm Talons",
         "Sprite": "sprites/items/weapon-h2h-katar.webp"
@@ -8841,11 +8856,6 @@
         "FileIndex": 185,
         "NameKey": "Chromatic Ire",
         "Sprite": "sprites/items/weapon-staff-lazarus_spire.webp"
-      },
-      {
-        "FileIndex": 716,
-        "NameKey": "Staff of Valere",
-        "Sprite": "sprites/items/weapon-staff-gnarled_staff.webp"
       }
     ],
     "SetSprites": []
@@ -11359,6 +11369,11 @@
         "FileIndex": 1172,
         "NameKey": "Amanda's Point",
         "Sprite": "sprites/items/weapon-spear-maiden_pike.webp"
+      },
+      {
+        "FileIndex": 648,
+        "NameKey": "Kethryes Fury",
+        "Sprite": "sprites/items/weapon-spear-maiden_pike.webp"
       }
     ],
     "SetSprites": []
@@ -11383,6 +11398,11 @@
       {
         "FileIndex": 1163,
         "NameKey": "Pegasus Wing",
+        "Sprite": "sprites/items/weapon-javelin-maiden_javelin.webp"
+      },
+      {
+        "FileIndex": 833,
+        "NameKey": "Athuluas Venom",
         "Sprite": "sprites/items/weapon-javelin-maiden_javelin.webp"
       }
     ],
@@ -11796,11 +11816,6 @@
         "Sprite": "sprites/items/weapon-h2h-hatchet_hands.webp"
       },
       {
-        "FileIndex": 1318,
-        "NameKey": "Liege Reaver",
-        "Sprite": "sprites/items/weapon-h2h-hatchet_hands.webp"
-      },
-      {
         "FileIndex": 1316,
         "NameKey": "Samantha's Fist",
         "Sprite": "sprites/items/weapon-h2h-hatchet_hands.webp"
@@ -12166,11 +12181,6 @@
       {
         "FileIndex": 834,
         "NameKey": "Sting of Humiliation",
-        "Sprite": "sprites/items/weapon-javelin-glaive.webp"
-      },
-      {
-        "FileIndex": 833,
-        "NameKey": "Cadin'Sor",
         "Sprite": "sprites/items/weapon-javelin-glaive.webp"
       }
     ],
@@ -13357,11 +13367,6 @@
         "Sprite": "sprites/items/weapon-sword-krintizs_skewer.webp"
       },
       {
-        "FileIndex": 496,
-        "NameKey": "Chromablade",
-        "Sprite": "sprites/items/weapon-sword-saber.webp"
-      },
-      {
         "FileIndex": 495,
         "NameKey": "Sajorn Jinx",
         "Sprite": "sprites/items/weapon-sword-saber.webp"
@@ -13561,11 +13566,6 @@
       {
         "FileIndex": 649,
         "NameKey": "Ruemonger",
-        "Sprite": "sprites/items/weapon-spear-spetum.webp"
-      },
-      {
-        "FileIndex": 648,
-        "NameKey": "Dragon Turtle",
         "Sprite": "sprites/items/weapon-spear-spetum.webp"
       }
     ],

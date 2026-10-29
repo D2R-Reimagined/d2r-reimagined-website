@@ -156,6 +156,7 @@
         {/each}
       </div>
       <KeyedLines lines={item.Notes} class="text-parchment-300" />
+      <KeyedLines lines={item.Details} class="text-parchment-300" />
     </div>
   {:else}
     <p class="base-line mb-1">{$i18n.t(item.Equipment?.NameKey)}</p>

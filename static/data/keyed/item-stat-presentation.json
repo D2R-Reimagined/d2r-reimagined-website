@@ -2565,6 +2565,9 @@
       "PositiveKey": "teleport_nova",
       "NegativeKey": "teleport_nova",
       "ValueShift": 0
+    },
+    "item_drop_only": {
+      "ValueShift": 0
     }
   },
   "Skills": {

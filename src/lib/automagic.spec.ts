@@ -1,7 +1,7 @@
 import { get } from 'svelte/store';
 import { describe, expect, it } from 'vitest';
 
-import { autoMagicGroups, childSelection, presentAutoMagic } from './automagic';
+import { autoMagicGroups, childSelection, groupSelections, presentAutoMagic, selectionPercent } from './automagic';
 import { buildCatalog } from './catalog-sources';
 import { i18n, initializeI18n, setLanguage } from './i18n';
 import type { CatalogItem, KeyedLine } from './types';
@@ -108,17 +108,25 @@ describe('presentAutoMagic', () => {
     expect(first.lines[0].text).not.toBe('+5-10% to All Resistances');
   });
 
-  it('keeps property-group children under their parent and labels weights and percentages', () => {
+  it('keeps property-group children under their parent and labels their ticket shares', () => {
     const weighted: KeyedLine = {
       key: '', pickMode: '2', code: 'Magnetic-Affix1',
       children: [{ key: 'strModAllResistances', args: [5, 10], chance: 3 }, { key: 'strModAllResistances', args: [11, 15], chance: 1 }]
     };
-    const percent: KeyedLine = {
+    const weightedWithoutReplacement: KeyedLine = {
       key: '', pickMode: '1', code: 'Gelid-Affix3',
-      children: [{ key: 'strModAllResistances', args: [20], chance: 25 }, { key: 'strModAllResistances', args: [30] }]
+      children: [{ key: 'strModAllResistances', args: [20], chance: 1 }, { key: 'strModAllResistances', args: [30], chance: 2 }]
+    };
+    const incomplete: KeyedLine = {
+      key: '', pickMode: '2', code: 'Partial-Affix',
+      children: [{ key: 'strModAllResistances', args: [50], chance: 3 }, { key: 'strModAllResistances', args: [60] }]
+    };
+    const fixed: KeyedLine = {
+      key: '', pickMode: '0', code: 'Fixed-Properties',
+      children: [{ key: 'strModAllResistances', args: [40], chance: 100 }]
     };
     const item: CatalogItem = {
-      AutoMagicGroups: [{ Code: 'Synthetic', Level: 12, RequiredLevel: 9, Lines: [{ key: 'strModAllResistances', args: [1, 2] }, weighted, percent] }]
+      AutoMagicGroups: [{ Code: 'Synthetic', Level: 12, RequiredLevel: 9, Lines: [{ key: 'strModAllResistances', args: [1, 2] }, weighted, weightedWithoutReplacement, fixed, incomplete] }]
     };
     const [entry] = presentAutoMagic(item, english());
     expect(entry.name).toBeNull();
@@ -126,30 +134,73 @@ describe('presentAutoMagic', () => {
       { text: '+1-2% to All Resistances' },
       {
         text: 'Random Grouped Affix',
+        children: [{ text: '+40% to All Resistances', selection: null, selectionText: '' }]
+      },
+      {
+        text: 'Random Grouped Affix',
         children: [
-          { text: '+5-10% to All Resistances', selection: { kind: 'weight', value: 3 }, selectionText: 'relative weight 3' },
-          { text: '+11-15% to All Resistances', selection: { kind: 'weight', value: 1 }, selectionText: 'relative weight 1' }
+          { text: '+5-10% to All Resistances', selection: { kind: 'per-draw', percent: 75 }, selectionText: '75%' },
+          { text: '+11-15% to All Resistances', selection: { kind: 'per-draw', percent: 25 }, selectionText: '25%' }
         ]
       },
       {
         text: 'Random Grouped Affix',
         children: [
-          { text: '+20% to All Resistances', selection: { kind: 'percent', value: 25 }, selectionText: '25% chance' },
-          { text: '+30% to All Resistances', selection: null, selectionText: '' }
+          { text: '+20% to All Resistances', selection: { kind: 'first-draw', percent: (1 / 3) * 100 }, selectionText: '33.3%' },
+          { text: '+30% to All Resistances', selection: { kind: 'first-draw', percent: (2 / 3) * 100 }, selectionText: '66.7%' }
+        ]
+      },
+      {
+        text: 'Random Grouped Affix',
+        children: [
+          { text: '+50% to All Resistances', selection: null, selectionText: '' },
+          { text: '+60% to All Resistances', selection: null, selectionText: '' }
         ]
       }
     ]);
-    // Relative weights are never turned into derived odds such as "75%".
-    expect(JSON.stringify(entry)).not.toMatch(/75(\.0)?%|25\.0%/);
+    expect(JSON.stringify(entry)).not.toMatch(/relative weight|\b1%/);
     expect(JSON.stringify(entry)).not.toContain('Magnetic-Affix1');
   });
 });
 
-describe('childSelection', () => {
-  it('reads chance as a relative weight only under pick mode 2', () => {
-    expect(childSelection({ key: 'x', chance: 4 }, '2')).toEqual({ kind: 'weight', value: 4 });
-    expect(childSelection({ key: 'x', chance: 4 }, '1')).toEqual({ kind: 'percent', value: 4 });
-    expect(childSelection({ key: 'x', chance: 4 }, undefined)).toEqual({ kind: 'percent', value: 4 });
-    expect(childSelection({ key: 'x' }, '2')).toBeNull();
+describe('groupSelections', () => {
+  const group = (pickMode: string | undefined, chances: (number | undefined)[]): KeyedLine => ({
+    key: '', pickMode, children: chances.map((chance, index) => ({ key: `x${index}`, chance }))
+  });
+  const percents = (line: KeyedLine) => groupSelections(line).map(selectionPercent);
+
+  it('turns ticket weights into shares: first draw for mode 1, every draw for mode 2', () => {
+    expect(groupSelections(group('1', [1, 3]))).toEqual([{ kind: 'first-draw', percent: 25 }, { kind: 'first-draw', percent: 75 }]);
+    expect(groupSelections(group('2', [1, 3]))).toEqual([{ kind: 'per-draw', percent: 25 }, { kind: 'per-draw', percent: 75 }]);
+    expect(percents(group('2', [1, 1, 1]))).toEqual(['33.3%', '33.3%', '33.3%']);
+    expect(percents(group('2', [1, 3, 1]))).toEqual(['20%', '60%', '20%']);
+    expect(percents(group('1', Array(8).fill(1)))).toEqual(Array(8).fill('12.5%'));
+    // A single ticket is a share of the group, never a literal 1%.
+    expect(percents(group('1', [1]))).toEqual(['100%']);
+    expect(percents(group('2', [1, 9999]))).toEqual(['<0.1%', '100%']);
+  });
+
+  it('gives no shares to all-selected or unknown pick modes', () => {
+    expect(groupSelections(group('0', [1, 5]))).toEqual([null, null]);
+    expect(groupSelections(group('3', [1, 5]))).toEqual([null, null]);
+    expect(groupSelections(group(undefined, [1, 5]))).toEqual([null, null]);
+  });
+
+  it('omits the whole group when its weights cannot support a reliable share', () => {
+    expect(groupSelections(group('2', [3, undefined]))).toEqual([null, null]);
+    expect(groupSelections(group('1', [3, -1]))).toEqual([null, null]);
+    expect(groupSelections(group('2', [3, Number.NaN]))).toEqual([null, null]);
+    expect(groupSelections(group('2', [0, 0]))).toEqual([null, null]);
+    expect(groupSelections({ key: '', pickMode: '2' })).toEqual([]);
+  });
+
+  it('excludes zero-ticket children from the total and leaves them unannotated', () => {
+    expect(percents(group('2', [0, 1, 1]))).toEqual(['', '50%', '50%']);
+  });
+
+  it('resolves a single child against its own group', () => {
+    const line = group('2', [1, 3]);
+    expect(childSelection(line.children![1], line)).toEqual({ kind: 'per-draw', percent: 75 });
+    expect(childSelection({ key: 'x0', chance: 1 }, line)).toBeNull();
   });
 });

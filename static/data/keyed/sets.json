@@ -24270,6 +24270,12 @@
         "DamageArmorEnhanced": true,
         "Lines": [
           {
+            "key": "ModStr3b",
+            "args": [
+              2
+            ]
+          },
+          {
             "key": "Modstr2v",
             "args": [
               100,
@@ -24281,12 +24287,6 @@
             "args": [
               20,
               30
-            ]
-          },
-          {
-            "key": "strSocketedCount",
-            "args": [
-              2
             ]
           }
         ],
@@ -24313,7 +24313,7 @@
             {
               "key": "Moditem2ExpG",
               "args": [
-                3
+                5
               ],
               "itemsRequired": 4
             }
@@ -24361,7 +24361,7 @@
           {
             "key": "ModitemAura",
             "args": [
-              3,
+              2,
               5,
               "skillname125"
             ]
@@ -24378,21 +24378,14 @@
             "args": [
               1
             ]
-          },
-          {
-            "key": "ModStr3r",
-            "args": [
-              60,
-              80
-            ]
           }
         ],
         "SetBonuses": [
           [
             {
-              "key": "ModStr3k",
+              "key": "ModStr3r",
               "args": [
-                1
+                50
               ],
               "itemsRequired": 2
             }
@@ -24453,57 +24446,45 @@
         "ItemLevel": 60,
         "RequiredLevel": 69,
         "Code": "pae",
-        "DamageArmorEnhanced": false,
+        "DamageArmorEnhanced": true,
         "Lines": [
           {
-            "key": "ModStr4y",
+            "key": "StrSklTabItem6",
             "args": [
-              40
-            ]
+              1,
+              3
+            ],
+            "classOnly": "PalOnly"
           },
           {
             "key": "ModStr3g",
             "args": [
-              33
-            ]
-          },
-          {
-            "key": "ModStr1i",
-            "args": [
-              4
-            ],
-            "perLevel": true
-          },
-          {
-            "key": "ModStr1a",
-            "args": [
-              10,
               20
             ]
           },
           {
-            "key": "strModAllResistances",
+            "key": "Modstr2v",
             "args": [
-              20,
-              30
+              150,
+              200
             ]
           }
         ],
         "SetBonuses": [
           [
             {
-              "key": "ModStr1f",
+              "key": "ModStr4y",
               "args": [
-                33
+                30
               ],
               "itemsRequired": 2
             }
           ],
           [
             {
-              "key": "ModStr1g",
+              "key": "ModStrDamPierce",
               "args": [
-                15
+                10
               ],
               "itemsRequired": 3
             }
@@ -24530,12 +24511,10 @@
               ]
             },
             {
-              "key": "strDefenseRangeRange",
+              "key": "strDefenseRange",
               "args": [
-                445,
-                569,
-                469,
-                593
+                485,
+                582
               ]
             },
             {
@@ -24579,14 +24558,7 @@
         "DamageArmorEnhanced": true,
         "Lines": [
           {
-            "key": "ItemModifierNonClassSkill",
-            "args": [
-              3,
-              "skillname125"
-            ]
-          },
-          {
-            "key": "ModStr4v",
+            "key": "ModStr4m",
             "args": [
               20
             ]
@@ -24594,14 +24566,14 @@
           {
             "key": "Modstr2v",
             "args": [
-              75,
-              125
+              100,
+              150
             ]
           },
           {
-            "key": "ModStr1e",
+            "key": "ModStr2l",
             "args": [
-              60
+              20
             ]
           }
         ],
@@ -24611,7 +24583,7 @@
               "key": "ItemExpansiveChanc2",
               "args": [
                 10,
-                3,
+                10,
                 "skillname66"
               ],
               "itemsRequired": 2
@@ -24619,7 +24591,7 @@
           ],
           [
             {
-              "key": "strModAllResistances",
+              "key": "ModStr2u",
               "args": [
                 15
               ],
@@ -24644,8 +24616,8 @@
             {
               "key": "strDefenseRange",
               "args": [
-                120,
-                155
+                138,
+                172
               ]
             },
             {
@@ -24676,12 +24648,6 @@
         "DamageArmorEnhanced": true,
         "Lines": [
           {
-            "key": "ModStr4m",
-            "args": [
-              30
-            ]
-          },
-          {
             "key": "strModEnhancedDamage",
             "args": [
               220,
@@ -24689,45 +24655,44 @@
             ]
           },
           {
-            "key": "strModMinDamageRange",
+            "key": "ModStrDamPierce",
             "args": [
-              40,
-              120
+              10
             ]
           },
           {
-            "key": "ModStr4e",
+            "key": "ModStr3m",
             "args": [
-              300
+              30
             ]
           }
         ],
         "SetBonuses": [
           [
             {
-              "key": "ModStr1b",
+              "key": "ModAttDexPercent",
               "args": [
-                25
+                10
               ],
               "itemsRequired": 2
             }
           ],
           [
             {
-              "key": "ItemExpansiveChanc1",
+              "key": "ItemExpansiveChancX",
               "args": [
+                10,
                 20,
-                8,
-                "skillname44"
+                "Winter's Pulse"
               ],
               "itemsRequired": 3
             }
           ],
           [
             {
-              "key": "StrSkill13",
+              "key": "ModStr4e",
               "args": [
-                10.24
+                300
               ],
               "itemsRequired": 4
             }
@@ -24740,15 +24705,15 @@
           "DamageTypes": [
             {
               "Type": 3,
-              "AverageDamage": 258,
+              "AverageDamage": 178,
               "Lines": [
                 {
                   "key": "strWeaponDamageGenericRange",
                   "args": [
-                    184,
-                    220,
-                    292,
-                    336
+                    144,
+                    180,
+                    172,
+                    216
                   ]
                 }
               ]
@@ -24780,16 +24745,16 @@
     ],
     "PartialBonuses": [
       {
-        "key": "Moditem2allattrib",
+        "key": "ModStr4m",
         "args": [
-          15
+          30
         ],
         "itemsRequired": 2
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStrDamPierce",
         "args": [
-          33
+          10
         ],
         "itemsRequired": 3
       },
@@ -24819,14 +24784,14 @@
       {
         "key": "Moditem2ExpG",
         "args": [
-          4
+          10
         ],
         "fullSet": true
       },
       {
         "key": "ModStr1x",
         "args": [
-          75
+          100
         ],
         "fullSet": true
       }

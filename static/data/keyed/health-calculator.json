@@ -46106,12 +46106,12 @@
           "Level": 100,
           "MinHP": 1000,
           "MaxHP": 1500,
-          "PhysicalResist": 1000,
-          "MagicResist": 1000,
-          "FireResist": 1000,
-          "LightningResist": 1000,
-          "ColdResist": 1000,
-          "PoisonResist": 1000
+          "PhysicalResist": 200,
+          "MagicResist": 200,
+          "FireResist": 200,
+          "LightningResist": 200,
+          "ColdResist": 200,
+          "PoisonResist": 200
         }
       ],
       "Areas": [
@@ -47195,8 +47195,8 @@
         },
         {
           "Level": 100,
-          "MinHP": 1000,
-          "MaxHP": 2000,
+          "MinHP": 1500,
+          "MaxHP": 2500,
           "PhysicalResist": 200,
           "MagicResist": 200,
           "FireResist": 200,
@@ -111416,6 +111416,58 @@
         [],
         []
       ]
+    },
+    {
+      "Id": "monama",
+      "NameKey": "forsakenhero",
+      "FallbackName": "forsakenhero",
+      "Enabled": true,
+      "Killable": true,
+      "Boss": false,
+      "NoRatio": false,
+      "Align": 0,
+      "DamageRegen": 4,
+      "MonProp": "labprop2",
+      "Stats": [
+        {
+          "Level": 2,
+          "MinHP": 0,
+          "MaxHP": 0,
+          "PhysicalResist": 0,
+          "MagicResist": 0,
+          "FireResist": 0,
+          "LightningResist": 0,
+          "ColdResist": 0,
+          "PoisonResist": 0
+        },
+        {
+          "Level": 37,
+          "MinHP": 0,
+          "MaxHP": 0,
+          "PhysicalResist": 0,
+          "MagicResist": 0,
+          "FireResist": 0,
+          "LightningResist": 0,
+          "ColdResist": 0,
+          "PoisonResist": 0
+        },
+        {
+          "Level": 68,
+          "MinHP": 4000,
+          "MaxHP": 5000,
+          "PhysicalResist": 200,
+          "MagicResist": 200,
+          "FireResist": 200,
+          "LightningResist": 200,
+          "ColdResist": 200,
+          "PoisonResist": 200
+        }
+      ],
+      "Areas": [
+        [],
+        [],
+        []
+      ]
     }
   ],
   "Levels": [
@@ -114190,7 +114242,7 @@
       "Levels": [
         40,
         80,
-        100
+        104
       ]
     },
     {
@@ -114199,7 +114251,7 @@
       "Levels": [
         40,
         80,
-        100
+        104
       ]
     },
     {
@@ -114208,7 +114260,7 @@
       "Levels": [
         101,
         101,
-        101
+        104
       ]
     },
     {
@@ -114217,7 +114269,7 @@
       "Levels": [
         40,
         80,
-        101
+        104
       ]
     },
     {
@@ -114226,7 +114278,7 @@
       "Levels": [
         40,
         80,
-        101
+        104
       ]
     },
     {
@@ -114235,7 +114287,7 @@
       "Levels": [
         40,
         80,
-        102
+        105
       ]
     },
     {
@@ -114244,7 +114296,7 @@
       "Levels": [
         40,
         80,
-        102
+        105
       ]
     },
     {
@@ -114253,7 +114305,7 @@
       "Levels": [
         40,
         80,
-        102
+        105
       ]
     },
     {
@@ -114262,7 +114314,7 @@
       "Levels": [
         40,
         80,
-        103
+        105
       ]
     },
     {
@@ -114271,7 +114323,7 @@
       "Levels": [
         25,
         59,
-        103
+        105
       ]
     },
     {
@@ -114280,7 +114332,7 @@
       "Levels": [
         40,
         80,
-        104
+        106
       ]
     },
     {
@@ -114289,7 +114341,7 @@
       "Levels": [
         40,
         80,
-        104
+        106
       ]
     },
     {
@@ -114298,7 +114350,7 @@
       "Levels": [
         40,
         80,
-        104
+        106
       ]
     },
     {
@@ -114307,7 +114359,7 @@
       "Levels": [
         40,
         80,
-        105
+        106
       ]
     },
     {
@@ -114316,7 +114368,7 @@
       "Levels": [
         40,
         80,
-        105
+        106
       ]
     },
     {
@@ -114325,7 +114377,7 @@
       "Levels": [
         40,
         80,
-        106
+        107
       ]
     },
     {
@@ -114334,7 +114386,7 @@
       "Levels": [
         40,
         80,
-        106
+        107
       ]
     },
     {
@@ -114343,7 +114395,7 @@
       "Levels": [
         40,
         80,
-        106
+        107
       ]
     },
     {
@@ -115546,7 +115598,7 @@
   "Sources": [
     {
       "Code": "monstats.txt",
-      "Hash": "0d41b65f90cd916ee04104d3895ca049ed5920816164d1df80cf605a4a5ebda8"
+      "Hash": "d074dcdc86f1b2c41eedd30f5c24934bf32eefa151ba5725d9d3fe4a28a7d30c"
     },
     {
       "Code": "monlvl.txt",
@@ -115554,7 +115606,7 @@
     },
     {
       "Code": "levels.txt",
-      "Hash": "1a8110f09f7ba67f89907d73640bfd8d2551b91901aa23c69f3d38d903df840b"
+      "Hash": "3f9029a88623c61666c40b8852359e91197293e1c66ad79fdb8a8387c5074db4"
     },
     {
       "Code": "monumod.txt",
@@ -115562,7 +115614,7 @@
     },
     {
       "Code": "monprop.txt",
-      "Hash": "654514aece812febfb87b5a9665fc0ddd71df22c3bd2c66d516bdd0044e417cc"
+      "Hash": "f2ea1ae5d33a279b43de254844483e700121cf196fdd72e4fe6bcc024f33b41b"
     }
   ]
 }

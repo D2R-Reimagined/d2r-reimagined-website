@@ -362,6 +362,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Astral Dreadnought' (7m7)  mapping=hd/items/uniques.json#astral_dreadnought  fallback=base item sprite sprites/items/weapon-hammer-maul.webp
   unique 'Asylum's Ward' (9bw)  mapping=hd/items/uniques.json#asylum_s_ward  fallback=base item sprite sprites/items/weapon-wand-bone_wand.webp
   unique 'Athena's Tirade' (obe)  mapping=hd/items/uniques.json#athena_s_tirade  fallback=base item sprite sprites/items/weapon-orb-clasped_orb.webp
+  unique 'Athuluas Venom' (amf)  mapping=hd/items/uniques.json#athuluas_venom  fallback=base item sprite sprites/items/weapon-javelin-maiden_javelin.webp
   unique 'Auburn Fire' (hax)  mapping=hd/items/uniques.json#auburn_fire  fallback=base item sprite sprites/items/weapon-axe-hand_axe.webp
   unique 'Avalanche Strike' (7qr)  mapping=hd/items/uniques.json#avalanche_strike  fallback=base item sprite sprites/items/weapon-h2h-scissors_katar.webp
   unique 'Avenger's Honor' (gsc)  mapping=hd/items/uniques.json#avenger_s_honor  fallback=base item sprite sprites/items/weapon-scepter-grand_scepter.webp
@@ -431,7 +432,6 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Burning Desire' (9gm)  mapping=hd/items/uniques.json#burning_desire  fallback=base item sprite sprites/items/weapon-hammer-great_maul.webp
   unique 'Burning Soul' (xhg)  mapping=hd/items/uniques.json#burning_soul  fallback=base item sprite sprites/items/armor-glove-gaunlets_h.webp
   unique 'Cacophony' (bsh)  mapping=hd/items/uniques.json#cacophony  fallback=base item sprite sprites/items/armor-shield-bone_shield.webp
-  unique 'Cadin'Sor' (glv)  mapping=hd/items/uniques.json#cadin_sor  fallback=base item sprite sprites/items/weapon-javelin-glaive.webp
   unique 'Cain's Stride' (xvb)  mapping=hd/items/uniques.json#cain_s_stride  fallback=base item sprite sprites/items/armor-boot-heavy_boots.webp
   unique 'Call Of Heroes' (7wd)  mapping=hd/items/uniques.json#call_of_heroes  fallback=base item sprite sprites/items/weapon-sword-war_sword.webp
   unique 'Call of the Kindred' (drf)  mapping=hd/items/uniques.json#call_of_the_kindred  fallback=base item sprite sprites/items/armor-pelt-spirit_mask.webp
@@ -463,7 +463,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Chimera's Chaos' (ba5)  mapping=hd/items/uniques.json#chimera_s_chaos  fallback=base item sprite sprites/items/armor-helmet-avenger_guard.webp
   unique 'Chimera's Claw' (9dg)  mapping=hd/items/uniques.json#chimera_s_claw  fallback=base item sprite sprites/items/weapon-knife-dagger.webp
   unique 'Chorus of the Cursed' (7yw)  mapping=hd/items/uniques.json#chorus_of_the_cursed  fallback=base item sprite sprites/items/weapon-wand-yew_wand.webp
-  unique 'Chromablade' (sbr)  mapping=hd/items/uniques.json#chromablade  fallback=base item sprite sprites/items/weapon-sword-saber.webp
+  unique 'Chromablade' (7wb)  mapping=hd/items/uniques.json#chromablade  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
   unique 'Cincture of Falling Grace' (uvc)  mapping=hd/items/uniques.json#cincture_of_falling_grace  fallback=base item sprite sprites/items/armor-belt-light_belt.webp
   unique 'Cleric's Rebuke' (pab)  mapping=hd/items/uniques.json#cleric_s_rebuke  fallback=base item sprite sprites/items/armor-shield-targe.webp
   unique 'Cloaker Beast' (2hs)  mapping=hd/items/uniques.json#cloaker_beast  fallback=base item sprite sprites/items/weapon-sword-two_handed_sword.webp
@@ -563,7 +563,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Devil's Advocate' (neg)  mapping=hd/items/uniques.json#devil_s_advocate  fallback=base item sprite sprites/items/armor-voodoo_head-zombie_head.webp
   unique 'Devil's Invocation' (xlg)  mapping=hd/items/uniques.json#devil_s_invocation  fallback=base item sprite sprites/items/armor-glove-gloves_l.webp
   unique 'Deviljack' (ssd)  mapping=hd/items/uniques.json#deviljack  fallback=base item sprite sprites/items/weapon-sword-short_sword.webp
-  unique 'Devourer of Dreams' (skp)  mapping=hd/items/uniques.json#devourer_of_dreams  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
+  unique 'Devourer of Dreams' (drb)  mapping=hd/items/uniques.json#devourer_of_dreams  fallback=base item sprite sprites/items/armor-pelt-wolf_head.webp
   unique 'Devourer of Worlds' (pa5)  mapping=hd/items/uniques.json#devourer_of_worlds  fallback=base item sprite sprites/items/armor-shield-crown_shield.webp
   unique 'Diamond Facet' (jew)  mapping=hd/items/uniques.json#diamond_facet  fallback=base item sprite sprites/items/misc-gem-jewels.webp
   unique 'Dire Wolf Might' (dr5)  mapping=hd/items/uniques.json#dire_wolf_might  fallback=base item sprite sprites/items/armor-pelt-spirit_mask.webp
@@ -579,7 +579,6 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Dragon Mephit' (9qs)  mapping=hd/items/uniques.json#dragon_mephit  fallback=base item sprite sprites/items/weapon-scepter-grand_scepter.webp
   unique 'Dragon Soul' (9st)  mapping=hd/items/uniques.json#dragon_soul  fallback=base item sprite sprites/items/weapon-spear-spetum.webp
   unique 'Dragon Talon' (kri)  mapping=hd/items/uniques.json#dragon_talon  fallback=base item sprite sprites/items/weapon-knife-kriss.webp
-  unique 'Dragon Turtle' (spt)  mapping=hd/items/uniques.json#dragon_turtle  fallback=base item sprite sprites/items/weapon-spear-spetum.webp
   unique 'Dragon's Breach' (72h)  mapping=hd/items/uniques.json#dragon_s_breach  fallback=base item sprite sprites/items/weapon-sword-two_handed_sword.webp
   unique 'Dragoon's Shank' (9br)  mapping=hd/items/uniques.json#dragoon_s_shank  fallback=base item sprite sprites/items/weapon-spear-brandistock.webp
   unique 'Dread Blade' (9bs)  mapping=hd/items/uniques.json#dread_blade  fallback=base item sprite sprites/items/weapon-sword-broad_sword.webp
@@ -758,6 +757,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Hellshifter' (ult)  mapping=hd/items/uniques.json#hellshifter  fallback=base item sprite sprites/items/armor-armor-plate_mail.webp
   unique 'Helm of Ra' (xlm)  mapping=hd/items/uniques.json#helm_of_ra  fallback=base item sprite sprites/items/armor-helmet-helm.webp
   unique 'Helms Deep' (ba6)  mapping=hd/items/uniques.json#helms_deep  fallback=base item sprite sprites/items/armor-helmet-jawbone_cap.webp
+  unique 'Hemlirs Demise' (drf)  mapping=hd/items/uniques.json#hemlirs_demise  fallback=base item sprite sprites/items/armor-pelt-spirit_mask.webp
   unique 'Heroes Welcome' (7ga)  mapping=hd/items/uniques.json#heroes_welcome  fallback=base item sprite sprites/items/weapon-axe-great_axe.webp
   unique 'Hidden Death' (ktr)  mapping=hd/items/uniques.json#hidden_death  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
   unique 'Hill Giant's Bludgeon' (9m9)  mapping=hd/items/uniques.json#hill_giant_s_bludgeon  fallback=base item sprite sprites/items/weapon-hammer-maul.webp
@@ -801,6 +801,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Kashya's Retort' (am2)  mapping=hd/items/uniques.json#kashya_s_retort  fallback=base item sprite sprites/items/weapon-bow-reflex_bow.webp
   unique 'Kashya's Ward' (umc)  mapping=hd/items/uniques.json#kashya_s_ward  fallback=base item sprite sprites/items/armor-belt-belt_m.webp
   unique 'Kaz's Battle Armor' (ful)  mapping=hd/items/uniques.json#kaz_s_battle_armor  fallback=base item sprite sprites/items/armor-armor-full_plate_mail.webp
+  unique 'Kethryes Fury' (ame)  mapping=hd/items/uniques.json#kethryes_fury  fallback=base item sprite sprites/items/weapon-spear-maiden_pike.webp
   unique 'Key to Hell' (9ar)  mapping=hd/items/uniques.json#key_to_hell  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
   unique 'Key to the Madhouse' (btl)  mapping=hd/items/uniques.json#key_to_the_madhouse  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
   unique 'Killer's Glee' (9wc)  mapping=hd/items/uniques.json#killer_s_glee  fallback=base item sprite sprites/items/weapon-polearm-war_scythe.webp
@@ -847,7 +848,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Lesson in Pain' (mac)  mapping=hd/items/uniques.json#lesson_in_pain  fallback=base item sprite sprites/items/weapon-mace-mace.webp
   unique 'Lichward' (xsh)  mapping=hd/items/uniques.json#lichward  fallback=base item sprite sprites/items/armor-shield-bone_shield.webp
   unique 'Lie Spreader' (skp)  mapping=hd/items/uniques.json#lie_spreader  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
-  unique 'Liege Reaver' (ces)  mapping=hd/items/uniques.json#liege_reaver  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
+  unique 'Liege Reaver' (7cs)  mapping=hd/items/uniques.json#liege_reaver  fallback=base item sprite sprites/items/weapon-h2h-hatchet_hands.webp
   unique 'Light Phasm' (lax)  mapping=hd/items/uniques.json#light_phasm  fallback=base item sprite sprites/items/weapon-axe-large_axe.webp
   unique 'Light Reaper' (buc)  mapping=hd/items/uniques.json#light_reaper  fallback=base item sprite sprites/items/armor-shield-buckler.webp
   unique 'Light of Ra' (6cs)  mapping=hd/items/uniques.json#light_of_ra  fallback=base item sprite sprites/items/weapon-staff-gnarled_staff.webp
@@ -898,7 +899,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Na-Krul's Power' (9b9)  mapping=hd/items/uniques.json#na_krul_s_power  fallback=base item sprite sprites/items/weapon-sword-bastard_sword.webp
   unique 'Nail Flinger' (lxb)  mapping=hd/items/uniques.json#nail_flinger  fallback=base item sprite sprites/items/weapon-bow-light_crossbow.webp
   unique 'Nameless Horror' (7gi)  mapping=hd/items/uniques.json#nameless_horror  fallback=base item sprite sprites/items/weapon-axe-giant_axe.webp
-  unique 'Nameweaver' (cap)  mapping=hd/items/uniques.json#nameweaver  fallback=base item sprite sprites/items/armor-helmet-cap_hat.webp
+  unique 'Nameweaver' (drf)  mapping=hd/items/uniques.json#nameweaver  fallback=base item sprite sprites/items/armor-pelt-spirit_mask.webp
   unique 'Neonate's Sallet' (xkp)  mapping=hd/items/uniques.json#neonate_s_sallet  fallback=base item sprite sprites/items/armor-helmet-skull_cap.webp
   unique 'Night Hag' (7wa)  mapping=hd/items/uniques.json#night_hag  fallback=base item sprite sprites/items/weapon-axe-war_axe.webp
   unique 'Nightcrawler' (nee)  mapping=hd/items/uniques.json#nightcrawler  fallback=base item sprite sprites/items/armor-voodoo_head-gargoyle_head.webp
@@ -1119,7 +1120,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Splinterfreeze' (tsp)  mapping=hd/items/uniques.json#splinterfreeze  fallback=base item sprite sprites/items/weapon-javelin-throwing_spear.webp
   unique 'Splitting Skulls' (7gs)  mapping=hd/items/uniques.json#splitting_skulls  fallback=base item sprite sprites/items/weapon-sword-giant_sword.webp
   unique 'Staff of Shadows' (8ss)  mapping=hd/items/uniques.json#staff_of_shadows  fallback=base item sprite sprites/items/weapon-staff-short_staff.webp
-  unique 'Staff of Valere' (8cs)  mapping=hd/items/uniques.json#staff_of_valere  fallback=base item sprite sprites/items/weapon-staff-gnarled_staff.webp
+  unique 'Staff of Valere' (6ss)  mapping=hd/items/uniques.json#staff_of_valere  fallback=base item sprite sprites/items/weapon-staff-short_staff.webp
   unique 'Staff of the Arch-Magus' (bst)  mapping=hd/items/uniques.json#staff_of_the_arch_magus  fallback=base item sprite sprites/items/weapon-staff-battle_staff.webp
   unique 'Stairway to Heaven' (utb)  mapping=hd/items/uniques.json#stairway_to_heaven  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
   unique 'Stallion Hooves' (ulb)  mapping=hd/items/uniques.json#stallion_hooves  fallback=base item sprite sprites/items/armor-boot-leather_boots.webp
@@ -1135,7 +1136,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Stinkshroud' (hla)  mapping=hd/items/uniques.json#stinkshroud  fallback=base item sprite sprites/items/armor-armor-hard_leather_armor.webp
   unique 'Stirgi's Club' (7cl)  mapping=hd/items/uniques.json#stirgi_s_club  fallback=base item sprite sprites/items/weapon-club-club.webp
   unique 'Stone Eater' (jav)  mapping=hd/items/uniques.json#stone_eater  fallback=base item sprite sprites/items/weapon-javelin-javelin.webp
-  unique 'Stone Hide' (drf)  mapping=hd/items/uniques.json#stone_hide  fallback=base item sprite sprites/items/armor-pelt-spirit_mask.webp
+  unique 'Stone Hide' (drd)  mapping=hd/items/uniques.json#stone_hide  fallback=base item sprite sprites/items/armor-pelt-antlers.webp
   unique 'Stoneblaster' (6lx)  mapping=hd/items/uniques.json#stoneblaster  fallback=base item sprite sprites/items/weapon-bow-light_crossbow.webp
   unique 'Storm Demon's Glare' (9ar)  mapping=hd/items/uniques.json#storm_demon_s_glare  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
   unique 'Storm Talons' (7wb)  mapping=hd/items/uniques.json#storm_talons  fallback=base item sprite sprites/items/weapon-h2h-katar.webp
@@ -1273,7 +1274,6 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Wight Claw' (9lw)  mapping=hd/items/uniques.json#wight_claw  fallback=base item sprite sprites/items/weapon-h2h-claws.webp
   unique 'Wight's Touch' (7sb)  mapping=hd/items/uniques.json#wight_s_touch  fallback=base item sprite sprites/items/weapon-sword-saber.webp
   unique 'Wightslayer' (6mx)  mapping=hd/items/uniques.json#wightslayer  fallback=base item sprite sprites/items/weapon-bow-crossbow.webp
-  unique 'Wild Horses' (uhb)  mapping=hd/items/uniques.json#wild_horses  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
   unique 'Will of the Zakarum' (xar)  mapping=hd/items/uniques.json#will_of_the_zakarum  fallback=base item sprite sprites/items/armor-armor-ancient_armor.webp
   unique 'Will-O'-Wisp' (ucl)  mapping=hd/items/uniques.json#will_o_wisp  fallback=base item sprite sprites/items/armor-armor-scale_mail.webp
   unique 'Willowsting' (sbb)  mapping=hd/items/uniques.json#willowsting  fallback=base item sprite sprites/items/weapon-bow-short_battle_bow.webp
@@ -1309,7 +1309,7 @@ Collision  = two different sources resolved to the same output file; the first w
   unique 'Zealot's Branch' (7tr)  mapping=hd/items/uniques.json#zealot_s_branch  fallback=base item sprite sprites/items/weapon-spear-trident.webp
   unique 'Zebrastride' (xmb)  mapping=hd/items/uniques.json#zebrastride  fallback=base item sprite sprites/items/armor-boot-chain_boots.webp
   unique 'Zenkiller' (kri)  mapping=hd/items/uniques.json#zenkiller  fallback=base item sprite sprites/items/weapon-knife-kriss.webp
-  unique 'Zero Effect' (utb)  mapping=hd/items/uniques.json#zero_effect  fallback=base item sprite sprites/items/armor-boot-light_plate_boots.webp
+  unique 'Zero Effect' (uhb)  mapping=hd/items/uniques.json#zero_effect  fallback=base item sprite sprites/items/armor-boot-plate_boots.webp
   unique 't1 Splash Charm' (cm4)  mapping=hd/items/uniques.json#t1_splash_charm  fallback=base item sprite sprites/items/misc-charm-charm_small.webp
   unique 't2 Splash Charm' (cm4)  mapping=hd/items/uniques.json#t2_splash_charm  fallback=base item sprite sprites/items/misc-charm-charm_small.webp
   unique 't3 Splash Charm' (cm4)  mapping=hd/items/uniques.json#t3_splash_charm  fallback=base item sprite sprites/items/misc-charm-charm_small.webp

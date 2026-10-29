@@ -18,6 +18,7 @@
     matchesSearch,
     matchesItemType,
     matchesRunes,
+    normalizeRecipeTypeFilter,
     passesHandFilter,
     recipeType as recipeTypesFor,
     sortCatalogItems,
@@ -208,6 +209,13 @@
   $effect(() => {
     if (data.definition.slug === 'bases' && selectedType
       && !typeOptions.some((option) => option.value === selectedType)) selectedType = '';
+  });
+
+  $effect(() => {
+    if (data.definition.slug === 'cube-recipes') {
+      const normalized = normalizeRecipeTypeFilter(recipeType, recipeTypeOptions.map((option) => option.value));
+      if (normalized !== recipeType) recipeType = normalized;
+    }
   });
 
   $effect(() => {

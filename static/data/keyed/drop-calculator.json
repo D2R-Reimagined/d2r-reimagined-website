@@ -2595,7 +2595,7 @@
       "NameKey": "The Grandfather",
       "Code": "7gd",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -3265,7 +3265,7 @@
       "NameKey": "Shadow Killer",
       "Code": "7cs",
       "Quality": "unique",
-      "Level": 75,
+      "Level": 73,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -3925,7 +3925,7 @@
       "NameKey": "Bloodpact Shard",
       "Code": "7di",
       "Quality": "unique",
-      "Level": 60,
+      "Level": 70,
       "Rarity": 2,
       "Random": true,
       "Condition": ""
@@ -4355,7 +4355,7 @@
       "NameKey": "Frost Wyrm",
       "Code": "7wa",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -4673,9 +4673,9 @@
     {
       "Id": "unique:Chromablade",
       "NameKey": "Chromablade",
-      "Code": "sbr",
+      "Code": "7wb",
       "Quality": "unique",
-      "Level": 1,
+      "Level": 62,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -6095,7 +6095,7 @@
       "NameKey": "Elven Mystral",
       "Code": "7di",
       "Quality": "unique",
-      "Level": 55,
+      "Level": 70,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -6105,7 +6105,7 @@
       "NameKey": "Fall Of Myth Drannor",
       "Code": "7di",
       "Quality": "unique",
-      "Level": 55,
+      "Level": 70,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -6191,11 +6191,11 @@
       "Condition": ""
     },
     {
-      "Id": "unique:Dragon Turtle",
-      "NameKey": "Dragon Turtle",
-      "Code": "spt",
+      "Id": "unique:Kethryes Fury",
+      "NameKey": "Kethryes Fury",
+      "Code": "ame",
       "Quality": "unique",
-      "Level": 25,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -6873,9 +6873,9 @@
     {
       "Id": "unique:Staff of Valere",
       "NameKey": "Staff of Valere",
-      "Code": "8cs",
+      "Code": "6ss",
       "Quality": "unique",
-      "Level": 50,
+      "Level": 85,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -6945,8 +6945,8 @@
       "NameKey": "Jadrik\u0027s Torment",
       "Code": "6ss",
       "Quality": "unique",
-      "Level": 40,
-      "Rarity": 1,
+      "Level": 58,
+      "Rarity": 2,
       "Random": true,
       "Condition": ""
     },
@@ -8001,12 +8001,12 @@
       "Condition": ""
     },
     {
-      "Id": "unique:Cadin\u0027Sor",
-      "NameKey": "Cadin\u0027Sor",
-      "Code": "glv",
+      "Id": "unique:Athuluas Venom",
+      "NameKey": "Athuluas Venom",
+      "Code": "amf",
       "Quality": "unique",
-      "Level": 25,
-      "Rarity": 1,
+      "Level": 107,
+      "Rarity": 2,
       "Random": true,
       "Condition": ""
     },
@@ -8645,7 +8645,7 @@
       "NameKey": "Red Dragon Scales",
       "Code": "upl",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -8665,7 +8665,7 @@
       "NameKey": "Ghostly Chainmail",
       "Code": "uhn",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -8685,7 +8685,7 @@
       "NameKey": "Breastplate of Gond",
       "Code": "urs",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -9325,7 +9325,7 @@
       "NameKey": "Lachdanan\u0027s Heart",
       "Code": "uth",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -9345,7 +9345,7 @@
       "NameKey": "Shadowtrick",
       "Code": "uul",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -9365,7 +9365,7 @@
       "NameKey": "Legacy of the Eternals",
       "Code": "utp",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -9373,9 +9373,9 @@
     {
       "Id": "unique:Nameweaver",
       "NameKey": "Nameweaver",
-      "Code": "cap",
+      "Code": "drf",
       "Quality": "unique",
-      "Level": 1,
+      "Level": 85,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -9403,9 +9403,9 @@
     {
       "Id": "unique:Devourer of Dreams",
       "NameKey": "Devourer of Dreams",
-      "Code": "skp",
+      "Code": "drb",
       "Quality": "unique",
-      "Level": 1,
+      "Level": 62,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -10743,7 +10743,7 @@
     {
       "Id": "unique:Zero Effect",
       "NameKey": "Zero Effect",
-      "Code": "utb",
+      "Code": "uhb",
       "Quality": "unique",
       "Level": 85,
       "Rarity": 2,
@@ -10831,11 +10831,11 @@
       "Condition": ""
     },
     {
-      "Id": "unique:Wild Horses",
-      "NameKey": "Wild Horses",
-      "Code": "uhb",
+      "Id": "unique:Hemlirs Demise",
+      "NameKey": "Hemlirs Demise",
+      "Code": "drf",
       "Quality": "unique",
-      "Level": 65,
+      "Level": 85,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -11185,7 +11185,7 @@
       "NameKey": "Abyssal Torment",
       "Code": "amb",
       "Quality": "unique",
-      "Level": 90,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -11615,7 +11615,7 @@
       "NameKey": "Haven of Light",
       "Code": "obb",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -11925,7 +11925,7 @@
       "NameKey": "Jondars Horde",
       "Code": "ned",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -11935,7 +11935,7 @@
       "NameKey": "Mehtans Choice",
       "Code": "nee",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -12195,7 +12195,7 @@
       "NameKey": "God\u0027s Word",
       "Code": "pae",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -12215,7 +12215,7 @@
       "NameKey": "Fortress of Morpheus",
       "Code": "paf",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -12455,7 +12455,7 @@
       "NameKey": "Insight of the Ancients",
       "Code": "bae",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -12675,7 +12675,7 @@
       "NameKey": "Call of the Wild",
       "Code": "drb",
       "Quality": "unique",
-      "Level": 85,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -12725,7 +12725,7 @@
       "NameKey": "Call of the Kindred",
       "Code": "drf",
       "Quality": "unique",
-      "Level": 85,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -12733,7 +12733,7 @@
     {
       "Id": "unique:Stone Hide",
       "NameKey": "Stone Hide",
-      "Code": "drf",
+      "Code": "drd",
       "Quality": "unique",
       "Level": 85,
       "Rarity": 1,
@@ -12815,7 +12815,7 @@
       "NameKey": "Cold of Winter",
       "Code": "7ar",
       "Quality": "unique",
-      "Level": 85,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -12853,9 +12853,9 @@
     {
       "Id": "unique:Liege Reaver",
       "NameKey": "Liege Reaver",
-      "Code": "ces",
+      "Code": "7cs",
       "Quality": "unique",
-      "Level": 12,
+      "Level": 73,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -13205,7 +13205,7 @@
       "NameKey": "Flaming Fist",
       "Code": "7cs",
       "Quality": "unique",
-      "Level": 83,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -13215,7 +13215,7 @@
       "NameKey": "Storm Talons",
       "Code": "7wb",
       "Quality": "unique",
-      "Level": 85,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -14105,7 +14105,7 @@
       "NameKey": "Harrogaths Last Stand",
       "Code": "7fb",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -14125,7 +14125,7 @@
       "NameKey": "El Druin",
       "Code": "7gs",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -14175,7 +14175,7 @@
       "NameKey": "Siege Beast Arrows",
       "Code": "aqv",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -14225,7 +14225,7 @@
       "NameKey": "Echoes of Harrogath",
       "Code": "cqv",
       "Quality": "unique",
-      "Level": 105,
+      "Level": 107,
       "Rarity": 1,
       "Random": true,
       "Condition": ""
@@ -14258,16 +14258,6 @@
       "Level": 99,
       "Rarity": 1,
       "Random": false,
-      "Condition": ""
-    },
-    {
-      "Id": "unique:Thunderstep Test Staff",
-      "NameKey": "Thunderstep Test Staff",
-      "Code": "sst",
-      "Quality": "unique",
-      "Level": 1,
-      "Rarity": 1,
-      "Random": true,
       "Condition": ""
     },
     {
@@ -153565,7 +153555,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 100,
+      "Level": 104,
       "TreasureClass": "Lab T1 Swarm"
     },
     {
@@ -153574,7 +153564,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 102,
+      "Level": 106,
       "TreasureClass": "Lab T1 Swarm"
     },
     {
@@ -153583,7 +153573,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 103,
+      "Level": 107,
       "TreasureClass": "Lab T1 Swarm"
     },
     {
@@ -153592,7 +153582,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 100,
+      "Level": 104,
       "TreasureClass": "Lab T1 Normal"
     },
     {
@@ -153601,7 +153591,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 102,
+      "Level": 106,
       "TreasureClass": "Lab T1 Champion"
     },
     {
@@ -153610,7 +153600,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 103,
+      "Level": 107,
       "TreasureClass": "Lab T1 Unique"
     },
     {
@@ -153619,7 +153609,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 100,
+      "Level": 104,
       "TreasureClass": "Lab T1 Normal"
     },
     {
@@ -153628,7 +153618,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 102,
+      "Level": 106,
       "TreasureClass": "Lab T1 Champion"
     },
     {
@@ -153637,7 +153627,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 103,
+      "Level": 107,
       "TreasureClass": "Lab T1 Unique"
     },
     {
@@ -153646,7 +153636,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 102,
+      "Level": 105,
       "TreasureClass": "Lab T2 Normal"
     },
     {
@@ -153655,7 +153645,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 104,
+      "Level": 107,
       "TreasureClass": "Lab T2 Champion"
     },
     {
@@ -153664,7 +153654,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 105,
+      "Level": 108,
       "TreasureClass": "Lab T2 Unique"
     },
     {
@@ -153754,7 +153744,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 100,
+      "Level": 104,
       "TreasureClass": "Lab T1 Normal"
     },
     {
@@ -153763,7 +153753,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 102,
+      "Level": 106,
       "TreasureClass": "Lab T1 Champion"
     },
     {
@@ -153772,7 +153762,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 103,
+      "Level": 107,
       "TreasureClass": "Lab T1 Unique"
     },
     {
@@ -153781,7 +153771,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 104,
+      "Level": 106,
       "TreasureClass": "Lab T3 Normal"
     },
     {
@@ -153790,7 +153780,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 106,
+      "Level": 108,
       "TreasureClass": "Lab T3 Champion"
     },
     {
@@ -153799,7 +153789,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 107,
+      "Level": 109,
       "TreasureClass": "Lab T3 Unique"
     },
     {
@@ -153808,7 +153798,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 104,
+      "Level": 106,
       "TreasureClass": "Lab T3 Normal"
     },
     {
@@ -153817,7 +153807,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 106,
+      "Level": 108,
       "TreasureClass": "Lab T3 Champion"
     },
     {
@@ -153826,34 +153816,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 107,
-      "TreasureClass": "Lab T3 Unique"
-    },
-    {
-      "Id": "labslinger:152:2:normal",
-      "NameKey": "HellSlinger",
-      "AreaKey": "Na-Krul\u0027s Torment",
-      "Difficulty": 2,
-      "Kind": "normal",
-      "Level": 105,
-      "TreasureClass": "Lab T3 Normal"
-    },
-    {
-      "Id": "labslinger:152:2:champion",
-      "NameKey": "HellSlinger",
-      "AreaKey": "Na-Krul\u0027s Torment",
-      "Difficulty": 2,
-      "Kind": "champion",
-      "Level": 107,
-      "TreasureClass": "Lab T3 Champion"
-    },
-    {
-      "Id": "labslinger:152:2:unique",
-      "NameKey": "HellSlinger",
-      "AreaKey": "Na-Krul\u0027s Torment",
-      "Difficulty": 2,
-      "Kind": "unique",
-      "Level": 108,
+      "Level": 109,
       "TreasureClass": "Lab T3 Unique"
     },
     {
@@ -153862,7 +153825,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 104,
+      "Level": 106,
       "TreasureClass": "Lab T3 Normal"
     },
     {
@@ -153871,7 +153834,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 106,
+      "Level": 108,
       "TreasureClass": "Lab T3 Champion"
     },
     {
@@ -153880,7 +153843,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 107,
+      "Level": 109,
       "TreasureClass": "Lab T3 Unique"
     },
     {
@@ -153889,7 +153852,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 106,
+      "Level": 107,
       "TreasureClass": "Lab T4 Normal"
     },
     {
@@ -153898,7 +153861,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 108,
+      "Level": 109,
       "TreasureClass": "Lab T4 Champion"
     },
     {
@@ -153907,7 +153870,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 109,
+      "Level": 110,
       "TreasureClass": "Lab T4 Unique"
     },
     {
@@ -153916,7 +153879,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 106,
+      "Level": 107,
       "TreasureClass": "Lab T4 Normal"
     },
     {
@@ -153925,7 +153888,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 108,
+      "Level": 109,
       "TreasureClass": "Lab T4 Champion"
     },
     {
@@ -153934,7 +153897,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 109,
+      "Level": 110,
       "TreasureClass": "Lab T4 Unique"
     },
     {
@@ -153943,7 +153906,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 106,
+      "Level": 107,
       "TreasureClass": "Lab T4 Swarm"
     },
     {
@@ -153952,7 +153915,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 108,
+      "Level": 109,
       "TreasureClass": "Lab T4 Swarm"
     },
     {
@@ -153961,7 +153924,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 109,
+      "Level": 110,
       "TreasureClass": "Lab T4 Swarm"
     },
     {
@@ -153970,7 +153933,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 106,
+      "Level": 107,
       "TreasureClass": "Lab T4 Normal"
     },
     {
@@ -153979,38 +153942,11 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 108,
+      "Level": 109,
       "TreasureClass": "Lab T4 Champion"
     },
     {
       "Id": "labmummy:156:2:unique",
-      "NameKey": "Decayed",
-      "AreaKey": "Halls of the Damned",
-      "Difficulty": 2,
-      "Kind": "unique",
-      "Level": 109,
-      "TreasureClass": "Lab T4 Unique"
-    },
-    {
-      "Id": "labmummy:157:2:normal",
-      "NameKey": "Decayed",
-      "AreaKey": "Halls of the Damned",
-      "Difficulty": 2,
-      "Kind": "normal",
-      "Level": 107,
-      "TreasureClass": "Lab T4 Normal"
-    },
-    {
-      "Id": "labmummy:157:2:champion",
-      "NameKey": "Decayed",
-      "AreaKey": "Halls of the Damned",
-      "Difficulty": 2,
-      "Kind": "champion",
-      "Level": 109,
-      "TreasureClass": "Lab T4 Champion"
-    },
-    {
-      "Id": "labmummy:157:2:unique",
       "NameKey": "Decayed",
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
@@ -154024,7 +153960,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 106,
+      "Level": 107,
       "TreasureClass": "Lab T4 Normal"
     },
     {
@@ -154033,7 +153969,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 108,
+      "Level": 109,
       "TreasureClass": "Lab T4 Champion"
     },
     {
@@ -154042,7 +153978,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 109,
+      "Level": 110,
       "TreasureClass": "Lab T4 Unique"
     },
     {
@@ -154078,7 +154014,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 104,
+      "Level": 106,
       "TreasureClass": "Lab T3 Normal"
     },
     {
@@ -154087,7 +154023,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 106,
+      "Level": 108,
       "TreasureClass": "Lab T3 Champion"
     },
     {
@@ -154096,7 +154032,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 107,
+      "Level": 109,
       "TreasureClass": "Lab T3 Unique"
     },
     {
@@ -154105,7 +154041,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 102,
+      "Level": 105,
       "TreasureClass": "Lab T2 Normal"
     },
     {
@@ -154114,7 +154050,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 104,
+      "Level": 107,
       "TreasureClass": "Lab T2 Champion"
     },
     {
@@ -154123,34 +154059,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 105,
-      "TreasureClass": "Lab T2 Unique"
-    },
-    {
-      "Id": "labskelearcher:147:2:normal",
-      "NameKey": "BoneArcher",
-      "AreaKey": "Belial\u0027s Deception",
-      "Difficulty": 2,
-      "Kind": "normal",
-      "Level": 103,
-      "TreasureClass": "Lab T2 Normal"
-    },
-    {
-      "Id": "labskelearcher:147:2:champion",
-      "NameKey": "BoneArcher",
-      "AreaKey": "Belial\u0027s Deception",
-      "Difficulty": 2,
-      "Kind": "champion",
-      "Level": 105,
-      "TreasureClass": "Lab T2 Champion"
-    },
-    {
-      "Id": "labskelearcher:147:2:unique",
-      "NameKey": "BoneArcher",
-      "AreaKey": "Belial\u0027s Deception",
-      "Difficulty": 2,
-      "Kind": "unique",
-      "Level": 106,
+      "Level": 108,
       "TreasureClass": "Lab T2 Unique"
     },
     {
@@ -154186,7 +154095,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 106,
+      "Level": 107,
       "TreasureClass": "Lab T4 Normal"
     },
     {
@@ -154195,7 +154104,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 108,
+      "Level": 109,
       "TreasureClass": "Lab T4 Champion"
     },
     {
@@ -154204,7 +154113,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 109,
+      "Level": 110,
       "TreasureClass": "Lab T4 Unique"
     },
     {
@@ -154213,7 +154122,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 102,
+      "Level": 105,
       "TreasureClass": "Lab T2 Normal"
     },
     {
@@ -154222,7 +154131,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 104,
+      "Level": 107,
       "TreasureClass": "Lab T2 Champion"
     },
     {
@@ -154231,7 +154140,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 105,
+      "Level": 108,
       "TreasureClass": "Lab T2 Unique"
     },
     {
@@ -154240,7 +154149,7 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 106,
+      "Level": 107,
       "TreasureClass": "Lab T4 Normal"
     },
     {
@@ -154249,38 +154158,11 @@
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 108,
+      "Level": 109,
       "TreasureClass": "Lab T4 Champion"
     },
     {
       "Id": "labskelemagepois:156:2:unique",
-      "NameKey": "BoneMage",
-      "AreaKey": "Halls of the Damned",
-      "Difficulty": 2,
-      "Kind": "unique",
-      "Level": 109,
-      "TreasureClass": "Lab T4 Unique"
-    },
-    {
-      "Id": "labskelemagepois:157:2:normal",
-      "NameKey": "BoneMage",
-      "AreaKey": "Halls of the Damned",
-      "Difficulty": 2,
-      "Kind": "normal",
-      "Level": 107,
-      "TreasureClass": "Lab T4 Normal"
-    },
-    {
-      "Id": "labskelemagepois:157:2:champion",
-      "NameKey": "BoneMage",
-      "AreaKey": "Halls of the Damned",
-      "Difficulty": 2,
-      "Kind": "champion",
-      "Level": 109,
-      "TreasureClass": "Lab T4 Champion"
-    },
-    {
-      "Id": "labskelemagepois:157:2:unique",
       "NameKey": "BoneMage",
       "AreaKey": "Halls of the Damned",
       "Difficulty": 2,
@@ -154294,7 +154176,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 101,
+      "Level": 104,
       "TreasureClass": "Lab T1 Normal"
     },
     {
@@ -154303,7 +154185,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 103,
+      "Level": 106,
       "TreasureClass": "Lab T1 Champion"
     },
     {
@@ -154312,7 +154194,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 104,
+      "Level": 107,
       "TreasureClass": "Lab T1 Unique"
     },
     {
@@ -154321,7 +154203,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 101,
+      "Level": 104,
       "TreasureClass": "Lab T1 Normal"
     },
     {
@@ -154330,7 +154212,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 103,
+      "Level": 106,
       "TreasureClass": "Lab T1 Champion"
     },
     {
@@ -154339,7 +154221,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 104,
+      "Level": 107,
       "TreasureClass": "Lab T1 Unique"
     },
     {
@@ -154348,7 +154230,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 101,
+      "Level": 104,
       "TreasureClass": "Lab T1 Normal"
     },
     {
@@ -154357,7 +154239,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 103,
+      "Level": 106,
       "TreasureClass": "Lab T1 Champion"
     },
     {
@@ -154366,7 +154248,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 104,
+      "Level": 107,
       "TreasureClass": "Lab T1 Unique"
     },
     {
@@ -154375,7 +154257,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 100,
+      "Level": 104,
       "TreasureClass": "Lab T1 Normal"
     },
     {
@@ -154384,7 +154266,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 102,
+      "Level": 106,
       "TreasureClass": "Lab T1 Champion"
     },
     {
@@ -154393,7 +154275,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 103,
+      "Level": 107,
       "TreasureClass": "Lab T1 Unique"
     },
     {
@@ -154483,7 +154365,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 100,
+      "Level": 104,
       "TreasureClass": "Lab T1 Normal"
     },
     {
@@ -154492,7 +154374,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 102,
+      "Level": 106,
       "TreasureClass": "Lab T1 Champion"
     },
     {
@@ -154501,7 +154383,7 @@
       "AreaKey": "Maghda\u0027s Domain",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 103,
+      "Level": 107,
       "TreasureClass": "Lab T1 Unique"
     },
     {
@@ -154537,7 +154419,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 102,
+      "Level": 105,
       "TreasureClass": "Lab T2 Normal"
     },
     {
@@ -154546,7 +154428,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 104,
+      "Level": 107,
       "TreasureClass": "Lab T2 Champion"
     },
     {
@@ -154555,7 +154437,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 105,
+      "Level": 108,
       "TreasureClass": "Lab T2 Unique"
     },
     {
@@ -154591,7 +154473,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 102,
+      "Level": 105,
       "TreasureClass": "Lab T2 Normal"
     },
     {
@@ -154600,7 +154482,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 104,
+      "Level": 107,
       "TreasureClass": "Lab T2 Champion"
     },
     {
@@ -154609,34 +154491,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 105,
-      "TreasureClass": "Lab T2 Unique"
-    },
-    {
-      "Id": "labflayer:147:2:normal",
-      "NameKey": "Flayer",
-      "AreaKey": "Belial\u0027s Deception",
-      "Difficulty": 2,
-      "Kind": "normal",
-      "Level": 103,
-      "TreasureClass": "Lab T2 Normal"
-    },
-    {
-      "Id": "labflayer:147:2:champion",
-      "NameKey": "Flayer",
-      "AreaKey": "Belial\u0027s Deception",
-      "Difficulty": 2,
-      "Kind": "champion",
-      "Level": 105,
-      "TreasureClass": "Lab T2 Champion"
-    },
-    {
-      "Id": "labflayer:147:2:unique",
-      "NameKey": "Flayer",
-      "AreaKey": "Belial\u0027s Deception",
-      "Difficulty": 2,
-      "Kind": "unique",
-      "Level": 106,
+      "Level": 108,
       "TreasureClass": "Lab T2 Unique"
     },
     {
@@ -154645,7 +154500,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 104,
+      "Level": 106,
       "TreasureClass": "Lab T3 Normal"
     },
     {
@@ -154654,7 +154509,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 106,
+      "Level": 108,
       "TreasureClass": "Lab T3 Champion"
     },
     {
@@ -154663,7 +154518,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 107,
+      "Level": 109,
       "TreasureClass": "Lab T3 Unique"
     },
     {
@@ -154726,7 +154581,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 102,
+      "Level": 105,
       "TreasureClass": "Lab T2 Normal"
     },
     {
@@ -154735,7 +154590,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 104,
+      "Level": 107,
       "TreasureClass": "Lab T2 Champion"
     },
     {
@@ -154744,7 +154599,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 105,
+      "Level": 108,
       "TreasureClass": "Lab T2 Unique"
     },
     {
@@ -154807,7 +154662,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 103,
+      "Level": 105,
       "TreasureClass": "Lab T2 Normal"
     },
     {
@@ -154816,7 +154671,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 105,
+      "Level": 107,
       "TreasureClass": "Lab T2 Champion"
     },
     {
@@ -154825,7 +154680,7 @@
       "AreaKey": "Belial\u0027s Deception",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 106,
+      "Level": 108,
       "TreasureClass": "Lab T2 Unique"
     },
     {
@@ -154834,7 +154689,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 104,
+      "Level": 106,
       "TreasureClass": "Lab T3 Normal"
     },
     {
@@ -154843,7 +154698,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 106,
+      "Level": 108,
       "TreasureClass": "Lab T3 Champion"
     },
     {
@@ -154852,34 +154707,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 107,
-      "TreasureClass": "Lab T3 Unique"
-    },
-    {
-      "Id": "labsummoner:152:2:normal",
-      "NameKey": "Summoner",
-      "AreaKey": "Na-Krul\u0027s Torment",
-      "Difficulty": 2,
-      "Kind": "normal",
-      "Level": 105,
-      "TreasureClass": "Lab T3 Normal"
-    },
-    {
-      "Id": "labsummoner:152:2:champion",
-      "NameKey": "Summoner",
-      "AreaKey": "Na-Krul\u0027s Torment",
-      "Difficulty": 2,
-      "Kind": "champion",
-      "Level": 107,
-      "TreasureClass": "Lab T3 Champion"
-    },
-    {
-      "Id": "labsummoner:152:2:unique",
-      "NameKey": "Summoner",
-      "AreaKey": "Na-Krul\u0027s Torment",
-      "Difficulty": 2,
-      "Kind": "unique",
-      "Level": 108,
+      "Level": 109,
       "TreasureClass": "Lab T3 Unique"
     },
     {
@@ -155050,7 +154878,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "normal",
-      "Level": 105,
+      "Level": 106,
       "TreasureClass": "Lab T3 Normal"
     },
     {
@@ -155059,7 +154887,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "champion",
-      "Level": 107,
+      "Level": 108,
       "TreasureClass": "Lab T3 Champion"
     },
     {
@@ -155068,7 +154896,7 @@
       "AreaKey": "Na-Krul\u0027s Torment",
       "Difficulty": 2,
       "Kind": "unique",
-      "Level": 108,
+      "Level": 109,
       "TreasureClass": "Lab T3 Unique"
     },
     {
@@ -248085,6 +247913,33 @@
       "Kind": "boss",
       "Level": 99,
       "TreasureClass": "Baal (H)"
+    },
+    {
+      "Id": "monama:0:2:normal",
+      "NameKey": "forsakenhero",
+      "AreaKey": "",
+      "Difficulty": 2,
+      "Kind": "normal",
+      "Level": 68,
+      "TreasureClass": "Lab Class Ama"
+    },
+    {
+      "Id": "monama:0:2:champion",
+      "NameKey": "forsakenhero",
+      "AreaKey": "",
+      "Difficulty": 2,
+      "Kind": "champion",
+      "Level": 70,
+      "TreasureClass": "Lab Class Ama"
+    },
+    {
+      "Id": "monama:0:2:unique",
+      "NameKey": "forsakenhero",
+      "AreaKey": "",
+      "Difficulty": 2,
+      "Kind": "unique",
+      "Level": 71,
+      "TreasureClass": "Lab Class Ama"
     }
   ]
 }

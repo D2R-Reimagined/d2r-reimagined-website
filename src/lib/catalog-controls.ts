@@ -406,5 +406,11 @@ export function sortCatalogItems(items: CatalogItem[], mode: CatalogSortMode): C
 }
 
 export function recipeType(item: CatalogItem): string[] {
-  return (item.Notes ?? []).map((note) => note.key).filter(Boolean);
+  return (item.Notes ?? [])
+    .map((note) => note.key)
+    .filter((key): key is string => Boolean(key));
+}
+
+export function normalizeRecipeTypeFilter(selected: string, categories: string[]): string {
+  return categories.includes(selected) ? selected : '';
 }
