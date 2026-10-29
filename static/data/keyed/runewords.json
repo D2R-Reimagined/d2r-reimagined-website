@@ -2170,13 +2170,14 @@
       {
         "key": "strModEnhancedDamage",
         "args": [
+          80,
           100
         ]
       },
       {
         "key": "ModStr1f",
         "args": [
-          1.5
+          0.75
         ],
         "perLevel": true
       },
@@ -2189,6 +2190,7 @@
       {
         "key": "Moditem2ExpG",
         "args": [
+          5,
           10
         ]
       },
@@ -2856,7 +2858,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -3700,7 +3702,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ]
       }
     ]
@@ -3789,7 +3791,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          20
+          40
         ]
       }
     ]
@@ -4751,7 +4753,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ]
       }
     ]
@@ -4936,7 +4938,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -5345,7 +5347,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ],
         "qualifier": "weapon"
       },
@@ -5366,7 +5368,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ],
         "qualifier": "armor"
       },
@@ -5387,7 +5389,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ],
         "qualifier": "shield"
       }
@@ -5985,7 +5987,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ]
       }
     ]
@@ -6816,7 +6818,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -8427,7 +8429,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -8651,7 +8653,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ]
       }
     ]
@@ -8810,7 +8812,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -8974,7 +8976,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -10094,7 +10096,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -10468,7 +10470,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ]
       }
     ]
@@ -11251,7 +11253,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ]
       }
     ]
@@ -12330,7 +12332,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ],
         "qualifier": "armor"
       },
@@ -12358,7 +12360,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ],
         "qualifier": "shield"
       }
@@ -14220,7 +14222,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -14712,7 +14714,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -15481,7 +15483,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -16784,7 +16786,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ]
       }
     ]
@@ -20597,7 +20599,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -20764,7 +20766,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -21195,7 +21197,7 @@
       {
         "key": "ModStr5c",
         "args": [
-          5
+          10
         ]
       },
       {
@@ -21594,7 +21596,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ]
       }
     ]
@@ -22463,7 +22465,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -22711,7 +22713,7 @@
       {
         "key": "ModStr5c",
         "args": [
-          5
+          10
         ]
       },
       {
@@ -24508,7 +24510,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ]
       }
     ]
@@ -24579,8 +24581,8 @@
       {
         "key": "ModStr3k",
         "args": [
-          2,
-          3
+          3,
+          4
         ]
       },
       {
@@ -24593,6 +24595,18 @@
         "key": "Moditem2allattrib",
         "args": [
           30
+        ]
+      },
+      {
+        "key": "ModStr1m",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          10
         ]
       },
       {
@@ -25058,15 +25072,15 @@
         ]
       },
       {
-        "key": "ModStr2z",
+        "key": "ModStrDamPierce",
         "args": [
-          7
+          10
         ]
       },
       {
-        "key": "ModStr5c",
+        "key": "ModStr2z",
         "args": [
-          5
+          7
         ]
       },
       {
@@ -25291,8 +25305,8 @@
       {
         "key": "ModStr3k",
         "args": [
-          2,
-          3
+          3,
+          4
         ]
       },
       {
@@ -25306,6 +25320,12 @@
         "key": "ModStrDamPierce",
         "args": [
           10
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          200
         ]
       },
       {
@@ -25410,8 +25430,8 @@
       {
         "key": "ModStr3k",
         "args": [
-          2,
-          3
+          3,
+          4
         ]
       },
       {
@@ -25439,6 +25459,12 @@
         "key": "PenetrateElePen",
         "args": [
           10
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          200
         ]
       },
       {
@@ -25548,8 +25574,8 @@
         "key": "ItemExpansiveChancX",
         "args": [
           15,
-          20,
-          "Arc"
+          10,
+          "Spine Piercer"
         ]
       },
       {
@@ -25561,8 +25587,8 @@
       {
         "key": "ModStr3k",
         "args": [
-          2,
-          3
+          3,
+          4
         ]
       },
       {
@@ -25686,7 +25712,7 @@
       {
         "key": "ModStr3k",
         "args": [
-          2,
+          3,
           4
         ]
       },
@@ -25726,6 +25752,115 @@
         "key": "ModStr1m",
         "args": [
           20
+        ]
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Offering",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 85,
+    "RequiredLevel": 85,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r37",
+        "ItemLevel": 80,
+        "RequiredLevel": 80,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r37",
+        "ItemLevel": 80,
+        "RequiredLevel": 80,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r38",
+        "ItemLevel": 85,
+        "RequiredLevel": 85,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Necromancer Item",
+        "Index": "necritype",
+        "Class": "nec"
+      }
+    ],
+    "Lines": [
+      {
+        "key": "extra_skele_warriors",
+        "args": [
+          1,
+          2
+        ]
+      },
+      {
+        "key": "extra_skele_mages",
+        "args": [
+          1,
+          2
+        ]
+      },
+      {
+        "key": "extrafiregolems",
+        "args": [
+          1,
+          2
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          3,
+          4
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          5,
+          "DeathSigilName"
+        ]
+      },
+      {
+        "key": "ModStr3g",
+        "args": [
+          30
+        ]
+      },
+      {
+        "key": "ModAttVitPercent",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr2g",
+        "args": [
+          -5
         ]
       },
       {
@@ -26011,7 +26146,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          20
         ],
         "qualifier": "weapon"
       },
@@ -26039,7 +26174,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ],
         "qualifier": "armor"
       },
@@ -26067,7 +26202,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          10
+          15
         ],
         "qualifier": "shield"
       }

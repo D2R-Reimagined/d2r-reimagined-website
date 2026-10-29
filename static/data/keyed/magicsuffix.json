@@ -20393,37 +20393,5 @@
     "ETypes": [],
     "PType": "Suffix",
     "Lines": []
-  },
-  {
-    "NameKey": "of Thunderstep",
-    "Level": 30,
-    "MaxLevel": 0,
-    "RequiredLevel": 30,
-    "Group": 84,
-    "ClassSpecific": "",
-    "Class": "",
-    "ClassLevelReq": 0,
-    "Types": [
-      "orbitype",
-      "stafitype",
-      "amulitype"
-    ],
-    "ETypes": [],
-    "PType": "Suffix",
-    "Lines": [
-      {
-        "key": "teleport_nova",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          1,
-          "skillname48"
-        ]
-      }
-    ]
   }
 ]

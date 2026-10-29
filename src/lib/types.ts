@@ -90,6 +90,7 @@ export interface CatalogItem {
   Inputs?: Array<{ Name?: KeyedLine; Quantity?: number; Qualifiers?: KeyedLine[] }>;
   Outputs?: Record<string, { Name?: KeyedLine; Quantity?: number; Qualifiers?: KeyedLine[]; Lines?: KeyedLine[] }>;
   Notes?: KeyedLine[];
+  Details?: KeyedLine[];
   Description?: string;
   source?: 'armor' | 'weapon' | 'prefix' | 'suffix';
   [key: string]: unknown;

@@ -48,7 +48,7 @@
     "Type": "stafitype",
     "Vanilla": "N",
     "Index": "Thunderstep Test Staff",
-    "Enabled": true,
+    "Enabled": false,
     "Rarity": 1,
     "ItemLevel": 1,
     "RequiredLevel": 1,
@@ -4657,72 +4657,6 @@
           "key": "strRequiredStrength",
           "args": [
             15
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "helmitype",
-    "Vanilla": "N",
-    "Index": "Nameweaver",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 1,
-    "RequiredLevel": 8,
-    "Code": "cap",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "ModStr1f",
-        "args": [
-          5,
-          10
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          20,
-          30
-        ]
-      },
-      {
-        "key": "ModStr1b",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr4g",
-        "args": [
-          45
-        ]
-      },
-      {
-        "key": "ModStr1l",
-        "args": [
-          35
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "cap",
-      "RequiredClass": "",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            23,
-            35
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            12,
-            12
           ]
         }
       ]
@@ -10611,79 +10545,6 @@
     }
   },
   {
-    "Type": "helmitype",
-    "Vanilla": "N",
-    "Index": "Devourer of Dreams",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 1,
-    "RequiredLevel": 13,
-    "Code": "skp",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          1,
-          "skillname37"
-        ]
-      },
-      {
-        "key": "ModStr4v",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr1y",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          15,
-          25
-        ]
-      },
-      {
-        "key": "ModStr2l",
-        "args": [
-          3,
-          5
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "skp",
-      "RequiredClass": "",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            23,
-            36
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            18,
-            18
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            15
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "bootitype",
     "Vanilla": "N",
     "Index": "Angel's Tread",
@@ -13403,100 +13264,6 @@
   {
     "Type": "sworitype",
     "Vanilla": "N",
-    "Index": "Chromablade",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 1,
-    "RequiredLevel": 15,
-    "Code": "sbr",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ItemExpansiveChanc2",
-        "args": [
-          20,
-          5,
-          "skillname39"
-        ]
-      },
-      {
-        "key": "ItemExpansiveChanc2",
-        "args": [
-          20,
-          5,
-          "skillname38"
-        ]
-      },
-      {
-        "key": "ItemExpansiveChanc2",
-        "args": [
-          20,
-          5,
-          "skillname36"
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          100,
-          150
-        ]
-      },
-      {
-        "key": "strModMinDamageRange",
-        "args": [
-          5,
-          5
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 1,
-      "NameKey": "sbr",
-      "RequiredClass": "",
-      "DamageTypes": [
-        {
-          "Type": 3,
-          "AverageDamage": 17.25,
-          "Lines": [
-            {
-              "key": "strWeaponDamageGenericRange",
-              "args": [
-                11,
-                12,
-                21,
-                25
-              ]
-            }
-          ]
-        }
-      ],
-      "Lines": [
-        {
-          "key": "strDurability",
-          "args": [
-            250,
-            250
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            25
-          ]
-        },
-        {
-          "key": "strRequiredDexterity",
-          "args": [
-            25
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "sworitype",
-    "Vanilla": "N",
     "Index": "Fiendslayer",
     "Enabled": true,
     "Rarity": 1,
@@ -15727,109 +15494,6 @@
           "args": [
             250,
             250
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            42
-          ]
-        },
-        {
-          "key": "strRequiredDexterity",
-          "args": [
-            42
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Assassin"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "h2hitype",
-    "Vanilla": "N",
-    "Index": "Liege Reaver",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 12,
-    "RequiredLevel": 15,
-    "Code": "ces",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "StrSklTabItem21",
-        "args": [
-          1,
-          2
-        ],
-        "classOnly": "AssOnly"
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          65,
-          90
-        ]
-      },
-      {
-        "key": "strModMinDamageRange",
-        "args": [
-          5,
-          10
-        ]
-      },
-      {
-        "key": "ModStr1h",
-        "args": [
-          150
-        ]
-      },
-      {
-        "key": "ModStr3m",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStre9u",
-        "args": [
-          1,
-          25
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 1,
-      "NameKey": "ces",
-      "RequiredClass": "Assassin",
-      "DamageTypes": [
-        {
-          "Type": 3,
-          "AverageDamage": 26.5,
-          "Lines": [
-            {
-              "key": "strWeaponDamageGenericRange",
-              "args": [
-                16,
-                18,
-                34,
-                38
-              ]
-            }
-          ]
-        }
-      ],
-      "Lines": [
-        {
-          "key": "strDurability",
-          "args": [
-            325,
-            325
           ]
         },
         {
@@ -44153,99 +43817,6 @@
     }
   },
   {
-    "Type": "speaitype",
-    "Vanilla": "N",
-    "Index": "Dragon Turtle",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 25,
-    "RequiredLevel": 32,
-    "Code": "spt",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "ModStr3e",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          30
-        ]
-      },
-      {
-        "key": "strModMinDamageRange",
-        "args": [
-          50,
-          100
-        ]
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          20,
-          30
-        ]
-      },
-      {
-        "key": "ModStr2uPercent",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          30,
-          50
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 1,
-      "NameKey": "spt",
-      "RequiredClass": "",
-      "DamageTypes": [
-        {
-          "Type": 1,
-          "AverageDamage": 94,
-          "Lines": [
-            {
-              "key": "strWeaponDamageTwoHand",
-              "args": [
-                65,
-                123
-              ]
-            }
-          ]
-        }
-      ],
-      "Lines": [
-        {
-          "key": "strDurability",
-          "args": [
-            310,
-            310
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            54
-          ]
-        },
-        {
-          "key": "strRequiredDexterity",
-          "args": [
-            35
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "poleitype",
     "Vanilla": "N",
     "Index": "Slayer's Debt",
@@ -46256,128 +45827,6 @@
           "args": [
             250,
             250
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "javeitype",
-    "Vanilla": "N",
-    "Index": "Cadin'Sor",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 25,
-    "RequiredLevel": 33,
-    "Code": "glv",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          1,
-          "skillname127"
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          80,
-          100
-        ]
-      },
-      {
-        "key": "strModMinDamageRange",
-        "args": [
-          30,
-          55
-        ]
-      },
-      {
-        "key": "ModStr1b",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr1l",
-        "args": [
-          20,
-          30
-        ]
-      },
-      {
-        "key": "ModStr1n",
-        "args": [
-          15,
-          25
-        ]
-      },
-      {
-        "key": "ModStre9i",
-        "args": [
-          60
-        ]
-      },
-      {
-        "key": "ModStre9v",
-        "args": []
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 1,
-      "NameKey": "glv",
-      "RequiredClass": "",
-      "DamageTypes": [
-        {
-          "Type": 3,
-          "AverageDamage": 63.25,
-          "Lines": [
-            {
-              "key": "strWeaponDamageGenericRange",
-              "args": [
-                39,
-                40,
-                85,
-                89
-              ]
-            }
-          ]
-        },
-        {
-          "Type": 2,
-          "AverageDamage": 78.25,
-          "Lines": [
-            {
-              "key": "strWeaponDamageThrowRange",
-              "args": [
-                58,
-                62,
-                94,
-                99
-              ]
-            }
-          ]
-        }
-      ],
-      "Lines": [
-        {
-          "key": "strDurability",
-          "args": [
-            250,
-            250
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            52
-          ]
-        },
-        {
-          "key": "strRequiredDexterity",
-          "args": [
-            35
           ]
         }
       ]
@@ -77638,8 +77087,8 @@
     "Vanilla": "N",
     "Index": "Jadrik's Torment",
     "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 40,
+    "Rarity": 2,
+    "ItemLevel": 58,
     "RequiredLevel": 49,
     "Code": "6ss",
     "DamageArmorEnhanced": true,
@@ -78787,38 +78236,39 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "ItemExpansiveChancX",
+        "key": "ModitemskonKill",
         "args": [
-          2,
-          15,
+          5,
+          20,
           "FlameWaveName"
         ]
       },
       {
         "key": "ModStr4v",
         "args": [
-          10
+          10,
+          20
         ]
       },
       {
         "key": "strModAllResistances",
         "args": [
-          6,
-          8
+          10,
+          15
         ]
       },
       {
         "key": "ModitemHPaK",
         "args": [
-          1,
-          3
+          3,
+          5
         ]
       },
       {
         "key": "ModStr5f",
         "args": [
-          1,
-          3
+          3,
+          5
         ]
       },
       {
@@ -78831,48 +78281,48 @@
           {
             "key": "ModStrMagMastery",
             "args": [
-              3,
-              5
+              5,
+              10
             ],
             "chance": 1
           },
           {
             "key": "strModEnhancedDamage",
             "args": [
-              20,
-              40
+              25,
+              50
             ],
             "chance": 1
           },
           {
             "key": "ModitemdamFiresk",
             "args": [
-              3,
-              5
+              5,
+              10
             ],
             "chance": 1
           },
           {
             "key": "ModitemdamColdsk",
             "args": [
-              3,
-              5
+              5,
+              10
             ],
             "chance": 1
           },
           {
             "key": "ModitemdamLtngsk",
             "args": [
-              3,
-              5
+              5,
+              10
             ],
             "chance": 1
           },
           {
             "key": "ModitemdamPoissk",
             "args": [
-              3,
-              5
+              5,
+              10
             ],
             "chance": 1
           }
@@ -86720,6 +86170,7 @@
       {
         "key": "StrSklTabItem13",
         "args": [
+          3,
           4
         ],
         "classOnly": "SorOnly"
@@ -86734,8 +86185,8 @@
       {
         "key": "Moditemenrescoldsk",
         "args": [
-          30,
-          40
+          20,
+          30
         ]
       },
       {
@@ -86748,7 +86199,7 @@
       {
         "key": "ModStr5m",
         "args": [
-          25
+          15
         ]
       }
     ],
@@ -87789,6 +87240,7 @@
       {
         "key": "ModStr4s",
         "args": [
+          20,
           30
         ]
       },
@@ -87799,10 +87251,17 @@
         ]
       },
       {
-        "key": "strModFireDamageRange",
+        "key": "strModMagicDamageRange",
         "args": [
-          75,
-          150
+          30,
+          50
+        ]
+      },
+      {
+        "key": "ModStrMagMastery",
+        "args": [
+          5,
+          10
         ]
       },
       {
@@ -87815,19 +87274,15 @@
       {
         "key": "ModStr1u",
         "args": [
+          30,
           50
         ]
       },
       {
         "key": "ModStr1e",
         "args": [
+          30,
           50
-        ]
-      },
-      {
-        "key": "ModStr1j",
-        "args": [
-          75
         ]
       }
     ],
@@ -87878,6 +87333,13 @@
         ]
       },
       {
+        "key": "ModStrMagMastery",
+        "args": [
+          5,
+          10
+        ]
+      },
+      {
         "key": "ModStr1i",
         "args": [
           100,
@@ -87887,6 +87349,7 @@
       {
         "key": "Moditem2ExpG",
         "args": [
+          10,
           20
         ]
       },
@@ -89384,102 +88847,6 @@
           "key": "strRequiredDexterity",
           "args": [
             110
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "stafitype",
-    "Vanilla": "N",
-    "Index": "Staff of Valere",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 50,
-    "RequiredLevel": 56,
-    "Code": "8cs",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "ModStre8a",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          45
-        ]
-      },
-      {
-        "key": "ModStr4v",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "strDamageMergedRange",
-        "args": [
-          30,
-          50,
-          100,
-          150
-        ]
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr1b",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ModStr2uPercent",
-        "args": [
-          15,
-          20
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 1,
-      "NameKey": "8cs",
-      "RequiredClass": "",
-      "DamageTypes": [
-        {
-          "Type": 1,
-          "AverageDamage": 104,
-          "Lines": [
-            {
-              "key": "strWeaponDamageTwoHandRange",
-              "args": [
-                41,
-                61,
-                132,
-                182
-              ]
-            }
-          ]
-        }
-      ],
-      "Lines": [
-        {
-          "key": "strDurability",
-          "args": [
-            250,
-            250
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            25
           ]
         }
       ]
@@ -94054,6 +93421,93 @@
     }
   },
   {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Devourer of Dreams",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 62,
+    "RequiredLevel": 60,
+    "Code": "drb",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          5,
+          10,
+          "BaneHexName"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChancX",
+        "args": [
+          10,
+          40,
+          "EldritchBlastName"
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          30
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          50,
+          100
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "drb",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            219,
+            292
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            86
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "helmitype",
     "Vanilla": "N",
     "Index": "Slaver's Price",
@@ -95970,108 +95424,6 @@
     }
   },
   {
-    "Type": "knifitype",
-    "Vanilla": "N",
-    "Index": "Fall Of Myth Drannor",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 55,
-    "RequiredLevel": 62,
-    "Code": "7di",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "ModStr4v",
-        "args": [
-          35
-        ]
-      },
-      {
-        "key": "ModStr4y",
-        "args": [
-          50
-        ]
-      },
-      {
-        "key": "ModStr3g",
-        "args": [
-          50,
-          75
-        ]
-      },
-      {
-        "key": "strDamageMergedRange",
-        "args": [
-          20,
-          40,
-          75,
-          100
-        ]
-      },
-      {
-        "key": "ModStr2w",
-        "args": [
-          -15
-        ]
-      },
-      {
-        "key": "ModStr2h",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          50
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 1,
-      "NameKey": "7di",
-      "RequiredClass": "",
-      "DamageTypes": [
-        {
-          "Type": 3,
-          "AverageDamage": 103.75,
-          "Lines": [
-            {
-              "key": "strWeaponDamageGenericRange",
-              "args": [
-                57,
-                77,
-                128,
-                153
-              ]
-            }
-          ]
-        }
-      ],
-      "Lines": [
-        {
-          "key": "strDurability",
-          "args": [
-            250,
-            250
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            55
-          ]
-        },
-        {
-          "key": "strRequiredDexterity",
-          "args": [
-            98
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "torsitype",
     "Vanilla": "N",
     "Index": "Will of the Zakarum",
@@ -97885,7 +97237,7 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "ItemExpansiveChanc1",
+        "key": "ItemExpansiveChancX",
         "args": [
           10,
           20,
@@ -99732,98 +99084,6 @@
     }
   },
   {
-    "Type": "bootitype",
-    "Vanilla": "N",
-    "Index": "Wild Horses",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 65,
-    "RequiredLevel": 65,
-    "Code": "uhb",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ModStr4s",
-        "args": [
-          40
-        ]
-      },
-      {
-        "key": "ModStr4p",
-        "args": [
-          40
-        ]
-      },
-      {
-        "key": "ModStr5e",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModStr5q",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          125,
-          200
-        ]
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ModStr1b",
-        "args": [
-          25
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "uhb",
-      "RequiredClass": "",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            162,
-            216
-          ]
-        },
-        {
-          "key": "strKickDamage",
-          "args": [
-            83,
-            149
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            32,
-            32
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            208
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "orbitype",
     "Vanilla": "N",
     "Index": "Utterance of Power",
@@ -100518,6 +99778,96 @@
     }
   },
   {
+    "Type": "h2hitype",
+    "Vanilla": "N",
+    "Index": "Chromablade",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 62,
+    "RequiredLevel": 66,
+    "Code": "7wb",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "StrSklTabItem19",
+        "args": [
+          2,
+          3
+        ],
+        "classOnly": "AssOnly"
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "PenetrateElePen",
+        "args": [
+          5,
+          10
+        ]
+      },
+      {
+        "key": "allelemskilldmg",
+        "args": [
+          5,
+          10
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          10,
+          15
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 1,
+      "NameKey": "7wb",
+      "RequiredClass": "",
+      "DamageTypes": [
+        {
+          "Type": 3,
+          "AverageDamage": 39.5,
+          "Lines": [
+            {
+              "key": "strWeaponDamageGeneric",
+              "args": [
+                34,
+                45
+              ]
+            }
+          ]
+        }
+      ],
+      "Lines": [
+        {
+          "key": "strDurability",
+          "args": [
+            250,
+            250
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            105
+          ]
+        },
+        {
+          "key": "strRequiredDexterity",
+          "args": [
+            105
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "helmitype",
     "Vanilla": "N",
     "Index": "Judas Kiss",
@@ -100861,9 +100211,100 @@
         "key": "",
         "args": [],
         "pickMode": "1",
-        "code": "skilltab-war",
+        "code": "skilltab-all",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
+          {
+            "key": "strSkillTabRandomClassOnly",
+            "args": [
+              1
+            ],
+            "selection": {
+              "stat": "item_addskill_tab",
+              "min": 0,
+              "max": 2
+            },
+            "classOnly": "AmaOnly",
+            "chance": 1
+          },
+          {
+            "key": "strSkillTabRandomClassOnly",
+            "args": [
+              1
+            ],
+            "selection": {
+              "stat": "item_addskill_tab",
+              "min": 3,
+              "max": 5
+            },
+            "classOnly": "SorOnly",
+            "chance": 1
+          },
+          {
+            "key": "strSkillTabRandomClassOnly",
+            "args": [
+              1
+            ],
+            "selection": {
+              "stat": "item_addskill_tab",
+              "min": 6,
+              "max": 8
+            },
+            "classOnly": "NecOnly",
+            "chance": 1
+          },
+          {
+            "key": "strSkillTabRandomClassOnly",
+            "args": [
+              1
+            ],
+            "selection": {
+              "stat": "item_addskill_tab",
+              "min": 9,
+              "max": 11
+            },
+            "classOnly": "PalOnly",
+            "chance": 1
+          },
+          {
+            "key": "strSkillTabRandomClassOnly",
+            "args": [
+              1
+            ],
+            "selection": {
+              "stat": "item_addskill_tab",
+              "min": 12,
+              "max": 14
+            },
+            "classOnly": "BarOnly",
+            "chance": 1
+          },
+          {
+            "key": "strSkillTabRandomClassOnly",
+            "args": [
+              1
+            ],
+            "selection": {
+              "stat": "item_addskill_tab",
+              "min": 15,
+              "max": 17
+            },
+            "classOnly": "DruOnly",
+            "chance": 1
+          },
+          {
+            "key": "strSkillTabRandomClassOnly",
+            "args": [
+              1
+            ],
+            "selection": {
+              "stat": "item_addskill_tab",
+              "min": 18,
+              "max": 20
+            },
+            "classOnly": "AssOnly",
+            "chance": 1
+          },
           {
             "key": "strSkillTabRandomClassOnly",
             "args": [
@@ -100874,7 +100315,8 @@
               "min": 21,
               "max": 23
             },
-            "classOnly": "WarOnly"
+            "classOnly": "WarOnly",
+            "chance": 1
           }
         ]
       }
@@ -100920,7 +100362,7 @@
     "Index": "Bloodpact Shard",
     "Enabled": true,
     "Rarity": 2,
-    "ItemLevel": 60,
+    "ItemLevel": 70,
     "RequiredLevel": 67,
     "Code": "7di",
     "DamageArmorEnhanced": false,
@@ -103846,6 +103288,7 @@
       {
         "key": "ModitemAura",
         "args": [
+          3,
           5,
           "skillname124"
         ]
@@ -103859,6 +103302,7 @@
       {
         "key": "ModStr4p",
         "args": [
+          30,
           40
         ]
       },
@@ -103873,12 +103317,6 @@
         "key": "ModStrAllMaxRes",
         "args": [
           3
-        ]
-      },
-      {
-        "key": "ModStr1m",
-        "args": [
-          20
         ]
       },
       {
@@ -104933,6 +104371,107 @@
           "key": "strRequiredDexterity",
           "args": [
             75
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "knifitype",
+    "Vanilla": "N",
+    "Index": "Fall Of Myth Drannor",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 70,
+    "RequiredLevel": 70,
+    "Code": "7di",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "ModStr4v",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "ModStrMagPierce",
+        "args": [
+          5,
+          10
+        ]
+      },
+      {
+        "key": "ModStrMagMastery",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "ModStr2w",
+        "args": [
+          -20
+        ]
+      },
+      {
+        "key": "ModStr2h",
+        "args": [
+          10,
+          20
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          50
+        ]
+      },
+      {
+        "key": "ModStrmagicskill",
+        "args": [
+          1,
+          2
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 1,
+      "NameKey": "7di",
+      "RequiredClass": "",
+      "DamageTypes": [
+        {
+          "Type": 3,
+          "AverageDamage": 45,
+          "Lines": [
+            {
+              "key": "strWeaponDamageGeneric",
+              "args": [
+                37,
+                53
+              ]
+            }
+          ]
+        }
+      ],
+      "Lines": [
+        {
+          "key": "strDurability",
+          "args": [
+            250,
+            250
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            55
+          ]
+        },
+        {
+          "key": "strRequiredDexterity",
+          "args": [
+            98
           ]
         }
       ]
@@ -106565,6 +106104,109 @@
           "key": "strRequiredClass",
           "args": [
             "Barbarian"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "h2hitype",
+    "Vanilla": "N",
+    "Index": "Liege Reaver",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 73,
+    "RequiredLevel": 70,
+    "Code": "7cs",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ItemExpansiveChancX",
+        "args": [
+          15,
+          20,
+          "Storm Pulse"
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          200,
+          250
+        ]
+      },
+      {
+        "key": "ModStr1f",
+        "args": [
+          30,
+          50
+        ]
+      },
+      {
+        "key": "ModStr1h",
+        "args": [
+          150
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          5,
+          10
+        ]
+      },
+      {
+        "key": "ModStr3m",
+        "args": [
+          25
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 1,
+      "NameKey": "7cs",
+      "RequiredClass": "",
+      "DamageTypes": [
+        {
+          "Type": 3,
+          "AverageDamage": 146.75,
+          "Lines": [
+            {
+              "key": "strWeaponDamageGenericRange",
+              "args": [
+                108,
+                126,
+                156,
+                197
+              ]
+            }
+          ]
+        }
+      ],
+      "Lines": [
+        {
+          "key": "strDurability",
+          "args": [
+            250,
+            250
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            110
+          ]
+        },
+        {
+          "key": "strRequiredDexterity",
+          "args": [
+            110
           ]
         }
       ]
@@ -109200,7 +108842,7 @@
     "Index": "Elven Mystral",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 55,
+    "ItemLevel": 70,
     "RequiredLevel": 74,
     "Code": "7di",
     "DamageArmorEnhanced": true,
@@ -115147,6 +114789,101 @@
     }
   },
   {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Hemlirs Demise",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 85,
+    "RequiredLevel": 75,
+    "Code": "drf",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "StrSklTabItem17",
+        "args": [
+          3,
+          5
+        ],
+        "classOnly": "DruOnly"
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          30,
+          40
+        ]
+      },
+      {
+        "key": "ModStr4p",
+        "args": [
+          30,
+          40
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          200,
+          300
+        ]
+      },
+      {
+        "key": "ModAllStatsPercent",
+        "args": [
+          5
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "ModStr2u",
+        "args": [
+          10,
+          15
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "drf",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            480,
+            640
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            118
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "headitype",
     "Vanilla": "N",
     "Index": "Devil's Advocate",
@@ -117275,7 +117012,7 @@
         "key": "ItemExpansiveChanc1",
         "args": [
           10,
-          20,
+          10,
           "Arc"
         ]
       },
@@ -117711,7 +117448,7 @@
     "Index": "Shadow Killer",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 75,
+    "ItemLevel": 73,
     "RequiredLevel": 78,
     "Code": "7cs",
     "DamageArmorEnhanced": true,
@@ -118909,6 +118646,95 @@
           "key": "strRequiredDexterity",
           "args": [
             103
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "stafitype",
+    "Vanilla": "N",
+    "Index": "Staff of Valere",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 85,
+    "RequiredLevel": 79,
+    "Code": "6ss",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "ModStr3k",
+        "args": [
+          1,
+          3
+        ]
+      },
+      {
+        "key": "ModStr4v",
+        "args": [
+          30,
+          50
+        ]
+      },
+      {
+        "key": "ModStrMagMastery",
+        "args": [
+          20,
+          40
+        ]
+      },
+      {
+        "key": "ModStrMagPierce",
+        "args": [
+          15,
+          30
+        ]
+      },
+      {
+        "key": "ModAttEnrPercent",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStrmagicskill",
+        "args": [
+          2,
+          4
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 1,
+      "NameKey": "6ss",
+      "RequiredClass": "",
+      "DamageTypes": [
+        {
+          "Type": 1,
+          "AverageDamage": 77,
+          "Lines": [
+            {
+              "key": "strWeaponDamageTwoHand",
+              "args": [
+                69,
+                85
+              ]
+            }
+          ]
+        }
+      ],
+      "Lines": [
+        {
+          "key": "strDurability",
+          "args": [
+            250,
+            250
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            25
           ]
         }
       ]
@@ -122100,16 +121926,15 @@
         ]
       },
       {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          1,
-          "skillname29"
-        ]
-      },
-      {
         "key": "ModStr4s",
         "args": [
           40
+        ]
+      },
+      {
+        "key": "ModStrMagMastery",
+        "args": [
+          10
         ]
       },
       {
@@ -123824,17 +123649,6 @@
         ]
       },
       {
-        "key": "strSkillRandom",
-        "args": [
-          1
-        ],
-        "selection": {
-          "stat": "item_addclassskills",
-          "min": 0,
-          "max": 7
-        }
-      },
-      {
         "key": "ModStr2g",
         "args": [
           5
@@ -123872,7 +123686,7 @@
     "Index": "The Grandfather",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 81,
     "Code": "7gd",
     "DamageArmorEnhanced": true,
@@ -124841,6 +124655,86 @@
     }
   },
   {
+    "Type": "peltitype",
+    "Vanilla": "N",
+    "Index": "Nameweaver",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 85,
+    "RequiredLevel": 81,
+    "Code": "drf",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "ModitemAura",
+        "args": [
+          2,
+          5,
+          "skillname109"
+        ]
+      },
+      {
+        "key": "ModStre8a",
+        "args": [
+          2,
+          3
+        ]
+      },
+      {
+        "key": "PenetrateElePen",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          200,
+          300
+        ]
+      },
+      {
+        "key": "ModStr1m",
+        "args": [
+          10
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "drf",
+      "RequiredClass": "Druid",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            309,
+            459
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            20,
+            20
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            118
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Druid"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "helmitype",
     "Vanilla": "N",
     "Index": "Overlord's Helm",
@@ -125091,7 +124985,7 @@
     "Rarity": 2,
     "ItemLevel": 85,
     "RequiredLevel": 81,
-    "Code": "utb",
+    "Code": "uhb",
     "DamageArmorEnhanced": true,
     "Lines": [
       {
@@ -125144,34 +125038,34 @@
     ],
     "Equipment": {
       "EquipmentType": 0,
-      "NameKey": "utb",
+      "NameKey": "uhb",
       "RequiredClass": "",
       "Lines": [
         {
           "key": "strDefenseRange",
           "args": [
-            158,
-            186
+            165,
+            194
           ]
         },
         {
           "key": "strKickDamage",
           "args": [
-            50,
-            145
+            83,
+            149
           ]
         },
         {
           "key": "strDurability",
           "args": [
-            26,
-            26
+            32,
+            32
           ]
         },
         {
           "key": "strRequiredStrength",
           "args": [
-            163
+            208
           ]
         }
       ]
@@ -125296,7 +125190,7 @@
     "Index": "Haven of Light",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 81,
     "Code": "obb",
     "DamageArmorEnhanced": false,
@@ -125393,18 +125287,18 @@
     "Index": "God's Word",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 81,
     "Code": "pae",
     "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "StrSklTabItem9",
+        "key": "StrSklTabItem6",
         "args": [
           2,
           3
         ],
-        "classOnly": "NecOnly"
+        "classOnly": "PalOnly"
       },
       {
         "key": "ModStr3b",
@@ -127472,114 +127366,6 @@
   {
     "Type": "h2hitype",
     "Vanilla": "N",
-    "Index": "Cold of Winter",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 85,
-    "RequiredLevel": 83,
-    "Code": "7ar",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "StrSklTabItem19",
-        "args": [
-          1,
-          3
-        ],
-        "classOnly": "AssOnly"
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          5,
-          "skillname60"
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          20,
-          30
-        ]
-      },
-      {
-        "key": "ModitemdamColdsk",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "Moditemenrescoldsk",
-        "args": [
-          15,
-          20
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          2,
-          4,
-          "Skillname265",
-          "AssOnly"
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          2,
-          4,
-          "Skillname274",
-          "AssOnly"
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 1,
-      "NameKey": "7ar",
-      "RequiredClass": "",
-      "DamageTypes": [
-        {
-          "Type": 3,
-          "AverageDamage": 45.5,
-          "Lines": [
-            {
-              "key": "strWeaponDamageGeneric",
-              "args": [
-                39,
-                52
-              ]
-            }
-          ]
-        }
-      ],
-      "Lines": [
-        {
-          "key": "strDurability",
-          "args": [
-            250,
-            250
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            99
-          ]
-        },
-        {
-          "key": "strRequiredDexterity",
-          "args": [
-            99
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "h2hitype",
-    "Vanilla": "N",
     "Index": "Torturer's Trust",
     "Enabled": true,
     "Rarity": 1,
@@ -128160,7 +127946,7 @@
     "Index": "Frost Wyrm",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 84,
     "Code": "7wa",
     "DamageArmorEnhanced": true,
@@ -128621,7 +128407,7 @@
     "Index": "Shadowtrick",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 84,
     "Code": "uul",
     "DamageArmorEnhanced": true,
@@ -128637,22 +128423,22 @@
         "key": "ModitemAura",
         "args": [
           8,
-          10,
+          12,
           "skillname123"
         ]
       },
       {
         "key": "ModStr3k",
         "args": [
-          2,
-          3
+          3,
+          4
         ]
       },
       {
         "key": "allelemskilldmg",
         "args": [
-          10,
-          15
+          15,
+          25
         ]
       },
       {
@@ -128979,114 +128765,6 @@
           "key": "strRequiredClass",
           "args": [
             "Sorceress"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Type": "h2hitype",
-    "Vanilla": "N",
-    "Index": "Flaming Fist",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 83,
-    "RequiredLevel": 84,
-    "Code": "7cs",
-    "DamageArmorEnhanced": false,
-    "Lines": [
-      {
-        "key": "StrSklTabItem19",
-        "args": [
-          1,
-          3
-        ],
-        "classOnly": "AssOnly"
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          5,
-          "skillname37"
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          15,
-          20
-        ]
-      },
-      {
-        "key": "ModitemdamFiresk",
-        "args": [
-          15,
-          20
-        ]
-      },
-      {
-        "key": "Moditemenresfiresk",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          2,
-          4,
-          "Skillname263",
-          "AssOnly"
-        ]
-      },
-      {
-        "key": "strSkillRandomFromSkillClass",
-        "args": [
-          2,
-          4,
-          "Skillname273",
-          "AssOnly"
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 1,
-      "NameKey": "7cs",
-      "RequiredClass": "",
-      "DamageTypes": [
-        {
-          "Type": 3,
-          "AverageDamage": 39,
-          "Lines": [
-            {
-              "key": "strWeaponDamageGeneric",
-              "args": [
-                36,
-                42
-              ]
-            }
-          ]
-        }
-      ],
-      "Lines": [
-        {
-          "key": "strDurability",
-          "args": [
-            250,
-            250
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            110
-          ]
-        },
-        {
-          "key": "strRequiredDexterity",
-          "args": [
-            110
           ]
         }
       ]
@@ -130762,8 +130440,8 @@
       {
         "key": "ItemModifierNonClassSkill",
         "args": [
-          6,
-          "skillname122"
+          5,
+          "skillname119"
         ]
       },
       {
@@ -130780,12 +130458,6 @@
         ]
       },
       {
-        "key": "ModStr4p",
-        "args": [
-          25
-        ]
-      },
-      {
         "key": "ModStr6g",
         "args": [
           50
@@ -130796,6 +130468,13 @@
         "args": [
           50,
           100
+        ]
+      },
+      {
+        "key": "ModStrMagMastery",
+        "args": [
+          15,
+          20
         ]
       }
     ],
@@ -131450,7 +131129,7 @@
     "Index": "Lachdanan's Heart",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 85,
     "Code": "uth",
     "DamageArmorEnhanced": true,
@@ -131536,7 +131215,7 @@
     "Index": "Legacy of the Eternals",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 85,
     "Code": "utp",
     "DamageArmorEnhanced": true,
@@ -131998,7 +131677,7 @@
     "Index": "Jondars Horde",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 85,
     "Code": "ned",
     "DamageArmorEnhanced": true,
@@ -132097,7 +131776,7 @@
     "Index": "Mehtans Choice",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 85,
     "Code": "nee",
     "DamageArmorEnhanced": true,
@@ -132382,18 +132061,18 @@
   {
     "Type": "h2hitype",
     "Vanilla": "N",
-    "Index": "Storm Talons",
+    "Index": "Cold of Winter",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 85,
+    "ItemLevel": 107,
     "RequiredLevel": 85,
-    "Code": "7wb",
+    "Code": "7ar",
     "DamageArmorEnhanced": false,
     "Lines": [
       {
         "key": "StrSklTabItem19",
         "args": [
-          1,
+          2,
           3
         ],
         "classOnly": "AssOnly"
@@ -132401,35 +132080,251 @@
       {
         "key": "ItemModifierNonClassSkill",
         "args": [
-          5,
+          10,
+          "skillname60"
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "ModitemdamColdsk",
+        "args": [
+          20,
+          25
+        ]
+      },
+      {
+        "key": "Moditemenrescoldsk",
+        "args": [
+          30,
+          35
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          4,
+          "Skillname274",
+          "AssOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          4,
+          "Skillname265",
+          "AssOnly"
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 1,
+      "NameKey": "7ar",
+      "RequiredClass": "",
+      "DamageTypes": [
+        {
+          "Type": 3,
+          "AverageDamage": 45.5,
+          "Lines": [
+            {
+              "key": "strWeaponDamageGeneric",
+              "args": [
+                39,
+                52
+              ]
+            }
+          ]
+        }
+      ],
+      "Lines": [
+        {
+          "key": "strDurability",
+          "args": [
+            250,
+            250
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            99
+          ]
+        },
+        {
+          "key": "strRequiredDexterity",
+          "args": [
+            99
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "h2hitype",
+    "Vanilla": "N",
+    "Index": "Flaming Fist",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 107,
+    "RequiredLevel": 85,
+    "Code": "7cs",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "StrSklTabItem19",
+        "args": [
+          2,
+          3
+        ],
+        "classOnly": "AssOnly"
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          10,
+          "skillname37"
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "ModitemdamFiresk",
+        "args": [
+          25,
+          30
+        ]
+      },
+      {
+        "key": "Moditemenresfiresk",
+        "args": [
+          25,
+          30
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          4,
+          "Skillname263",
+          "AssOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          4,
+          "Skillname273",
+          "AssOnly"
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 1,
+      "NameKey": "7cs",
+      "RequiredClass": "",
+      "DamageTypes": [
+        {
+          "Type": 3,
+          "AverageDamage": 39,
+          "Lines": [
+            {
+              "key": "strWeaponDamageGeneric",
+              "args": [
+                36,
+                42
+              ]
+            }
+          ]
+        }
+      ],
+      "Lines": [
+        {
+          "key": "strDurability",
+          "args": [
+            250,
+            250
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            110
+          ]
+        },
+        {
+          "key": "strRequiredDexterity",
+          "args": [
+            110
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "h2hitype",
+    "Vanilla": "N",
+    "Index": "Storm Talons",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 107,
+    "RequiredLevel": 85,
+    "Code": "7wb",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "StrSklTabItem19",
+        "args": [
+          2,
+          3
+        ],
+        "classOnly": "AssOnly"
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          20,
           "Skillname236"
         ]
       },
       {
         "key": "ModStr4m",
         "args": [
-          15,
-          20
+          20,
+          30
         ]
       },
       {
         "key": "ModitemdamLtngsk",
         "args": [
-          15,
-          20
+          30,
+          35
         ]
       },
       {
         "key": "Moditemenresltngsk",
         "args": [
-          10,
-          15
+          20,
+          25
         ]
       },
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
-          2,
+          3,
           4,
           "Skillname262",
           "AssOnly"
@@ -132438,7 +132333,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
-          2,
+          3,
           4,
           "Skillname272",
           "AssOnly"
@@ -132966,7 +132861,7 @@
       {
         "key": "Moditem2ExpG",
         "args": [
-          5
+          10
         ]
       }
     ],
@@ -133202,7 +133097,7 @@
     "Index": "El Druin",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 85,
     "Code": "7gs",
     "DamageArmorEnhanced": true,
@@ -135371,7 +135266,7 @@
     "Index": "Fortress of Morpheus",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 88,
     "Code": "paf",
     "DamageArmorEnhanced": true,
@@ -135923,7 +135818,7 @@
     "Index": "Call of the Kindred",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 85,
+    "ItemLevel": 107,
     "RequiredLevel": 89,
     "Code": "drf",
     "DamageArmorEnhanced": false,
@@ -135951,7 +135846,6 @@
       {
         "key": "StrSklTabItem16",
         "args": [
-          1,
           2
         ],
         "classOnly": "DruOnly"
@@ -136230,6 +136124,132 @@
     }
   },
   {
+    "Type": "aspeitype",
+    "Vanilla": "N",
+    "Index": "Kethryes Fury",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 107,
+    "RequiredLevel": 90,
+    "Code": "ame",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ItemExpansiveChancX",
+        "args": [
+          10,
+          10,
+          "skillname42"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChancX",
+        "args": [
+          10,
+          20,
+          "Arc"
+        ]
+      },
+      {
+        "key": "ModStr3a",
+        "args": [
+          4,
+          5
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          40
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          350,
+          400
+        ]
+      },
+      {
+        "key": "ModitemdamLtngsk",
+        "args": [
+          30,
+          40
+        ]
+      },
+      {
+        "key": "Moditemenresltngsk",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          5,
+          "skillname34",
+          "AmaOnly"
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 1,
+      "NameKey": "ame",
+      "RequiredClass": "Amazon",
+      "DamageTypes": [
+        {
+          "Type": 1,
+          "AverageDamage": 451,
+          "Lines": [
+            {
+              "key": "strWeaponDamageTwoHandRange",
+              "args": [
+                166,
+                185,
+                688,
+                765
+              ]
+            }
+          ]
+        }
+      ],
+      "Lines": [
+        {
+          "key": "strDurability",
+          "args": [
+            250,
+            250
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            132
+          ]
+        },
+        {
+          "key": "strRequiredDexterity",
+          "args": [
+            149
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Amazon"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "speaitype",
     "Vanilla": "N",
     "Index": "Spirit of Lachdanan",
@@ -136430,12 +136450,150 @@
     }
   },
   {
+    "Type": "ajavitype",
+    "Vanilla": "N",
+    "Index": "Athuluas Venom",
+    "Enabled": true,
+    "Rarity": 2,
+    "ItemLevel": 107,
+    "RequiredLevel": 90,
+    "Code": "amf",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          5,
+          "skillname127"
+        ]
+      },
+      {
+        "key": "ModStr3a",
+        "args": [
+          3,
+          4
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          300,
+          400
+        ]
+      },
+      {
+        "key": "ModitemdamPoissk",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "Moditemenrespoissk",
+        "args": [
+          15,
+          20
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          3,
+          "skillname14",
+          "AmaOnly"
+        ]
+      },
+      {
+        "key": "ModStre9i",
+        "args": [
+          60
+        ]
+      },
+      {
+        "key": "ModStre9v",
+        "args": []
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 1,
+      "NameKey": "amf",
+      "RequiredClass": "Amazon",
+      "DamageTypes": [
+        {
+          "Type": 3,
+          "AverageDamage": 189,
+          "Lines": [
+            {
+              "key": "strWeaponDamageGenericRange",
+              "args": [
+                120,
+                150,
+                216,
+                270
+              ]
+            }
+          ]
+        },
+        {
+          "Type": 2,
+          "AverageDamage": 227.25,
+          "Lines": [
+            {
+              "key": "strWeaponDamageThrowRange",
+              "args": [
+                140,
+                175,
+                264,
+                330
+              ]
+            }
+          ]
+        }
+      ],
+      "Lines": [
+        {
+          "key": "strDurability",
+          "args": [
+            250,
+            250
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            107
+          ]
+        },
+        {
+          "key": "strRequiredDexterity",
+          "args": [
+            151
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Amazon"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "torsitype",
     "Vanilla": "N",
     "Index": "Red Dragon Scales",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 90,
     "Code": "upl",
     "DamageArmorEnhanced": true,
@@ -136538,7 +136696,7 @@
     "Index": "Ghostly Chainmail",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 90,
     "Code": "uhn",
     "DamageArmorEnhanced": true,
@@ -136641,7 +136799,7 @@
     "Index": "Breastplate of Gond",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 90,
     "Code": "urs",
     "DamageArmorEnhanced": true,
@@ -136953,7 +137111,7 @@
     "Index": "Abyssal Torment",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 90,
+    "ItemLevel": 107,
     "RequiredLevel": 90,
     "Code": "amb",
     "DamageArmorEnhanced": true,
@@ -136962,7 +137120,7 @@
         "key": "ItemExpansiveChanc1",
         "args": [
           5,
-          10,
+          5,
           "skillname71"
         ]
       },
@@ -136975,33 +137133,36 @@
         "classOnly": "AmaOnly"
       },
       {
-        "key": "ItemModifierNonClassSkill",
+        "key": "ModStr3a",
         "args": [
-          1,
-          "skillname66"
+          2
         ]
       },
       {
         "key": "strModEnhancedDamage",
         "args": [
-          300,
-          395
+          380,
+          420
+        ]
+      },
+      {
+        "key": "ModStr1g",
+        "args": [
+          150,
+          200
         ]
       },
       {
         "key": "ModStr1f",
         "args": [
-          2
+          3.5
         ],
         "perLevel": true
       },
       {
-        "key": "strSkillRandomFromSkillClass",
+        "key": "ModStrDamPierce",
         "args": [
-          3,
-          5,
-          "skillname32",
-          "AmaOnly"
+          15
         ]
       },
       {
@@ -137018,15 +137179,15 @@
       "DamageTypes": [
         {
           "Type": 1,
-          "AverageDamage": 244.75,
+          "AverageDamage": 421,
           "Lines": [
             {
               "key": "strWeaponDamageTwoHandRange",
               "args": [
-                80,
-                99,
-                368,
-                432
+                246,
+                304,
+                540,
+                594
               ]
             }
           ]
@@ -137064,7 +137225,7 @@
     "Index": "Insight of the Ancients",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 90,
     "Code": "bae",
     "DamageArmorEnhanced": true,
@@ -137424,7 +137585,7 @@
     "Index": "Siege Beast Arrows",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 90,
     "Code": "aqv",
     "DamageArmorEnhanced": false,
@@ -137484,7 +137645,7 @@
     "Index": "Echoes of Harrogath",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 90,
     "Code": "cqv",
     "DamageArmorEnhanced": false,
@@ -137562,7 +137723,7 @@
     "Index": "Call of the Wild",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 85,
+    "ItemLevel": 107,
     "RequiredLevel": 91,
     "Code": "drb",
     "DamageArmorEnhanced": false,
@@ -137680,7 +137841,7 @@
     "Rarity": 1,
     "ItemLevel": 85,
     "RequiredLevel": 91,
-    "Code": "drf",
+    "Code": "drd",
     "DamageArmorEnhanced": true,
     "Lines": [
       {
@@ -137748,14 +137909,14 @@
     ],
     "Equipment": {
       "EquipmentType": 0,
-      "NameKey": "drf",
+      "NameKey": "drd",
       "RequiredClass": "Druid",
       "Lines": [
         {
           "key": "strDefenseRange",
           "args": [
-            640,
-            720
+            612,
+            688
           ]
         },
         {
@@ -137768,7 +137929,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            295
+            260
           ]
         },
         {
@@ -137786,7 +137947,7 @@
     "Index": "Harrogaths Last Stand",
     "Enabled": true,
     "Rarity": 1,
-    "ItemLevel": 105,
+    "ItemLevel": 107,
     "RequiredLevel": 92,
     "Code": "7fb",
     "DamageArmorEnhanced": true,

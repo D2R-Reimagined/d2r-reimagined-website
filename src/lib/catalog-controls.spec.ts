@@ -15,7 +15,9 @@ import {
   matchesSearch,
   matchesItemType,
   matchesRunes,
+  normalizeRecipeTypeFilter,
   passesHandFilter,
+  recipeType,
   sortCatalogItems,
   sortModifierLines,
   tokenizeSearch
@@ -411,5 +413,66 @@ describe('weapon controls', () => {
   it('filters one- and two-handed equipment', () => {
     expect(passesHandFilter(low, '2h')).toBe(true);
     expect(passesHandFilter(low, '1h')).toBe(false);
+  });
+});
+
+describe('cube recipe controls', () => {
+  const relicRecipe: CatalogItem = {
+    Index: 'relic_upgrade',
+    Description: 'strCubeRelicUpgradeTitle',
+    Notes: [{ key: 'strCubeNoteUberCharmUpgrade' }],
+    Details: [
+      { key: 'strCubeNoteRelicKillRequirement', args: [500] },
+      { key: 'strCubeNoteRelicUpgradeRefund' }
+    ]
+  };
+
+  const orbRecipe: CatalogItem = {
+    Index: 'orb_corrupt',
+    Notes: [
+      { key: 'strCubeNoteOrbOfCorruption' }
+    ]
+  };
+
+  const craftingRecipe: CatalogItem = {
+    Index: 'craft_item',
+    Notes: [
+      { key: 'strCubeNoteItemCrafting' }
+    ]
+  };
+
+  it('derives recipe types directly from Notes, including new exporter categories', () => {
+    expect(recipeType(relicRecipe)).toEqual(['strCubeNoteUberCharmUpgrade']);
+    expect(recipeType(orbRecipe)).toEqual(['strCubeNoteOrbOfCorruption']);
+    expect(recipeType(craftingRecipe)).toEqual(['strCubeNoteItemCrafting']);
+    expect(recipeType({ Notes: [{ key: 'strCubeNoteNewExporterCategory' }] }))
+      .toEqual(['strCubeNoteNewExporterCategory']);
+  });
+
+  it('derives dropdown categories only from Notes, never explanatory Details', () => {
+    const recipes: CatalogItem[] = [relicRecipe, orbRecipe, craftingRecipe];
+    const recipeTypeOptions = [...new Set(recipes.flatMap(recipeType))];
+
+    expect(recipeTypeOptions).toContain('strCubeNoteUberCharmUpgrade');
+    expect(recipeTypeOptions).not.toContain('strCubeNoteRelicKillRequirement');
+    expect(recipeTypeOptions).not.toContain('strCubeNoteRelicUpgradeRefund');
+  });
+
+  it('keeps older recipe data without Details compatible', () => {
+    const olderRecipe: CatalogItem = {
+      Index: 'legacy_recipe',
+      Notes: [{ key: 'strCubeNoteItemCrafting' }]
+    };
+
+    expect(olderRecipe.Details).toBeUndefined();
+    expect(recipeType(olderRecipe)).toEqual(['strCubeNoteItemCrafting']);
+  });
+
+  it('clears obsolete Recipe Type selections', () => {
+    const categories = [recipeType(relicRecipe), recipeType(orbRecipe)].flat();
+
+    expect(normalizeRecipeTypeFilter('strCubeNoteUberCharmUpgrade', categories))
+      .toBe('strCubeNoteUberCharmUpgrade');
+    expect(normalizeRecipeTypeFilter('strCubeNoteRelicKillRequirement', categories)).toBe('');
   });
 });
