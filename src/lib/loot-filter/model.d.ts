@@ -5,6 +5,7 @@ interface FilterModel {
   MAX_RULES: number;
   MAX_BYTES: number;
   RARITIES: string[];
+  TIERS: string[];
   DROP_SOUNDS: string[];
   MINIMAP_SHAPES: string[];
   buildCatalog(data: Record<string, unknown>): Catalog;

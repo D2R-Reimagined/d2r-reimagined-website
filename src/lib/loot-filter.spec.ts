@@ -8,7 +8,7 @@ import { blockOf, kindOf, values } from './loot-filter/types.js';
 const bundle = JSON.parse(readFileSync(new URL('../../static/data/keyed/loot-filter.json', import.meta.url), 'utf8'));
 const strings = JSON.parse(readFileSync(new URL('../../static/data/strings/enUS.json', import.meta.url), 'utf8'));
 
-describe('Reimagined UnHoarder catalog', () => {
+describe('Reimagined Pyre Loot Filter catalog', () => {
   const catalog = adapt(bundle, strings);
   it('loads the exported bases and enrichment without TXT uploads', () => {
     expect(catalog.baseItems.length).toBe(bundle.BaseItems.length);
@@ -18,6 +18,10 @@ describe('Reimagined UnHoarder catalog', () => {
     for (const section of ['BaseItems', 'UniqueItems', 'SetItems']) {
       for (const item of bundle[section]) expect(strings[item.NameKey], item.NameKey).toBeTruthy();
     }
+    expect(catalog.itemTypeNames?.get('cjwl')).toBeTruthy();
+    expect(catalog.baseItems.find(x => x.code === 'hax')?.tier).toBe('normal');
+    expect(catalog.baseItems.find(x => x.code === '9ha')?.tier).toBe('exceptional');
+    expect(catalog.baseItems.find(x => x.code === '7ha')?.tier).toBe('elite');
   });
   it('keeps translated display names out of runtime selectors', () => {
     const base = bundle.BaseItems.find((x: any) => x.Kind === 'weapon' && x.BaseNameSelector);
@@ -51,17 +55,18 @@ describe('Reimagined UnHoarder catalog', () => {
   });
 });
 
-describe('distributed UnHoarder 1.1.0 / pyre-lootfilter schema v3 contract', () => {
+describe('Pyre Loot Filter schema v3 contract', () => {
   const validate = (block: unknown) => M.validateFilter({ version: 3, rules: [{ show: block }] });
   it('round trips ordered Show/Hide and Continue with all actions', () => {
     const filter = { version: 3, rules: [{ show: { ruleName: 'Styled', continue: true,
-      conditions: { code: ['r01', 'r02'], quantity: { gte: 256, lte: 65535 }, sockets: { eq: 15 }, itemLevel: { gte: 1, lte: 99 }, ethereal: false, identified: true, rarity: ['normal', 'unique'] },
+      conditions: { code: ['r01', 'r02'], tier: ['exceptional', 'elite'], quantity: { gte: 256, lte: 65535 }, sockets: { eq: 15 }, itemLevel: { gte: 1, lte: 99 }, ethereal: false, identified: true, rarity: ['normal', 'unique'] },
       name: 'Custom\nName', tooltip: { textColor: 'RGBA(255, 128, 0, 1)', borderColor: 'RGBA(225, 205, 255, 1)', backgroundColor: 'RGBA(0, 0, 0, 0.5)' },
       dropSound: 'Filter16', minimapIcon: { shape: 'square', size: 20, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(255, 0, 0, 0.5)' }
-    } }, { hide: { conditions: { rarity: 'inferior' } } }] };
+    } }, { hide: { conditions: { rarity: 'inferior', tier: 'normal' } } }] };
     const result = M.validateFilter(filter);
     expect(result.errors).toEqual([]);
     expect(JSON.parse(result.json)).toEqual(filter);
+    expect(M.summarizeRule(filter.rules[1])).toMatchObject({ kind: 'hide', conditionSummary: 'tier: normal · rarity: inferior' });
     for (const shape of ['circle', 'square', 'diamond', 'triangle', 'triangleDown', 'star', 'spark', 'kite', 'hexagon', 'cross', 'chevron', 'bullseye']) {
       expect(validate({ minimapIcon: { shape, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(255, 0, 0, 0.5)' } }).errors).toEqual([]);
     }
@@ -80,7 +85,7 @@ describe('distributed UnHoarder 1.1.0 / pyre-lootfilter schema v3 contract', () 
     };
     const withPartial = {
       show: {
-        conditions: { rarity: 'unique', code: undefined, ethereal: undefined, sockets: undefined },
+        conditions: { rarity: 'unique', tier: undefined, code: undefined, ethereal: undefined, sockets: undefined },
         tooltip: { textColor: 'RGBA(255, 180, 90, 1)', borderColor: undefined, backgroundColor: undefined },
         minimapIcon: { shape: 'diamond', borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(215, 175, 85, 1)', size: undefined }
       }
@@ -128,7 +133,7 @@ describe('distributed UnHoarder 1.1.0 / pyre-lootfilter schema v3 contract', () 
       expect(validate({ [flatKey]: border }).errors.length).toBeGreaterThan(0);
     }
   });
-  it('round-trips color picker hex and opacity values into strict plugin RGBA(r, g, b, a) strings', () => {
+  it('round-trips color picker hex and opacity values into RGBA(r, g, b, a) strings and accepts #RRGGBB/#RRGGBBAA', () => {
     const cases = [
       { hex: '#000000', alpha: 0, expected: 'RGBA(0, 0, 0, 0)' },
       { hex: '#ffffff', alpha: 1, expected: 'RGBA(255, 255, 255, 1)' },
@@ -144,12 +149,15 @@ describe('distributed UnHoarder 1.1.0 / pyre-lootfilter schema v3 contract', () 
       expect(validate({ tooltip: { borderColor: str } }).errors).toEqual([]);
     }
     expect(M.rgbaToHex('RGBA(228, 90, 53, 0.85)')).toEqual({ hex: '#e45a35', alpha: 0.85 });
-    for (const badColor of ['', 'rgb(255, 0, 0)', '#ff0000', 'RGBA(256, 0, 0, 1)', 'RGBA(0, -1, 0, 1)', 'RGBA(0, 0, 0, 1.01)', 'RGBA(0, 0, 0, -0.1)', 'RGBA(1.5, 0, 0, 1)']) {
+    expect(M.parseRgba('#ff3d00')).toEqual({ r: 255, g: 61, b: 0, a: 1 });
+    expect(M.parseRgba('#ff3d00ff')).toEqual({ r: 255, g: 61, b: 0, a: 1 });
+    expect(validate({ tooltip: { borderColor: '#FF3D00FF' } }).errors).toEqual([]);
+    for (const badColor of ['', 'rgb(255, 0, 0)', '#ff00', 'RGBA(256, 0, 0, 1)', 'RGBA(0, -1, 0, 1)', 'RGBA(0, 0, 0, 1.01)', 'RGBA(0, 0, 0, -0.1)', 'RGBA(1.5, 0, 0, 1)']) {
       expect(M.parseRgba(badColor), badColor).toBeNull();
       expect(validate({ tooltip: { textColor: badColor } }).errors.length, badColor).toBeGreaterThan(0);
     }
   });
-  it('validates all 16 drop sounds, all 8 rarities, and all 12 minimap shapes and size bounds', () => {
+  it('validates all 16 drop sounds, all 8 rarities, all 3 tiers, and all 12 minimap shapes and size bounds', () => {
     expect(M.DROP_SOUNDS).toHaveLength(16);
     for (const dropSound of M.DROP_SOUNDS) {
       expect(validate({ dropSound }).errors).toEqual([]);
@@ -165,14 +173,22 @@ describe('distributed UnHoarder 1.1.0 / pyre-lootfilter schema v3 contract', () 
     expect(validate({ conditions: { rarity: M.RARITIES } }).errors).toEqual([]);
     expect(validate({ conditions: { rarity: [...M.RARITIES, 'inferior'] } }).errors.length).toBeGreaterThan(0);
 
+    expect(M.TIERS).toEqual(['normal', 'exceptional', 'elite']);
+    for (const tier of M.TIERS) {
+      expect(validate({ conditions: { tier } }).errors).toEqual([]);
+    }
+    expect(validate({ conditions: { tier: M.TIERS } }).errors).toEqual([]);
+    expect(validate({ conditions: { tier: [...M.TIERS, 'normal'] } }).errors.length).toBeGreaterThan(0);
+    expect(validate({ conditions: { tier: 'mythic' } }).errors.length).toBeGreaterThan(0);
+
     expect(M.MINIMAP_SHAPES).toEqual(['circle', 'square', 'diamond', 'triangle', 'triangleDown', 'star', 'spark', 'kite', 'hexagon', 'cross', 'chevron', 'bullseye']);
-    for (const size of [12, 18, 24, 40]) {
+    for (const size of [4, 12, 24, 40, 128]) {
       const res = validate({ minimapIcon: { shape: 'star', size, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(255, 145, 35, 1)' } });
       expect(res.errors).toEqual([]);
       expect(res.warnings).toEqual([]);
     }
     // Out-of-range integer sizes warn that the plugin clamps them, whereas non-integers fail validation.
-    for (const clampedSize of [8, 64]) {
+    for (const clampedSize of [2, 160]) {
       const res = validate({ minimapIcon: { shape: 'circle', size: clampedSize, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(255, 145, 35, 1)' } });
       expect(res.errors).toEqual([]);
       expect(res.warnings.length).toBe(1);
@@ -189,6 +205,7 @@ describe('distributed UnHoarder 1.1.0 / pyre-lootfilter schema v3 contract', () 
   });
   it('validates custom ground names across line counts, line lengths, and total ASCII byte limits', () => {
     expect(validate({ name: 'Single line name' }).errors).toEqual([]);
+    expect(validate({ name: '[GG] {name}' }).errors).toEqual([]);
     expect(validate({ name: 'Line one\nLine two\nLine three' }).errors).toEqual([]);
     expect(validate({ name: 'A'.repeat(55) }).errors).toEqual([]);
     // 55 + 1 (\n) + 23 = 79 bytes total across 2 lines
@@ -196,7 +213,6 @@ describe('distributed UnHoarder 1.1.0 / pyre-lootfilter schema v3 contract', () 
 
     for (const badName of [
       '',
-      '   \nLine two', // wait: spaces are printable ASCII, let's test empty line
       'Line one\n\nLine three',
       'Line one\n',
       '\nLine two',
@@ -207,7 +223,6 @@ describe('distributed UnHoarder 1.1.0 / pyre-lootfilter schema v3 contract', () 
       'Tab\there',
       'Non-ASCII é'
     ]) {
-      if (badName === '   \nLine two') continue;
       expect(validate({ name: badName }).errors.length, JSON.stringify(badName)).toBeGreaterThan(0);
     }
   });

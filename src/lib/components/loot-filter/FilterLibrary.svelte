@@ -50,6 +50,8 @@
     let cloudUnavailable = $state(false);
     let strictness = $state(0);
     let filterName = $state('');
+    let topBarElement = $state<HTMLDivElement | null>(null);
+    let scrolledPastTopBar = $state(false);
     let epoch = 0;
     let timer: ReturnType<typeof setTimeout> | undefined;
     let pending: LocalLibrary | undefined;
@@ -130,6 +132,21 @@
     $effect(() => {
         const path = currentPath;
         if (loaded && location.pathname !== path) void goto(path, {shallow: true, replace: true});
+    });
+    $effect(() => {
+        const el = topBarElement;
+        if (!el || typeof IntersectionObserver === 'undefined') {
+            scrolledPastTopBar = false;
+            return;
+        }
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                scrolledPastTopBar = !entry.isIntersecting;
+            },
+            { threshold: 0 }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
     });
     onMount(() => {
         const hide = () => {
@@ -610,7 +627,7 @@
             {/if}
         </div>
     {:else if screen === 'editor' && active}
-        <div class="panel mt-5 flex flex-wrap items-end gap-3 rounded-lg p-4">
+        <div bind:this={topBarElement} class="panel mt-5 flex flex-wrap items-end gap-3 rounded-lg p-4">
             <label class="min-w-0 flex-1 text-xs uppercase tracking-widest text-parchment-300">Filter name<input
                     class="field mt-2" maxlength="80" disabled={busy} bind:value={active.name}
                     oninput={() => { if (active) active.updatedAt = Date.now(); }}/></label>
@@ -657,6 +674,8 @@
     <div inert={busy}>
         {#key active.id}
             <LootFilterBuilder bind:filter={active.document} bind:selected={active.selected}
+                               {account} {busy} canSaveCopy={entries.length < 50} {scrolledPastTopBar}
+                               onsave={() => save()} onsavecopy={() => save(true)}
                                onedit={() => { if (active) active.updatedAt = Date.now(); }}
                                onimport={(filter, name) => create(name, filter)}/>
         {/key}

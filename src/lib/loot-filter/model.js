@@ -4,9 +4,10 @@ const model = (() => {
   'use strict';
 
   const RARITIES = ['inferior','normal','superior','magic','set','rare','unique','crafted'];
+  const TIERS = ['normal','exceptional','elite'];
   const MINIMAP_SHAPES = ['circle','square','diamond','triangle','triangleDown','star','spark','kite','hexagon','cross','chevron','bullseye'];
   const DROP_SOUNDS = Array.from({ length: 16 }, (_, i) => `Filter${String(i + 1).padStart(2, '0')}`);
-  const CONDITION_KEYS = ['code','baseName','itemType','quantity','rarity','itemLevel','sockets','ethereal','identified'];
+  const CONDITION_KEYS = ['code','baseName','itemType','tier','quantity','rarity','itemLevel','sockets','ethereal','identified'];
   const BLOCK_KEYS = ['ruleName','conditions','continue','name','tooltip','dropSound','minimapIcon'];
   const MAX_RULES = 4096;
   const MAX_BYTES = 4 * 1024 * 1024;
@@ -89,6 +90,7 @@ const model = (() => {
       baseNames: [],
       itemTypes: [],
       itemTypeMap: new Map(),
+      itemTypeNames: new Map(),
       codeMap: new Map(),
       uniqueItems: [],
       setItems: [],
@@ -134,6 +136,7 @@ const model = (() => {
         typeRows.set(code, { parent1: cleanCode(row.Equiv1), parent2: cleanCode(row.Equiv2) });
         const display = String(row.ItemType || '');
         if (display) {
+          catalog.itemTypeNames.set(code, display.trim());
           if (!names.has(display)) names.set(display, []);
           names.get(display).push(code);
         }
@@ -221,6 +224,15 @@ const model = (() => {
 
   function parseRgba(value) {
     if (typeof value !== 'string') return null;
+    const hexMatch = /^#([0-9a-fA-F]{6})([0-9a-fA-F]{2})?$/.exec(value.trim());
+    if (hexMatch) {
+      const hex = hexMatch[1];
+      const r = parseInt(hex.slice(0, 2), 16);
+      const g = parseInt(hex.slice(2, 4), 16);
+      const b = parseInt(hex.slice(4, 6), 16);
+      const a = hexMatch[2] ? Math.round((parseInt(hexMatch[2], 16) / 255) * 1000) / 1000 : 1;
+      return { r, g, b, a };
+    }
     const m = /^RGBA\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(?:(\d+(?:\.\d*)?)|(\.\d+))\s*\)$/.exec(value);
     if (!m) return null;
     const r = Number(m[1]), g = Number(m[2]), b = Number(m[3]), a = Number(m[4] || m[5]);
@@ -264,7 +276,7 @@ const model = (() => {
     if (!filter || filter.version !== 3) errors.push('Editor output requires version: 3.');
     if (!filter || !Array.isArray(filter.rules)) errors.push('rules must be an array.');
     const rules = filter && Array.isArray(filter.rules) ? filter.rules : [];
-    if (rules.length > MAX_RULES) errors.push(`Filter has ${rules.length} rules; UnHoarder supports at most ${MAX_RULES}.`);
+    if (rules.length > MAX_RULES) errors.push(`Filter has ${rules.length} rules; Pyre Loot Filter supports at most ${MAX_RULES}.`);
 
     rules.forEach((entry, idx) => {
       const p = `Rule ${idx + 1}`;
@@ -298,6 +310,11 @@ const model = (() => {
             if (catalog && key === 'baseName' && catalog.baseNames.length) values.filter(v => !catalog.baseNames.includes(v)).forEach(v => warnings.push(`${p}: baseName “${v}” is not present in the loaded weapons/armor tables.`));
             if (catalog && key === 'itemType' && catalog.itemTypes.length) values.filter(v => !catalog.itemTypes.includes(v)).forEach(v => warnings.push(`${p}: itemType “${v}” is not present in the loaded ItemTypes catalog.`));
           });
+          if (hasDefined(c, 'tier')) {
+            const values = asArray(c.tier);
+            if (!(typeof c.tier === 'string' || Array.isArray(c.tier)) || values.length < 1 || values.length > TIERS.length) errors.push(`${p}.conditions.tier must be a name or array of 1..${TIERS.length} names.`);
+            else values.filter(v => !TIERS.includes(v)).forEach(v => errors.push(`${p}.conditions.tier contains unsupported value “${v}”.`));
+          }
           if (hasDefined(c, 'rarity')) {
             const values = asArray(c.rarity);
             if (!(typeof c.rarity === 'string' || Array.isArray(c.rarity)) || values.length < 1 || values.length > RARITIES.length) errors.push(`${p}.conditions.rarity must be a name or array of 1..${RARITIES.length} names.`);
@@ -327,7 +344,7 @@ const model = (() => {
         else {
           const keys = definedKeys(t);
           if (!keys.length || keys.length > 3 || keys.some(k => !['backgroundColor','borderColor','textColor'].includes(k))) errors.push(`${p}.tooltip may contain only backgroundColor/borderColor/textColor and needs at least one.`);
-          keys.forEach(k => { if (!parseRgba(t[k])) errors.push(`${p}.tooltip.${k} must be RGBA(r, g, b, a), RGB 0..255 and alpha 0..1.`); });
+          keys.forEach(k => { if (!parseRgba(t[k])) errors.push(`${p}.tooltip.${k} must be RGBA(r, g, b, a) or #RRGGBB/#RRGGBBAA.`); });
         }
       }
       if (hasDefined(block, 'dropSound') && (typeof block.dropSound !== 'string' || !DROP_SOUNDS.includes(block.dropSound))) errors.push(`${p}.dropSound must be one of Filter01..Filter16.`);
@@ -340,15 +357,15 @@ const model = (() => {
           if (!MINIMAP_SHAPES.includes(m.shape)) errors.push(`${p}.minimapIcon.shape must be one of ${MINIMAP_SHAPES.join(', ')}.`);
           if (!parseRgba(m.borderColor)) errors.push(`${p}.minimapIcon.borderColor is not valid RGBA.`);
           if (!parseRgba(m.fillColor)) errors.push(`${p}.minimapIcon.fillColor is not valid RGBA.`);
-          if (hasDefined(m, 'size') && !Number.isInteger(m.size)) errors.push(`${p}.minimapIcon.size must be an integer. Values are clamped by UnHoarder to 12..40 px.`);
-          if (Number.isInteger(m.size) && (m.size < 12 || m.size > 40)) warnings.push(`${p}: minimap size ${m.size}px will be clamped to ${Math.max(12, Math.min(40, m.size))}px by UnHoarder.`);
+          if (hasDefined(m, 'size') && !Number.isInteger(m.size)) errors.push(`${p}.minimapIcon.size must be an integer. Values are clamped by Pyre Loot Filter to 4..128 px.`);
+          if (Number.isInteger(m.size) && (m.size < 4 || m.size > 128)) warnings.push(`${p}: minimap size ${m.size}px will be clamped to ${Math.max(4, Math.min(128, m.size))}px by Pyre Loot Filter.`);
         }
       }
     });
 
     const json = JSON.stringify(filter, null, 2);
     const bytes = new TextEncoder().encode(json).length;
-    if (bytes > MAX_BYTES) errors.push(`Serialized filter is ${bytes.toLocaleString()} bytes; UnHoarder accepts at most ${MAX_BYTES.toLocaleString()} bytes.`);
+    if (bytes > MAX_BYTES) errors.push(`Serialized filter is ${bytes.toLocaleString()} bytes; Pyre Loot Filter accepts at most ${MAX_BYTES.toLocaleString()} bytes.`);
     return { errors, warnings, bytes, json };
   }
 
@@ -395,6 +412,7 @@ const model = (() => {
         parts.push(`${k}: ${vals.slice(0,2).join(', ')}${vals.length > 2 ? ` +${vals.length - 2}` : ''}`);
       }
     });
+    if (hasDefined(c, 'tier')) parts.push(`tier: ${asArray(c.tier).join('/')}`);
     if (hasDefined(c, 'rarity')) parts.push(`rarity: ${asArray(c.rarity).join('/')}`);
     if (hasDefined(c, 'sockets')) parts.push(`sockets ${summarizeNumberTest(c.sockets)}`);
     if (hasDefined(c, 'itemLevel')) parts.push(`ilvl ${summarizeNumberTest(c.itemLevel)}`);
@@ -429,6 +447,7 @@ const model = (() => {
 
   return {
     RARITIES,
+    TIERS,
     MINIMAP_SHAPES,
     DROP_SOUNDS,
     CONDITION_KEYS,
