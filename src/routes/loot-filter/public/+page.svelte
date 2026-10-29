@@ -15,7 +15,7 @@
 <svelte:head>
   <title>Public Loot Filters | D2R Reimagined</title>
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="description" content="Browse UnHoarder loot filters shared by D2R Reimagined players." />
+  <meta name="description" content="Browse Pyre Loot Filters shared by D2R Reimagined players." />
   <meta property="og:title" content="Public Loot Filters · D2R Reimagined" />
 </svelte:head>
 

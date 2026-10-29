@@ -1,5 +1,5 @@
 <script lang="ts">
-  type Option = { value: string; label: string };
+  type Option = { value: string; label: string; description?: string };
 
   let { id, label, placeholder, options, value = $bindable([]) }: {
     id: string;
@@ -15,7 +15,7 @@
   let popup: HTMLDivElement;
   let searchInput: HTMLInputElement;
   let popupStyle = $state('');
-  const matches = $derived(options.filter((option) => option.label.toLocaleLowerCase().includes(query.toLocaleLowerCase())));
+  const matches = $derived(options.filter((option) => `${option.label} ${option.description ?? ''}`.toLocaleLowerCase().includes(query.toLocaleLowerCase())));
   const selectedLabels = $derived(value.map((selected) => options.find((option) => option.value === selected)?.label ?? selected));
   const summary = $derived(value.length > 2 ? `${value.length} selected` : selectedLabels.join(', ') || placeholder);
 
@@ -88,7 +88,7 @@
       aria-label={`Search ${label}`} autocomplete="off" bind:value={query} />
     <div class="min-h-0 overflow-y-auto overscroll-contain py-1">
       {#each matches as option (option.value)}
-        <label class="flex min-h-9 cursor-pointer items-center gap-2 rounded px-2 py-1.5 text-sm hover:bg-ember-700/35 focus-within:bg-ember-700/35">
+        <label class="flex min-h-9 cursor-pointer items-center gap-2 rounded px-2 py-1.5 text-sm hover:bg-ember-700/35 focus-within:bg-ember-700/35" title={option.description || option.label}>
           <input type="checkbox" class="checkbox shrink-0" checked={value.includes(option.value)}
             onchange={(event) => toggle(option.value, event.currentTarget.checked)} />
           <span>{option.label}</span>

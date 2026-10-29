@@ -4,8 +4,8 @@
   let { data } = $props();
   const title = $derived(data.shared ? `${data.shared.name} · Loot Filter | D2R Reimagined` : 'Loot Filter Builder | D2R Reimagined');
   const description = $derived(data.shared
-    ? `A ${data.shared.ruleCount}-rule UnHoarder loot filter for D2R Reimagined shared by ${data.shared.authorName}.`
-    : 'Create an UnHoarder loot filter using Reimagined item data.');
+    ? `A ${data.shared.ruleCount}-rule Pyre Loot Filter for D2R Reimagined shared by ${data.shared.authorName}.`
+    : 'Create a Pyre Loot Filter using Reimagined item data.');
 </script>
 
 <svelte:head>

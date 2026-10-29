@@ -3,12 +3,13 @@
   import { i18n } from '#lib/i18n.js';
   import M from '#lib/loot-filter/model.js';
   import { fromExport } from '#lib/loot-filter/catalog.js';
-  import { playSound, stopSound, soundPreview } from '#lib/loot-filter/sound-preview.js';
+  import { stopSound } from '#lib/loot-filter/sound-preview.js';
   import { blockOf, kindOf, values, type Catalog, type CatalogItem, type Filter, type Visibility } from '#lib/loot-filter/types.js';
   import RuleEditor from './RuleEditor.svelte';
 
-  let { filter = $bindable(), selected = $bindable(-1), onedit, onimport }: {
-    filter: Filter; selected?: number; onedit: () => void; onimport: (filter: Filter, name: string) => void;
+  let { filter = $bindable(), selected = $bindable(-1), account = false, busy = false, canSaveCopy = true, scrolledPastTopBar = false, onsave, onsavecopy, onedit, onimport }: {
+    filter: Filter; selected?: number; account?: boolean; busy?: boolean; canSaveCopy?: boolean; scrolledPastTopBar?: boolean;
+    onsave?: () => void; onsavecopy?: () => void; onedit: () => void; onimport: (filter: Filter, name: string) => void;
   } = $props();
   let mounted = $state(false);
   const ready = true;
@@ -27,13 +28,33 @@
   const validation = $derived(M.validateFilter(filter, catalog));
   const dataset = $derived([...catalog.baseItems, ...catalog.uniqueItems, ...catalog.setItems]);
   const matches = $derived(query.trim() ? dataset.filter(item => `${item.displayName ?? ''} ${item.name} ${item.code ?? ''} ${item.baseCode ?? ''} ${item.baseName ?? ''}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())).slice(0, 24) : []);
-  const tooltipText = $derived(block?.name || values(block?.conditions?.baseName)[0] || values(block?.conditions?.code)[0] || 'Item name');
-  const tooltipBorder = $derived(block?.tooltip?.borderColor ? `;border:2px solid ${cssColor(block.tooltip.borderColor, 'transparent')}` : '');
-  const tooltipStyle = $derived(`color:${cssColor(block?.tooltip?.textColor, '#f7f1e3')};background:${cssColor(block?.tooltip?.backgroundColor, 'rgba(0,0,0,.85)')}${tooltipBorder}`);
+  const codeLookup = $derived(new Map(catalog.baseItems.map(item => [item.code!, item.displayName || item.name || item.code!])));
 
   function cssColor(value: string | undefined, fallback: string) {
     const parsed = M.parseRgba(value);
     return parsed ? `rgba(${parsed.r},${parsed.g},${parsed.b},${parsed.a})` : fallback;
+  }
+  function ruleHoverTitle(b: ReturnType<typeof blockOf> | undefined, conditionSummary: string) {
+    const c = b?.conditions;
+    if (!c) return conditionSummary;
+    const details: string[] = [];
+    const ruleCodes = values(c.code);
+    if (ruleCodes.length) {
+      const resolved = ruleCodes.map(code => {
+        const name = codeLookup.get(code);
+        return name && name !== code ? `${name} (${code})` : code;
+      });
+      details.push(`Codes (${ruleCodes.length}): ${resolved.slice(0, 12).join(', ')}${resolved.length > 12 ? ` (+${resolved.length - 12} more)` : ''}`);
+    }
+    const ruleTypes = values(c.itemType);
+    if (ruleTypes.length) {
+      const resolved = ruleTypes.map(type => {
+        const name = catalog.itemTypeNames?.get(type);
+        return name && name !== type ? `${name} (${type})` : type;
+      });
+      details.push(`Types (${ruleTypes.length}): ${resolved.join(', ')}`);
+    }
+    return details.length ? details.join('\n') : conditionSummary;
   }
   function ruleChipStyle(b: ReturnType<typeof blockOf> | undefined, kind: Visibility) {
     if (!b?.tooltip) return '';
@@ -106,6 +127,28 @@
     selected = filter.rules.indexOf(active);
   }
   function drop(event: DragEvent, to: number) { event.preventDefault(); if (dragged >= 0) move(dragged, to); dragged = -1; dropTarget = -1; }
+  function normalizeColorString(value: unknown): string | undefined {
+    if (typeof value !== 'string') return undefined;
+    const parsed = M.parseRgba(value);
+    if (!parsed) return value;
+    return `RGBA(${parsed.r}, ${parsed.g}, ${parsed.b}, ${parsed.a})`;
+  }
+  function normalizeImportedColors(parsed: Filter) {
+    if (!parsed || !Array.isArray(parsed.rules)) return;
+    for (const rule of parsed.rules) {
+      const b = rule?.show ?? rule?.hide;
+      if (!b) continue;
+      if (b.tooltip && typeof b.tooltip === 'object') {
+        for (const k of ['backgroundColor', 'borderColor', 'textColor'] as const) {
+          if (typeof b.tooltip[k] === 'string') b.tooltip[k] = normalizeColorString(b.tooltip[k]);
+        }
+      }
+      if (b.minimapIcon && typeof b.minimapIcon === 'object') {
+        if (typeof b.minimapIcon.borderColor === 'string') b.minimapIcon.borderColor = normalizeColorString(b.minimapIcon.borderColor)!;
+        if (typeof b.minimapIcon.fillColor === 'string') b.minimapIcon.fillColor = normalizeColorString(b.minimapIcon.fillColor)!;
+      }
+    }
+  }
   async function importFilter(event: Event) {
     const input = event.currentTarget as HTMLInputElement;
     const file = input.files?.[0]; input.value = '';
@@ -113,6 +156,7 @@
     try {
       if (file.size > M.MAX_BYTES) throw new Error('Filter exceeds the 4 MiB limit.');
       const parsed = JSON.parse(await file.text());
+      normalizeImportedColors(parsed);
       const result = M.validateFilter(parsed, catalog);
       if (result.errors.length) throw new Error(result.errors.slice(0, 3).join(' '));
       onimport(parsed, file.name.replace(/\.json$/i, '') || 'Imported filter');
@@ -129,7 +173,6 @@
     try { await navigator.clipboard.writeText(validation.json); message = 'Copied filter JSON.'; }
     catch { message = 'Clipboard access was blocked. Use Download filter.json instead.'; }
   }
-  function previewSound() { if (block?.dropSound) void playSound(block.dropSound); }
 
 </script>
 
@@ -140,7 +183,7 @@
 <section class="mx-auto max-w-[1800px] px-4 pb-8 pt-5 sm:px-6 lg:px-8">
   <header class="flex flex-wrap items-end justify-between gap-5">
     <div>
-      <p class="text-xs uppercase tracking-[0.2em] text-ember-400">Reimagined · UnHoarder</p>
+      <p class="text-xs uppercase tracking-[0.2em] text-ember-400">Reimagined · Pyre Loot Filter</p>
       <p class="mt-3 text-parchment-300">Choose what drops stand out. Reimagined item data is loaded for you.</p>
     </div>
     <div class="flex flex-wrap gap-2">
@@ -181,12 +224,13 @@
         </div>
       {/if}
       <p class="mt-2 text-xs leading-relaxed text-parchment-300">Ground items drop unidentified—selecting a unique or set adds a rule for its base item and rarity.</p>
-      <ol class="rule-list mt-4 space-y-2">
+      <ol class="rule-list mt-4 space-y-2 pr-2">
         {#each filter.rules as rule, index}
           {@const summary = M.summarizeRule(rule)}
           {@const itemBlock = blockOf(rule)}
           {@const itemKind = kindOf(rule)}
           {@const chipStyle = ruleChipStyle(itemBlock, itemKind)}
+          {@const hoverTitle = ruleHoverTitle(itemBlock, summary.conditionSummary)}
           <li class="rounded border border-parchment-300/20 bg-abyss-950 p-2.5 transition-colors" class:hide-rule={itemKind === 'hide'} class:selected-rule={selected === index} class:drop-target={dropTarget === index}
             ondragover={event => { event.preventDefault(); dropTarget = index; }} ondragleave={() => { if (dropTarget === index) dropTarget = -1; }} ondrop={event => drop(event, index)}>
             <div class="rule-meta flex items-center justify-between gap-1 text-xs">
@@ -207,7 +251,7 @@
                 <button aria-label={`Delete rule ${index + 1}`} title="Delete rule" class="hover:text-requirement" onclick={() => remove(index)}>✕</button>
               </div>
             </div>
-            <button class="block w-full pt-2 text-left" aria-label={`Select rule ${index + 1}`} aria-pressed={selected === index} onclick={() => selected = index}>
+            <button class="block w-full pt-2 text-left" aria-label={`Select rule ${index + 1}`} aria-pressed={selected === index} title={hoverTitle} onclick={() => selected = index}>
               <div class={`flex items-center gap-2 rounded text-sm ${chipStyle ? 'px-2.5 py-1.5' : `border border-transparent py-1.5 ${itemKind === 'hide' ? 'text-parchment-300' : 'text-parchment-50'}`}`} style={chipStyle}>
                 {#if itemBlock.minimapIcon}
                   <svg class="shrink-0" width="14" height="14" viewBox="0 0 40 40" fill={cssColor(itemBlock.minimapIcon.fillColor, '#b48cff')} stroke={cssColor(itemBlock.minimapIcon.borderColor, '#e1cdff')} stroke-width="3" aria-hidden="true">
@@ -228,19 +272,24 @@
       {:else}<div class="py-16 text-center"><h2 class="display-text text-xl">Build your filter</h2><p class="mt-3 text-sm text-parchment-300">Add a rule to choose conditions, colors, sounds, and minimap icons.</p></div>{/if}
     </div>
 
-    <aside class="preview panel min-w-0 rounded-lg p-4" aria-label="Filter preview">
-      <div class="flex items-center justify-between gap-2"><h2 class="display-text text-xl">Preview</h2><span class="rounded border border-parchment-300/25 px-2 py-1 text-xs" class:text-set={!validation.errors.length} class:text-requirement={validation.errors.length > 0}>{validation.errors.length ? 'Invalid' : filter.rules.length ? 'Valid' : 'Empty'}</span></div>
-      <div class="mt-4 flex min-h-28 flex-col items-center justify-center gap-3 rounded border border-parchment-300/15 bg-abyss-950 p-4" aria-label="Ground label preview">
-        {#if block?.minimapIcon}
-          <svg aria-label={`${block.minimapIcon.shape} minimap icon`} width={Math.max(12, Math.min(40, block.minimapIcon.size ?? 12))} height={Math.max(12, Math.min(40, block.minimapIcon.size ?? 12))} viewBox="0 0 40 40" fill={cssColor(block.minimapIcon.fillColor, '#b48cff')} stroke={cssColor(block.minimapIcon.borderColor, '#e1cdff')} stroke-width="2">
-            {@render minimapShape(block.minimapIcon.shape)}
-          </svg>
-        {/if}
-        <span class="max-w-full whitespace-pre-line break-words px-3 py-2 text-center font-serif" style={tooltipStyle}>{current && kindOf(current) === 'hide' ? 'Hidden item' : tooltipText}</span>
+    <aside class="preview panel min-w-0 rounded-lg p-4" aria-label="Filter export and JSON">
+      {#if scrolledPastTopBar && (onsave || onsavecopy)}
+        <div class="mb-4 space-y-2 border-b border-parchment-300/20 pb-4" aria-label="Scrolled account actions">
+          {#if account}
+            <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+              <button class="trade-primary-button w-full" disabled={busy || validation.errors.length > 0} onclick={onsave}>{busy ? 'Working…' : 'Save to account'}</button>
+              <button class="trade-secondary-button w-full" disabled={busy || validation.errors.length > 0 || !canSaveCopy} onclick={onsavecopy}>Save account copy</button>
+            </div>
+          {:else}
+            <a class="trade-secondary-button block w-full text-center" href="/profile">Sign in to save to account</a>
+          {/if}
+        </div>
+      {/if}
+      <div class="flex items-center justify-between gap-2">
+        <h2 class="display-text text-xl">Filter JSON</h2>
+        <span class="rounded border border-parchment-300/25 px-2 py-1 text-xs" class:text-set={!validation.errors.length} class:text-requirement={validation.errors.length > 0}>{validation.errors.length ? 'Invalid' : filter.rules.length ? 'Valid' : 'Empty'}</span>
       </div>
-      <p class="mt-2 text-xs text-parchment-300">Selected rule preview. In-game appearance may differ.</p>
-      {#if block?.dropSound}<button class="trade-secondary-button mt-3 w-full" onclick={previewSound}>{$soundPreview.playing === block?.dropSound ? 'Replay sound' : `Preview ${block.dropSound}`}</button>{/if}
-      <div class="mt-4 flex justify-between gap-2 text-xs text-parchment-300"><span>{filter.rules.length.toLocaleString()} / 4,096 rules</span><span>{validation.bytes.toLocaleString()} / 4 MiB</span></div>
+      <div class="mt-3 flex justify-between gap-2 text-xs text-parchment-300"><span>{filter.rules.length.toLocaleString()} / 4,096 rules</span><span>{validation.bytes.toLocaleString()} / 4 MiB</span></div>
       {#if validation.errors.length || validation.warnings.length}
         <ul class="mt-3 max-h-48 space-y-2 overflow-y-auto text-xs" aria-label="Filter validation">
           {#each validation.errors.slice(0, 10) as error}<li class="text-requirement">{error}</li>{/each}
@@ -248,10 +297,13 @@
         </ul>
       {/if}
       <details class="mt-4" open>
-        <summary class="cursor-pointer text-xs uppercase tracking-widest text-parchment-300">Filter JSON</summary>
+        <summary class="cursor-pointer text-xs uppercase tracking-widest text-parchment-300">JSON output</summary>
         <pre class="mt-2 max-h-[28rem] overflow-auto rounded border border-parchment-300/15 bg-abyss-950 p-3 font-mono text-xs text-parchment-200" aria-label="filter.json preview">{validation.json}</pre>
       </details>
-      <button class="trade-secondary-button mt-3 w-full" onclick={copy}>Copy JSON</button>
+      <div class="mt-3 grid grid-cols-2 gap-2">
+        <button class="trade-primary-button w-full" disabled={!ready || validation.errors.length > 0} onclick={download}>Download JSON</button>
+        <button class="trade-secondary-button w-full" onclick={copy}>Copy JSON</button>
+      </div>
     </aside>
   </div>
   <p class="mt-6 text-xs text-parchment-300">Filter format and validation adapted from <a class="text-ember-400 hover:underline" href="https://github.com/Lukaszpg/unhoarder-builder" target="_blank" rel="noreferrer">UnHoarder Builder by MindH1ve</a> · GPL-3.0. Native Reimagined editor.</p>
@@ -262,7 +314,7 @@
   .hide-rule { border-style: dashed; border-color: rgb(148 163 184 / 0.45); background: #161922; }
   .selected-rule { border-style: solid; border-color: var(--color-ember-400); background: color-mix(in srgb, var(--color-ember-700) 12%, var(--color-abyss-950)); }
   .drop-target { outline: 2px dashed var(--color-ember-400); outline-offset: 2px; }
-  .rule-list { max-height: 32rem; overflow-y: auto; }
+  .rule-list { max-height: 32rem; overflow-y: auto; scrollbar-gutter: stable; }
   .rule-meta { font-family: Verdana, Helvetica, Arial, sans-serif; }
   @media (min-width: 1025px) {
     .builder-grid { grid-template-columns: 300px minmax(0, 1fr); }
@@ -271,6 +323,6 @@
     .rule-list { flex: 1 1 0; height: 0; min-height: 0; max-height: none; }
     .preview { grid-column: 1 / -1; }
   }
-  @media (min-width: 1440px) { .builder-grid { grid-template-columns: 310px minmax(0, 1fr) 320px; } .preview { grid-column: auto; position: sticky; top: 6rem; } }
+  @media (min-width: 1440px) { .builder-grid { grid-template-columns: 310px minmax(0, 1fr) 320px; } .preview { grid-column: auto; align-self: start; position: sticky; top: 6rem; } }
   @media (max-width: 640px) { .rule-list { max-height: 18rem; } }
 </style>

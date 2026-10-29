@@ -1,5 +1,5 @@
 // @ts-nocheck
-// Reimagined integration for UnHoarder Builder. GPL-3.0-or-later.
+// Reimagined integration for Pyre Loot Filter Builder. GPL-3.0-or-later.
 import model from './model.js';
 export function fromExport(bundle, strings) {
     if (bundle?.SchemaVersion !== 1 || bundle.FilterVersion !== 3 ||
@@ -7,6 +7,13 @@ export function fromExport(bundle, strings) {
       throw new Error('Unsupported Reimagined catalog. Please refresh or try again later.');
     }
     const translate = key => String(strings[key] || key || '').replace(/ÿc./g, '').replace(/\[\/?.*?\]/g, '');
+    const detectTier = key => {
+      const raw = String(strings[key] || '');
+      if (raw.includes('[E]')) return 'elite';
+      if (raw.includes('[X]')) return 'exceptional';
+      if (raw.includes('[N]')) return 'normal';
+      return undefined;
+    };
     const bases = kind => ({ rows: bundle.BaseItems.filter(x => x.Kind === kind).map(x => ({
       code: x.Code, name: kind === 'misc' ? translate(x.NameKey) : x.BaseNameSelector, type: x.TypeCode, type2: x.TypeCode2
     })) });
@@ -17,6 +24,11 @@ export function fromExport(bundle, strings) {
       uniques: enrichment(bundle.UniqueItems), sets: enrichment(bundle.SetItems)
     });
     const names = new Map(bundle.BaseItems.map(x => [`${x.Kind}:${x.Code}`, translate(x.NameKey)]));
-    catalog.baseItems.forEach(item => { item.displayName = names.get(`${item.kind}:${item.code}`) || item.name || item.code; });
+    const tiers = new Map(bundle.BaseItems.map(x => [`${x.Kind}:${x.Code}`, detectTier(x.NameKey)]));
+    catalog.baseItems.forEach(item => {
+      item.displayName = names.get(`${item.kind}:${item.code}`) || item.name || item.code;
+      const tier = tiers.get(`${item.kind}:${item.code}`);
+      if (tier) item.tier = tier;
+    });
     return catalog;
   }

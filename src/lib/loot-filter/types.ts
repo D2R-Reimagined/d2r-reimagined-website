@@ -5,6 +5,7 @@ export interface Conditions {
   code?: MultiValue;
   baseName?: MultiValue;
   itemType?: MultiValue;
+  tier?: MultiValue;
   rarity?: MultiValue;
   quantity?: NumberTest;
   itemLevel?: NumberTest;
@@ -30,6 +31,7 @@ export interface CatalogItem {
   displayName?: string;
   type?: string;
   type2?: string;
+  tier?: 'normal' | 'exceptional' | 'elite';
   baseCode?: string;
   baseName?: string;
 }
@@ -40,6 +42,7 @@ export interface Catalog {
   baseNames: string[];
   itemTypes: string[];
   itemTypeMap: Map<string, Set<string>>;
+  itemTypeNames?: Map<string, string>;
 }
 export const values = (value?: MultiValue): string[] => value === undefined ? [] : Array.isArray(value) ? value : [value];
 export const blockOf = (rule: Rule): RuleBlock => rule.show ?? rule.hide!;
