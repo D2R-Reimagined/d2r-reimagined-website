@@ -31,6 +31,9 @@
   const allowed = $derived(canManageServers($authState.user?.roles));
   const sortedServers = $derived([...servers].sort((a, b) => serverLabel(a).localeCompare(serverLabel(b)) || a.id.localeCompare(b.id)));
   const sortedRegions = $derived([...regions].sort((a, b) => a.name.localeCompare(b.name)));
+  // An edit that moves the server to another ladder: its supervisor restarts it onto that ladder at its next check.
+  const savedLadderId = $derived(editingId === null ? null : servers.find(s => s.id === editingId)?.ladderId ?? null);
+  const ladderChanging = $derived(savedLadderId !== null && draft.ladderId !== '' && draft.ladderId !== savedLadderId);
 
   $effect(() => { onconfigured?.(servers); });
 
@@ -71,6 +74,9 @@
   }
   async function saveServer(event: SubmitEvent): Promise<void> {
     event.preventDefault(); if (!allowed || saving) return;
+    const moving = ladderChanging;
+    if (moving && !confirm(`Move ${editingId} from ${ladderName(savedLadderId!)} to ${ladderName(draft.ladderId)}? `
+      + 'It restarts onto the new ladder within about a minute. Players in its games are disconnected and keep their last save.')) return;
     error = ''; notice = ''; saving = true;
     try {
       const input = serverConfigurationInput(draft, editingId === null);
@@ -79,7 +85,9 @@
       servers = [...servers.filter(s => s.id !== result.id), result];
       editingId = result.id; draft = serverDraft(result);
       formOpen = false;
-      await changed(`${serverLabel(result)} saved. Changes take effect without restarting the API.`);
+      await changed(moving
+        ? `${serverLabel(result)} moved to ${ladderName(result.ladderId)}. It restarts onto that ladder at its next check (about a minute).`
+        : `${serverLabel(result)} saved. Changes take effect without restarting the API.`);
     } catch (e) { if (mounted) error = problem(e); }
     finally { if (mounted) saving = false; }
   }
@@ -143,7 +151,7 @@
             <div class="mt-3 grid gap-3 sm:grid-cols-2">
               <label class="label">Server ID<input class="field" bind:value={draft.id} required maxlength="64" disabled={editingId !== null} placeholder="na-1" /></label>
               <label class="label">Display name (optional)<input class="field" bind:value={draft.name} maxlength="64" placeholder="NA East 1" /><span class="mt-1 block text-xs text-parchment-300">Shown to admins instead of the ID. Leave blank to show the ID.</span></label>
-              <label class="label">Ladder<select class="field" bind:value={draft.ladderId} required disabled={editingId !== null}><option value="">Choose a ladder</option>{#if editingId && !ladders.some(ladder => ladder.id === draft.ladderId)}<option value={draft.ladderId}>{ladderName(draft.ladderId)}</option>{/if}{#each ladders as ladder}<option value={ladder.id}>{ladder.name}{ladder.isHidden ? ' (hidden)' : ''}{ladder.archivedAtUtc ? ' (archived)' : ''}</option>{/each}</select></label>
+              <label class="label">Ladder<select class="field" bind:value={draft.ladderId} required><option value="">Choose a ladder</option>{#if editingId && !ladders.some(ladder => ladder.id === draft.ladderId)}<option value={draft.ladderId}>{ladderName(draft.ladderId)}</option>{/if}{#each ladders as ladder}<option value={ladder.id}>{ladder.name}{ladder.isHidden ? ' (hidden)' : ''}{ladder.archivedAtUtc ? ' (archived)' : ''}</option>{/each}</select></label>
               <label class="label">Public IPv4 address<input class="field" bind:value={draft.publicAddress} required maxlength="15" placeholder="203.0.113.20" /></label>
               <label class="label">Max games<input class="field" type="number" bind:value={draft.maxGames} required min="1" max={MAX_GAMES_PER_SERVER} step="1" /><span class="mt-1 block text-xs text-parchment-300">Hosting stops picking this server at this many games (1–{MAX_GAMES_PER_SERVER}).</span></label>
               <label class="flex items-center gap-2 self-center text-sm text-parchment-200"><input type="checkbox" bind:checked={draft.enabled} />Enabled for hosting and server access</label>
@@ -153,7 +161,8 @@
               <div class="mt-2 flex flex-wrap gap-x-5 gap-y-2">{#each sortedRegions as region}<label class="flex min-w-0 items-center gap-2 text-sm text-parchment-200"><input type="checkbox" checked={draft.regionIds.includes(region.id)} onchange={event => toggleRegion(region.id, event.currentTarget.checked)} /><span class="break-words">{region.name}</span></label>{/each}</div>
               {#if !regions.length}<p class="mt-2 text-xs text-amber-300">Create a region below to assign it here.</p>{/if}
             </fieldset>
-            {#if editingId}<p class="mt-3 text-xs text-parchment-300">Server ID and ladder stay fixed. To serve another ladder, add a new server record.</p>{/if}
+            {#if editingId}<p class="mt-3 text-xs text-parchment-300">Server ID stays fixed. Changing the ladder moves this server, its key included, to that ladder.</p>{/if}
+            {#if ladderChanging}<p class="mt-3 text-xs text-amber-300">Saving moves this server off {ladderName(savedLadderId!)} at once: its supervisor stops it at its next check (about a minute), installs {ladderName(draft.ladderId)}’s bundle and server build, and starts it again. Games running on it end, and their players keep their last save.</p>{/if}
             {#if !draft.enabled}<p class="mt-3 text-xs text-amber-300">Drain this server and finish saving active games before disabling its API access.</p>{/if}
             <div class="mt-4 flex gap-2"><button type="submit" class="control primary">{saving ? 'Saving…' : 'Save server'}</button><button type="button" class="control" onclick={() => { formOpen = false; draft.keySha256 = ''; }}>Cancel</button></div>
           </fieldset>
