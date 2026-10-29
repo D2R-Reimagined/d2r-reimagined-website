@@ -19,15 +19,17 @@ export interface AutoMagicGroup {
   Lines?: KeyedLine[];
 }
 
-/** A propertygroups.txt child chance, read against its parent's `pickMode`. */
-export type ChildSelection =
-  | { kind: 'weight'; value: number }
-  | { kind: 'percent'; value: number };
+/**
+ * A propertygroups.txt child's share of its group's selection tickets, as a percentage.
+ * Pick mode 1 draws without replacement, so the share is the first-draw probability; pick
+ * mode 2 draws independently, so the share holds for every draw.
+ */
+export type ChildSelection = { kind: 'first-draw' | 'per-draw'; percent: number };
 
 export interface AutoMagicChildView {
   text: string;
   selection: ChildSelection | null;
-  /** Localized annotation for `selection`; empty when no chance was exported. */
+  /** Percentage annotation for `selection`; empty when no reliable share exists. */
   selectionText: string;
 }
 
@@ -60,28 +62,50 @@ export function autoMagicGroups(item: CatalogItem): AutoMagicGroup[] {
 }
 
 /**
- * Exporter contract: under `pickMode` "2" a child's `chance` is a relative pick weight;
- * under every other mode it is a direct percentage. Weights are reported as weights only,
- * because turning them into odds would need the group's draw count and full row set.
+ * Selection shares for each child of a propertygroups.txt `group`, in child order. In pick
+ * modes 1 and 2 a child's `chance` is a ticket weight, so its share is
+ * `chance / sum(positive sibling chances)`. Mode 0 selects every property and unknown modes
+ * have no defined draw, so neither gets shares. A missing, non-finite or negative weight
+ * leaves the whole group without shares, and a zero-weight child is never selected.
  */
-export function childSelection(child: KeyedLine, pickMode: string | undefined): ChildSelection | null {
-  if (typeof child.chance !== 'number' || !Number.isFinite(child.chance)) return null;
-  return pickMode === '2' ? { kind: 'weight', value: child.chance } : { kind: 'percent', value: child.chance };
+export function groupSelections(group: KeyedLine): (ChildSelection | null)[] {
+  const children = group.children ?? [];
+  const none = children.map(() => null);
+  const mode = Number(group.pickMode);
+  if (mode !== 1 && mode !== 2) return none;
+  const weights: number[] = [];
+  for (const child of children) {
+    if (typeof child.chance !== 'number' || !Number.isFinite(child.chance) || child.chance < 0) return none;
+    weights.push(child.chance);
+  }
+  const total = weights.reduce((sum, weight) => sum + weight, 0);
+  if (!(total > 0) || !Number.isFinite(total)) return none;
+  const kind = mode === 1 ? 'first-draw' : 'per-draw';
+  return weights.map((weight) => (weight > 0 ? { kind, percent: (weight / total) * 100 } : null));
 }
 
-function selectionText(selection: ChildSelection | null, t: AutoMagicTools['t']): string {
+/** The selection share of one child of `group`, or null when none can be stated reliably. */
+export function childSelection(child: KeyedLine, group: KeyedLine): ChildSelection | null {
+  const index = (group.children ?? []).indexOf(child);
+  return index < 0 ? null : groupSelections(group)[index];
+}
+
+/** A concise percentage such as "33.3%" or "60%"; empty without a selection. */
+export function selectionPercent(selection: ChildSelection | null): string {
   if (!selection) return '';
-  return t(selection.kind === 'weight' ? 'automagic_weight' : 'label_chance', [selection.value]);
+  const rounded = Number(selection.percent.toFixed(1));
+  return rounded > 0 ? `${rounded}%` : '<0.1%';
 }
 
 function presentLine(keyedLine: KeyedLine, tools: AutoMagicTools): AutoMagicLineView | null {
   if (keyedLine.children?.length) {
     const nameKey = (keyedLine as KeyedLine & { nameKey?: string }).nameKey ?? 'strPropertyGroupsProperty';
+    const selections = groupSelections(keyedLine);
     return {
       text: tools.t(nameKey),
-      children: keyedLine.children.map((child) => {
-        const selection = childSelection(child, keyedLine.pickMode);
-        return { text: tools.line(child), selection, selectionText: selectionText(selection, tools.t) };
+      children: keyedLine.children.map((child, index) => {
+        const selection = selections[index];
+        return { text: tools.line(child), selection, selectionText: selectionPercent(selection) };
       })
     };
   }

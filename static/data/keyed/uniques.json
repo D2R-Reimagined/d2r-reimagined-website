@@ -78275,6 +78275,10 @@
         "key": "",
         "args": [],
         "pickMode": "1",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "magdam-rand",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -100211,6 +100215,10 @@
         "key": "",
         "args": [],
         "pickMode": "1",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "skilltab-all",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -111559,6 +111567,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Gelid-Affix1",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -111591,6 +111603,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Gelid-Affix2",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -111616,6 +111632,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Gelid-Affix3",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -111649,6 +111669,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Gelid-Affix4",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -111705,6 +111729,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Gelid-Affix6",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -111767,6 +111795,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Incendiary-Affix1",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -111799,6 +111831,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Incendiary-Affix2",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -111824,6 +111860,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Incendiary-Affix3",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -111857,6 +111897,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Incendiary-Affix4",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -111913,6 +111957,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Incendiary-Affix6",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -111975,6 +112023,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Magnetic-Affix1",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112007,6 +112059,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Magnetic-Affix2",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112032,6 +112088,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Magnetic-Affix3",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112065,6 +112125,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Magnetic-Affix4",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112121,6 +112185,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Magnetic-Affix6",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112183,6 +112251,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Virulent-Affix1",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112215,6 +112287,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Virulent-Affix2",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112240,6 +112316,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Virulent-Affix3",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112273,6 +112353,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Virulent-Affix4",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112329,6 +112413,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Virulent-Affix6",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112391,6 +112479,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Breaching-Affix1",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112423,6 +112515,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Breaching-Affix2",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112448,6 +112544,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Breaching-Affix3",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112481,6 +112581,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Breaching-Affix4",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112537,6 +112641,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Breaching-Affix6",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112599,6 +112707,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Mystical-Affix1",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112631,6 +112743,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Mystical-Affix2",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112656,6 +112772,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Mystical-Affix3",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112689,6 +112809,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Mystical-Affix4",
         "nameKey": "strPropertyGroupsProperty",
         "children": [
@@ -112745,6 +112869,10 @@
         "key": "",
         "args": [],
         "pickMode": "2",
+        "rollCount": {
+          "min": 1,
+          "max": 1
+        },
         "code": "Mystical-Affix6",
         "nameKey": "strPropertyGroupsProperty",
         "children": [

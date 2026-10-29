@@ -22,11 +22,19 @@ export interface KeyedLine {
   classOnly?: string;
   chance?: number;
   pickMode?: string;
+  /** Property-group parents: how many times the group rolls its children (propertygroups.txt). */
+  rollCount?: PropertyGroupRollCount;
   code?: string;
   /** Property-group parents: translatable label for the group (e.g. strPropertyGroupsProperty). */
   nameKey?: string;
   children?: KeyedLine[];
   selection?: PropertySelection;
+}
+
+/** Inclusive range of draws a property group makes; `min === max` for a fixed count. */
+export interface PropertyGroupRollCount {
+  min: number;
+  max: number;
 }
 
 /**

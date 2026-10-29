@@ -1,5 +1,5 @@
 import type { TemplateArg } from '../utilities/format-template';
-import { childSelection } from './automagic';
+import { childSelection, selectionPercent } from './automagic';
 import type { KeyedLine } from './types';
 
 type Translate = (key: string | number | undefined | null, args?: ReadonlyArray<TemplateArg>) => string;
@@ -29,12 +29,27 @@ function translated(key: string | undefined, t: Translate): string {
 }
 
 /**
+ * Localized suffix for how many times a group rolls, such as " (1 roll)" or " (1-3 rolls)".
+ * Empty when the exporter shipped no roll count or one that is not a whole-number range.
+ */
+export function groupRollCount(line: KeyedLine, t: Translate): string {
+  const min = line.rollCount?.min;
+  const max = line.rollCount?.max;
+  if (typeof min !== 'number' || typeof max !== 'number') return '';
+  if (!Number.isInteger(min) || !Number.isInteger(max) || min < 0 || max < 1 || min > max) return '';
+  if (min === 1 && max === 1) return t('property_group_rolls_one');
+  return t('property_group_rolls', min === max ? [max] : [min, max]);
+}
+
+/**
  * A group's own heading: its code when that has a translation, otherwise the exported
- * `nameKey` label. Untranslated propertygroups.txt codes ("Incendiary-Affix1") are engine
- * identifiers and are never shown; an empty string means the group has no usable label.
+ * `nameKey` label, followed by the group's roll count when one was exported. Untranslated
+ * propertygroups.txt codes ("Incendiary-Affix1") are engine identifiers and are never
+ * shown; an empty string means the group has no usable label.
  */
 export function groupHeading(line: KeyedLine, t: Translate): string {
-  return translated(line.code, t) || translated(line.nameKey, t);
+  const label = translated(line.code, t) || translated(line.nameKey, t);
+  return (label + groupRollCount(line, t)).trim();
 }
 
 /** Localized disclosure summary for `count` groups. */
@@ -43,17 +58,12 @@ export function propertyGroupsTitle(count: number, t: Translate): string {
 }
 
 /**
- * The card annotation for a child of `group`. The exporter's `chance` is a relative weight
- * when the group's `pickMode` is "2", so the child shows its share of its siblings' weights;
- * under every other pick mode it already is the percentage. Nothing is shown when the child
- * has no exported chance, or when a weighted share would need a sibling's missing weight.
+ * The card annotation for a child of `group`: its share of the group's selection tickets,
+ * the first-draw probability under pick mode 1 and the per-draw probability under pick
+ * mode 2. Nothing is shown for all-selected (mode 0) or unknown groups, or when the group's
+ * weights are incomplete or invalid.
  */
 export function childChance(line: KeyedLine, group: KeyedLine): string {
-  const selection = childSelection(line, group.pickMode);
-  if (!selection) return '';
-  if (selection.kind === 'percent') return ` (${selection.value}%)`;
-  const weights = (group.children ?? []).map((sibling) => childSelection(sibling, group.pickMode)?.value);
-  if (weights.some((weight) => weight === undefined)) return '';
-  const total = weights.reduce((sum: number, weight) => sum + (weight ?? 0), 0);
-  return total > 0 ? ` (${((selection.value / total) * 100).toFixed(1)}%)` : '';
+  const selection = childSelection(line, group);
+  return selection ? ` (${selectionPercent(selection)})` : '';
 }

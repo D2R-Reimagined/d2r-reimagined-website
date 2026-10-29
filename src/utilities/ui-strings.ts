@@ -198,6 +198,8 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_weight': 'relative Gewichtung %d',
         'property_groups_title': 'Mögliche Eigenschaftswürfe (%d Gruppen)',
         'property_groups_title_one': 'Mögliche Eigenschaftswürfe (1 Gruppe)',
+        'property_group_rolls': ' (%d Würfe)',
+        'property_group_rolls_one': ' (1 Wurf)',
     },
     'enUS': {
         'nav_home': 'Home',
@@ -396,6 +398,8 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_weight': 'relative weight %d',
         'property_groups_title': 'Possible Property Rolls (%d groups)',
         'property_groups_title_one': 'Possible Property Rolls (1 group)',
+        'property_group_rolls': ' (%d rolls)',
+        'property_group_rolls_one': ' (1 roll)',
     },
     'esES': {
         'nav_home': 'Inicio',
@@ -593,6 +597,8 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_weight': 'peso relativo %d',
         'property_groups_title': 'Posibles tiradas de propiedades (%d grupos)',
         'property_groups_title_one': 'Posibles tiradas de propiedades (1 grupo)',
+        'property_group_rolls': ' (%d tiradas)',
+        'property_group_rolls_one': ' (1 tirada)',
     },
     'esMX': {
         'nav_home': 'Inicio',
@@ -790,6 +796,8 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_weight': 'peso relativo %d',
         'property_groups_title': 'Posibles tiradas de propiedades (%d grupos)',
         'property_groups_title_one': 'Posibles tiradas de propiedades (1 grupo)',
+        'property_group_rolls': ' (%d tiradas)',
+        'property_group_rolls_one': ' (1 tirada)',
     },
     'frFR': {
         'nav_home': 'Accueil',
@@ -987,6 +995,8 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_weight': 'poids relatif %d',
         'property_groups_title': 'Tirages de propriétés possibles (%d groupes)',
         'property_groups_title_one': 'Tirages de propriétés possibles (1 groupe)',
+        'property_group_rolls': ' (%d tirages)',
+        'property_group_rolls_one': ' (1 tirage)',
     },
     'itIT': {
         'nav_home': 'Home',
@@ -1184,6 +1194,8 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_weight': 'peso relativo %d',
         'property_groups_title': 'Possibili tiri di proprietà (%d gruppi)',
         'property_groups_title_one': 'Possibili tiri di proprietà (1 gruppo)',
+        'property_group_rolls': ' (%d tiri)',
+        'property_group_rolls_one': ' (1 tiro)',
     },
     'jaJP': {
         'nav_home': 'ホーム',
@@ -1380,6 +1392,8 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_item_level': 'アイテムレベル %d+',
         'automagic_weight': '相対ウェイト %d',
         'property_groups_title': '抽選される可能性のある特性（%dグループ）',
+        'property_group_rolls': '（%d回抽選）',
+        'property_group_rolls_one': '（1回抽選）',
         'property_groups_title_one': '抽選される可能性のある特性（1グループ）',
     },
     'koKR': {
@@ -1577,6 +1591,8 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_item_level': '아이템 레벨 %d+',
         'automagic_weight': '상대 가중치 %d',
         'property_groups_title': '가능한 속성 굴림 (%d개 그룹)',
+        'property_group_rolls': ' (%d회 굴림)',
+        'property_group_rolls_one': ' (1회 굴림)',
         'property_groups_title_one': '가능한 속성 굴림 (1개 그룹)',
     },
     'plPL': {
@@ -1775,6 +1791,8 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_weight': 'waga względna %d',
         'property_groups_title': 'Możliwe losowania właściwości (grupy: %d)',
         'property_groups_title_one': 'Możliwe losowania właściwości (grupy: 1)',
+        'property_group_rolls': ' (losowania: %d)',
+        'property_group_rolls_one': ' (losowania: 1)',
     },
     'ptBR': {
         'nav_home': 'Início',
@@ -1972,6 +1990,8 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_weight': 'peso relativo %d',
         'property_groups_title': 'Possíveis rolagens de propriedades (%d grupos)',
         'property_groups_title_one': 'Possíveis rolagens de propriedades (1 grupo)',
+        'property_group_rolls': ' (%d rolagens)',
+        'property_group_rolls_one': ' (1 rolagem)',
     },
     'ruRU': {
         'nav_home': 'Главная',
@@ -2169,6 +2189,8 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_weight': 'относительный вес %d',
         'property_groups_title': 'Возможные броски свойств (групп: %d)',
         'property_groups_title_one': 'Возможные броски свойств (групп: 1)',
+        'property_group_rolls': ' (бросков: %d)',
+        'property_group_rolls_one': ' (бросков: 1)',
     },
     'zhCN': {
         'nav_home': '首页',
@@ -2366,6 +2388,8 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_weight': '相对权重 %d',
         'property_groups_title': '可能的随机属性（%d 组）',
         'property_groups_title_one': '可能的随机属性（1 组）',
+        'property_group_rolls': '（随机 %d 次）',
+        'property_group_rolls_one': '（随机 1 次）',
     },
     'zhTW': {
         'nav_home': '首頁',
@@ -2564,5 +2588,7 @@ export const UI_STRINGS: Partial<Record<LanguageCode, Record<string, string>>> =
         'automagic_weight': '相對權重 %d',
         'property_groups_title': '可能的隨機屬性（%d 組）',
         'property_groups_title_one': '可能的隨機屬性（1 組）',
+        'property_group_rolls': '（隨機 %d 次）',
+        'property_group_rolls_one': '（隨機 1 次）',
     },
 };
