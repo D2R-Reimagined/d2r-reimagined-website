@@ -1,6 +1,12 @@
 import { describe, expect, it } from 'vitest';
 
-import { defaultLadder, isAdminPreviewOpen, isLadderRunning, type LadderSummary } from './ladder-schedule';
+import {
+  defaultLadder,
+  isAdminPreviewOpen,
+  isLadderRunning,
+  partitionLadders,
+  type LadderSummary
+} from './ladder-schedule';
 
 const now = new Date('2026-06-15T00:00:00Z');
 
@@ -23,6 +29,21 @@ describe('isLadderRunning', () => {
 
   it('excludes ladders that have not started', () => {
     expect(isLadderRunning(scheduled, now)).toBe(false);
+  });
+});
+
+describe('partitionLadders', () => {
+  it('keeps running and scheduled ladders current and lists past ones newest first', () => {
+    const { current, past } = partitionLadders([finished, running, scheduled, recentlyFinished], now);
+
+    expect(current.map((entry) => entry.id)).toEqual(['running', 'scheduled']);
+    expect(past.map((entry) => entry.id)).toEqual(['recent', 'finished']);
+  });
+
+  it('treats an archived ladder as past even before its end date', () => {
+    const archived = { ...running, archivedAtUtc: '2026-06-10T00:00:00Z' };
+
+    expect(partitionLadders([archived], now)).toEqual({ current: [], past: [archived] });
   });
 });
 

@@ -6,7 +6,7 @@
   import { authState } from '#lib/auth.js';
   import OnlinePlayers from '#lib/components/OnlinePlayers.svelte';
   import { debounced } from '#lib/debounce.svelte.js';
-  import { isLadderRunning } from '#lib/ladder-schedule.js';
+  import { isLadderRunning, partitionLadders } from '#lib/ladder-schedule.js';
   import {
     entryStanding,
     formatExperience,
@@ -67,6 +67,8 @@
   let currentPage = $derived(Math.floor(skip / pageSize) + 1);
   let pageCount = $derived(Math.max(1, Math.ceil(total / pageSize)));
   let selectedLadder = $derived(data.ladders.find((ladder) => ladder.id === ladderId) ?? null);
+  let ladderGroups = $derived(partitionLadders(data.ladders));
+  let pastSelected = $derived(ladderGroups.past.some((ladder) => ladder.id === ladderId));
   let bestRank = $derived(
     myEntries.length === 0 ? null : Math.min(...myEntries.map((entry) => entry.rank))
   );
@@ -199,30 +201,50 @@
 
 <section class="mx-auto max-w-7xl px-4 py-8 sm:px-5 sm:py-10">
   <div class="panel rounded-lg p-3">
-    <div class="ladder-tabs" role="tablist" aria-label="Choose a ladder">
-      <button
-        type="button"
-        role="tab"
-        aria-selected={ladderId === null}
-        class:active={ladderId === null}
-        class="ladder-tab"
-        onclick={() => chooseLadder(null)}
-      >
-        Standard
-      </button>
-      {#each data.ladders as ladder (ladder.id)}
+    <div class="flex flex-wrap items-center gap-3">
+      <div class="ladder-tabs" role="tablist" aria-label="Choose a ladder">
         <button
           type="button"
           role="tab"
-          aria-selected={ladderId === ladder.id}
-          class:active={ladderId === ladder.id}
+          aria-selected={ladderId === null}
+          class:active={ladderId === null}
           class="ladder-tab"
-          onclick={() => chooseLadder(ladder.id)}
+          onclick={() => chooseLadder(null)}
         >
-          {ladder.name}
-          {#if isLadderRunning(ladder)}<span class="live-dot" aria-label="Currently running"></span>{/if}
+          Standard
         </button>
-      {/each}
+        {#each ladderGroups.current as ladder (ladder.id)}
+          <button
+            type="button"
+            role="tab"
+            aria-selected={ladderId === ladder.id}
+            class:active={ladderId === ladder.id}
+            class="ladder-tab"
+            onclick={() => chooseLadder(ladder.id)}
+          >
+            {ladder.name}
+            {#if isLadderRunning(ladder)}<span class="live-dot" aria-label="Currently running"></span>{/if}
+          </button>
+        {/each}
+      </div>
+
+      {#if ladderGroups.past.length > 0}
+        <label class="sr-only" for="leaderboard-past-ladder">Past ladders</label>
+        <select
+          id="leaderboard-past-ladder"
+          class="control past-select sm:ml-auto"
+          class:active={pastSelected}
+          value={pastSelected ? ladderId : ''}
+          onchange={(event) => {
+            if (event.currentTarget.value) chooseLadder(event.currentTarget.value);
+          }}
+        >
+          <option value="" disabled>Past ladders ({ladderGroups.past.length})</option>
+          {#each ladderGroups.past as ladder (ladder.id)}
+            <option value={ladder.id}>{ladder.name}</option>
+          {/each}
+        </select>
+      {/if}
     </div>
 
     <div class="mt-3 flex flex-wrap items-center gap-3 border-t border-parchment-300/15 pt-3">
@@ -431,6 +453,11 @@
     padding: 0.45rem 0.65rem;
     color: #f1dfb0;
     font-size: 0.9rem;
+  }
+
+  .past-select.active {
+    border-color: #8f6d36;
+    background: linear-gradient(#382119, #17110e);
   }
 
   .table-scroll {

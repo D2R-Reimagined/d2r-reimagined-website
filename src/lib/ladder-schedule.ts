@@ -33,6 +33,26 @@ export function isLadderRunning(ladder: LadderSummary, now = new Date()): boolea
   return new Date(ladder.startDateUtc) <= now && now < new Date(ladder.endDateUtc);
 }
 
+/** Archived, or past its scheduled end. */
+export function isPastLadder(ladder: LadderSummary, now = new Date()): boolean {
+  return !!ladder.archivedAtUtc || new Date(ladder.endDateUtc) <= now;
+}
+
+/**
+ * Splits ladders into the ones worth a tab of their own (running or scheduled)
+ * and past ones, newest first, so the list of tabs does not grow every season.
+ */
+export function partitionLadders(
+  ladders: LadderSummary[],
+  now = new Date()
+): { current: LadderSummary[]; past: LadderSummary[] } {
+  const current = ladders.filter((ladder) => !isPastLadder(ladder, now));
+  const past = ladders
+    .filter((ladder) => isPastLadder(ladder, now))
+    .sort((a, b) => new Date(b.endDateUtc).getTime() - new Date(a.endDateUtc).getTime());
+  return { current, past };
+}
+
 /**
  * Whether admins can launch the ladder before it starts (the API's admin
  * preview): scheduled, not archived and not over. Nothing played in a preview
