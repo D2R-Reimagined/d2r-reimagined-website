@@ -254,7 +254,7 @@
                                         Trade
                                     </span>
                                     <span class="block text-xs text-parchment-300">
-                                        Trade with the communtiy
+                                        Trade with the community
                                     </span>
                                 </a>
                                 <a href="/builds" onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5">
