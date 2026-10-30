@@ -1,5 +1,7 @@
 <script lang="ts">
     import {onDestroy, onMount} from 'svelte';
+    import {goto} from '$app/navigation';
+    import {page} from '$app/state';
 
     import {
         activateLadderBundle,
@@ -56,6 +58,8 @@
     let optionalBusy = $state(false);
     let optionalProgress = $state<number | null>(null);
     let ladderBundles = $state<LadderBundleSummary[]>([]);
+    let ladderBundlesLoading = $state(false);
+    let ladderBundlesSequence = 0;
     let bundleArchive = $state<File | null>(null);
     let bundleBusy = $state(false);
     let bundleJob = $state<LadderBundlePublishJob | null>(null);
@@ -84,7 +88,10 @@
         && deleteConfirmName.trim().toLowerCase() === selectedLadder.name.trim().toLowerCase());
     let selectedLadderEnded = $derived(!!selectedLadder && new Date(selectedLadder.endDateUtc) < new Date());
     let pendingRelease = $derived(selectedLadder?.pendingRelease ?? null);
-    let pendingBundle = $derived(pendingRelease ? ladderBundles.find((bundle) => bundle.id === pendingRelease.bundleId) ?? null : null);
+    // Only the selected ladder's revisions, so the previous ladder's list never
+    // shows (or gets activated) under this one while its own list is loading.
+    let selectedBundles = $derived(ladderBundles.filter((bundle) => bundle.ladderId === selectedId));
+    let pendingBundle = $derived(pendingRelease ? selectedBundles.find((bundle) => bundle.id === pendingRelease.bundleId) ?? null : null);
     let clockMs = $state(Date.now());
     let lastCountdownReloadMs = 0;
 
@@ -136,6 +143,9 @@
         const end = new Date(start);
         end.setDate(end.getDate() + 7);
         selectedId = null;
+        ladderBundlesSequence++;
+        ladderBundles = [];
+        ladderBundlesLoading = false;
         draft = {
             isHidden: false,
             name: '',
@@ -150,6 +160,11 @@
         publishPollProblem = null;
         cancellingBundleJob = false;
         bundleBusy = false;
+    }
+
+    function newLadder(): void {
+        resetDraft();
+        syncLadderUrl(null);
     }
 
     function editLadder(ladder: Ladder): void {
@@ -175,8 +190,19 @@
         bundleBusy = false;
         publishPollProblem = null;
         cancellingBundleJob = false;
+        syncLadderUrl(ladder.id);
         void loadLadderBundles(ladder.id);
         void recoverLatestPublishJob(ladder.id);
+    }
+
+    // Keeps ?ladder=<id> in step with the selection so a ladder can be linked
+    // directly. Replaces the history entry rather than adding one per click.
+    function syncLadderUrl(ladderId: string | null): void {
+        const url = new URL(page.url.href);
+        if ((url.searchParams.get('ladder') ?? null) === ladderId) return;
+        if (ladderId) url.searchParams.set('ladder', ladderId);
+        else url.searchParams.delete('ladder');
+        void goto(url, {shallow: true, replace: true});
     }
 
     function applyExtensionUpdate(ladder: Ladder): void {
@@ -230,12 +256,22 @@
         }
     }
 
+    // Responses can arrive out of order (switching ladders quickly, or one API
+    // instance answering slower than another); only the latest request for the
+    // ladder still selected may replace the list.
     async function loadLadderBundles(ladderId: string): Promise<void> {
+        const sequence = ++ladderBundlesSequence;
+        ladderBundlesLoading = true;
         try {
-            ladderBundles = await getLadderBundles(ladderId);
+            const loaded = await getLadderBundles(ladderId);
+            if (sequence === ladderBundlesSequence && selectedId === ladderId) ladderBundles = loaded;
         } catch (value) {
-            error = problemMessage(value);
-            ladderBundles = [];
+            if (sequence === ladderBundlesSequence && selectedId === ladderId) {
+                error = problemMessage(value);
+                ladderBundles = [];
+            }
+        } finally {
+            if (sequence === ladderBundlesSequence) ladderBundlesLoading = false;
         }
     }
 
@@ -535,9 +571,7 @@
         try {
             const result = await deleteLadder(selectedLadder.id, deleteConfirmName);
             deleteConfirmName = '';
-            selectedId = null;
-            ladderBundles = [];
-            resetDraft();
+            newLadder();
             await loadLadders();
             notice = `Archived "${result.name}". Characters and final rankings preserved. Removed `
                 + `${result.saveFilesDeleted} server save file(s), ${result.bundlesDeleted} package(s), `
@@ -553,8 +587,13 @@
     }
 
     onMount(async () => {
+        const linkedId = page.url.searchParams.get('ladder');
         resetDraft();
         await loadLadders();
+        if (!linkedId) return;
+        const linked = ladders.find((ladder) => ladder.id === linkedId);
+        if (linked) editLadder(linked);
+        else if (!error) error = 'The linked ladder was not found.';
     });
 
     onDestroy(() => {
@@ -603,7 +642,7 @@
             <div class="flex items-center justify-between gap-3">
                 <h3 class="display-text text-xl">All ladders</h3>
                 <button class="rounded border border-ember-400/50 px-3 py-2 text-sm hover:bg-ember-700/25" type="button"
-                        onclick={resetDraft}>New
+                        onclick={newLadder}>New
                 </button>
             </div>
             <div class="mt-4 grid gap-2">
@@ -948,7 +987,7 @@
                 <div class="mt-6">
                     <h4 class="display-text text-xl">Activate, roll back, or revoke</h4>
                     <div class="mt-3 grid gap-3">
-                        {#each ladderBundles as bundle}
+                        {#each selectedBundles as bundle (bundle.id)}
                             <div class="rounded-lg border border-parchment-300/20 bg-abyss-900 p-4">
                                 <div class="flex flex-wrap items-start justify-between gap-4">
                                     <div>
@@ -980,7 +1019,7 @@
                                 </div>
                             </div>
                         {:else}
-                            <p class="rounded border border-dashed border-parchment-300/25 p-4 text-sm text-parchment-300">No signed package revisions exist for this ladder.</p>
+                            <p class="rounded border border-dashed border-parchment-300/25 p-4 text-sm text-parchment-300">{ladderBundlesLoading ? 'Loading revisions…' : 'No signed package revisions exist for this ladder.'}</p>
                         {/each}
                     </div>
                 </div>
