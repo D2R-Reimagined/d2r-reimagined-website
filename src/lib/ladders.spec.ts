@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { defaultLadder, isLadderRunning, type LadderSummary } from './ladder-schedule';
+import { defaultLadder, isAdminPreviewOpen, isLadderRunning, type LadderSummary } from './ladder-schedule';
 
 const now = new Date('2026-06-15T00:00:00Z');
 
@@ -23,6 +23,19 @@ describe('isLadderRunning', () => {
 
   it('excludes ladders that have not started', () => {
     expect(isLadderRunning(scheduled, now)).toBe(false);
+  });
+});
+
+describe('isAdminPreviewOpen', () => {
+  it('is open only for a scheduled, unarchived ladder', () => {
+    expect(isAdminPreviewOpen(scheduled, now)).toBe(true);
+    expect(isAdminPreviewOpen({ ...scheduled, archivedAtUtc: '2026-06-01T00:00:00Z' }, now)).toBe(false);
+    expect(isAdminPreviewOpen(running, now)).toBe(false);
+    expect(isAdminPreviewOpen(finished, now)).toBe(false);
+  });
+
+  it('closes at the start instant', () => {
+    expect(isAdminPreviewOpen(scheduled, new Date(scheduled.startDateUtc))).toBe(false);
   });
 });
 

@@ -28,6 +28,7 @@
     import LadderD2RLoader from '#lib/components/LadderD2RLoader.svelte';
     import LadderSaveEnforcementEditor from '#lib/components/LadderSaveEnforcementEditor.svelte';
     import LadderServerBuilds from '#lib/components/LadderServerBuilds.svelte';
+    import {isAdminPreviewOpen} from '#lib/ladder-schedule.js';
     import {isSha256, normalizeSha256} from '#lib/sha256.js';
 
     interface LadderDraft {
@@ -584,7 +585,7 @@
             onclick={() => editLadder(ladder)}
             class={`rounded-lg border p-3 text-left transition ${selectedId === ladder.id ? 'border-ember-400 bg-ember-700/20' : 'border-parchment-300/20 hover:border-parchment-300/45'}`}
     >
-        <span class="block text-parchment-50">{ladder.name}{ladder.isHidden ? ' — Hidden' : ''}</span>
+        <span class="block text-parchment-50">{ladder.name}{ladder.isHidden ? ' — Hidden' : ''}{isAdminPreviewOpen(ladder) ? ' — Admin preview' : ''}</span>
         <span class="mt-1 block text-xs text-parchment-300">{new Date(ladder.startDateUtc).toLocaleString()}
             – {new Date(ladder.endDateUtc).toLocaleString()}</span>
         <span class="mt-1 block text-xs text-rarity">
@@ -656,6 +657,19 @@
                     <input class="field" type="datetime-local" required bind:value={draft.endDate}/>
                 </label>
             </div>
+
+            {#if selectedLadder && isAdminPreviewOpen(selectedLadder)}
+                <p class="mt-5 rounded border border-rarity/40 bg-rarity/10 p-3 text-sm text-parchment-200">
+                    Admin preview is open until this ladder starts. Admins see it in the launcher as
+                    <strong>Start Admin Preview</strong> and can connect to its lobby and servers to check
+                    everything works.
+                    {#if selectedLadder.activeBundle}
+                        Nothing is saved: characters made in a preview are discarded, and admins are told so in game chat.
+                    {:else}
+                        Publish a bundle first. The launcher lists the preview only once the ladder has an active bundle.
+                    {/if}
+                </p>
+            {/if}
 
             <label class="mt-5 flex items-start gap-3 text-sm text-parchment-200">
                 <input type="checkbox" class="mt-1" bind:checked={draft.isHidden} />

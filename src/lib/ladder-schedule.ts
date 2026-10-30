@@ -34,6 +34,15 @@ export function isLadderRunning(ladder: LadderSummary, now = new Date()): boolea
 }
 
 /**
+ * Whether admins can launch the ladder before it starts (the API's admin
+ * preview): scheduled, not archived and not over. Nothing played in a preview
+ * is saved.
+ */
+export function isAdminPreviewOpen(ladder: LadderSummary, now = new Date()): boolean {
+  return !ladder.archivedAtUtc && now < new Date(ladder.startDateUtc) && now < new Date(ladder.endDateUtc);
+}
+
+/**
  * The ladder a visitor most likely wants to see first: the running one, or the
  * one that ran most recently if none is running.
  *

@@ -249,15 +249,38 @@
                     {#if communityOpen}
                         <div id="community-links" class="min-w-72 pt-1 2xl:absolute 2xl:left-0 2xl:top-full">
                             <div class="grid gap-1 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl">
-                                <a href="/builds" onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5"><span
-                                        class="block text-parchment-50">Builds</span><span
-                                        class="block text-xs text-parchment-300">Guides from the community</span></a>
-                                <a href="/characters" onclick={closeMenus}
-                                   class="rounded px-3 py-2 hover:bg-white/5"><span class="block text-parchment-50">Characters</span><span
-                                        class="block text-xs text-parchment-300">Explore player equipment and skills</span></a>
-                                <a href="/loot-filter" onclick={closeMenus}
-                                   class="rounded px-3 py-2 hover:bg-white/5"><span class="block text-parchment-50">Loot Filter</span><span
-                                        class="block text-xs text-parchment-300">Customize your loot filtering</span></a>
+                                <a href="/trade" onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5">
+                                    <span class="block text-parchment-50">
+                                        Trade
+                                    </span>
+                                    <span class="block text-xs text-parchment-300">
+                                        Trade with the communtiy
+                                    </span>
+                                </a>
+                                <a href="/builds" onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5">
+                                    <span class="block text-parchment-50">
+                                        Builds
+                                    </span>
+                                    <span class="block text-xs text-parchment-300">
+                                        Guides from the community
+                                    </span>
+                                </a>
+                                <a href="/characters" onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5">
+                                    <span class="block text-parchment-50">
+                                        Characters
+                                    </span>
+                                    <span class="block text-xs text-parchment-300">
+                                        Explore player equipment and skills
+                                    </span>
+                                </a>
+                                <a href="/loot-filter" onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5">
+                                    <span class="block text-parchment-50">
+                                        Loot Filter
+                                    </span>
+                                    <span class="block text-xs text-parchment-300">
+                                        Customize your loot filtering
+                                    </span>
+                                </a>
                             </div>
                         </div>
                     {/if}
