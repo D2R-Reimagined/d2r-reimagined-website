@@ -11,6 +11,8 @@ export interface UserProfile {
   requiresUsername?: boolean;
   tradeBanned?: boolean;
   leaderboardBanned?: boolean;
+  lobbyHostBanned?: boolean;
+  globalChatBanned?: boolean;
   battleTag: string | null;
   battleNetId: string | null;
   steamId: string | null;

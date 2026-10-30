@@ -6,6 +6,10 @@
   let tradeBanned = $state(user.tradeBanned);
   // svelte-ignore state_referenced_locally
   let leaderboardBanned = $state(user.leaderboardBanned);
+  // svelte-ignore state_referenced_locally
+  let lobbyHostBanned = $state(user.lobbyHostBanned);
+  // svelte-ignore state_referenced_locally
+  let globalChatBanned = $state(user.globalChatBanned);
   let reason = $state('');
   let saving = $state(false);
   let error = $state('');
@@ -15,7 +19,9 @@
     saving = true;
     error = '';
     try {
-      onsaved(await updateUserParticipation(user.id, { tradeBanned, leaderboardBanned, reason: reason.trim() }));
+      onsaved(await updateUserParticipation(user.id, {
+        tradeBanned, leaderboardBanned, lobbyHostBanned, globalChatBanned, reason: reason.trim()
+      }));
     } catch (value) {
       error = value instanceof Error ? value.message : 'Could not save participation settings.';
     } finally {
@@ -26,13 +32,18 @@
 
 <form class="rounded border border-parchment-300/20 bg-black/30 p-5" onsubmit={(event) => { event.preventDefault(); void save(); }}>
   <h3 class="text-lg text-parchment-50">Participation bans for {user.displayName}</h3>
-  <p class="mt-2 text-parchment-300">Bans apply across all seasons and characters. Trade bans hide existing listings and prevent offers and messages. Leaderboard bans exclude characters from public listings and rankings. Lifting a ban restores visibility.</p>
+  <p class="mt-2 text-parchment-300">Bans apply across all seasons and characters. Trade bans hide existing listings and prevent offers and messages. Leaderboard bans exclude characters from public listings and rankings. Lobby hosting bans stop the player creating ladder games but not joining them. Global chat bans stop sending to global chat; the player can still read it and whisper friends. Lifting a ban restores access.</p>
   {#if user.participationUpdatedAtUtc}
     <p class="mt-3 text-parchment-300">Last changed {new Date(user.participationUpdatedAtUtc).toLocaleString()}: {user.participationReason}</p>
+  {/if}
+  {#if user.globalChatBanUpdatedAtUtc}
+    <p class="mt-1 text-parchment-300">Global chat ban last changed {new Date(user.globalChatBanUpdatedAtUtc).toLocaleString()}: {user.globalChatBanReason}</p>
   {/if}
   <fieldset disabled={saving} class="mt-4 space-y-3">
     <label class="flex items-center gap-2 text-parchment-50"><input type="checkbox" bind:checked={tradeBanned} /> Ban from trade</label>
     <label class="flex items-center gap-2 text-parchment-50"><input type="checkbox" bind:checked={leaderboardBanned} /> Ban from leaderboards and public character listings</label>
+    <label class="flex items-center gap-2 text-parchment-50"><input type="checkbox" bind:checked={lobbyHostBanned} /> Ban from hosting lobby games</label>
+    <label class="flex items-center gap-2 text-parchment-50"><input type="checkbox" bind:checked={globalChatBanned} /> Ban from global chat</label>
     <label class="block text-parchment-300">Reason for this change (staff only)
       <textarea required maxlength="1000" rows="2" bind:value={reason} class="mt-2 block w-full rounded border border-parchment-300/25 bg-black/40 px-3 py-2 text-parchment-50"></textarea>
     </label>

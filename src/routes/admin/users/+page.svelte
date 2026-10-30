@@ -148,7 +148,7 @@
 
 <div class="mb-6">
   <h2 class="display-text mt-1 text-3xl text-parchment-50">Users</h2>
-  <p class="mt-2 text-parchment-300">Manage roles, individual hidden-ladder access, and account-wide trade or leaderboard bans. Search by display name, email, character name, or user ID.</p>
+  <p class="mt-2 text-parchment-300">Manage roles, individual hidden-ladder access, and account-wide trade, leaderboard, lobby hosting, or global chat bans. Search by display name, email, character name, or user ID.</p>
 </div>
 
 {#if error}<div class="mb-5 rounded-lg border border-requirement/45 bg-requirement/10 p-4 text-requirement">{error}</div>{/if}
@@ -242,9 +242,14 @@
                 {/if}
               </td>
               <td class="px-3 py-3">
-                <p class={user.tradeBanned || user.leaderboardBanned ? 'text-requirement' : 'text-parchment-300'}>
-                  {user.tradeBanned ? 'Trade banned' : 'Trade allowed'} · {user.leaderboardBanned ? 'Leaderboards banned' : 'Leaderboards allowed'}
-                </p>
+                {#if user.tradeBanned || user.leaderboardBanned || user.lobbyHostBanned || user.globalChatBanned}
+                  <p class="text-requirement">
+                    {[user.tradeBanned && 'Trade', user.leaderboardBanned && 'Leaderboards', user.lobbyHostBanned && 'Lobby hosting', user.globalChatBanned && 'Global chat']
+                      .filter(Boolean).join(' · ')} banned
+                  </p>
+                {:else}
+                  <p class="text-parchment-300">No bans</p>
+                {/if}
                 <button type="button" class="mt-2 text-ember-400 underline disabled:opacity-50" disabled={roleSavingId !== null || loading}
                   onclick={() => { editingUserId = editingUserId === user.id ? null : user.id; }}>Manage bans</button>
               </td>

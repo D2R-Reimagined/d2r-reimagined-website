@@ -196,6 +196,8 @@ export interface LadderInput {
 export interface ParticipationSettings {
   tradeBanned: boolean;
   leaderboardBanned: boolean;
+  lobbyHostBanned: boolean;
+  globalChatBanned: boolean;
   reason: string;
 }
 
@@ -269,9 +271,14 @@ export interface AdminUser {
   ladderAccess: LadderAccessGrant[];
   tradeBanned: boolean;
   leaderboardBanned: boolean;
+  lobbyHostBanned: boolean;
   participationReason: string | null;
   participationUpdatedBy: string | null;
   participationUpdatedAtUtc: string | null;
+  globalChatBanned: boolean;
+  globalChatBanReason: string | null;
+  globalChatBanUpdatedBy: string | null;
+  globalChatBanUpdatedAtUtc: string | null;
   id: string;
   email: string;
   displayName: string;
@@ -365,6 +372,46 @@ export function searchAdminUsers(query: AdminUserSearch = {}): Promise<AdminUser
   if (query.search?.trim()) parameters.set('search', query.search.trim());
   const suffix = parameters.size > 0 ? `?${parameters.toString()}` : '';
   return apiRequest<AdminUserPage>(`/admin/users/search${suffix}`, {}, true);
+}
+
+// Global chat bans, which moderators manage too. A moderator's view of an
+// account carries no email and only its staff roles.
+export interface ChatBanUser {
+  id: string;
+  displayName: string;
+  staffRoles: string[];
+  globalChatBanned: boolean;
+  reason: string | null;
+  updatedBy: string | null;
+  updatedByDisplayName: string | null;
+  updatedAtUtc: string | null;
+}
+
+export interface ChatBanSearch extends AdminUserSearch {
+  bannedOnly?: boolean;
+}
+
+export interface ChatBanPage {
+  items: ChatBanUser[];
+  total: number;
+  skip: number;
+  count: number;
+}
+
+export function searchChatBans(query: ChatBanSearch = {}): Promise<ChatBanPage> {
+  const parameters = new URLSearchParams();
+  if (query.skip !== undefined) parameters.set('skip', String(query.skip));
+  if (query.count !== undefined) parameters.set('count', String(query.count));
+  if (query.search?.trim()) parameters.set('search', query.search.trim());
+  if (query.bannedOnly) parameters.set('bannedOnly', 'true');
+  const suffix = parameters.size > 0 ? `?${parameters.toString()}` : '';
+  return apiRequest<ChatBanPage>(`/admin/chat/bans${suffix}`, { cache: 'no-store' }, true);
+}
+
+export function updateChatBan(userId: string, banned: boolean, reason: string): Promise<ChatBanUser> {
+  return apiRequest<ChatBanUser>(`/admin/chat/bans/${userId}`, {
+    method: 'PUT', body: JSON.stringify({ banned, reason })
+  }, true);
 }
 
 export function updateUserRoles(id: string, roles: string[]): Promise<AdminUser> {

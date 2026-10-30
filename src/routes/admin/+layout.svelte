@@ -12,6 +12,7 @@
     { href: '/admin/servers', label: 'Servers', detail: 'Server settings, regions, and live logs' },
     { href: '/admin/global-chat', label: 'Global chat', detail: 'Chat live with players in game' },
     { href: '/admin/feedback', label: 'Feedback', detail: 'Bug reports and suggestions' },
+    { href: '/admin/chat-bans', label: 'Chat bans', detail: 'Ban players from global chat' },
     { href: '/admin/portals', label: 'Portal rewards', detail: 'Individual grants and supporter packs' },
     {
       href: '/admin/ladders',
@@ -33,7 +34,7 @@
   let isAdmin = $derived($authState.user?.roles.includes('Admin') ?? false);
   let canEnter = $derived(canReviewFeedback($authState.user?.roles));
   let canViewPage = $derived(canAccessAdminPage($authState.user?.roles, page.url.pathname));
-  let visibleLinks = $derived(links.filter(link => isAdmin || link.href === '/admin/feedback'));
+  let visibleLinks = $derived(links.filter(link => canAccessAdminPage($authState.user?.roles, link.href)));
 
   function isActive(href: string): boolean {
     return page.url.pathname === href || page.url.pathname.startsWith(`${href}/`);
@@ -55,7 +56,7 @@
   <div class="mb-7 max-w-3xl">
     <p class="display-text text-sm uppercase tracking-[0.24em] text-ember-400">Administration</p>
     <h1 class="display-text mt-2 text-4xl text-parchment-50 sm:text-5xl">Admin dashboard</h1>
-    <p class="mt-3 text-parchment-300">Review player feedback{isAdmin ? ' and manage Reimagined ladders, staff access, and announcements' : ''}.</p>
+    <p class="mt-3 text-parchment-300">Review player feedback{isAdmin ? ' and manage Reimagined ladders, staff access, and announcements' : ' and manage global chat bans'}.</p>
   </div>
 
   {#if !$authState.ready}
@@ -89,7 +90,7 @@
         {:else}
           <div class="panel rounded-lg p-8">
             <h2 class="display-text text-2xl text-requirement">Access denied</h2>
-            <p class="mt-3 text-parchment-300">This page requires the Admin role. You can review reports in the Feedback tab.</p>
+            <p class="mt-3 text-parchment-300">This page requires the Admin role. You can review reports in the Feedback tab and manage global chat bans in the Chat bans tab.</p>
           </div>
         {/if}
       </div>

@@ -11,7 +11,8 @@ describe('feedback staff access', () => {
     expect(canReviewFeedback(['Moderator'])).toBe(true);
     expect(canAccessAdminPage(['Moderator'], '/admin/feedback')).toBe(true);
     expect(canAccessAdminPage(['Moderator'], '/admin/feedback/')).toBe(true);
-    for (const path of ['/admin/users', '/admin/ladders', '/admin/servers', '/admin/portals', '/admin/announcements', '/admin/feedback-other']) {
+    expect(canAccessAdminPage(['Moderator'], '/admin/chat-bans')).toBe(true);
+    for (const path of ['/admin/users', '/admin/ladders', '/admin/servers', '/admin/portals', '/admin/announcements', '/admin/feedback-other', '/admin/chat-bans-other']) {
       expect(canAccessAdminPage(['Moderator'], path)).toBe(false);
       expect(canAccessAdminPage(['Admin'], path)).toBe(true);
     }
