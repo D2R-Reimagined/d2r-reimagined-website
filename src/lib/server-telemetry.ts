@@ -24,12 +24,34 @@ export interface TelemetryServer {
   id: string; ladderId: string; address: string; status: 'online' | 'delayed' | 'offline' | 'stalled' | 'starting' | 'disabled';
   regionIds?: string[];
   receivedAtUtc: string | null; snapshot: MonitorSnapshot | null; sourceGaps: number;
+  /** Card counts; the live stream sends these instead of the snapshot for every server it is not watching. Absent from an older API. */
+  gamePort?: number; gameCount?: number; connectionCount?: number;
   /** The d2rl-d2rds.dll its supervisor last reported installed; absent until it reports one. */
   serverBuild?: InstalledServerBuild | null;
   /** The ladder bundle and D2RLoader its supervisor last reported installed; absent until it reports them. */
   deployment?: ServerDeployment | null;
   /** What its ladder wants now; absent from an API that predates it. */
   ladderTarget?: LadderDeploymentTarget | null;
+  /**
+   * The configured box this d2rds process is one of, which one, its display name ("Box #1"), and how many the
+   * box runs: `id` is `boxId` for instance 0 and `boxId~N` for instance N. Build and deployment are the box's.
+   * Absent from an API that predates instances (every server is then a box of one).
+   */
+  boxId?: string; instance?: number; name?: string | null; boxInstances?: number;
+}
+
+/** The configured box a reported server belongs to. */
+export const serverBoxId = (server: Pick<TelemetryServer, 'id' | 'boxId'>): string => server.boxId || server.id;
+
+/** Servers grouped by box, boxes in first-seen order and each box's instances by number. */
+export function groupServersByBox<T extends Pick<TelemetryServer, 'id' | 'boxId' | 'instance'>>(servers: readonly T[]): { boxId: string; servers: T[] }[] {
+  const groups = new Map<string, T[]>();
+  for (const server of servers) {
+    const box = serverBoxId(server);
+    const group = groups.get(box);
+    if (group) group.push(server); else groups.set(box, [server]);
+  }
+  return [...groups].map(([boxId, members]) => ({ boxId, servers: [...members].sort((a, b) => (a.instance ?? 0) - (b.instance ?? 0)) }));
 }
 export interface ServerDeployment {
   bundleId: string | null; revision: number | null;

@@ -6,7 +6,7 @@
   import {
     getServerConfigurations, getServerRegions, createServerConfiguration, updateServerConfiguration,
     createServerRegion, updateServerRegion, deleteServerRegion, serverConfigurationInput, serverRegionInput,
-    serverDraft, serverLabel, MAX_GAMES_PER_SERVER, DEFAULT_MAX_GAMES, type ServerConfiguration, type ServerRegion, type ServerDraft
+    serverDraft, serverLabel, MAX_GAMES_PER_SERVER, DEFAULT_MAX_GAMES, MAX_INSTANCES_PER_SERVER, type ServerConfiguration, type ServerRegion, type ServerDraft
   } from '#lib/server-registry.js';
 
   let { onchange, onconfigured }: {
@@ -19,7 +19,7 @@
   let ladders = $state<Ladder[]>([]);
   let loading = $state(true), saving = $state(false), error = $state(''), notice = $state('');
   let editingId = $state<string | null>(null), formOpen = $state(false);
-  const emptyServer = (): ServerDraft => ({ id: '', name: '', ladderId: '', publicAddress: '', enabled: true, maxGames: DEFAULT_MAX_GAMES, regionIds: [], keySha256: '' });
+  const emptyServer = (): ServerDraft => ({ id: '', name: '', ladderId: '', publicAddress: '', enabled: true, maxGames: DEFAULT_MAX_GAMES, instances: 1, regionIds: [], keySha256: '' });
   let draft = $state<ServerDraft>(emptyServer());
   let editingRegionId = $state<string | null>(null);
   let regionDraft = $state<ServerRegion>({ id: '', name: '' });
@@ -140,7 +140,7 @@
         {#if !servers.length}<p class="rounded-lg border border-parchment-300/15 p-4 text-sm text-parchment-300">No servers registered yet. Create regions below, then add your first server.</p>{/if}
         {#each sortedServers as server (server.id)}
           <div class="flex min-w-0 flex-wrap items-center justify-between gap-3 rounded-lg border border-parchment-300/15 p-3">
-            <div class="min-w-0 flex-1"><p class="break-words text-sm text-parchment-50"><span class="font-semibold">{serverLabel(server)}</span> <span class={`ml-2 text-xs ${server.enabled ? 'text-emerald-300' : 'text-amber-300'}`}>{server.enabled ? 'Enabled' : 'Disabled'}</span></p><p class="mt-1 break-words text-xs text-parchment-300">{server.publicAddress} · {ladderName(server.ladderId)} · max {server.maxGames ?? DEFAULT_MAX_GAMES} games</p><p class="mt-1 break-words text-xs text-parchment-300">{regionNames(server.regionIds)}</p></div>
+            <div class="min-w-0 flex-1"><p class="break-words text-sm text-parchment-50"><span class="font-semibold">{serverLabel(server)}</span> <span class={`ml-2 text-xs ${server.enabled ? 'text-emerald-300' : 'text-amber-300'}`}>{server.enabled ? 'Enabled' : 'Disabled'}</span></p><p class="mt-1 break-words text-xs text-parchment-300">{server.publicAddress} · {ladderName(server.ladderId)} · {(server.instances ?? 1) > 1 ? `${server.instances} instances × max ${server.maxGames ?? DEFAULT_MAX_GAMES} games` : `max ${server.maxGames ?? DEFAULT_MAX_GAMES} games`}</p><p class="mt-1 break-words text-xs text-parchment-300">{regionNames(server.regionIds)}</p></div>
             <button class="control" disabled={saving} aria-label={`Edit server ${serverLabel(server)}`} onclick={() => editServer(server)}>Edit</button>
           </div>
         {/each}
@@ -153,7 +153,8 @@
               <label class="label">Display name (optional)<input class="field" bind:value={draft.name} maxlength="64" placeholder="NA East 1" /><span class="mt-1 block text-xs text-parchment-300">Shown to admins instead of the ID. Leave blank to show the ID.</span></label>
               <label class="label">Ladder<select class="field" bind:value={draft.ladderId} required><option value="">Choose a ladder</option>{#if editingId && !ladders.some(ladder => ladder.id === draft.ladderId)}<option value={draft.ladderId}>{ladderName(draft.ladderId)}</option>{/if}{#each ladders as ladder}<option value={ladder.id}>{ladder.name}{ladder.isHidden ? ' (hidden)' : ''}{ladder.archivedAtUtc ? ' (archived)' : ''}</option>{/each}</select></label>
               <label class="label">Public IPv4 address<input class="field" bind:value={draft.publicAddress} required maxlength="15" placeholder="203.0.113.20" /></label>
-              <label class="label">Max games<input class="field" type="number" bind:value={draft.maxGames} required min="1" max={MAX_GAMES_PER_SERVER} step="1" /><span class="mt-1 block text-xs text-parchment-300">Hosting stops picking this server at this many games (1–{MAX_GAMES_PER_SERVER}).</span></label>
+              <label class="label">Max games<input class="field" type="number" bind:value={draft.maxGames} required min="1" max={MAX_GAMES_PER_SERVER} step="1" /><span class="mt-1 block text-xs text-parchment-300">Hosting stops picking this server at this many games (1–{MAX_GAMES_PER_SERVER}); per instance when it runs several.</span></label>
+              <label class="label">Instances<input class="field" type="number" bind:value={draft.instances} required min="1" max={MAX_INSTANCES_PER_SERVER} step="1" /><span class="mt-1 block text-xs text-parchment-300">d2rds processes on this box (1–{MAX_INSTANCES_PER_SERVER}), one core each, all on its one key. Each is a server of its own to the lobby and in monitoring, on game port 4000+N. Match the box’s <code>provision-d2rds-host.ps1 -Instances</code>.</span></label>
               <label class="flex items-center gap-2 self-center text-sm text-parchment-200"><input type="checkbox" bind:checked={draft.enabled} />Enabled for hosting and server access</label>
               <label class="label sm:col-span-2">{editingId ? 'New server key SHA-256 (optional)' : 'Server key SHA-256'}<input class="field font-mono" bind:value={draft.keySha256} required={editingId === null} autocomplete="off" spellcheck="false" placeholder={editingId ? 'Leave blank to keep the current key' : '64-character SHA-256 hash'} /><span class="mt-1 block text-xs text-parchment-300">{editingId ? 'Enter a new hash only when rotating this server’s key.' : 'Use the hash of the key configured on this dedicated server.'}</span><span class="mt-1 block text-xs text-parchment-300">Copy it from the server’s lobby-server-key.txt; lowercase or uppercase hex is accepted.</span></label>
             </div>

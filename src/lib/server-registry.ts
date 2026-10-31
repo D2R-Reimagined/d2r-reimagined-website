@@ -3,6 +3,8 @@ import { apiRequest } from '#lib/auth.js';
 export interface ServerRegion { id: string; name: string }
 export interface ServerConfiguration {
   id: string; name?: string | null; ladderId: string; publicAddress: string; enabled: boolean; maxGames: number; regionIds: string[];
+  /** d2rds processes the box runs (1-8), each a server of its own to the lobby with maxGames games; older APIs omit it. */
+  instances?: number;
 }
 export interface ServerConfigurationInput extends Omit<ServerConfiguration, 'name'> { name: string; keySha256?: string }
 export interface ServerDraft extends Omit<ServerConfiguration, 'name'> { name: string; keySha256: string }
@@ -11,6 +13,8 @@ export interface ServerDraft extends Omit<ServerConfiguration, 'name'> { name: s
 export const MAX_GAMES_PER_SERVER = 128;
 /** A new server's max games, as the API defaults it (GameServer.DefaultMaxGames). */
 export const DEFAULT_MAX_GAMES = 32;
+/** The most d2rds processes one box may run (GameServer.MaximumInstances). */
+export const MAX_INSTANCES_PER_SERVER = 8;
 
 /** Display label: "Name (id)" when a name is set, otherwise the id. */
 export function serverLabel(server: { id: string; name?: string | null }): string {
@@ -18,7 +22,8 @@ export function serverLabel(server: { id: string; name?: string | null }): strin
   return name ? `${name} (${server.id})` : server.id;
 }
 export function serverDraft(server: ServerConfiguration): ServerDraft {
-  return { ...server, name: server.name ?? '', maxGames: server.maxGames ?? DEFAULT_MAX_GAMES, regionIds: [...server.regionIds], keySha256: '' };
+  return { ...server, name: server.name ?? '', maxGames: server.maxGames ?? DEFAULT_MAX_GAMES, instances: server.instances ?? 1,
+    regionIds: [...server.regionIds], keySha256: '' };
 }
 
 export const getServerConfigurations = (signal?: AbortSignal) =>
@@ -39,7 +44,7 @@ export const deleteServerRegion = (id: string) =>
 
 export function serverConfigurationInput(draft: ServerDraft, creating: boolean): ServerConfigurationInput {
   const id = draft.id.trim(), name = (draft.name ?? '').trim(), publicAddress = draft.publicAddress.trim(),
-    keySha256 = draft.keySha256.trim().toUpperCase(), maxGames = draft.maxGames;
+    keySha256 = draft.keySha256.trim().toUpperCase(), maxGames = draft.maxGames, instances = draft.instances ?? 1;
   if (!/^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$/.test(id))
     throw new Error('Server ID must start with a letter or digit and use up to 64 letters, digits, dots, underscores or hyphens.');
   if (name.length > 64 || /[\u0000-\u001f\u007f]/.test(name))
@@ -52,7 +57,9 @@ export function serverConfigurationInput(draft: ServerDraft, creating: boolean):
     throw new Error('Enter the complete 64-character SHA-256 hash of the server key.');
   if (typeof maxGames !== 'number' || !Number.isInteger(maxGames) || maxGames < 1 || maxGames > MAX_GAMES_PER_SERVER)
     throw new Error(`Max games must be a whole number from 1 to ${MAX_GAMES_PER_SERVER}.`);
-  return { id, name, ladderId: draft.ladderId, publicAddress, enabled: draft.enabled, maxGames, regionIds: [...draft.regionIds],
+  if (typeof instances !== 'number' || !Number.isInteger(instances) || instances < 1 || instances > MAX_INSTANCES_PER_SERVER)
+    throw new Error(`Instances must be a whole number from 1 to ${MAX_INSTANCES_PER_SERVER}.`);
+  return { id, name, ladderId: draft.ladderId, publicAddress, enabled: draft.enabled, maxGames, instances, regionIds: [...draft.regionIds],
     ...(keySha256 ? { keySha256 } : {}) };
 }
 

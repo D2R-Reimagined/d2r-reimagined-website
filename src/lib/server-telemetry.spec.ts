@@ -3,7 +3,7 @@ const stream = vi.hoisted(() => vi.fn());
 vi.mock('#lib/auth.js', () => ({ apiRequest: vi.fn(), apiStreamRequest: stream,
   ApiError: class extends Error { constructor(message: string, public status: number) { super(message); } } }));
 import { ApiError } from '#lib/auth.js';
-import { appendLogs, bundleRevisionSummary, connectServerTelemetry, d2rLoaderSummary, installedBuildSummary, TelemetryEventParser, type TelemetryFrame, type TelemetryLog } from './server-telemetry';
+import { appendLogs, bundleRevisionSummary, connectServerTelemetry, d2rLoaderSummary, groupServersByBox, installedBuildSummary, serverBoxId, TelemetryEventParser, type TelemetryFrame, type TelemetryLog } from './server-telemetry';
 const frame: TelemetryFrame = { nowUtc: '2026-10-02T12:00:00Z', servers: [], serverId: 'eu-1', cursor: 1, gap: false,
   entries: [{ cursor: 1, session: 'one', sourceId: 1, timestamp: 1, level: 1, message: 'Aurelia joined 漢' }] };
 const wire = (f = frame) => `event: telemetry\ndata: ${JSON.stringify(f)}\n\n`;
@@ -90,4 +90,15 @@ it('stops reconnecting when current admin access is denied', async () => {
   const status = vi.fn(); const stop = connectServerTelemetry('a', vi.fn(), status);
   await vi.advanceTimersByTimeAsync(60000);
   expect(stream).toHaveBeenCalledOnce(); expect(status).toHaveBeenCalledWith('Access unavailable', 'Forbidden'); stop();
+});
+
+it('groups a box\'s d2rds instances under it, in instance order, and treats older reports as boxes of one', () => {
+  const servers = [
+    { id: 'eu-1~1', boxId: 'eu-1', instance: 1 }, { id: 'na-1' }, { id: 'eu-1', boxId: 'eu-1', instance: 0 }, { id: 'eu-2', boxId: 'eu-2', instance: 0 }
+  ];
+  expect(groupServersByBox(servers).map(box => [box.boxId, box.servers.map(s => s.id)])).toEqual([
+    ['eu-1', ['eu-1', 'eu-1~1']], ['na-1', ['na-1']], ['eu-2', ['eu-2']]
+  ]);
+  expect(serverBoxId({ id: 'na-1' })).toBe('na-1');
+  expect(serverBoxId({ id: 'eu-1~1', boxId: 'eu-1' })).toBe('eu-1');
 });

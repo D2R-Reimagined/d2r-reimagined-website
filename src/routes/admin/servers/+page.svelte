@@ -9,7 +9,9 @@
         connectServerTelemetry,
         d2rLoaderSummary,
         getServers,
+        groupServersByBox,
         installedBuildSummary,
+        serverBoxId,
         logLevels,
         type DeploymentLine,
         type TelemetryLog,
@@ -52,6 +54,14 @@
     function displayName(id: string): string {
         return configuration(id)?.name?.trim() || id;
     }
+
+    // A box's further instances ("eu-1~1") are no configured record of their own: the API names them ("EU 1 #1").
+    function serverName(server: TelemetryServer): string {
+        return server.instance ? server.name?.trim() || server.id : displayName(server.id);
+    }
+
+    // Each box once; a box running several d2rds instances is one panel holding a card per instance.
+    const boxes = $derived(groupServersByBox(servers));
 
     function age(server: TelemetryServer): number {
         return server.receivedAtUtc ? Math.max(0, (now + clockOffset - Date.parse(server.receivedAtUtc)) / 1000) : Infinity;
@@ -192,24 +202,11 @@
             configured</h3>
             <p class="mt-3 text-parchment-300">Add a server above, then enable telemetry on its D2RDS host.</p></div>
     {:else}
-        <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3" aria-label="Dedicated servers">
-            {#each servers as server (server.id)}
+        <!-- What a box installed (server build, bundle, D2RLoader): the box's, the same for each of its instances. -->
+        {#snippet deployment(server: TelemetryServer)}
                 {@const build = installedBuildSummary(server.serverBuild, ladderBuilds[server.ladderId])}
                 {@const revision = bundleRevisionSummary(server.deployment, server.ladderTarget)}
                 {@const loader = d2rLoaderSummary(server.deployment, server.ladderTarget)}
-                <button onclick={() => choose(server.id)} aria-pressed={selectedId === server.id}
-                        class={`panel min-w-0 rounded-lg p-4 text-left transition hover:border-ember-400/65 ${selectedId === server.id ? 'border-ember-400/65 bg-ember-700/15' : ''}`}>
-                    <span class="flex items-center justify-between gap-2"><span
-                            class="display-text truncate text-lg text-parchment-50"
-                            title={server.id}>{displayName(server.id)}</span><span
-                            class={`text-xs uppercase tracking-wider ${tone(status(server))}`}>{status(server)}</span></span>
-                    <span class="mt-1 block text-xs text-parchment-300">{displayName(server.id) !== server.id ? `${server.id} · ` : ''}{server.address}{server.snapshot ? `:${server.snapshot.gamePort}` : ''}</span>
-                    {#if server.regionIds?.length}<span
-                            class="mt-1 block break-words text-xs text-parchment-300">{server.regionIds.join(' · ')}</span>{/if}
-                    <span class="mt-3 block text-sm text-parchment-200">{server.snapshot?.games.length ?? 0}{configuration(server.id)?.maxGames ? ` / ${configuration(server.id)?.maxGames}` : ''}
-                        lobbies · {server.snapshot?.games.reduce((n, g) => n + g.connectedCount, 0) ?? 0}
-                        connections</span>
-                    <span class="mt-1 block text-xs text-parchment-300">{server.receivedAtUtc ? `Last report ${duration(age(server))} ago` : 'Waiting for the first report'}</span>
                     <span class="mt-1 block text-xs text-parchment-300" title={build.title}>Server build <span
                             class={`font-mono ${build.match === 'unknown-build' ? 'text-amber-300' : 'text-parchment-200'}`}>
                       {build.label}
@@ -225,7 +222,47 @@
                     <span class="mt-1 block text-xs text-parchment-300" title={loader.title}>D2RLoader <span
                             class={`font-mono ${loader.tone === 'warn' ? 'text-amber-300' : 'text-parchment-200'}`}>{loader.label}</span>
                         {#if loader.note}<span class={toneClass(loader.tone)}>{` · ${loader.note}`}</span>{/if}</span>
+        {/snippet}
+        <!-- One d2rds process. In a box's panel it leaves the box's regions and installs to the panel. -->
+        {#snippet card(server: TelemetryServer, inBox: boolean)}
+                <button onclick={() => choose(server.id)} aria-pressed={selectedId === server.id}
+                        class={`panel min-w-0 rounded-lg p-4 text-left transition hover:border-ember-400/65 ${selectedId === server.id ? 'border-ember-400/65 bg-ember-700/15' : ''}`}>
+                    <span class="flex items-center justify-between gap-2"><span
+                            class="display-text truncate text-lg text-parchment-50"
+                            title={server.id}>{serverName(server)}</span><span
+                            class={`text-xs uppercase tracking-wider ${tone(status(server))}`}>{status(server)}</span></span>
+                    <span class="mt-1 block text-xs text-parchment-300">{serverName(server) !== server.id ? `${server.id} · ` : ''}{server.address}{server.snapshot ? `:${server.snapshot.gamePort}` : server.gamePort ? `:${server.gamePort}` : ''}</span>
+                    {#if !inBox && server.regionIds?.length}<span
+                            class="mt-1 block break-words text-xs text-parchment-300">{server.regionIds.join(' · ')}</span>{/if}
+                    <span class="mt-3 block text-sm text-parchment-200">{server.snapshot?.games.length ?? server.gameCount ?? 0}{configuration(serverBoxId(server))?.maxGames ? ` / ${configuration(serverBoxId(server))?.maxGames}` : ''}
+                        lobbies · {server.snapshot?.games.reduce((n, g) => n + g.connectedCount, 0) ?? server.connectionCount ?? 0}
+                        connections</span>
+                    <span class="mt-1 block text-xs text-parchment-300">{server.receivedAtUtc ? `Last report ${duration(age(server))} ago` : 'Waiting for the first report'}</span>
+                    {#if !inBox}{@render deployment(server)}{/if}
                 </button>
+        {/snippet}
+        <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3" aria-label="Dedicated servers">
+            {#each boxes as box (box.boxId)}
+                {#if box.servers.length === 1}
+                    {@render card(box.servers[0], false)}
+                {:else}
+                    {@const head = box.servers[0]}
+                    {@const lobbies = box.servers.reduce((n, s) => n + (s.snapshot?.games.length ?? s.gameCount ?? 0), 0)}
+                    {@const connections = box.servers.reduce((n, s) => n + (s.snapshot?.games.reduce((m, g) => m + g.connectedCount, 0) ?? s.connectionCount ?? 0), 0)}
+                    {@const maxGames = configuration(box.boxId)?.maxGames}
+                    {@const online = box.servers.filter(s => status(s) === 'online').length}
+                    <section class="panel min-w-0 rounded-lg p-4 sm:col-span-2 xl:col-span-3" aria-label={`Box ${displayName(box.boxId)}`}>
+                        <span class="flex flex-wrap items-center justify-between gap-2"><span
+                                class="display-text truncate text-lg text-parchment-50" title={box.boxId}>{displayName(box.boxId)}</span><span
+                                class={`text-xs uppercase tracking-wider ${tone(online === box.servers.length ? 'online' : online === 0 ? 'offline' : 'delayed')}`}>{online} of {box.servers.length} online</span></span>
+                        <span class="mt-1 block break-words text-xs text-parchment-300">{displayName(box.boxId) !== box.boxId ? `${box.boxId} · ` : ''}{head.address} · {box.servers.length} instances{head.regionIds?.length ? ` · ${head.regionIds.join(' · ')}` : ''}</span>
+                        <span class="mt-2 block text-sm text-parchment-200">{lobbies}{maxGames ? ` / ${maxGames * box.servers.length}` : ''} lobbies · {connections} connections</span>
+                        {@render deployment(head)}
+                        <div class="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                            {#each box.servers as server (server.id)}{@render card(server, true)}{/each}
+                        </div>
+                    </section>
+                {/if}
             {/each}
         </div>
         {#if selected}

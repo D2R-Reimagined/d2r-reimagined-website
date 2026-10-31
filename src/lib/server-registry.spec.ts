@@ -3,10 +3,10 @@ vi.mock('#lib/auth.js', () => ({ apiRequest: vi.fn() }));
 import { apiRequest } from '#lib/auth.js';
 import { canAccessAdminPage, canManageServers } from './admin-access';
 import { createServerConfiguration, updateServerConfiguration, getServerConfigurations, getServerRegions,
-  createServerRegion, updateServerRegion, deleteServerRegion, serverConfigurationInput, serverRegionInput, serverLabel, serverDraft, MAX_GAMES_PER_SERVER, DEFAULT_MAX_GAMES, type ServerDraft, type ServerConfiguration } from './server-registry';
+  createServerRegion, updateServerRegion, deleteServerRegion, serverConfigurationInput, serverRegionInput, serverLabel, serverDraft, MAX_GAMES_PER_SERVER, DEFAULT_MAX_GAMES, MAX_INSTANCES_PER_SERVER, type ServerDraft, type ServerConfiguration } from './server-registry';
 
 const draft = (): ServerDraft => ({ id: 'eu-1', name: '', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: true,
-  maxGames: 32, regionIds: ['eu-west', 'na-east'], keySha256: '' });
+  maxGames: 32, instances: 1, regionIds: ['eu-west', 'na-east'], keySha256: '' });
 beforeEach(() => vi.clearAllMocks());
 
 describe('server administration access', () => {
@@ -31,7 +31,7 @@ describe('server configuration requests', () => {
     expect(input.regionIds).not.toBe(value.regionIds);
     await updateServerConfiguration(input);
     expect(apiRequest).toHaveBeenCalledWith('/admin/servers/configuration/eu-1', {
-      method: 'PUT', body: JSON.stringify({ id: 'eu-1', name: '', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: false, maxGames: 32, regionIds: ['eu-west', 'na-east'] })
+      method: 'PUT', body: JSON.stringify({ id: 'eu-1', name: '', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: false, maxGames: 32, instances: 1, regionIds: ['eu-west', 'na-east'] })
     }, true);
   });
   it('requires a complete hash on creation and normalizes hex case without silently truncating input', async () => {
@@ -84,6 +84,19 @@ describe('server configuration requests', () => {
       expect(() => serverConfigurationInput(value, false)).toThrow('Max games');
     }
   });
+  it('requires instances to be a whole number from 1 to 8 and always sends it', () => {
+    expect(MAX_INSTANCES_PER_SERVER).toBe(8);
+    for (const instances of [1, 2, MAX_INSTANCES_PER_SERVER]) {
+      const value = draft(); value.instances = instances;
+      expect(serverConfigurationInput(value, false).instances).toBe(instances);
+    }
+    const older = draft(); delete older.instances;
+    expect(serverConfigurationInput(older, false)).toHaveProperty('instances', 1);
+    for (const instances of [0, 9, 1.5, Number.NaN, '2' as unknown as number]) {
+      const value = draft(); value.instances = instances;
+      expect(() => serverConfigurationInput(value, false)).toThrow('Instances');
+    }
+  });
   it('labels servers by name with the id, falling back to the id', () => {
     expect(serverLabel({ id: 'vps2', name: 'NA East 1' })).toBe('NA East 1 (vps2)');
     for (const name of [undefined, null, '', '  ']) expect(serverLabel({ id: 'vps2', name })).toBe('vps2');
@@ -91,7 +104,7 @@ describe('server configuration requests', () => {
   it('builds edit drafts from API records, defaulting missing names and limits', () => {
     const record = { id: 'vps2', name: null, ladderId: 'l', publicAddress: '203.0.113.7', enabled: true, regionIds: ['na-east'] } as unknown as ServerConfiguration;
     const value = serverDraft(record);
-    expect(value).toMatchObject({ name: '', maxGames: 32, keySha256: '' });
+    expect(value).toMatchObject({ name: '', maxGames: 32, instances: 1, keySha256: '' });
     expect(value.regionIds).not.toBe(record.regionIds);
   });
   it('loads private records without caching and propagates cancellation', async () => {
