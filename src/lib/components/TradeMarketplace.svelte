@@ -15,6 +15,7 @@
     } from '#lib/trades.js';
     import {
         activeTradePropertyCount,
+        compoundTradePropertyOutsideAnd,
         createTradePropertyGroup,
         invalidTradePropertyQuery,
         toTradePropertyFilterGroups,
@@ -75,6 +76,9 @@
     function filters(nextSkip = 0): TradeFilters {
         if (invalidTradePropertyQuery(propertyGroups)) {
             throw new Error('Choose a property from the suggestion list before applying filters.');
+        }
+        if (compoundTradePropertyOutsideAnd(propertyGroups)) {
+            throw new Error('All Resistances, All Maximum Resistances and All Attributes can only be used in an AND group.');
         }
         const serializedPropertyGroups = toTradePropertyFilterGroups(propertyGroups);
         return {

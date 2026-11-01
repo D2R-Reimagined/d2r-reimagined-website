@@ -40,24 +40,25 @@ export interface ItemStatDisplayContext {
 const hiddenSkillIds = new Set([449]);
 const hiddenSkillNameKeys = new Set(['charmweight1']);
 const hiddenStatNames = new Set(['charm_weight']);
-const classSkillLines = [
+export const classSkillLines = [
   { key: 'ModStr3a', name: 'Amazon' },
   { key: 'ModStr3d', name: 'Sorceress' },
   { key: 'ModStr3c', name: 'Necromancer' },
   { key: 'ModStr3b', name: 'Paladin' },
   { key: 'ModStr3e', name: 'Barbarian' },
   { key: 'ModStre8a', name: 'Druid' },
-  { key: 'ModStre8b', name: 'Assassin' }
+  { key: 'ModStre8b', name: 'Assassin' },
+  { key: 'ModStrge9', name: 'Warlock' }
 ] as const;
 
 // CharStats StrSkillTab1..3, in save class order. Layers reserve eight slots
 // per class; the localized string numbers are not in class/page order.
-const skillTabStringIds = [
+export const skillTabStringIds = [
   [3, 2, 1], [15, 14, 13], [8, 7, 9], [6, 5, 4],
   [11, 12, 10], [16, 17, 18], [19, 20, 21], [24, 22, 23]
 ] as const;
 // The tab strings carry no class name; the game appends the class-only suffix itself.
-const skillTabClassOnlyKeys = [
+export const skillTabClassOnlyKeys = [
   'AmaOnly', 'SorOnly', 'NecOnly', 'PalOnly', 'BarOnly', 'DruOnly', 'AssOnly', 'WarOnly'
 ] as const;
 
@@ -256,8 +257,12 @@ export function isHiddenItemStat(
 ): boolean {
   if (hiddenStatNames.has(stat.name)) return true;
   if (stat.name !== 'item_nonclassskill' && stat.name !== 'item_singleskill') return false;
-  const skill = bundle?.Skills[String(stat.layer)];
-  return hiddenSkillIds.has(stat.layer) || hiddenSkillNameKeys.has(skill?.NameKey?.toLowerCase() ?? '');
+  return isHiddenItemSkill(stat.layer, bundle);
+}
+
+export function isHiddenItemSkill(id: number, bundle?: ItemStatPresentationBundle): boolean {
+  const skill = bundle?.Skills[String(id)];
+  return hiddenSkillIds.has(id) || hiddenSkillNameKeys.has(skill?.NameKey?.toLowerCase() ?? '');
 }
 
 function eventSkillLine(
