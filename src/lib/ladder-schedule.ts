@@ -69,10 +69,10 @@ export function isAdminPreviewOpen(ladder: LadderSummary, now = new Date()): boo
  * A scheduled ladder is never chosen - it has no standings yet, and landing on
  * an empty board reads as "nobody has played" rather than "this has not started".
  */
-export function defaultLadder(
-  ladders: LadderSummary[],
+export function defaultLadder<T extends LadderSummary>(
+  ladders: T[],
   now = new Date()
-): LadderSummary | null {
+): T | null {
   const running = ladders.filter((ladder) => isLadderRunning(ladder, now));
   if (running.length > 0) {
     return running.reduce((latest, ladder) =>

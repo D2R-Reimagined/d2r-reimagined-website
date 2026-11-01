@@ -13,8 +13,10 @@
     declineTradeOffer,
     getTradeListing,
     getTradeOffers,
+    tradeGameModes,
     updateTradeListing,
     withdrawTradeOffer,
+    type TradeGameMode,
     type TradeListing,
     type TradeListingStatus,
     type TradeOffer
@@ -106,6 +108,18 @@
     finally { working = false; }
   }
 
+  // A character's save decides its listing's game; a stash or game item takes
+  // the seller's word, so the seller can correct it here.
+  async function setGameMode(gameMode: TradeGameMode): Promise<void> {
+    if (!listing || working) return;
+    working = true;
+    try {
+      listing = await updateTradeListing(listing.id, { gameMode });
+      notice = 'Game updated.';
+    } catch (value) { error = value instanceof Error ? value.message : 'The listing could not be updated.'; }
+    finally { working = false; }
+  }
+
   onMount(async () => {
     try {
       await initializeAuth();
@@ -157,7 +171,7 @@
       </main>
 
       <aside class="space-y-5 lg:sticky lg:top-24 lg:self-start">
-        <section class="panel rounded-lg p-5"><p class="text-xs uppercase tracking-[0.2em] text-parchment-300">Seller wants</p><p class="display-text mt-2 text-xl text-parchment-50">{listing.price || 'Offers'}</p>{#if listing.isNegotiable}<p class="mt-2 text-xs text-set">Open to negotiation</p>{/if}<dl class="mt-5 space-y-3 border-t border-parchment-300/15 pt-4 text-sm"><div class="flex justify-between gap-3"><dt class="text-parchment-300">Seller</dt><dd class="text-parchment-50">{listing.sellerDisplayName}</dd></div><div class="flex justify-between gap-3"><dt class="text-parchment-300">Realm</dt><dd class="text-right text-parchment-50">{listing.ladderName || 'Standard'}</dd></div>{#if listing.characterName}<div class="flex justify-between gap-3"><dt class="text-parchment-300">Character</dt><dd class="text-parchment-50">{listing.characterName}</dd></div>{/if}<div class="flex justify-between gap-3"><dt class="text-parchment-300">Listed</dt><dd class="text-right text-parchment-50">{formatDate(listing.createdAtUtc)}</dd></div></dl></section>
+        <section class="panel rounded-lg p-5"><p class="text-xs uppercase tracking-[0.2em] text-parchment-300">Seller wants</p><p class="display-text mt-2 text-xl text-parchment-50">{listing.price || 'Offers'}</p>{#if listing.isNegotiable}<p class="mt-2 text-xs text-set">Open to negotiation</p>{/if}<dl class="mt-5 space-y-3 border-t border-parchment-300/15 pt-4 text-sm"><div class="flex justify-between gap-3"><dt class="text-parchment-300">Seller</dt><dd class="text-parchment-50">{listing.sellerDisplayName}</dd></div><div class="flex justify-between gap-3"><dt class="text-parchment-300">Realm</dt><dd class="text-right text-parchment-50">{listing.ladderName || 'Standard'}</dd></div><div class="flex items-center justify-between gap-3"><dt class="text-parchment-300">Game</dt>{#if isSeller && !listing.characterId}<dd><select aria-label="Game" class="field !py-1.5 text-sm" disabled={working} value={listing.gameMode ?? ''} onchange={(event) => setGameMode((event.currentTarget as HTMLSelectElement).value as TradeGameMode)}>{#if !listing.gameMode}<option value="" disabled>Choose…</option>{/if}{#each tradeGameModes as mode}<option value={mode.value}>{mode.label}</option>{/each}</select></dd>{:else}<dd class="text-right text-parchment-50">{tradeGameModes.find((mode) => mode.value === listing?.gameMode)?.label ?? 'Unknown - ask the seller'}</dd>{/if}</div>{#if listing.characterName}<div class="flex justify-between gap-3"><dt class="text-parchment-300">Character</dt><dd class="text-parchment-50">{listing.characterName}</dd></div>{/if}<div class="flex justify-between gap-3"><dt class="text-parchment-300">Listed</dt><dd class="text-right text-parchment-50">{formatDate(listing.createdAtUtc)}</dd></div></dl></section>
 
         {#if isSeller}
           <section class="panel rounded-lg p-5"><h2 class="display-text text-lg text-parchment-50">Listing status</h2><div class="mt-4 grid gap-2">{#if listing.status === 'Active'}<button type="button" disabled={working} class="trade-secondary-button" onclick={() => setStatus('Cancelled')}>Cancel listing</button>{:else if listing.status === 'Reserved'}<button type="button" disabled={working} class="trade-primary-button" onclick={() => setStatus('Completed')}>Mark trade complete</button><button type="button" disabled={working} class="trade-secondary-button" onclick={() => setStatus('Active')}>Return to active</button>{:else}<button type="button" disabled={working} class="trade-primary-button" onclick={() => setStatus('Active')}>Relist item</button>{/if}</div></section>

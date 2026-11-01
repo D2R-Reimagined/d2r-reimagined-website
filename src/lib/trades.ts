@@ -1,6 +1,9 @@
 import { apiRequest } from '#lib/auth.js';
 import type { CharacterDetailsResponse, SaveItem } from '#lib/characters.js';
 import type { GameItemPayload } from '#lib/trade-game-item.js';
+import type { TradeGameMode } from '#lib/trade-game-mode.js';
+
+export * from '#lib/trade-game-mode.js';
 
 export type TradeListingStatus = 'Active' | 'Reserved' | 'Completed' | 'Cancelled' | 'Expired';
 export type TradeOfferStatus = 'Pending' | 'Accepted' | 'Declined' | 'Withdrawn';
@@ -29,6 +32,7 @@ export interface TradeListing {
   isEthereal: boolean;
   isCorrupted: boolean;
   isLadder: boolean;
+  gameMode: TradeGameMode | null;
   price: string | null;
   isNegotiable: boolean;
   status: TradeListingStatus;
@@ -74,6 +78,7 @@ export interface TradeFilters {
   quality?: string;
   itemType?: string;
   isLadder?: boolean;
+  gameMode?: TradeGameMode;
   isNegotiable?: boolean;
   isEthereal?: boolean;
   isCorrupted?: boolean;
@@ -102,6 +107,7 @@ export interface CreateTradeListing {
   isEthereal: boolean;
   isCorrupted: boolean;
   isLadder: boolean;
+  gameMode: TradeGameMode | null;
   price: string | null;
   isNegotiable: boolean;
 }

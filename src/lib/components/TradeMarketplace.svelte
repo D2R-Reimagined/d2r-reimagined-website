@@ -10,7 +10,11 @@
     import {
         createTradeOffer,
         getTradeListings,
+        savedTradeGameMode,
+        saveTradeGameMode,
+        tradeGameModes,
         type TradeFilters,
+        type TradeGameMode,
         type TradeListing
     } from '#lib/trades.js';
     import {
@@ -57,6 +61,10 @@
     let offering = $state(false);
     let notice = $state('');
     let listingLayout = $state<ListingLayout>('columns');
+    // Not one of the Filters: RotW and Expansion players cannot meet in game, so
+    // this decides which listings are reachable at all. Remembered per browser.
+    // svelte-ignore state_referenced_locally
+    let gameMode = $state<TradeGameMode | null>(data.initialGameMode ?? null);
 
     let activeFilterCount = $derived(
         [quality, itemType, minLevel, maxLevel, minItemLevel, minSockets, maxSockets].filter(Boolean).length
@@ -85,6 +93,7 @@
             itemType: itemType.trim() || undefined,
             ladderId: data.realm.kind === 'ladder' ? data.realm.ladder?.id : undefined,
             isLadder: data.realm.kind === 'standard' ? false : undefined,
+            gameMode: gameMode ?? undefined,
             isNegotiable: negotiable || undefined,
             isEthereal: ethereal || undefined,
             isCorrupted: corrupted || undefined,
@@ -133,10 +142,15 @@
         try { localStorage.setItem(listingLayoutStorageKey, layout); } catch { /* storage is optional */ }
     }
 
+    function chooseGameMode(mode: TradeGameMode | null): void {
+        if (mode === gameMode) return;
+        gameMode = mode;
+        saveTradeGameMode(mode);
+        void load(0);
+    }
+
     async function chooseTradeRealm(event: Event): Promise<void> {
-        const path = (event.currentTarget as HTMLSelectElement).value;
-        try { localStorage.setItem(lastTradeRealmStorageKey, path); } catch { /* storage is optional */ }
-        await goto(path);
+        await goto((event.currentTarget as HTMLSelectElement).value);
     }
 
     function requireAccount(returnTo: string): boolean {
@@ -178,14 +192,22 @@
         try {
             const savedLayout = localStorage.getItem(listingLayoutStorageKey);
             if (savedLayout === 'columns' || savedLayout === 'rows') listingLayout = savedLayout;
+            // Remembered so the next bare /trade visit lands back on this realm.
+            if (data.realm.kind !== 'all') localStorage.setItem(lastTradeRealmStorageKey, data.realm.path);
         } catch { /* storage is optional */ }
         void initializeAuth();
+        // A server render never knows the remembered mode, so its listings are
+        // for both games; fetch again when this browser chose one.
+        const savedMode = savedTradeGameMode();
+        if (!initialListings || savedMode !== (data.initialGameMode ?? null)) {
+            gameMode = savedMode;
+            void load();
+        }
         const [uniques, sets] = await Promise.all([loadCatalog('uniques'), loadCatalog('sets')]);
         const setItems = sets.flatMap((set) => set.SetItems ?? []);
         nameOptions = [...new Set([...uniques, ...setItems]
             .map((item: CatalogItem) => String(item.Index || ''))
             .filter(Boolean))].sort((a, b) => a.localeCompare(b));
-        if (!initialListings) await load();
     });
 </script>
 
@@ -219,8 +241,18 @@
                             </select>
                         {/if}
                     </label>
+                    <div class="mt-2 inline-flex rounded border border-parchment-300/25 bg-black/35 p-1" role="group" aria-label="Game">
+                        {#each tradeGameModes as mode}
+                            <button type="button" aria-pressed={gameMode === mode.value}
+                                    class={`rounded px-3 py-2 text-sm transition ${gameMode === mode.value ? 'bg-ember-700/45 text-white' : 'text-parchment-300 hover:text-white'}`}
+                                    onclick={() => chooseGameMode(mode.value)}>{mode.label}</button>
+                        {/each}
+                        <button type="button" aria-pressed={gameMode === null}
+                                class={`rounded px-3 py-2 text-sm transition ${gameMode === null ? 'bg-ember-700/45 text-white' : 'text-parchment-300 hover:text-white'}`}
+                                onclick={() => chooseGameMode(null)}>Both</button>
+                    </div>
                 </div>
-                <p class="mt-2 text-sm text-parchment-300">{data.realm.label}</p>
+                <p class="mt-2 text-sm text-parchment-300">{data.realm.label}{#if !gameMode} · <span class="text-parchment-200">Pick the game you play to hide trades you can't join.</span>{/if}</p>
             </div>
             <div class="flex flex-wrap gap-3">
                 {#if $authState.user}<a href="/trade/mine" class="trade-secondary-button">My trades</a>{/if}

@@ -31,8 +31,17 @@ describe('server configuration requests', () => {
     expect(input.regionIds).not.toBe(value.regionIds);
     await updateServerConfiguration(input);
     expect(apiRequest).toHaveBeenCalledWith('/admin/servers/configuration/eu-1', {
-      method: 'PUT', body: JSON.stringify({ id: 'eu-1', name: '', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: false, maxGames: 32, instances: 1, regionIds: ['eu-west', 'na-east'] })
+      method: 'PUT', body: JSON.stringify({ id: 'eu-1', name: '', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: false, acceptingGames: true, maxGames: 32, instances: 1, regionIds: ['eu-west', 'na-east'] })
     }, true);
+  });
+  it('always sends acceptingGames, so an edit never ends a drain, and reads an older API as accepting', () => {
+    const value = draft(); value.acceptingGames = false;
+    expect(serverConfigurationInput(value, false)).toHaveProperty('acceptingGames', false);
+    const older = draft(); delete older.acceptingGames;
+    expect(serverConfigurationInput(older, false)).toHaveProperty('acceptingGames', true);
+    const configured: ServerConfiguration = { id: 'eu-1', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: true, maxGames: 32, regionIds: [] };
+    expect(serverDraft(configured).acceptingGames).toBe(true);
+    expect(serverDraft({ ...configured, acceptingGames: false }).acceptingGames).toBe(false);
   });
   it('requires a complete hash on creation and normalizes hex case without silently truncating input', async () => {
     expect(() => serverConfigurationInput(draft(), true)).toThrow('64-character');

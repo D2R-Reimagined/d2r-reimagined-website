@@ -12,7 +12,7 @@ export const load: LayoutServerLoad = async ({ fetch, url }) => {
     try {
       const response = await fetch(`${api}/ladders/summaries?activeOnly=true`);
       if (response.ok) {
-        const ladders = await response.json() as Array<{ id: string; name: string }>;
+        const ladders = await response.json() as Parameters<typeof buildTradeLadders>[0];
         tradeLadders = buildTradeLadders(ladders);
       }
     } catch {

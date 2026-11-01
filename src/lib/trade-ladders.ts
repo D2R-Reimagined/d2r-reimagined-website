@@ -1,10 +1,16 @@
+import { defaultLadder, type LadderSummary } from './ladder-schedule.js';
+
 export const lastTradeRealmStorageKey = 'd2r_reimagined_last_trade_realm';
 
 export interface TradeLadder {
   id: string;
   name: string;
   slug: string;
+  startDateUtc?: string;
+  endDateUtc?: string;
 }
+
+type TradeLadderEntry = Omit<TradeLadder, 'slug'>;
 
 export type TradeRealmKind = 'all' | 'standard' | 'ladder';
 
@@ -19,6 +25,8 @@ export interface TradeMarketplacePageData {
   initialListings: import('#lib/trades.js').TradeListingPage | null;
   ladders: TradeLadder[];
   realm: TradeRealm;
+  /** The game mode initialListings were filtered by; null for both (always so on the server). */
+  initialGameMode?: import('#lib/trades.js').TradeGameMode | null;
 }
 
 export function tradeLadderSlug(name: string): string {
@@ -32,7 +40,7 @@ export function tradeLadderSlug(name: string): string {
   return slug || 'Ladder';
 }
 
-export function buildTradeLadders(entries: Array<{ id: string; name: string }>): TradeLadder[] {
+export function buildTradeLadders(entries: TradeLadderEntry[]): TradeLadder[] {
   const baseSlugs = entries.map((entry) => tradeLadderSlug(entry.name));
   const reserved = new Set(['standard', 'list', 'mine']);
 
@@ -71,6 +79,30 @@ export function resolveTradeRealm(
 }
 
 export function validStoredTradePath(path: string, ladders: TradeLadder[]): string | null {
-  if (path === '/trade' || path === '/trade/standard') return path;
+  if (path === '/trade/standard') return path;
   return ladders.some((ladder) => tradeLadderPath(ladder) === path) ? path : null;
+}
+
+/** The running ladder that started last, else the newest one by start date. */
+export function latestTradeLadder(ladders: TradeLadder[], now = new Date()): TradeLadder | null {
+  const dated = ladders.filter((ladder): ladder is TradeLadder & LadderSummary =>
+    !!ladder.startDateUtc && !!ladder.endDateUtc
+  );
+  const running = defaultLadder(dated, now);
+  if (running) return running;
+  if (!dated.length) return ladders[0] ?? null;
+  return dated.reduce((latest, ladder) =>
+    new Date(ladder.startDateUtc) > new Date(latest.startDateUtc) ? ladder : latest
+  );
+}
+
+/**
+ * Where a bare /trade visit lands: the realm the visitor last picked, or the
+ * latest ladder when nothing valid is saved. Null keeps the all-realms page.
+ */
+export function preferredTradePath(stored: string | null, ladders: TradeLadder[], now = new Date()): string | null {
+  const saved = stored ? validStoredTradePath(stored, ladders) : null;
+  if (saved) return saved;
+  const latest = latestTradeLadder(ladders, now);
+  return latest ? tradeLadderPath(latest) : null;
 }

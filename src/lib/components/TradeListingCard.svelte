@@ -72,6 +72,9 @@
         {#if listing.isEthereal}<span class="trade-tag !border-sky-400/30 !text-sky-200">Ethereal</span>{/if}
         {#if listing.isCorrupted}<span class="trade-tag !border-red-500/35 !text-red-300">Corrupted</span>{/if}
         {#if listing.isLadder}<span class="trade-tag !border-set/30 !text-set">Ladder</span>{/if}
+        {#if listing.gameMode === 'RotW'}<span class="trade-tag !border-ember-400/40 !text-ember-300" title="Reign of the Warlock">RotW</span>
+        {:else if listing.gameMode === 'Expansion'}<span class="trade-tag !border-sky-400/30 !text-sky-200">Expansion</span>
+        {:else}<span class="trade-tag" title="This listing does not say which game the item is in - ask the seller.">Game unknown</span>{/if}
       </div>
       <TradeItemProperties {item} unidentified={!listing.isIdentified} />
       <div class="mt-4 border-t border-parchment-300/10 pt-3">

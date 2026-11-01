@@ -5,6 +5,8 @@ export interface ServerConfiguration {
   id: string; name?: string | null; ladderId: string; publicAddress: string; enabled: boolean; maxGames: number; regionIds: string[];
   /** d2rds processes the box runs (1-8), each a server of its own to the lobby with maxGames games; older APIs omit it. */
   instances?: number;
+  /** False drains the box: Hosts stop going to it while its running games list, join and save. Older APIs omit it (true). */
+  acceptingGames?: boolean;
 }
 export interface ServerConfigurationInput extends Omit<ServerConfiguration, 'name'> { name: string; keySha256?: string }
 export interface ServerDraft extends Omit<ServerConfiguration, 'name'> { name: string; keySha256: string }
@@ -23,7 +25,7 @@ export function serverLabel(server: { id: string; name?: string | null }): strin
 }
 export function serverDraft(server: ServerConfiguration): ServerDraft {
   return { ...server, name: server.name ?? '', maxGames: server.maxGames ?? DEFAULT_MAX_GAMES, instances: server.instances ?? 1,
-    regionIds: [...server.regionIds], keySha256: '' };
+    acceptingGames: server.acceptingGames ?? true, regionIds: [...server.regionIds], keySha256: '' };
 }
 
 export const getServerConfigurations = (signal?: AbortSignal) =>
@@ -59,8 +61,9 @@ export function serverConfigurationInput(draft: ServerDraft, creating: boolean):
     throw new Error(`Max games must be a whole number from 1 to ${MAX_GAMES_PER_SERVER}.`);
   if (typeof instances !== 'number' || !Number.isInteger(instances) || instances < 1 || instances > MAX_INSTANCES_PER_SERVER)
     throw new Error(`Instances must be a whole number from 1 to ${MAX_INSTANCES_PER_SERVER}.`);
-  return { id, name, ladderId: draft.ladderId, publicAddress, enabled: draft.enabled, maxGames, instances, regionIds: [...draft.regionIds],
-    ...(keySha256 ? { keySha256 } : {}) };
+  // Always sent: the API reads an omitted acceptingGames as true, which would end a drain on any edit.
+  return { id, name, ladderId: draft.ladderId, publicAddress, enabled: draft.enabled, acceptingGames: draft.acceptingGames ?? true, maxGames,
+    instances, regionIds: [...draft.regionIds], ...(keySha256 ? { keySha256 } : {}) };
 }
 
 export function serverRegionInput(draft: ServerRegion): ServerRegion {

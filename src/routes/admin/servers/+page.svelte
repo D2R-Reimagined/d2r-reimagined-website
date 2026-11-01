@@ -72,6 +72,12 @@
         return age(server) > 30 ? 'offline' : age(server) > 10 ? 'delayed' : server.status;
     }
 
+    // Enabled but not accepting games: no new Hosts go to the box while its running games finish.
+    function draining(boxId: string): boolean {
+        const configured = configuration(boxId);
+        return !!configured?.enabled && configured.acceptingGames === false;
+    }
+
     function toneClass(value: DeploymentLine['tone']): string {
         return value === 'ok' ? 'text-emerald-300' : value === 'warn' ? 'text-amber-300' : '';
     }
@@ -237,6 +243,7 @@
                     <span class="mt-3 block text-sm text-parchment-200">{server.snapshot?.games.length ?? server.gameCount ?? 0}{configuration(serverBoxId(server))?.maxGames ? ` / ${configuration(serverBoxId(server))?.maxGames}` : ''}
                         lobbies · {server.snapshot?.games.reduce((n, g) => n + g.connectedCount, 0) ?? server.connectionCount ?? 0}
                         connections</span>
+                    {#if !inBox && draining(serverBoxId(server))}<span class="mt-1 block text-xs uppercase tracking-wider text-amber-300">Draining · no new games</span>{/if}
                     <span class="mt-1 block text-xs text-parchment-300">{server.receivedAtUtc ? `Last report ${duration(age(server))} ago` : 'Waiting for the first report'}</span>
                     {#if !inBox}{@render deployment(server)}{/if}
                 </button>
@@ -257,6 +264,7 @@
                                 class={`text-xs uppercase tracking-wider ${tone(online === box.servers.length ? 'online' : online === 0 ? 'offline' : 'delayed')}`}>{online} of {box.servers.length} online</span></span>
                         <span class="mt-1 block break-words text-xs text-parchment-300">{displayName(box.boxId) !== box.boxId ? `${box.boxId} · ` : ''}{head.address} · {box.servers.length} instances{head.regionIds?.length ? ` · ${head.regionIds.join(' · ')}` : ''}</span>
                         <span class="mt-2 block text-sm text-parchment-200">{lobbies}{maxGames ? ` / ${maxGames * box.servers.length}` : ''} lobbies · {connections} connections</span>
+                        {#if draining(box.boxId)}<span class="mt-1 block text-xs uppercase tracking-wider text-amber-300">Draining · no new games</span>{/if}
                         {@render deployment(head)}
                         <div class="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
                             {#each box.servers as server (server.id)}{@render card(server, true)}{/each}
@@ -269,6 +277,12 @@
             {#if status(selected) === 'disabled'}
                 <div class="panel rounded-lg px-4 py-3 text-sm text-amber-300">This server is disabled. Hosting and
                     server API access are turned off; any reports below show its last observed state.
+                </div>
+            {:else if draining(serverBoxId(selected)) && status(selected) === 'online'}
+                <div class="panel rounded-lg px-4 py-3 text-sm text-amber-300">This server is draining: no new games go to it, and its
+                    running games stay listed, joinable and saving. {(snapshot?.games.length ?? selected.gameCount ?? 0) === 0
+                        ? 'It has no games left, so it can be disabled now.'
+                        : 'Disable it once its last game has closed.'}
                 </div>
             {:else if snapshot && status(selected) !== 'online'}
                 <div class="panel rounded-lg px-4 py-3 text-sm text-amber-300">{status(selected) === 'offline' ? 'This host is offline or has stopped reporting. Lobbies and characters below are its last observed state.' : status(selected) === 'stalled' ? 'The game loop or lobby snapshot has stopped updating. Reports are still arriving.' : status(selected) === 'delayed' ? 'Reports are delayed. The state below may have changed.' : 'This host is starting. Waiting for the game loop to publish its first snapshot.'}</div>

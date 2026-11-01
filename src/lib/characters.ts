@@ -19,6 +19,8 @@ export interface CharacterResponse {
   ladderName: string | null;
   isLadder: boolean;
   isExpansion: boolean;
+  /** 'RotW' or 'Expansion', from the save header; null when it did not say. */
+  gameMode?: 'RotW' | 'Expansion' | null;
   isDead: boolean;
   isPublic: boolean;
   ladderSeason: number | null;

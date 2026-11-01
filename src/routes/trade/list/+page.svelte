@@ -17,7 +17,11 @@
     createTradeListing,
     getTradeInventory,
     resolveGameItem,
+    savedTradeGameMode,
+    stashGameMode,
+    tradeGameModes,
     type SharedStash,
+    type TradeGameMode,
     type TradeInventory
   } from '#lib/trades.js';
   import { decodeGameItemHash, findGameItemInInventory, type GameItemPayload } from '#lib/trade-game-item.js';
@@ -56,6 +60,14 @@
   let price = $state('');
   let description = $state('');
   let negotiable = $state(true);
+  let gameMode = $state<TradeGameMode | ''>('');
+  // What the item's source says about its game: a character's save header, or
+  // a stash's file name. A game item says nothing, so the seller picks.
+  let sourceGameMode = $derived(
+    itemOrigin === 'character' ? selectedCharacter?.character.gameMode ?? null
+      : itemOrigin === 'stash' ? stashGameMode(selectedStashFile)
+        : null
+  );
 
   let currentStash = $derived(inventory?.sharedStashes.find((stash) => stash.fileName === selectedStashFile) ?? null);
   let currentStashTab = $derived(currentStash?.tabs[selectedStashTab] ?? null);
@@ -111,6 +123,7 @@
       ?? catalogItems.find((entry) => String(entry.Code || '').toLowerCase() === item.codeText.toLowerCase());
     requiredLevel = identified && typeof catalog?.RequiredLevel === 'number' ? catalog.RequiredLevel : null;
     description = '';
+    gameMode = sourceGameMode ?? savedTradeGameMode() ?? '';
     requestAnimationFrame(() => document.getElementById('listing-details')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   }
 
@@ -201,6 +214,7 @@
         isCorrupted: selectedItem.flags.names.some((name) => name.toLowerCase().includes('corrupt'))
           || selectedItem.stats.some((stat) => stat.name.toLowerCase().includes('corrupt')),
         isLadder: Boolean(selectedLadderId),
+        gameMode: gameMode || null,
         price: price.trim() || null,
         isNegotiable: negotiable
       });
@@ -338,6 +352,7 @@
             <label class="text-sm text-parchment-200">Item name<input list={selectedItemIdentified && matchingNameOptions.length ? 'listing-item-names' : undefined} required readonly={!selectedItemIdentified} maxlength="120" class="field mt-2" bind:value={itemName} />{#if selectedItemIdentified && matchingNameOptions.length}<datalist id="listing-item-names">{#each matchingNameOptions as name}<option value={name}></option>{/each}</datalist>{/if}</label>
             <label class="text-sm text-parchment-200">Listing title<input required readonly={!selectedItemIdentified} minlength="3" maxlength="120" class="field mt-2" bind:value={title} /></label>
             <label class="text-sm text-parchment-200">Item type<input readonly={!selectedItemIdentified} maxlength="120" class="field mt-2" bind:value={itemType} /></label>
+            <label class="text-sm text-parchment-200 lg:col-span-2">Game <span class="text-parchment-300">({itemOrigin === 'character' && sourceGameMode ? "from the character's save" : itemOrigin === 'stash' && sourceGameMode ? 'from the shared stash' : 'Reign of the Warlock and Expansion players cannot trade with each other'})</span><select required disabled={itemOrigin === 'character' && Boolean(sourceGameMode)} class="field mt-2" bind:value={gameMode}><option value="" disabled>Choose the game this item is in</option>{#each tradeGameModes as mode}<option value={mode.value}>{mode.label}</option>{/each}</select></label>
             <label class="text-sm text-parchment-200">Quality<select disabled={!selectedItemIdentified} class="field mt-2" bind:value={quality}><option>Unidentified</option><option>Unique</option><option>Set</option><option>Runeword</option><option>Rare</option><option>Crafted</option><option>Magic</option><option>Normal</option></select></label>
             {#if selectedItemIdentified}
               <label class="text-sm text-parchment-200">Item level<input type="number" min="1" max="100" class="field mt-2" bind:value={selectedItem.itemLevel} /></label>

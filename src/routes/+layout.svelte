@@ -42,7 +42,7 @@
   <meta name="twitter:image" content={socialImage} />
 </svelte:head>
 
-<Header tradeEnabled={data.tradeEnabled} ladders={data.tradeLadders} />
+<Header tradeEnabled={data.tradeEnabled} />
 <RouteLoading />
 <main id="main-content">
   {#if $authState.user?.tradeBanned && isTradeRoute}

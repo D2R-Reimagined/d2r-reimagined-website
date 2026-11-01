@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildTradeLadders,
+  preferredTradePath,
   resolveTradeRealm,
   tradeLadderPath,
   tradeLadderSlug,
@@ -28,6 +29,23 @@ describe('trade ladder routes', () => {
   it('rejects stale saved ladder routes', () => {
     expect(validStoredTradePath('/trade/Reimagined2', ladders)).toBe('/trade/Reimagined2');
     expect(validStoredTradePath('/trade/OldSeason', ladders)).toBeNull();
+    expect(validStoredTradePath('/trade', ladders)).toBeNull();
+  });
+
+  it('lands a bare /trade visit on the saved realm, else the latest ladder', () => {
+    const now = new Date('2026-11-01T00:00:00Z');
+    const dated = buildTradeLadders([
+      { id: 'old', name: 'Season One', startDateUtc: '2026-01-01T00:00:00Z', endDateUtc: '2026-06-01T00:00:00Z' },
+      { id: 'cur', name: 'Season Two', startDateUtc: '2026-07-01T00:00:00Z', endDateUtc: '2027-01-01T00:00:00Z' },
+      { id: 'next', name: 'Season Three', startDateUtc: '2027-01-01T00:00:00Z', endDateUtc: '2027-06-01T00:00:00Z' }
+    ]);
+
+    expect(preferredTradePath(null, dated, now)).toBe('/trade/SeasonTwo');
+    expect(preferredTradePath('/trade/OldSeason', dated, now)).toBe('/trade/SeasonTwo');
+    expect(preferredTradePath('/trade', dated, now)).toBe('/trade/SeasonTwo');
+    expect(preferredTradePath('/trade/SeasonOne', dated, now)).toBe('/trade/SeasonOne');
+    expect(preferredTradePath('/trade/standard', dated, now)).toBe('/trade/standard');
+    expect(preferredTradePath(null, [], now)).toBeNull();
   });
 
   it('avoids collisions with reserved and duplicate routes', () => {
