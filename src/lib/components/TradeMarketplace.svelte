@@ -1,6 +1,7 @@
 <script lang="ts">
     import {onMount} from 'svelte';
     import {goto} from '$app/navigation';
+    import TradeItemSearch from '#lib/components/TradeItemSearch.svelte';
     import TradeListingCard from '#lib/components/TradeListingCard.svelte';
     import TradePropertyFilters from '#lib/components/TradePropertyFilters.svelte';
     import {authState, initializeAuth} from '#lib/auth.js';
@@ -64,12 +65,6 @@
         + [negotiable, ethereal, corrupted].filter(Boolean).length
         + activeTradePropertyCount(propertyGroups)
     );
-    let matchingNameOptions = $derived.by(() => {
-        const query = search.trim().toLowerCase();
-        if (query.length < 3) return [];
-        if (nameOptions.some((name) => name.toLowerCase() === query)) return [];
-        return nameOptions.filter((name) => name.toLowerCase().includes(query));
-    });
     let page = $derived(Math.floor(skip / pageSize) + 1);
     let pages = $derived(Math.max(1, Math.ceil(total / pageSize)));
 
@@ -238,16 +233,7 @@
                 <label for="trade-search" class="sr-only">Search item names and listings</label>
                 <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-parchment-300"
                       aria-hidden="true">⌕</span>
-                <input id="trade-search" list={matchingNameOptions.length ? 'trade-item-names' : undefined}
-                       class="field !py-3 !pl-11" placeholder="Search..."
-                       bind:value={search}/>
-                {#if matchingNameOptions.length}
-                    <datalist id="trade-item-names">
-                        {#each matchingNameOptions as name}
-                            <option value={name}></option>
-                        {/each}
-                    </datalist>
-                {/if}
+                <TradeItemSearch id="trade-search" names={nameOptions} placeholder="Search..." bind:value={search}/>
             </div>
             <button type="submit" class="trade-primary-button sm:min-w-28">Search</button>
             <button type="button" class="trade-secondary-button flex items-center justify-center gap-2"
