@@ -12,7 +12,7 @@
     { href: '/admin/servers', label: 'Servers', detail: 'Server settings, regions, and live logs' },
     { href: '/admin/global-chat', label: 'Global chat', detail: 'Chat live with players in game' },
     { href: '/admin/feedback', label: 'Feedback', detail: 'Bug reports and suggestions' },
-    { href: '/admin/chat-bans', label: 'Chat bans', detail: 'Ban players from global chat' },
+    { href: '/admin/chat-bans', label: 'Chat moderation', detail: 'Time out or ban players from global chat' },
     { href: '/admin/portals', label: 'Portal rewards', detail: 'Individual grants and supporter packs' },
     {
       href: '/admin/ladders',
@@ -90,7 +90,7 @@
         {:else}
           <div class="panel rounded-lg p-8">
             <h2 class="display-text text-2xl text-requirement">Access denied</h2>
-            <p class="mt-3 text-parchment-300">This page requires the Admin role. You can review reports in the Feedback tab and manage global chat bans in the Chat bans tab.</p>
+            <p class="mt-3 text-parchment-300">This page requires the Admin role. You can review reports in the Feedback tab and time out or ban players from global chat in the Chat moderation tab.</p>
           </div>
         {/if}
       </div>

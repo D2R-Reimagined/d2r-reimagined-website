@@ -385,10 +385,49 @@ export interface ChatBanUser {
   updatedBy: string | null;
   updatedByDisplayName: string | null;
   updatedAtUtc: string | null;
+  /** When the active timeout ends; null when the player is not timed out. */
+  timedOutUntilUtc: string | null;
+  /** Every timeout on record, so staff can spot repeat offenders. */
+  timeoutCount: number;
 }
 
 export interface ChatBanSearch extends AdminUserSearch {
   bannedOnly?: boolean;
+  timedOutOnly?: boolean;
+}
+
+// One global chat timeout. Automatic ones come from the API's slur filter:
+// no issuer, and the refused line in messageText.
+export interface ChatTimeout {
+  id: string;
+  source: 'Staff' | 'Automatic';
+  createdAtUtc: string;
+  expiresAtUtc: string;
+  reason: string;
+  issuedBy: string | null;
+  issuedByDisplayName: string | null;
+  messageText: string | null;
+  liftedAtUtc: string | null;
+  liftedBy: string | null;
+  liftedByDisplayName: string | null;
+  liftReason: string | null;
+  active: boolean;
+}
+
+export function getChatTimeouts(userId: string): Promise<ChatTimeout[]> {
+  return apiRequest<ChatTimeout[]>(`/admin/chat/timeouts/${userId}`, { cache: 'no-store' }, true);
+}
+
+export function timeOutChatUser(userId: string, durationMinutes: number, reason: string): Promise<ChatTimeout> {
+  return apiRequest<ChatTimeout>(`/admin/chat/timeouts/${userId}`, {
+    method: 'POST', body: JSON.stringify({ durationMinutes, reason })
+  }, true);
+}
+
+export function liftChatTimeout(userId: string, reason: string): Promise<ChatTimeout> {
+  return apiRequest<ChatTimeout>(`/admin/chat/timeouts/${userId}/lift`, {
+    method: 'POST', body: JSON.stringify({ reason })
+  }, true);
 }
 
 export interface ChatBanPage {
@@ -404,6 +443,7 @@ export function searchChatBans(query: ChatBanSearch = {}): Promise<ChatBanPage> 
   if (query.count !== undefined) parameters.set('count', String(query.count));
   if (query.search?.trim()) parameters.set('search', query.search.trim());
   if (query.bannedOnly) parameters.set('bannedOnly', 'true');
+  if (query.timedOutOnly) parameters.set('timedOutOnly', 'true');
   const suffix = parameters.size > 0 ? `?${parameters.toString()}` : '';
   return apiRequest<ChatBanPage>(`/admin/chat/bans${suffix}`, { cache: 'no-store' }, true);
 }
