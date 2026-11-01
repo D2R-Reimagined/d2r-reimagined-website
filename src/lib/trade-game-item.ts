@@ -76,6 +76,34 @@ function sameItem(item: SaveItem, game: GameItemPayload): boolean {
     && (item.seed === game.itemSeed || item.seed === game.generationSeed);
 }
 
+function hasFlag(item: SaveItem, name: string): boolean {
+  return Boolean(item.flags?.names?.some((flag) => flag.toLowerCase() === name));
+}
+
+// Remote TCP/IP clients (Ladder) receive 0 for itemSeed and generationSeed.
+// Match a synced save item when its attributes agree and the match is unique.
+function sameSeedlessItem(item: SaveItem, game: GameItemPayload): boolean {
+  if (item.codeText.toLowerCase() !== game.code.toLowerCase()) return false;
+  if (item.qualityId !== game.quality || item.itemLevel !== game.itemLevel) return false;
+  if ((game.quality === 5 || game.quality === 7) && (item.qualityData?.fileIndex ?? -1) !== game.qualityRecord) return false;
+  if (item.flags?.names) {
+    if (hasFlag(item, 'identified') !== game.identified) return false;
+    if (hasFlag(item, 'ethereal') !== game.ethereal) return false;
+  }
+  if ((item.sockets?.length ?? 0) !== game.sockets) return false;
+  if (game.maxDurability > 0 && ((item.maximumDurability ?? 0) !== game.maxDurability || (item.durability ?? 0) !== game.durability)) {
+    return false;
+  }
+  if (game.stats.length > 0 && Array.isArray(item.stats)) {
+    for (const saved of item.stats) {
+      if (saved.id === 31 || saved.id === 70 || saved.id === 72 || saved.id === 73 || saved.id === 194) continue;
+      const found = game.stats.find(([id, layer]) => id === saved.id && layer === saved.layer);
+      if (found && found[2] !== saved.value) return false;
+    }
+  }
+  return true;
+}
+
 function characterItems(entry: CharacterDetailsResponse): SaveItem[] {
   return [...(entry.save?.items.entries ?? []), ...(entry.save?.mercenaryItems?.entries ?? [])];
 }
@@ -97,6 +125,26 @@ export function findGameItemInInventory(inventory: TradeInventory | null, game: 
       const item = tab.items.find((candidate) => sameItem(candidate, game));
       if (item) return { source: 'stash', fileName: stash.fileName, tabIndex: tab.index, item };
     }
+  }
+  if (game.itemSeed === 0 && game.generationSeed === 0) {
+    const matches: GameItemMatch[] = [];
+    for (const entry of inventory.characters) {
+      for (const candidate of characterItems(entry)) {
+        if (sameSeedlessItem(candidate, game)) {
+          matches.push({ source: 'character', characterId: entry.character.id, item: candidate });
+        }
+      }
+    }
+    for (const stash of inventory.sharedStashes) {
+      for (const tab of stash.tabs) {
+        for (const candidate of tab.items) {
+          if (sameSeedlessItem(candidate, game)) {
+            matches.push({ source: 'stash', fileName: stash.fileName, tabIndex: tab.index, item: candidate });
+          }
+        }
+      }
+    }
+    if (matches.length === 1) return matches[0];
   }
   return null;
 }

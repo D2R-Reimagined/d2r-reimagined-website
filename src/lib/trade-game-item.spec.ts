@@ -84,4 +84,25 @@ describe('matching a game item to synced saves', () => {
     expect(findGameItemInInventory(inventory([saveItem('amu', 3000000001)]), game)).toBeNull();
     expect(findGameItemInInventory(null, game)).toBeNull();
   });
+
+  it('matches a unique synced-save candidate on Ladder when client seeds are zero', () => {
+    const ladderGame: GameItemPayload = {
+      ...game,
+      itemSeed: 0,
+      generationSeed: 0
+    };
+    const saved: SaveItem = {
+      codeText: 'rin',
+      seed: 4176152931,
+      qualityId: 7,
+      itemLevel: 85,
+      qualityData: { type: 'SetUniqueQualityData', fileIndex: 122, properties: {} },
+      flags: { value: 0x10, names: ['Identified'] },
+      sockets: [],
+      stats: [{ id: 7, name: 'maxhp', layer: 0, value: 2560 }]
+    } as unknown as SaveItem;
+    expect(findGameItemInInventory(inventory([saved]), ladderGame)).toMatchObject({ source: 'character', characterId: 'char-1' });
+    // Two identical seedless candidates remain ambiguous rather than guessing.
+    expect(findGameItemInInventory(inventory([saved, saved]), ladderGame)).toBeNull();
+  });
 });
