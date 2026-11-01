@@ -1,7 +1,7 @@
 <script lang="ts">
   import SearchableMultiSelect from '#lib/components/SearchableMultiSelect.svelte';
   import { values, type MultiValue } from '#lib/loot-filter/types.js';
-  type Option = { value: string; label: string; description?: string };
+  type Option = { value: string; label: string; description?: string; search?: string };
   let { id, label, options, value, onchange, manual = true }: {
     id: string; label: string; options: Option[];
     value?: MultiValue; onchange: (value: MultiValue | undefined) => void; manual?: boolean;

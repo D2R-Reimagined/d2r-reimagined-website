@@ -43,10 +43,16 @@
 
   const names = $derived(catalog.baseNames.map(value => ({ value, label: value })));
   const types = $derived(catalog.itemTypes.map(value => {
-    const display = catalog.itemTypeNames?.get(value);
-    const label = display && display !== value ? `${display} (${value})` : value;
-    return { value, label, description: label };
-  }));
+    const label = catalog.itemTypeNames?.get(value) || value;
+    const extraSearch = catalog.itemTypeSearchTerms?.get(value);
+    return { value, label, search: extraSearch ? `${value} ${extraSearch}` : value };
+  }).sort((a, b) => a.label.localeCompare(b.label)));
+  const selectedItemTypes = $derived.by(() => {
+    const raw = block.conditions?.itemType;
+    if (raw === undefined) return undefined;
+    const mapped = [...new Set(values(raw).map(v => catalog.itemTypeAliases?.get(v) ?? v))];
+    return Array.isArray(raw) || mapped.length > 1 ? mapped : mapped[0];
+  });
   const tiers = $derived(M.TIERS.map((value: string) => ({
     value,
     label: `${value[0].toUpperCase()}${value.slice(1)}`,
@@ -114,7 +120,7 @@
       <StringCondition id="filter-base" label="Base name" options={names} value={block.conditions?.baseName} onchange={value => condition('baseName', value)} />
     </div>
     <div class="grid gap-4 sm:grid-cols-3">
-      <StringCondition id="filter-type" label="Item type" options={types} value={block.conditions?.itemType} onchange={value => condition('itemType', value)} />
+      <StringCondition id="filter-type" label="Item type" options={types} value={selectedItemTypes} onchange={value => condition('itemType', value)} />
       <StringCondition id="filter-tier" label="Equipment tier" options={tiers} value={block.conditions?.tier} onchange={value => condition('tier', value)} manual={false} />
       <StringCondition id="filter-rarity" label="Rarity" options={M.RARITIES.map((value: string) => ({ value, label: value }))} value={block.conditions?.rarity} onchange={value => condition('rarity', value)} manual={false} />
     </div>

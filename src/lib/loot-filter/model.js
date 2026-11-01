@@ -171,13 +171,15 @@ const model = (() => {
           map.get(ancestor).add(itemCode);
         }));
       }
+      const activeTypeCodes = [...map.keys()].sort((a,b) => a.localeCompare(b));
       for (const [name, typeCodes] of names) {
         if (map.has(name) && typeRows.has(name)) continue;
-        if (!map.has(name)) map.set(name, new Set());
-        typeCodes.forEach(type => (map.get(type) || new Set()).forEach(code => map.get(name).add(code)));
+        const set = map.get(name) || new Set();
+        typeCodes.forEach(type => (map.get(type) || new Set()).forEach(code => set.add(code)));
+        if (set.size) map.set(name, set);
       }
       catalog.itemTypeMap = map;
-      catalog.itemTypes = [...map.keys()].sort((a,b) => a.localeCompare(b));
+      catalog.itemTypes = activeTypeCodes;
     }
 
     const addEnrichment = (kind, table, target) => {
@@ -308,7 +310,7 @@ const model = (() => {
               if ((key === 'baseName' || key === 'itemType') && (v.length > 127 || /[\t\r\n]/.test(v))) errors.push(`${p}.conditions.${key} values must be <=127 characters without tabs/newlines.`);
             });
             if (catalog && key === 'baseName' && catalog.baseNames.length) values.filter(v => !catalog.baseNames.includes(v)).forEach(v => warnings.push(`${p}: baseName “${v}” is not present in the loaded weapons/armor tables.`));
-            if (catalog && key === 'itemType' && catalog.itemTypes.length) values.filter(v => !catalog.itemTypes.includes(v)).forEach(v => warnings.push(`${p}: itemType “${v}” is not present in the loaded ItemTypes catalog.`));
+            if (catalog && key === 'itemType' && catalog.itemTypes.length) values.filter(v => !(catalog.itemTypeMap ? catalog.itemTypeMap.has(v) : catalog.itemTypes.includes(v))).forEach(v => warnings.push(`${p}: itemType “${v}” is not present in the loaded ItemTypes catalog.`));
           });
           if (hasDefined(c, 'tier')) {
             const values = asArray(c.tier);
