@@ -4,7 +4,7 @@
   import { authState } from '#lib/auth.js';
   import { canManageServers } from '#lib/admin-access.js';
   import {
-    getServerConfigurations, getServerRegions, createServerConfiguration, updateServerConfiguration,
+    getServerConfigurations, getServerRegions, createServerConfiguration, updateServerConfiguration, deleteServerConfiguration,
     createServerRegion, updateServerRegion, deleteServerRegion, serverConfigurationInput, serverRegionInput,
     serverDraft, serverLabel, MAX_GAMES_PER_SERVER, DEFAULT_MAX_GAMES, MAX_INSTANCES_PER_SERVER, type ServerConfiguration, type ServerRegion, type ServerDraft
   } from '#lib/server-registry.js';
@@ -91,6 +91,19 @@
     } catch (e) { if (mounted) error = problem(e); }
     finally { if (mounted) saving = false; }
   }
+  async function removeServer(server: ServerConfiguration): Promise<void> {
+    if (!allowed || saving || server.enabled) return;
+    if (!confirm(`Delete ${serverLabel(server)}? It leaves the registry and monitoring, and any claims it still holds are released. `
+      + 'Its key stops working for good; adding the box back means registering it again.')) return;
+    error = ''; notice = ''; saving = true;
+    try {
+      await deleteServerConfiguration(server.id); if (!mounted) return;
+      servers = servers.filter(s => s.id !== server.id);
+      if (editingId === server.id) { editingId = null; formOpen = false; draft = emptyServer(); }
+      await changed(`${serverLabel(server)} deleted.`);
+    } catch (e) { if (mounted) error = problem(e); }
+    finally { if (mounted) saving = false; }
+  }
   function editRegion(region: ServerRegion): void {
     editingRegionId = region.id; regionDraft = { ...region }; error = ''; notice = '';
   }
@@ -141,7 +154,7 @@
         {#each sortedServers as server (server.id)}
           <div class="flex min-w-0 flex-wrap items-center justify-between gap-3 rounded-lg border border-parchment-300/15 p-3">
             <div class="min-w-0 flex-1"><p class="break-words text-sm text-parchment-50"><span class="font-semibold">{serverLabel(server)}</span> <span class={`ml-2 text-xs ${server.enabled && server.acceptingGames !== false ? 'text-emerald-300' : 'text-amber-300'}`}>{!server.enabled ? 'Disabled' : server.acceptingGames === false ? 'Draining' : 'Enabled'}</span></p><p class="mt-1 break-words text-xs text-parchment-300">{server.publicAddress} · {ladderName(server.ladderId)} · {(server.instances ?? 1) > 1 ? `${server.instances} instances × max ${server.maxGames ?? DEFAULT_MAX_GAMES} games` : `max ${server.maxGames ?? DEFAULT_MAX_GAMES} games`}</p><p class="mt-1 break-words text-xs text-parchment-300">{regionNames(server.regionIds)}</p></div>
-            <button class="control" disabled={saving} aria-label={`Edit server ${serverLabel(server)}`} onclick={() => editServer(server)}>Edit</button>
+            <div class="flex gap-2"><button class="control" disabled={saving} aria-label={`Edit server ${serverLabel(server)}`} onclick={() => editServer(server)}>Edit</button><button class="control" disabled={saving || server.enabled} aria-label={`Delete server ${serverLabel(server)}`} title={server.enabled ? 'Disable this server before deleting it.' : 'Delete this decommissioned server'} onclick={() => void removeServer(server)}>Delete</button></div>
           </div>
         {/each}
       </div>

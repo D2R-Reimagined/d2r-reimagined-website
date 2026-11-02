@@ -37,6 +37,9 @@ export const createServerConfiguration = (input: ServerConfigurationInput) =>
 export const updateServerConfiguration = (input: ServerConfigurationInput) =>
   apiRequest<ServerConfiguration>(`/admin/servers/configuration/${encodeURIComponent(input.id)}`,
     { method: 'PUT', body: JSON.stringify(input) }, true);
+/** Removes a decommissioned box; the API refuses one that is still enabled. */
+export const deleteServerConfiguration = (id: string) =>
+  apiRequest<void>(`/admin/servers/configuration/${encodeURIComponent(id)}`, { method: 'DELETE' }, true);
 export const createServerRegion = (input: ServerRegion) =>
   apiRequest<ServerRegion>('/admin/regions', { method: 'POST', body: JSON.stringify(input) }, true);
 export const updateServerRegion = (input: ServerRegion) =>
