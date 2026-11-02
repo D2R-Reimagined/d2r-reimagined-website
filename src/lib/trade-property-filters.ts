@@ -85,9 +85,9 @@ const variantSuffixes: ReadonlyArray<readonly [RegExp, string]> = [
   [/_bytime$/i, 'Over Time']
 ];
 
-// Replaced by one option per class, tab, skill or aura. item_nonclassskill_display only
-// mirrors item_nonclassskill, which every oskill carries.
-const layeredStats = new Set([
+// Omitted from the flat stat pass: layered stats are expanded per class, tab, skill or aura,
+// item_nonclassskill_display mirrors item_nonclassskill, and charm_weight is not a trade filter.
+const excludedStats = new Set([
   'charm_weight',
   'item_addclassskills',
   'item_addskill_tab',
@@ -96,10 +96,9 @@ const layeredStats = new Set([
   'item_singleskill'
 ]);
 
-// The skill export does not mark auras, so these are the ids item lines use.
+// The skill export does not mark auras, so these are the Paladin aura skill ids item lines use.
 const itemAuraSkillIds = [
-  98, 99, 100, 102, 103, 104, 105, 108, 109, 113, 114, 115, 118, 119, 120, 122, 123, 124, 125,
-  420, 423, 424, 425, 489, 544, 545, 546
+  98, 99, 100, 102, 103, 104, 105, 108, 109, 113, 114, 115, 118, 119, 120, 122, 123, 124, 125
 ];
 
 const compoundProperties = [
@@ -209,7 +208,7 @@ export function tradePropertyDefinitions(
 
   return [
     ...Object.entries(bundle.Stats)
-      .filter(([stat, entry]) => Boolean(entry.PositiveKey) && !layeredStats.has(stat))
+      .filter(([stat, entry]) => Boolean(entry.PositiveKey) && !excludedStats.has(stat))
       .map(([stat, entry]) => ({
         stat,
         labelKey: entry.PositiveKey!,

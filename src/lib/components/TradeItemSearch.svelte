@@ -24,9 +24,10 @@
     const starts = (name: string) => Number(name.toLowerCase().startsWith(query));
     return matches
       .sort((left, right) => starts(right) - starts(left))
+      .slice(0, 50)
       .map((name) => ({ id: name, label: name }));
   });
-  let activeId = $derived(open && activeIndex >= 0 ? `${id}-option-${activeIndex}` : undefined);
+  let activeId = $derived(open && activeIndex >= 0 && activeIndex < items.length ? `${id}-option-${activeIndex}` : undefined);
 
   function close(): void {
     open = false;

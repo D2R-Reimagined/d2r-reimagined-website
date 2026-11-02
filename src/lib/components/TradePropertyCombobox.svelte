@@ -28,7 +28,7 @@
 
   // Reopening a completed field offers every property rather than only the chosen one.
   let results = $derived(searchTradePropertyOptions(options, browsing ? '' : query));
-  let activeId = $derived(open && activeIndex >= 0 ? `${id}-option-${activeIndex}` : undefined);
+  let activeId = $derived(open && activeIndex >= 0 && activeIndex < results.length ? `${id}-option-${activeIndex}` : undefined);
   let needsChoice = $derived(!open && !loading && Boolean(query.trim()) && !selected);
 
   function choose(option: TradePropertyOption): void {
@@ -43,7 +43,7 @@
     onselect(exact);
     browsing = false;
     open = true;
-    activeIndex = query.trim() ? 0 : -1;
+    activeIndex = query.trim() && results.length ? 0 : -1;
   }
 
   function handleFocus(event: FocusEvent): void {
