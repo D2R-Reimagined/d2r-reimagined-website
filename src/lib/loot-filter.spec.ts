@@ -48,7 +48,29 @@ describe('Reimagined Pyre Loot Filter catalog', () => {
         { Code: 'alt', TypeNameSelector: 'Other', ParentCode: '', ParentCode2: '' }], UniqueItems: [], SetItems: []
     }, {});
     expect(c.baseNames).toEqual([' Literal ']);
+    expect(c.itemTypes).toEqual(['alt', 'leaf', 'root']);
     for (const type of ['leaf', ' Leaf ', 'root', 'Root', 'alt', 'Other']) expect([...c.itemTypeMap.get(type)!]).toEqual(['abc']);
+  });
+  it('exposes one canonical code per selectable item type with clean in-game labels', () => {
+    const labels = catalog.itemTypes.map(code => catalog.itemTypeNames?.get(code));
+    expect(new Set(labels).size).toBe(labels.length);
+    for (const hidden of ['none', 'cloa', 'afwe', 'h2h2', 'Boots', 'Missile', 'Weapon']) {
+      expect(catalog.itemTypes).not.toContain(hidden);
+    }
+    expect(catalog.itemTypeNames?.get('boot')).toBe('Boots');
+    expect(catalog.itemTypeNames?.get('misl')).toBe('Arrows / Bolts');
+    expect(catalog.itemTypeNames?.get('bowq')).toBe('Bow Quiver');
+    expect(catalog.itemTypeNames?.get('xboq')).toBe('Crossbow Quiver');
+    expect(catalog.itemTypeNames?.get('helm')).toBe('Helm');
+    expect(catalog.itemTypeNames?.get('merc')).toBe('Mercenary Equipment');
+    expect(catalog.itemTypeNames?.get('mcha')).toBe('Large Charm');
+    expect(catalog.itemTypeNames?.get('lcha')).toBe('Grand Charm');
+    expect(catalog.itemTypeAliases?.get('Boots')).toBe('boot');
+    expect(catalog.itemTypeAliases?.get('Missile')).toBe('misl');
+    expect(catalog.itemTypeAliases?.get('Weapon')).toBe('weap');
+    expect(catalog.itemTypeAliases?.get('Gem')).toBe('gem');
+    expect(catalog.itemTypeNames?.get('Missile')).toBe('Arrows / Bolts');
+    expect(M.validateFilter({ version: 3, rules: [{ show: { conditions: { itemType: ['boot', 'Boots', 'misl', 'Missile'] } } }] }, catalog).warnings).toEqual([]);
   });
   it('rejects unsupported catalog schemas', () => {
     expect(() => adapt({ ...bundle, SchemaVersion: 99 }, strings)).toThrow(/Unsupported/);

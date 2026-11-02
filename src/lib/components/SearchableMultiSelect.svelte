@@ -1,5 +1,5 @@
 <script lang="ts">
-  type Option = { value: string; label: string; description?: string };
+  type Option = { value: string; label: string; description?: string; search?: string };
 
   let { id, label, placeholder, options, value = $bindable([]) }: {
     id: string;
@@ -15,7 +15,7 @@
   let popup: HTMLDivElement;
   let searchInput: HTMLInputElement;
   let popupStyle = $state('');
-  const matches = $derived(options.filter((option) => `${option.label} ${option.description ?? ''}`.toLocaleLowerCase().includes(query.toLocaleLowerCase())));
+  const matches = $derived(options.filter((option) => `${option.label} ${option.description ?? ''} ${option.search ?? ''}`.toLocaleLowerCase().includes(query.toLocaleLowerCase())));
   const selectedLabels = $derived(value.map((selected) => options.find((option) => option.value === selected)?.label ?? selected));
   const summary = $derived(value.length > 2 ? `${value.length} selected` : selectedLabels.join(', ') || placeholder);
 

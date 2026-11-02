@@ -43,6 +43,8 @@ export interface Catalog {
   itemTypes: string[];
   itemTypeMap: Map<string, Set<string>>;
   itemTypeNames?: Map<string, string>;
+  itemTypeSearchTerms?: Map<string, string>;
+  itemTypeAliases?: Map<string, string>;
 }
 export const values = (value?: MultiValue): string[] => value === undefined ? [] : Array.isArray(value) ? value : [value];
 export const blockOf = (rule: Rule): RuleBlock => rule.show ?? rule.hide!;
