@@ -149,6 +149,7 @@
     <div id="server-configuration-body" hidden={!configurationOpen}>
     {#if loading}<p class="mt-4 text-sm text-parchment-300">Loading server configuration…</p>
     {:else}
+      {#if formOpen && editingId === null}<div class="mt-4">{@render serverForm()}</div>{/if}
       <div class="mt-4 space-y-2" aria-label="Configured servers">
         {#if !servers.length}<p class="rounded-lg border border-parchment-300/15 p-4 text-sm text-parchment-300">No servers registered yet. Create regions below, then add your first server.</p>{/if}
         {#each sortedServers as server (server.id)}
@@ -156,10 +157,34 @@
             <div class="min-w-0 flex-1"><p class="break-words text-sm text-parchment-50"><span class="font-semibold">{serverLabel(server)}</span> <span class={`ml-2 text-xs ${server.enabled && server.acceptingGames !== false ? 'text-emerald-300' : 'text-amber-300'}`}>{!server.enabled ? 'Disabled' : server.acceptingGames === false ? 'Draining' : 'Enabled'}</span></p><p class="mt-1 break-words text-xs text-parchment-300">{server.publicAddress} · {ladderName(server.ladderId)} · {(server.instances ?? 1) > 1 ? `${server.instances} instances × max ${server.maxGames ?? DEFAULT_MAX_GAMES} games` : `max ${server.maxGames ?? DEFAULT_MAX_GAMES} games`}</p><p class="mt-1 break-words text-xs text-parchment-300">{regionNames(server.regionIds)}</p></div>
             <div class="flex gap-2"><button class="control" disabled={saving} aria-label={`Edit server ${serverLabel(server)}`} onclick={() => editServer(server)}>Edit</button><button class="control" disabled={saving || server.enabled} aria-label={`Delete server ${serverLabel(server)}`} title={server.enabled ? 'Disable this server before deleting it.' : 'Delete this decommissioned server'} onclick={() => void removeServer(server)}>Delete</button></div>
           </div>
+          {#if formOpen && editingId === server.id}{@render serverForm()}{/if}
         {/each}
       </div>
-      {#if formOpen}
-        <form class="mt-4 rounded-lg border border-ember-400/40 p-4" onsubmit={saveServer} aria-label={editingId ? `Edit server ${editingId}` : 'Add server'}>
+      <details class="mt-5 border-t border-parchment-300/15 pt-4" bind:open={regionsOpen}>
+        <summary class="display-text cursor-pointer text-lg text-parchment-50">Regions <span class="text-sm text-parchment-300">({regions.length})</span></summary>
+        <p class="mt-2 text-sm text-parchment-300">A region can contain multiple servers, and each server can serve multiple regions.</p>
+        <form onsubmit={saveRegion} aria-label={editingRegionId ? `Edit region ${editingRegionId}` : 'Add region'} class="mt-3">
+          <fieldset disabled={saving} class="grid min-w-0 items-end gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto]">
+            <label class="label">Region code<input class="field" bind:value={regionDraft.id} required maxlength="32" disabled={editingRegionId !== null} placeholder="na-east" /></label>
+            <label class="label">Region name<input class="field" bind:value={regionDraft.name} required maxlength="100" placeholder="North America East" /></label>
+            <div class="flex gap-2"><button type="submit" class="control primary">{editingRegionId ? 'Save region' : 'Add region'}</button>{#if editingRegionId}<button type="button" class="control" onclick={resetRegion}>Cancel</button>{/if}</div>
+          </fieldset>
+        </form>
+        <div class="mt-3 space-y-2">{#each sortedRegions as region (region.id)}
+          <div class="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-parchment-300/15 p-3">
+            <div class="min-w-0 flex-1"><p class="break-words text-sm text-parchment-50">{region.name}</p><p class="mt-1 break-words text-xs text-parchment-300">{region.id} · {assignedCount(region.id)} server{assignedCount(region.id) === 1 ? '' : 's'}</p></div>
+            <div class="flex gap-2"><button class="control" aria-label={`Edit region ${region.name}`} disabled={saving} onclick={() => editRegion(region)}>Edit</button><button class="control" aria-label={`Delete region ${region.name}`} disabled={saving || assignedCount(region.id) > 0} title={assignedCount(region.id) ? 'Remove this region from its servers before deleting it.' : 'Delete this unassigned region'} onclick={() => void removeRegion(region)}>Delete</button></div>
+          </div>
+        {/each}</div>
+      </details>
+    {/if}
+    </div>
+  </section>
+{/if}
+
+<!-- Opens under the server being edited, or above the list for a new one, so nobody scrolls past every server to reach it. -->
+{#snippet serverForm()}
+        <form class="rounded-lg border border-ember-400/40 p-4" onsubmit={saveServer} aria-label={editingId ? `Edit server ${editingId}` : 'Add server'}>
           <fieldset disabled={saving} class="min-w-0"><legend class="display-text text-lg text-parchment-50">{editingId ? `Edit ${editingId}` : 'New server'}</legend>
             <div class="mt-3 grid gap-3 sm:grid-cols-2">
               <label class="label">Server ID<input class="field" bind:value={draft.id} required maxlength="64" disabled={editingId !== null} placeholder="na-1" /></label>
@@ -184,28 +209,7 @@
             <div class="mt-4 flex gap-2"><button type="submit" class="control primary">{saving ? 'Saving…' : 'Save server'}</button><button type="button" class="control" onclick={() => { formOpen = false; draft.keySha256 = ''; }}>Cancel</button></div>
           </fieldset>
         </form>
-      {/if}
-      <details class="mt-5 border-t border-parchment-300/15 pt-4" bind:open={regionsOpen}>
-        <summary class="display-text cursor-pointer text-lg text-parchment-50">Regions <span class="text-sm text-parchment-300">({regions.length})</span></summary>
-        <p class="mt-2 text-sm text-parchment-300">A region can contain multiple servers, and each server can serve multiple regions.</p>
-        <form onsubmit={saveRegion} aria-label={editingRegionId ? `Edit region ${editingRegionId}` : 'Add region'} class="mt-3">
-          <fieldset disabled={saving} class="grid min-w-0 items-end gap-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto]">
-            <label class="label">Region code<input class="field" bind:value={regionDraft.id} required maxlength="32" disabled={editingRegionId !== null} placeholder="na-east" /></label>
-            <label class="label">Region name<input class="field" bind:value={regionDraft.name} required maxlength="100" placeholder="North America East" /></label>
-            <div class="flex gap-2"><button type="submit" class="control primary">{editingRegionId ? 'Save region' : 'Add region'}</button>{#if editingRegionId}<button type="button" class="control" onclick={resetRegion}>Cancel</button>{/if}</div>
-          </fieldset>
-        </form>
-        <div class="mt-3 space-y-2">{#each sortedRegions as region (region.id)}
-          <div class="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-parchment-300/15 p-3">
-            <div class="min-w-0 flex-1"><p class="break-words text-sm text-parchment-50">{region.name}</p><p class="mt-1 break-words text-xs text-parchment-300">{region.id} · {assignedCount(region.id)} server{assignedCount(region.id) === 1 ? '' : 's'}</p></div>
-            <div class="flex gap-2"><button class="control" aria-label={`Edit region ${region.name}`} disabled={saving} onclick={() => editRegion(region)}>Edit</button><button class="control" aria-label={`Delete region ${region.name}`} disabled={saving || assignedCount(region.id) > 0} title={assignedCount(region.id) ? 'Remove this region from its servers before deleting it.' : 'Delete this unassigned region'} onclick={() => void removeRegion(region)}>Delete</button></div>
-          </div>
-        {/each}</div>
-      </details>
-    {/if}
-    </div>
-  </section>
-{/if}
+{/snippet}
 
 <style>
   .label { display: block; min-width: 0; color: #bcab89; font-size: .75rem; }
