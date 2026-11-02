@@ -11,6 +11,7 @@
     formatDate,
     formatMoney,
     goalPosition,
+    goalsFor,
     monthLabel,
     nextGoal,
     productHighlights,
@@ -27,7 +28,7 @@
   const products = $derived(data.products);
   const currency = $derived(summary?.currency ?? 'usd');
   const total = $derived(summary?.monthlyTotal ?? 0);
-  const goals = $derived(summary?.goals ?? []);
+  const goals = $derived(goalsFor(total));
   const upcoming = $derived(nextGoal(total, goals));
   const percent = $derived(progressPercent(total, goals));
   const checkoutState = $derived(page.url.searchParams.get('checkout'));
@@ -225,7 +226,7 @@
           >
             <div class="progress-fill h-full rounded-full" style={`width: ${percent}%`}></div>
           </div>
-          {#each goals as goal (goal.amount)}
+          {#each goals as goal (`${goal.amount}:${goal.name}`)}
             <div class="absolute top-0 -translate-x-1/2" style={`left: ${goalPosition(goal, goals)}%`}>
               <div class={`h-4 w-0.5 ${goal.reached ? 'bg-parchment-50' : 'bg-parchment-300/50'}`}></div>
               <span class={`absolute top-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs ${goal.reached ? 'text-ember-400' : 'text-parchment-300'}`}>
@@ -327,7 +328,7 @@
     <h2 class="display-text mt-14 text-3xl">Monthly server goals</h2>
     <p class="mt-2 text-parchment-300">Each goal is a recurring monthly cost. Reaching it keeps that server region running.</p>
     <ol class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-      {#each goals as goal (goal.amount)}
+      {#each goals as goal (`${goal.amount}:${goal.name}`)}
         <li class={`panel flex gap-4 rounded-lg p-5 ${goal.reached ? 'border-ember-400/55' : ''}`}>
           {#if goal.reached}
             <CheckCircleSolid class="mt-1 h-6 w-6 shrink-0 text-ember-400" aria-hidden="true" />

@@ -20,9 +20,33 @@ export interface SupportSummary {
   periodEndUtc: string;
   monthlyTotal: number;
   sources: SupportSource[];
-  goals: SupportGoal[];
   checkoutEnabled: boolean;
   updatedAtUtc: string;
+}
+
+/**
+ * The monthly server goals, owned by the website so changing them needs no API deploy.
+ * The API's own `goals` list is ignored. Each amount is the running monthly cost.
+ */
+export const supportGoals: ReadonlyArray<Omit<SupportGoal, 'reached'>> = [
+  { amount: 300, name: 'Keep Lights On', description: 'Servers continue to run' },
+  { amount: 350, name: 'US East 1', description: 'Keeps our first US East game server online.' },
+  { amount: 390, name: 'US East 2', description: 'A second US East server for peak hours.' },
+  { amount: 430, name: 'US West 1 (LA)', description: 'Lower latency for West Coast players.' },
+  { amount: 470, name: 'Frankfurt, Germany 1', description: 'A European server hosted in Warsaw.' },
+  { amount: 560, name: 'South Korea', description: 'An Asia server hosted in South Korea.' },
+  { amount: 620, name: 'Sydney, Australia', description: 'An Oceania server hosted in Sydney.' },
+  { amount: 660, name: 'US Central 1 (TX)', description: 'First US Central Server' },
+  { amount: 700, name: 'Frankfurt, Germany 2', description: 'Second Germany Server' },
+  { amount: 765, name: 'São Paulo, Brazil', description: 'First South American Server' },
+  { amount: 805, name: 'Frankfurt, Germany 3', description: 'Third Germany Server' },
+  { amount: 845, name: 'Frankfurt, Germany 4', description: 'Fourth Germany Server' },
+  { amount: 885, name: 'US West 2 (Utah)', description: 'Lower latency for West Coast players.' }
+];
+
+/** The goals in amount order, each marked reached against this month's total. */
+export function goalsFor(total: number, goals: ReadonlyArray<Omit<SupportGoal, 'reached'>> = supportGoals): SupportGoal[] {
+  return [...goals].sort((a, b) => a.amount - b.amount).map((goal) => ({ ...goal, reached: total >= goal.amount }));
 }
 
 export interface SupportProduct {

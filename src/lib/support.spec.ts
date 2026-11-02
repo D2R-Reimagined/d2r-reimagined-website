@@ -5,12 +5,14 @@ import {
   formatDate,
   formatMoney,
   goalPosition,
+  goalsFor,
   monthLabel,
   nextGoal,
   productHighlights,
   progressPercent,
   purchaseStatusLabel,
   sourceLabel,
+  supportGoals,
   type SupportGoal,
   type SupportPurchase
 } from './support';
@@ -38,6 +40,18 @@ describe('support goals', () => {
 
   it('places goals along the bar', () => {
     expect(goalPosition(goals[1], goals)).toBe(20);
+  });
+
+  it('sorts the website goals and marks them against the total', () => {
+    const marked = goalsFor(390, goals);
+    expect(marked.map((goal) => goal.name)).toEqual(['US East 1', 'US East 2', 'Sydney']);
+    expect(marked.map((goal) => goal.reached)).toEqual([true, true, true]);
+    expect(goalsFor(89, goals).map((goal) => goal.reached)).toEqual([true, false, false]);
+  });
+
+  it('keeps every website goal amount unique', () => {
+    const amounts = supportGoals.map((goal) => goal.amount);
+    expect(new Set(amounts).size).toBe(amounts.length);
   });
 
   it('finds the next unreached goal in amount order', () => {
