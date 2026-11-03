@@ -4,6 +4,7 @@
     import TradeItemSearch from '#lib/components/TradeItemSearch.svelte';
     import TradeListingCard from '#lib/components/TradeListingCard.svelte';
     import TradePropertyFilters from '#lib/components/TradePropertyFilters.svelte';
+    import {tradeStatHighlights} from '#lib/trade-stat-highlights.js';
     import {authState, initializeAuth} from '#lib/auth.js';
     import {openTradeChat} from '#lib/trade-chat.js';
     import {loadCatalog} from '#lib/catalog-sources.js';
@@ -36,7 +37,7 @@
 
     const pageSize = 24;
     const listingLayoutStorageKey = 'trade-listing-layout';
-    type ListingLayout = 'columns' | 'rows';
+    type ListingLayout = 'compact' | 'columns' | 'rows';
     // svelte-ignore state_referenced_locally
     const initialListings = data.initialListings;
     let listings = $state<TradeListing[]>(initialListings?.items ?? []);
@@ -62,7 +63,9 @@
     let offerText = $state('');
     let offering = $state(false);
     let notice = $state('');
-    let listingLayout = $state<ListingLayout>('columns');
+    let listingLayout = $state<ListingLayout>('compact');
+    // Stats from the filters behind the listings on screen, so matching lines can glow.
+    let statHighlights = $state(new Set<string>());
     // Not one of the Filters: RotW and Expansion players cannot meet in game, so
     // this decides which listings are reachable at all. Remembered per browser.
     // svelte-ignore state_referenced_locally
@@ -109,7 +112,9 @@
         loading = true;
         error = '';
         try {
-            const response = await getTradeListings(filters(nextSkip));
+            const applied = filters(nextSkip);
+            const response = await getTradeListings(applied);
+            statHighlights = tradeStatHighlights(applied.propertyGroups);
             listings = response.items;
             total = response.total;
             skip = response.skip;
@@ -135,6 +140,8 @@
         propertyGroups = [createTradePropertyGroup()];
         void load(0);
     }
+
+    const layoutGrid = $derived(listingLayout === 'compact' ? 'md:grid-cols-2 xl:grid-cols-3' : listingLayout === 'columns' ? 'md:grid-cols-2' : '');
 
     function chooseListingLayout(layout: ListingLayout): void {
         listingLayout = layout;
@@ -190,7 +197,7 @@
     onMount(async () => {
         try {
             const savedLayout = localStorage.getItem(listingLayoutStorageKey);
-            if (savedLayout === 'columns' || savedLayout === 'rows') listingLayout = savedLayout;
+            if (savedLayout === 'compact' || savedLayout === 'columns' || savedLayout === 'rows') listingLayout = savedLayout;
             // Remembered so the next bare /trade visit lands back on this realm.
             if (data.realm.kind !== 'all') localStorage.setItem(lastTradeRealmStorageKey, data.realm.path);
         } catch { /* storage is optional */ }
@@ -219,7 +226,7 @@
 
 <section
         class="border-b border-parchment-300/15 bg-[radial-gradient(circle_at_top,_rgba(123,29,24,0.2),_transparent_55%)]">
-    <div class="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 sm:py-10">
+    <div class="mx-auto max-w-screen-2xl px-4 py-5 sm:px-6 sm:py-6">
         <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
                 <div class="flex flex-wrap items-center gap-3 sm:gap-12 lg:gap-24">
@@ -259,7 +266,7 @@
             </div>
         </div>
 
-        <form class="mt-7 flex flex-col gap-3 sm:flex-row"
+        <form class="mt-4 flex flex-col gap-3 sm:flex-row"
               onsubmit={(event) => { event.preventDefault(); void load(0); }}>
             <div class="relative min-w-0 flex-1">
                 <label for="trade-search" class="sr-only">Search item names and listings</label>
@@ -322,7 +329,7 @@
     </div>
 </section>
 
-<section class="mx-auto max-w-screen-2xl px-4 py-7 sm:px-6 sm:py-9">
+<section class="mx-auto max-w-screen-2xl px-4 py-4 sm:px-6 sm:py-5">
     {#if notice}
         <div role="status"
              class="mb-5 rounded border border-set/30 bg-green-950/25 px-4 py-3 text-green-200">{notice}</div>
@@ -331,13 +338,16 @@
         <div role="alert"
              class="mb-5 rounded border border-red-500/35 bg-red-950/35 px-4 py-3 text-red-200">{error}</div>
     {/if}
-    <div class="flex flex-wrap items-end justify-between gap-3 border-b border-parchment-300/15 pb-4">
+    <div class="flex flex-wrap items-end justify-between gap-3 border-b border-parchment-300/15 pb-3">
         <div>
             <h2 class="display-text mt-1 text-2xl text-parchment-50">Listings</h2>
         </div>
         <div class="flex flex-wrap items-center justify-end gap-3">
             <p class="text-sm text-parchment-300">{loading ? 'Updating…' : `${total} active ${total === 1 ? 'listing' : 'listings'}`}</p>
             <div class="inline-flex rounded border border-parchment-300/20 bg-black/25 p-1" role="group" aria-label="Listing layout">
+                <button type="button" aria-pressed={listingLayout === 'compact'} title="Show a dense three-column list"
+                        class={`flex items-center gap-2 rounded px-2.5 py-1.5 text-xs transition ${listingLayout === 'compact' ? 'bg-ember-700/35 text-white' : 'text-parchment-300 hover:text-white'}`}
+                        onclick={() => chooseListingLayout('compact')}><span aria-hidden="true">☰</span><span class="hidden sm:inline">Compact</span></button>
                 <button type="button" aria-pressed={listingLayout === 'columns'} title="Show two columns"
                         class={`flex items-center gap-2 rounded px-2.5 py-1.5 text-xs transition ${listingLayout === 'columns' ? 'bg-ember-700/35 text-white' : 'text-parchment-300 hover:text-white'}`}
                         onclick={() => chooseListingLayout('columns')}><span aria-hidden="true">▦</span><span class="hidden sm:inline">Two columns</span></button>
@@ -349,9 +359,9 @@
     </div>
 
     {#if loading && listings.length === 0}
-        <div class={`mt-6 grid gap-4 ${listingLayout === 'columns' ? 'md:grid-cols-2' : ''}`}>
+        <div class={`mt-6 grid gap-4 ${layoutGrid}`}>
             {#each Array(6) as _}
-                <div class="panel h-56 animate-pulse rounded-lg"></div>
+                <div class={`panel animate-pulse rounded-lg ${listingLayout === 'compact' ? 'h-32' : 'h-56'}`}></div>
             {/each}
         </div>
     {:else if listings.length === 0}
@@ -360,10 +370,10 @@
             <p class="mt-2 text-parchment-300">Try clearing a filter, or be the first to list one.</p><a
                     href="/trade/list" class="trade-primary-button mt-5 inline-block">List an item</a></div>
     {:else}
-        <div class:opacity-55={loading} class={`mt-6 grid gap-4 transition-opacity ${listingLayout === 'columns' ? 'md:grid-cols-2' : ''}`}
+        <div class:opacity-55={loading} class={`grid transition-opacity ${layoutGrid} ${listingLayout === 'compact' ? 'mt-4 gap-2.5' : 'mt-6 gap-4'}`}
              aria-busy={loading}>
             {#each listings as listing (listing.id)}
-                <TradeListingCard {listing} onoffer={makeOffer} onmessage={messageSeller}/>
+                <TradeListingCard {listing} compact={listingLayout === 'compact'} highlights={statHighlights} onoffer={makeOffer} onmessage={messageSeller}/>
             {/each}
         </div>
     {/if}
