@@ -111,3 +111,16 @@ these rows and sounds. Game runtime behavior must still be tested in game.
 Validation: `pnpm run check`, `pnpm test`, `pnpm run build`; exercise `/loot-filter`
 against the built Node server at desktop and mobile widths. Regression coverage in
 `src/lib/loot-filter.spec.ts` runs the same model and catalog adapter as the native UI.
+
+
+## FilterBlade-style customizer (`/loot-filterv2`)
+
+`/loot-filterv2` (and `/loot-filterv2/[id]`, also reachable via `/loot-filterV2`) provides an unlisted FilterBlade-inspired tier-list customizer for `pyre-lootfilter`:
+
+- **5-tab workspace**:
+  1. **Overview & Strictness**: 5 progression strictness levels (*Soft (Starter)*, *Regular*, *Semi-Strict*, *Strict*, *Uber Strict (Endgame)*), an **Adjust by Archetype & Class** builder (pre-selecting default weapon, quiver, offhand, and class item types for *Caster*, *Melee*, *Ranged*, or a single character class across all 22 toggleable equipment families), signature build presets, and live `/builds` guide syncing. Gems (Flawed through Perfect, Clusters, and Stacks) remain visible across all strictness levels for the in-game Gem Bag.
+  2. **Customize Tiers & Bases**: 9 D2R Reimagined item categories with 82 curated tierable items (including paired single/stack codes for Runes 1–39, Power Orbs, Gem Stacks, Uber Keys/Organs/Souls, Tier 1–6 Maps & Map Currency, Drop-Only Unique/Set bases, Sunder/Colossal/Torch charms, Runeword bases, and consumables), drag-and-drop or 1-click tier ranking (`S` / `A` / `B` / `C` / `D` / `HIDE`), inline per-category tier style & sound overrides, Runeword socket toggles, and a searchable 523-base pinning tool.
+  3. **Style & Sounds**: 4 global color themes (*Reimagined Classic*, *FilterBlade / Maven*, *Abyssal Neon*, *Clean Minimal*) and global tier decorator/minimap icon/sound editors with 1-click audio audition.
+  4. **Simulate & Test Loot**: Interactive ground lootsplosion simulator (4 encounter scenarios, `Hold Ctrl / LB` hidden-item reveal, click-to-inspect rule trace and sound audition) plus a single-item catalog tester with jump-to-customizer navigation.
+  5. **Advanced / Raw Rules**: Custom top-priority rules and read-only compiled `filter.json` inspector.
+- **Zero-migration schema-v3 compilation**: `src/lib/loot-filter/v2-compiler.ts` compiles the v2 state into standard schema-v3 `filter.json` (`{ version: 3, rules: [...] }`) with automatic 64-code selector chunking and embeds the compact v2 customizer diff in the final fallback rule's `ruleName` (`Keep everything else visible [PyreV2:<base64>]`). This passes `d2r-reimagined-api`, `ReimaginedLauncher`, and `pyre-lootfilter.dll` validation with zero backend or client changes while round-tripping full customizer state across browser drafts, cloud saves, launcher sync, and shared URLs.
