@@ -81,7 +81,7 @@ const statAliases: Record<string, string[]> = {
 };
 
 const variantSuffixes: ReadonlyArray<readonly [RegExp, string]> = [
-  [/_perlevel$/i, 'Per Level'],
+  [/_per(?:level|lvl)$/i, 'Per Level'],
   [/_bytime$/i, 'Over Time']
 ];
 
@@ -216,12 +216,22 @@ export function tradePropertyDefinitions(
         valueFunction: entry.Function
       })),
     ...compoundProperties.map((property) => ({ ...property, valueShift: 0, valueFunction: 19 })),
+    {
+      stat: 'item_addclassskills',
+      labelKey: '%+d to Any Class Skill Levels',
+      ...metadata('item_addclassskills')
+    },
     ...classSkillLines.map((line, layer) => ({
       stat: 'item_addclassskills',
       layer,
       labelKey: line.key,
       ...metadata('item_addclassskills')
     })),
+    {
+      stat: 'item_addskill_tab',
+      labelKey: '%+d to Any Skill Tab',
+      ...metadata('item_addskill_tab')
+    },
     ...skillTabStringIds.flatMap((pages, classIndex) => pages.map((stringId, page) => ({
       stat: 'item_addskill_tab',
       layer: classIndex * 8 + page,
@@ -334,8 +344,9 @@ export function searchTradePropertyOptions(
   query: string,
   limit = Infinity
 ): TradePropertyOption[] {
+  if (!query.trim()) return options.slice(0, limit);
   const tokens = searchTokens(query);
-  if (!tokens.length) return options.slice(0, limit);
+  if (!tokens.length) return [];
 
   const phrase = tokens.join(' ');
   return options

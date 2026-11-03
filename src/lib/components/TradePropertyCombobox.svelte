@@ -78,6 +78,7 @@
       // Applying filters here would only report the unfinished property.
       event.preventDefault();
       open = true;
+      activeIndex = results.length ? 0 : -1;
     } else if (event.key === 'Escape' && open) {
       event.preventDefault();
       open = false;

@@ -23,7 +23,7 @@ function catalogOptions(language: Record<string, string> = strings) {
   const text = { ...strings, ...language };
   return buildTradePropertyOptions(tradePropertyDefinitions(bundle), (definition) => {
     const args = (definition.labelArgs ?? ['#', '#', '#', '#']).map((arg) => text[arg] ?? arg);
-    const label = formatTemplate(text[definition.labelKey], args);
+    const label = formatTemplate(text[definition.labelKey] ?? definition.labelKey, args);
     return definition.classOnly ? `${label} ${text[definition.classOnly]}` : label;
   });
 }
@@ -50,6 +50,8 @@ describe('trade property search', () => {
     ['+1 to all skills', 'item_allskills'],
     ['all res', 'all_resistances'],
     ['all attributes', 'all_attributes'],
+    ['any class skill levels', 'item_addclassskills'],
+    ['any skill tab', 'item_addskill_tab'],
     ['paladin skill levels', 'item_addclassskills'],
     ['necromancer skill levels', 'item_addclassskills'],
     ['summoning skills druid', 'item_addskill_tab'],
@@ -69,17 +71,24 @@ describe('trade property search', () => {
     expect(labels.slice(-2)).toEqual(['# to Strength · Over Time', '# to Strength · Per Level']);
   });
 
-  it('browses without a query and reports nothing for unknown text', () => {
+  it('browses without a query and reports nothing for unknown or number-only text', () => {
     expect(searchTradePropertyOptions(options, '')).toHaveLength(options.length);
+    expect(searchTradePropertyOptions(options, '   ')).toHaveLength(options.length);
+    expect(searchTradePropertyOptions(options, '20')).toEqual([]);
+    expect(searchTradePropertyOptions(options, '+2')).toEqual([]);
     expect(searchTradePropertyOptions(options, 'zzzz')).toEqual([]);
   });
 
-  it('offers every class, skill tab and catalog aura separately', () => {
-    const layers = (stat: string) => options.filter((option) => option.stat === stat);
-    expect(layers('item_addclassskills')).toHaveLength(8);
-    expect(layers('item_addskill_tab')).toHaveLength(24);
+  it('offers any-class and any-tab options alongside every class, skill tab and catalog aura', () => {
+    const byStat = (stat: string) => options.filter((option) => option.stat === stat);
+    expect(byStat('item_addclassskills').filter((option) => option.layer === undefined)).toHaveLength(1);
+    expect(byStat('item_addclassskills').filter((option) => option.layer !== undefined)).toHaveLength(8);
+    expect(byStat('item_addskill_tab').filter((option) => option.layer === undefined)).toHaveLength(1);
+    expect(byStat('item_addskill_tab').filter((option) => option.layer !== undefined)).toHaveLength(24);
+    expect(searchTradePropertyOptions(options, 'any class')[0]?.layer).toBeUndefined();
+    expect(searchTradePropertyOptions(options, 'any skill tab')[0]?.layer).toBeUndefined();
 
-    const auras = new Set(layers('item_aura').map((option) => strings[option.labelArgs![1]]));
+    const auras = new Set(byStat('item_aura').map((option) => strings[option.labelArgs![1]]));
     const used = new Set<string>();
     const visit = (value: unknown): void => {
       if (Array.isArray(value)) return value.forEach(visit);
