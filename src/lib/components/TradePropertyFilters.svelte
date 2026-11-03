@@ -1,27 +1,19 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { i18n } from '#lib/i18n.js';
+  import { loadItemStatPresentation } from '#lib/item-stat-presentation.js';
+  import TradePropertyCombobox from '#lib/components/TradePropertyCombobox.svelte';
   import {
-    loadItemStatPresentation,
-    type ItemStatPresentation
-  } from '#lib/item-stat-presentation.js';
-  import {
+    buildTradePropertyOptions,
     createTradePropertyFilter,
     createTradePropertyGroup,
+    tradePropertyDefinitions,
+    tradePropertyStatName,
+    type TradePropertyDefinition,
     type TradePropertyFilterDraft,
-    type TradePropertyGroupDraft
+    type TradePropertyGroupDraft,
+    type TradePropertyOption
   } from '#lib/trade-property-filters.js';
-
-  interface PropertyDefinition {
-    stat: string;
-    labelKey: string;
-    valueShift: number;
-    valueFunction?: number;
-  }
-
-  interface PropertyOption extends PropertyDefinition {
-    label: string;
-  }
 
   let {
     groups = $bindable([])
@@ -29,54 +21,27 @@
     groups?: TradePropertyGroupDraft[];
   } = $props();
 
-  let definitions = $state<PropertyDefinition[]>([]);
+  let definitions = $state<TradePropertyDefinition[]>([]);
+  let loading = $state(true);
   let loadError = $state('');
   let draftCount = $derived(groups.reduce((count, group) => count + group.filters.length, 0));
-  let propertyOptions = $derived.by(() => {
-    const labelled = definitions.map((definition) => ({
-      ...definition,
-      label: translatedLabel(definition)
-    }));
-    const counts = new Map<string, number>();
-    for (const option of labelled) {
-      const key = option.label.toLowerCase();
-      counts.set(key, (counts.get(key) ?? 0) + 1);
-    }
-    return labelled
-      .map((option) => counts.get(option.label.toLowerCase()) === 1
-        ? option
-        : { ...option, label: `${option.label} · ${words(option.stat)}` })
-      .sort((a, b) => a.label.localeCompare(b.label));
-  });
+  let propertyOptions = $derived(buildTradePropertyOptions(definitions, translatedLabel));
 
-  function words(value: string): string {
-    return value
-      .replace(/^item_/, '')
-      .replace(/([a-z])([A-Z])/g, '$1 $2')
-      .replace(/[_-]+/g, ' ')
-      .replace(/\b\w/g, (letter) => letter.toUpperCase());
-  }
-
-  function translatedLabel(definition: PropertyDefinition): string {
-    const translated = $i18n.t(definition.labelKey, ['#', '#', '#', '#']);
+  function translatedLabel(definition: TradePropertyDefinition): string {
+    const translated = $i18n.line({
+      key: definition.labelKey,
+      args: definition.labelArgs ?? ['#', '#', '#', '#'],
+      classOnly: definition.classOnly
+    });
     return translated === definition.labelKey || /%(?:\+d|[dDisS]|\d)/.test(translated)
-      ? words(definition.stat)
+      ? tradePropertyStatName(definition.stat)
       : translated;
   }
 
-  function matchingOptions(filter: TradePropertyFilterDraft): PropertyOption[] {
-    const query = filter.query.trim().toLowerCase();
-    if (query.length < 3) return [];
-    if (propertyOptions.some((option) => option.label.toLowerCase() === query)) return [];
-    return propertyOptions
-      .filter((option) => option.label.toLowerCase().includes(query))
-      .slice(0, 50);
-  }
-
-  function selectProperty(filter: TradePropertyFilterDraft): void {
-    const query = filter.query.trim().toLowerCase();
-    const option = propertyOptions.find((candidate) => candidate.label.toLowerCase() === query);
+  function selectProperty(filter: TradePropertyFilterDraft, option?: TradePropertyOption): void {
     filter.stat = option?.stat ?? '';
+    filter.layer = option?.layer;
+    filter.stats = option?.stats;
     filter.valueShift = option?.valueShift ?? 0;
     filter.valueFunction = option?.valueFunction;
   }
@@ -115,17 +80,11 @@
 
   onMount(async () => {
     try {
-      const bundle = await loadItemStatPresentation();
-      definitions = Object.entries(bundle.Stats)
-        .filter(([stat, metadata]) => Boolean(metadata.PositiveKey) && stat !== 'charm_weight')
-        .map(([stat, metadata]: [string, ItemStatPresentation]) => ({
-          stat,
-          labelKey: metadata.PositiveKey!,
-          valueShift: metadata.ValueShift ?? 0,
-          valueFunction: metadata.Function
-        }));
+      definitions = tradePropertyDefinitions(await loadItemStatPresentation());
     } catch (value) {
       loadError = value instanceof Error ? value.message : 'Property names could not be loaded.';
+    } finally {
+      loading = false;
     }
   });
 </script>
@@ -167,25 +126,18 @@
 
         <div class="mt-3 space-y-2">
           {#each group.filters as filter (filter.id)}
-            {@const suggestions = matchingOptions(filter)}
-            <div class="grid gap-2 rounded border border-parchment-300/12 bg-[#0d0d0e]/70 p-2 sm:grid-cols-[minmax(12rem,1fr)_6rem_6rem_auto] sm:items-end">
-              <label class="min-w-0 text-xs text-parchment-300">
-                Property
-                <input
-                  class="field mt-1 !py-2"
-                  list={suggestions.length ? `trade-property-${filter.id}` : undefined}
-                  placeholder="Type at least 3 characters…"
-                  autocomplete="off"
-                  bind:value={filter.query}
-                  oninput={() => selectProperty(filter)}
-                />
-                {#if suggestions.length}
-                  <datalist id={`trade-property-${filter.id}`}>{#each suggestions as option}<option value={option.label}></option>{/each}</datalist>
-                {/if}
-              </label>
+            <div class="grid gap-2 rounded border border-parchment-300/12 bg-[#0d0d0e]/70 p-2 sm:grid-cols-[minmax(12rem,1fr)_6rem_6rem_auto] sm:items-start">
+              <TradePropertyCombobox
+                id={`trade-property-${filter.id}`}
+                options={propertyOptions}
+                {loading}
+                selected={Boolean(filter.stat)}
+                bind:query={filter.query}
+                onselect={(option) => selectProperty(filter, option)}
+              />
               <label class="text-xs text-parchment-300">Minimum<input type="number" step="any" class="field mt-1 !py-2" placeholder="Any" bind:value={filter.minimumValue} /></label>
               <label class="text-xs text-parchment-300">Maximum<input type="number" step="any" class="field mt-1 !py-2" placeholder="Any" bind:value={filter.maximumValue} /></label>
-              <button type="button" aria-label="Remove property" title="Remove property" class="h-10 rounded border border-parchment-300/18 px-3 text-parchment-300 hover:border-red-400/40 hover:text-red-300" onclick={() => removeFilter(group, filter.id)}>×</button>
+              <button type="button" aria-label="Remove property" title="Remove property" class="h-10 rounded border border-parchment-300/18 px-3 text-parchment-300 hover:border-red-400/40 hover:text-red-300 sm:mt-5" onclick={() => removeFilter(group, filter.id)}>×</button>
             </div>
           {/each}
         </div>
