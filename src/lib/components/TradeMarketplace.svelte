@@ -27,6 +27,12 @@
         type TradePropertyGroupDraft
     } from '#lib/trade-property-filters.js';
     import {
+        listingRunewordName,
+        loadRunewordNames,
+        runewordNameList,
+        runewordNamesForSearch
+    } from '#lib/trade-runeword-search.js';
+    import {
         lastTradeRealmStorageKey,
         tradeLadderPath,
         type TradeMarketplacePageData
@@ -35,6 +41,11 @@
     let {data}: { data: TradeMarketplacePageData } = $props();
 
     const pageSize = 24;
+    // A runeword search reads every Runeword listing that passes the other filters
+    // (100 a page) and keeps the named ones; this caps how many pages it reads.
+    const runewordPageSize = 100;
+    const runewordPageLimit = 10;
+    let runewordResults: { key: string; items: TradeListing[] } | null = null;
     const listingLayoutStorageKey = 'trade-listing-layout';
     type ListingLayout = 'columns' | 'rows';
     // svelte-ignore state_referenced_locally
@@ -109,16 +120,54 @@
         loading = true;
         error = '';
         try {
-            const response = await getTradeListings(filters(nextSkip));
-            listings = response.items;
-            total = response.total;
-            skip = response.skip;
+            const applied = filters(nextSkip);
+            const wanted = await runewordSearch(applied);
+            if (wanted.size) {
+                // Listings are stored under their base item, so the API cannot find
+                // "Enigma"; page locally through the Runeword listings that match.
+                const matches = await runewordListings(applied, wanted, nextSkip > 0);
+                listings = matches.slice(nextSkip, nextSkip + pageSize);
+                total = matches.length;
+                skip = nextSkip;
+            } else {
+                const response = await getTradeListings(applied);
+                listings = response.items;
+                total = response.total;
+                skip = response.skip;
+            }
         } catch (value) {
             listings = [];
             error = value instanceof Error ? value.message : 'Trades could not be loaded.';
         } finally {
             loading = false;
         }
+    }
+
+    /** The runeword names the search text means, or none when it is an ordinary search. */
+    async function runewordSearch(applied: TradeFilters): Promise<Set<string>> {
+        if (!applied.search) return new Set();
+        if (applied.quality && applied.quality.toLowerCase() !== 'runeword') return new Set();
+        try {
+            return runewordNamesForSearch(applied.search, await loadRunewordNames());
+        } catch {
+            return new Set();
+        }
+    }
+
+    /** Every listing of the wanted runewords; later pages of the same search reuse the first read. */
+    async function runewordListings(applied: TradeFilters, wanted: Set<string>, reuse: boolean): Promise<TradeListing[]> {
+        const base: TradeFilters = {...applied, search: undefined, quality: 'Runeword', count: runewordPageSize, skip: undefined};
+        const key = JSON.stringify({base, wanted: [...wanted].sort()});
+        if (reuse && runewordResults?.key === key) return runewordResults.items;
+        const names = await loadRunewordNames();
+        const found: TradeListing[] = [];
+        for (let pageIndex = 0; pageIndex < runewordPageLimit; pageIndex += 1) {
+            const response = await getTradeListings({...base, skip: pageIndex * runewordPageSize});
+            found.push(...response.items.filter((listing) => wanted.has(listingRunewordName(listing, names) ?? '')));
+            if (!response.items.length || (pageIndex + 1) * runewordPageSize >= response.total) break;
+        }
+        runewordResults = {key, items: found};
+        return found;
     }
 
     function clearFilters(): void {
@@ -202,11 +251,16 @@
             gameMode = savedMode;
             void load();
         }
-        const [uniques, sets] = await Promise.all([loadCatalog('uniques'), loadCatalog('sets')]);
+        const [uniques, sets, runewords] = await Promise.all([
+            loadCatalog('uniques'),
+            loadCatalog('sets'),
+            loadRunewordNames().catch(() => new Map<string, string>())
+        ]);
         const setItems = sets.flatMap((set) => set.SetItems ?? []);
-        nameOptions = [...new Set([...uniques, ...setItems]
-            .map((item: CatalogItem) => String(item.Index || ''))
-            .filter(Boolean))].sort((a, b) => a.localeCompare(b));
+        nameOptions = [...new Set([
+            ...[...uniques, ...setItems].map((item: CatalogItem) => String(item.Index || '')),
+            ...runewordNameList(runewords)
+        ].filter(Boolean))].sort((a, b) => a.localeCompare(b));
     });
 </script>
 

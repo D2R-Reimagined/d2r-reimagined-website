@@ -5,6 +5,7 @@
   import { itemSprite, loadItemPresentation, type ItemPresentation } from '#lib/item-presentation.js';
   import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
   import type { TradeListing } from '#lib/trades.js';
+  import { listingRunewordName, loadRunewordNames, type RunewordNames } from '#lib/trade-runeword-search.js';
 
   let {
     listing,
@@ -18,6 +19,9 @@
 
   let presentations = $state(new Map<string, ItemPresentation>());
   let tiers = $state<ItemUpgradeTiers>(new Map());
+  let runewordNames = $state<RunewordNames>(new Map());
+  // Listings are stored under their base item; show the runeword's own name when it is one.
+  let runewordName = $derived(listing.isIdentified ? listingRunewordName(listing, runewordNames) : undefined);
   let item = $derived.by(() => {
     if (!listing.itemData) return null;
     try { return JSON.parse(listing.itemData) as SaveItem; } catch { return null; }
@@ -48,6 +52,7 @@
 
   onMount(async () => {
     [presentations, tiers] = await Promise.all([loadItemPresentation(), loadItemUpgradeTiers()]);
+    runewordNames = await loadRunewordNames().catch(() => new Map());
   });
 </script>
 
@@ -59,8 +64,8 @@
     <div class="min-w-0 flex-1">
       <div class="flex flex-wrap items-start justify-between gap-2">
         <div class="min-w-0">
-          <h2 class={`display-text truncate text-xl transition group-hover:text-ember-400 ${qualityClass()}`}>{listing.itemName}</h2>
-          <p class="mt-0.5 truncate text-sm text-parchment-300">{listing.itemType || listing.title}</p>
+          <h2 class={`display-text truncate text-xl transition group-hover:text-ember-400 ${qualityClass()}`}>{runewordName ?? listing.itemName}</h2>
+          <p class="mt-0.5 truncate text-sm text-parchment-300">{runewordName ? listing.itemName : listing.itemType || listing.title}</p>
         </div>
         <span class="shrink-0 text-xs text-parchment-300">{age(listing.createdAtUtc)}</span>
       </div>
