@@ -41,7 +41,8 @@ export const supportGoals: ReadonlyArray<Omit<SupportGoal, 'reached'>> = [
   { amount: 765, name: 'São Paulo, Brazil', description: 'First South American Server' },
   { amount: 805, name: 'Frankfurt, Germany 3', description: 'Third Germany Server' },
   { amount: 845, name: 'Frankfurt, Germany 4', description: 'Fourth Germany Server' },
-  { amount: 885, name: 'US West 2 (Utah)', description: 'Lower latency for West Coast players.' }
+  { amount: 885, name: 'US West 2 (Utah)', description: 'Lower latency for West Coast players.' },
+  { amount: 940, name: 'Singapore', description: 'First Singapore Server' }
 ];
 
 /** The goals in amount order, each marked reached against this month's total. */

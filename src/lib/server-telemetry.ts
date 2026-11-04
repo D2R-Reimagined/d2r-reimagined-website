@@ -4,7 +4,7 @@ import { currentServerBuild, installedBuildLabels, installedBuildMatch, shortBui
   type InstalledServerBuild } from '#lib/server-builds.js';
 
 export interface MonitorPlayer {
-  name: string; clientId: number; class: string; state: string; stateCode: number;
+  name: string; clientId: number; class: string; level?: number; state: string; stateCode: number;
   connectedSeconds: number; stateSeconds: number; stalled: boolean;
 }
 export interface MonitorGame {
