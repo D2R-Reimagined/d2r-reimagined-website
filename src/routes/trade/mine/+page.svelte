@@ -31,7 +31,7 @@
 <div class="mx-auto min-h-[75vh] max-w-6xl px-4 py-9 sm:px-6 sm:py-12">
   <a href="/trade" class="text-sm text-parchment-300 hover:text-ember-400">← Back to trade</a>
   <div class="mt-5 flex flex-col gap-5 border-b border-parchment-300/15 pb-6 sm:flex-row sm:items-end sm:justify-between">
-    <div><p class="text-xs uppercase tracking-[0.22em] text-ember-400">Seller dashboard</p><h1 class="display-text mt-2 text-4xl text-parchment-50">My trades</h1><p class="mt-2 text-parchment-300">Review offers, manage pending meetups, and close completed trades.</p></div>
+    <div><p class="text-xs uppercase tracking-[0.22em] text-ember-400">Seller dashboard</p><h1 class="display-text mt-2 text-4xl text-parchment-50">My trades</h1><p class="mt-2 text-parchment-300">Edit listings, review offers, manage pending meetups, and close completed trades.</p></div>
     <a href="/trade/list" class="trade-primary-button text-center">+ List an item</a>
   </div>
 

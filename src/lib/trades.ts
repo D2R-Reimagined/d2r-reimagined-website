@@ -4,6 +4,7 @@ import type { GameItemPayload } from '#lib/trade-game-item.js';
 import type { TradeGameMode } from '#lib/trade-game-mode.js';
 
 export * from '#lib/trade-game-mode.js';
+export * from '#lib/trade-hardcore.js';
 
 export type TradeListingStatus = 'Active' | 'Reserved' | 'Completed' | 'Cancelled' | 'Expired';
 export type TradeOfferStatus = 'Pending' | 'Accepted' | 'Declined' | 'Withdrawn';
@@ -33,6 +34,8 @@ export interface TradeListing {
   isCorrupted: boolean;
   isLadder: boolean;
   gameMode: TradeGameMode | null;
+  /** Null when nothing said which side the item is on. */
+  isHardcore: boolean | null;
   price: string | null;
   isNegotiable: boolean;
   status: TradeListingStatus;
@@ -79,6 +82,7 @@ export interface TradeFilters {
   itemType?: string;
   isLadder?: boolean;
   gameMode?: TradeGameMode;
+  isHardcore?: boolean;
   isNegotiable?: boolean;
   isEthereal?: boolean;
   isCorrupted?: boolean;
@@ -108,6 +112,7 @@ export interface CreateTradeListing {
   isCorrupted: boolean;
   isLadder: boolean;
   gameMode: TradeGameMode | null;
+  isHardcore: boolean | null;
   price: string | null;
   isNegotiable: boolean;
 }

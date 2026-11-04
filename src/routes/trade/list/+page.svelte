@@ -18,8 +18,11 @@
     getTradeInventory,
     resolveGameItem,
     savedTradeGameMode,
+    savedTradeHardcore,
     stashGameMode,
+    stashIsHardcore,
     tradeGameModes,
+    tradeHardcoreOptions,
     type SharedStash,
     type TradeGameMode,
     type TradeInventory
@@ -66,6 +69,13 @@
   let sourceGameMode = $derived(
     itemOrigin === 'character' ? selectedCharacter?.character.gameMode ?? null
       : itemOrigin === 'stash' ? stashGameMode(selectedStashFile)
+        : null
+  );
+  let isHardcore = $state<boolean | null>(null);
+  // The same for softcore and hardcore.
+  let sourceHardcore = $derived(
+    itemOrigin === 'character' ? selectedCharacter?.character.isHardcore ?? null
+      : itemOrigin === 'stash' ? stashIsHardcore(selectedStashFile)
         : null
   );
 
@@ -124,6 +134,7 @@
     requiredLevel = identified && typeof catalog?.RequiredLevel === 'number' ? catalog.RequiredLevel : null;
     description = '';
     gameMode = sourceGameMode ?? savedTradeGameMode() ?? '';
+    isHardcore = sourceHardcore ?? savedTradeHardcore();
     requestAnimationFrame(() => document.getElementById('listing-details')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   }
 
@@ -215,6 +226,7 @@
           || selectedItem.stats.some((stat) => stat.name.toLowerCase().includes('corrupt')),
         isLadder: Boolean(selectedLadderId),
         gameMode: gameMode || null,
+        isHardcore,
         price: price.trim() || null,
         isNegotiable: negotiable
       });
@@ -353,6 +365,7 @@
             <label class="text-sm text-parchment-200">Listing title<input required readonly={!selectedItemIdentified} minlength="3" maxlength="120" class="field mt-2" bind:value={title} /></label>
             <label class="text-sm text-parchment-200">Item type<input readonly={!selectedItemIdentified} maxlength="120" class="field mt-2" bind:value={itemType} /></label>
             <label class="text-sm text-parchment-200 lg:col-span-2">Game <span class="text-parchment-300">({itemOrigin === 'character' && sourceGameMode ? "from the character's save" : itemOrigin === 'stash' && sourceGameMode ? 'from the shared stash' : 'Reign of the Warlock and Expansion players cannot trade with each other'})</span><select required disabled={itemOrigin === 'character' && Boolean(sourceGameMode)} class="field mt-2" bind:value={gameMode}><option value="" disabled>Choose the game this item is in</option>{#each tradeGameModes as mode}<option value={mode.value}>{mode.label}</option>{/each}</select></label>
+            <label class="text-sm text-parchment-200 lg:col-span-2">Softcore or hardcore <span class="text-parchment-300">({itemOrigin === 'character' && sourceHardcore !== null ? "from the character's save" : itemOrigin === 'stash' && sourceHardcore !== null ? 'from the shared stash' : 'softcore and hardcore players cannot trade with each other'})</span><select required disabled={itemOrigin === 'character' && sourceHardcore !== null} class="field mt-2" bind:value={isHardcore}><option value={null} disabled>Choose which side this item is on</option>{#each tradeHardcoreOptions as option}<option value={option.value}>{option.label}</option>{/each}</select></label>
             <label class="text-sm text-parchment-200">Quality<select disabled={!selectedItemIdentified} class="field mt-2" bind:value={quality}><option>Unidentified</option><option>Unique</option><option>Set</option><option>Runeword</option><option>Rare</option><option>Crafted</option><option>Magic</option><option>Normal</option></select></label>
             {#if selectedItemIdentified}
               <label class="text-sm text-parchment-200">Item level<input type="number" min="1" max="100" class="field mt-2" bind:value={selectedItem.itemLevel} /></label>

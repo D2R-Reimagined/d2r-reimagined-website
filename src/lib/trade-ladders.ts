@@ -27,6 +27,8 @@ export interface TradeMarketplacePageData {
   realm: TradeRealm;
   /** The game mode initialListings were filtered by; null for both (always so on the server). */
   initialGameMode?: import('#lib/trades.js').TradeGameMode | null;
+  /** The side initialListings were filtered by; null for both (always so on the server). */
+  initialIsHardcore?: boolean | null;
 }
 
 export function tradeLadderSlug(name: string): string {
