@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
+import exportedBundle from '../../static/data/keyed/item-stat-presentation.json';
+
+import { displayStatLines } from './item-stat-presentation.js';
 import { lineMatchesHighlights, tradeStatHighlights } from './trade-stat-highlights.js';
 
 describe('trade stat highlights', () => {
@@ -19,5 +22,20 @@ describe('trade stat highlights', () => {
     expect(lineMatchesHighlights({ fallback: '', sources: [{ name: 'item_singleskill', layer: 150 }] }, highlights)).toBe(false);
     expect(lineMatchesHighlights({ fallback: '' }, highlights)).toBe(false);
     expect(lineMatchesHighlights({ fallback: '', sources: [{ name: 'fireresist', layer: 0 }] }, new Set())).toBe(false);
+  });
+
+  it('matches an oskill filter on the display line that replaces its backing stat', () => {
+    const oskill = tradeStatHighlights([
+      { type: 'And', filters: [{ stat: 'item_nonclassskill', layer: 69, valueShift: 0 }] }
+    ]);
+    const lines = displayStatLines([
+      { id: 97, name: 'item_nonclassskill', layer: 69, value: 5 },
+      { id: 387, name: 'item_nonclassskill_display', layer: 69, value: 5 },
+      { id: 97, name: 'item_nonclassskill', layer: 70, value: 3 },
+      { id: 387, name: 'item_nonclassskill_display', layer: 70, value: 3 }
+    ], exportedBundle);
+
+    expect(lines).toHaveLength(2);
+    expect(lines.map((line) => lineMatchesHighlights(line, oskill))).toEqual([true, false]);
   });
 });

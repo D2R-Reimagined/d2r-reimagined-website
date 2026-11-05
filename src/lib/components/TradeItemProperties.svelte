@@ -106,7 +106,7 @@
           aria-label={`${setBonusLines.length} set ${setBonusLines.length === 1 ? 'bonus' : 'bonuses'}`}>
       <span class="rounded border border-set/35 px-1.5 py-0.5 text-[0.65rem] uppercase tracking-wider text-set"
             class:stat-match={setBonusMatched}>Set bonuses ({setBonusLines.length}) ▾</span>
-      <span class="set-bonus-popover invisible absolute bottom-full left-0 z-30 mb-1 w-72 rounded border border-set/35 bg-[#0d0c0c] p-2.5 text-xs leading-[1.35] opacity-0 shadow-xl shadow-black/80 transition group-hover/set:visible group-hover/set:opacity-100 group-focus/set:visible group-focus/set:opacity-100">
+      <span class="set-bonus-popover invisible absolute bottom-full left-0 z-30 mb-1 w-72 max-w-[calc(100vw-9rem)] rounded border border-set/35 bg-[#0d0c0c] p-2.5 text-xs leading-[1.35] opacity-0 shadow-xl shadow-black/80 transition group-hover/set:visible group-hover/set:opacity-100 group-focus/set:visible group-focus/set:opacity-100">
         {#each setBonusLines as group, index}
           <span class="block text-[0.62rem] uppercase tracking-wider text-parchment-300" class:mt-1.5={index > 0}>Set bonus {index + 1}</span>
           {#each group as line}<span class="block text-set" class:stat-match={matches(line)}>{rendered(line)}</span>{/each}

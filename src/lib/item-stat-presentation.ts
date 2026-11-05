@@ -351,6 +351,7 @@ export function displayStatLines(
 ): DisplayStatLine[] {
   const consumed = new Set<number>();
   const replacements = new Map<number, DisplayStatLine>();
+  const backingStats = new Map<number, SaveStat>();
 
   // Reimagined pairs the real item_nonclassskill record with a descfunc 28 display-only
   // record. Render the latter with its skill layer and suppress only the matching hidden
@@ -362,7 +363,9 @@ export function displayStatLines(
       && candidate.name === 'item_nonclassskill'
       && candidate.layer === stat.layer
       && candidate.value === stat.value);
-    if (backingIndex >= 0) consumed.add(backingIndex);
+    if (backingIndex < 0) return;
+    consumed.add(backingIndex);
+    backingStats.set(index, stats[backingIndex]);
   });
 
   for (const [minimumName, maximumName, compositeName] of damagePairs) {
@@ -426,7 +429,8 @@ export function displayStatLines(
       : bundle.Stats[stat.name]?.Function === 11
         ? repairLine(stat)
         : keyedLine(stat, bundle, context);
-    if (line) lines.push(decorate(line, stat, bundle));
+    const backing = backingStats.get(index);
+    if (line) lines.push(decorate(line, stat, bundle, backing ? [stat, backing] : [stat]));
   }
   return lines.sort((left, right) => (right.priority ?? 0) - (left.priority ?? 0));
 }

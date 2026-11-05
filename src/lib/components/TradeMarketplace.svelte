@@ -148,7 +148,9 @@
         void load(0);
     }
 
-    const layoutGrid = $derived(listingLayout === 'compact' ? 'md:grid-cols-2 xl:grid-cols-3' : listingLayout === 'columns' ? 'md:grid-cols-2' : '');
+    // Compact cards leave overflow visible for the set bonus popover, so without an explicit
+    // column their no-wrap footer would stretch an implicit one past the screen on phones.
+    const layoutGrid = $derived(listingLayout === 'compact' ? 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3' : listingLayout === 'columns' ? 'md:grid-cols-2' : '');
 
     function chooseListingLayout(layout: ListingLayout): void {
         listingLayout = layout;

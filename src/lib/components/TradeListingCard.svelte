@@ -89,7 +89,7 @@
         <span class="shrink-0 text-[0.65rem] text-parchment-300">{age(listing.createdAtUtc)}</span>
       </div>
       <p class="truncate text-xs text-parchment-300">{listing.itemType || listing.title}{#if item && listing.isIdentified} · ilvl {item.itemLevel}{/if}</p>
-      <div class="mt-1 flex h-[1.1rem] flex-wrap gap-1 overflow-hidden text-[0.6rem] uppercase tracking-wider">{@render tags('compact-tag')}</div>
+      <div class="mt-1 flex flex-wrap gap-1 text-[0.6rem] uppercase tracking-wider">{@render tags('compact-tag')}</div>
       <TradeItemProperties {item} unidentified={!listing.isIdentified} compact {highlights} />
     </div>
   </a>
