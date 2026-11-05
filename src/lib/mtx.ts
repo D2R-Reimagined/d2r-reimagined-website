@@ -60,6 +60,19 @@ export function unlockedBySupport(item: Pick<MtxItem, 'id' | 'owned'>): boolean 
   return !item.owned && supporterItems.has(item.id);
 }
 
+const supporterTierNames: Record<string, string> = {
+  supporter: 'Supporter',
+  'pro-supporter': 'Pro Supporter',
+  'elite-supporter': 'Elite Supporter',
+  'ultimate-supporter': 'Ultimate Supporter',
+  'legendary-supporter': 'Legendary Supporter',
+  'insane-supporter': 'INSANE Supporter'
+};
+
+export function supporterTierName(tier: string | null | undefined): string {
+  return supporterTierNames[tier ?? ''] ?? 'No supporter role';
+}
+
 /** A slot's free default is what taking something off goes back to; it cannot itself be taken off. */
 export function canTakeOff(item: Pick<MtxItem, 'id'>): boolean {
   return item.id !== 'classic';

@@ -4,6 +4,7 @@
   import { onMount } from 'svelte';
   import CharacterManager from '#lib/components/CharacterManager.svelte';
   import { safeInternalReturnTo } from '#lib/launcher-auth.js';
+  import { supporterTierName } from '#lib/mtx.js';
 
   import {
     authState,
@@ -166,12 +167,6 @@
       notice = unlink ? 'Your Discord account has been unlinked.' : 'Your Discord roles and supporter tier have been refreshed.';
     } catch (value) { error = message(value); }
     finally { busy = false; }
-  }
-
-  function tierName(tier: string | null | undefined): string {
-    return ({ supporter: 'Supporter', 'pro-supporter': 'Pro Supporter',
-      'elite-supporter': 'Elite Supporter', 'ultimate-supporter': 'Ultimate Supporter',
-      'legendary-supporter': 'Legendary Supporter', 'insane-supporter': 'INSANE Supporter' } as Record<string, string>)[tier ?? ''] ?? 'No supporter role';
   }
 
   function startEditingProfile(): void {
@@ -443,7 +438,7 @@
           <p class="mt-3 text-sm leading-6 text-parchment-300">Link Discord to unlock your supporter portals. Higher tiers include every lower-tier color.</p>
           {#if $authState.user.discordId}
             <p class="mt-4 font-semibold text-parchment-50">{$authState.user.discordUsername || 'Discord linked'}</p>
-            <p class="mt-1 text-sm text-parchment-200">{tierName($authState.user.discordSupporterTier)}</p>
+            <p class="mt-1 text-sm text-parchment-200">{supporterTierName($authState.user.discordSupporterTier)}</p>
             {#if !$authState.user.discordSupporterTier}
               <p class="mt-2 text-sm text-parchment-300">Join the community Discord and check that you have a supporter role, then refresh below.</p>
             {/if}
