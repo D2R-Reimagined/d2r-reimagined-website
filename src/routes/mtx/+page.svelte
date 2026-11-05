@@ -3,7 +3,7 @@
   import { goto } from '$app/navigation';
   import { CheckCircleSolid, InfoCircleSolid, LockSolid } from 'flowbite-svelte-icons';
   import { ApiError, authState, initializeAuth } from '#lib/auth.js';
-  import { equipMtx, fetchMtx, groupBySlot, mtxPreview, ownedCount, type MtxItem, type MtxLoadout, type MtxSlot } from '#lib/mtx.js';
+  import { canTakeOff, equipMtx, fetchMtx, groupBySlot, mtxPreview, ownedCount, unlockedBySupport, type MtxItem, type MtxLoadout, type MtxSlot } from '#lib/mtx.js';
 
   const signInHref = '/profile?returnTo=%2Fmtx';
 
@@ -49,7 +49,8 @@
     notice = '';
     try {
       mtx = await equipMtx(slot.slot, item?.id ?? null);
-      notice = item ? `${item.name} equipped.` : `${slot.label} cosmetic taken off.`;
+      const change = item ? `${item.name} equipped.` : `${slot.label} cosmetic taken off.`;
+      notice = `${change} Already in game? Type /mtx sync to apply it.`;
     } catch (error) {
       actionError = errorMessage(error, 'That change could not be saved.');
     } finally {
@@ -101,7 +102,7 @@
       <span class="block text-parchment-200">{item.unlock}</span>
     </p>
     <div class="mt-auto pt-5">
-      {#if equipped}
+      {#if equipped && canTakeOff(item)}
         <button
           type="button"
           class="mtx-secondary flex w-full items-center justify-center rounded px-4 py-2.5 disabled:cursor-not-allowed disabled:opacity-50"
@@ -110,6 +111,8 @@
         >
           {pending === `${slot.slot}:` ? 'Taking off…' : 'Take off'}
         </button>
+      {:else if equipped}
+        <span class="mtx-secondary flex w-full items-center justify-center rounded px-4 py-2.5 opacity-60">Default</span>
       {:else if item.owned}
         <button
           type="button"
@@ -119,6 +122,10 @@
         >
           {pending === `${slot.slot}:${item.id}` ? 'Equipping…' : 'Equip'}
         </button>
+      {:else if unlockedBySupport(item)}
+        <a href="/support" class="mtx-secondary flex w-full items-center justify-center gap-2 rounded px-4 py-2.5">
+          <LockSolid class="h-4 w-4" aria-hidden="true" /> View supporter tiers
+        </a>
       {:else}
         <span class="mtx-secondary flex w-full items-center justify-center gap-2 rounded px-4 py-2.5 opacity-60">
           <LockSolid class="h-4 w-4" aria-hidden="true" /> Locked
@@ -157,8 +164,9 @@
     <div class="flex items-start gap-3 rounded-lg border border-parchment-300/25 bg-black/35 p-4 text-parchment-200">
       <InfoCircleSolid class="mt-0.5 h-5 w-5 shrink-0 text-ember-400" aria-hidden="true" />
       <p>
-        Changes apply in game the next time you join a game. Already in one? Take your helmet off and equip it again to
-        show your new choice.
+        Your choices are picked up when you start the game from the launcher. Already playing? Type
+        <code class="rounded bg-black/40 px-1.5 py-0.5 text-parchment-50">/mtx sync</code> in game to apply them without
+        restarting, then open a new town portal, or take your helmet off and put it back on.
       </p>
     </div>
 
@@ -176,7 +184,7 @@
     {#each slots as slot (slot.slot)}
       <h2 class="display-text mt-6 text-3xl">{slot.label}</h2>
       <p class="mt-1 text-parchment-300">
-        {#if slot.equipped}Wearing <span class="text-parchment-50">{slot.equipped.name}</span>{:else}Nothing equipped. Your normal {slot.label.toLowerCase()} shows.{/if}
+        {#if slot.equipped}Using <span class="text-parchment-50">{slot.equipped.name}</span>{:else}Nothing equipped. Your normal {slot.label.toLowerCase()} shows.{/if}
       </p>
       <div class="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
         {#each slot.items as item (item.id)}
@@ -206,6 +214,7 @@
     transition: border-color 150ms ease, background-color 150ms ease;
   }
 
+  a.mtx-secondary:hover,
   button.mtx-secondary:not(:disabled):hover {
     border-color: var(--color-ember-400);
     background: rgb(123 29 24 / 0.2);

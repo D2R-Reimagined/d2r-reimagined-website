@@ -7,7 +7,7 @@ import {
   type TradeLadder,
   type TradeMarketplacePageData
 } from '#lib/trade-ladders.js';
-import { savedTradeGameMode, type TradeListingPage } from '#lib/trades.js';
+import { savedTradeGameMode, savedTradeHardcore, type TradeListingPage } from '#lib/trades.js';
 
 export async function loadTradeMarketplace(
   fetch: typeof globalThis.fetch,
@@ -21,18 +21,20 @@ export async function loadTradeMarketplace(
   const query = new URLSearchParams({ count: '24', status: 'Active' });
   if (realm.kind === 'ladder') query.set('ladderId', (realm.ladder!).id);
   if (realm.kind === 'standard') query.set('isLadder', 'false');
-  // The server render cannot see the remembered game mode; the page reloads
-  // with it on mount instead.
+  // The server render cannot see the remembered game mode or side; the page
+  // reloads with them on mount instead.
   const gameMode = browser ? savedTradeGameMode() : null;
   if (gameMode) query.set('gameMode', gameMode);
+  const isHardcore = browser ? savedTradeHardcore() : null;
+  if (isHardcore !== null) query.set('isHardcore', String(isHardcore));
 
   try {
     const listings = browser
       ? await apiRequest<TradeListingPage>(`/trades?${query}`, {}, 'optional')
       : await fetch(`${api}/trades?${query}`).then((response) => response.ok ? response.json() as Promise<TradeListingPage> : null);
 
-    return { ladders, realm, initialListings: listings, initialGameMode: gameMode };
+    return { ladders, realm, initialListings: listings, initialGameMode: gameMode, initialIsHardcore: isHardcore };
   } catch {
-    return { ladders, realm, initialListings: null, initialGameMode: gameMode };
+    return { ladders, realm, initialListings: null, initialGameMode: gameMode, initialIsHardcore: isHardcore };
   }
 }

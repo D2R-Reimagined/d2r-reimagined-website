@@ -344,6 +344,7 @@
                                         <thead class="bg-abyss-900 text-xs text-parchment-300">
                                         <tr>
                                             <th class="px-4 py-2 font-normal">Character</th>
+                                            <th class="px-4 py-2 font-normal">Level</th>
                                             <th class="px-4 py-2 font-normal">Class / client</th>
                                             <th class="px-4 py-2 font-normal">Connection state</th>
                                             <th class="px-4 py-2 font-normal">Connected</th>
@@ -353,6 +354,7 @@
                                         {#each game.players as player (player.clientId)}
                                             <tr class="border-t border-parchment-300/10">
                                                 <td class="px-4 py-3 text-parchment-50">{player.name || 'Joining…'}</td>
+                                                <td class="px-4 py-3 text-parchment-200">{player.level || '—'}</td>
                                                 <td class="px-4 py-3 text-parchment-300">{player.class}<span
                                                         class="ml-2 text-xs">#{player.clientId}</span></td>
                                                 <td class={`px-4 py-3 ${player.stalled ? 'text-amber-300' : 'text-parchment-200'}`}>{player.state}{player.stalled ? ' · stalled' : ''}

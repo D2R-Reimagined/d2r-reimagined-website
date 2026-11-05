@@ -13,8 +13,11 @@
         createTradeOffer,
         getTradeListings,
         savedTradeGameMode,
+        savedTradeHardcore,
         saveTradeGameMode,
+        saveTradeHardcore,
         tradeGameModes,
+        tradeHardcoreOptions,
         type TradeFilters,
         type TradeGameMode,
         type TradeListing
@@ -70,6 +73,9 @@
     // this decides which listings are reachable at all. Remembered per browser.
     // svelte-ignore state_referenced_locally
     let gameMode = $state<TradeGameMode | null>(data.initialGameMode ?? null);
+    // The same for softcore and hardcore; null is both.
+    // svelte-ignore state_referenced_locally
+    let isHardcore = $state<boolean | null>(data.initialIsHardcore ?? null);
 
     let activeFilterCount = $derived(
         [quality, itemType, minLevel, maxLevel, minItemLevel, minSockets, maxSockets].filter(Boolean).length
@@ -96,6 +102,7 @@
             ladderId: data.realm.kind === 'ladder' ? data.realm.ladder?.id : undefined,
             isLadder: data.realm.kind === 'standard' ? false : undefined,
             gameMode: gameMode ?? undefined,
+            isHardcore: isHardcore ?? undefined,
             isNegotiable: negotiable || undefined,
             isEthereal: ethereal || undefined,
             isCorrupted: corrupted || undefined,
@@ -155,6 +162,13 @@
         void load(0);
     }
 
+    function chooseHardcore(value: boolean | null): void {
+        if (value === isHardcore) return;
+        isHardcore = value;
+        saveTradeHardcore(value);
+        void load(0);
+    }
+
     async function chooseTradeRealm(event: Event): Promise<void> {
         await goto((event.currentTarget as HTMLSelectElement).value);
     }
@@ -202,11 +216,15 @@
             if (data.realm.kind !== 'all') localStorage.setItem(lastTradeRealmStorageKey, data.realm.path);
         } catch { /* storage is optional */ }
         void initializeAuth();
-        // A server render never knows the remembered mode, so its listings are
-        // for both games; fetch again when this browser chose one.
+        // A server render never knows the remembered mode or side, so its listings
+        // are for both; fetch again when this browser chose one.
         const savedMode = savedTradeGameMode();
-        if (!initialListings || savedMode !== (data.initialGameMode ?? null)) {
+        const savedHardcore = savedTradeHardcore();
+        if (!initialListings
+            || savedMode !== (data.initialGameMode ?? null)
+            || savedHardcore !== (data.initialIsHardcore ?? null)) {
             gameMode = savedMode;
+            isHardcore = savedHardcore;
             void load();
         }
         const [uniques, sets] = await Promise.all([loadCatalog('uniques'), loadCatalog('sets')]);
@@ -247,20 +265,32 @@
                             </select>
                         {/if}
                     </label>
-                    <div class="mt-2 inline-flex rounded border border-parchment-300/25 bg-black/35 p-1" role="group" aria-label="Game">
-                        {#each tradeGameModes as mode}
-                            <button type="button" aria-pressed={gameMode === mode.value}
-                                    class={`rounded px-3 py-2 text-sm transition ${gameMode === mode.value ? 'bg-ember-700/45 text-white' : 'text-parchment-300 hover:text-white'}`}
-                                    onclick={() => chooseGameMode(mode.value)}>{mode.label}</button>
-                        {/each}
-                        <button type="button" aria-pressed={gameMode === null}
-                                class={`rounded px-3 py-2 text-sm transition ${gameMode === null ? 'bg-ember-700/45 text-white' : 'text-parchment-300 hover:text-white'}`}
-                                onclick={() => chooseGameMode(null)}>Both</button>
+                    <div class="mt-2 flex flex-wrap gap-3">
+                        <div class="inline-flex rounded border border-parchment-300/25 bg-black/35 p-1" role="group" aria-label="Game">
+                            {#each tradeGameModes as mode}
+                                <button type="button" aria-pressed={gameMode === mode.value}
+                                        class={`rounded px-3 py-2 text-sm transition ${gameMode === mode.value ? 'bg-ember-700/45 text-white' : 'text-parchment-300 hover:text-white'}`}
+                                        onclick={() => chooseGameMode(mode.value)}>{mode.label}</button>
+                            {/each}
+                            <button type="button" aria-pressed={gameMode === null}
+                                    class={`rounded px-3 py-2 text-sm transition ${gameMode === null ? 'bg-ember-700/45 text-white' : 'text-parchment-300 hover:text-white'}`}
+                                    onclick={() => chooseGameMode(null)}>Both</button>
+                        </div>
+                        <div class="inline-flex rounded border border-parchment-300/25 bg-black/35 p-1" role="group" aria-label="Softcore or hardcore">
+                            {#each tradeHardcoreOptions as option}
+                                <button type="button" aria-pressed={isHardcore === option.value}
+                                        class={`rounded px-3 py-2 text-sm transition ${isHardcore === option.value ? 'bg-ember-700/45 text-white' : 'text-parchment-300 hover:text-white'}`}
+                                        onclick={() => chooseHardcore(option.value)}>{option.label}</button>
+                            {/each}
+                            <button type="button" aria-pressed={isHardcore === null}
+                                    class={`rounded px-3 py-2 text-sm transition ${isHardcore === null ? 'bg-ember-700/45 text-white' : 'text-parchment-300 hover:text-white'}`}
+                                    onclick={() => chooseHardcore(null)}>Both</button>
+                        </div>
                     </div>
                 </div>
-                <p class="mt-2 text-sm text-parchment-300">{data.realm.label}{#if !gameMode} · <span class="text-parchment-200">Pick the game you play to hide trades you can't join.</span>{/if}</p>
+                <p class="mt-2 text-sm text-parchment-300">{data.realm.label}{#if !gameMode || isHardcore === null} · <span class="text-parchment-200">Pick what you play to hide trades you can't join.</span>{/if}</p>
             </div>
-            <div class="flex flex-wrap gap-3">
+            <div class="flex shrink-0 flex-wrap gap-3">
                 {#if $authState.user}<a href="/trade/mine" class="trade-secondary-button">My trades</a>{/if}
                 <a href="/trade/list" class="trade-primary-button">+ List an item</a>
             </div>

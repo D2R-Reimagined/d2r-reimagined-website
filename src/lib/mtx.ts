@@ -26,14 +26,56 @@ export interface MtxSlot {
   equipped: MtxItem | null;
 }
 
-const slotLabels: Record<string, string> = { helmet: 'Helmet' };
+const slotLabels: Record<string, string> = { helmet: 'Helmet', portal: 'Town Portal' };
 
-// Turntable renders in static/images/mtx (d2rr-models mtx/render_previews.py + assemble_previews.py).
-const previewIds = new Set(['pumpkin', 'pumpkin-lit', 'pumpkin-inferno']);
+// Item id -> image name in static/images/mtx. Helmets are turntable renders (d2rr-models
+// mtx/render_previews.py + assemble_previews.py); portals are in-game recordings (d2rl-plugins
+// plugins/supporter-portals/tools/assemble_portal_previews.py).
+const previewFiles: Record<string, string> = {
+  pumpkin: 'pumpkin',
+  'pumpkin-lit': 'pumpkin-lit',
+  'pumpkin-inferno': 'pumpkin-inferno',
+  classic: 'portal-classic',
+  green: 'portal-green',
+  violet: 'portal-violet',
+  red: 'portal-red',
+  teal: 'portal-teal',
+  ember: 'portal-ember',
+  gold: 'portal-gold',
+  rainbow: 'portal-rainbow'
+};
 
 /** The animated preview and its still frame, or null for catalog items without a render yet. */
 export function mtxPreview(id: string): { animated: string; still: string } | null {
-  return previewIds.has(id) ? { animated: `/images/mtx/${id}.webp`, still: `/images/mtx/${id}-still.webp` } : null;
+  const file = Object.hasOwn(previewFiles, id) ? previewFiles[id] : null;
+  return file ? { animated: `/images/mtx/${file}.webp`, still: `/images/mtx/${file}-still.webp` } : null;
+}
+
+// The portals a supporter tier unlocks (SupporterPortalPolicy in the API). Ember is a special
+// reward and the pumpkins come from a ladder, so a membership would not unlock those.
+const supporterItems = new Set(['green', 'violet', 'red', 'teal', 'gold', 'rainbow']);
+
+/** True for a locked item that a supporter membership would unlock, so the card can link to /support. */
+export function unlockedBySupport(item: Pick<MtxItem, 'id' | 'owned'>): boolean {
+  return !item.owned && supporterItems.has(item.id);
+}
+
+const supporterTierNames: Record<string, string> = {
+  supporter: 'Supporter',
+  'pro-supporter': 'Pro Supporter',
+  'elite-supporter': 'Elite Supporter',
+  'ultimate-supporter': 'Ultimate Supporter',
+  'legendary-supporter': 'Legendary Supporter',
+  'insane-supporter': 'INSANE Supporter'
+};
+
+export function supporterTierName(tier: string | null | undefined): string {
+  return supporterTierNames[tier ?? ''] ?? 'No supporter role';
+}
+
+/** A slot's free default is what taking something off goes back to; it cannot itself be taken off. */
+export function canTakeOff(item: Pick<MtxItem, 'id'>): boolean {
+  return item.id !== 'classic';
 }
 
 export function slotLabel(slot: string): string {

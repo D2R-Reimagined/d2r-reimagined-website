@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 vi.mock('#lib/auth.js', () => ({ apiRequest: vi.fn() }));
 import { apiRequest } from '#lib/auth.js';
-import { equipMtx, fetchMtx, groupBySlot, mtxPreview, ownedCount, slotLabel, type MtxItem } from './mtx';
+import { canTakeOff, equipMtx, fetchMtx, groupBySlot, mtxPreview, ownedCount, slotLabel, unlockedBySupport, type MtxItem } from './mtx';
 
 beforeEach(() => vi.clearAllMocks());
 
@@ -30,11 +30,45 @@ describe('mtx catalog', () => {
   it('finds preview renders only for items that have one', () => {
     expect(mtxPreview('pumpkin-lit')).toEqual({ animated: '/images/mtx/pumpkin-lit.webp', still: '/images/mtx/pumpkin-lit-still.webp' });
     expect(mtxPreview('wings')).toBeNull();
+    // Not an inherited object key.
+    expect(mtxPreview('constructor')).toBeNull();
+  });
+
+  it('has a preview for every recorded town portal', () => {
+    for (const id of ['classic', 'green', 'violet', 'red', 'teal', 'ember', 'gold', 'rainbow']) {
+      expect(mtxPreview(id)).toEqual({ animated: `/images/mtx/portal-${id}.webp`, still: `/images/mtx/portal-${id}-still.webp` });
+    }
+  });
+
+  it('points only locked supporter portals at the support page', () => {
+    for (const id of ['green', 'violet', 'red', 'teal', 'gold', 'rainbow']) {
+      expect(unlockedBySupport({ id, owned: false })).toBe(true);
+      expect(unlockedBySupport({ id, owned: true })).toBe(false);
+    }
+    // A membership unlocks none of these.
+    for (const id of ['ember', 'pumpkin', 'pumpkin-lit', 'pumpkin-inferno', 'classic']) {
+      expect(unlockedBySupport({ id, owned: false })).toBe(false);
+    }
+  });
+
+  it('groups portals as their own slot, equipped from the loadout', () => {
+    const items = [item('pumpkin'), item('classic', { slot: 'portal' }), item('green', { slot: 'portal', equipped: true })];
+    const slots = groupBySlot({ items, loadout: { portal: 'green' } });
+    expect(slots.map((slot) => slot.label)).toEqual(['Helmet', 'Town Portal']);
+    expect(slots[0].equipped).toBeNull();
+    expect(slots[1].equipped?.id).toBe('green');
+  });
+
+  it('never offers to take off the free default', () => {
+    expect(canTakeOff({ id: 'classic' })).toBe(false);
+    expect(canTakeOff({ id: 'green' })).toBe(true);
+    expect(canTakeOff({ id: 'pumpkin' })).toBe(true);
   });
 
   it('counts owned items and labels unknown slots', () => {
     expect(ownedCount([item('a'), item('b', { owned: false })])).toBe(1);
     expect(slotLabel('helmet')).toBe('Helmet');
+    expect(slotLabel('portal')).toBe('Town Portal');
     expect(slotLabel('cape')).toBe('Cape');
   });
 });

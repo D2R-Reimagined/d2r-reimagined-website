@@ -284,6 +284,10 @@ export interface AdminUser {
   displayName: string;
   roles: string[];
   createdAtUtc: string;
+  discordId: string | null;
+  discordUsername: string | null;
+  discordSupporterTier: string | null;
+  discordRolesSyncedAtUtc: string | null;
 }
 
 export interface Announcement {

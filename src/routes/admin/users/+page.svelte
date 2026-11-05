@@ -189,7 +189,7 @@
         <tbody>
           {#each users as user (user.id)}
             <tr class="border-b border-parchment-300/10 last:border-0">
-              <td class="px-3 py-3 text-parchment-50">{user.displayName}</td>
+              <td class="px-3 py-3"><a class="text-parchment-50 underline decoration-parchment-300/40 underline-offset-2 hover:text-ember-400" href={`/admin/users/${user.id}`}>{user.displayName}</a></td>
               <td class="px-3 py-3 text-parchment-300">{user.email || 'Provider account'}</td>
               <td class="px-3 py-3">
                 <RoleToggle

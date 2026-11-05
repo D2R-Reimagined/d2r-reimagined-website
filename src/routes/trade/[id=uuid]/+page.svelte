@@ -3,6 +3,7 @@
   import { goto } from '$app/navigation';
   import { onMount } from 'svelte';
   import TradeItemDetails from '#lib/components/TradeItemDetails.svelte';
+  import TradeListingEditor from '#lib/components/TradeListingEditor.svelte';
   import { authState, initializeAuth } from '#lib/auth.js';
   import { openTradeChat } from '#lib/trade-chat.js';
   import { tradeEvent } from '#lib/trade-realtime.js';
@@ -14,6 +15,8 @@
     getTradeListing,
     getTradeOffers,
     tradeGameModes,
+    tradeHardcoreLabel,
+    tradeHardcoreOptions,
     updateTradeListing,
     withdrawTradeOffer,
     type TradeGameMode,
@@ -120,6 +123,17 @@
     finally { working = false; }
   }
 
+  // The same for softcore and hardcore.
+  async function setHardcore(isHardcore: boolean): Promise<void> {
+    if (!listing || working) return;
+    working = true;
+    try {
+      listing = await updateTradeListing(listing.id, { isHardcore });
+      notice = `Listing marked ${tradeHardcoreLabel(isHardcore)}.`;
+    } catch (value) { error = value instanceof Error ? value.message : 'The listing could not be updated.'; }
+    finally { working = false; }
+  }
+
   onMount(async () => {
     try {
       await initializeAuth();
@@ -164,6 +178,7 @@
         {#if listing.description}<section class="mt-6 panel rounded-lg p-5"><h2 class="display-text text-xl text-parchment-50">Seller notes</h2><p class="mt-3 whitespace-pre-wrap leading-7 text-parchment-200">{listing.description}</p></section>{/if}
 
         {#if isSeller}
+          <TradeListingEditor {listing} onsaved={(updated) => { listing = updated; error = ''; notice = 'Listing updated.'; }} />
           <section class="mt-6 panel rounded-lg p-5 sm:p-6"><div class="flex flex-wrap items-end justify-between gap-3"><div><p class="text-xs uppercase tracking-[0.2em] text-ember-400">Seller controls</p><h2 class="display-text mt-1 text-2xl text-parchment-50">Offers ({offers.length})</h2></div><a href="/trade/mine" class="text-sm text-parchment-300 hover:text-white">All my listings →</a></div>
             {#if offers.length === 0}<div class="mt-5 rounded border border-dashed border-parchment-300/20 py-8 text-center text-parchment-300">No offers yet.</div>{:else}<div class="mt-5 space-y-3">{#each offers as offer}<article class="rounded border border-parchment-300/15 bg-black/25 p-4"><div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><div><div class="flex items-center gap-2"><strong class="text-parchment-50">{offer.buyerDisplayName}</strong><span class={`rounded px-2 py-0.5 text-xs ${offer.status === 'Pending' ? 'bg-amber-950/45 text-amber-200' : offer.status === 'Accepted' ? 'bg-green-950/45 text-set' : 'bg-black/35 text-parchment-300'}`}>{offer.status}</span></div><p class="mt-2 text-lg text-parchment-100">{offer.offerText}</p><p class="mt-1 text-xs text-parchment-300">{formatDate(offer.createdAtUtc)}</p></div>{#if offer.status === 'Pending'}<div class="flex gap-2"><button type="button" disabled={working} class="trade-secondary-button" onclick={() => answerOffer(offer, false)}>Decline</button><button type="button" disabled={working} class="trade-primary-button" onclick={() => answerOffer(offer, true)}>Accept & chat</button></div>{:else if offer.status === 'Accepted'}<button type="button" class="trade-secondary-button" onclick={() => openTradeChat({ conversationId: offer.conversationId })}>Open chat</button>{/if}</div></article>{/each}</div>{/if}
           </section>
@@ -171,7 +186,7 @@
       </main>
 
       <aside class="space-y-5 lg:sticky lg:top-24 lg:self-start">
-        <section class="panel rounded-lg p-5"><p class="text-xs uppercase tracking-[0.2em] text-parchment-300">Seller wants</p><p class="display-text mt-2 text-xl text-parchment-50">{listing.price || 'Offers'}</p>{#if listing.isNegotiable}<p class="mt-2 text-xs text-set">Open to negotiation</p>{/if}<dl class="mt-5 space-y-3 border-t border-parchment-300/15 pt-4 text-sm"><div class="flex justify-between gap-3"><dt class="text-parchment-300">Seller</dt><dd class="text-parchment-50">{listing.sellerDisplayName}</dd></div><div class="flex justify-between gap-3"><dt class="text-parchment-300">Realm</dt><dd class="text-right text-parchment-50">{listing.ladderName || 'Standard'}</dd></div><div class="flex items-center justify-between gap-3"><dt class="text-parchment-300">Game</dt>{#if isSeller && !listing.characterId}<dd><select aria-label="Game" class="field !py-1.5 text-sm" disabled={working} value={listing.gameMode ?? ''} onchange={(event) => setGameMode((event.currentTarget as HTMLSelectElement).value as TradeGameMode)}>{#if !listing.gameMode}<option value="" disabled>Choose…</option>{/if}{#each tradeGameModes as mode}<option value={mode.value}>{mode.label}</option>{/each}</select></dd>{:else}<dd class="text-right text-parchment-50">{tradeGameModes.find((mode) => mode.value === listing?.gameMode)?.label ?? 'Unknown - ask the seller'}</dd>{/if}</div>{#if listing.characterName}<div class="flex justify-between gap-3"><dt class="text-parchment-300">Character</dt><dd class="text-parchment-50">{listing.characterName}</dd></div>{/if}<div class="flex justify-between gap-3"><dt class="text-parchment-300">Listed</dt><dd class="text-right text-parchment-50">{formatDate(listing.createdAtUtc)}</dd></div></dl></section>
+        <section class="panel rounded-lg p-5"><p class="text-xs uppercase tracking-[0.2em] text-parchment-300">Seller wants</p><p class="display-text mt-2 text-xl text-parchment-50">{listing.price || 'Offers'}</p>{#if listing.isNegotiable}<p class="mt-2 text-xs text-set">Open to negotiation</p>{/if}<dl class="mt-5 space-y-3 border-t border-parchment-300/15 pt-4 text-sm"><div class="flex justify-between gap-3"><dt class="text-parchment-300">Seller</dt><dd class="text-parchment-50">{listing.sellerDisplayName}</dd></div><div class="flex justify-between gap-3"><dt class="text-parchment-300">Realm</dt><dd class="text-right text-parchment-50">{listing.ladderName || 'Standard'}</dd></div><div class="flex items-center justify-between gap-3"><dt class="text-parchment-300">Game</dt>{#if isSeller && !listing.characterId}<dd><select aria-label="Game" class="field !py-1.5 text-sm" disabled={working} value={listing.gameMode ?? ''} onchange={(event) => setGameMode((event.currentTarget as HTMLSelectElement).value as TradeGameMode)}>{#if !listing.gameMode}<option value="" disabled>Choose…</option>{/if}{#each tradeGameModes as mode}<option value={mode.value}>{mode.label}</option>{/each}</select></dd>{:else}<dd class="text-right text-parchment-50">{tradeGameModes.find((mode) => mode.value === listing?.gameMode)?.label ?? 'Unknown - ask the seller'}</dd>{/if}</div><div class="flex items-center justify-between gap-3"><dt class="text-parchment-300">Mode</dt>{#if isSeller && !listing.characterId}<dd><select aria-label="Softcore or hardcore" class="field !py-1.5 text-sm" disabled={working} value={listing.isHardcore === null ? '' : String(listing.isHardcore)} onchange={(event) => setHardcore((event.currentTarget as HTMLSelectElement).value === 'true')}>{#if listing.isHardcore === null}<option value="" disabled>Choose…</option>{/if}{#each tradeHardcoreOptions as option}<option value={String(option.value)}>{option.label}</option>{/each}</select></dd>{:else}<dd class="text-right text-parchment-50">{tradeHardcoreLabel(listing.isHardcore) ?? 'Unknown - ask the seller'}</dd>{/if}</div>{#if listing.characterName}<div class="flex justify-between gap-3"><dt class="text-parchment-300">Character</dt><dd class="text-parchment-50">{listing.characterName}</dd></div>{/if}<div class="flex justify-between gap-3"><dt class="text-parchment-300">Listed</dt><dd class="text-right text-parchment-50">{formatDate(listing.createdAtUtc)}</dd></div></dl></section>
 
         {#if isSeller}
           <section class="panel rounded-lg p-5"><h2 class="display-text text-lg text-parchment-50">Listing status</h2><div class="mt-4 grid gap-2">{#if listing.status === 'Active'}<button type="button" disabled={working} class="trade-secondary-button" onclick={() => setStatus('Cancelled')}>Cancel listing</button>{:else if listing.status === 'Reserved'}<button type="button" disabled={working} class="trade-primary-button" onclick={() => setStatus('Completed')}>Mark trade complete</button><button type="button" disabled={working} class="trade-secondary-button" onclick={() => setStatus('Active')}>Return to active</button>{:else}<button type="button" disabled={working} class="trade-primary-button" onclick={() => setStatus('Active')}>Relist item</button>{/if}</div></section>
