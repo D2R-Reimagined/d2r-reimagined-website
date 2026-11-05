@@ -170,7 +170,8 @@
 
   function tierName(tier: string | null | undefined): string {
     return ({ supporter: 'Supporter', 'pro-supporter': 'Pro Supporter',
-      'elite-supporter': 'Elite Supporter', 'ultimate-supporter': 'Ultimate Supporter' } as Record<string, string>)[tier ?? ''] ?? 'No supporter role';
+      'elite-supporter': 'Elite Supporter', 'ultimate-supporter': 'Ultimate Supporter',
+      'legendary-supporter': 'Legendary Supporter', 'insane-supporter': 'INSANE Supporter' } as Record<string, string>)[tier ?? ''] ?? 'No supporter role';
   }
 
   function startEditingProfile(): void {

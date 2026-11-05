@@ -40,7 +40,9 @@ const previewFiles: Record<string, string> = {
   violet: 'portal-violet',
   red: 'portal-red',
   teal: 'portal-teal',
-  ember: 'portal-ember'
+  ember: 'portal-ember',
+  gold: 'portal-gold',
+  rainbow: 'portal-rainbow'
 };
 
 /** The animated preview and its still frame, or null for catalog items without a render yet. */
@@ -51,7 +53,7 @@ export function mtxPreview(id: string): { animated: string; still: string } | nu
 
 // The portals a supporter tier unlocks (SupporterPortalPolicy in the API). Ember is a special
 // reward and the pumpkins come from a ladder, so a membership would not unlock those.
-const supporterItems = new Set(['green', 'violet', 'red', 'teal']);
+const supporterItems = new Set(['green', 'violet', 'red', 'teal', 'gold', 'rainbow']);
 
 /** True for a locked item that a supporter membership would unlock, so the card can link to /support. */
 export function unlockedBySupport(item: Pick<MtxItem, 'id' | 'owned'>): boolean {

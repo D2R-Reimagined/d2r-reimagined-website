@@ -34,14 +34,14 @@ describe('mtx catalog', () => {
     expect(mtxPreview('constructor')).toBeNull();
   });
 
-  it('has a preview for every town portal', () => {
-    for (const id of ['classic', 'green', 'violet', 'red', 'teal', 'ember']) {
+  it('has a preview for every recorded town portal', () => {
+    for (const id of ['classic', 'green', 'violet', 'red', 'teal', 'ember', 'gold', 'rainbow']) {
       expect(mtxPreview(id)).toEqual({ animated: `/images/mtx/portal-${id}.webp`, still: `/images/mtx/portal-${id}-still.webp` });
     }
   });
 
   it('points only locked supporter portals at the support page', () => {
-    for (const id of ['green', 'violet', 'red', 'teal']) {
+    for (const id of ['green', 'violet', 'red', 'teal', 'gold', 'rainbow']) {
       expect(unlockedBySupport({ id, owned: false })).toBe(true);
       expect(unlockedBySupport({ id, owned: true })).toBe(false);
     }
