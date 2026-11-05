@@ -5,6 +5,7 @@
   import { itemSprite, loadItemPresentation, type ItemPresentation } from '#lib/item-presentation.js';
   import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
   import type { TradeListing } from '#lib/trades.js';
+  import { relativeAge as age } from '#lib/utc-time.js';
 
   let {
     listing,
@@ -42,14 +43,6 @@
     if (quality.includes('magic')) return 'text-magic';
     if (quality.includes('rare') || quality.includes('crafted')) return 'text-yellow-300';
     return 'text-parchment-50';
-  }
-
-  function age(value: string): string {
-    const seconds = Math.max(1, Math.floor((Date.now() - new Date(value).getTime()) / 1000));
-    if (seconds < 60) return 'just now';
-    if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
-    if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
-    return `${Math.floor(seconds / 86400)}d ago`;
   }
 
   onMount(async () => {

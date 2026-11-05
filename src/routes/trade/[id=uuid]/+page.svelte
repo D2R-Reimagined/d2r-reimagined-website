@@ -7,6 +7,7 @@
   import { authState, initializeAuth } from '#lib/auth.js';
   import { openTradeChat } from '#lib/trade-chat.js';
   import { tradeEvent } from '#lib/trade-realtime.js';
+  import { parseUtc } from '#lib/utc-time.js';
   import type { SaveItem } from '#lib/characters.js';
   import {
     acceptTradeOffer,
@@ -40,7 +41,7 @@
   let myOffers = $derived(offers.filter((offer) => offer.buyerId === $authState.user?.id));
 
   function formatDate(value: string): string {
-    return new Date(value).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
+    return parseUtc(value).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
   }
 
   async function load(): Promise<void> {
