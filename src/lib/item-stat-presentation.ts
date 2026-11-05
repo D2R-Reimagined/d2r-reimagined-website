@@ -31,6 +31,8 @@ export interface DisplayStatLine {
   fallback: string;
   priority?: number;
   tone?: 'magic' | 'enchantment' | 'corrupted' | 'flavor';
+  /** The save stats this line was built from, so a search can point at the line that matched. */
+  sources?: Array<{ name: string; layer: number }>;
 }
 
 export interface ItemStatDisplayContext {
@@ -319,7 +321,8 @@ function repairLine(stat: SaveStat): DisplayStatLine | null {
 function decorate(
   line: DisplayStatLine,
   stat: SaveStat,
-  bundle: ItemStatPresentationBundle
+  bundle: ItemStatPresentationBundle,
+  components: SaveStat[] = [stat]
 ): DisplayStatLine {
   const metadata = bundle.Stats[stat.name];
   const key = metadata?.PositiveKey ?? metadata?.NegativeKey;
@@ -330,7 +333,7 @@ function decorate(
       : key === 'uber_mod'
         ? 'flavor'
         : 'magic';
-  return { ...line, priority: metadata?.Priority ?? 0, tone };
+  return { ...line, priority: metadata?.Priority ?? 0, tone, sources: components.map((source) => ({ name: source.name, layer: source.layer })) };
 }
 
 const damagePairs = [
@@ -348,6 +351,7 @@ export function displayStatLines(
 ): DisplayStatLine[] {
   const consumed = new Set<number>();
   const replacements = new Map<number, DisplayStatLine>();
+  const backingStats = new Map<number, SaveStat>();
 
   // Reimagined pairs the real item_nonclassskill record with a descfunc 28 display-only
   // record. Render the latter with its skill layer and suppress only the matching hidden
@@ -359,7 +363,9 @@ export function displayStatLines(
       && candidate.name === 'item_nonclassskill'
       && candidate.layer === stat.layer
       && candidate.value === stat.value);
-    if (backingIndex >= 0) consumed.add(backingIndex);
+    if (backingIndex < 0) return;
+    consumed.add(backingIndex);
+    backingStats.set(index, stats[backingIndex]);
   });
 
   for (const [minimumName, maximumName, compositeName] of damagePairs) {
@@ -378,7 +384,7 @@ export function displayStatLines(
     replacements.set(Math.min(minimumIndex, maximumIndex), decorate({
       keyed: { key, args: [minimum, maximum] },
       fallback: `Adds ${minimum}-${maximum} Damage`
-    }, stats[sourceIndex], bundle));
+    }, stats[sourceIndex], bundle, [stats[minimumIndex], stats[maximumIndex]]));
   }
 
   const poisonMinimumIndex = stats.findIndex((stat) => stat.name === 'poisonmindam');
@@ -396,7 +402,7 @@ export function displayStatLines(
     replacements.set(Math.min(poisonMinimumIndex, poisonMaximumIndex, poisonLengthIndex), decorate({
       keyed: { key: poisonKey, args: [minimum, maximum, seconds] },
       fallback: `Adds ${minimum}-${maximum} Poison Damage over ${seconds} seconds`
-    }, stats[poisonMinimumIndex], bundle));
+    }, stats[poisonMinimumIndex], bundle, [stats[poisonMinimumIndex], stats[poisonMaximumIndex], stats[poisonLengthIndex]]));
   }
 
   const lines: DisplayStatLine[] = [];
@@ -423,7 +429,8 @@ export function displayStatLines(
       : bundle.Stats[stat.name]?.Function === 11
         ? repairLine(stat)
         : keyedLine(stat, bundle, context);
-    if (line) lines.push(decorate(line, stat, bundle));
+    const backing = backingStats.get(index);
+    if (line) lines.push(decorate(line, stat, bundle, backing ? [stat, backing] : [stat]));
   }
   return lines.sort((left, right) => (right.priority ?? 0) - (left.priority ?? 0));
 }
