@@ -3,6 +3,7 @@
   import { onMount } from 'svelte';
   import { authState, initializeAuth } from '#lib/auth.js';
   import { getMyTradeListings, type TradeListing, type TradeListingStatus } from '#lib/trades.js';
+  import { parseUtc } from '#lib/utc-time.js';
 
   let listings = $state<TradeListing[]>([]);
   let status = $state<'All' | TradeListingStatus>('All');
@@ -11,7 +12,7 @@
   let visible = $derived(status === 'All' ? listings : listings.filter((listing) => listing.status === status));
 
   function formatDate(value: string): string {
-    return new Date(value).toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' });
+    return parseUtc(value).toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' });
   }
 
   onMount(async () => {
