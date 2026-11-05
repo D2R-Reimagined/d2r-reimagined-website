@@ -12,7 +12,7 @@ import {
 } from './types.js';
 
 export type StrictnessId = 'soft' | 'regular' | 'semi-strict' | 'strict' | 'endgame';
-export type ThemeId = 'reimagined' | 'filterblade' | 'neon' | 'minimalist';
+export type ThemeId = 'reimagined' | 'filterblade' | 'neon' | 'bloodmoon' | 'frost' | 'minimalist';
 export type TierRank = 'S' | 'A' | 'B' | 'C' | 'D' | 'HIDE';
 export type CategoryId =
   | 'runes'
@@ -60,9 +60,19 @@ export interface CustomBaseRule {
   code: string;
   label: string;
   tier: TierRank;
-  mode: 'runeword' | 'unique' | 'set' | 'rare';
+  mode:
+    | 'runeword'
+    | 'unique'
+    | 'set'
+    | 'unique-set'
+    | 'rare'
+    | 'rare-crafted'
+    | 'magic'
+    | 'crafted'
+    | 'any';
   minSockets?: number;
   etherealOnly?: boolean;
+  parentItemId?: string;
 }
 
 export interface BaseFilterSettings {
@@ -315,6 +325,80 @@ export const THEME_PRESETS: Record<ThemeId, ThemePresetInfo> = {
       }
     }
   },
+  bloodmoon: {
+    id: 'bloodmoon',
+    name: 'Blood Moon',
+    description: 'Deep crimson, molten gold, and scarlet borders inspired by sanctuary blood rites.',
+    tiers: {
+      S: {
+        backgroundColor: 'RGBA(62, 8, 14, 0.95)',
+        borderColor: 'RGBA(255, 200, 75, 1)',
+        textColor: 'RGBA(255, 232, 165, 1)',
+        dropSound: 'Filter01',
+        minimapIcon: { shape: 'star', size: 25, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(255, 55, 55, 1)' },
+        namePrefix: '★ {name} ★'
+      },
+      A: {
+        backgroundColor: 'RGBA(42, 6, 10, 0.92)',
+        borderColor: 'RGBA(255, 65, 65, 1)',
+        textColor: 'RGBA(255, 165, 165, 1)',
+        dropSound: 'Filter02',
+        minimapIcon: { shape: 'star', size: 21, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(255, 95, 60, 1)' }
+      },
+      B: {
+        backgroundColor: 'RGBA(32, 14, 10, 0.9)',
+        borderColor: 'RGBA(235, 125, 70, 1)',
+        textColor: 'RGBA(255, 195, 155, 1)',
+        dropSound: 'Filter03',
+        minimapIcon: { shape: 'diamond', size: 18, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(235, 125, 70, 1)' }
+      },
+      C: {
+        backgroundColor: 'RGBA(20, 12, 14, 0.85)',
+        borderColor: 'RGBA(175, 115, 115, 0.75)',
+        textColor: 'RGBA(235, 200, 200, 1)'
+      },
+      D: {
+        textColor: 'RGBA(175, 155, 155, 0.88)'
+      }
+    }
+  },
+  frost: {
+    id: 'frost',
+    name: 'Glacial Frost',
+    description: 'Crisp arctic white, glacier cyan, and aurora teal for cool high-contrast readability.',
+    tiers: {
+      S: {
+        backgroundColor: 'RGBA(10, 32, 48, 0.95)',
+        borderColor: 'RGBA(120, 245, 255, 1)',
+        textColor: 'RGBA(235, 252, 255, 1)',
+        dropSound: 'Filter01',
+        minimapIcon: { shape: 'star', size: 25, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(90, 235, 255, 1)' },
+        namePrefix: '★ {name} ★'
+      },
+      A: {
+        backgroundColor: 'RGBA(14, 24, 46, 0.92)',
+        borderColor: 'RGBA(95, 165, 255, 1)',
+        textColor: 'RGBA(195, 225, 255, 1)',
+        dropSound: 'Filter02',
+        minimapIcon: { shape: 'diamond', size: 21, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(95, 165, 255, 1)' }
+      },
+      B: {
+        backgroundColor: 'RGBA(10, 28, 28, 0.9)',
+        borderColor: 'RGBA(80, 225, 190, 1)',
+        textColor: 'RGBA(185, 248, 230, 1)',
+        dropSound: 'Filter03',
+        minimapIcon: { shape: 'circle', size: 17, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(80, 225, 190, 1)' }
+      },
+      C: {
+        backgroundColor: 'RGBA(14, 18, 24, 0.85)',
+        borderColor: 'RGBA(135, 165, 195, 0.75)',
+        textColor: 'RGBA(210, 225, 240, 1)'
+      },
+      D: {
+        textColor: 'RGBA(155, 170, 185, 0.88)'
+      }
+    }
+  },
   minimalist: {
     id: 'minimalist',
     name: 'Clean Minimal',
@@ -360,10 +444,10 @@ export const TIER_RANKS: readonly { id: TierRank; label: string; shortLabel: str
 
 export const CATEGORIES: readonly { id: CategoryId; name: string; subtitle: string; icon: string }[] = [
   { id: 'runes', name: 'Runes & Rune Stacks', subtitle: 'All 39 Runes (#1 El – #39 Hev), paired with their stackable variants', icon: 'ᚱ' },
-  { id: 'currency', name: 'Orbs & Upgrade Materials', subtitle: 'Power Orbs, Gem Clusters, Chaos Onyx, Pliers, Bags & Grabbers', icon: '◈' },
+  { id: 'currency', name: 'Orbs & Upgrade Materials', subtitle: 'Power Orbs, Gem Clusters, Pliers, Bags & Grabbers', icon: '◈' },
   { id: 'bosses', name: 'Boss Keys, Organs & Tokens', subtitle: 'Uber Keys, Boss Souls, Animus/Calamity/Ire, Worldstone Shards & Essences', icon: '☠' },
   { id: 'maps', name: 'Endgame Maps & Sextants', subtitle: 'Tier 1–6 Maps and Map Currency (Sextant, Astrolabe, Vizjerei Prism)', icon: '🗺' },
-  { id: 'gems', name: 'Gems & Gem Stacks', subtitle: 'Gem Stacks, Reimagined Unstacked Gems, Perfect, Flawless, Standard & Flawed Gems (Always visible for Gem Bag)', icon: '❖' },
+  { id: 'gems', name: 'Gems & Gem Stacks', subtitle: 'Chaos Onyx, Gem Stacks, Reimagined Unstacked Gems, Perfect, Flawless, Standard & Flawed Gems (Always visible for Gem Bag)', icon: '❖' },
   { id: 'uniques', name: 'Uniques, Sets, Charms & Jewelry', subtitle: 'Drop-Only Chase Bases, Uniques/Sets by Tier, Sunder/Colossal/Torches, Charms & Rings', icon: '♛' },
   { id: 'bases', name: 'Runeword & Crafting Bases', subtitle: 'Chase Weapon/Armor Bases, Ethereal Elite Bases, Superior Bases & Socket Thresholds', icon: '⚔' },
   { id: 'equipment', name: 'Rares, Crafted & Magic Gear', subtitle: 'Crafted Items, Rare Circlets/Class Gear/Gloves/Boots/Belts, and Rares/Magics by Tier', icon: '🛡' },
@@ -446,7 +530,6 @@ export const TIERABLE_ITEMS: readonly TierableItem[] = [
   { id: 'curr-ooc-corrupt', label: 'Orb of Corruption', subtitle: 'ka3 + 1ka (Stack)', category: 'currency', codes: ['ka3', '1ka'], defaultTier: 'S' },
   { id: 'curr-ooa-assemblage', label: 'Orb of Assemblage', subtitle: 'ooa + 1oa (Stack)', category: 'currency', codes: ['ooa', '1oa'], defaultTier: 'S' },
   { id: 'curr-gem-cluster', label: 'Gem Cluster', subtitle: '1gc · Mass gem currency', category: 'currency', codes: ['1gc'], defaultTier: 'S' },
-  { id: 'curr-chaos-onyx', label: 'Chaos Onyx & Stack', subtitle: 'gmo + 1so (Stack)', category: 'currency', codes: ['gmo', '1so'], defaultTier: 'S' },
   { id: 'curr-oos-socket', label: 'Orb of Socketing', subtitle: 'oos + 1os (Stack)', category: 'currency', codes: ['oos', '1os'], defaultTier: 'A' },
   { id: 'curr-ooi-infusion', label: 'Orb of Infusion', subtitle: 'ooi + 1oi (Stack)', category: 'currency', codes: ['ooi', '1oi'], defaultTier: 'A' },
   { id: 'curr-ooc-conversion', label: 'Orb of Conversion', subtitle: 'ooc + 1oc (Stack)', category: 'currency', codes: ['ooc', '1oc'], defaultTier: 'A' },
@@ -481,6 +564,7 @@ export const TIERABLE_ITEMS: readonly TierableItem[] = [
   { id: 'map-tier-1', label: 'Tier 1 Endgame Maps (All 10 Arenas)', subtitle: 'Starter endgame maps', category: 'maps', codes: MAP_CODES_BY_TIER[1], defaultTier: 'B' },
 
   // 5. Gems & Gem Stacks (Never hidden by default since the in-game Gem Bag stores all gem types)
+  { id: 'curr-chaos-onyx', label: 'Chaos Onyx & Stack', subtitle: 'gmo + 1so (Stack)', category: 'gems', codes: ['gmo', '1so'], defaultTier: 'S' },
   { id: 'gem-stacks-all', label: 'Gem Stacks (Amethyst, Ruby, Sapphire, Emerald, Topaz, Diamond, Skull)', subtitle: '1am, 1rb, 1sa, 1em, 1tp, 1di, 1sk', category: 'gems', codes: ['1am', '1rb', '1sa', '1em', '1tp', '1di', '1sk'], defaultTier: 'B' },
   { id: 'gem-reimagined-unstacked', label: 'Reimagined Unstacked Gems (Amethyst–Skull)', subtitle: 'gmm, gmr, gms, gme, gmt, gmd, gmk', category: 'gems', codes: ['gmm', 'gmr', 'gms', 'gme', 'gmt', 'gmd', 'gmk'], defaultTier: 'B' },
   { id: 'gem-perfect', label: 'Perfect Gems (All 7 Types)', subtitle: 'gpv, gpr, gpb, gpg, gpy, gpw, skz', category: 'gems', codes: ['gpv', 'gpr', 'gpb', 'gpg', 'gpy', 'gpw', 'skz'], defaultTier: 'B' },
@@ -1412,6 +1496,351 @@ export function isItemOverridden(item: TierableItem, config: V2Config): boolean 
   return config.itemOverrides[item.id] !== undefined;
 }
 
+export interface BaseSlotFilter {
+  id: string;
+  label: string;
+  group: 'All' | 'Armor & Offhands' | 'Weapons & Quivers';
+  typeCodes: string[];
+}
+
+export const BASE_SLOT_FILTERS: readonly BaseSlotFilter[] = [
+  { id: 'all', label: 'All Equipment (523)', group: 'All', typeCodes: [] },
+  // Armor & Offhands
+  { id: 'tors', label: 'Body Armor', group: 'Armor & Offhands', typeCodes: ['tors'] },
+  { id: 'helm', label: 'Helms', group: 'Armor & Offhands', typeCodes: ['helm'] },
+  { id: 'circ', label: 'Circlets', group: 'Armor & Offhands', typeCodes: ['circ'] },
+  { id: 'shie', label: 'Standard Shields', group: 'Armor & Offhands', typeCodes: ['shie'] },
+  { id: 'glov', label: 'Gloves', group: 'Armor & Offhands', typeCodes: ['glov'] },
+  { id: 'boot', label: 'Boots', group: 'Armor & Offhands', typeCodes: ['boot'] },
+  { id: 'belt', label: 'Belts', group: 'Armor & Offhands', typeCodes: ['belt'] },
+  { id: 'grim', label: 'Warlock Grimoires', group: 'Armor & Offhands', typeCodes: ['grim'] },
+  { id: 'pelt', label: 'Druid Pelts', group: 'Armor & Offhands', typeCodes: ['pelt'] },
+  { id: 'phlm', label: 'Barb Helms', group: 'Armor & Offhands', typeCodes: ['phlm'] },
+  { id: 'ashd', label: 'Paladin Shields', group: 'Armor & Offhands', typeCodes: ['ashd'] },
+  { id: 'head', label: 'Necro Heads', group: 'Armor & Offhands', typeCodes: ['head'] },
+  // Weapons & Quivers
+  { id: 'swor', label: 'Swords', group: 'Weapons & Quivers', typeCodes: ['swor'] },
+  { id: 'axe', label: 'Axes', group: 'Weapons & Quivers', typeCodes: ['axe'] },
+  { id: 'mace-hamm', label: 'Maces & Hammers', group: 'Weapons & Quivers', typeCodes: ['mace', 'hamm'] },
+  { id: 'club', label: 'Clubs', group: 'Weapons & Quivers', typeCodes: ['club'] },
+  { id: 'pole', label: 'Polearms', group: 'Weapons & Quivers', typeCodes: ['pole'] },
+  { id: 'spea', label: 'Spears', group: 'Weapons & Quivers', typeCodes: ['spea', 'aspe'] },
+  { id: 'bow', label: 'Bows & Quivers', group: 'Weapons & Quivers', typeCodes: ['bow', 'abow', 'bowq', 'mboq'] },
+  { id: 'xbow', label: 'Crossbows & Bolts', group: 'Weapons & Quivers', typeCodes: ['xbow', 'xboq', 'mxbq'] },
+  { id: 'jave', label: 'Javelins', group: 'Weapons & Quivers', typeCodes: ['jave', 'ajav'] },
+  { id: 'thro', label: 'Throwing', group: 'Weapons & Quivers', typeCodes: ['tkni', 'taxe'] },
+  { id: 'knif', label: 'Daggers', group: 'Weapons & Quivers', typeCodes: ['knif'] },
+  { id: 'h2h', label: 'Assassin Claws', group: 'Weapons & Quivers', typeCodes: ['h2h', 'h2h2'] },
+  { id: 'scep', label: 'Scepters', group: 'Weapons & Quivers', typeCodes: ['scep'] },
+  { id: 'wand', label: 'Wands', group: 'Weapons & Quivers', typeCodes: ['wand'] },
+  { id: 'staf', label: 'Staves', group: 'Weapons & Quivers', typeCodes: ['staf'] },
+  { id: 'orb', label: 'Sorceress Orbs', group: 'Weapons & Quivers', typeCodes: ['orb'] }
+] as const;
+
+export interface ResolvedBaseEntry {
+  code: string;
+  label: string;
+  tier?: 'normal' | 'exceptional' | 'elite';
+  kind: string;
+  mode: CustomBaseRule['mode'];
+  notableNames?: string;
+}
+
+export interface GroupDisplayInfo {
+  label: string;
+  subtitle?: string;
+  allBases: ResolvedBaseEntry[];
+  activeBases: ResolvedBaseEntry[];
+  splitBases: { entry: ResolvedBaseEntry; rule: CustomBaseRule }[];
+}
+
+export function defaultBaseModeForItem(item: TierableItem): CustomBaseRule['mode'] {
+  if (item.category === 'bases') return 'runeword';
+  if (item.rarities?.length) {
+    const r = item.rarities;
+    if (r.includes('unique') && r.includes('set')) return 'unique-set';
+    if (r.includes('unique')) return 'unique';
+    if (r.includes('set')) return 'set';
+    if (r.includes('rare') && r.includes('crafted')) return 'rare-crafted';
+    if (r.includes('rare')) return 'rare';
+    if (r.includes('magic')) return 'magic';
+    if (r.includes('crafted')) return 'crafted';
+  }
+  return 'any';
+}
+
+export function modesMatchGroupMode(
+  ruleMode: CustomBaseRule['mode'],
+  groupMode: CustomBaseRule['mode']
+): boolean {
+  if (ruleMode === groupMode) return true;
+  if (groupMode === 'unique-set' && (ruleMode === 'unique' || ruleMode === 'set')) return true;
+  if (groupMode === 'rare-crafted' && (ruleMode === 'rare' || ruleMode === 'crafted')) return true;
+  return false;
+}
+
+function cleanCatalogItemLabel(b: {
+  code?: string;
+  name: string;
+  displayName?: string;
+  kind: string;
+}): string {
+  if (b.kind === 'weapon' || b.kind === 'armor') {
+    return (b.displayName || b.name || b.code || '').split(/\r?\n/)[0]!.trim();
+  }
+  const raw = b.displayName || b.name || b.code || '';
+  if (!raw.includes('\n')) return raw.trim();
+  const lines = raw
+    .split(/\r?\n/)
+    .map(l => l.trim())
+    .filter(Boolean);
+  return lines[lines.length - 1] || lines[0] || b.code || '';
+}
+
+export function formatNaturalBaseList(names: string[]): string {
+  if (names.length === 0) return '';
+  if (names.length === 1) return names[0]!;
+  if (names.length === 2) return `${names[0]} & ${names[1]}`;
+  return `${names.slice(0, -1).join(', ')} & ${names[names.length - 1]}`;
+}
+
+export function resolveTierableItemBases(
+  item: TierableItem,
+  catalog: Catalog
+): ResolvedBaseEntry[] {
+  if (item.category === 'runes' || item.subtitle?.includes('(Stack)')) {
+    return [];
+  }
+  if (!catalog.baseItems.length) return [];
+
+  const mode = defaultBaseModeForItem(item);
+  const matchedBases: Catalog['baseItems'] = [];
+
+  if (item.codes && item.codes.length > 1) {
+    for (const code of item.codes) {
+      const b = catalog.baseItems.find(x => x.code === code);
+      if (b) matchedBases.push(b);
+    }
+  } else if (!item.codes?.length && (item.baseNames?.length || item.itemTypes?.length)) {
+    for (const b of catalog.baseItems) {
+      if (!b.code) continue;
+      if (item.baseNames?.length) {
+        const matchesName =
+          item.baseNames.includes(b.name) || (b.displayName != null && item.baseNames.includes(b.displayName));
+        if (!matchesName) continue;
+      }
+      if (item.itemTypes?.length) {
+        const matchesType = item.itemTypes.some(t => catalog.itemTypeMap.get(t)?.has(b.code!));
+        if (!matchesType) continue;
+      }
+      if (item.tiers?.length) {
+        if (!b.tier || !item.tiers.includes(b.tier)) continue;
+      }
+      matchedBases.push(b);
+    }
+  }
+
+  if (matchedBases.length <= 1) return [];
+
+  return matchedBases.map(b => {
+    const code = b.code!;
+    const label = cleanCatalogItemLabel(b) || code;
+    let notableNames: string | undefined;
+    if (mode === 'unique' || mode === 'set' || mode === 'unique-set') {
+      const uNames = catalog.uniqueItems.filter(u => u.baseCode === code).map(u => u.name);
+      const sNames = catalog.setItems.filter(s => s.baseCode === code).map(s => s.name);
+      const combined = [...new Set([...uNames, ...sNames])];
+      if (combined.length > 0) {
+        notableNames = combined.slice(0, 3).join(', ') + (combined.length > 3 ? ` +${combined.length - 3}` : '');
+      }
+    }
+    return {
+      code,
+      label,
+      tier: b.tier,
+      kind: b.kind,
+      mode,
+      notableNames
+    };
+  });
+}
+
+export function findParentGroupForBase(
+  code: string,
+  mode: CustomBaseRule['mode'],
+  catalog?: Catalog,
+  parentItemId?: string
+): TierableItem | undefined {
+  if (parentItemId) {
+    const byId = TIERABLE_ITEMS.find(i => i.id === parentItemId);
+    if (byId) return byId;
+  }
+
+  // 1. Prioritize explicit multi-code groups (such as base-elite-body, base-monarch-shields, etc.)
+  for (const item of TIERABLE_ITEMS) {
+    if (item.category === 'runes' || item.subtitle?.includes('(Stack)')) continue;
+    if (item.codes && item.codes.length > 1 && item.codes.includes(code)) {
+      if (modesMatchGroupMode(mode, defaultBaseModeForItem(item))) {
+        return item;
+      }
+    }
+  }
+
+  // 2. Fall back to itemTypes / baseNames groups if catalog is available
+  if (catalog) {
+    for (const item of TIERABLE_ITEMS) {
+      if (item.codes?.length) continue;
+      if (!modesMatchGroupMode(mode, defaultBaseModeForItem(item))) continue;
+      const bases = resolveTierableItemBases(item, catalog);
+      if (bases.some(b => b.code === code)) {
+        return item;
+      }
+    }
+  }
+
+  return undefined;
+}
+
+export function getGroupDisplayInfo(
+  item: TierableItem,
+  config: V2Config,
+  catalog: Catalog
+): GroupDisplayInfo {
+  const allBases = resolveTierableItemBases(item, catalog);
+  if (allBases.length <= 1) {
+    return {
+      label: item.label,
+      subtitle: item.subtitle,
+      allBases,
+      activeBases: allBases,
+      splitBases: []
+    };
+  }
+
+  const groupTier = effectiveItemTier(item, config);
+  const groupMode = defaultBaseModeForItem(item);
+  const activeBases: ResolvedBaseEntry[] = [];
+  const splitBases: { entry: ResolvedBaseEntry; rule: CustomBaseRule }[] = [];
+
+  for (const entry of allBases) {
+    const matchingRule = config.customBases.find(
+      cb =>
+        cb.code === entry.code &&
+        (cb.parentItemId === item.id ||
+          (!cb.parentItemId &&
+            modesMatchGroupMode(cb.mode, groupMode) &&
+            findParentGroupForBase(cb.code, cb.mode, catalog)?.id === item.id))
+    );
+
+    if (
+      matchingRule &&
+      (matchingRule.tier !== groupTier || matchingRule.minSockets || matchingRule.etherealOnly)
+    ) {
+      splitBases.push({ entry, rule: matchingRule });
+    } else {
+      activeBases.push(entry);
+    }
+  }
+
+  if (splitBases.length === 0) {
+    return {
+      label: item.label,
+      subtitle: item.subtitle,
+      allBases,
+      activeBases,
+      splitBases
+    };
+  }
+
+  let label = item.label;
+  let subtitle = item.subtitle;
+
+  if (activeBases.length === 0) {
+    label = `${item.label} (All split to other tiers)`;
+  } else if (allBases.length <= 6 || activeBases.length <= 4) {
+    const joined = formatNaturalBaseList(activeBases.map(b => b.label));
+    if (item.id === 'base-diadem-tiara') {
+      label = `${joined} (White/Socketed Bases)`;
+    } else {
+      label = joined;
+    }
+
+    if (item.subtitle?.includes(' · ')) {
+      const desc = item.subtitle.split(' · ').slice(1).join(' · ');
+      subtitle = `${activeBases.map(b => b.code).join(', ')} · ${desc}`;
+    } else if (item.codes && item.codes.length > 1) {
+      subtitle = activeBases.map(b => b.code).join(', ');
+    }
+  } else {
+    const cleanParentTitle = item.label.replace(/\s*\(All \d+.*?\)/i, '');
+    const removedPreview =
+      splitBases
+        .slice(0, 3)
+        .map(s => s.entry.label)
+        .join(', ') + (splitBases.length > 3 ? ` +${splitBases.length - 3} more` : '');
+    label = `${cleanParentTitle} (minus ${removedPreview})`;
+  }
+
+  return {
+    label,
+    subtitle,
+    allBases,
+    activeBases,
+    splitBases
+  };
+}
+
+/**
+ * Reconciles individual split bases with their parent TierableItem groups:
+ * 1. If every member of a group has been split out (0 active bases left in the group's old tier),
+ *    moves the parent group itself to the tier of the newly moved member so no empty ghost group remains.
+ * 2. Any split base that is now in the SAME tier as its parent group (with no custom socket/ethereal filter)
+ *    automatically rejoins its parent group and restores the group's dynamic name.
+ */
+export function reconcileGroupSplits(config: V2Config, catalog: Catalog): void {
+  // Pass 1: If a group has had all of its members moved out to other tiers, move the group to the target tier
+  for (const item of TIERABLE_ITEMS) {
+    const allBases = resolveTierableItemBases(item, catalog);
+    if (allBases.length <= 1) continue;
+    const groupMode = defaultBaseModeForItem(item);
+    const memberRules = allBases.map(entry =>
+      config.customBases.find(
+        cb =>
+          cb.code === entry.code &&
+          !cb.minSockets &&
+          !cb.etherealOnly &&
+          (cb.parentItemId === item.id ||
+            (!cb.parentItemId &&
+              modesMatchGroupMode(cb.mode, groupMode) &&
+              findParentGroupForBase(cb.code, cb.mode, catalog)?.id === item.id))
+      )
+    );
+
+    if (memberRules.every(r => r !== undefined)) {
+      // Find the most recently added/updated rule in config.customBases (index 0 or first matching)
+      const firstMatch = config.customBases.find(cb => memberRules.includes(cb));
+      const newGroupTier = firstMatch?.tier ?? memberRules[0]!.tier;
+      const defaultForStrictness = item.strictnessTiers?.[config.strictness] ?? item.defaultTier;
+      if (newGroupTier === defaultForStrictness) {
+        delete config.itemOverrides[item.id];
+      } else {
+        config.itemOverrides[item.id] = newGroupTier;
+      }
+    }
+  }
+
+  // Pass 2: Any split base that sits in the same tier as its parent group (without special socket/eth rules) rejoins the group
+  config.customBases = config.customBases.filter(cb => {
+    if (cb.minSockets || cb.etherealOnly) return true;
+    const parentGroup = findParentGroupForBase(cb.code, cb.mode, catalog, cb.parentItemId);
+    if (!parentGroup) return true;
+    const groupTier = effectiveItemTier(parentGroup, config);
+    return cb.tier !== groupTier;
+  });
+
+  config.itemOverrides = { ...config.itemOverrides };
+}
+
 export function effectiveTierStyle(
   tier: Exclude<TierRank, 'HIDE'>,
   config: V2Config,
@@ -1618,23 +2047,44 @@ export function compileV2Filter(config: V2Config): Filter {
     }
   }
 
-  // 1. Custom Base Overrides (Unique / Set / Rare / Runeword bases added by user)
+  // 1. Custom Base Overrides (Unique / Set / Rare / Magic / Crafted / Runeword bases added by user)
   for (const cb of config.customBases) {
     const conditions: Conditions = { code: cb.code };
     if (cb.mode === 'unique') conditions.rarity = 'unique';
     else if (cb.mode === 'set') conditions.rarity = 'set';
+    else if (cb.mode === 'unique-set') conditions.rarity = ['unique', 'set'];
     else if (cb.mode === 'rare') conditions.rarity = 'rare';
-    else {
+    else if (cb.mode === 'rare-crafted') conditions.rarity = ['rare', 'crafted'];
+    else if (cb.mode === 'magic') conditions.rarity = 'magic';
+    else if (cb.mode === 'crafted') conditions.rarity = 'crafted';
+    else if (cb.mode === 'runeword') {
       conditions.rarity = ['normal', 'superior'];
       if (cb.minSockets && cb.minSockets > 0) conditions.sockets = { gte: cb.minSockets };
       if (cb.etherealOnly) conditions.ethereal = true;
     }
-    const ruleTitle = `[Base] ${cb.label} (${cb.mode === 'runeword' ? 'Runeword Base' : cb.mode}) · ${cb.tier === 'HIDE' ? 'Hide' : `Tier ${cb.tier}`}`;
+    const modeLabel =
+      cb.mode === 'runeword'
+        ? 'Runeword Base'
+        : cb.mode === 'unique-set'
+          ? 'Unique/Set'
+          : cb.mode === 'rare-crafted'
+            ? 'Rare/Crafted'
+            : cb.mode === 'any'
+              ? 'All Rarities'
+              : cb.mode.charAt(0).toUpperCase() + cb.mode.slice(1);
+    const ruleTitle = `[Base] ${cb.label} (${modeLabel}) · ${cb.tier === 'HIDE' ? 'Hide' : `Tier ${cb.tier}`}`;
+    const parentGroup = findParentGroupForBase(cb.code, cb.mode, undefined, cb.parentItemId);
     if (cb.tier === 'HIDE') {
       rules.push({ hide: { ruleName: ruleTitle, conditions } });
     } else {
       const block: RuleBlock = { ruleName: ruleTitle, conditions };
-      const cat: CategoryId = cb.mode === 'runeword' ? 'bases' : cb.mode === 'rare' ? 'equipment' : 'uniques';
+      const cat: CategoryId =
+        parentGroup?.category ??
+        (cb.mode === 'runeword'
+          ? 'bases'
+          : cb.mode === 'rare' || cb.mode === 'rare-crafted' || cb.mode === 'magic' || cb.mode === 'crafted'
+            ? 'equipment'
+            : 'uniques');
       applyStyleToBlock(block, effectiveTierStyle(cb.tier, config, cat), false);
       rules.push({ show: block });
     }
@@ -1644,13 +2094,34 @@ export function compileV2Filter(config: V2Config): Filter {
   const emitCategoryRules = (categoryId: CategoryId, categoryTitle: string) => {
     const catItems = TIERABLE_ITEMS.filter(item => item.category === categoryId);
     const pureCodeBuckets = new Map<TierRank, { codes: string[]; labels: string[] }>();
-    const complexItems: { item: TierableItem; tier: TierRank }[] = [];
+    const complexItems: { item: TierableItem; tier: TierRank; activeCodes?: string[] }[] = [];
 
     for (const item of catItems) {
       const tier = effectiveItemTier(item, config);
+      const groupMode = defaultBaseModeForItem(item);
+      const activeCodes = item.codes
+        ? item.codes.filter(code => {
+            if (item.category === 'runes' || item.subtitle?.includes('(Stack)')) return true;
+            const splitRule = config.customBases.find(
+              cb =>
+                cb.code === code &&
+                !cb.minSockets &&
+                !cb.etherealOnly &&
+                cb.tier !== tier &&
+                (cb.parentItemId === item.id ||
+                  (!cb.parentItemId && modesMatchGroupMode(cb.mode, groupMode)))
+            );
+            return !splitRule;
+          })
+        : undefined;
+
+      if (item.codes && item.codes.length > 0 && (!activeCodes || activeCodes.length === 0)) {
+        continue;
+      }
+
       const isPureCode =
-        item.codes &&
-        item.codes.length > 0 &&
+        activeCodes &&
+        activeCodes.length > 0 &&
         !item.baseNames &&
         !item.itemTypes &&
         !item.rarities &&
@@ -1660,11 +2131,11 @@ export function compileV2Filter(config: V2Config): Filter {
 
       if (isPureCode) {
         const bucket = pureCodeBuckets.get(tier) ?? { codes: [], labels: [] };
-        bucket.codes.push(...item.codes!);
+        bucket.codes.push(...activeCodes);
         bucket.labels.push(item.label.replace(/\s*\(.*?\)\s*/g, ''));
         pureCodeBuckets.set(tier, bucket);
       } else {
-        complexItems.push({ item, tier });
+        complexItems.push({ item, tier, activeCodes });
       }
     }
 
@@ -1690,9 +2161,10 @@ export function compileV2Filter(config: V2Config): Filter {
     }
 
     // Emit complex condition items in their defined priority order
-    for (const { item, tier } of complexItems) {
+    for (const { item, tier, activeCodes } of complexItems) {
       const conditions: Conditions = {};
-      if (item.codes?.length) conditions.code = item.codes.length === 1 ? item.codes[0] : item.codes.slice(0, 64);
+      const codesToUse = activeCodes ?? item.codes;
+      if (codesToUse?.length) conditions.code = codesToUse.length === 1 ? codesToUse[0] : codesToUse.slice(0, 64);
       if (item.baseNames?.length) conditions.baseName = item.baseNames.length === 1 ? item.baseNames[0] : item.baseNames.slice(0, 64);
       if (item.itemTypes?.length) conditions.itemType = item.itemTypes.length === 1 ? item.itemTypes[0] : item.itemTypes.slice(0, 64);
       if (item.rarities?.length) conditions.rarity = item.rarities.length === 1 ? item.rarities[0] : item.rarities;
@@ -2026,73 +2498,301 @@ export function simulateItemDrop(
 
 export type LootsplosionScenario = 'endgame-map' | 'hell-boss' | 'rune-currency' | 'campaign';
 
-export function generateLootsplosion(scenario: LootsplosionScenario): SimulatedItem[] {
+function pickFromPool<T>(pool: readonly T[], slotIdx: number, rollSeed: number): T {
+  if (rollSeed <= 0) return pool[0]!;
+  const idx = (rollSeed + slotIdx * 3) % pool.length;
+  return pool[idx]!;
+}
+
+export function generateLootsplosion(scenario: LootsplosionScenario, rollSeed = 0): SimulatedItem[] {
   if (scenario === 'rune-currency') {
-    return [
-      { id: 'sim-1', code: 'r31', name: 'Jah Rune (#31)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-      { id: 'sim-2', code: 's30', name: 'Stack: Ber Rune (#30)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 2 },
-      { id: 'sim-3', code: 'ka3', name: 'Orb of Corruption', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-      { id: 'sim-4', code: '1gc', name: 'Gem Cluster', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-      { id: 'sim-5', code: 'r24', name: 'Ist Rune (#24)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-      { id: 'sim-6', code: 'oos', name: 'Orb of Socketing', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-      { id: 'sim-7', code: 'r15', name: 'Hel Rune (#15)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-      { id: 'sim-8', code: 'r08', name: 'Ral Rune (#8)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-      { id: 'sim-9', code: 'r09', name: 'Ort Rune (#9)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-      { id: 'sim-10', code: 'r01', name: 'El Rune (#1)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-      { id: 'sim-11', code: '1am', name: 'Stack: Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 5 },
-      { id: 'sim-12', code: 'gpv', name: 'Perfect Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-      { id: 'sim-13', code: 'gzv', name: 'Flawless Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-      { id: 'sim-14', code: 'gfv', name: 'Flawed Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+    const pools: readonly (readonly SimulatedItem[])[] = [
+      [
+        { id: 'sim-1', code: 'r31', name: 'Jah Rune (#31)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-1', code: 'r33', name: 'Zod Rune (#33)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-1', code: 'r39', name: 'Hev Rune (#39)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-1', code: 'r34', name: 'Brak Rune (#34)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+      ],
+      [
+        { id: 'sim-2', code: 's30', name: 'Stack: Ber Rune (#30)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 2 },
+        { id: 'sim-2', code: 's29', name: 'Stack: Sur Rune (#29)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 3 },
+        { id: 'sim-2', code: 's28', name: 'Stack: Lo Rune (#28)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 2 }
+      ],
+      [
+        { id: 'sim-3', code: 'ka3', name: 'Orb of Corruption', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-3', code: 'ooa', name: 'Orb of Assemblage', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-3', code: '1ka', name: 'Stack: Orb of Corruption', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 2 }
+      ],
+      [
+        { id: 'sim-4', code: '1gc', name: 'Gem Cluster', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-4', code: 'gmo', name: 'Chaos Onyx', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-4', code: '1so', name: 'Stack: Chaos Onyx', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 2 }
+      ],
+      [
+        { id: 'sim-5', code: 'r24', name: 'Ist Rune (#24)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-5', code: 'r26', name: 'Vex Rune (#26)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-5', code: 'r27', name: 'Ohm Rune (#27)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-5', code: 'r22', name: 'Um Rune (#22)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+      ],
+      [
+        { id: 'sim-6', code: 'oos', name: 'Orb of Socketing', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-6', code: 'ooi', name: 'Orb of Infusion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-6', code: 'ooc', name: 'Orb of Conversion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-6', code: 'toa', name: 'Token of Absolution', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+      ],
+      [
+        { id: 'sim-7', code: 'r15', name: 'Hel Rune (#15)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-7', code: 'r18', name: 'Ko Rune (#18)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-7', code: 'r17', name: 'Lum Rune (#17)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+      ],
+      [
+        { id: 'sim-8', code: 'r08', name: 'Ral Rune (#8)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-8', code: 'r12', name: 'Sol Rune (#12)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-8', code: 'r11', name: 'Amn Rune (#11)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-8', code: 'r13', name: 'Shael Rune (#13)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+      ],
+      [
+        { id: 'sim-9', code: 'r09', name: 'Ort Rune (#9)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-9', code: 'r10', name: 'Thul Rune (#10)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-9', code: 'r14', name: 'Dol Rune (#14)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+      ],
+      [
+        { id: 'sim-10', code: 'r01', name: 'El Rune (#1)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-10', code: 'r02', name: 'Eld Rune (#2)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-10', code: 'r03', name: 'Tir Rune (#3)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+      ],
+      [
+        { id: 'sim-11', code: '1am', name: 'Stack: Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 5 },
+        { id: 'sim-11', code: '1rb', name: 'Stack: Ruby', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 4 },
+        { id: 'sim-11', code: '1sa', name: 'Stack: Sapphire', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 6 },
+        { id: 'sim-11', code: '1di', name: 'Stack: Diamond', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 3 }
+      ],
+      [
+        { id: 'sim-12', code: 'gpv', name: 'Perfect Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-12', code: 'gpr', name: 'Perfect Ruby', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-12', code: 'gpy', name: 'Perfect Topaz', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-12', code: 'skz', name: 'Perfect Skull', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+      ],
+      [
+        { id: 'sim-13', code: 'gzv', name: 'Flawless Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-13', code: 'glr', name: 'Flawless Ruby', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-13', code: 'glb', name: 'Flawless Sapphire', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+      ],
+      [
+        { id: 'sim-14', code: 'gfv', name: 'Flawed Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-14', code: 'gfr', name: 'Flawed Ruby', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-14', code: 'gsv', name: 'Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+      ]
     ];
+    return pools.map((pool, i) => ({ ...pickFromPool(pool, i, rollSeed) }));
   }
+
   if (scenario === 'hell-boss') {
-    return [
-      { id: 'sim-b1', code: 'mpa', name: "Mephisto's Animus", kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 90, quantity: 1 },
-      { id: 'sim-b2', code: 'utp', name: 'Archon Plate', baseName: 'Archon Plate', kind: 'armor', tier: 'elite', rarity: 'unique', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 },
-      { id: 'sim-b3', code: 'uap', name: 'Shako', baseName: 'Shako', kind: 'armor', tier: 'elite', rarity: 'unique', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 },
-      { id: 'sim-b4', code: 'pk3', name: 'Key of Destruction', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
-      { id: 'sim-b5', code: 'fed', name: 'Festering Essence of Destruction', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
-      { id: 'sim-b6', code: 'ci3', name: 'Diadem', baseName: 'Diadem', kind: 'armor', tier: 'elite', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 },
-      { id: 'sim-b7', code: 'uit', name: 'Monarch (4 Sockets)', baseName: 'Monarch', kind: 'armor', tier: 'elite', rarity: 'normal', sockets: 4, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
-      { id: 'sim-b8', code: '9ha', name: 'Military Pick', baseName: 'Military Pick', kind: 'weapon', tier: 'exceptional', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 },
-      { id: 'sim-b9', code: 'hax', name: 'Hand Axe', baseName: 'Hand Axe', kind: 'weapon', tier: 'normal', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
-      { id: 'sim-b10', code: 'rvl', name: 'Full Rejuvenation Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
-      { id: 'sim-b11', code: 'hp4', name: 'Greater Healing Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
-      { id: 'sim-b12', code: 'gld', name: 'Gold', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 42500 }
+    const pools: readonly (readonly SimulatedItem[])[] = [
+      [
+        { id: 'sim-b1', code: 'mpa', name: "Mephisto's Animus", kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 90, quantity: 1 },
+        { id: 'sim-b1', code: 'blc', name: "Baal's Calamity", kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 90, quantity: 1 },
+        { id: 'sim-b1', code: 'dia', name: "Diablo's Ire", kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 90, quantity: 1 }
+      ],
+      [
+        { id: 'sim-b2', code: 'utp', name: 'Archon Plate', baseName: 'Archon Plate', kind: 'armor', tier: 'elite', rarity: 'unique', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b2', code: '7gd', name: 'Colossus Blade', baseName: 'Colossus Blade', kind: 'weapon', tier: 'elite', rarity: 'unique', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b2', code: 'paf', name: 'Vortex Shield', baseName: 'Vortex Shield', kind: 'armor', tier: 'elite', rarity: 'unique', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 }
+      ],
+      [
+        { id: 'sim-b3', code: 'uap', name: 'Shako', baseName: 'Shako', kind: 'armor', tier: 'elite', rarity: 'unique', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b3', code: 'ulc', name: 'Spiderweb Sash', baseName: 'Spiderweb Sash', kind: 'armor', tier: 'elite', rarity: 'unique', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b3', code: 'uar', name: 'Sacred Armor', baseName: 'Sacred Armor', kind: 'armor', tier: 'elite', rarity: 'set', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 }
+      ],
+      [
+        { id: 'sim-b4', code: 'pk3', name: 'Key of Destruction', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b4', code: 'pk1', name: 'Key of Terror', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b4', code: 'mbr', name: "Mephisto's Brain", kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 }
+      ],
+      [
+        { id: 'sim-b5', code: 'fed', name: 'Festering Essence of Destruction', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b5', code: 'bet', name: 'Burning Essence of Terror', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b5', code: 'ceh', name: 'Charged Essence of Hatred', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 }
+      ],
+      [
+        { id: 'sim-b6', code: 'ci3', name: 'Diadem', baseName: 'Diadem', kind: 'armor', tier: 'elite', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b6', code: 'ci2', name: 'Tiara', baseName: 'Tiara', kind: 'armor', tier: 'exceptional', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b6', code: 'drf', name: 'Dream Spirit', baseName: 'Dream Spirit', kind: 'armor', tier: 'elite', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 }
+      ],
+      [
+        { id: 'sim-b7', code: 'uit', name: 'Monarch (4 Sockets)', baseName: 'Monarch', kind: 'armor', tier: 'elite', rarity: 'normal', sockets: 4, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b7', code: '7cr', name: 'Phase Blade (5 Sockets)', baseName: 'Phase Blade', kind: 'weapon', tier: 'elite', rarity: 'normal', sockets: 5, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b7', code: 'pab', name: 'Sacred Targe (4 Sockets)', baseName: 'Sacred Targe', kind: 'armor', tier: 'elite', rarity: 'normal', sockets: 4, ethereal: false, identified: true, itemLevel: 88, quantity: 1 }
+      ],
+      [
+        { id: 'sim-b8', code: '9ha', name: 'Military Pick', baseName: 'Military Pick', kind: 'weapon', tier: 'exceptional', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b8', code: '9bs', name: 'Battle Sword', baseName: 'Battle Sword', kind: 'weapon', tier: 'exceptional', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b8', code: 'xar', name: 'Embossed Plate', baseName: 'Embossed Plate', kind: 'armor', tier: 'exceptional', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 88, quantity: 1 }
+      ],
+      [
+        { id: 'sim-b9', code: 'hax', name: 'Hand Axe', baseName: 'Hand Axe', kind: 'weapon', tier: 'normal', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b9', code: 'ssd', name: 'Short Sword', baseName: 'Short Sword', kind: 'weapon', tier: 'normal', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b9', code: 'buc', name: 'Buckler', baseName: 'Buckler', kind: 'armor', tier: 'normal', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 }
+      ],
+      [
+        { id: 'sim-b10', code: 'rvl', name: 'Full Rejuvenation Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b10', code: 'rvs', name: 'Rejuvenation Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 }
+      ],
+      [
+        { id: 'sim-b11', code: 'hp4', name: 'Greater Healing Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 },
+        { id: 'sim-b11', code: 'mp4', name: 'Greater Mana Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 1 }
+      ],
+      [
+        { id: 'sim-b12', code: 'gld', name: 'Gold', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 42500 },
+        { id: 'sim-b12', code: 'gld', name: 'Gold', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 68400 },
+        { id: 'sim-b12', code: 'gld', name: 'Gold', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 88, quantity: 31200 }
+      ]
     ];
+    return pools.map((pool, i) => ({ ...pickFromPool(pool, i, rollSeed) }));
   }
+
   if (scenario === 'campaign') {
-    return [
-      { id: 'sim-c1', code: 'box', name: 'Horadric Cube', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 20, quantity: 1 },
-      { id: 'sim-c2', code: 'r07', name: 'Tal Rune (#7)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 25, quantity: 1 },
-      { id: 'sim-c3', code: 'r05', name: 'Eth Rune (#5)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 25, quantity: 1 },
-      { id: 'sim-c4', code: 'crs', name: 'Crystal Sword (4 Sockets)', baseName: 'Crystal Sword', kind: 'weapon', tier: 'normal', rarity: 'normal', sockets: 4, ethereal: false, identified: true, itemLevel: 28, quantity: 1 },
-      { id: 'sim-c5', code: 'rin', name: 'Ring', kind: 'misc', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 },
-      { id: 'sim-c6', code: 'cm1', name: 'Small Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 },
-      { id: 'sim-c7', code: 'hax', name: 'Crude Hand Axe', baseName: 'Hand Axe', kind: 'weapon', tier: 'normal', rarity: 'inferior', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 },
-      { id: 'sim-c8', code: 'qui', name: 'Quilted Armor (Unsocketed)', baseName: 'Quilted Armor', kind: 'armor', tier: 'normal', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 },
-      { id: 'sim-c9', code: 'gfv', name: 'Flawed Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 },
-      { id: 'sim-c10', code: 'hp1', name: 'Minor Healing Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 10, quantity: 1 },
-      { id: 'sim-c11', code: 'tsc', name: 'Scroll of Town Portal', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 }
+    const pools: readonly (readonly SimulatedItem[])[] = [
+      [
+        { id: 'sim-c1', code: 'box', name: 'Horadric Cube', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 20, quantity: 1 },
+        { id: 'sim-c1', code: 'msf', name: 'Staff of Kings', kind: 'weapon', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 20, quantity: 1 },
+        { id: 'sim-c1', code: 'hdm', name: 'Horadric Malus', kind: 'weapon', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 15, quantity: 1 }
+      ],
+      [
+        { id: 'sim-c2', code: 'r07', name: 'Tal Rune (#7)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 25, quantity: 1 },
+        { id: 'sim-c2', code: 'r08', name: 'Ral Rune (#8)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 25, quantity: 1 },
+        { id: 'sim-c2', code: 'r09', name: 'Ort Rune (#9)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 25, quantity: 1 }
+      ],
+      [
+        { id: 'sim-c3', code: 'r05', name: 'Eth Rune (#5)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 25, quantity: 1 },
+        { id: 'sim-c3', code: 'r06', name: 'Ith Rune (#6)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 25, quantity: 1 },
+        { id: 'sim-c3', code: 'r04', name: 'Nef Rune (#4)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 25, quantity: 1 }
+      ],
+      [
+        { id: 'sim-c4', code: 'crs', name: 'Crystal Sword (4 Sockets)', baseName: 'Crystal Sword', kind: 'weapon', tier: 'normal', rarity: 'normal', sockets: 4, ethereal: false, identified: true, itemLevel: 28, quantity: 1 },
+        { id: 'sim-c4', code: 'fla', name: 'Flail (4 Sockets)', baseName: 'Flail', kind: 'weapon', tier: 'normal', rarity: 'normal', sockets: 4, ethereal: false, identified: true, itemLevel: 28, quantity: 1 },
+        { id: 'sim-c4', code: 'bsd', name: 'Broad Sword (4 Sockets)', baseName: 'Broad Sword', kind: 'weapon', tier: 'normal', rarity: 'normal', sockets: 4, ethereal: false, identified: true, itemLevel: 28, quantity: 1 }
+      ],
+      [
+        { id: 'sim-c5', code: 'rin', name: 'Ring', kind: 'misc', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 },
+        { id: 'sim-c5', code: 'amu', name: 'Amulet', kind: 'misc', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 },
+        { id: 'sim-c5', code: 'ci0', name: 'Circlet', baseName: 'Circlet', kind: 'armor', tier: 'normal', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 }
+      ],
+      [
+        { id: 'sim-c6', code: 'cm1', name: 'Small Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 },
+        { id: 'sim-c6', code: 'cm3', name: 'Grand Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 },
+        { id: 'sim-c6', code: 'jew', name: 'Jewel', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 }
+      ],
+      [
+        { id: 'sim-c7', code: 'hax', name: 'Crude Hand Axe', baseName: 'Hand Axe', kind: 'weapon', tier: 'normal', rarity: 'inferior', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 },
+        { id: 'sim-c7', code: 'sbw', name: 'Cracked Short Bow', baseName: 'Short Bow', kind: 'weapon', tier: 'normal', rarity: 'inferior', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 },
+        { id: 'sim-c7', code: 'cap', name: 'Damaged Cap', baseName: 'Cap', kind: 'armor', tier: 'normal', rarity: 'inferior', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 }
+      ],
+      [
+        { id: 'sim-c8', code: 'qui', name: 'Quilted Armor (Unsocketed)', baseName: 'Quilted Armor', kind: 'armor', tier: 'normal', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 },
+        { id: 'sim-c8', code: 'hla', name: 'Hard Leather Armor (Unsocketed)', baseName: 'Hard Leather Armor', kind: 'armor', tier: 'normal', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 14, quantity: 1 },
+        { id: 'sim-c8', code: 'lbl', name: 'Sash (Unsocketed)', baseName: 'Sash', kind: 'armor', tier: 'normal', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 }
+      ],
+      [
+        { id: 'sim-c9', code: 'gfv', name: 'Flawed Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 },
+        { id: 'sim-c9', code: 'gfy', name: 'Flawed Topaz', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 },
+        { id: 'sim-c9', code: 'gfr', name: 'Flawed Ruby', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 }
+      ],
+      [
+        { id: 'sim-c10', code: 'hp1', name: 'Minor Healing Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 10, quantity: 1 },
+        { id: 'sim-c10', code: 'mp1', name: 'Minor Mana Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 10, quantity: 1 },
+        { id: 'sim-c10', code: 'hp2', name: 'Light Healing Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 14, quantity: 1 }
+      ],
+      [
+        { id: 'sim-c11', code: 'tsc', name: 'Scroll of Town Portal', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 },
+        { id: 'sim-c11', code: 'isc', name: 'Scroll of Identify', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 12, quantity: 1 }
+      ]
     ];
+    return pools.map((pool, i) => ({ ...pickFromPool(pool, i, rollSeed) }));
   }
+
   // Default: 'endgame-map'
-  return [
-    { id: 'sim-m1', code: 'md6', name: 'Sandswept Tomb Map (Tier 6)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m2', code: 'mrl', name: 'Vizjerei Prism', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m3', code: 'cjw', name: 'Colossal Jewel', kind: 'misc', rarity: 'unique', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m4', code: 'r28', name: 'Lo Rune (#28)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m5', code: 'ka3', name: 'Orb of Corruption', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m6', code: '7s8', name: 'Ethereal Thresher (4 Sockets)', baseName: 'Thresher', kind: 'weapon', tier: 'elite', rarity: 'normal', sockets: 4, ethereal: true, identified: true, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m7', code: 'utp', name: 'Superior Archon Plate (3 Sockets)', baseName: 'Archon Plate', kind: 'armor', tier: 'elite', rarity: 'superior', sockets: 3, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m8', code: 'cm3', name: 'Grand Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m9', code: 'mfp', name: 'Magic Find Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m10', code: 'uhg', name: 'Ogre Gauntlets', baseName: 'Ogre Gauntlets', kind: 'armor', tier: 'elite', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m11', code: '9sw', name: 'Rune Sword', baseName: 'Rune Sword', kind: 'weapon', tier: 'exceptional', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m12', code: '7cr', name: 'Magic Phase Blade', baseName: 'Phase Blade', kind: 'weapon', tier: 'elite', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m13', code: 'r04', name: 'Nef Rune (#4)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m14', code: 'hp5', name: 'Super Healing Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m15', code: 'rvl', name: 'Full Rejuvenation Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
-    { id: 'sim-m16', code: 'aqv', name: 'Arrows', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 }
+  const pools: readonly (readonly SimulatedItem[])[] = [
+    [
+      { id: 'sim-m1', code: 'md6', name: 'Sandswept Tomb Map (Tier 6)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m1', code: 'mk6', name: 'Kurast Undercity Map (Tier 6)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m1', code: 'mc5', name: 'Crystalline Passage Map (Tier 5)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 90, quantity: 1 },
+      { id: 'sim-m1', code: 'mh6', name: 'Chaos Sanctuary Map (Tier 6)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m2', code: 'mrl', name: 'Vizjerei Prism', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m2', code: 'mws', name: 'Horadric Astrolabe', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m2', code: 'mor', name: 'Horadric Sextant', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m3', code: 'cjw', name: 'Colossal Jewel', kind: 'misc', rarity: 'unique', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m3', code: 'cm2', name: 'Hellfire Torch', kind: 'misc', rarity: 'unique', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m3', code: 'cm3', name: 'Sunder Grand Charm', kind: 'misc', rarity: 'unique', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m4', code: 'r28', name: 'Lo Rune (#28)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m4', code: 'r30', name: 'Ber Rune (#30)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m4', code: 'r29', name: 'Sur Rune (#29)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m4', code: 'r32', name: 'Cham Rune (#32)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m5', code: 'ka3', name: 'Orb of Corruption', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m5', code: 'ooa', name: 'Orb of Assemblage', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m5', code: 'oos', name: 'Orb of Socketing', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m6', code: '7s8', name: 'Ethereal Thresher (4 Sockets)', baseName: 'Thresher', kind: 'weapon', tier: 'elite', rarity: 'normal', sockets: 4, ethereal: true, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m6', code: '7wc', name: 'Ethereal Giant Thresher (4 Sockets)', baseName: 'Giant Thresher', kind: 'weapon', tier: 'elite', rarity: 'normal', sockets: 4, ethereal: true, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m6', code: '7h7', name: 'Ethereal Great Poleaxe (4 Sockets)', baseName: 'Great Poleaxe', kind: 'weapon', tier: 'elite', rarity: 'normal', sockets: 4, ethereal: true, identified: true, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m7', code: 'utp', name: 'Superior Archon Plate (3 Sockets)', baseName: 'Archon Plate', kind: 'armor', tier: 'elite', rarity: 'superior', sockets: 3, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m7', code: 'uui', name: 'Dusk Shroud (3 Sockets)', baseName: 'Dusk Shroud', kind: 'armor', tier: 'elite', rarity: 'normal', sockets: 3, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m7', code: 'xtp', name: 'Mage Plate (3 Sockets)', baseName: 'Mage Plate', kind: 'armor', tier: 'exceptional', rarity: 'superior', sockets: 3, ethereal: false, identified: true, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m8', code: 'cm3', name: 'Grand Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m8', code: 'cm1', name: 'Small Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m8', code: 'jew', name: 'Jewel', kind: 'misc', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m9', code: 'mfp', name: 'Magic Find Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m9', code: 'xpp', name: 'Experience Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m9', code: 'fsp', name: 'Fire Sunder Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m10', code: 'uhg', name: 'Ogre Gauntlets', baseName: 'Ogre Gauntlets', kind: 'armor', tier: 'elite', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m10', code: 'uhb', name: 'Myrmidon Greaves', baseName: 'Myrmidon Greaves', kind: 'armor', tier: 'elite', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m10', code: 'uvc', name: 'Vampirefang Belt', baseName: 'Vampirefang Belt', kind: 'armor', tier: 'elite', rarity: 'crafted', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m11', code: '9sw', name: 'Rune Sword', baseName: 'Rune Sword', kind: 'weapon', tier: 'exceptional', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m11', code: 'xh9', name: 'Grim Helm', baseName: 'Grim Helm', kind: 'armor', tier: 'exceptional', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m11', code: '9tw', name: 'Greater Talons', baseName: 'Greater Talons', kind: 'weapon', tier: 'exceptional', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m12', code: '7cr', name: 'Magic Phase Blade', baseName: 'Phase Blade', kind: 'weapon', tier: 'elite', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m12', code: '7tw', name: 'Magic Runic Talons', baseName: 'Runic Talons', kind: 'weapon', tier: 'elite', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m12', code: 'amf', name: 'Magic Matriarchal Javelin', baseName: 'Matriarchal Javelin', kind: 'weapon', tier: 'elite', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m13', code: 'r04', name: 'Nef Rune (#4)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m13', code: 'r06', name: 'Ith Rune (#6)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m13', code: 'r05', name: 'Eth Rune (#5)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m14', code: 'hp5', name: 'Super Healing Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m14', code: 'mp5', name: 'Super Mana Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m15', code: 'rvl', name: 'Full Rejuvenation Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m15', code: 'rvs', name: 'Rejuvenation Potion', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 }
+    ],
+    [
+      { id: 'sim-m16', code: 'aqv', name: 'Arrows', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m16', code: 'cqv', name: 'Bolts', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m16', code: 'z01', name: 'Magic Bow Quiver', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 }
+    ]
   ];
+  return pools.map((pool, i) => ({ ...pickFromPool(pool, i, rollSeed) }));
 }
