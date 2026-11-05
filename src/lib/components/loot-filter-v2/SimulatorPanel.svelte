@@ -22,9 +22,10 @@
   } = $props();
 
   let scenario = $state<LootsplosionScenario>('endgame-map');
+  let rollSeed = $state(0);
   let holdCtrl = $state(false);
   let playAudioOnSelect = $state(true);
-  let drops = $state<SimulatedItem[]>(generateLootsplosion('endgame-map'));
+  let drops = $state<SimulatedItem[]>(generateLootsplosion('endgame-map', 0));
   let selectedDropId = $state<string>('sim-m1');
 
   // Custom single-item tester state
@@ -77,9 +78,19 @@
 
   function changeScenario(next: LootsplosionScenario) {
     scenario = next;
+    rollSeed = 0;
     customItem = null;
-    drops = generateLootsplosion(next);
+    drops = generateLootsplosion(next, 0);
     selectedDropId = drops[0]?.id ?? '';
+  }
+
+  function rerollDrops() {
+    rollSeed += 1;
+    customItem = null;
+    drops = generateLootsplosion(scenario, rollSeed);
+    if (!drops.some(d => d.id === selectedDropId)) {
+      selectedDropId = drops[0]?.id ?? '';
+    }
   }
 
   function selectGroundDrop(item: SimulatedItem, sound?: string) {
@@ -134,7 +145,7 @@
 
     <!-- Scenario Presets & Hold-Ctrl Toggle -->
     <div class="flex flex-wrap items-center justify-between gap-3 border-y border-parchment-300/15 py-3">
-      <div class="flex flex-wrap gap-1.5" aria-label="Loot drop scenarios">
+      <div class="flex flex-wrap items-center gap-1.5" aria-label="Loot drop scenarios">
         {#each [
           { id: 'endgame-map', label: 'Endgame Tier 6 Map' },
           { id: 'hell-boss', label: 'Hell Boss Kill' },
@@ -154,6 +165,15 @@
             {opt.label}
           </button>
         {/each}
+        <button
+          type="button"
+          class="ml-1 inline-flex items-center gap-1.5 rounded border border-amber-400/50 bg-amber-950/40 px-3 py-1.5 text-xs font-semibold text-amber-200 transition-colors hover:border-amber-300 hover:bg-amber-900/50"
+          title="Roll different items for each rule bucket in this scenario"
+          onclick={rerollDrops}
+        >
+          <span aria-hidden="true">↻</span>
+          <span>Reroll Items</span>
+        </button>
       </div>
 
       <div class="flex flex-wrap items-center gap-4 text-xs text-parchment-200">

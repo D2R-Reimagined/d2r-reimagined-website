@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import M from './model.js';
 import { fromExport } from './catalog.js';
 import {
+  BASE_SLOT_FILTERS,
   CATEGORIES,
   CURATED_BUILD_PRESETS,
   EQUIPMENT_FAMILIES,
@@ -16,6 +17,9 @@ import {
   effectiveItemTier,
   extractV2ConfigFromFilter,
   generateLootsplosion,
+  getGroupDisplayInfo,
+  reconcileGroupSplits,
+  resolveTierableItemBases,
   selectArchetypeForBuild,
   selectClassForBuild,
   simulateItemDrop,
@@ -177,6 +181,9 @@ describe('FilterBlade v2 compiler & customizer model', () => {
         expect(effectiveItemTier(gemItem, createDefaultV2Config(s))).not.toBe('HIDE');
       }
     }
+    const chaosOnyx = TIERABLE_ITEMS.find(x => x.id === 'curr-chaos-onyx');
+    expect(chaosOnyx?.category).toBe('gems');
+    expect(chaosOnyx?.codes).toEqual(['gmo', '1so']);
 
     // El Rune: shown in Soft, Regular, Semi-Strict; hidden in Strict & Endgame
     expect(
@@ -211,12 +218,18 @@ describe('FilterBlade v2 compiler & customizer model', () => {
     ).toEqual([true, true, true, true, true]);
   });
 
-  it('generates lootsplosion scenarios and evaluates every item cleanly', () => {
+  it('generates lootsplosion scenarios and evaluates every item cleanly across rerolls', () => {
     const filter = compileV2Filter(createDefaultV2Config('semi-strict', 'filterblade'));
     for (const scenario of ['endgame-map', 'hell-boss', 'rune-currency', 'campaign'] as const) {
-      const drops = generateLootsplosion(scenario);
-      expect(drops.length).toBeGreaterThan(8);
-      for (const drop of drops) {
+      const drops0 = generateLootsplosion(scenario, 0);
+      const drops1 = generateLootsplosion(scenario, 1);
+      const drops2 = generateLootsplosion(scenario, 2);
+      expect(drops0.length).toBeGreaterThan(8);
+      expect(drops1.length).toBe(drops0.length);
+      // Rerolling changes the rolled item names/codes within the rule slots
+      expect(drops1.map(d => d.name).join('|')).not.toBe(drops0.map(d => d.name).join('|'));
+      expect(drops2.map(d => d.name).join('|')).not.toBe(drops1.map(d => d.name).join('|'));
+      for (const drop of [...drops0, ...drops1, ...drops2]) {
         const res = simulateItemDrop(filter, catalog, drop);
         expect(res.matchedRuleIndex).toBeGreaterThanOrEqual(0);
         expect(res.displayLabel.length).toBeGreaterThan(0);
@@ -314,5 +327,152 @@ describe('FilterBlade v2 compiler & customizer model', () => {
     expect(warlockCfg.buildProfile.selectedClass).toBe('Warlock');
     expect(warlockCfg.buildProfile.linkedBuildId).toBe('build-123');
     expect(M.validateFilter(compileV2Filter(warlockCfg), catalog).errors).toEqual([]);
+  });
+
+  it('resolves individual catalog bases for grouped tier items and overrides parent group rules when split into customBases', () => {
+    for (const slot of BASE_SLOT_FILTERS) {
+      for (const type of slot.typeCodes) {
+        expect(catalog.itemTypeMap.has(type), `Unknown itemType "${type}" in slot "${slot.id}"`).toBe(true);
+      }
+    }
+
+    const eliteBodyItem = TIERABLE_ITEMS.find(i => i.id === 'base-elite-body')!;
+    const eliteBodyBases = resolveTierableItemBases(eliteBodyItem, catalog);
+    expect(eliteBodyBases.length).toBeGreaterThanOrEqual(4);
+    expect(eliteBodyBases.map(b => b.code)).toContain('utp'); // Archon Plate
+    expect(eliteBodyBases.map(b => b.code)).toContain('uar'); // Sacred Armor
+
+    const rareCircletsItem = TIERABLE_ITEMS.find(i => i.id === 'jewelry-rare-crafted')!;
+    const circletBases = resolveTierableItemBases(rareCircletsItem, catalog);
+    expect(circletBases.map(b => b.code)).toEqual(expect.arrayContaining(['ci0', 'ci1', 'ci2', 'ci3']));
+
+    // Split Sacred Armor ('uar') to HIDE and Archon Plate ('utp') to S while keeping base-elite-body in Tier A
+    const cfg = createDefaultV2Config('semi-strict', 'reimagined');
+    cfg.customBases.push(
+      {
+        id: 'split-utp-s',
+        code: 'utp',
+        label: 'Archon Plate',
+        tier: 'S',
+        minSockets: 3,
+        etherealOnly: false,
+        mode: 'runeword'
+      },
+      {
+        id: 'split-uar-hide',
+        code: 'uar',
+        label: 'Sacred Armor',
+        tier: 'HIDE',
+        minSockets: 0,
+        etherealOnly: false,
+        mode: 'runeword'
+      },
+      {
+        id: 'split-ci3-s',
+        code: 'ci3',
+        label: 'Diadem',
+        tier: 'S',
+        minSockets: 0,
+        etherealOnly: false,
+        mode: 'rare'
+      }
+    );
+
+    const compiled = compileV2Filter(cfg);
+    expect(M.validateFilter(compiled, catalog).errors).toEqual([]);
+
+    const utpSim = simulateItemDrop(compiled, catalog, {
+      id: 'sim-utp',
+      code: 'utp',
+      name: 'Archon Plate',
+      kind: 'armor',
+      tier: 'elite',
+      rarity: 'normal',
+      sockets: 3,
+      ethereal: false,
+      identified: true,
+      itemLevel: 85,
+      quantity: 1
+    });
+    const uarSim = simulateItemDrop(compiled, catalog, {
+      id: 'sim-uar',
+      code: 'uar',
+      name: 'Sacred Armor',
+      kind: 'armor',
+      tier: 'elite',
+      rarity: 'normal',
+      sockets: 4,
+      ethereal: false,
+      identified: true,
+      itemLevel: 85,
+      quantity: 1
+    });
+    const ci3Sim = simulateItemDrop(compiled, catalog, {
+      id: 'sim-ci3',
+      code: 'ci3',
+      name: 'Diadem',
+      kind: 'armor',
+      tier: 'elite',
+      rarity: 'rare',
+      sockets: 0,
+      ethereal: false,
+      identified: false,
+      itemLevel: 85,
+      quantity: 1
+    });
+
+    expect(utpSim.show).toBe(true);
+    expect(utpSim.matchedRuleName).toContain('Archon Plate');
+    expect(uarSim.show).toBe(false);
+    expect(ci3Sim.show).toBe(true);
+    expect(ci3Sim.matchedRuleName).toContain('Diadem');
+
+    // Verify dynamic group naming when pulling a base out and automatic rejoin when put back into the same tier
+    const splitCfg = createDefaultV2Config('semi-strict', 'reimagined');
+    expect(getGroupDisplayInfo(eliteBodyItem, splitCfg, catalog).label).toBe(
+      'Archon Plate, Mage Plate, Dusk Shroud & Sacred Armor'
+    );
+
+    // Pull Archon Plate ('utp') out of Tier A into Tier S
+    splitCfg.customBases = [
+      {
+        id: 'base-utp-runeword',
+        code: 'utp',
+        label: 'Archon Plate',
+        tier: 'S',
+        mode: 'runeword',
+        parentItemId: 'base-elite-body'
+      }
+    ];
+    reconcileGroupSplits(splitCfg, catalog);
+    const afterPullInfo = getGroupDisplayInfo(eliteBodyItem, splitCfg, catalog);
+    expect(afterPullInfo.label).toBe('Mage Plate, Dusk Shroud & Sacred Armor');
+    expect(afterPullInfo.subtitle).toBe('xtp, uui, uar · Top Enigma/Fortitude/CoH armors');
+
+    // Put Archon Plate ('utp') back into Tier A (where base-elite-body lives) -> rejoins group & restores group name
+    splitCfg.customBases[0]!.tier = 'A';
+    reconcileGroupSplits(splitCfg, catalog);
+    expect(splitCfg.customBases).toHaveLength(0);
+    const afterRejoinInfo = getGroupDisplayInfo(eliteBodyItem, splitCfg, catalog);
+    expect(afterRejoinInfo.label).toBe('Archon Plate, Mage Plate, Dusk Shroud & Sacred Armor');
+    expect(afterRejoinInfo.subtitle).toBe('utp, xtp, uui, uar · Top Enigma/Fortitude/CoH armors');
+
+    // Pull Archon Plate to Tier S, then move the parent group itself to Tier S -> also rejoins & restores group name
+    splitCfg.customBases = [
+      {
+        id: 'base-utp-runeword',
+        code: 'utp',
+        label: 'Archon Plate',
+        tier: 'S',
+        mode: 'runeword',
+        parentItemId: 'base-elite-body'
+      }
+    ];
+    splitCfg.itemOverrides['base-elite-body'] = 'S';
+    reconcileGroupSplits(splitCfg, catalog);
+    expect(splitCfg.customBases).toHaveLength(0);
+    expect(getGroupDisplayInfo(eliteBodyItem, splitCfg, catalog).label).toBe(
+      'Archon Plate, Mage Plate, Dusk Shroud & Sacred Armor'
+    );
   });
 });

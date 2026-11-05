@@ -96,12 +96,12 @@
       {/if}
     </div>
 
-    <div class="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <div class="mt-4 grid gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
       {#each Object.values(THEME_PRESETS) as theme (theme.id)}
         {@const isSelected = config.theme === theme.id}
         <button
           type="button"
-          class={`flex flex-col justify-between rounded-lg border p-4 text-left transition-all ${
+          class={`flex flex-col justify-between rounded-lg border p-3 text-left transition-all ${
             isSelected
               ? 'border-ember-400 bg-ember-950/20 shadow-md'
               : 'border-parchment-300/20 bg-abyss-950 hover:border-parchment-300/45'
@@ -109,23 +109,28 @@
           aria-pressed={isSelected}
           onclick={() => selectTheme(theme.id)}
         >
-          <div>
-            <div class="flex items-center justify-between gap-2">
-              <h3 class="text-lg font-bold tracking-tight text-parchment-50">{theme.name}</h3>
-              {#if isSelected}
-                <span class="rounded bg-ember-500/25 px-2 py-0.5 text-[11px] font-semibold text-ember-300">Active</span>
-              {/if}
-            </div>
-            <p class="mt-1.5 text-xs leading-relaxed text-parchment-300">{theme.description}</p>
+          <div class="flex items-center justify-between gap-1.5">
+            <h3 class="truncate text-sm font-bold tracking-tight text-parchment-50">{theme.name}</h3>
+            {#if isSelected}
+              <span class="shrink-0 rounded bg-ember-500/25 px-1.5 py-0.5 text-[10px] font-semibold text-ember-300">Active</span>
+            {/if}
           </div>
 
-          <div class="mt-4 space-y-1.5 rounded border border-parchment-300/15 bg-[#090a0f] p-3">
-            {#each (['S', 'A', 'B', 'C'] as const) as r}
+          <div class="mt-2.5 space-y-1 rounded border border-parchment-300/15 bg-[#090a0f] p-2">
+            {#each (['S', 'A', 'B', 'C', 'D'] as const) as r}
               {@const s = theme.tiers[r]}
-              <div class="flex items-center justify-between gap-2">
-                <span class="text-[10px] font-semibold uppercase text-parchment-300">Tier {r}</span>
-                <span class="rounded px-2.5 py-0.5 font-sans text-xs font-semibold" style={styleToCss(s)}>
-                  {r === 'S' ? 'Ber Rune (#30)' : r === 'A' ? 'Ist Rune (#24)' : r === 'B' ? 'Perfect Ruby' : 'Tal Rune (#7)'}
+              <div class="flex items-center justify-between gap-1.5">
+                <span class="text-[10px] font-semibold uppercase text-parchment-300">{r}</span>
+                <span class="truncate rounded px-2 py-0.5 font-sans text-[11px] font-semibold" style={styleToCss(s)}>
+                  {r === 'S'
+                    ? 'Ber Rune'
+                    : r === 'A'
+                      ? 'Ist Rune'
+                      : r === 'B'
+                        ? 'Perf Ruby'
+                        : r === 'C'
+                          ? 'Tal Rune'
+                          : 'El Rune'}
                 </span>
               </div>
             {/each}
