@@ -14,7 +14,8 @@
     statPresentation,
     characterLevel,
     runewordNameKey,
-    identifiedName
+    identifiedName,
+    detailsLoading = false
   }: {
     item: SaveItem;
     presentation?: ItemPresentation;
@@ -24,6 +25,8 @@
     characterLevel?: number;
     runewordNameKey?: string;
     identifiedName?: string | null;
+    /** Stat wording is still on its way, so hold the lines back rather than show raw stat names. */
+    detailsLoading?: boolean;
   } = $props();
   let variant = $derived(itemVariant(item, presentation, itemPresentations, upgradeTiers));
   let identified = $derived(isItemIdentified(item));
@@ -103,17 +106,19 @@
     {#if identified && item.runewordId != null}<p class="text-unique">{runewordNameKey ? $i18n.t(runewordNameKey) : 'Runeword'}</p>{/if}
   </div>
 
-  {#if identified && itemStats.length}
-    <div class="mt-2 border-t border-parchment-300/20 pt-2 text-sm">
-      {#each statLines(itemStats) as line}<p class={statToneClass(line)}>{renderedStatLine(line)}</p>{/each}
-    </div>
-  {/if}
-  {#if identified && item.runewordStats?.length}
-    <div class="mt-2 border-t border-parchment-300/20 pt-2 text-sm">
-      {#each statLines(item.runewordStats) as line}<p class={statToneClass(line)}>{renderedStatLine(line)}</p>{/each}
-    </div>
-  {/if}
-  {#if identified}
+  {#if identified && detailsLoading}
+    <p class="mt-2 border-t border-parchment-300/20 pt-2 text-sm text-parchment-300">Loading item details…</p>
+  {:else if identified}
+    {#if itemStats.length}
+      <div class="mt-2 border-t border-parchment-300/20 pt-2 text-sm">
+        {#each statLines(itemStats) as line}<p class={statToneClass(line)}>{renderedStatLine(line)}</p>{/each}
+      </div>
+    {/if}
+    {#if item.runewordStats?.length}
+      <div class="mt-2 border-t border-parchment-300/20 pt-2 text-sm">
+        {#each statLines(item.runewordStats) as line}<p class={statToneClass(line)}>{renderedStatLine(line)}</p>{/each}
+      </div>
+    {/if}
     {#each item.setBonusStats as group, index}
       {#if group.length}
         <div class="mt-2 border-t border-set/25 pt-2 text-sm text-set">

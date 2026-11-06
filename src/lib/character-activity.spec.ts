@@ -32,6 +32,12 @@ describe('formatLastLogged', () => {
     expect(formatLastLogged(ago(90 * day), now)).toBe('3 months ago');
   });
 
+  it('reads a timestamp without an offset as UTC, as the API sends them', () => {
+    const noOffset = ago(5 * hour).replace(/\.\d+Z$/, '');
+    expect(noOffset.endsWith('Z')).toBe(false);
+    expect(formatLastLogged(noOffset, now)).toBe('5 hours ago');
+  });
+
   it('handles missing, invalid, and future timestamps safely', () => {
     expect(formatLastLogged(null, now)).toBe('Unknown');
     expect(formatLastLogged('not-a-date', now)).toBe('Unknown');

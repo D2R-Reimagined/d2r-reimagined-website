@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const mocks = vi.hoisted(() => ({ browser: true, api: vi.fn(), initialize: vi.fn() }));
+const mocks = vi.hoisted(() => ({ browser: true, signedIn: true, api: vi.fn(), initialize: vi.fn() }));
 vi.mock('$app/env', () => ({ get browser() { return mocks.browser; } }));
 vi.mock('$app/env/public', () => ({ PUBLIC_API_BASE_URL: 'https://api.example' }));
-vi.mock('#lib/auth.js', () => ({ apiRequest: mocks.api, initializeAuth: mocks.initialize }));
+vi.mock('#lib/auth.js', () => ({ apiRequest: mocks.api, initializeAuth: mocks.initialize, hasAccessToken: () => mocks.signedIn }));
 
 import { getActiveLadders, getLadders } from './ladders';
 import { getLeaderboard } from './leaderboards';
@@ -18,6 +18,7 @@ const board = { items: [], total: 0, skip: 0, count: 25 };
 
 beforeEach(() => {
   mocks.browser = true;
+  mocks.signedIn = true;
   mocks.api.mockReset();
   mocks.initialize.mockReset().mockResolvedValue(undefined);
 });
@@ -52,6 +53,25 @@ describe('hidden ladder page access', () => {
     expect(fetch.mock.calls[1][0]).not.toContain(hidden.id);
     expect(mocks.api).not.toHaveBeenCalled();
     expect(setHeaders).toHaveBeenCalledWith({ 'cache-control': 'private, no-store' });
+  });
+
+  it('hydrates an anonymous leaderboard from the fetch SSR inlined', async () => {
+    mocks.signedIn = false;
+    const fetch = vi.fn().mockResolvedValueOnce(Response.json([])).mockResolvedValueOnce(Response.json(board));
+    const result = await loadLeaderboard({ url: new URL('https://website/leaderboard'), fetch, setHeaders: vi.fn() } as never);
+    expect(result).toMatchObject({ ladders: [], board });
+    expect(fetch).toHaveBeenCalledTimes(2);
+    expect(mocks.initialize).toHaveBeenCalledOnce();
+    expect(mocks.api).not.toHaveBeenCalled();
+  });
+
+  it('retries an anonymous leaderboard read the server could not complete', async () => {
+    mocks.signedIn = false;
+    mocks.api.mockResolvedValueOnce(board);
+    const fetch = vi.fn().mockResolvedValueOnce(Response.json([])).mockResolvedValueOnce(new Response(null, { status: 503 }));
+    const result = await loadLeaderboard({ url: new URL('https://website/leaderboard'), fetch, setHeaders: vi.fn() } as never);
+    expect(result).toMatchObject({ board, error: null });
+    expect(mocks.api).toHaveBeenCalledOnce();
   });
 
   it('adds authorized hidden trade realms to navigation and resolves their listings', async () => {

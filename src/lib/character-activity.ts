@@ -1,3 +1,5 @@
+import { parseUtc } from './utc-time.js';
+
 const minute = 60 * 1000;
 const hour = 60 * minute;
 const day = 24 * hour;
@@ -10,7 +12,7 @@ function elapsedLabel(value: number, unit: string): string {
 export function formatLastLogged(timestamp: string | null, now = Date.now()): string {
   if (!timestamp) return 'Unknown';
 
-  const loggedAt = Date.parse(timestamp);
+  const loggedAt = parseUtc(timestamp).getTime();
   if (!Number.isFinite(loggedAt)) return 'Unknown';
 
   const elapsed = Math.max(0, now - loggedAt);

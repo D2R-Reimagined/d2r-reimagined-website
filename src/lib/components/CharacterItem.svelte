@@ -17,6 +17,7 @@
     statPresentation,
     rareNames,
     runewordNameKey,
+    detailsLoading = false,
     characterLevel,
     style,
     tooltipSide = 'right',
@@ -30,6 +31,7 @@
     statPresentation?: ItemStatPresentationBundle;
     rareNames?: RareNamePresentation;
     runewordNameKey?: string;
+    detailsLoading?: boolean;
     characterLevel?: number;
     style: string;
     tooltipSide?: 'left' | 'right';
@@ -103,6 +105,11 @@
   function hideTooltip() {
     open = false;
   }
+
+  // An open tooltip grows when its details arrive, so it has to be placed again.
+  $effect(() => {
+    if (open && !detailsLoading) void tick().then(positionTooltip);
+  });
 
   $effect(() => {
     if (!open) return;
@@ -179,7 +186,7 @@
       class="pointer-events-auto fixed z-[100] pointer-fine:pointer-events-none max-h-[calc(100vh-1rem)] w-[min(23rem,calc(100vw-1rem))] overflow-y-auto overscroll-contain"
       style={tooltipStyle}
     >
-      <ItemTooltip {item} {presentation} {itemPresentations} {upgradeTiers} {statPresentation} {runewordNameKey} {identifiedName} {characterLevel} />
+      <ItemTooltip {item} {presentation} {itemPresentations} {upgradeTiers} {statPresentation} {runewordNameKey} {identifiedName} {characterLevel} {detailsLoading} />
     </div>
   {/if}
 </div>

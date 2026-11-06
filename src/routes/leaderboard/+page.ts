@@ -1,5 +1,5 @@
 import { browser } from '$app/env';
-import { initializeAuth, apiRequest } from '#lib/auth.js';
+import { hasAccessToken, initializeAuth, apiRequest } from '#lib/auth.js';
 import type { PageLoad } from './$types';
 import { PUBLIC_API_BASE_URL } from '$app/env/public';
 import { defaultLadder, type LadderSummary } from '#lib/ladder-schedule.js';
@@ -12,15 +12,19 @@ function apiBaseUrl(): string {
   return (PUBLIC_API_BASE_URL || 'http://localhost:5000').replace(/\/$/, '');
 }
 
-// Public SSR is refreshed with the signed-in viewer's ladders during hydration.
+// Public SSR is refreshed with the signed-in viewer's ladders during hydration. An anonymous viewer
+// sees what SSR saw, so Kit's fetch replays the response inlined in the HTML instead of asking again.
 export const load: PageLoad = async ({ fetch, url, setHeaders }) => {
   if (!browser) setHeaders({ 'cache-control': 'private, no-store' });
   if (browser) await initializeAuth();
+  const signedIn = browser && hasAccessToken();
   async function read<T>(path: string): Promise<T> {
-    if (browser) return apiRequest<T>(path, {}, 'optional');
+    if (signedIn) return apiRequest<T>(path, {}, 'optional');
     const response = await fetch(`${apiBaseUrl()}${path}`);
-    if (!response.ok) throw new Error(`The API returned ${response.status}.`);
-    return response.json() as Promise<T>;
+    if (response.ok) return response.json() as Promise<T>;
+    // A failed server read is replayed too; the browser may still reach the API.
+    if (browser) return apiRequest<T>(path, {}, 'optional');
+    throw new Error(`The API returned ${response.status}.`);
   }
 
   const requestedLadderId = url.searchParams.get('ladderId');

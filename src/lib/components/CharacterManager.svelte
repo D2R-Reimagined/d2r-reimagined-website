@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
 
   import { ApiError } from '#lib/auth.js';
+  import { parseUtc } from '#lib/utc-time.js';
   import { sameCharacterName, validateCharacterSave } from '#lib/character-save.js';
   import {
     createCharacter,
@@ -191,7 +192,7 @@
 
   function formatDate(value: string | null): string {
     if (!value) return 'Unknown';
-    return new Date(value).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
+    return parseUtc(value).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
   }
 
   onMount(async () => {

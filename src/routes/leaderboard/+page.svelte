@@ -7,6 +7,7 @@
   import OnlinePlayers from '#lib/components/OnlinePlayers.svelte';
   import { debounced } from '#lib/debounce.svelte.js';
   import { isLadderRunning, partitionLadders } from '#lib/ladder-schedule.js';
+  import { parseUtc } from '#lib/utc-time.js';
   import {
     entryStanding,
     formatExperience,
@@ -160,7 +161,7 @@
 
   function formatDate(value: string | null): string {
     if (!value) return '—';
-    return new Date(value).toLocaleDateString(undefined, {
+    return parseUtc(value).toLocaleDateString(undefined, {
       year: 'numeric',
       month: 'short',
       day: 'numeric'

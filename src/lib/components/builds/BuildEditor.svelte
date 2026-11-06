@@ -520,7 +520,7 @@
         </div>
       </fieldset>
     {/if}
-    {#if saved}<div class="manage-bar"><a href="/builds/mine">← My builds</a>{#if saved.build.isPublished}<a href={`/builds/${saved.build.id}`}>View published guide ↗</a><button disabled={busy || dirty} onclick={() => confirmation = 'unpublish'}>Unpublish</button>{/if}<button disabled={busy || dirty} class="remove" onclick={() => confirmation = 'delete'}>Remove build</button></div>{/if}
+    {#if saved}<div class="manage-bar"><a href="/builds/mine">← My builds</a>{#if saved.build.isPublished}<a data-sveltekit-preload-data="tap" href={`/builds/${saved.build.id}`}>View published guide ↗</a><button disabled={busy || dirty} onclick={() => confirmation = 'unpublish'}>Unpublish</button>{/if}<button disabled={busy || dirty} class="remove" onclick={() => confirmation = 'delete'}>Remove build</button></div>{/if}
   {/if}
 </div>
 

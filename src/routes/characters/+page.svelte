@@ -19,20 +19,32 @@
   let skip = $state(0);
   let loading = $state(true);
   let error = $state('');
+  let classesPending = $state(true);
   let requestSequence = 0;
 
   let currentPage = $derived(Math.floor(skip / pageSize) + 1);
   let pageCount = $derived(Math.max(1, Math.ceil(total / pageSize)));
 
-  onMount(async () => {
+  onMount(() => {
+    void loadClasses();
+    void loadDirectory(0);
+  });
+
+  async function loadClasses(): Promise<void> {
+    classesPending = true;
     try {
       classes = await loadSkillClasses();
-      await loadDirectory(0);
     } catch (value) {
       error = value instanceof Error ? value.message : 'The character directory could not be loaded.';
-      loading = false;
+    } finally {
+      classesPending = false;
     }
-  });
+  }
+
+  function retry(): void {
+    if (!classes.length) void loadClasses();
+    void loadDirectory(skip);
+  }
 
   async function loadDirectory(nextSkip: number): Promise<void> {
     const sequence = ++requestSequence;
@@ -132,9 +144,9 @@
     <div class="panel mt-6 rounded-lg p-8 text-center">
       <h2 class="display-text text-2xl text-parchment-50">Characters unavailable</h2>
       <p class="mt-3 text-red-200">{error}</p>
-      <button type="button" class="retry-button mt-5" onclick={() => loadDirectory(skip)}>Try again</button>
+      <button type="button" class="retry-button mt-5" onclick={retry}>Try again</button>
     </div>
-  {:else if loading && entries.length === 0}
+  {:else if (loading && entries.length === 0) || classesPending}
     <div class="character-grid mt-6" aria-label="Loading characters">
       {#each Array(6) as _}
         <div class="panel h-52 animate-pulse rounded-lg bg-white/[0.025]"></div>

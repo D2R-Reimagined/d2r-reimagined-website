@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import CharacterItem from '#lib/components/CharacterItem.svelte';
   import CharacterLeaderboardModeration from '#lib/components/CharacterLeaderboardModeration.svelte';
   import CharacterSaveReview from '#lib/components/CharacterSaveReview.svelte';
@@ -37,6 +37,8 @@
   let runewordNames = $state(new Map<string, string>());
   let rareNames = $state<RareNamePresentation>();
   let skillClasses = $state<SkillClass[]>([]);
+  let skillsState = $state<'idle' | 'loading' | 'ready' | 'failed'>('idle');
+  let tooltipDataState = $state<'idle' | 'loading' | 'ready' | 'failed'>('idle');
   let artworkError = $state('');
   let tab = $state<'player' | 'mercenary'>('player');
   let otherWeaponsPicked = $state(false);
@@ -114,6 +116,7 @@
   let allocatedSkillPoints = $derived(
     Object.values(skillRanks).reduce((total, points) => total + points, 0)
   );
+  let tooltipDetailsLoading = $derived(tooltipDataState === 'idle' || tooltipDataState === 'loading');
 
   function percent(value: number, total: number): string {
     return `${value / total * 100}%`;
@@ -170,21 +173,53 @@
     return new Intl.NumberFormat().format(value);
   }
 
+  // Only a tooltip reads these, so they wait until the pointer or focus reaches the items.
+  async function loadTooltipData(): Promise<void> {
+    if (tooltipDataState === 'loading' || tooltipDataState === 'ready') return;
+    tooltipDataState = 'loading';
+    try {
+      const [loadedStatPresentation, runewords] = await Promise.all([loadItemStatPresentation(), loadCatalog('runewords')]);
+      statPresentation = loadedStatPresentation;
+      runewordNames = buildRunewordNameMap(runewords);
+      artworkError = '';
+      tooltipDataState = 'ready';
+    } catch {
+      artworkError = 'Item details could not be loaded. Hover or focus an item again to retry.';
+      tooltipDataState = 'failed';
+    }
+  }
+
+  async function loadSkills(): Promise<void> {
+    if (skillsState === 'loading' || skillsState === 'ready') return;
+    skillsState = 'loading';
+    try {
+      skillClasses = await loadSkillClasses();
+      skillsState = 'ready';
+    } catch {
+      skillsState = 'failed';
+    }
+  }
+
+  function loadSkillsWhenNear(section: HTMLElement) {
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      observer.disconnect();
+      void loadSkills();
+    }, { rootMargin: '200px 0px' });
+    observer.observe(section);
+    return { destroy: () => observer.disconnect() };
+  }
+
+  // What the first paint draws: sprites, grid sizes and item names.
   onMount(async () => {
     try {
-      const [loadedPresentations, loadedStatPresentation, loadedSkillClasses, runewords, loadedRareNames, loadedUpgradeTiers] = await Promise.all([
+      const [loadedPresentations, loadedRareNames, loadedUpgradeTiers] = await Promise.all([
         loadItemPresentation(),
-        loadItemStatPresentation(),
-        loadSkillClasses(),
-        loadCatalog('runewords'),
         loadRareNamePresentation(),
         loadItemUpgradeTiers()
       ]);
       presentations = loadedPresentations;
       upgradeTiers = loadedUpgradeTiers;
-      statPresentation = loadedStatPresentation;
-      skillClasses = loadedSkillClasses;
-      runewordNames = buildRunewordNameMap(runewords);
       rareNames = loadedRareNames;
     } catch (value) {
       artworkError = value instanceof Error ? value.message : 'Item artwork could not be loaded.';
@@ -253,7 +288,8 @@
 
     {#if artworkError}<p role="alert" class="mt-4 text-sm text-red-300">{artworkError}</p>{/if}
 
-    <div class="mx-auto mt-5 flex max-w-[780px] flex-col items-center gap-6 xl:max-w-[1160px] xl:flex-row xl:items-start xl:justify-center">
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <div class="mx-auto mt-5 flex max-w-[780px] flex-col items-center gap-6 xl:max-w-[1160px] xl:flex-row xl:items-start xl:justify-center" onpointerenter={loadTooltipData} onfocusin={loadTooltipData}>
       <h2 id={equipmentHeadingId} class="sr-only">Equipment and inventory</h2>
       <div class="w-full max-w-[780px] xl:w-[600px] xl:shrink-0 2xl:w-[585px]">
         <div class="relative aspect-[1162/1799] w-full bg-black bg-[url('/data/sprites/ui/inventory.webp')] bg-contain bg-no-repeat shadow-2xl shadow-black/70">
@@ -297,11 +333,11 @@
           {#each equipped as item}
             {@const style = equippedStyle(item)}
             {@const itemPresentation = presentation(item)}
-            {#if style}<CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} {style} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />{/if}
+            {#if style}<CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} detailsLoading={tooltipDetailsLoading} {style} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />{/if}
           {/each}
           {#each inventory as item}
             {@const itemPresentation = presentation(item)}
-            <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} style={inventoryStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />
+            <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} detailsLoading={tooltipDetailsLoading} style={inventoryStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />
           {/each}
         </div>
       </div>
@@ -324,7 +360,7 @@
           >
             {#each charmInventory as item}
               {@const itemPresentation = presentation(item)}
-              <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} style={charmStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />
+              <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} detailsLoading={tooltipDetailsLoading} style={charmStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />
             {/each}
           </div>
         </div>
@@ -336,8 +372,8 @@
     </p>
   </section>
 
-  {#if skillClass && !inventoryOnly}
-    <section class="mt-14 border-t border-parchment-300/15 pt-10" aria-labelledby="skills-heading">
+  {#if !inventoryOnly && (skillClass || skillsState !== 'ready')}
+    <section use:loadSkillsWhenNear class="mt-14 border-t border-parchment-300/15 pt-10" aria-labelledby="skills-heading">
       <div class="mb-5 flex flex-wrap items-end justify-between gap-3">
         <div>
           <p class="text-xs uppercase tracking-[0.24em] text-ember-400">Saved allocation</p>
@@ -345,7 +381,16 @@
         </div>
         <p class="text-sm text-parchment-300"><span class="text-parchment-50">{allocatedSkillPoints}</span> hard points allocated</p>
       </div>
-      <SkillTreeView {skillClass} ranks={displayedSkillRanks} baseRanks={skillRanks} characterLevel={details.character.level} readonly />
+      {#if skillClass}
+        <SkillTreeView {skillClass} ranks={displayedSkillRanks} baseRanks={skillRanks} characterLevel={details.character.level} readonly />
+      {:else if skillsState === 'failed'}
+        <div class="panel rounded-lg p-8 text-center" role="alert">
+          <p class="text-red-200">The skill tree could not be loaded.</p>
+          <button type="button" class="mt-4 rounded border border-ember-400/50 px-5 py-2 text-parchment-50 hover:bg-ember-700/20" onclick={loadSkills}>Try again</button>
+        </div>
+      {:else}
+        <div class="panel h-[80rem] animate-pulse rounded-lg bg-white/[0.025] xl:h-[45rem]" role="status" aria-label="Loading skills"></div>
+      {/if}
     </section>
   {/if}
 {/if}

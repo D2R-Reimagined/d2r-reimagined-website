@@ -70,7 +70,7 @@ export function loadItemStatPresentation(): Promise<ItemStatPresentationBundle> 
   presentationPromise ??= fetch('/data/keyed/item-stat-presentation.json').then(async (response) => {
     if (!response.ok) throw new Error(`Unable to load item stat presentation data (${response.status})`);
     return await response.json() as ItemStatPresentationBundle;
-  });
+  }).catch((error) => { presentationPromise = undefined; throw error; });
   return presentationPromise;
 }
 

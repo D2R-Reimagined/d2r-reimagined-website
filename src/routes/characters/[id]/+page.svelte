@@ -3,12 +3,18 @@
   import { onMount } from 'svelte';
   import CharacterViewer from '#lib/components/CharacterViewer.svelte';
   import { getCharacterDetails, type CharacterDetailsResponse } from '#lib/characters.js';
+  import { loadItemPresentation } from '#lib/item-presentation.js';
+  import { loadItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
+  import { loadRareNamePresentation } from '#lib/rare-name-presentation.js';
 
   let details = $state<CharacterDetailsResponse | null>(null);
   let loading = $state(true);
   let error = $state('');
 
   onMount(async () => {
+    // Started alongside the save rather than after it; the viewer picks up these cached loads
+    // and reports any failure itself.
+    void Promise.allSettled([loadItemPresentation(), loadItemUpgradeTiers(), loadRareNamePresentation()]);
     try {
       const characterId = page.params.id;
       if (!characterId) throw new Error('This character could not be found.');

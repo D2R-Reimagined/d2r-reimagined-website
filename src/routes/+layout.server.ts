@@ -4,10 +4,12 @@ import type { LayoutServerLoad } from './$types';
 import { buildTradeLadders, type TradeLadder } from '#lib/trade-ladders.js';
 import enUS from '../../static/data/strings/enUS.json';
 
-export const load: LayoutServerLoad = async ({ fetch, url }) => {
+export const load: LayoutServerLoad = async ({ fetch, url, untrack }) => {
   const tradeEnabled = TRADE_ENABLED === 'true';
   let tradeLadders: TradeLadder[] = [];
-  if (tradeEnabled || url.pathname.startsWith('/trade')) {
+  // Untracked, or every navigation would download this load's translations again. A client-side
+  // arrival on /trade gets its ladders from the universal layout load instead.
+  if (tradeEnabled || untrack(() => url.pathname.startsWith('/trade'))) {
     const api = (PUBLIC_API_BASE_URL || 'http://localhost:5000').replace(/\/$/, '');
     try {
       const response = await fetch(`${api}/ladders/summaries?activeOnly=true`);

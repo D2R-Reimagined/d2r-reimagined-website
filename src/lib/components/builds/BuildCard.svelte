@@ -3,7 +3,7 @@
   let { build, manage = false }: { build: BuildSummary; manage?: boolean } = $props();
   const colors: Record<string, string> = { Amazon:'#ab9560', Assassin:'#aa8eae', Barbarian:'#bc7967', Druid:'#8ea773', Necromancer:'#89a99b', Paladin:'#ccae66', Sorceress:'#85a1c0', Warlock:'#b985aa' };
 </script>
-<a class="guide-card panel" href={`/builds/${build.id}${manage ? '/edit' : ''}`} style={`--class-color:${colors[build.characterClass] ?? '#bba070'}`}>
+<a class="guide-card panel" data-sveltekit-preload-data="tap" href={`/builds/${build.id}${manage ? '/edit' : ''}`} style={`--class-color:${colors[build.characterClass] ?? '#bba070'}`}>
   <div class="card-art"><span class="class-seal" aria-hidden="true">{build.characterClass.slice(0,3).toUpperCase()}</span><div><span class="class-label">{build.characterClass}</span><span class="focus-label">{build.category}</span></div><span class="patch">{manage ? build.isPublished ? 'Published' : 'Draft' : build.patch || 'Community guide'}</span></div>
   <div class="card-body"><div class="card-tags"><span>{build.budget}</span>{#each build.tags.slice(0, 2) as tag}<span>{tag}</span>{/each}</div>
     <h2>{build.title}</h2><p class="summary">{build.summary || 'Your guide is taking shape. Continue editing in the workshop.'}</p>

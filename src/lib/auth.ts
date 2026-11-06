@@ -59,6 +59,11 @@ function accessToken(): string | null {
   return browser ? localStorage.getItem(tokenStorageKey) : null;
 }
 
+/** Whether an optional-auth request would identify the viewer. Settled once initializeAuth resolves. */
+export function hasAccessToken(): boolean {
+  return accessToken() !== null;
+}
+
 async function executeApiRequest<T>(
   path: string,
   init: RequestInit = {},

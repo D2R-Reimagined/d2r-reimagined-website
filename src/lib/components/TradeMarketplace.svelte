@@ -62,6 +62,7 @@
     let corrupted = $state(false);
     let propertyGroups = $state<TradePropertyGroupDraft[]>([createTradePropertyGroup()]);
     let nameOptions = $state<string[]>([]);
+    let nameOptionsState = $state<'idle' | 'loading' | 'ready' | 'failed'>('idle');
     let offerListing = $state<TradeListing | null>(null);
     let offerText = $state('');
     let offering = $state(false);
@@ -210,7 +211,24 @@
         }
     }
 
-    onMount(async () => {
+    // The two catalogs are megabytes used for nothing but this autocomplete, so they wait for the
+    // first focus of the search box. A failed load tries again on the next focus.
+    async function loadNameOptions(): Promise<void> {
+        if (nameOptionsState === 'loading' || nameOptionsState === 'ready') return;
+        nameOptionsState = 'loading';
+        try {
+            const [uniques, sets] = await Promise.all([loadCatalog('uniques'), loadCatalog('sets')]);
+            const setItems = sets.flatMap((set) => set.SetItems ?? []);
+            nameOptions = [...new Set([...uniques, ...setItems]
+                .map((item: CatalogItem) => String(item.Index || ''))
+                .filter(Boolean))].sort((a, b) => a.localeCompare(b));
+            nameOptionsState = 'ready';
+        } catch {
+            nameOptionsState = 'failed';
+        }
+    }
+
+    onMount(() => {
         try {
             const savedLayout = localStorage.getItem(listingLayoutStorageKey);
             if (savedLayout === 'compact' || savedLayout === 'columns' || savedLayout === 'rows') listingLayout = savedLayout;
@@ -229,11 +247,6 @@
             isHardcore = savedHardcore;
             void load();
         }
-        const [uniques, sets] = await Promise.all([loadCatalog('uniques'), loadCatalog('sets')]);
-        const setItems = sets.flatMap((set) => set.SetItems ?? []);
-        nameOptions = [...new Set([...uniques, ...setItems]
-            .map((item: CatalogItem) => String(item.Index || ''))
-            .filter(Boolean))].sort((a, b) => a.localeCompare(b));
     });
 </script>
 
@@ -304,7 +317,9 @@
                 <label for="trade-search" class="sr-only">Search item names and listings</label>
                 <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-parchment-300"
                       aria-hidden="true">⌕</span>
-                <TradeItemSearch id="trade-search" names={nameOptions} placeholder="Search..." bind:value={search}/>
+                <TradeItemSearch id="trade-search" names={nameOptions} placeholder="Search..." bind:value={search}
+                                 namesLoading={nameOptionsState === 'loading'} namesUnavailable={nameOptionsState === 'failed'}
+                                 onfocus={loadNameOptions}/>
             </div>
             <button type="submit" class="trade-primary-button sm:min-w-28">Search</button>
             <button type="button" class="trade-secondary-button flex items-center justify-center gap-2"

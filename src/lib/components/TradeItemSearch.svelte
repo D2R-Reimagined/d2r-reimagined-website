@@ -5,12 +5,18 @@
     id,
     names,
     value = $bindable(''),
-    placeholder
+    placeholder,
+    namesLoading = false,
+    namesUnavailable = false,
+    onfocus
   }: {
     id: string;
     names: string[];
     value?: string;
     placeholder: string;
+    namesLoading?: boolean;
+    namesUnavailable?: boolean;
+    onfocus?: () => void;
   } = $props();
 
   let open = $state(false);
@@ -77,7 +83,7 @@
   spellcheck="false"
   bind:value
   oninput={() => { open = true; activeIndex = -1; }}
-  onfocus={() => { open = true; }}
+  onfocus={() => { open = true; onfocus?.(); }}
   onblur={close}
   onkeydown={handleKeydown}
 />
@@ -87,5 +93,7 @@
   {items}
   {activeIndex}
   label="Item names"
+  loading={namesLoading && Boolean(value.trim())}
+  emptyText={namesUnavailable && value.trim() ? 'Name suggestions are unavailable. You can still search.' : ''}
   onchoose={(item) => choose(item.label)}
 />
