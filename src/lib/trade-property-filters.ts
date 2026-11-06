@@ -16,8 +16,8 @@ export interface TradePropertyFilterDraft {
   stat: string;
   layer?: number;
   stats?: string[];
-  minimumValue: string;
-  maximumValue: string;
+  minimumValue: number | string | null;
+  maximumValue: number | string | null;
   valueShift: number;
   valueFunction?: number;
 }
@@ -25,8 +25,8 @@ export interface TradePropertyFilterDraft {
 export interface TradePropertyGroupDraft {
   id: number;
   type: TradePropertyGroupType;
-  minimumCount: string;
-  maximumCount: string;
+  minimumCount: number | string | null;
+  maximumCount: number | string | null;
   filters: TradePropertyFilterDraft[];
 }
 
@@ -421,8 +421,9 @@ function searchTokens(query: string): string[] {
   return searchWords(query).filter((token) => !/^\d+$/.test(token));
 }
 
-function optionalNumber(value: string): number | undefined {
-  if (!value.trim()) return undefined;
+export function optionalNumber(value: number | string | null | undefined): number | undefined {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : undefined;
+  if (value == null || !value.trim()) return undefined;
   const number = Number(value);
   return Number.isFinite(number) ? number : undefined;
 }

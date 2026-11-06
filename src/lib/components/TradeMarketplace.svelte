@@ -27,6 +27,7 @@
         compoundTradePropertyOutsideAnd,
         createTradePropertyGroup,
         invalidTradePropertyQuery,
+        optionalNumber,
         toTradePropertyFilterGroups,
         type TradePropertyGroupDraft
     } from '#lib/trade-property-filters.js';
@@ -53,11 +54,11 @@
     let quality = $state('');
     let itemType = $state('');
     let negotiable = $state(false);
-    let minLevel = $state('');
-    let maxLevel = $state('');
-    let minItemLevel = $state('');
-    let minSockets = $state('');
-    let maxSockets = $state('');
+    let minLevel = $state<number | string | null>('');
+    let maxLevel = $state<number | string | null>('');
+    let minItemLevel = $state<number | string | null>('');
+    let minSockets = $state<number | string | null>('');
+    let maxSockets = $state<number | string | null>('');
     let ethereal = $state(false);
     let corrupted = $state(false);
     let propertyGroups = $state<TradePropertyGroupDraft[]>([createTradePropertyGroup()]);
@@ -78,7 +79,8 @@
     let isHardcore = $state<boolean | null>(data.initialIsHardcore ?? null);
 
     let activeFilterCount = $derived(
-        [quality, itemType, minLevel, maxLevel, minItemLevel, minSockets, maxSockets].filter(Boolean).length
+        [quality, itemType.trim()].filter(Boolean).length
+        + [minLevel, maxLevel, minItemLevel, minSockets, maxSockets].filter((value) => optionalNumber(value) !== undefined).length
         + [negotiable, ethereal, corrupted].filter(Boolean).length
         + activeTradePropertyCount(propertyGroups)
     );
@@ -106,11 +108,11 @@
             isNegotiable: negotiable || undefined,
             isEthereal: ethereal || undefined,
             isCorrupted: corrupted || undefined,
-            minimumRequiredLevel: minLevel ? Number(minLevel) : undefined,
-            maximumRequiredLevel: maxLevel ? Number(maxLevel) : undefined,
-            minimumItemLevel: minItemLevel ? Number(minItemLevel) : undefined,
-            minimumSockets: minSockets ? Number(minSockets) : undefined,
-            maximumSockets: maxSockets ? Number(maxSockets) : undefined,
+            minimumRequiredLevel: optionalNumber(minLevel),
+            maximumRequiredLevel: optionalNumber(maxLevel),
+            minimumItemLevel: optionalNumber(minItemLevel),
+            minimumSockets: optionalNumber(minSockets),
+            maximumSockets: optionalNumber(maxSockets),
             propertyGroups: serializedPropertyGroups.length ? serializedPropertyGroups : undefined
         };
     }
