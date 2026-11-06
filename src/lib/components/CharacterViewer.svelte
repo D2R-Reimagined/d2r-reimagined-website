@@ -4,6 +4,7 @@
   import CharacterSaveReview from '#lib/components/CharacterSaveReview.svelte';
   import SkillTreeView from '#lib/components/skills/SkillTreeView.svelte';
   import { formatLastLogged } from '#lib/character-activity.js';
+  import { equipmentSlot, isInHandWeapon, isOtherWeapon } from '#lib/character-equipment.js';
   import { characterSkillRanks } from '#lib/character-skill-ranks.js';
   import type { CharacterDetailsResponse, SaveItem } from '#lib/characters.js';
   import { charmInventoryColumns, charmInventoryRows, isCharmInventoryItem } from '#lib/charm-inventory.js';
@@ -38,7 +39,7 @@
   let skillClasses = $state<SkillClass[]>([]);
   let artworkError = $state('');
   let tab = $state<'player' | 'mercenary'>('player');
-  let weaponSwap = $state(false);
+  let otherWeaponsPicked = $state(false);
   let relativeTimeNow = $state(Date.now());
   const equipmentHeadingId = $props.id();
 
@@ -90,6 +91,11 @@
         )
       : []
   );
+  // A mercenary has one weapon set, so the pick only applies to the player tab.
+  let showOtherWeapons = $derived(tab === 'player' && otherWeaponsPicked);
+  // The set in hand is on tab II when the save says the player has switched.
+  let inHandIsSetTwo = $derived(Boolean(save?.character.weaponSwitch));
+  let weaponSetTwoShown = $derived(otherWeaponsPicked !== inHandIsSetTwo);
   let hasMercenary = $derived(Boolean(save?.character.mercenary.hasMercenary));
   let carriedGold = $derived(
     save?.stats.entries.find((stat) => stat.id === 14 || stat.name.toLowerCase() === 'gold')?.value ?? 0
@@ -114,13 +120,8 @@
   }
 
   function equippedStyle(item: SaveItem): string | null {
-    let location = item.position.bodyLocation;
-    const secondary = /secondary|alternate|swap/i.test(location);
-    if (secondary !== weaponSwap) {
-      if (secondary || /arm/i.test(location)) return null;
-    }
-    location = location.replace(/Secondary|Alternate|Swap/gi, '');
-    const rect = slotRects[location];
+    if (showOtherWeapons ? isInHandWeapon(item) : isOtherWeapon(item)) return null;
+    const rect = slotRects[equipmentSlot(item)];
     if (!rect) return null;
     const [x, y, width, height] = rect;
     return `left:${percent(x, canvasWidth)};top:${percent(y, canvasHeight)};width:${percent(width, canvasWidth)};height:${percent(height, canvasHeight)}`;
@@ -154,8 +155,7 @@
 
   function tooltipSide(item: SaveItem, itemPresentation?: ItemPresentation): 'left' | 'right' {
     if (item.position.mode === 'Equipped') {
-      const location = item.position.bodyLocation.replace(/Secondary|Alternate|Swap/gi, '');
-      const rect = slotRects[location];
+      const rect = slotRects[equipmentSlot(item)];
       return rect && rect[0] + rect[2] / 2 > canvasWidth / 2 ? 'left' : 'right';
     }
     const width = itemPresentation?.Width ?? 1;
@@ -268,22 +268,22 @@
                 <button
                   type="button"
                   aria-label="Equip weapon set I"
-                  aria-pressed={!weaponSwap}
-                  class={`relative border-r border-parchment-300/20 transition hover:bg-white/5 hover:text-parchment-50 ${!weaponSwap ? 'bg-sky-950/35 text-parchment-50' : ''}`}
-                  onclick={() => weaponSwap = false}
+                  aria-pressed={!weaponSetTwoShown}
+                  class={`relative border-r border-parchment-300/20 transition hover:bg-white/5 hover:text-parchment-50 ${!weaponSetTwoShown ? 'bg-sky-950/35 text-parchment-50' : ''}`}
+                  onclick={() => otherWeaponsPicked = inHandIsSetTwo}
                 >
                   I
-                  {#if !weaponSwap}<span class="absolute bottom-[8%] left-1/2 h-[clamp(0.18rem,0.45vw,0.3rem)] w-[clamp(0.18rem,0.45vw,0.3rem)] -translate-x-1/2 rotate-45 bg-sky-400 shadow-[0_0_5px_rgba(56,189,248,0.95)]"></span>{/if}
+                  {#if !weaponSetTwoShown}<span class="absolute bottom-[8%] left-1/2 h-[clamp(0.18rem,0.45vw,0.3rem)] w-[clamp(0.18rem,0.45vw,0.3rem)] -translate-x-1/2 rotate-45 bg-sky-400 shadow-[0_0_5px_rgba(56,189,248,0.95)]"></span>{/if}
                 </button>
                 <button
                   type="button"
                   aria-label="Equip weapon set II"
-                  aria-pressed={weaponSwap}
-                  class={`relative transition hover:bg-white/5 hover:text-parchment-50 ${weaponSwap ? 'bg-sky-950/35 text-parchment-50' : ''}`}
-                  onclick={() => weaponSwap = true}
+                  aria-pressed={weaponSetTwoShown}
+                  class={`relative transition hover:bg-white/5 hover:text-parchment-50 ${weaponSetTwoShown ? 'bg-sky-950/35 text-parchment-50' : ''}`}
+                  onclick={() => otherWeaponsPicked = !inHandIsSetTwo}
                 >
                   II
-                  {#if weaponSwap}<span class="absolute bottom-[8%] left-1/2 h-[clamp(0.18rem,0.45vw,0.3rem)] w-[clamp(0.18rem,0.45vw,0.3rem)] -translate-x-1/2 rotate-45 bg-sky-400 shadow-[0_0_5px_rgba(56,189,248,0.95)]"></span>{/if}
+                  {#if weaponSetTwoShown}<span class="absolute bottom-[8%] left-1/2 h-[clamp(0.18rem,0.45vw,0.3rem)] w-[clamp(0.18rem,0.45vw,0.3rem)] -translate-x-1/2 rotate-45 bg-sky-400 shadow-[0_0_5px_rgba(56,189,248,0.95)]"></span>{/if}
                 </button>
               </div>
             {/each}

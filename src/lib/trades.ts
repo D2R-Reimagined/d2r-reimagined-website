@@ -13,6 +13,8 @@ export interface TradeListing {
   id: string;
   sellerId: string;
   sellerDisplayName: string;
+  /** Rounded to a quarter hour; absent until the seller has been seen. */
+  sellerLastSeenAtUtc?: string | null;
   buyerId: string | null;
   buyerDisplayName: string | null;
   characterId: string | null;

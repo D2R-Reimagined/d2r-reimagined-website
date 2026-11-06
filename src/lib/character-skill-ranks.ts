@@ -1,3 +1,4 @@
+import { isOtherWeapon } from '#lib/character-equipment.js';
 import type { CharacterSaveDetails, SaveItem, SaveStat } from '#lib/characters.js';
 import { isCharmInventoryItem } from '#lib/charm-inventory.js';
 import type { Skill, SkillClass } from '#lib/types.js';
@@ -16,13 +17,8 @@ const elementByLayer = new Map([
   [5, 'pois']
 ]);
 
-function isActiveItem(item: SaveItem, weaponSwitch: number): boolean {
-  if (item.position.mode === 'Equipped') {
-    const location = item.position.bodyLocation;
-    if (!/arm/i.test(location)) return true;
-    const secondary = /secondary|alternate|swap/i.test(location);
-    return secondary === (weaponSwitch !== 0);
-  }
+function isActiveItem(item: SaveItem): boolean {
+  if (item.position.mode === 'Equipped') return !isOtherWeapon(item);
 
   // Anything in the charm panel counts, whatever its code. CharmInv only lets
   // charms in there, so the panel itself is the test - which is also how the
@@ -65,7 +61,7 @@ export function characterSkillRanks(
   const learnedSkills = skills.filter((skill) => (base[skill.Id] ?? 0) > 0);
 
   const stats = save.items.entries
-    .filter((item) => isActiveItem(item, save.character.weaponSwitch))
+    .filter(isActiveItem)
     .flatMap(itemStats);
 
   for (const stat of stats) {

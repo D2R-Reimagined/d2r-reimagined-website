@@ -43,7 +43,8 @@ function item(
   stats: SaveStat[],
   mode = 'Equipped',
   codeText = 'cap',
-  bodyLocation = 'Head'
+  bodyLocation = 'Head',
+  bodyLocationId = 1
 ): SaveItem {
   return {
     codeText,
@@ -51,7 +52,7 @@ function item(
     runewordStats: null,
     setBonusStats: [],
     sockets: [],
-    position: { mode, storePage: 'Inventory', bodyLocation }
+    position: { mode, storePage: 'Inventory', bodyLocation, bodyLocationId }
   } as unknown as SaveItem;
 }
 
@@ -92,11 +93,24 @@ describe('characterSkillRanks', () => {
     const result = characterSkillRanks(save([
       item([stat('item_allskills', 2)], 'Stored', 'cm2', 'None'),
       item([stat('item_allskills', 50)], 'Stored', 'amu', 'None'),
-      item([stat('item_allskills', 50)], 'Equipped', 'sw2', 'RightArmSecondary')
+      item([stat('item_allskills', 50)], 'Equipped', 'sw2', 'RightHand', 11),
+      item([stat('item_allskills', 50)], 'Equipped', 'sw2', 'LeftHand', 12)
     ]), sorceress, classes);
 
     expect(result.effective[fire.Id]).toBe(6);
     expect(result.effective[cold.Id]).toBe(27);
+  });
+
+  it('counts the weapons in hand whichever weapon tab they are on', () => {
+    const items = [
+      item([stat('item_allskills', 3)], 'Equipped', 'wst', 'RightArm', 4),
+      item([stat('item_allskills', 50)], 'Equipped', 'crs', 'RightHand', 11)
+    ];
+    const onTabTwo = save(items);
+    onTabTwo.character.weaponSwitch = 1;
+
+    expect(characterSkillRanks(save(items), sorceress, classes).effective[fire.Id]).toBe(7);
+    expect(characterSkillRanks(onTabTwo, sorceress, classes).effective[fire.Id]).toBe(7);
   });
 
   it('includes charm panel items of any code and still ignores stored gear beside them', () => {
