@@ -166,6 +166,33 @@ describe('trade property filters', () => {
     expect(activeTradePropertyCount([group])).toBe(1);
   });
 
+  it('accepts number and null values coerced by Svelte number inputs', () => {
+    const group = createTradePropertyGroup('Count');
+    group.minimumCount = 2;
+    group.maximumCount = null;
+    Object.assign(group.filters[0], {
+      query: '#% Faster Cast Rate',
+      stat: 'item_fastercastrate',
+      minimumValue: 20,
+      maximumValue: null,
+      valueShift: 0,
+      valueFunction: 19
+    });
+
+    expect(toTradePropertyFilterGroups([group])).toEqual([{
+      type: 'Count',
+      minimumCount: 2,
+      maximumCount: undefined,
+      filters: [{
+        stat: 'item_fastercastrate',
+        minimumValue: 20,
+        maximumValue: undefined,
+        valueShift: 0,
+        valueFunction: 19
+      }]
+    }]);
+  });
+
   it('retains COUNT limits and detects typed but unselected properties', () => {
     const group = createTradePropertyGroup('Count');
     group.minimumCount = '2';
