@@ -169,8 +169,31 @@ export function connectServerTelemetry(id: string, onFrame: (frame: TelemetryFra
   const controller = new AbortController();
   let timer: ReturnType<typeof setTimeout> | undefined;
   let cursor = 0, retry = 1000;
+  // A hidden tab drops the stream (a frame every 2 s, each with every server's
+  // summary and the watched one's snapshot) and picks up from its cursor when
+  // shown again, so a page left open in the background costs nothing.
+  const visibility = typeof document === 'undefined' ? null : document;
+  let hidden = visibility?.visibilityState === 'hidden';
+  let running = false;
+  let current: AbortController | undefined;
+  const onVisibility = () => {
+    hidden = visibility!.visibilityState === 'hidden';
+    if (hidden) {
+      clearTimeout(timer); timer = undefined;
+      current?.abort();
+      onStatus('Paused');
+    } else if (!running && !controller.signal.aborted) {
+      clearTimeout(timer); timer = undefined;
+      retry = 1000;
+      void connect();
+    }
+  };
+  visibility?.addEventListener('visibilitychange', onVisibility);
   async function connect(): Promise<void> {
+    if (hidden) { onStatus('Paused'); return; }
+    running = true;
     const attempt = new AbortController();
+    current = attempt;
     const abort = () => attempt.abort();
     controller.signal.addEventListener('abort', abort, { once: true });
     let watchdog = setTimeout(abort, 20000);
@@ -197,18 +220,19 @@ export function connectServerTelemetry(id: string, onFrame: (frame: TelemetryFra
     } catch (error) {
       if (controller.signal.aborted) return;
       terminal = error instanceof ApiError && [401, 403, 404].includes(error.status);
-      onStatus(terminal ? 'Access unavailable' : 'Reconnecting', error instanceof Error ? error.message : 'Connection interrupted.');
+      if (!hidden) onStatus(terminal ? 'Access unavailable' : 'Reconnecting', error instanceof Error ? error.message : 'Connection interrupted.');
     } finally {
       clearTimeout(watchdog);
       controller.signal.removeEventListener('abort', abort);
       await reader?.cancel().catch(() => {});
       reader?.releaseLock();
+      running = false;
     }
-    if (!controller.signal.aborted && !terminal) {
-      timer = setTimeout(() => void connect(), retry);
-      retry = Math.min(retry * 2, 30000);
-    }
+    if (controller.signal.aborted || terminal) return;
+    if (hidden) { onStatus('Paused'); return; }
+    timer = setTimeout(() => void connect(), retry);
+    retry = Math.min(retry * 2, 30000);
   }
   void connect();
-  return () => { controller.abort(); clearTimeout(timer); };
+  return () => { controller.abort(); clearTimeout(timer); visibility?.removeEventListener('visibilitychange', onVisibility); };
 }

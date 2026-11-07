@@ -168,11 +168,12 @@
         const timer = setInterval(() => {
             now = Date.now();
         }, 1000);
+        // Neither poll runs while the tab is hidden; the live stream pauses itself.
         const discovery = setInterval(() => {
-            if (!selectedId) void load(controller.signal);
+            if (!selectedId && document.visibilityState !== 'hidden') void load(controller.signal);
         }, 10000);
         const builds = setInterval(() => {
-            if (ladderIds) void loadLadderBuilds(ladderIds.split(','));
+            if (ladderIds && document.visibilityState !== 'hidden') void loadLadderBuilds(ladderIds.split(','));
         }, 60000);
         return () => {
             mounted = false;
