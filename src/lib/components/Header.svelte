@@ -202,7 +202,7 @@
                      onpointerleave={(event) => closeHoverMenu(event, 'community')}>
                     <button type="button"
                             onclick={() => { const open = !communityOpen; closeDropdowns(); communityOpen = open; }}
-                            class={`flex w-full items-center justify-between gap-2 ${navClass(isActive('/builds') ? '/builds' : '/characters')}`}
+                            class={`flex w-full items-center justify-between gap-2 ${navClass(['/builds', '/characters', '/loot-filter', '/loot-filterv2'].find(isActive) ?? '/characters')}`}
                             aria-expanded={communityOpen} aria-controls="community-links">
                         Community <span aria-hidden="true" class="text-xs">▾</span>
                     </button>
@@ -239,6 +239,14 @@
                                     </span>
                                     <span class="block text-xs text-parchment-300">
                                         Customize your loot filtering
+                                    </span>
+                                </a>
+                                <a href="/loot-filterv2" onclick={closeMenus} class="rounded px-3 py-2 hover:bg-white/5">
+                                    <span class="block text-parchment-50">
+                                        Loot Filter v2
+                                    </span>
+                                    <span class="block text-xs text-parchment-300">
+                                        Tier lists, strictness presets, and loot simulator
                                     </span>
                                 </a>
                             </div>
