@@ -253,7 +253,7 @@ export const THEME_PRESETS: Record<ThemeId, ThemePresetInfo> = {
   },
   filterblade: {
     id: 'filterblade',
-    name: 'FilterBlade / Maven',
+    name: 'High-Contrast Crimson',
     description: 'Iconic white-and-crimson S-Tier callouts, bright orange A-Tier currency, and crisp gold B-Tier borders.',
     tiers: {
       S: {
