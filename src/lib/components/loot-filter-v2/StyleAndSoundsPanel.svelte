@@ -247,7 +247,7 @@
                         borderColor: 'RGBA(255, 255, 255, 1)',
                         fillColor: activeTierStyle.borderColor || 'RGBA(255, 150, 40, 1)'
                       }
-                    : undefined
+                    : null
                 })}
             />
             Show Minimap Icon for Tier {selectedTier}
@@ -309,8 +309,8 @@
         </div>
 
         <SoundPicker
-          value={activeTierStyle.dropSound}
-          onchange={v => updateGlobalTierStyle(selectedTier, { dropSound: v })}
+          value={activeTierStyle.dropSound || undefined}
+          onchange={v => updateGlobalTierStyle(selectedTier, { dropSound: v ?? '' })}
         />
       </div>
     </div>

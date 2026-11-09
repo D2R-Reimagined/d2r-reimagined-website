@@ -7,16 +7,19 @@
   import {
     BASE_SLOT_FILTERS,
     CATEGORIES,
+    EQUIPMENT_FAMILIES,
     TIERABLE_ITEMS,
     TIER_RANKS,
     effectiveItemTier,
     effectiveTierStyle,
     findParentGroupForBase,
     getGroupDisplayInfo,
+    isFamilyExplicitlyHidden,
     isItemOverridden,
     modesMatchGroupMode,
     reconcileGroupSplits,
     resolveTierableItemBases,
+    syncDisabledFamiliesFromOverrides,
     type CategoryId,
     type CustomBaseRule,
     type ResolvedBaseEntry,
@@ -195,6 +198,51 @@
     );
   }
 
+  function getInheritedBaseTier(code: string, mode: CustomBaseRule['mode']): TierRank | undefined {
+    const parentGroup = findParentGroupForBase(code, mode, catalog);
+    if (parentGroup) {
+      return effectiveItemTier(parentGroup, config);
+    }
+    if (mode === 'runeword') {
+      for (const item of TIERABLE_ITEMS) {
+        if (item.category !== 'bases' || !item.equipmentFamilies?.length) continue;
+        const familyTypes = EQUIPMENT_FAMILIES.filter(f => item.equipmentFamilies!.includes(f.id)).flatMap(
+          f => f.itemTypes
+        );
+        if (familyTypes.some(t => catalog.itemTypeMap.get(t)?.has(code))) {
+          if (isFamilyExplicitlyHidden(item, config)) return 'HIDE';
+        }
+      }
+    }
+    return undefined;
+  }
+
+  const hasActiveBuildCuration = $derived(
+    Boolean(
+      config.buildProfile?.selectedClass ||
+        config.buildProfile?.archetype ||
+        (config.buildProfile?.disabledFamilies?.length ?? 0) > 0
+    )
+  );
+
+  const buildAffectedCategories = $derived.by(() => {
+    const targetCats: { id: CategoryId; label: string; icon: string }[] = [
+      { id: 'bases', label: 'Runeword & Crafting Bases', icon: '⚔' },
+      { id: 'equipment', label: 'Rares, Crafted & Magic Gear', icon: '🛡' },
+      { id: 'misc', label: 'Quivers & Misc', icon: '⚗' }
+    ];
+    return targetCats.map(cat => {
+      const items = TIERABLE_ITEMS.filter(i => i.category === cat.id);
+      let shown = 0;
+      let hidden = 0;
+      for (const item of items) {
+        if (effectiveItemTier(item, config) === 'HIDE') hidden++;
+        else shown++;
+      }
+      return { ...cat, shown, hidden };
+    });
+  });
+
   function notableNamesForBase(code: string): string {
     const uNames = catalog.uniqueItems.filter(u => u.baseCode === code).map(u => u.name);
     const sNames = catalog.setItems.filter(s => s.baseCode === code).map(s => s.name);
@@ -292,6 +340,9 @@
     } else {
       config.itemOverrides[item.id] = targetTier;
     }
+    if (item.equipmentFamilies?.length) {
+      syncDisabledFamiliesFromOverrides(config);
+    }
     reconcileGroupSplits(config, catalog);
     onchange();
   }
@@ -305,6 +356,9 @@
         cb => cb.parentItemId !== item.id && !childCodes.has(cb.code)
       );
     }
+    if (item.equipmentFamilies?.length) {
+      syncDisabledFamiliesFromOverrides(config);
+    }
     reconcileGroupSplits(config, catalog);
     onchange();
   }
@@ -316,6 +370,7 @@
     }
     config.itemOverrides = next;
     config.customBases = config.customBases.filter(cb => !customBaseBelongsToCategory(cb, activeCategory));
+    syncDisabledFamiliesFromOverrides(config);
     onchange();
   }
 
@@ -425,6 +480,41 @@
       {/if}
     </div>
   </div>
+
+  <!-- Active Class / Archetype Curation Bar -->
+  {#if hasActiveBuildCuration && !searchQuery.trim()}
+    <div class="panel flex flex-wrap items-center justify-between gap-3 rounded-lg border border-ember-400/40 bg-abyss-950/90 px-4 py-3 text-xs">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="rounded border border-ember-400/50 bg-ember-950/60 px-2 py-0.5 font-bold uppercase tracking-wider text-ember-300">
+          {#if config.buildProfile.selectedClass}
+            Class: {config.buildProfile.selectedClass}{config.buildProfile.archetype ? ` · ${config.buildProfile.archetype}` : ''}
+          {:else if config.buildProfile.archetype}
+            Archetype: {config.buildProfile.archetype}
+          {:else}
+            Custom Weapon/Class Filter
+          {/if}
+        </span>
+        <span class="text-parchment-200">
+          Off-build weapon &amp; class groups are placed in <strong>Hide</strong> below; primary build gear is promoted to <strong>Tier A / B</strong>.
+        </span>
+      </div>
+      <div class="flex flex-wrap items-center gap-1.5">
+        {#each buildAffectedCategories as bCat (bCat.id)}
+          <button
+            type="button"
+            class={`rounded border px-2.5 py-1 text-xs font-semibold transition-colors ${
+              activeCategory === bCat.id
+                ? 'border-ember-400 bg-ember-900/45 text-parchment-50'
+                : 'border-parchment-300/20 bg-abyss-900 text-parchment-200 hover:border-ember-400/60'
+            }`}
+            onclick={() => (activeCategory = bCat.id)}
+          >
+            {bCat.icon} {bCat.label} ({bCat.shown} shown · {bCat.hidden} hidden)
+          </button>
+        {/each}
+      </div>
+    </div>
+  {/if}
 
   <!-- Special Runeword Base Options when on 'bases' -->
   {#if activeCategory === 'bases' && !searchQuery.trim()}
@@ -626,17 +716,21 @@
         <div class="grid max-h-80 gap-2 overflow-y-auto rounded-lg border border-parchment-300/20 bg-abyss-950 p-3 sm:grid-cols-2 xl:grid-cols-3">
           {#each browserMatchingBases as baseItem (baseItem.code)}
             {@const existingRule = getCustomBaseRule(baseItem.code!, newBaseMode)}
+            {@const inheritedTier = !existingRule ? getInheritedBaseTier(baseItem.code!, newBaseMode) : undefined}
+            {@const effectiveBrowserTier = existingRule?.tier ?? inheritedTier}
             {@const notables = notableNamesForBase(baseItem.code!)}
             <div
               class={`flex items-center justify-between gap-2 rounded border p-2.5 text-xs transition-colors ${
                 existingRule
                   ? 'border-ember-400/75 bg-ember-950/25'
-                  : 'border-parchment-300/15 bg-abyss-900/60 hover:border-parchment-300/35'
+                  : effectiveBrowserTier === 'HIDE'
+                    ? 'border-red-900/35 bg-abyss-950/50 opacity-70 hover:opacity-100'
+                    : 'border-parchment-300/15 bg-abyss-900/60 hover:border-parchment-300/35'
               }`}
             >
               <div class="min-w-0 flex-1">
                 <div class="flex flex-wrap items-center gap-1.5">
-                  <span class="break-words font-semibold text-parchment-50">
+                  <span class={`break-words font-semibold ${effectiveBrowserTier === 'HIDE' ? 'line-through text-parchment-300/70' : 'text-parchment-50'}`}>
                     {baseItem.displayName || baseItem.name}
                   </span>
                   <span class="rounded bg-abyss-950 px-1.5 py-0.5 font-mono text-[10px] text-parchment-300">
@@ -645,6 +739,11 @@
                   {#if baseItem.tier}
                     <span class="rounded border border-parchment-300/20 px-1.5 py-0.5 text-[10px] uppercase text-ember-300">
                       {baseItem.tier}
+                    </span>
+                  {/if}
+                  {#if !existingRule && inheritedTier === 'HIDE'}
+                    <span class="rounded bg-red-950/70 px-1.5 py-0.5 text-[10px] font-semibold text-red-300">
+                      Hidden
                     </span>
                   {/if}
                 </div>
@@ -658,12 +757,17 @@
               <div class="flex shrink-0 items-center gap-1">
                 {#each TIER_RANKS as targetRank}
                   {@const isAssigned = existingRule?.tier === targetRank.id}
+                  {@const isInherited = !existingRule && inheritedTier === targetRank.id}
                   <button
                     type="button"
                     class={`h-6 min-w-6 rounded border px-1 text-[11px] font-semibold transition-colors ${
                       isAssigned
                         ? 'border-ember-400 bg-ember-600/50 text-parchment-50'
-                        : 'border-parchment-300/15 bg-abyss-950 text-parchment-300 hover:border-ember-400/60 hover:text-parchment-50'
+                        : isInherited
+                          ? targetRank.id === 'HIDE'
+                            ? 'border-red-400/50 bg-red-950/50 text-red-200'
+                            : 'border-ember-400/45 bg-ember-950/40 text-ember-200'
+                          : 'border-parchment-300/15 bg-abyss-950 text-parchment-300 hover:border-ember-400/60 hover:text-parchment-50'
                     }`}
                     title={`Assign ${baseItem.displayName || baseItem.name} (${newBaseMode}) to ${targetRank.shortLabel}`}
                     onclick={() =>
@@ -825,8 +929,8 @@
               />
             </div>
             <SoundPicker
-              value={style.dropSound}
-              onchange={v => updateCategoryTierStyle(rankKey, { dropSound: v })}
+              value={style.dropSound || undefined}
+              onchange={v => updateCategoryTierStyle(rankKey, { dropSound: v ?? '' })}
             />
           </div>
         {/if}
@@ -969,6 +1073,37 @@
                         <span class="break-words text-sm font-semibold leading-snug text-parchment-50">
                           {groupDisplay.label}
                         </span>
+                        {#if item.rarities?.includes('unique') && item.rarities?.includes('set')}
+                          <span class="shrink-0 rounded border border-amber-400/50 bg-amber-950/60 px-1.5 py-0.5 text-[10px] font-semibold text-amber-200">
+                            Unique
+                          </span>
+                          <span class="shrink-0 rounded border border-emerald-400/50 bg-emerald-950/60 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-300">
+                            Set
+                          </span>
+                        {:else if item.rarities?.includes('rare') && item.rarities?.includes('crafted')}
+                          <span class="shrink-0 rounded border border-yellow-400/50 bg-yellow-950/60 px-1.5 py-0.5 text-[10px] font-semibold text-yellow-200">
+                            Rare
+                          </span>
+                          <span class="shrink-0 rounded border border-orange-400/50 bg-orange-950/60 px-1.5 py-0.5 text-[10px] font-semibold text-orange-300">
+                            Crafted
+                          </span>
+                        {:else if item.rarities?.length === 1 && item.rarities[0] === 'rare'}
+                          <span class="shrink-0 rounded border border-yellow-400/50 bg-yellow-950/60 px-1.5 py-0.5 text-[10px] font-semibold text-yellow-200">
+                            Rare
+                          </span>
+                        {:else if item.rarities?.length === 1 && item.rarities[0] === 'crafted'}
+                          <span class="shrink-0 rounded border border-orange-400/50 bg-orange-950/60 px-1.5 py-0.5 text-[10px] font-semibold text-orange-300">
+                            Crafted
+                          </span>
+                        {:else if (item.rarities?.length === 1 && item.rarities[0] === 'magic') || item.id === 'misc-magic-quivers'}
+                          <span class="shrink-0 rounded border border-blue-400/50 bg-blue-950/60 px-1.5 py-0.5 text-[10px] font-semibold text-blue-300">
+                            Magic
+                          </span>
+                        {:else if item.category === 'bases'}
+                          <span class="shrink-0 rounded border border-slate-300/45 bg-slate-900/80 px-1.5 py-0.5 text-[10px] font-semibold text-slate-100">
+                            Base
+                          </span>
+                        {/if}
                         {#if modified}
                           <span class="shrink-0 rounded bg-ember-500/20 px-1.5 py-0.5 text-[10px] font-semibold text-ember-300" title="Custom tier override">
                             Edited

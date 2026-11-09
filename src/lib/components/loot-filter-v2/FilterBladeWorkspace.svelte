@@ -49,7 +49,10 @@
     compileV2Filter,
     createDefaultV2Config,
     effectiveItemTier,
+    enableAllFamiliesForBuild,
     extractV2ConfigFromFilter,
+    extractV2ConfigWithMeta,
+    sanitizeFilterFilename,
     selectArchetypeForBuild,
     selectClassForBuild,
     toggleEquipmentFamily,
@@ -98,6 +101,7 @@
   let timer: ReturnType<typeof setTimeout> | undefined;
   let pending: LocalLibrary | undefined;
   let writes = Promise.resolve();
+  const validDrafts = new Map<string, FilterDraft>();
   let importInput = $state<HTMLInputElement>();
 
   // Catalog state
@@ -192,17 +196,29 @@
     return `My ${presetInfo.shortLabel} Filter`;
   }
 
+  const downloadFilename = $derived(
+    sanitizeFilterFilename(
+      viewingShared?.name ?? active?.name ?? defaultStrictnessFilterName(v2Config.strictness)
+    )
+  );
+
   function isAutoFilterName(draft: FilterDraft): boolean {
     if (draft.remoteId || customNamedIds.has(draft.id)) return false;
     return AUTO_STRICTNESS_NAME_RE.test(draft.name.trim());
   }
 
-  function syncV2FromDraft(draft: FilterDraft | undefined) {
+  function syncV2FromDraft(draft: FilterDraft | undefined, recompile = true) {
     if (!draft) return;
-    const extracted = extractV2ConfigFromFilter(draft.document);
-    if (extracted) {
-      v2Config = extracted;
+    const meta = extractV2ConfigWithMeta(draft.document);
+    if (meta) {
+      v2Config = meta.config;
       isLegacyFilter = false;
+      if (recompile && !viewingShared && (!draft.remoteId || meta.migrated)) {
+        draft.document = compileV2Filter(v2Config);
+        if (draft.remoteId && meta.migrated && isDirty(draft)) {
+          notice = 'Updated filter to the latest v2 defaults — click Save to Account to sync.';
+        }
+      }
     } else {
       // Legacy v1 filter: preserve its rules in customPriorityRules or let user convert
       isLegacyFilter = true;
@@ -211,8 +227,16 @@
     selectedCustomRuleIdx = v2Config.customPriorityRules.length ? 0 : -1;
   }
 
+  function rejectSharedEdit(): boolean {
+    if (!viewingShared) return false;
+    const extracted = extractV2ConfigFromFilter(viewingShared.document);
+    if (extracted) v2Config = extracted;
+    notice = 'Click "Copy to My Filters & Edit" above to customize this shared filter.';
+    return true;
+  }
+
   function applyV2Changes() {
-    if (viewingShared) return;
+    if (rejectSharedEdit()) return;
     if (!active) {
       if (entries.length >= 50) {
         error = 'Your library holds up to 50 filters. Delete an old filter first.';
@@ -226,13 +250,25 @@
       isLegacyFilter = false;
       return;
     }
-    isLegacyFilter = false;
+    if (isLegacyFilter) {
+      const preserved = M.clone(
+        active.document.rules.filter(r => {
+          const b = r.show ?? r.hide;
+          return b?.conditions && Object.keys(b.conditions).length > 0;
+        })
+      );
+      if (preserved.length > 0) {
+        v2Config.customPriorityRules = [...v2Config.customPriorityRules, ...preserved];
+      }
+      isLegacyFilter = false;
+      notice = 'Upgraded classic filter to the v2 Customizer and kept your existing rules in Custom Priority Rules.';
+    }
     active.document = compileV2Filter(v2Config);
     active.updatedAt = Date.now();
   }
 
   function selectStrictness(strictness: StrictnessId) {
-    if (viewingShared) return;
+    if (rejectSharedEdit()) return;
     if (!active && entries.length >= 50) {
       error = 'Your library holds up to 50 filters. Delete an old filter first.';
       return;
@@ -273,7 +309,9 @@
       .then(() => saveLibrary(snapshot))
       .then(() => {
         if (snapshot.key === `library:${owner}` && !pending) {
-          localStatus = 'Saved in this browser';
+          localStatus = entries.some(entry => M.validateFilter(entry.document).errors.length)
+            ? 'Fix filter errors — last valid browser copy retained'
+            : 'Saved in this browser';
         }
       })
       .catch(() => {
@@ -333,8 +371,21 @@
       entries: JSON.parse(JSON.stringify(entries)),
       lastId
     };
+    const invalid = snapshot.entries.some(entry => M.validateFilter(entry.document).errors.length > 0);
+    snapshot.entries = snapshot.entries.flatMap(entry => {
+      if (!M.validateFilter(entry.document).errors.length) {
+        validDrafts.set(entry.id, structuredClone(entry));
+        return [entry];
+      }
+      const previous = validDrafts.get(entry.id);
+      return previous ? [previous] : [];
+    });
     pending = snapshot;
-    untrack(() => (localStatus = 'Saving in this browser…'));
+    untrack(() => {
+      localStatus = invalid
+        ? 'Fix filter errors — last valid browser copy retained'
+        : 'Saving in this browser…';
+    });
     timer = setTimeout(() => void flush(), 300);
     return () => {
       if (timer) clearTimeout(timer);
@@ -373,6 +424,7 @@
     busy = false;
     viewingShared = null;
     customNamedIds.clear();
+    validDrafts.clear();
     entries = [];
     remote = [];
     lastId = null;
@@ -383,6 +435,7 @@
       const saved = await loadLibrary(identity);
       if (req !== epoch) return;
       entries = saved.entries.filter(entry => !M.validateFilter(entry.document).errors.length);
+      for (const entry of entries) validDrafts.set(entry.id, structuredClone(entry));
     } catch {
       if (req === epoch) localStatus = 'Browser save unavailable — download a backup';
     }
@@ -511,7 +564,7 @@
       entries = [...entries.filter(e => e.id !== id), draft];
       lastId = draft.id;
       remote = [details, ...remote.filter(r => r.id !== remoteId)];
-      syncV2FromDraft(draft);
+      syncV2FromDraft(draft, false);
       notice = 'Discarded unsaved edits and restored the saved account version.';
     } catch (err) {
       if (req === epoch) error = err instanceof Error ? err.message : 'Could not reload saved account version.';
@@ -609,6 +662,7 @@
       }
       if (req !== epoch) return;
       customNamedIds.delete(card.id);
+      validDrafts.delete(card.id);
       entries = entries.filter(e => e.id !== card.id);
       remote = remote.filter(r => r.id !== card.remoteId);
       if (lastId === card.id) {
@@ -665,13 +719,14 @@
 
   function downloadJson() {
     if (validation.errors.length > 0) return;
+    const filename = downloadFilename;
     const url = URL.createObjectURL(new Blob([validation.json], { type: 'application/json' }));
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'filter.json';
+    link.download = filename;
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    notice = 'Downloaded filter.json. Place it in mods/Reimagined/d2rloader/config (or apply via the Reimagined Launcher).';
+    notice = `Downloaded "${filename}". Place it in mods/Reimagined/d2rloader/config/filter/ (or apply via the Reimagined Launcher).`;
   }
 
   async function handleFileImport(event: Event) {
@@ -695,7 +750,7 @@
       pendingLink = null;
       viewingShared = null;
       syncV2FromDraft(draft);
-      notice = 'Imported filter.json into your library.';
+      notice = `Imported "${draft.name}" into your library.`;
     } catch (err) {
       error = `Import failed: ${err instanceof Error ? err.message : 'Invalid file'}`;
     }
@@ -703,12 +758,14 @@
 
   // Custom Priority Rules helpers (Advanced tab)
   function addCustomPriorityRule(kind: Visibility) {
+    if (rejectSharedEdit()) return;
     v2Config.customPriorityRules = [M.makeRule(kind), ...v2Config.customPriorityRules];
     selectedCustomRuleIdx = 0;
     applyV2Changes();
   }
 
   function removeCustomPriorityRule(idx: number) {
+    if (rejectSharedEdit()) return;
     v2Config.customPriorityRules.splice(idx, 1);
     v2Config.customPriorityRules = [...v2Config.customPriorityRules];
     selectedCustomRuleIdx = v2Config.customPriorityRules.length
@@ -751,40 +808,51 @@
   }
 
   function chooseBuildClass(clsId: BuildClassId) {
+    if (rejectSharedEdit()) return;
     const nextClass = v2Config.buildProfile?.selectedClass === clsId ? null : clsId;
     selectClassForBuild(v2Config, nextClass);
+    if (nextClass && activeCategory !== 'bases' && activeCategory !== 'equipment') {
+      activeCategory = 'bases';
+    }
     applyV2Changes();
   }
 
   function chooseBuildArchetype(archId: BuildArchetypeId | null) {
+    if (rejectSharedEdit()) return;
     const nextArch = archId && v2Config.buildProfile?.archetype === archId && !v2Config.buildProfile?.selectedClass ? null : archId;
     selectArchetypeForBuild(v2Config, nextArch);
+    if (nextArch && activeCategory !== 'bases' && activeCategory !== 'equipment') {
+      activeCategory = 'bases';
+    }
     applyV2Changes();
   }
 
   function handleToggleEquipmentFamily(familyId: EquipmentFamilyId) {
+    if (rejectSharedEdit()) return;
     toggleEquipmentFamily(v2Config, familyId);
     applyV2Changes();
   }
 
   function enableAllEquipmentFamilies() {
-    applyBuildCuration(v2Config, {
-      ...v2Config.buildProfile,
-      disabledFamilies: [],
-      presetId: undefined
-    });
+    if (rejectSharedEdit()) return;
+    enableAllFamiliesForBuild(v2Config);
     applyV2Changes();
   }
 
   function selectCuratedPreset(presetId: string) {
+    if (rejectSharedEdit()) return;
     const preset = applyCuratedBuildPreset(v2Config, presetId);
     if (preset) {
+      if (activeCategory !== 'bases' && activeCategory !== 'equipment') {
+        activeCategory = 'bases';
+      }
       applyV2Changes();
       notice = `Auto-adjusted filter for ${preset.title}: selected ${preset.characterClass} (${preset.archetype}) weapon types and pinned ${preset.pinnedBases.length} chase bases to Tier S.`;
     }
   }
 
   function clearBuildCuration() {
+    if (rejectSharedEdit()) return;
     applyBuildCuration(v2Config, { ...DEFAULT_BUILD_PROFILE, disabledFamilies: [] });
     v2Config.customBases = v2Config.customBases.filter(cb => !cb.id.startsWith('build-'));
     applyV2Changes();
@@ -842,6 +910,7 @@
   }
 
   async function importSiteBuildById(buildId: string) {
+    if (rejectSharedEdit()) return;
     const req = epoch;
     siteBuildLoading = true;
     siteBuildMessage = '';
@@ -1143,9 +1212,10 @@
             type="button"
             class="trade-primary-button"
             disabled={validation.errors.length > 0}
+            title={`Download as ${downloadFilename}`}
             onclick={downloadJson}
           >
-            Download filter.json
+            Download Filter (.json)
           </button>
         </div>
       </div>
@@ -1202,9 +1272,10 @@
             type="button"
             class="trade-secondary-button !px-3 !py-1.5 text-xs"
             disabled={validation.errors.length > 0}
+            title={`Download as ${downloadFilename}`}
             onclick={downloadJson}
           >
-            Download filter.json
+            Download Filter (.json)
           </button>
         </div>
       </div>
@@ -1249,6 +1320,15 @@
           }}
         >
           Copy to My Filters & Edit
+        </button>
+        <button
+          type="button"
+          class="trade-secondary-button text-xs"
+          disabled={validation.errors.length > 0}
+          title={`Download as ${downloadFilename}`}
+          onclick={downloadJson}
+        >
+          Download Filter (.json)
         </button>
       </div>
     </div>
@@ -1408,13 +1488,35 @@
             </p>
           </div>
           {#if v2Config.buildProfile?.selectedClass || v2Config.buildProfile?.archetype || (v2Config.buildProfile?.disabledFamilies?.length ?? 0) > 0 || v2Config.buildProfile?.presetId || v2Config.buildProfile?.linkedBuildId}
-            <button
-              type="button"
-              class="trade-secondary-button !py-1.5 text-xs"
-              onclick={clearBuildCuration}
-            >
-              Reset (Show All Weapon &amp; Class Types)
-            </button>
+            <div class="flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                class="trade-primary-button !py-1.5 text-xs"
+                onclick={() => {
+                  activeCategory = 'bases';
+                  activeTab = 'customize';
+                }}
+              >
+                Inspect Bases in Customizer →
+              </button>
+              <button
+                type="button"
+                class="trade-primary-button !py-1.5 text-xs"
+                onclick={() => {
+                  activeCategory = 'equipment';
+                  activeTab = 'customize';
+                }}
+              >
+                Inspect Rares &amp; Class Gear →
+              </button>
+              <button
+                type="button"
+                class="trade-secondary-button !py-1.5 text-xs"
+                onclick={clearBuildCuration}
+              >
+                Reset (Show All Weapon &amp; Class Types)
+              </button>
+            </div>
           {/if}
         </div>
 
@@ -1899,7 +2001,10 @@
       <!-- Compiled Filter JSON Inspector -->
       <aside class="panel space-y-4 rounded-lg p-4 sm:p-5 lg:col-span-5" aria-label="Compiled JSON output">
         <div class="flex items-center justify-between gap-2">
-          <h2 class="text-xl font-bold tracking-tight text-parchment-50">Compiled filter.json</h2>
+          <div>
+            <h2 class="text-xl font-bold tracking-tight text-parchment-50">Compiled Filter JSON</h2>
+            <p class="font-mono text-xs text-parchment-300">{downloadFilename}</p>
+          </div>
           <span
             class="rounded border border-parchment-300/25 px-2 py-0.5 text-xs"
             class:text-emerald-300={validation.errors.length === 0}
@@ -1928,9 +2033,10 @@
             type="button"
             class="trade-primary-button w-full justify-center"
             disabled={validation.errors.length > 0}
+            title={`Download as ${downloadFilename}`}
             onclick={downloadJson}
           >
-            Download filter.json
+            Download Filter (.json)
           </button>
           <button
             type="button"
@@ -1940,7 +2046,7 @@
                 await navigator.clipboard.writeText(validation.json);
                 notice = 'Copied compiled JSON to clipboard.';
               } catch {
-                notice = 'Clipboard blocked — use Download filter.json.';
+                notice = 'Clipboard blocked — use Download Filter (.json).';
               }
             }}
           >
