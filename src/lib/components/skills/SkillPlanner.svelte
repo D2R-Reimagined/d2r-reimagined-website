@@ -5,9 +5,11 @@
   import type { Skill, SkillClass } from '#lib/types.js';
   import SkillTreeView from './SkillTreeView.svelte';
 
-  let { classes, ranks = $bindable({}), classCode, persist = true, readonly = false, compact = false }: {
+  let { classes, ranks = $bindable({}), classCode, persist = true, readonly = false, compact = false, floatDetails }: {
     classes: SkillClass[]; ranks?: Record<number, number>; classCode?: string;
     persist?: boolean; readonly?: boolean; compact?: boolean;
+    /** Float skill details into the page's right gutter on wide screens (build guides). Defaults to compact && readonly. */
+    floatDetails?: boolean;
   } = $props();
 
   const storageKey = 'd2r-reimagined-skill-planner-v1';
@@ -102,7 +104,7 @@
   {#if activeClass}
     <div class="mt-6">
       {#key activeClass.ClassCode}
-        <SkillTreeView skillClass={activeClass} {ranks} {increase} {decrease} {canIncrease} {readonly} floatDetails={compact && readonly} />
+        <SkillTreeView skillClass={activeClass} {ranks} {increase} {decrease} {canIncrease} {readonly} floatDetails={floatDetails ?? (compact && readonly)} />
       {/key}
     </div>
   {/if}

@@ -9,13 +9,19 @@ export function safeLink(value: string): string | null {
   try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) && !url.username && !url.password ? url.href : null; }
   catch { return null; }
 }
+/** A backslash before ASCII punctuation is that literal character (CommonMark escapes). */
+export function unescapeMarkdown(text: string): string {
+  return text.replace(/\\([!-/:-@[-`{-~])/g, '$1');
+}
 export function inlineTokens(text: string): InlineToken[] {
   const tokens: InlineToken[] = [];
-  const expression = /\[\[item:(uniques|sets|runewords|bases|cube-recipes):([^\]\n]{1,160})\]\]|\*\*([^*\n]+)\*\*|\*([^*\n]+)\*|`([^`\n]+)`|~~([^~\n]+)~~|\[([^\]\n]+)\]\(([^\s)]+)\)|\[color=(#[0-9a-fA-F]{6})\]([^\n]*?)\[\/color\]|\[\[skill:(\d{1,5})(?::([1-9]\d?))?\]\]/g;
+  // Escapes let the visual editor save characters such as `*` or `[` literally.
+  const expression = /\[\[item:(uniques|sets|runewords|bases|cube-recipes):([^\]\n]{1,160})\]\]|\*\*((?:\\[^\n]|[^*\\\n])+)\*\*|\*((?:\\[^\n]|[^*\\\n])+)\*|`([^`\n]+)`|~~((?:\\[^\n]|[^~\\\n])+)~~|\[(?!color=#[0-9a-fA-F]{6}\])((?:\\[^\n]|[^\]\\\n])+)\]\(([^\s)]+)\)|\[color=(#[0-9a-fA-F]{6})\]([^\n]*?)\[\/color\]|\[\[skill:(\d{1,5})(?::([1-9]\d?))?\]\]|\\([!-/:-@[-`{-~])/g;
   let last = 0;
   for (const match of text.matchAll(expression)) {
     if (match.index! > last) tokens.push({ kind: 'text', text: text.slice(last, match.index) });
-    if (match[1]) tokens.push({ kind: 'item', text: match[2], catalog: match[1], key: match[2] });
+    if (match[13]) tokens.push({ kind: 'text', text: match[13] });
+    else if (match[1]) tokens.push({ kind: 'item', text: match[2], catalog: match[1], key: match[2] });
     else if (match[11]) tokens.push({ kind: 'skill', text: match[11], skillId: Number(match[11]), rank: Number(match[12] ?? 1) });
     else if (match[3]) tokens.push({ kind: 'bold', text: match[3] });
     else if (match[4]) tokens.push({ kind: 'italic', text: match[4] });
@@ -24,7 +30,7 @@ export function inlineTokens(text: string): InlineToken[] {
     else if (match[9]) tokens.push({ kind: 'color', text: match[10], color: match[9] });
     else {
       const href = safeLink(match[8]);
-      tokens.push(href ? { kind: 'link', text: match[7], href } : { kind: 'text', text: match[0] });
+      tokens.push(href ? { kind: 'link', text: unescapeMarkdown(match[7]), href } : { kind: 'text', text: match[0] });
     }
     last = match.index! + match[0].length;
   }

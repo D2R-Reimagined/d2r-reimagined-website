@@ -140,7 +140,7 @@
       ? `${verb} ${name} NOW, with no countdown? Every ${ladderName} server restarts onto it as soon as it is empty, and players get no warning.${replacing}`
       : bundleRelease
         ? `${verb} ${name} together with the r${bundleRelease.revision} release? Servers restart once for both when that countdown ends.${replacing}`
-        : `${verb} ${name}? Players are told in game that servers restart in 5 minutes (they do not need to relaunch), then every ${ladderName} server restarts onto it.${replacing}`;
+        : `${verb} ${name}? Players are told in game that servers restart in 10 minutes (they do not need to relaunch), then every ${ladderName} server restarts onto it.${replacing}`;
     if (!confirm(question)) return;
     const id = ladderId;
     busy = true;
@@ -291,7 +291,7 @@
               <div class="flex flex-wrap gap-2">
                 <button class="rounded border border-set/50 px-3 py-2 text-sm text-set hover:bg-set/10 disabled:opacity-50"
                         type="button" disabled={busy} onclick={() => void activate(build, false)}>
-                  {rollback ? 'Roll back' : 'Activate'} {bundleRelease ? `with r${bundleRelease.revision}` : '(5 min countdown)'}
+                  {rollback ? 'Roll back' : 'Activate'} {bundleRelease ? `with r${bundleRelease.revision}` : '(10 min countdown)'}
                 </button>
                 <button class="rounded border border-parchment-300/35 px-3 py-2 text-sm text-parchment-100 hover:bg-parchment-300/10 disabled:opacity-50"
                         type="button" disabled={busy} onclick={() => void activate(build, true)}>

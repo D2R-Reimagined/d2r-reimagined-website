@@ -114,11 +114,13 @@
     .float-details .details-column { position: static; max-height: none; overflow-y: visible; }
   }
 
-  /* The build reader is 80rem wide; leave room for the details in its right gutter. */
+  /* The build reader is 80rem wide; leave room for the details in its right gutter.
+     Hosts that nest the tree in padded boxes set --float-details-offset to clear them. */
   @media (min-width: 1920px) {
     .float-details {
-      width: calc(100% + 20rem);
+      width: calc(100% + 20rem + var(--float-details-offset, 0rem));
       grid-template-columns: minmax(0, 1fr) 19rem;
+      column-gap: calc(1rem + var(--float-details-offset, 0rem));
     }
     .float-details .details-column {
       position: sticky;

@@ -6,9 +6,11 @@
   import { getMyCharacters, type CharacterResponse, type CharacterDetailsResponse } from '#lib/characters.js';
   import { loadSkillClasses } from '#lib/skills.js';
   import type { SkillClass } from '#lib/types.js';
-  import { blockKinds, blockLabels, buildClasses, buildCategories, buildBudgets, duplicateVariant, getBuild,
-    newBlock, newBuild, newVariant, publicationErrors, saveBuild, type BuildBlock, type BuildContent,
+  import { blockKinds, blockLabels, buildClasses, buildCategories, buildBudgets, getBuild,
+    newBlock, newBuild, publicationErrors, saveBuild, type BuildBlock, type BuildContent,
     type BuildDetails, type BuildItemReference } from '#lib/builds.js';
+  import { addItemReference, addVariant as appendVariant, applyClass, duplicateBlockAt, hasClassPlans,
+    removeVariant as dropVariant } from '#lib/build-editor/document.js';
   import SkillPlanner from '#lib/components/skills/SkillPlanner.svelte';
   import BuildItemLink from './BuildItemLink.svelte';
   import BuildItemPicker from './BuildItemPicker.svelte';
@@ -16,6 +18,10 @@
   import { insertSkillReference } from '#lib/build-skills.js';
   import BuildRenderer from './BuildRenderer.svelte';
   import BuildGear from './BuildGear.svelte';
+  import VisualSurface from './visual/VisualSurface.svelte';
+
+  type EditorMode = 'classic' | 'visual';
+  const editorModeKey = 'd2r-build-editor-mode';
 
   let { id = null }: { id?: string | null } = $props();
   let content = $state<BuildContent>(newBuild());
@@ -31,6 +37,7 @@
   let recovery = $state<{ content: BuildContent; revision: number; savedAt: string } | null>(null);
   let activeVariantId = $state('');
   let preview = $state(false);
+  let editorMode = $state<EditorMode>('classic');
   let pickerFor = $state('');
   let skillPickerFor = $state('');
   let confirmation = $state<'publish' | 'unpublish' | 'delete' | null>(null);
@@ -49,6 +56,7 @@
   let matchingCharacters = $derived(characters.filter((c) => c.class === content.characterClass));
 
   onMount(async () => {
+    try { if (localStorage.getItem(editorModeKey) === 'visual') editorMode = 'visual'; } catch { /* optional */ }
     await initializeAuth();
     try {
       if (id) {
@@ -150,17 +158,18 @@
     } catch (value) { error = message(value); }
     finally { busy = false; }
   }
+  function setEditorMode(mode: EditorMode) {
+    editorMode = mode; preview = false;
+    try { localStorage.setItem(editorModeKey, mode); } catch { /* optional */ }
+  }
   function addVariant(copy = false) {
-    if (content.document.variants.length >= 8) return;
-    const source = $state.snapshot(variant);
-    const next = copy ? duplicateVariant(source) : newVariant(`Setup ${content.document.variants.length + 1}`);
-    content.document.variants.push(next); activeVariantId = next.id;
-    if (copy) source.blocks.forEach((block, index) => { if (equipment[block.id]) equipment[next.blocks[index].id] = equipment[block.id]; });
+    const next = appendVariant(content, equipment, copy ? $state.snapshot(variant) : undefined);
+    if (next) activeVariantId = next.id;
   }
   function removeVariant() {
     if (content.document.variants.length <= 1 || !window.confirm(`Remove the “${variant.name}” variant from this draft?`)) return;
 
-    content.document.variants = content.document.variants.filter((v) => v.id !== variant.id);
+    dropVariant(content, variant.id);
     activeVariantId = content.document.variants[0].id;
   }
   function moveBlock(index: number, delta: number) {
@@ -171,17 +180,12 @@
     variant.blocks = variant.blocks.filter((b) => b.id !== block.id);
   }
   function copyBlock(block: BuildBlock) {
-    if (variant.blocks.length >= 40) return;
-    const next = { ...structuredClone($state.snapshot(block)), snapshotSourceId: block.snapshotSourceId ?? block.id, id: crypto.randomUUID() };
-    variant.blocks.splice(variant.blocks.indexOf(block) + 1, 0, next);
-    if (equipment[block.id]) equipment[next.id] = equipment[block.id];
+    duplicateBlockAt(variant, variant.blocks.indexOf(block), $state.snapshot(block), equipment);
   }
   function changeClass(next: string) {
     if (next === content.characterClass) return;
-    const hasPlans = content.document.variants.some((v) => v.blocks.some((b) => Object.values(b.ranks).some((n) => n > 0) || b.characterId));
-    if (hasPlans && !window.confirm('Changing class clears all skill allocations and equipment selections in this draft. Continue?')) return;
-    content.characterClass = next;
-    for (const v of content.document.variants) for (const b of v.blocks) { b.ranks = {}; b.characterId = null; }
+    if (hasClassPlans(content) && !window.confirm('Changing class clears all skill allocations and equipment selections in this draft. Continue?')) return;
+    applyClass(content, next);
     equipment = {};
   }
   function insert(block: BuildBlock, before: string, after = '', fallback = 'text') {
@@ -192,9 +196,8 @@
     element?.focus();
   }
   function chooseItem(block: BuildBlock, reference: BuildItemReference) {
-    if (block.kind === 'items') {
-      if (block.items.length < 40 && !block.items.some((i) => i.catalog === reference.catalog && i.key === reference.key)) block.items.push(reference);
-    } else insert(block, `[[item:${reference.catalog}:${reference.key}]]`, '', '');
+    if (block.kind === 'items') addItemReference(block.items, reference);
+    else insert(block, `[[item:${reference.catalog}:${reference.key}]]`, '', '');
     pickerFor = '';
   }
   function chooseSkill(block: BuildBlock, id: number, rank: number) {
@@ -221,6 +224,10 @@
   {#if loading}<div class="empty panel">Opening the workshop…</div>{:else if !ready}<div class="alert" role="alert">{error}<a href="/builds/mine"> Back to my builds</a></div>
   {:else}
     <div class="save-bar panel"><div><span class="status-dot" class:unsaved={dirty}></span><span>{dirty ? 'Unsaved changes' : saved?.build.isPublished ? 'Published build' : 'Private draft'}</span><small>{storageNotice || (saved ? `Revision ${revision}` : 'Not yet saved to your account')}</small></div>
+      <div class="mode-toggle" role="group" aria-label="Editor style">
+        <button type="button" aria-pressed={editorMode === 'classic'} onclick={() => setEditorMode('classic')}>Classic</button>
+        <button type="button" aria-pressed={editorMode === 'visual'} onclick={() => setEditorMode('visual')}>Visual (beta)</button>
+      </div>
       <div class="actions"><Button color="alternative" size="sm" type="button" onclick={() => preview = !preview}>{preview ? '← Edit guide' : 'Preview guide'}</Button>
         <Button color="alternative" size="sm" type="button" disabled={busy} onclick={() => persist(false)}>{busy ? 'Saving…' : 'Save draft'}</Button>
         <Button color="red" size="sm" type="button" disabled={busy || !$authState.user} onclick={() => confirmation = 'publish'}>{saved?.build.isPublished ? 'Publish changes' : 'Publish build'} ↗</Button></div>
@@ -256,6 +263,11 @@
         equipment={equipment}
         bind:activeVariantId
       />
+    {:else if editorMode === 'visual'}
+      <fieldset disabled={busy} class="editor-fields">
+        <VisualSurface bind:content bind:activeVariantId bind:equipment {classes} {characters} {characterError} {skillError} {busy}
+          onchangeclass={changeClass} />
+      </fieldset>
     {:else}
       <fieldset disabled={busy} class="editor-fields">
         <div class="metadata panel-box panel">
@@ -422,7 +434,7 @@
               <label>Section title<input class="field" maxlength="120" bind:value={block.title} /></label>
               {#if block.kind === 'callout'}<label>Callout style<select class="field" bind:value={block.tone}><option value="tip">Tip</option><option value="warning">Warning</option><option value="pros">Strengths</option><option value="cons">Weaknesses</option></select></label>{/if}
               {#if block.kind === 'skills'}
-                {#if skillClass}<SkillPlanner classes={[skillClass]} classCode={skillClass.ClassCode} bind:ranks={block.ranks} persist={false} compact />{:else}<p class="hint">{skillError || 'Loading skill planner…'}</p>{/if}
+                {#if skillClass}<SkillPlanner classes={[skillClass]} classCode={skillClass.ClassCode} bind:ranks={block.ranks} persist={false} compact floatDetails />{:else}<p class="hint">{skillError || 'Loading skill planner…'}</p>{/if}
               {:else if block.kind === 'equipment'}
                 <label>
                   Equipment source
@@ -535,7 +547,11 @@
   .save-bar { position:sticky; top:64px; z-index:35; display:flex; flex-wrap:wrap; gap:1rem; align-items:center; justify-content:space-between; background:var(--color-abyss-850); border-radius:7px; padding:1rem; margin-bottom:1.5rem; font-size:12px; line-height:1.5; }
   .save-bar > div:first-child { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; }small { color:var(--color-parchment-300); font-size:12px; line-height:1.5; }
   .status-dot { width:6px; height:6px; border-radius:50%; background:#81b191; }.status-dot.unsaved { background:#d7a65b; }
-  .actions { display:flex; gap:.5rem; flex-wrap:wrap; }button { cursor:pointer; }button:disabled { opacity:.4; cursor:not-allowed; }
+  .actions { display:flex; gap:.5rem; flex-wrap:wrap; }
+  .mode-toggle { display:inline-flex; gap:2px; padding:2px; border:1px solid #ffffff1c; border-radius:7px; margin-left:auto; }
+  .mode-toggle button { padding:.35rem .8rem; border-radius:5px; color:var(--color-parchment-300); }
+  .mode-toggle button:hover { color:var(--color-parchment-50); }
+  .mode-toggle button[aria-pressed='true'] { background:color-mix(in srgb,var(--color-ember-700) 30%,transparent); color:var(--color-parchment-50); }button { cursor:pointer; }button:disabled { opacity:.4; cursor:not-allowed; }
   .notice,.alert,.confirmation { margin:1rem 0; padding:1rem 1.2rem; border:1px solid #8da88544; border-radius:5px; background:#8da88508; font-size:13px; line-height:1.7; color:#d0d7c6; }
   .alert { border-color:var(--color-ember-700); color:var(--color-requirement); }.notice a,.hint a { text-decoration:underline; color:var(--color-parchment-50); }.notice button { margin:.7rem 1rem 0 0; text-decoration:underline; }
   .confirmation { border-color:#bda06566; color:var(--color-parchment-200); }.confirmation h2 { font-size:1.25rem; margin-bottom:.5rem; }.confirmation :global(button) { margin:.7rem .5rem 0 0; }.confirmation ul { list-style:disc; padding-left:1.5rem; color:var(--color-parchment-50); }.valid { color:#9ac9a0; }
@@ -546,7 +562,8 @@
   input,textarea,select { width:100%; min-width:0;    }
   textarea { resize:vertical; }.variant-tabs { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.5rem 0; }.variant-tabs button { border:1px solid #b49a6436; border-radius:4px; padding:.65rem .9rem; color:var(--color-parchment-300); font-size:12px; line-height:1.5; overflow-wrap:anywhere; }
   .variant-tabs .active { background:color-mix(in srgb,var(--color-ember-700) 25%,transparent); color:var(--color-parchment-50); border-color:var(--color-ember-400); }.variant-info { display:grid; grid-template-columns:1fr 2fr; gap:1rem; }.variant-tools { display:flex; gap:1rem; margin:1rem 0 1.5rem; font-size:12px; line-height:1.5; color:var(--color-parchment-300); }
-  .block-editor { border:1px solid #ffffff17; border-radius:6px; padding:1.2rem; background:var(--color-abyss-900); margin-bottom:1rem; min-width:0; }.block-editor > label { margin:.8rem 0; }.block-toolbar { display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }.block-type { text-transform:uppercase; letter-spacing:.1em; font-size:12px; line-height:1.5; color:var(--color-parchment-300); }.block-toolbar > div { display:flex; flex-wrap:wrap; gap:.7rem; font-size:12px; line-height:1.5; color:var(--color-parchment-300); }.remove { color:var(--color-requirement); }
+  /* --float-details-offset: the skill tree's floating details clear this box and the panel around it (padding + borders). */
+  .block-editor { border:1px solid #ffffff17; border-radius:6px; padding:1.2rem; background:var(--color-abyss-900); margin-bottom:1rem; min-width:0; --float-details-offset:3.25rem; }.block-editor > label { margin:.8rem 0; }.block-toolbar { display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem; }.block-type { text-transform:uppercase; letter-spacing:.1em; font-size:12px; line-height:1.5; color:var(--color-parchment-300); }.block-toolbar > div { display:flex; flex-wrap:wrap; gap:.7rem; font-size:12px; line-height:1.5; color:var(--color-parchment-300); }.remove { color:var(--color-requirement); }
   .format-toolbar { display:flex; flex-wrap:wrap; gap:.3rem; margin-top:1rem; }.format-toolbar button { border:1px solid #ffffff15; border-radius:3px; padding:.45rem .6rem; font-size:12px; line-height:1.5; color:var(--color-parchment-200); }.format-toolbar button:hover { background:#ffffff08; }
   .color-picker { flex-direction:row; align-items:center; gap:.4rem; padding:0 .4rem; font-size:12px; }.color-picker input { width:2rem; height:1.8rem; padding:.15rem; cursor:pointer; }
   .hint { font-size:12px; line-height:1.7; color:var(--color-parchment-300); margin:.6rem 0; }.chosen-items { display:flex; flex-wrap:wrap; gap:.5rem; margin:.8rem 0; }.chosen-items > span { border:1px solid #ffffff15; padding:.5rem .8rem; border-radius:4px; font-size:13px; line-height:1.5; }.chosen-items button { margin-left:.7rem; color:var(--color-parchment-200); }

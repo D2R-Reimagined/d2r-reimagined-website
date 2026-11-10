@@ -6,6 +6,11 @@
   import type { CatalogItem } from '#lib/types.js';
   import type { BuildItemReference } from '#lib/builds.js';
   import CatalogCard from '#lib/components/CatalogCard.svelte';
+  import TooltipActions from './TooltipActions.svelte';
+
+  const catalogLabels: Record<BuildItemReference['catalog'], string> = {
+    uniques: 'Unique item', sets: 'Set item', runewords: 'Runeword', bases: 'Base item', 'cube-recipes': 'Crafting recipe'
+  };
 
   let { reference }: { reference: BuildItemReference } = $props();
   let item = $state<CatalogItem | null>(null);
@@ -73,10 +78,8 @@
   {#if open}
     <span class="item-popover" role="dialog" aria-label={`Item details: ${reference.key}`} tabindex="-1"
       style={`left:${position.left}px;top:${position.top}px;width:${position.width}px;max-height:${position.height}px`}>
-      <span class="preview-actions">
-        <button type="button" class="pin" aria-label={pinned ? 'Unpin item details' : 'Pin item details'} aria-pressed={pinned} onclick={togglePin}>{pinned ? 'Unpin' : 'Pin'}</button>
-        <button type="button" class="close" onclick={() => { trigger.focus(); close(); }} aria-label="Close item details">×</button>
-      </span>
+      <TooltipActions label={catalogLabels[reference.catalog]} subject="item details" {pinned} onpin={togglePin}
+        onclose={() => { trigger.focus(); close(); }} />
       {#if item}<CatalogCard {item} slug={reference.catalog} />{:else}<span class="fallback">{error || 'Loading item…'}</span>{/if}
     </span>
   {/if}
@@ -85,13 +88,12 @@
 <style>
   .item-name { color:var(--color-parchment-200); text-decoration:underline dotted; text-underline-offset:4px; text-align:left; cursor:pointer; overflow-wrap:anywhere; }
   .item-name:hover { color:var(--color-parchment-50); }
-  .item-popover { display:block; position:fixed; z-index:70; overflow:auto; background:var(--color-abyss-850); border:1px solid var(--color-parchment-300); box-shadow:0 12px 50px #000c; border-radius:8px; text-align:left; }
+  /* Flex column: ignores template whitespace between the header strip and the card. */
+  .item-popover { display:flex; flex-direction:column; position:fixed; z-index:70; overflow:auto; background:var(--color-abyss-850); border:1px solid var(--color-parchment-300); box-shadow:0 12px 50px #000c; border-radius:8px; text-align:left; }
   .item-popover :global(.scroll-card) { content-visibility:visible; contain:none; }
-  .preview-actions { position:sticky; top:0; float:right; z-index:1; display:flex; align-items:center; gap:4px; background:#222; border-radius:3px; }
-  .preview-actions button { cursor:pointer; padding:4px 10px; }
-  .pin { font-size:12px; }
-  .pin[aria-pressed="true"] { color:var(--color-parchment-50); background:#594922; }
-  .close { font-size:24px; }
+  :global(.item-popover > *) { flex-shrink:0; }
+  /* The popover is the frame; the card inside drops its own border. */
+  :global(.item-popover > .panel) { border:0; border-radius:0; box-shadow:none; }
 
   .fallback { display:block; padding:2rem; }
 </style>

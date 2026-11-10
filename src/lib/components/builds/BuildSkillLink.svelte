@@ -6,6 +6,7 @@
   import { skillPointsFromRank } from '#lib/skill-points.js';
   import type { Skill } from '#lib/types.js';
   import SkillDetails from '#lib/components/skills/SkillDetails.svelte';
+  import TooltipActions from './TooltipActions.svelte';
 
   let { skillId, rank = 1 }: { skillId: number; rank?: number } = $props();
   let skill = $state<Skill | undefined>();
@@ -76,10 +77,8 @@
   {#if open}
     <span class="skill-popover" role="dialog" aria-label={`Skill details: ${skill ? $i18n.t(skill.NameKey) : skillId}`} tabindex="-1"
       style={`left:${position.left}px;top:${position.top}px;width:${position.width}px;max-height:${position.height}px`}>
-      <span class="preview-actions">
-        <button type="button" class="pin" aria-label={pinned ? 'Unpin skill details' : 'Pin skill details'} aria-pressed={pinned} onclick={togglePin}>{pinned ? 'Unpin' : 'Pin'}</button>
-        <button type="button" class="close" onclick={() => { trigger.focus(); close(); }} aria-label="Close skill details">×</button>
-      </span>
+      <TooltipActions label={skill ? `Skill · level ${skillPreviewRank(skill, rank)}` : 'Skill'} subject="skill details" {pinned}
+        onpin={togglePin} onclose={() => { trigger.focus(); close(); }} />
       {#if skill}<SkillDetails {skill} {skills} ranks={{}} rank={skillPreviewRank(skill, rank)} points={skillPointsFromRank(skill, rank)} available={false} increase={() => {}} decrease={() => {}} readonly headingLabel="Skill preview - other skills at rank 0" />{:else}<span class="fallback">{error || "Loading skill..."}</span>{/if}
     </span>
   {/if}
@@ -88,13 +87,12 @@
 <style>
   .skill-name { color:var(--color-parchment-200); text-decoration:underline dotted; text-underline-offset:4px; text-align:left; cursor:pointer; overflow-wrap:anywhere; }
   .skill-name:hover { color:var(--color-parchment-50); }
-  .skill-popover { display:block; position:fixed; z-index:70; overflow:auto; background:var(--color-abyss-850); border:1px solid var(--color-parchment-300); box-shadow:0 12px 50px #000c; border-radius:8px; text-align:left; }
+  /* Flex column: ignores template whitespace between the header strip and the card. */
+  .skill-popover { display:flex; flex-direction:column; position:fixed; z-index:70; overflow:auto; background:var(--color-abyss-850); border:1px solid var(--color-parchment-300); box-shadow:0 12px 50px #000c; border-radius:8px; text-align:left; }
   .skill-popover :global(.scroll-card) { content-visibility:visible; contain:none; }
-  .preview-actions { position:sticky; top:0; float:right; z-index:1; display:flex; align-items:center; gap:4px; background:#222; border-radius:3px; }
-  .preview-actions button { cursor:pointer; padding:4px 10px; }
-  .pin { font-size:12px; }
-  .pin[aria-pressed="true"] { color:var(--color-parchment-50); background:#594922; }
-  .close { font-size:24px; }
+  :global(.skill-popover > *) { flex-shrink:0; }
+  /* The popover is the frame; the card inside drops its own border. */
+  :global(.skill-popover > .panel) { border:0; border-radius:0; box-shadow:none; }
 
   .fallback { display:block; padding:2rem; }
 </style>

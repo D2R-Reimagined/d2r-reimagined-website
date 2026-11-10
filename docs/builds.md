@@ -29,6 +29,8 @@ Local backups are scoped to the account and guide, with a guest-draft recovery o
 
 ## Authoring tools
 
+The workshop has two editors for the same guide, switched in the save bar: **Classic** (fields and Markdown) and **Visual (beta)**, a Notion-style editor that looks like the reader. See [build-editor-v2.md](build-editor-v2.md).
+
 Each variant supports up to 40 sections:
 
 - Rich text with toolbar-assisted Markdown: headings, bold/italic/strikethrough, lists, links, quotations, tables, code, and dividers.
@@ -39,7 +41,7 @@ Each variant supports up to 40 sections:
 - Equipment and inventory snapshots from selectable uploaded characters, using the existing character viewer. Saving captures the snapshot; refresh is explicit. Copying a section or variant preserves its saved snapshot.
 - HTTPS images with captions and supported YouTube links rendered through the privacy-enhanced embed domain.
 
-Text is rendered as Svelte elements, never raw HTML. This is a documented Markdown subset, not a WYSIWYG editor or a complete CommonMark parser. Arbitrary HTML/iframes/scripts are not accepted. Images are loaded by the reader's browser with no referrer; there is no upload service or server-side URL fetching.
+Text is rendered as Svelte elements, never raw HTML. Saved text is a documented Markdown subset (with CommonMark backslash escapes), not a complete CommonMark parser; the visual editor edits it without adding syntax. Arbitrary HTML/iframes/scripts are not accepted. Images are loaded by the reader's browser with no referrer; there is no upload service or server-side URL fetching.
 
 Equipment snapshots display an uploaded character's actual loadout; this release does not implement a hypothetical drag-and-drop gear calculator. Authors can describe alternative gear with item sections and separate setups. Skill planning uses the website's current skill data and planner rules, not a new server-side damage simulator.
 
