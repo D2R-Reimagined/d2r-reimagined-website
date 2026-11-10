@@ -3,7 +3,7 @@
   import { goto } from '$app/navigation';
   import { CheckCircleSolid, InfoCircleSolid, LockSolid } from 'flowbite-svelte-icons';
   import { ApiError, authState, initializeAuth } from '#lib/auth.js';
-  import { canTakeOff, equipMtx, fetchMtx, groupBySlot, mtxPreview, ownedCount, unlockedBySupport, type MtxItem, type MtxLoadout, type MtxSlot } from '#lib/mtx.js';
+  import { canTakeOff, chatBadgeSlot, equipMtx, fetchMtx, groupBySlot, mtxPreview, ownedCount, unlockedBySupport, type MtxItem, type MtxLoadout, type MtxSlot } from '#lib/mtx.js';
 
   const signInHref = '/profile?returnTo=%2Fmtx';
 
@@ -49,8 +49,14 @@
     notice = '';
     try {
       mtx = await equipMtx(slot.slot, item?.id ?? null);
-      const change = item ? `${item.name} equipped.` : `${slot.label} cosmetic taken off.`;
-      notice = `${change} Already in game? Type /mtx sync to apply it.`;
+      if (slot.slot === chatBadgeSlot) {
+        notice = item
+          ? `${item.name} badge equipped. Your next global chat messages show it.`
+          : 'Chat badge hidden. Your global chat messages show no badge.';
+      } else {
+        const change = item ? `${item.name} equipped.` : `${slot.label} cosmetic taken off.`;
+        notice = `${change} Already in game? Type /mtx sync to apply it.`;
+      }
     } catch (error) {
       actionError = errorMessage(error, 'That change could not be saved.');
     } finally {
@@ -109,7 +115,7 @@
           disabled={pending != null}
           onclick={() => equip(slot, null)}
         >
-          {pending === `${slot.slot}:` ? 'Taking off…' : 'Take off'}
+          {#if slot.slot === chatBadgeSlot}{pending === `${slot.slot}:` ? 'Hiding…' : 'Hide badge'}{:else}{pending === `${slot.slot}:` ? 'Taking off…' : 'Take off'}{/if}
         </button>
       {:else if equipped}
         <span class="mtx-secondary flex w-full items-center justify-center rounded px-4 py-2.5 opacity-60">Default</span>
@@ -124,7 +130,7 @@
         </button>
       {:else if unlockedBySupport(item)}
         <a href="/support" class="mtx-secondary flex w-full items-center justify-center gap-2 rounded px-4 py-2.5">
-          <LockSolid class="h-4 w-4" aria-hidden="true" /> View supporter tiers
+          <LockSolid class="h-4 w-4" aria-hidden="true" /> {slot.slot === chatBadgeSlot ? 'View supporter purchases' : 'View supporter tiers'}
         </a>
       {:else}
         <span class="mtx-secondary flex w-full items-center justify-center gap-2 rounded px-4 py-2.5 opacity-60">
@@ -184,7 +190,11 @@
     {#each slots as slot (slot.slot)}
       <h2 class="display-text mt-6 text-3xl">{slot.label}</h2>
       <p class="mt-1 text-parchment-300">
-        {#if slot.equipped}Using <span class="text-parchment-50">{slot.equipped.name}</span>{:else}Nothing equipped. Your normal {slot.label.toLowerCase()} shows.{/if}
+        {#if slot.slot === chatBadgeSlot}
+          {#if slot.equipped}Shown before your name in global chat: <span class="text-parchment-50">{slot.equipped.name}</span>.
+          {:else if slot.items.some((item) => item.owned)}Hidden. Your global chat messages show no badge.
+          {:else}Shown before your name in global chat. Each one-time supporter purchase unlocks its badge.{/if}
+        {:else if slot.equipped}Using <span class="text-parchment-50">{slot.equipped.name}</span>{:else}Nothing equipped. Your normal {slot.label.toLowerCase()} shows.{/if}
       </p>
       <div class="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
         {#each slot.items as item (item.id)}

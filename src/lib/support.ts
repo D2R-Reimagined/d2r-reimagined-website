@@ -62,6 +62,27 @@ export interface SupportProduct {
   /** Billing interval for memberships; null for one-time purchases. */
   interval: string | null;
   intervalCount: number;
+  /** The global chat badge buying this grants, or null/absent. */
+  chatBadge?: string | null;
+}
+
+export interface ChatBadge {
+  id: string;
+  name: string;
+  /** Transparent icon, 128 px tall (d2rl-plugins global-chat/tools/chat_badges/web_images.py). */
+  icon: string;
+}
+
+/** The supporter chat badges, lowest to highest (ChatBadges in the API). */
+export const chatBadges: ReadonlyArray<ChatBadge> = [
+  { id: 'soldier', name: 'Harrowing Soldier', icon: '/images/badges/soldier.png' },
+  { id: 'legionnaire', name: 'Harrowing Legionnaire', icon: '/images/badges/legionnaire.png' },
+  { id: 'praetorian', name: 'Harrowing Praetorian', icon: '/images/badges/praetorian.png' }
+];
+
+/** The badge a product grants, or null when it grants none or one this site does not know. */
+export function chatBadgeFor(product: Pick<SupportProduct, 'chatBadge'>): ChatBadge | null {
+  return chatBadges.find((badge) => badge.id === product.chatBadge) ?? null;
 }
 
 export interface SupportProducts {

@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 vi.mock('#lib/auth.js', () => ({ apiRequest: vi.fn() }));
 import { apiRequest } from '#lib/auth.js';
-import { canTakeOff, equipMtx, fetchMtx, groupBySlot, mtxPreview, ownedCount, slotLabel, unlockedBySupport, type MtxItem } from './mtx';
+import { canTakeOff, chatBadgeSlot, equipMtx, fetchMtx, groupBySlot, mtxPreview, ownedCount, slotLabel, unlockedBySupport, type MtxItem } from './mtx';
 
 beforeEach(() => vi.clearAllMocks());
 
@@ -63,6 +63,23 @@ describe('mtx catalog', () => {
     expect(canTakeOff({ id: 'classic' })).toBe(false);
     expect(canTakeOff({ id: 'green' })).toBe(true);
     expect(canTakeOff({ id: 'pumpkin' })).toBe(true);
+  });
+
+  it('shows chat badges as their own slot with previews and a link to support', () => {
+    const items = [
+      item('soldier', { slot: chatBadgeSlot, owned: true }),
+      item('legionnaire', { slot: chatBadgeSlot, owned: false }),
+      item('praetorian', { slot: chatBadgeSlot, owned: true, equipped: true })
+    ];
+    const [badges] = groupBySlot({ items, loadout: { [chatBadgeSlot]: 'praetorian' } });
+    expect(badges.label).toBe('Chat Badge');
+    expect(badges.equipped?.id).toBe('praetorian');
+    expect(badges.items.map((entry) => entry.id)).toEqual(['soldier', 'praetorian', 'legionnaire']);
+    for (const id of ['soldier', 'legionnaire', 'praetorian']) {
+      expect(mtxPreview(id)).toEqual({ animated: `/images/mtx/badge-${id}.webp`, still: `/images/mtx/badge-${id}-still.webp` });
+      expect(unlockedBySupport({ id, owned: false })).toBe(true);
+      expect(canTakeOff({ id })).toBe(true);
+    }
   });
 
   it('counts owned items and labels unknown slots', () => {

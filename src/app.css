@@ -3,15 +3,17 @@
 @source '../node_modules/flowbite-svelte/dist';
 @source '../node_modules/flowbite-svelte-icons/dist';
 
+/* Bundled (not in static/) so the files get hashed, immutable URLs and src/hooks.server.ts can
+   preload them with the page instead of the browser finding them after this stylesheet. */
 @font-face {
   font-family: 'D2R';
-  src: url('/fonts/ExocetBlizzardMixedCaps-Medium.woff2') format('woff2');
+  src: url('./lib/assets/fonts/ExocetBlizzardMixedCaps-Medium.woff2') format('woff2');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'DiabloLight';
-  src: url('/fonts/DiabloLight.woff2') format('woff2');
+  src: url('./lib/assets/fonts/DiabloLight.woff2') format('woff2');
   font-display: swap;
 }
 

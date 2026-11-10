@@ -7,6 +7,8 @@
   import {
     activeMembership,
     billingPeriod,
+    chatBadgeFor,
+    chatBadges,
     discordInviteUrl,
     formatDate,
     formatMoney,
@@ -109,8 +111,13 @@
   {@const isCurrent = recurring && membership?.productId === product.productId}
   {@const blockedByMembership = recurring && membership != null && !isCurrent}
   {@const highlights = productHighlights(product)}
+  {@const badge = chatBadgeFor(product)}
   <article class={`panel flex flex-col rounded-lg p-6 ${isCurrent ? 'border-ember-400/70 shadow-2xl shadow-black/25' : ''}`}>
-    {#if product.imageUrl}
+    {#if badge}
+      <div class="badge-stage mb-4 flex h-32 items-center justify-center rounded-md">
+        <img src={badge.icon} alt={`${badge.name} chat badge`} class="h-24 w-auto" loading="lazy" />
+      </div>
+    {:else if product.imageUrl}
       <img src={product.imageUrl} alt="" class="mb-4 h-32 w-full rounded-md object-cover" loading="lazy" />
     {/if}
     {#if isCurrent}
@@ -128,6 +135,16 @@
           <li class="flex gap-2"><CheckCircleSolid class="mt-0.5 h-4 w-4 shrink-0 text-ember-400" aria-hidden="true" />{feature}</li>
         {/each}
       </ul>
+    {/if}
+    {#if badge}
+      <div class="mt-4">
+        <p class="text-xs uppercase tracking-wider text-parchment-300">Includes the chat badge</p>
+        <p class="chat-line mt-2 flex items-center gap-1.5 rounded px-3 py-2 text-sm">
+          <img src={badge.icon} alt="" class="h-5 w-auto" />
+          <span class="chat-name">{$authState.user?.displayName ?? 'You'}:</span>
+          <span class="chat-text truncate">[Global] anyone want to run Baal?</span>
+        </p>
+      </div>
     {/if}
     <div class="mt-auto pt-6">
       {#if !$authState.ready}
@@ -278,6 +295,20 @@
   {#if checkoutEnabled && products?.oneTime.length}
     <h2 class="display-text mt-14 text-3xl">One-time purchases</h2>
     <p class="mt-2 text-parchment-300">A single payment, with no subscription.</p>
+    {#if products.oneTime.some((product) => chatBadgeFor(product))}
+      <div class="panel mt-6 flex flex-col gap-5 rounded-lg p-5 sm:flex-row sm:items-center">
+        <div class="flex shrink-0 items-end justify-center gap-4">
+          {#each chatBadges as badge, index (badge.id)}
+            <img src={badge.icon} alt={badge.name} title={badge.name} class="w-auto" style={`height: ${3 + index * 0.75}rem`} loading="lazy" />
+          {/each}
+        </div>
+        <p class="text-sm text-parchment-200">
+          Each purchase adds a <span class="text-parchment-50">supporter chat badge</span>, shown before your name in global chat in game, and
+          the grander tiers get grander badges. Hovering a badge in game names it. Own more than one? Pick which shows, or hide it, on the
+          <a class="text-ember-400 hover:text-white" href="/mtx">Cosmetics</a> page.
+        </p>
+      </div>
+    {/if}
     <div class="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       {#each products.oneTime as product (product.priceId)}
         {@render productCard(product, false)}
@@ -368,6 +399,16 @@
 </section>
 
 <style>
+  /* The chat badge's stage and the in-game chat line it previews. */
+  .badge-stage {
+    background: radial-gradient(circle at 50% 55%, rgb(123 29 24 / 0.35), rgb(20 18 20) 70%);
+    border: 1px solid rgb(188 167 125 / 0.15);
+  }
+
+  .chat-line { background: rgb(0 0 0 / 0.55); }
+  .chat-name { color: rgb(176 152 104); }
+  .chat-text { color: rgb(105 105 255); }
+
   .progress-fill {
     background: linear-gradient(90deg, var(--color-ember-700), var(--color-ember-500) 60%, var(--color-ember-400));
     box-shadow: 0 0 12px rgb(228 90 53 / 0.45);

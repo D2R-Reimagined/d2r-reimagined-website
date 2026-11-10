@@ -26,11 +26,15 @@ export interface MtxSlot {
   equipped: MtxItem | null;
 }
 
-const slotLabels: Record<string, string> = { helmet: 'Helmet', portal: 'Town Portal' };
+/** The global chat badge slot (CosmeticsService.ChatBadgeSlot in the API). */
+export const chatBadgeSlot = 'chat-badge';
+
+const slotLabels: Record<string, string> = { helmet: 'Helmet', portal: 'Town Portal', [chatBadgeSlot]: 'Chat Badge' };
 
 // Item id -> image name in static/images/mtx. Helmets are turntable renders (d2rr-models
 // mtx/render_previews.py + assemble_previews.py); portals are in-game recordings (d2rl-plugins
-// plugins/supporter-portals/tools/assemble_portal_previews.py).
+// plugins/supporter-portals/tools/assemble_portal_previews.py); chat badges are drawn from the
+// chat font (d2rl-plugins plugins/global-chat/tools/chat_badges/web_images.py).
 const previewFiles: Record<string, string> = {
   pumpkin: 'pumpkin',
   'pumpkin-lit': 'pumpkin-lit',
@@ -42,7 +46,10 @@ const previewFiles: Record<string, string> = {
   teal: 'portal-teal',
   ember: 'portal-ember',
   gold: 'portal-gold',
-  rainbow: 'portal-rainbow'
+  rainbow: 'portal-rainbow',
+  soldier: 'badge-soldier',
+  legionnaire: 'badge-legionnaire',
+  praetorian: 'badge-praetorian'
 };
 
 /** The animated preview and its still frame, or null for catalog items without a render yet. */
@@ -51,11 +58,12 @@ export function mtxPreview(id: string): { animated: string; still: string } | nu
   return file ? { animated: `/images/mtx/${file}.webp`, still: `/images/mtx/${file}-still.webp` } : null;
 }
 
-// The portals a supporter tier unlocks (SupporterPortalPolicy in the API). Ember is a special
-// reward and the pumpkins come from a ladder, so a membership would not unlock those.
-const supporterItems = new Set(['green', 'violet', 'red', 'teal', 'gold', 'rainbow']);
+// The portals a supporter tier unlocks (SupporterPortalPolicy in the API) and the chat badges
+// the one-time supporter purchases grant. Ember is a special reward and the pumpkins come from
+// a ladder, so no purchase unlocks those.
+const supporterItems = new Set(['green', 'violet', 'red', 'teal', 'gold', 'rainbow', 'soldier', 'legionnaire', 'praetorian']);
 
-/** True for a locked item that a supporter membership would unlock, so the card can link to /support. */
+/** True for a locked item that a supporter purchase would unlock, so the card can link to /support. */
 export function unlockedBySupport(item: Pick<MtxItem, 'id' | 'owned'>): boolean {
   return !item.owned && supporterItems.has(item.id);
 }

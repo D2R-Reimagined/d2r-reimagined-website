@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import {
   activeMembership,
   billingPeriod,
+  chatBadgeFor,
+  chatBadges,
   formatDate,
   formatMoney,
   goalPosition,
@@ -73,6 +75,16 @@ describe('support products and purchases', () => {
     expect(productHighlights({ features: [], description: 'A role -- Purple Portal -- Early info' }))
       .toEqual({ perks: ['A role', 'Purple Portal', 'Early info'], description: null });
     expect(productHighlights({ features: [], description: 'Just text' })).toEqual({ perks: [], description: 'Just text' });
+  });
+
+  it('finds the chat badge a product grants', () => {
+    expect(chatBadgeFor({ chatBadge: 'legionnaire' })?.name).toBe('Harrowing Legionnaire');
+    expect(chatBadgeFor({ chatBadge: 'praetorian' })?.icon).toBe('/images/badges/praetorian.png');
+    expect(chatBadgeFor({ chatBadge: null })).toBeNull();
+    expect(chatBadgeFor({})).toBeNull();
+    // A badge newer than this site draws nothing rather than a broken image.
+    expect(chatBadgeFor({ chatBadge: 'emperor' })).toBeNull();
+    expect(chatBadges.map((badge) => badge.id)).toEqual(['soldier', 'legionnaire', 'praetorian']);
   });
 
   it('finds the active membership only', () => {

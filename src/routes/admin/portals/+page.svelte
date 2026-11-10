@@ -3,13 +3,19 @@
   import { apiRequest } from '#lib/auth.js';
   import { searchAdminUsers, type AdminUser } from '#lib/admin.js';
   import NormalCompletionRewards from '#lib/components/NormalCompletionRewards.svelte';
-  type Pack = { id: string; name: string; isActive: boolean; portalIds: string[] };
+  type Pack = { id: string; name: string; isActive: boolean; portalIds: string[]; chatBadge?: string | null };
+  // The global chat badges a pack can grant (API ChatBadges, lowest to highest).
+  const chatBadges = [
+    { id: 'soldier', name: 'Harrowing Soldier' },
+    { id: 'legionnaire', name: 'Harrowing Legionnaire' },
+    { id: 'praetorian', name: 'Harrowing Praetorian' }
+  ];
   type Access = { portalIds: string[]; packIds: string[]; supporterTier: string | null; effective: { portals: { id: string; unlocked: boolean }[] } };
   let users = $state<AdminUser[]>([]), packs = $state<Pack[]>([]), catalog = $state<string[]>([]);
   let userId = $state(''), access = $state<Access | null>(null);
   let userSearch = $state(''), userTotal = $state(0), hasSearchedUsers = $state(false), searchingUsers = $state(false);
   let portalIds = $state<string[]>([]), packIds = $state<string[]>([]);
-  let editPackId = $state(''), packName = $state(''), packActive = $state(true), packPortals = $state<string[]>([]);
+  let editPackId = $state(''), packName = $state(''), packActive = $state(true), packPortals = $state<string[]>([]), packBadge = $state('');
   let busy = $state(false), loading = $state(true), error = $state(''), notice = $state('');
   let selectionVersion = 0, searchVersion = 0;
   const base = '/admin/portal-entitlements';
@@ -55,13 +61,14 @@
   }
   function edit(pack?: Pack) {
     editPackId = pack?.id ?? ''; packName = pack?.name ?? ''; packActive = pack?.isActive ?? true; packPortals = [...(pack?.portalIds ?? [])];
+    packBadge = pack?.chatBadge ?? '';
   }
   async function savePack() {
     if (busy) return;
     busy = true; error = ''; notice = '';
     try {
       await apiRequest<Pack>(base + '/packs' + (editPackId ? '/' + editPackId : ''), {
-        method: editPackId ? 'PUT' : 'POST', body: JSON.stringify({ name: packName, isActive: packActive, portalIds: packPortals })
+        method: editPackId ? 'PUT' : 'POST', body: JSON.stringify({ name: packName, isActive: packActive, portalIds: packPortals, chatBadge: packBadge || null })
       }, true);
       packs = await apiRequest<Pack[]>(base + '/packs', {}, true);
       if (userId) await loadAccess();
@@ -146,7 +153,14 @@
       <div class="flex flex-wrap gap-4 mb-4">
         {#each catalog.filter(id => id !== 'classic') as id}<label class="flex items-center gap-2"><input type="checkbox" value={id} bind:group={packPortals} />{id}</label>{/each}
       </div>
-      <p class="text-sm text-parchment-300 mb-4">Changing these grants affects all owners. Inactive packs retain ownership but grant no portals.</p>
+      <label class="block mb-4">Chat badge
+        <select class="block w-full mt-2 rounded bg-black/40 p-3" bind:value={packBadge}>
+          <option value="">None</option>
+          {#each chatBadges as badge (badge.id)}<option value={badge.id}>{badge.name}</option>{/each}
+        </select>
+        <span class="mt-1 block text-sm text-parchment-300">Shown before owners' names in global chat; an owner of several shows the highest unless they pick one on the cosmetics page.</span>
+      </label>
+      <p class="text-sm text-parchment-300 mb-4">Changing these grants affects all owners. Inactive packs retain ownership but grant no portals or badge.</p>
       <button class="rounded border border-ember-400 px-4 py-2" type="submit">{editPackId ? 'Save pack' : 'Create pack'}</button>
     </fieldset>
   </form>
