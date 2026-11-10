@@ -55,7 +55,7 @@
 
   // Visual 523-Base Browser Matrix state
   let showBaseBrowser = $state(false);
-  let browserSlotId = $state<string>('tors');
+  let browserSlotId = $state<string>('all');
   let browserQualityTier = $state<'all' | 'elite' | 'exceptional' | 'normal'>('elite');
   let baseSearch = $state('');
   let newBaseMode = $state<CustomBaseRule['mode']>('runeword');
@@ -69,7 +69,7 @@
       editingRarityKind = 'base';
     } else if (activeCategory === 'uniques') {
       if (newBaseMode !== 'unique' && newBaseMode !== 'set') newBaseMode = 'unique';
-      if (!['unique', 'set', 'rare', 'magic'].includes(editingRarityKind)) editingRarityKind = 'unique';
+      if (!['unique', 'set', 'rare', 'crafted', 'magic'].includes(editingRarityKind)) editingRarityKind = 'unique';
     } else if (activeCategory === 'equipment') {
       if (
         newBaseMode !== 'rare' &&
@@ -95,7 +95,13 @@
         item =>
           item.label.toLocaleLowerCase().includes(q) ||
           (item.subtitle && item.subtitle.toLocaleLowerCase().includes(q)) ||
-          (item.codes && item.codes.some(c => c.toLocaleLowerCase().includes(q)))
+          (item.codes && item.codes.some(c => c.toLocaleLowerCase().includes(q))) ||
+          resolveTierableItemBases(item, catalog).some(
+            b =>
+              b.label.toLocaleLowerCase().includes(q) ||
+              b.code.toLocaleLowerCase().includes(q) ||
+              (b.notableNames && b.notableNames.toLocaleLowerCase().includes(q))
+          )
       );
     }
     return TIERABLE_ITEMS.filter(item => item.category === activeCategory);
@@ -162,16 +168,16 @@
           slotTypes.includes('bowq') || slotTypes.includes('xboq');
         if (b.kind !== 'weapon' && b.kind !== 'armor' && !isQuiverSlot) return false;
 
-        if (slotTypes.length > 0) {
+        if (!q && slotTypes.length > 0) {
           const matchesType =
             (b.type && slotTypes.includes(b.type)) ||
             slotTypes.some(t => catalog.itemTypeMap.get(t)?.has(b.code!));
           if (!matchesType) return false;
-        } else if (b.kind !== 'weapon' && b.kind !== 'armor') {
+        } else if (!q && b.kind !== 'weapon' && b.kind !== 'armor') {
           return false;
         }
 
-        if (browserQualityTier !== 'all' && b.tier && b.tier !== browserQualityTier) {
+        if (!q && browserQualityTier !== 'all' && b.tier && b.tier !== browserQualityTier) {
           return false;
         }
 
@@ -363,7 +369,7 @@
   }
 
   const categoryRarityTargets = $derived.by((): ItemRarityStyleKind[] => {
-    if (activeCategory === 'uniques') return ['unique', 'set', 'rare', 'magic'];
+    if (activeCategory === 'uniques') return ['unique', 'set', 'rare', 'crafted', 'magic'];
     if (activeCategory === 'equipment') return ['rare', 'crafted', 'magic'];
     if (activeCategory === 'bases') return ['base'];
     return [];

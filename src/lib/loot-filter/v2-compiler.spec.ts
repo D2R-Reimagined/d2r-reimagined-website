@@ -187,9 +187,66 @@ describe('FilterBlade v2 compiler & customizer model', () => {
         expect(effectiveItemTier(gemItem, createDefaultV2Config(s))).not.toBe('HIDE');
       }
     }
-    const chaosOnyx = TIERABLE_ITEMS.find(x => x.id === 'curr-chaos-onyx');
-    expect(chaosOnyx?.category).toBe('gems');
-    expect(chaosOnyx?.codes).toEqual(['gmo', '1so']);
+    expect(TIERABLE_ITEMS.find(x => x.id === 'curr-chaos-onyx')).toBeUndefined();
+    const gemStacks = TIERABLE_ITEMS.find(x => x.id === 'gem-stacks-all');
+    const reimaginedUnstacked = TIERABLE_ITEMS.find(x => x.id === 'gem-reimagined-unstacked');
+    expect(gemStacks?.codes).toContain('1so');
+    expect(gemStacks?.defaultTier).toBe('B');
+    expect(reimaginedUnstacked?.codes).toContain('gmo');
+    expect(reimaginedUnstacked?.defaultTier).toBe('B');
+    const defaultFilter = compileV2Filter(createDefaultV2Config('semi-strict'));
+    const chaosOnyxSim = simulateItemDrop(defaultFilter, catalog, {
+      id: 'gmo-test',
+      code: 'gmo',
+      name: 'Chaos Onyx',
+      kind: 'misc',
+      rarity: 'normal',
+      sockets: 0,
+      ethereal: false,
+      identified: true,
+      itemLevel: 85,
+      quantity: 1
+    });
+    const amethystSim = simulateItemDrop(defaultFilter, catalog, {
+      id: 'gmm-test',
+      code: 'gmm',
+      name: 'Amethyst',
+      kind: 'misc',
+      rarity: 'normal',
+      sockets: 0,
+      ethereal: false,
+      identified: true,
+      itemLevel: 85,
+      quantity: 1
+    });
+    expect(chaosOnyxSim.matchedRuleName).toBe(amethystSim.matchedRuleName);
+    expect(chaosOnyxSim.matchedRuleName).toContain('Gems · Tier B');
+
+    // All Charms (Small cm1, Large cm2, Grand cm3) are always shown across all strictness levels and all rarities
+    expect(TIERABLE_ITEMS.find(i => i.id === 'charm-large')).toBeUndefined();
+    const magicCharmsItem = TIERABLE_ITEMS.find(i => i.id === 'charm-small-grand')!;
+    expect(magicCharmsItem.itemTypes).toEqual(['scha', 'mcha', 'lcha']);
+    expect(resolveTierableItemBases(magicCharmsItem, catalog).map(b => b.code)).toEqual(['cm1', 'cm2', 'cm3']);
+    for (const code of ['cm1', 'cm2', 'cm3']) {
+      for (const rarity of ['magic', 'rare', 'crafted', 'set', 'unique'] as const) {
+        expect(
+          resultsFor({
+            id: `charm-${code}-${rarity}`,
+            code,
+            name: code === 'cm1' ? 'Small Charm' : code === 'cm2' ? 'Large Charm' : 'Grand Charm',
+            kind: 'misc',
+            rarity,
+            sockets: 0,
+            ethereal: false,
+            identified: false,
+            itemLevel: 85,
+            quantity: 1
+          })
+        ).toEqual([true, true, true, true, true]);
+      }
+    }
+
+
 
     // El Rune: shown in Soft, Regular, Semi-Strict; hidden in Strict & Endgame
     expect(

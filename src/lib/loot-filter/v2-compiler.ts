@@ -193,9 +193,9 @@ export const STRICTNESS_PRESETS: readonly StrictnessPresetInfo[] = [
     name: 'Strict',
     shortLabel: 'Strict',
     badge: 'Hell Farming',
-    description: 'Streamlines your screen for fast Hell and early Map runs. Hides low runes (El–Ith), all Magic items (except Small/Grand Charms & Jewels), and Normal-tier Rares.',
-    hidesSummary: 'El–Ith runes, all Magic items except Small/Grand Charms & Jewels, Normal-tier Rares, and Greater HP/MP potions.',
-    keepsSummary: 'Tal+ Runes, all Gems & Gem Stacks, Orbs, Maps, Exceptional/Elite Rares, Small/Grand Charms & Jewels, Chase & Elite Runeword bases, Super/Rejuv potions.',
+    description: 'Streamlines your screen for fast Hell and early Map runs. Hides low runes (El–Ith), all Magic items (except Charms & Jewels), and Normal-tier Rares.',
+    hidesSummary: 'El–Ith runes, all Magic items except Charms & Jewels, Normal-tier Rares, and Greater HP/MP potions.',
+    keepsSummary: 'Tal+ Runes, all Gems & Gem Stacks, Orbs, Maps, Exceptional/Elite Rares, Charms & Jewels, Chase & Elite Runeword bases, Super/Rejuv potions.',
     recommendedFor: 'Established Hell builds farming bosses, Chaos/Baal, and Tier 1–3 Maps.'
   },
   {
@@ -203,9 +203,9 @@ export const STRICTNESS_PRESETS: readonly StrictnessPresetInfo[] = [
     name: 'Uber Strict (Endgame)',
     shortLabel: 'Uber Strict',
     badge: 'Endgame Maps',
-    description: 'Built for high-density Tier 4–6 Maps. Shows valuable runes/currencies, all Gems for your Gem Bag, Elite & Chase bases, high-tier Rares, Small/Grand Charms & Jewels, Uniques/Sets, and Full Rejuvs.',
-    hidesSummary: 'El–Dol runes (keeps Ral/Amn/Sol/Shael/Hel+ for crafting), all Magic items except Small/Grand Charms & Jewels, Normal-tier non-jewelry Sets, Normal/Exceptional Rares, non-Elite ordinary bases, and regular HP/MP potions.',
-    keepsSummary: 'Mid/High & Crafting Runes, Orbs, all Gems & Gem Stacks, Maps, Uniques, Exceptional/Elite & Set Jewelry/Chase Sets, Small/Grand Charms & Jewels, Elite Rares/Circlets/Jewelry/Gloves/Boots/Belts, Chase Runeword bases, Full Rejuvs & Buff potions.',
+    description: 'Built for high-density Tier 4–6 Maps. Shows valuable runes/currencies, all Gems for your Gem Bag, Elite & Chase bases, high-tier Rares, Charms & Jewels, Uniques/Sets, and Full Rejuvs.',
+    hidesSummary: 'El–Dol runes (keeps Ral/Amn/Sol/Shael/Hel+ for crafting), all Magic items except Charms & Jewels, Normal-tier non-jewelry Sets, Normal/Exceptional Rares, non-Elite ordinary bases, and regular HP/MP potions.',
+    keepsSummary: 'Mid/High & Crafting Runes, Orbs, all Gems & Gem Stacks, Maps, Uniques, Exceptional/Elite & Set Jewelry/Chase Sets, Charms & Jewels, Elite Rares/Circlets/Jewelry/Gloves/Boots/Belts, Chase Runeword bases, Full Rejuvs & Buff potions.',
     recommendedFor: 'Endgame characters blasting dense Maps where screen clarity is critical.'
   }
 ] as const;
@@ -451,7 +451,7 @@ export const CATEGORIES: readonly { id: CategoryId; name: string; subtitle: stri
   { id: 'currency', name: 'Orbs & Upgrade Materials', subtitle: 'Power Orbs, Gem Clusters, Pliers, Bags & Grabbers', icon: '◈' },
   { id: 'bosses', name: 'Boss Keys, Organs & Tokens', subtitle: 'Uber Keys, Boss Souls, Animus/Calamity/Ire, Worldstone Shards & Essences', icon: '☠' },
   { id: 'maps', name: 'Endgame Maps & Sextants', subtitle: 'Tier 1–6 Maps and Map Currency (Sextant, Astrolabe, Vizjerei Prism)', icon: '🗺' },
-  { id: 'gems', name: 'Gems & Gem Stacks', subtitle: 'Chaos Onyx, Gem Stacks, Reimagined Unstacked Gems, Perfect, Flawless, Standard & Flawed Gems (Always visible for Gem Bag)', icon: '❖' },
+  { id: 'gems', name: 'Gems & Gem Stacks', subtitle: 'Gem Stacks, Reimagined Unstacked Gems (incl. Chaos Onyx), Perfect, Flawless, Standard & Flawed Gems (Always visible for Gem Bag)', icon: '❖' },
   { id: 'uniques', name: 'Uniques, Sets, Charms & Jewelry', subtitle: 'Drop-Only Chase Bases, Uniques/Sets by Tier, Sunder/Colossal/Torches, Charms & Rings', icon: '♛' },
   { id: 'bases', name: 'Runeword & Crafting Bases', subtitle: 'Chase Weapon/Armor Bases, Ethereal Elite Bases, Superior Bases & Socket Thresholds', icon: '⚔' },
   { id: 'equipment', name: 'Rares, Crafted & Magic Gear', subtitle: 'Crafted Items, Rare Circlets/Class Gear/Gloves/Boots/Belts, and Rares/Magics by Tier', icon: '🛡' },
@@ -571,31 +571,31 @@ export const TIERABLE_ITEMS: readonly TierableItem[] = [
   { id: 'map-tier-1', label: 'Tier 1 Endgame Maps (All 10 Arenas)', subtitle: 'Starter endgame maps', category: 'maps', codes: MAP_CODES_BY_TIER[1], defaultTier: 'B' },
 
   // 5. Gems & Gem Stacks (Never hidden by default since the in-game Gem Bag stores all gem types)
-  { id: 'curr-chaos-onyx', label: 'Chaos Onyx & Stack', subtitle: 'gmo + 1so (Stack)', category: 'gems', codes: ['gmo', '1so'], defaultTier: 'S' },
-  { id: 'gem-stacks-all', label: 'Gem Stacks (Amethyst, Ruby, Sapphire, Emerald, Topaz, Diamond, Skull)', subtitle: '1am, 1rb, 1sa, 1em, 1tp, 1di, 1sk', category: 'gems', codes: ['1am', '1rb', '1sa', '1em', '1tp', '1di', '1sk'], defaultTier: 'B' },
-  { id: 'gem-reimagined-unstacked', label: 'Reimagined Unstacked Gems (Amethyst–Skull)', subtitle: 'gmm, gmr, gms, gme, gmt, gmd, gmk', category: 'gems', codes: ['gmm', 'gmr', 'gms', 'gme', 'gmt', 'gmd', 'gmk'], defaultTier: 'B' },
+
+  { id: 'gem-stacks-all', label: 'Gem Stacks (Amethyst, Ruby, Sapphire, Emerald, Topaz, Diamond, Skull, Chaos Onyx)', subtitle: '1am, 1rb, 1sa, 1em, 1tp, 1di, 1sk, 1so', category: 'gems', codes: ['1am', '1rb', '1sa', '1em', '1tp', '1di', '1sk', '1so'], defaultTier: 'B' },
+  { id: 'gem-reimagined-unstacked', label: 'Reimagined Unstacked Gems (Amethyst–Skull & Chaos Onyx)', subtitle: 'gmm, gmr, gms, gme, gmt, gmd, gmk, gmo', category: 'gems', codes: ['gmm', 'gmr', 'gms', 'gme', 'gmt', 'gmd', 'gmk', 'gmo'], defaultTier: 'B' },
   { id: 'gem-perfect', label: 'Perfect Gems (All 7 Types)', subtitle: 'gpv, gpr, gpb, gpg, gpy, gpw, skz', category: 'gems', codes: ['gpv', 'gpr', 'gpb', 'gpg', 'gpy', 'gpw', 'skz'], defaultTier: 'B' },
   { id: 'gem-flawless', label: 'Flawless Gems (All 7 Types)', subtitle: 'gzv, glr, glb, glg, gly, glw, skl', category: 'gems', codes: ['gzv', 'glr', 'glb', 'glg', 'gly', 'glw', 'skl'], defaultTier: 'C' },
   { id: 'gem-normal', label: 'Standard Gems (All 7 Types)', subtitle: 'gsv, gsr, gsb, gsg, gsy, gsw, sku', category: 'gems', codes: ['gsv', 'gsr', 'gsb', 'gsg', 'gsy', 'gsw', 'sku'], defaultTier: 'C', strictnessTiers: { strict: 'D', endgame: 'D' } },
   { id: 'gem-flawed', label: 'Flawed Gems (All 7 Types)', subtitle: 'gfv, gfr, gfb, gfg, gfy, gfw, skf', category: 'gems', codes: ['gfv', 'gfr', 'gfb', 'gfg', 'gfy', 'gfw', 'skf'], defaultTier: 'D' },
 
   // 6. Uniques, Sets, Charms & Jewelry (Unbundled Unique vs. Set cards across all presets)
-  { id: 'uniq-pinnacle-charms', label: 'Colossal Jewels, Sunder Charms & Torches', subtitle: 'cjw, cs1, cs2, tch · All rarities', category: 'uniques', codes: ['cjw', 'cs1', 'cs2', 'tch'], defaultTier: 'S' },
+  { id: 'uniq-pinnacle-charms', label: 'Colossal Jewels, Sunder Charms & Torches', subtitle: 'cjw, cs1, cs2, tch, cm4, cm5 · All rarities', category: 'uniques', codes: ['cjw', 'cs1', 'cs2', 'tch', 'cm4', 'cm5'], defaultTier: 'S' },
   { id: 'uniq-drop-only', label: 'Drop-Only Chase Uniques (lvl 100+)', subtitle: '27 pinnacle Reimagined drop-only unique equipment & charm bases', category: 'uniques', codes: DROP_ONLY_UNIQUE_CODES.filter(c => c !== 'cjw'), rarities: ['unique'], defaultTier: 'S' },
   { id: 'set-drop-only', label: "Drop-Only Chase Sets (Warlord's Glory)", subtitle: 'hgl, ghm, ful, hbt, hbl (Set) · Protected Hell Herald set bases', category: 'uniques', codes: DROP_ONLY_SET_CODES, rarities: ['set'], defaultTier: 'S' },
   { id: 'uniq-jewelry-charms', label: 'Unique Rings, Amulets, Circlets, Charms & Jewels', subtitle: 'ring, amul, circ, char, jewl (Unique)', category: 'uniques', itemTypes: ['ring', 'amul', 'char', 'jewl', 'circ'], rarities: ['unique'], defaultTier: 'S' },
-  { id: 'set-jewelry', label: 'Set Rings, Amulets & Circlets', subtitle: "ring, amul, circ (Set) · Tal Rasha's, Angelic & Reimagined set jewelry", category: 'uniques', itemTypes: ['ring', 'amul', 'circ'], rarities: ['set'], defaultTier: 'A', strictnessTiers: { 'semi-strict': 'B', strict: 'B', endgame: 'B' } },
+  { id: 'set-jewelry', label: 'Set Rings, Amulets, Circlets & Charms', subtitle: "ring, amul, circ, char, jewl (Set) · Tal Rasha's, Angelic & Reimagined set jewelry/charms", category: 'uniques', itemTypes: ['ring', 'amul', 'char', 'jewl', 'circ'], rarities: ['set'], defaultTier: 'A', strictnessTiers: { 'semi-strict': 'B', strict: 'B', endgame: 'B' } },
   { id: 'uniq-elite', label: 'Elite Uniques', subtitle: 'All Elite-tier unique weapons, armor & offhands', category: 'uniques', tiers: ['elite'], rarities: ['unique'], defaultTier: 'A' },
   { id: 'set-elite', label: 'Elite Sets', subtitle: "All Elite-tier set equipment (Tal's Armor, IK Soul Cage, M'avina's, Natalya's, etc.)", category: 'uniques', tiers: ['elite'], rarities: ['set'], defaultTier: 'A', strictnessTiers: { endgame: 'B' } },
   { id: 'uniq-exceptional', label: 'Exceptional Uniques', subtitle: 'All Exceptional-tier unique weapons, armor & offhands', category: 'uniques', tiers: ['exceptional'], rarities: ['unique'], defaultTier: 'B', strictnessTiers: { endgame: 'C' } },
   { id: 'set-exceptional', label: 'Exceptional Sets', subtitle: "All Exceptional-tier set equipment (Laying of Hands, Guillaume's Face, Trang's, etc.)", category: 'uniques', tiers: ['exceptional'], rarities: ['set'], defaultTier: 'B', strictnessTiers: { strict: 'C', endgame: 'C' } },
   { id: 'uniq-normal', label: 'Normal-Tier & Other Uniques', subtitle: 'All remaining Normal-tier unique equipment', category: 'uniques', rarities: ['unique'], defaultTier: 'B', strictnessTiers: { 'semi-strict': 'C', strict: 'C', endgame: 'D' } },
   { id: 'set-normal', label: 'Normal-Tier Sets', subtitle: "Early-game set equipment (Sigon's, Isenhart's, Arctic, Cathan's armor · Hidden in Uber Strict)", category: 'uniques', rarities: ['set'], defaultTier: 'B', strictnessTiers: { regular: 'C', 'semi-strict': 'C', strict: 'D', endgame: 'HIDE' } },
-  { id: 'charm-jewel-rare', label: 'Rare Charms & Rare Jewels', subtitle: 'scha, mcha, lcha, jewl (Rare) · High-roll Reimagined rare charms & jewels', category: 'uniques', itemTypes: ['scha', 'mcha', 'lcha', 'jewl'], rarities: ['rare'], defaultTier: 'B' },
+  { id: 'charm-jewel-rare', label: 'Rare & Crafted Charms & Jewels', subtitle: 'scha, mcha, lcha, jewl (Rare/Crafted) · High-roll rare charms, crafted skillers & rare jewels', category: 'uniques', itemTypes: ['scha', 'mcha', 'lcha', 'jewl'], rarities: ['rare', 'crafted'], defaultTier: 'B' },
   { id: 'jewelry-rare-crafted', label: 'Rare & Crafted Rings, Amulets & Circlets', subtitle: 'ring, amul, circ (Rare/Crafted)', category: 'uniques', itemTypes: ['ring', 'amul', 'circ'], rarities: ['rare', 'crafted'], defaultTier: 'B' },
-  { id: 'charm-small-grand', label: 'Magic Small & Grand Charms', subtitle: 'scha, lcha (Magic) · Skillers & life/res charms', category: 'uniques', itemTypes: ['scha', 'lcha'], rarities: ['magic'], defaultTier: 'C', strictnessTiers: { strict: 'D', endgame: 'D' } },
-  { id: 'jewel-all', label: 'Magic Jewels', subtitle: 'jewl (Magic) · Crafting & socket jewels', category: 'uniques', itemTypes: ['jewl'], rarities: ['magic'], defaultTier: 'C', strictnessTiers: { strict: 'D', endgame: 'D' } },
-  { id: 'charm-large', label: 'Magic Large Charms', subtitle: 'mcha (Magic) · Medium magic charms', category: 'uniques', itemTypes: ['mcha'], rarities: ['magic'], defaultTier: 'C', strictnessTiers: { regular: 'D', 'semi-strict': 'D', strict: 'HIDE', endgame: 'HIDE' } },
+  { id: 'charm-small-grand', label: 'Magic Charms (Small, Large & Grand)', subtitle: 'scha, mcha, lcha (Magic) · All magic Small, Large & Grand charms', category: 'uniques', itemTypes: ['scha', 'mcha', 'lcha'], rarities: ['magic'], defaultTier: 'C' },
+  { id: 'jewel-all', label: 'Magic Jewels', subtitle: 'jewl (Magic) · Crafting & socket jewels', category: 'uniques', itemTypes: ['jewl'], rarities: ['magic'], defaultTier: 'C' },
+
   { id: 'jewelry-magic', label: 'Magic Rings, Amulets & Circlets', subtitle: 'ring, amul, circ (Magic · Starter only, hidden in Regular+)', category: 'uniques', itemTypes: ['ring', 'amul', 'circ'], rarities: ['magic'], defaultTier: 'D', strictnessTiers: { regular: 'HIDE', 'semi-strict': 'HIDE', strict: 'HIDE', endgame: 'HIDE' } },
 
   // 7. Runeword & Crafting Bases (Normal/Superior rarity — mapped 1-to-1 with weapon & class families)
@@ -610,7 +610,7 @@ export const TIERABLE_ITEMS: readonly TierableItem[] = [
   { id: 'base-ama-weapons', label: 'Matriarchal Bow, Grand Matron Bow, Hydra Bow & Spider Bow', subtitle: 'amb, amc, 6lw, 6sb · Faith/Mist/Ice bow bases', category: 'bases', codes: ['amb', 'amc', '6lw', '6sb'], rarities: ['normal', 'superior'], equipmentFamilies: ['bow-quiver'], defaultTier: 'B' },
   { id: 'base-crossbows', label: 'Colossus Crossbow, Demon Crossbow & Gorgon Crossbow', subtitle: '6hx, 6rx, 6mx · Elite crossbow bases', category: 'bases', codes: ['6hx', '6rx', '6mx'], rarities: ['normal', 'superior'], equipmentFamilies: ['xbow-quiver'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
   { id: 'base-javelins', label: 'Matriarchal Javelin, Ceremonial Javelin, Hyperion & Balrog Spear', subtitle: 'amf, ama, 7ja, 7s7 · Amazon & elite javelin crafting/imbue bases', category: 'bases', codes: ['amf', 'ama', '7ja', '7s7'], rarities: ['normal', 'superior'], equipmentFamilies: ['javelin'], defaultTier: 'B' },
-  { id: 'base-spears', label: 'Matriarchal Pike, Ghost Spear, War Pike & Stygian Pike', subtitle: 'ame, 7st, 7p7, 7tr · Infinity/BoTD/Pride spear bases', category: 'bases', codes: ['ame', '7st', '7p7', '7tr'], rarities: ['normal', 'superior'], equipmentFamilies: ['spear'], defaultTier: 'B' },
+  { id: 'base-spears', label: 'Mancatcher, Matriarchal Pike, Ghost Spear, War Pike & Stygian Pike', subtitle: '7br, ame, 7st, 7p7, 7tr · Infinity/BoTD/Pride spear bases', category: 'bases', codes: ['7br', 'ame', '7st', '7p7', '7tr'], rarities: ['normal', 'superior'], equipmentFamilies: ['spear'], defaultTier: 'B' },
   { id: 'base-throwing', label: 'Winged Knife, Flying Axe, War Dart & Francisca', subtitle: '7bk, 7ta, 9bk, 9ta · Throwing crafting/imbue bases', category: 'bases', codes: ['7bk', '7ta', '9bk', '9ta'], rarities: ['normal', 'superior'], equipmentFamilies: ['throwing'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
   { id: 'base-daggers', label: 'Bone Knife, Fanged Knife, Legend Spike & Mithral Point', subtitle: '7dg, 7kr, 7bl, 7di · Caster & melee dagger bases', category: 'bases', codes: ['7dg', '7kr', '7bl', '7di'], rarities: ['normal', 'superior'], equipmentFamilies: ['dagger'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
   { id: 'base-clubs', label: 'Tyrant Club, Truncheon & Barbed Club', subtitle: '7sp, 7cl, 9sp · Club runeword & crafting bases', category: 'bases', codes: ['7sp', '7cl', '9sp'], rarities: ['normal', 'superior'], equipmentFamilies: ['club'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
@@ -1925,6 +1925,11 @@ function cleanCatalogItemLabel(b: {
   displayName?: string;
   kind: string;
 }): string {
+  if (b.code === 'cjw') return 'Colossal Jewel';
+  if (b.code === 'cs1') return 'Sunder Grand Charm';
+  if (b.code === 'cs2') return 'Renewed Sunder Charm';
+  if (b.code === 'cm4') return "Collin's Small Charm";
+  if (b.code === 'cm5') return "Collin's Destruction Charm";
   if (b.kind === 'weapon' || b.kind === 'armor') {
     return (b.displayName || b.name || b.code || '').split(/\r?\n/)[0]!.trim();
   }
@@ -1964,6 +1969,7 @@ export function resolveTierableItemBases(
   } else if (!item.codes?.length && (item.baseNames?.length || item.itemTypes?.length)) {
     for (const b of catalog.baseItems) {
       if (!b.code) continue;
+      if (b.code === 'cjw' || b.code === 'cs1' || b.code === 'cs2' || b.code === 'tch' || b.code === 'cm4' || b.code === 'cm5') continue;
       if (item.baseNames?.length) {
         const matchesName =
           item.baseNames.includes(b.name) || (b.displayName != null && item.baseNames.includes(b.displayName));
@@ -1991,7 +1997,7 @@ export function resolveTierableItemBases(
     const code = b.code!;
     const label = cleanCatalogItemLabel(b) || code;
     let notableNames: string | undefined;
-    if (mode === 'unique' || mode === 'set' || mode === 'unique-set') {
+    if (mode === 'unique' || mode === 'set' || mode === 'unique-set' || (mode === 'any' && item.category === 'uniques')) {
       const uNames = mode !== 'set' ? catalog.uniqueItems.filter(u => u.baseCode === code).map(u => u.name) : [];
       const sNames = mode !== 'unique' ? catalog.setItems.filter(s => s.baseCode === code).map(s => s.name) : [];
       const combined = [...new Set([...uNames, ...sNames])];
@@ -2685,7 +2691,7 @@ interface CompactV2Diff {
 
 export function serializeV2StateTag(config: V2Config): string {
   const diff: CompactV2Diff = {
-    m: 2,
+    m: 3,
     s: config.strictness,
     t: config.theme
   };
@@ -2758,6 +2764,7 @@ export function extractV2ConfigWithMeta(
           customPriorityRules
         };
         const isPreSplitSchema = (parsed.m ?? 0) < 2;
+        const isPreChaosOnyxMerge = (parsed.m ?? 0) < 3;
         if (!parsed.m) {
           const hasBuildSelection =
             Boolean(cfg.buildProfile.selectedClass) ||
@@ -2828,10 +2835,29 @@ export function extractV2ConfigWithMeta(
             DROP_ONLY_SET_CODES.includes(cb.code) &&
             (cb.mode === 'set' || cb.mode === 'unique-set')
               ? { ...cb, parentItemId: 'set-drop-only' }
-              : cb
+              : cb.parentItemId === 'charm-large' ? { ...cb, parentItemId: 'charm-small-grand' } : cb.parentItemId === 'charm-jewel-rare' && cb.mode === 'rare' ? { ...cb, mode: 'rare-crafted' } : cb
           );
         }
-        return { config: cfg, migrated: isPreSplitSchema };
+        if (isPreChaosOnyxMerge) {
+          delete cfg.itemOverrides['curr-chaos-onyx'];
+          delete cfg.itemOverrides['charm-large'];
+          for (const id of ['charm-small-grand', 'jewel-all'] as const) {
+            const item = TIERABLE_ITEMS.find(x => x.id === id);
+            const defTier = item ? (item.strictnessTiers?.[cfg.strictness] ?? item.defaultTier) : undefined;
+            if (defTier && cfg.itemOverrides[id] === defTier) {
+              delete cfg.itemOverrides[id];
+            }
+          }
+          cfg.customBases = cfg.customBases.map(cb =>
+            cb.parentItemId === 'curr-chaos-onyx'
+              ? {
+                  ...cb,
+                  parentItemId: cb.code === '1so' ? 'gem-stacks-all' : 'gem-reimagined-unstacked'
+                }
+              : cb.parentItemId === 'charm-large' ? { ...cb, parentItemId: 'charm-small-grand' } : cb.parentItemId === 'charm-jewel-rare' && cb.mode === 'rare' ? { ...cb, mode: 'rare-crafted' } : cb
+          );
+        }
+        return { config: cfg, migrated: isPreChaosOnyxMerge };
       } catch {
         return null;
       }
@@ -3491,9 +3517,9 @@ export function generateLootsplosion(scenario: LootsplosionScenario, rollSeed = 
         { id: 'sim-3', code: '1ka', name: 'Stack: Orb of Corruption', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 2 }
       ],
       [
-        { id: 'sim-4', code: '1gc', name: 'Gem Cluster', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-        { id: 'sim-4', code: 'gmo', name: 'Chaos Onyx', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-        { id: 'sim-4', code: '1so', name: 'Stack: Chaos Onyx', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 2 }
+        { id: 'sim-4', code: '1gc', name: 'Gem Cluster', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+
+
       ],
       [
         { id: 'sim-5', code: 'r24', name: 'Ist Rune (#24)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
@@ -3532,13 +3558,15 @@ export function generateLootsplosion(scenario: LootsplosionScenario, rollSeed = 
         { id: 'sim-11', code: '1am', name: 'Stack: Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 5 },
         { id: 'sim-11', code: '1rb', name: 'Stack: Ruby', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 4 },
         { id: 'sim-11', code: '1sa', name: 'Stack: Sapphire', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 6 },
-        { id: 'sim-11', code: '1di', name: 'Stack: Diamond', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 3 }
+        { id: 'sim-11', code: '1di', name: 'Stack: Diamond', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 3 },
+        { id: 'sim-11', code: '1so', name: 'Stack: Chaos Onyx', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 2 }
       ],
       [
         { id: 'sim-12', code: 'gpv', name: 'Perfect Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
         { id: 'sim-12', code: 'gpr', name: 'Perfect Ruby', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
         { id: 'sim-12', code: 'gpy', name: 'Perfect Topaz', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-        { id: 'sim-12', code: 'skz', name: 'Perfect Skull', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+        { id: 'sim-12', code: 'skz', name: 'Perfect Skull', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-12', code: 'gmo', name: 'Chaos Onyx', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
       ],
       [
         { id: 'sim-13', code: 'gzv', name: 'Flawless Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
@@ -3647,6 +3675,7 @@ export function generateLootsplosion(scenario: LootsplosionScenario, rollSeed = 
       ],
       [
         { id: 'sim-c6', code: 'cm1', name: 'Small Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 },
+        { id: 'sim-c6', code: 'cm2', name: 'Large Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 },
         { id: 'sim-c6', code: 'cm3', name: 'Grand Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 },
         { id: 'sim-c6', code: 'jew', name: 'Jewel', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 }
       ],
@@ -3720,6 +3749,7 @@ export function generateLootsplosion(scenario: LootsplosionScenario, rollSeed = 
     [
       { id: 'sim-m8', code: 'cm3', name: 'Grand Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
       { id: 'sim-m8', code: 'cm1', name: 'Small Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m8', code: 'cm2', name: 'Large Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
       { id: 'sim-m8', code: 'jew', name: 'Jewel', kind: 'misc', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 }
     ],
     [

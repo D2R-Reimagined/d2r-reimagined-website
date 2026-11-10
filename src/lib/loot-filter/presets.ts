@@ -85,7 +85,7 @@ export function createPreset(id: PresetId): Filter {
       tooltip: { borderColor: 'RGBA(230, 195, 110, 1)', textColor: 'RGBA(245, 220, 150, 1)' },
       minimapIcon: icon('RGBA(230, 195, 110, 1)', 'square', 18)
     }),
-    show('Runes, gems and Reimagined currencies', { itemType: ['rune', 'runx', 'gem', 'gemx', 'gemo', 'pgem', 'stor', 'grab'] }, { tooltip: { textColor: 'RGBA(255, 180, 90, 1)' } }),
+    show('Runes, gems and Reimagined currencies', { itemType: ['rune', 'runx', 'gem', 'gemx', 'stor', 'grab'] }, { tooltip: { textColor: 'RGBA(255, 180, 90, 1)' } }),
     show('Charms, jewels and jewelry', { itemType: ['char', 'jewl', 'cjwl', 'csch', 'ring', 'amul', 'torc'] }),
     show('Circlets', { itemType: 'circ' }, {
       tooltip: { borderColor: 'RGBA(190, 210, 255, 1)', textColor: 'RGBA(225, 235, 255, 1)' }
