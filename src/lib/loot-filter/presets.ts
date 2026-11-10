@@ -15,22 +15,39 @@ export function createPreset(id: PresetId): Filter {
   const show = (ruleName: string, conditions: Conditions, actions: Partial<RuleBlock> = {}): Rule => ({ show: { ruleName, conditions, ...actions } });
   const icon = (color: string, shape: NonNullable<RuleBlock['minimapIcon']>['shape'] = 'diamond', size = 20): RuleBlock['minimapIcon'] => ({ shape, size, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: color });
   const rules: Rule[] = [
-    show('Drop-only unique and set bases', {
-      rarity: ['unique', 'set'],
+    show('Drop-only unique bases', {
+      rarity: 'unique',
       code: [
         'cm1', 'cjw', '7gd', '7fb', '7gs', '7wa', 'obb', 'pae', 'paf', 'ned', 'nee', 'bae', 'uul', 'uth',
-        'utp', 'upl', 'uhn', 'urs', 'aqv', 'cqv', 'ame', 'amf', 'amb', 'drb', 'drf', '7ar', '7cs', '7wb',
-        'hgl', 'ghm', 'ful', 'hbt', 'hbl'
+        'utp', 'upl', 'uhn', 'urs', 'aqv', 'cqv', 'ame', 'amf', 'amb', 'drb', 'drf', '7ar', '7cs', '7wb'
       ]
     }, {
-      tooltip: { backgroundColor: 'RGBA(28, 12, 44, 0.92)', borderColor: 'RGBA(210, 120, 255, 1)', textColor: 'RGBA(240, 200, 255, 1)' },
-      minimapIcon: icon('RGBA(210, 120, 255, 1)', 'star', 24),
+      tooltip: { backgroundColor: 'RGBA(34, 12, 48, 0.94)', borderColor: 'RGBA(245, 190, 48, 1)', textColor: 'RGBA(255, 226, 142, 1)' },
+      minimapIcon: icon('RGBA(255, 210, 75, 1)', 'star', 24),
       dropSound: 'Filter01'
     }),
-    show('Uniques and sets', { rarity: ['unique', 'set'] }, {
-      tooltip: { borderColor: 'RGBA(215, 175, 85, 1)' },
-      minimapIcon: icon('RGBA(215, 175, 85, 1)'),
+    show('Drop-only set bases', {
+      rarity: 'set',
+      code: ['hgl', 'ghm', 'ful', 'hbt', 'hbl']
+    }, {
+      tooltip: { backgroundColor: 'RGBA(34, 12, 48, 0.94)', borderColor: 'RGBA(45, 235, 95, 1)', textColor: 'RGBA(150, 255, 178, 1)' },
+      minimapIcon: icon('RGBA(55, 255, 115, 1)', 'star', 24),
       dropSound: 'Filter01'
+    }),
+    show('Colossal jewels, sunder charms and torches', { itemType: ['cjwl', 'csch', 'torc'] }, {
+      tooltip: { backgroundColor: 'RGBA(42, 30, 6, 0.92)', borderColor: 'RGBA(255, 215, 100, 1)', textColor: 'RGBA(255, 240, 175, 1)' },
+      minimapIcon: icon('RGBA(255, 215, 100, 1)', 'star', 22),
+      dropSound: 'Filter02'
+    }),
+    show('Uniques', { rarity: 'unique' }, {
+      tooltip: { backgroundColor: 'RGBA(42, 24, 6, 0.9)', borderColor: 'RGBA(242, 178, 58, 1)', textColor: 'RGBA(255, 212, 118, 1)' },
+      minimapIcon: icon('RGBA(242, 178, 58, 1)'),
+      dropSound: 'Filter01'
+    }),
+    show('Sets', { rarity: 'set' }, {
+      tooltip: { backgroundColor: 'RGBA(8, 32, 14, 0.9)', borderColor: 'RGBA(45, 230, 90, 1)', textColor: 'RGBA(145, 255, 170, 1)' },
+      minimapIcon: icon('RGBA(45, 230, 90, 1)'),
+      dropSound: 'Filter03'
     }),
     show('High runes (Lem through Hev)', {
       code: [
@@ -40,11 +57,6 @@ export function createPreset(id: PresetId): Filter {
     }, {
       tooltip: { backgroundColor: 'RGBA(45, 20, 5, 0.92)', borderColor: 'RGBA(255, 145, 35, 1)', textColor: 'RGBA(255, 195, 110, 1)' },
       minimapIcon: icon('RGBA(255, 145, 35, 1)', 'star', 22),
-      dropSound: 'Filter02'
-    }),
-    show('Colossal jewels, sunder charms and torches', { itemType: ['cjwl', 'csch', 'torc'] }, {
-      tooltip: { backgroundColor: 'RGBA(42, 30, 6, 0.92)', borderColor: 'RGBA(255, 215, 100, 1)', textColor: 'RGBA(255, 240, 175, 1)' },
-      minimapIcon: icon('RGBA(255, 215, 100, 1)', 'star', 22),
       dropSound: 'Filter02'
     }),
     show('Power orbs and Gem Clusters', {

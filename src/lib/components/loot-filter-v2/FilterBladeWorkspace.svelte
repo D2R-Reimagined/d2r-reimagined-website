@@ -160,7 +160,8 @@
     bases: v2Config.customBases.length,
     styles:
       Object.keys(v2Config.tierStyleOverrides).length +
-      Object.keys(v2Config.categoryTierStyleOverrides).length,
+      Object.keys(v2Config.categoryTierStyleOverrides).length +
+      Object.keys(v2Config.rarityTierStyleOverrides ?? {}).length,
     customRules: v2Config.customPriorityRules.length
   });
 

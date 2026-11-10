@@ -10,7 +10,9 @@
     EQUIPMENT_FAMILIES,
     TIERABLE_ITEMS,
     TIER_RANKS,
+    EDITABLE_RARITY_STYLES,
     effectiveItemTier,
+    effectiveRarityTierStyle,
     effectiveTierStyle,
     findParentGroupForBase,
     getGroupDisplayInfo,
@@ -22,6 +24,7 @@
     syncDisabledFamiliesFromOverrides,
     type CategoryId,
     type CustomBaseRule,
+    type ItemRarityStyleKind,
     type ResolvedBaseEntry,
     type TierRank,
     type TierStyle,
@@ -47,6 +50,7 @@
   let draggedCustomBaseId = $state<string | null>(null);
   let dragOverTier = $state<TierRank | null>(null);
   let editingStyleTier = $state<Exclude<TierRank, 'HIDE'> | null>(null);
+  let editingRarityKind = $state<ItemRarityStyleKind>('unique');
   let expandedItemIds = $state<Record<string, boolean>>({});
 
   // Visual 523-Base Browser Matrix state
@@ -58,20 +62,24 @@
   let newBaseMinSockets = $state(0);
   let newBaseEthOnly = $state(false);
 
-  // Sync default rarity mode when switching between categories
+  // Sync default rarity mode & inline rarity style target when switching between categories
   $effect(() => {
     if (activeCategory === 'bases') {
       newBaseMode = 'runeword';
-    } else if (activeCategory === 'uniques' && (newBaseMode !== 'unique' && newBaseMode !== 'set')) {
-      newBaseMode = 'unique';
-    } else if (
-      activeCategory === 'equipment' &&
-      newBaseMode !== 'rare' &&
-      newBaseMode !== 'magic' &&
-      newBaseMode !== 'crafted' &&
-      newBaseMode !== 'any'
-    ) {
-      newBaseMode = 'rare';
+      editingRarityKind = 'base';
+    } else if (activeCategory === 'uniques') {
+      if (newBaseMode !== 'unique' && newBaseMode !== 'set') newBaseMode = 'unique';
+      if (!['unique', 'set', 'rare', 'magic'].includes(editingRarityKind)) editingRarityKind = 'unique';
+    } else if (activeCategory === 'equipment') {
+      if (
+        newBaseMode !== 'rare' &&
+        newBaseMode !== 'magic' &&
+        newBaseMode !== 'crafted' &&
+        newBaseMode !== 'any'
+      ) {
+        newBaseMode = 'rare';
+      }
+      if (!['rare', 'crafted', 'magic'].includes(editingRarityKind)) editingRarityKind = 'rare';
     }
   });
 
@@ -203,6 +211,24 @@
     if (parentGroup) {
       return effectiveItemTier(parentGroup, config);
     }
+    const baseInfo = catalog.baseItems.find(b => b.code === code);
+    if (mode === 'unique' || mode === 'set') {
+      const qTier = baseInfo?.tier ?? 'normal';
+      const fallbackId =
+        mode === 'unique'
+          ? qTier === 'elite'
+            ? 'uniq-elite'
+            : qTier === 'exceptional'
+              ? 'uniq-exceptional'
+              : 'uniq-normal'
+          : qTier === 'elite'
+            ? 'set-elite'
+            : qTier === 'exceptional'
+              ? 'set-exceptional'
+              : 'set-normal';
+      const fallbackItem = TIERABLE_ITEMS.find(i => i.id === fallbackId);
+      if (fallbackItem) return effectiveItemTier(fallbackItem, config);
+    }
     if (mode === 'runeword') {
       for (const item of TIERABLE_ITEMS) {
         if (item.category !== 'bases' || !item.equipmentFamilies?.length) continue;
@@ -244,8 +270,8 @@
   });
 
   function notableNamesForBase(code: string): string {
-    const uNames = catalog.uniqueItems.filter(u => u.baseCode === code).map(u => u.name);
-    const sNames = catalog.setItems.filter(s => s.baseCode === code).map(s => s.name);
+    const uNames = newBaseMode !== 'set' ? catalog.uniqueItems.filter(u => u.baseCode === code).map(u => u.name) : [];
+    const sNames = newBaseMode !== 'unique' ? catalog.setItems.filter(s => s.baseCode === code).map(s => s.name) : [];
     const all = [...new Set([...uNames, ...sNames])];
     if (all.length === 0) return '';
     return all.slice(0, 2).join(', ') + (all.length > 2 ? ` +${all.length - 2}` : '');
@@ -323,14 +349,66 @@
     return parsed ? `rgba(${parsed.r},${parsed.g},${parsed.b},${parsed.a})` : fallback;
   }
 
-  function tierPreviewStyle(tier: Exclude<TierRank, 'HIDE'>) {
-    const style = effectiveTierStyle(tier, config, activeCategory);
+  function styleObjToCss(style: TierStyle) {
     const text = cssColor(style.textColor, '#f7f1e3');
     const bg = cssColor(style.backgroundColor, 'rgba(14, 14, 18, 0.88)');
     const border = style.borderColor
       ? `2px solid ${cssColor(style.borderColor, 'transparent')}`
       : '1px solid rgba(188, 167, 125, 0.25)';
     return `color:${text};background:${bg};border:${border}`;
+  }
+
+  function tierPreviewStyle(tier: Exclude<TierRank, 'HIDE'>) {
+    return styleObjToCss(effectiveTierStyle(tier, config, activeCategory));
+  }
+
+  const categoryRarityTargets = $derived.by((): ItemRarityStyleKind[] => {
+    if (activeCategory === 'uniques') return ['unique', 'set', 'rare', 'magic'];
+    if (activeCategory === 'equipment') return ['rare', 'crafted', 'magic'];
+    if (activeCategory === 'bases') return ['base'];
+    return [];
+  });
+
+  function updateRarityTierStyle(
+    rarity: ItemRarityStyleKind,
+    tier: Exclude<TierRank, 'HIDE'>,
+    patch: Partial<TierStyle>
+  ) {
+    const currentRarity = config.rarityTierStyleOverrides?.[rarity] ?? {};
+    const currentTier = currentRarity[tier] ?? {};
+    const merged: Partial<TierStyle> = { ...currentTier, ...patch };
+    for (const k of Object.keys(merged) as (keyof TierStyle)[]) {
+      if (merged[k] === undefined) delete merged[k];
+    }
+    config.rarityTierStyleOverrides = {
+      ...(config.rarityTierStyleOverrides ?? {}),
+      [rarity]: {
+        ...currentRarity,
+        [tier]: merged
+      }
+    };
+    onchange();
+  }
+
+  function resetRarityTierStyle(rarity: ItemRarityStyleKind, tier: Exclude<TierRank, 'HIDE'>) {
+    const currentRarity = { ...(config.rarityTierStyleOverrides?.[rarity] ?? {}) };
+    delete currentRarity[tier];
+    const nextAll = { ...(config.rarityTierStyleOverrides ?? {}) };
+    if (Object.keys(currentRarity).length === 0) {
+      delete nextAll[rarity];
+    } else {
+      nextAll[rarity] = currentRarity;
+    }
+    config.rarityTierStyleOverrides = nextAll;
+    if (rarity === 'base' && config.categoryTierStyleOverrides.bases?.[tier]) {
+      const currentBases = { ...config.categoryTierStyleOverrides.bases };
+      delete currentBases[tier];
+      const nextCats = { ...config.categoryTierStyleOverrides };
+      if (Object.keys(currentBases).length === 0) delete nextCats.bases;
+      else nextCats.bases = currentBases;
+      config.categoryTierStyleOverrides = nextCats;
+    }
+    onchange();
   }
 
   function moveItemToTier(item: TierableItem, targetTier: TierRank) {
@@ -397,10 +475,13 @@
   function resetCategoryTierStyle(tier: Exclude<TierRank, 'HIDE'>) {
     const currentCat = { ...(config.categoryTierStyleOverrides[activeCategory] ?? {}) };
     delete currentCat[tier];
-    config.categoryTierStyleOverrides = {
-      ...config.categoryTierStyleOverrides,
-      [activeCategory]: currentCat
-    };
+    const nextCats = { ...config.categoryTierStyleOverrides };
+    if (Object.keys(currentCat).length === 0) {
+      delete nextCats[activeCategory];
+    } else {
+      nextCats[activeCategory] = currentCat;
+    }
+    config.categoryTierStyleOverrides = nextCats;
     onchange();
   }
 
@@ -839,42 +920,116 @@
           <div class="flex flex-wrap items-center gap-2.5">
             {#if !isHide && style}
               {@const rankKey = rank.id as Exclude<TierRank, 'HIDE'>}
-              <div
-                class="flex items-center gap-2 rounded px-3 py-1 font-sans text-xs font-semibold shadow-sm"
-                style={tierPreviewStyle(rankKey)}
-                title="Live ground label preview for this tier"
-              >
-                {#if style.minimapIcon}
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 40 40"
-                    fill={cssColor(style.minimapIcon.fillColor, '#f59e0b')}
-                    stroke={cssColor(style.minimapIcon.borderColor, '#ffffff')}
-                    stroke-width="3"
-                    aria-hidden="true"
-                  >
-                    {@render minimapShape(style.minimapIcon.shape)}
-                  </svg>
-                {/if}
-                <span>
-                  {style.namePrefix
-                    ? style.namePrefix.replaceAll('{name}', `${categoryInfo.name.split(' ')[0]} Drop`)
-                    : `${categoryInfo.name.split(' ')[0]} Drop`}
-                </span>
-              </div>
+              {#if activeCategory === 'uniques'}
+                {@const uPreview = effectiveRarityTierStyle(rankKey, config, 'uniques', 'unique')}
+                {@const sPreview = effectiveRarityTierStyle(rankKey, config, 'uniques', 'set')}
+                <div
+                  class="flex items-center gap-1.5 rounded px-2.5 py-1 font-sans text-xs font-semibold shadow-sm"
+                  style={styleObjToCss(uPreview)}
+                  title="Live Unique ground placard preview for this tier"
+                >
+                  {#if uPreview.minimapIcon}
+                    <svg width="13" height="13" viewBox="0 0 40 40" fill={cssColor(uPreview.minimapIcon.fillColor, '#ffd24b')} stroke={cssColor(uPreview.minimapIcon.borderColor, '#ffffff')} stroke-width="3" aria-hidden="true">
+                      {@render minimapShape(uPreview.minimapIcon.shape)}
+                    </svg>
+                  {/if}
+                  <span>Unique</span>
+                </div>
+                <div
+                  class="flex items-center gap-1.5 rounded px-2.5 py-1 font-sans text-xs font-semibold shadow-sm"
+                  style={styleObjToCss(sPreview)}
+                  title="Live Set ground placard preview for this tier"
+                >
+                  {#if sPreview.minimapIcon}
+                    <svg width="13" height="13" viewBox="0 0 40 40" fill={cssColor(sPreview.minimapIcon.fillColor, '#37ff73')} stroke={cssColor(sPreview.minimapIcon.borderColor, '#ffffff')} stroke-width="3" aria-hidden="true">
+                      {@render minimapShape(sPreview.minimapIcon.shape)}
+                    </svg>
+                  {/if}
+                  <span>Set</span>
+                </div>
+              {:else if activeCategory === 'equipment'}
+                {@const rPreview = effectiveRarityTierStyle(rankKey, config, 'equipment', 'rare')}
+                {@const cPreview = effectiveRarityTierStyle(rankKey, config, 'equipment', 'crafted')}
+                <div
+                  class="flex items-center gap-1.5 rounded px-2.5 py-1 font-sans text-xs font-semibold shadow-sm"
+                  style={styleObjToCss(rPreview)}
+                  title="Live Rare ground placard preview for this tier"
+                >
+                  {#if rPreview.minimapIcon}
+                    <svg width="13" height="13" viewBox="0 0 40 40" fill={cssColor(rPreview.minimapIcon.fillColor, '#ffeb46')} stroke={cssColor(rPreview.minimapIcon.borderColor, '#ffffff')} stroke-width="3" aria-hidden="true">
+                      {@render minimapShape(rPreview.minimapIcon.shape)}
+                    </svg>
+                  {/if}
+                  <span>Rare</span>
+                </div>
+                <div
+                  class="flex items-center gap-1.5 rounded px-2.5 py-1 font-sans text-xs font-semibold shadow-sm"
+                  style={styleObjToCss(cPreview)}
+                  title="Live Crafted ground placard preview for this tier"
+                >
+                  {#if cPreview.minimapIcon}
+                    <svg width="13" height="13" viewBox="0 0 40 40" fill={cssColor(cPreview.minimapIcon.fillColor, '#ff911e')} stroke={cssColor(cPreview.minimapIcon.borderColor, '#ffffff')} stroke-width="3" aria-hidden="true">
+                      {@render minimapShape(cPreview.minimapIcon.shape)}
+                    </svg>
+                  {/if}
+                  <span>Crafted</span>
+                </div>
+              {:else if activeCategory === 'bases'}
+                {@const bPreview = effectiveRarityTierStyle(rankKey, config, 'bases', 'base')}
+                <div
+                  class="flex items-center gap-2 rounded px-3 py-1 font-sans text-xs font-semibold shadow-sm"
+                  style={styleObjToCss(bPreview)}
+                  title="Live Runeword Base ground placard preview for this tier"
+                >
+                  {#if bPreview.minimapIcon}
+                    <svg width="14" height="14" viewBox="0 0 40 40" fill={cssColor(bPreview.minimapIcon.fillColor, '#f0f7ff')} stroke={cssColor(bPreview.minimapIcon.borderColor, '#374b64')} stroke-width="3" aria-hidden="true">
+                      {@render minimapShape(bPreview.minimapIcon.shape)}
+                    </svg>
+                  {/if}
+                  <span>Base Drop</span>
+                </div>
+              {:else}
+                <div
+                  class="flex items-center gap-2 rounded px-3 py-1 font-sans text-xs font-semibold shadow-sm"
+                  style={tierPreviewStyle(rankKey)}
+                  title="Live ground label preview for this tier"
+                >
+                  {#if style.minimapIcon}
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 40 40"
+                      fill={cssColor(style.minimapIcon.fillColor, '#f59e0b')}
+                      stroke={cssColor(style.minimapIcon.borderColor, '#ffffff')}
+                      stroke-width="3"
+                      aria-hidden="true"
+                    >
+                      {@render minimapShape(style.minimapIcon.shape)}
+                    </svg>
+                  {/if}
+                  <span>
+                    {style.namePrefix
+                      ? style.namePrefix.replaceAll('{name}', `${categoryInfo.name.split(' ')[0]} Drop`)
+                      : `${categoryInfo.name.split(' ')[0]} Drop`}
+                  </span>
+                </div>
+              {/if}
 
-              {#if style.dropSound}
+              {@const headerSound =
+                categoryRarityTargets.length > 0
+                  ? effectiveRarityTierStyle(rankKey, config, activeCategory, editingRarityKind).dropSound
+                  : style.dropSound}
+              {#if headerSound}
                 <button
                   type="button"
                   class="rounded border border-parchment-300/25 bg-abyss-900 px-2 py-1 text-xs text-parchment-200 hover:border-ember-400"
-                  title={`Preview drop sound (${style.dropSound})`}
+                  title={`Preview drop sound (${headerSound})`}
                   onclick={() =>
-                    $soundPreview.playing === style.dropSound
+                    $soundPreview.playing === headerSound
                       ? stopSound()
-                      : playSound(style.dropSound!)}
+                      : playSound(headerSound!)}
                 >
-                  {$soundPreview.playing === style.dropSound ? '◼' : '♪'} {style.dropSound.replace('Filter', '')}
+                  {$soundPreview.playing === headerSound ? '◼' : '♪'} {headerSound.replace('Filter', '')}
                 </button>
               {/if}
 
@@ -895,44 +1050,100 @@
           </div>
         </div>
 
-        <!-- Inline Category-Specific Tier Style Editor Drawer -->
+        <!-- Inline Category / Rarity Tier Style Editor Drawer -->
         {#if !isHide && editingStyleTier === rank.id && style}
           {@const rankKey = rank.id as Exclude<TierRank, 'HIDE'>}
-          <div class="space-y-4 border-b border-parchment-300/20 bg-abyss-950 p-4">
-            <div class="flex flex-wrap items-center justify-between gap-2">
-              <p class="text-xs font-semibold uppercase tracking-widest text-ember-400">
-                Customize {rank.shortLabel} Appearance for {categoryInfo.name}
-              </p>
-              <button
-                type="button"
-                class="text-xs text-parchment-300 hover:text-ember-400 hover:underline"
-                onclick={() => resetCategoryTierStyle(rankKey)}
-              >
-                Reset to theme default
-              </button>
+          {#if categoryRarityTargets.length > 0}
+            {@const rStyle = effectiveRarityTierStyle(rankKey, config, activeCategory, editingRarityKind)}
+            {@const rMeta = EDITABLE_RARITY_STYLES.find(x => x.id === editingRarityKind) ?? EDITABLE_RARITY_STYLES[0]}
+            <div class="space-y-4 border-b border-parchment-300/20 bg-abyss-950 p-4">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-xs font-semibold uppercase tracking-widest text-ember-400">
+                    Customize {rank.shortLabel}:
+                  </span>
+                  {#each categoryRarityTargets as rTarget (rTarget)}
+                    {@const targetMeta = EDITABLE_RARITY_STYLES.find(x => x.id === rTarget)!}
+                    <button
+                      type="button"
+                      class={`rounded border px-2.5 py-1 text-xs font-semibold transition-colors ${
+                        editingRarityKind === rTarget
+                          ? 'border-ember-400 bg-ember-950/40 text-parchment-50'
+                          : 'border-parchment-300/20 bg-abyss-900 text-parchment-300 hover:border-parchment-300/45'
+                      }`}
+                      onclick={() => (editingRarityKind = rTarget)}
+                    >
+                      {targetMeta.shortLabel}
+                    </button>
+                  {/each}
+                </div>
+                <button
+                  type="button"
+                  class="text-xs text-parchment-300 hover:text-ember-400 hover:underline"
+                  onclick={() => resetRarityTierStyle(editingRarityKind, rankKey)}
+                >
+                  Reset {rMeta.shortLabel} {rank.shortLabel} to default
+                </button>
+              </div>
+              <div class="grid gap-4 sm:grid-cols-3">
+                <ColorInput
+                  label="{rMeta.shortLabel} Background"
+                  value={rStyle.backgroundColor ?? 'RGBA(20, 20, 26, 0.9)'}
+                  onchange={v => updateRarityTierStyle(editingRarityKind, rankKey, { backgroundColor: v })}
+                />
+                <ColorInput
+                  label="{rMeta.shortLabel} Border"
+                  value={rStyle.borderColor ?? 'RGBA(240, 190, 90, 1)'}
+                  onchange={v => updateRarityTierStyle(editingRarityKind, rankKey, { borderColor: v })}
+                />
+                <ColorInput
+                  label="{rMeta.shortLabel} Text"
+                  value={rStyle.textColor ?? 'RGBA(255, 240, 210, 1)'}
+                  onchange={v => updateRarityTierStyle(editingRarityKind, rankKey, { textColor: v })}
+                />
+              </div>
+              <SoundPicker
+                value={rStyle.dropSound || undefined}
+                onchange={v => updateRarityTierStyle(editingRarityKind, rankKey, { dropSound: v ?? '' })}
+              />
             </div>
-            <div class="grid gap-4 sm:grid-cols-3">
-              <ColorInput
-                label="Background Color"
-                value={style.backgroundColor ?? 'RGBA(20, 20, 26, 0.9)'}
-                onchange={v => updateCategoryTierStyle(rankKey, { backgroundColor: v })}
-              />
-              <ColorInput
-                label="Border Color"
-                value={style.borderColor ?? 'RGBA(240, 190, 90, 1)'}
-                onchange={v => updateCategoryTierStyle(rankKey, { borderColor: v })}
-              />
-              <ColorInput
-                label="Text Color"
-                value={style.textColor ?? 'RGBA(255, 240, 210, 1)'}
-                onchange={v => updateCategoryTierStyle(rankKey, { textColor: v })}
+          {:else}
+            <div class="space-y-4 border-b border-parchment-300/20 bg-abyss-950 p-4">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <p class="text-xs font-semibold uppercase tracking-widest text-ember-400">
+                  Customize {rank.shortLabel} Appearance for {categoryInfo.name}
+                </p>
+                <button
+                  type="button"
+                  class="text-xs text-parchment-300 hover:text-ember-400 hover:underline"
+                  onclick={() => resetCategoryTierStyle(rankKey)}
+                >
+                  Reset to theme default
+                </button>
+              </div>
+              <div class="grid gap-4 sm:grid-cols-3">
+                <ColorInput
+                  label="Background Color"
+                  value={style.backgroundColor ?? 'RGBA(20, 20, 26, 0.9)'}
+                  onchange={v => updateCategoryTierStyle(rankKey, { backgroundColor: v })}
+                />
+                <ColorInput
+                  label="Border Color"
+                  value={style.borderColor ?? 'RGBA(240, 190, 90, 1)'}
+                  onchange={v => updateCategoryTierStyle(rankKey, { borderColor: v })}
+                />
+                <ColorInput
+                  label="Text Color"
+                  value={style.textColor ?? 'RGBA(255, 240, 210, 1)'}
+                  onchange={v => updateCategoryTierStyle(rankKey, { textColor: v })}
+                />
+              </div>
+              <SoundPicker
+                value={style.dropSound || undefined}
+                onchange={v => updateCategoryTierStyle(rankKey, { dropSound: v ?? '' })}
               />
             </div>
-            <SoundPicker
-              value={style.dropSound || undefined}
-              onchange={v => updateCategoryTierStyle(rankKey, { dropSound: v ?? '' })}
-            />
-          </div>
+          {/if}
         {/if}
 
         <!-- Draggable Item Pills & Individual Base Override Pills -->
@@ -1077,6 +1288,14 @@
                           <span class="shrink-0 rounded border border-amber-400/50 bg-amber-950/60 px-1.5 py-0.5 text-[10px] font-semibold text-amber-200">
                             Unique
                           </span>
+                          <span class="shrink-0 rounded border border-emerald-400/50 bg-emerald-950/60 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-300">
+                            Set
+                          </span>
+                        {:else if item.rarities?.length === 1 && item.rarities[0] === 'unique'}
+                          <span class="shrink-0 rounded border border-amber-400/50 bg-amber-950/60 px-1.5 py-0.5 text-[10px] font-semibold text-amber-200">
+                            Unique
+                          </span>
+                        {:else if item.rarities?.length === 1 && item.rarities[0] === 'set'}
                           <span class="shrink-0 rounded border border-emerald-400/50 bg-emerald-950/60 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-300">
                             Set
                           </span>

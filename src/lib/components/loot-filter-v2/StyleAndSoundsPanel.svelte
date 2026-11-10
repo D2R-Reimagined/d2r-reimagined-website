@@ -4,9 +4,12 @@
   import ColorInput from '../loot-filter/ColorInput.svelte';
   import SoundPicker from '../loot-filter/SoundPicker.svelte';
   import {
+    EDITABLE_RARITY_STYLES,
     THEME_PRESETS,
     TIER_RANKS,
+    effectiveRarityTierStyle,
     effectiveTierStyle,
+    type ItemRarityStyleKind,
     type ThemeId,
     type TierRank,
     type TierStyle,
@@ -22,6 +25,8 @@
   } = $props();
 
   let selectedTier = $state<Exclude<TierRank, 'HIDE'>>('S');
+  let selectedRarity = $state<ItemRarityStyleKind>('unique');
+  let selectedRarityTier = $state<Exclude<TierRank, 'HIDE'>>('S');
 
   const visibleRanks = TIER_RANKS.filter(r => r.id !== 'HIDE') as {
     id: Exclude<TierRank, 'HIDE'>;
@@ -32,6 +37,23 @@
   }[];
 
   const activeTierStyle = $derived(effectiveTierStyle(selectedTier, config));
+  const activeRarityMeta = $derived(
+    EDITABLE_RARITY_STYLES.find(r => r.id === selectedRarity) ?? EDITABLE_RARITY_STYLES[0]
+  );
+  const activeRarityStyle = $derived(
+    effectiveRarityTierStyle(selectedRarityTier, config, undefined, selectedRarity)
+  );
+  const uniqueCompareStyle = $derived(
+    effectiveRarityTierStyle(selectedRarityTier, config, 'uniques', 'unique')
+  );
+  const setCompareStyle = $derived(
+    effectiveRarityTierStyle(selectedRarityTier, config, 'uniques', 'set')
+  );
+  const hasAnyStyleOverrides = $derived(
+    Object.keys(config.tierStyleOverrides).length > 0 ||
+      Object.keys(config.categoryTierStyleOverrides).length > 0 ||
+      Object.keys(config.rarityTierStyleOverrides ?? {}).length > 0
+  );
 
   function cssColor(value: string | undefined, fallback: string) {
     const parsed = M.parseRgba(value);
@@ -68,9 +90,44 @@
     onchange();
   }
 
+  function updateRarityStyle(
+    rarity: ItemRarityStyleKind,
+    tier: Exclude<TierRank, 'HIDE'>,
+    patch: Partial<TierStyle>
+  ) {
+    const currentRarityMap = config.rarityTierStyleOverrides?.[rarity] ?? {};
+    const currentTier = currentRarityMap[tier] ?? {};
+    const merged: Partial<TierStyle> = { ...currentTier, ...patch };
+    for (const k of Object.keys(merged) as (keyof TierStyle)[]) {
+      if (merged[k] === undefined) delete merged[k];
+    }
+    config.rarityTierStyleOverrides = {
+      ...(config.rarityTierStyleOverrides ?? {}),
+      [rarity]: {
+        ...currentRarityMap,
+        [tier]: merged
+      }
+    };
+    onchange();
+  }
+
+  function resetRarityTierStyle(rarity: ItemRarityStyleKind, tier: Exclude<TierRank, 'HIDE'>) {
+    const currentRarityMap = { ...(config.rarityTierStyleOverrides?.[rarity] ?? {}) };
+    delete currentRarityMap[tier];
+    const nextAll = { ...(config.rarityTierStyleOverrides ?? {}) };
+    if (Object.keys(currentRarityMap).length === 0) {
+      delete nextAll[rarity];
+    } else {
+      nextAll[rarity] = currentRarityMap;
+    }
+    config.rarityTierStyleOverrides = nextAll;
+    onchange();
+  }
+
   function resetAllStyles() {
     config.tierStyleOverrides = {};
     config.categoryTierStyleOverrides = {};
+    config.rarityTierStyleOverrides = {};
     onchange();
   }
 </script>
@@ -89,7 +146,7 @@
           Switch the aesthetic palette across all tiers at once. Any custom tier tweaks you make below stay layered on top.
         </p>
       </div>
-      {#if Object.keys(config.tierStyleOverrides).length > 0 || Object.keys(config.categoryTierStyleOverrides).length > 0}
+      {#if hasAnyStyleOverrides}
         <button type="button" class="trade-secondary-button !py-1.5 text-xs" onclick={resetAllStyles}>
           Reset all custom style overrides
         </button>
@@ -142,9 +199,9 @@
 
   <!-- Tier-by-Tier Global Style & Sound Editor -->
   <section class="panel rounded-lg p-5 sm:p-6" aria-label="Global tier style editor">
-    <h2 class="text-2xl font-bold tracking-tight text-parchment-50">Tier Decorators, Minimap Icons & Sounds</h2>
+    <h2 class="text-2xl font-bold tracking-tight text-parchment-50">Tier Decorators, Minimap Icons & Sounds (Currency &amp; Shared Urgency)</h2>
     <p class="mt-1 text-sm text-parchment-300">
-      Customize how each tier looks and sounds globally across your entire filter.
+      Controls drop sounds, minimap icon shapes/sizes, and the shared Tier S jackpot background plate across your filter, plus Tier A–D colors for Runes, Orbs, Maps, Gems &amp; Boss tokens. Individual Unique, Set, Base, and Rare colors are configured below so they never collide.
     </p>
 
     <div class="mt-5 flex flex-wrap gap-2 border-b border-parchment-300/15 pb-4">
@@ -281,7 +338,7 @@
                     updateGlobalTierStyle(selectedTier, {
                       minimapIcon: {
                         ...activeTierStyle.minimapIcon!,
-                        size: Math.max(4, Math.min(128, Number(e.currentTarget.value) || 20))
+                        size: Math.max(4, Math.min(128, Math.round(Number(e.currentTarget.value) || 20)))
                       }
                     })}
                 />
@@ -311,6 +368,267 @@
         <SoundPicker
           value={activeTierStyle.dropSound || undefined}
           onchange={v => updateGlobalTierStyle(selectedTier, { dropSound: v ?? '' })}
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Individual D2R Item Rarity Colors (Unique, Set, Base, Rare, Crafted, Magic) -->
+  <section class="panel rounded-lg p-5 sm:p-6" aria-label="Individual item rarity colors">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <div>
+        <h2 class="text-2xl font-bold tracking-tight text-parchment-50">D2R Item Rarity Colors (Unique, Set, Base &amp; Rare)</h2>
+        <p class="mt-1 text-sm text-parchment-300">
+          Customize each D2R item rarity individually at every tier. In Tier S, Uniques and Sets share your active theme's jackpot plate background by default with distinct Sanctuary Gold vs. Emerald Green borders, text, and minimap stars — and you can override any color or background per rarity below.
+        </p>
+      </div>
+      {#if config.rarityTierStyleOverrides?.[selectedRarity]?.[selectedRarityTier]}
+        <button
+          type="button"
+          class="trade-secondary-button !py-1.5 text-xs"
+          onclick={() => resetRarityTierStyle(selectedRarity, selectedRarityTier)}
+        >
+          Reset {activeRarityMeta.shortLabel} Tier {selectedRarityTier} to default
+        </button>
+      {/if}
+    </div>
+
+    <!-- Rarity Selector Tabs -->
+    <div class="mt-5 flex flex-wrap gap-2">
+      {#each EDITABLE_RARITY_STYLES as r (r.id)}
+        {@const hasOverride = Boolean(config.rarityTierStyleOverrides?.[r.id] && Object.keys(config.rarityTierStyleOverrides[r.id]!).length > 0)}
+        <button
+          type="button"
+          class={`flex items-center gap-2 rounded-lg border px-3.5 py-2 text-sm transition-colors ${
+            selectedRarity === r.id
+              ? 'border-ember-400 bg-ember-950/30 text-parchment-50'
+              : 'border-parchment-300/20 bg-abyss-950 text-parchment-300 hover:border-parchment-300/40'
+          }`}
+          aria-pressed={selectedRarity === r.id}
+          onclick={() => (selectedRarity = r.id)}
+        >
+          <span class={`rounded border px-1.5 py-0.5 text-[11px] font-bold ${r.badgeClass}`}>{r.shortLabel}</span>
+          <span class="font-medium">{r.label}</span>
+          {#if hasOverride}
+            <span class="rounded bg-ember-500/25 px-1.5 py-0.5 text-[10px] font-semibold text-ember-300">Edited</span>
+          {/if}
+        </button>
+      {/each}
+    </div>
+
+    <!-- Tier Selector Pills for Selected Rarity -->
+    <div class="mt-3 flex flex-wrap gap-2 border-b border-parchment-300/15 pb-4">
+      {#each visibleRanks as rank (rank.id)}
+        {@const rStyle = effectiveRarityTierStyle(rank.id, config, undefined, selectedRarity)}
+        {@const tierEdited = Boolean(config.rarityTierStyleOverrides?.[selectedRarity]?.[rank.id])}
+        <button
+          type="button"
+          class={`flex items-center gap-2 rounded-lg border px-3 py-1.5 text-xs transition-colors ${
+            selectedRarityTier === rank.id
+              ? 'border-ember-400 bg-ember-950/30 text-parchment-50'
+              : 'border-parchment-300/20 bg-abyss-950 text-parchment-300 hover:border-parchment-300/40'
+          }`}
+          aria-pressed={selectedRarityTier === rank.id}
+          onclick={() => (selectedRarityTier = rank.id)}
+        >
+          <span class={`rounded border px-1.5 py-0.5 text-[10px] font-bold ${rank.badgeClass}`}>{rank.id}</span>
+          <span class="font-medium">{rank.shortLabel}</span>
+          {#if rStyle.dropSound}
+            <span class="text-[11px] text-parchment-300">♪ {rStyle.dropSound.replace('Filter', '')}</span>
+          {/if}
+          {#if tierEdited}
+            <span class="text-[10px] font-bold text-ember-300">●</span>
+          {/if}
+        </button>
+      {/each}
+    </div>
+
+    <div class="mt-6 grid gap-6 lg:grid-cols-12">
+      <!-- Live Ground Preview (shows Unique vs Set side-by-side when editing Unique or Set!) -->
+      <div class="flex flex-col justify-between rounded-lg border border-parchment-300/20 bg-[#08090d] p-5 lg:col-span-5">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-parchment-300">
+            Live Ground Placard Preview · {activeRarityMeta.shortLabel} · Tier {selectedRarityTier}
+          </span>
+
+          {#if selectedRarity === 'unique' || selectedRarity === 'set'}
+            <div class="mt-5 grid gap-3 rounded border border-parchment-300/10 bg-[#050608] p-5 sm:grid-cols-2">
+              <div class={`flex flex-col items-center justify-center gap-2 rounded p-3 ${selectedRarity === 'unique' ? 'ring-1 ring-amber-400/50 bg-white/[0.02]' : 'opacity-80'}`}>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-amber-300">Unique · Tier {selectedRarityTier}</span>
+                {#if uniqueCompareStyle.minimapIcon}
+                  <svg
+                    width={Math.max(14, Math.min(36, uniqueCompareStyle.minimapIcon.size))}
+                    height={Math.max(14, Math.min(36, uniqueCompareStyle.minimapIcon.size))}
+                    viewBox="0 0 40 40"
+                    fill={cssColor(uniqueCompareStyle.minimapIcon.fillColor, '#ffd24b')}
+                    stroke={cssColor(uniqueCompareStyle.minimapIcon.borderColor, '#ffffff')}
+                    stroke-width="2.5"
+                  >
+                    {@render minimapShape(uniqueCompareStyle.minimapIcon.shape)}
+                  </svg>
+                {/if}
+                <span class="rounded px-3 py-1.5 text-center font-sans text-xs font-semibold shadow-lg" style={styleToCss(uniqueCompareStyle)}>
+                  Shako [E] (86)
+                </span>
+              </div>
+
+              <div class={`flex flex-col items-center justify-center gap-2 rounded p-3 ${selectedRarity === 'set' ? 'ring-1 ring-emerald-400/50 bg-white/[0.02]' : 'opacity-80'}`}>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-emerald-300">Set · Tier {selectedRarityTier}</span>
+                {#if setCompareStyle.minimapIcon}
+                  <svg
+                    width={Math.max(14, Math.min(36, setCompareStyle.minimapIcon.size))}
+                    height={Math.max(14, Math.min(36, setCompareStyle.minimapIcon.size))}
+                    viewBox="0 0 40 40"
+                    fill={cssColor(setCompareStyle.minimapIcon.fillColor, '#37ff73')}
+                    stroke={cssColor(setCompareStyle.minimapIcon.borderColor, '#ffffff')}
+                    stroke-width="2.5"
+                  >
+                    {@render minimapShape(setCompareStyle.minimapIcon.shape)}
+                  </svg>
+                {/if}
+                <span class="rounded px-3 py-1.5 text-center font-sans text-xs font-semibold shadow-lg" style={styleToCss(setCompareStyle)}>
+                  Lacquered Plate [E] (86)
+                </span>
+              </div>
+            </div>
+          {:else}
+            <div class="mt-5 flex min-h-36 flex-col items-center justify-center gap-3 rounded border border-parchment-300/10 bg-[#050608] p-6">
+              {#if activeRarityStyle.minimapIcon}
+                <svg
+                  width={Math.max(14, Math.min(44, activeRarityStyle.minimapIcon.size))}
+                  height={Math.max(14, Math.min(44, activeRarityStyle.minimapIcon.size))}
+                  viewBox="0 0 40 40"
+                  fill={cssColor(activeRarityStyle.minimapIcon.fillColor, '#ffffff')}
+                  stroke={cssColor(activeRarityStyle.minimapIcon.borderColor, '#ffffff')}
+                  stroke-width="2.5"
+                >
+                  {@render minimapShape(activeRarityStyle.minimapIcon.shape)}
+                </svg>
+              {/if}
+              <span class="rounded px-4 py-2 text-center font-sans text-base font-semibold shadow-lg" style={styleToCss(activeRarityStyle)}>
+                {activeRarityMeta.sampleDrop}
+              </span>
+            </div>
+          {/if}
+        </div>
+
+        <div class="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-parchment-300/15 pt-4 text-xs text-parchment-300">
+          <span>
+            Sound: <strong class="text-parchment-100">{activeRarityStyle.dropSound || 'Original in-game sound'}</strong>
+          </span>
+          {#if activeRarityStyle.dropSound}
+            <button
+              type="button"
+              class="trade-secondary-button !px-3 !py-1 text-xs"
+              onclick={() =>
+                $soundPreview.playing === activeRarityStyle.dropSound
+                  ? stopSound()
+                  : playSound(activeRarityStyle.dropSound!)}
+            >
+              {$soundPreview.playing === activeRarityStyle.dropSound ? '◼ Stop Sound' : `♪ Play ${activeRarityStyle.dropSound}`}
+            </button>
+          {/if}
+        </div>
+      </div>
+
+      <!-- Individual Rarity Color, Icon & Sound Controls -->
+      <div class="space-y-5 lg:col-span-7">
+        <div class="grid gap-4 sm:grid-cols-3">
+          <ColorInput
+            label="Placard Background"
+            value={activeRarityStyle.backgroundColor ?? 'RGBA(18, 18, 22, 0.85)'}
+            onchange={v => updateRarityStyle(selectedRarity, selectedRarityTier, { backgroundColor: v })}
+          />
+          <ColorInput
+            label="Placard Border"
+            value={activeRarityStyle.borderColor ?? 'RGBA(242, 178, 58, 1)'}
+            onchange={v => updateRarityStyle(selectedRarity, selectedRarityTier, { borderColor: v })}
+          />
+          <ColorInput
+            label="Placard Text"
+            value={activeRarityStyle.textColor ?? 'RGBA(255, 212, 118, 1)'}
+            onchange={v => updateRarityStyle(selectedRarity, selectedRarityTier, { textColor: v })}
+          />
+        </div>
+
+        <div class="space-y-3 rounded border border-parchment-300/20 p-4">
+          <label class="flex items-center gap-2.5 text-sm font-medium text-parchment-100">
+            <input
+              type="checkbox"
+              checked={!!activeRarityStyle.minimapIcon}
+              onchange={e =>
+                updateRarityStyle(selectedRarity, selectedRarityTier, {
+                  minimapIcon: e.currentTarget.checked
+                    ? {
+                        shape: 'star',
+                        size: 20,
+                        borderColor: 'RGBA(255, 255, 255, 1)',
+                        fillColor: activeRarityStyle.borderColor || 'RGBA(242, 178, 58, 1)'
+                      }
+                    : null
+                })}
+            />
+            Show Minimap Icon for {activeRarityMeta.shortLabel} · Tier {selectedRarityTier}
+          </label>
+          {#if activeRarityStyle.minimapIcon}
+            <div class="grid gap-3 sm:grid-cols-2">
+              <label class="space-y-1 text-xs text-parchment-300">
+                <span>Icon Shape</span>
+                <select
+                  class="field"
+                  value={activeRarityStyle.minimapIcon.shape}
+                  onchange={e =>
+                    updateRarityStyle(selectedRarity, selectedRarityTier, {
+                      minimapIcon: { ...activeRarityStyle.minimapIcon!, shape: e.currentTarget.value }
+                    })}
+                >
+                  {#each M.MINIMAP_SHAPES as shape}
+                    <option value={shape}>{shape}</option>
+                  {/each}
+                </select>
+              </label>
+              <label class="space-y-1 text-xs text-parchment-300">
+                <span>Icon Size (4–128 px)</span>
+                <input
+                  type="number"
+                  min="4"
+                  max="128"
+                  class="field"
+                  value={activeRarityStyle.minimapIcon.size}
+                  oninput={e =>
+                    updateRarityStyle(selectedRarity, selectedRarityTier, {
+                      minimapIcon: {
+                        ...activeRarityStyle.minimapIcon!,
+                        size: Math.max(4, Math.min(128, Math.round(Number(e.currentTarget.value) || 20)))
+                      }
+                    })}
+                />
+              </label>
+            </div>
+            <div class="grid gap-3 sm:grid-cols-2">
+              <ColorInput
+                label="Icon Border"
+                value={activeRarityStyle.minimapIcon.borderColor}
+                onchange={v =>
+                  updateRarityStyle(selectedRarity, selectedRarityTier, {
+                    minimapIcon: { ...activeRarityStyle.minimapIcon!, borderColor: v }
+                  })}
+              />
+              <ColorInput
+                label="Icon Fill"
+                value={activeRarityStyle.minimapIcon.fillColor}
+                onchange={v =>
+                  updateRarityStyle(selectedRarity, selectedRarityTier, {
+                    minimapIcon: { ...activeRarityStyle.minimapIcon!, fillColor: v }
+                  })}
+              />
+            </div>
+          {/if}
+        </div>
+
+        <SoundPicker
+          value={activeRarityStyle.dropSound || undefined}
+          onchange={v => updateRarityStyle(selectedRarity, selectedRarityTier, { dropSound: v ?? '' })}
         />
       </div>
     </div>

@@ -1133,8 +1133,8 @@ describe('FilterBlade v2 compiler & customizer model', () => {
     });
     expect(uniqUthSim.matchedRuleName).toContain('[Base] Lacquered Plate (Unique) · Tier A');
     expect(uniqUthSim.matchedCategory).toBe('uniques');
-    expect(setUthSim.matchedRuleName).toContain('Drop-Only & Chase Unique / Set Bases');
-    expect(setUthSim.dropSound).toBe('Filter01');
+    expect(setUthSim.matchedRuleName).toContain('Tier A: Elite Sets');
+    expect(setUthSim.dropSound).toBe('Filter02');
 
     expect(
       simulateItemDrop(splitUniqFilter, catalog, {
@@ -1164,5 +1164,302 @@ describe('FilterBlade v2 compiler & customizer model', () => {
         quantity: 1
       }).show
     ).toBe(true);
+  });
+
+  it('separates Unique (Gold) and Set (Emerald) placards across Tiers S–D (Option 1B), unbundles Set tiers across presets, and supports individual rarityTierStyleOverrides', () => {
+    // 1. Across every theme, Tier S Uniques and Tier S Sets share the theme's S-plate background by default (1B)
+    //    while keeping distinct Sanctuary Gold vs. Emerald Green borders, text hues, and minimap stars!
+    for (const theme of Object.keys(THEME_PRESETS) as ThemeId[]) {
+      const cfg = createDefaultV2Config('strict', theme);
+      const filter = compileV2Filter(cfg);
+
+      const tierSUnique = simulateItemDrop(filter, catalog, {
+        id: 's-uniq',
+        code: '7gd',
+        name: 'Colossus Blade',
+        kind: 'weapon',
+        tier: 'elite',
+        rarity: 'unique',
+        sockets: 0,
+        ethereal: false,
+        identified: false,
+        itemLevel: 88,
+        quantity: 1
+      });
+      const tierSSet = simulateItemDrop(filter, catalog, {
+        id: 's-set',
+        code: 'ful',
+        name: 'Full Plate Mail',
+        kind: 'armor',
+        tier: 'normal',
+        rarity: 'set',
+        sockets: 0,
+        ethereal: false,
+        identified: false,
+        itemLevel: 88,
+        quantity: 1
+      });
+      const tierAUnique = simulateItemDrop(filter, catalog, {
+        id: 'a-uniq',
+        code: 'uap',
+        name: 'Shako',
+        kind: 'armor',
+        tier: 'elite',
+        rarity: 'unique',
+        sockets: 0,
+        ethereal: false,
+        identified: false,
+        itemLevel: 86,
+        quantity: 1
+      });
+      const tierASet = simulateItemDrop(filter, catalog, {
+        id: 'a-set',
+        code: 'uth',
+        name: 'Lacquered Plate',
+        kind: 'armor',
+        tier: 'elite',
+        rarity: 'set',
+        sockets: 0,
+        ethereal: false,
+        identified: false,
+        itemLevel: 86,
+        quantity: 1
+      });
+      const normalUnique = simulateItemDrop(filter, catalog, {
+        id: 'n-uniq',
+        code: 'bal',
+        name: 'Balanced Axe',
+        kind: 'weapon',
+        tier: 'normal',
+        rarity: 'unique',
+        sockets: 0,
+        ethereal: false,
+        identified: false,
+        itemLevel: 86,
+        quantity: 1
+      });
+      const normalSet = simulateItemDrop(filter, catalog, {
+        id: 'n-set',
+        code: 'brs',
+        name: 'Breast Plate',
+        kind: 'armor',
+        tier: 'normal',
+        rarity: 'set',
+        sockets: 0,
+        ethereal: false,
+        identified: false,
+        itemLevel: 86,
+        quantity: 1
+      });
+
+      // Option 1B: Tier S shares plate background, but Gold vs Emerald border/text/icon fill never collide
+      expect(tierSUnique.backgroundColor).toBe(tierSSet.backgroundColor);
+      expect(tierSUnique.borderColor).not.toBe(tierSSet.borderColor);
+      expect(tierSUnique.textColor).not.toBe(tierSSet.textColor);
+      expect(tierSUnique.minimapIcon?.fillColor).not.toBe(tierSSet.minimapIcon?.fillColor);
+
+      const uSBorder = M.parseRgba(tierSUnique.borderColor)!;
+      const sSBorder = M.parseRgba(tierSSet.borderColor)!;
+      expect(uSBorder.r).toBeGreaterThan(uSBorder.b + 120); // Gold
+      expect(sSBorder.g).toBeGreaterThan(sSBorder.r + 120); // Emerald
+
+      // Tier A Elite Uniques vs Elite Sets & Normal Uniques (Balanced Axe) vs Normal Sets (Breast Plate) never share colors
+      expect(tierAUnique.borderColor).not.toBe(tierASet.borderColor);
+      expect(tierAUnique.textColor).not.toBe(tierASet.textColor);
+      expect(normalUnique.textColor).not.toBe(normalSet.textColor);
+    }
+
+    // 2. Solution 2 progression across Soft -> Uber Strict:
+    //    - Normal-tier Sets (Isenhart's Breast Plate 'brs') visible in Soft..Strict, hidden in Uber Strict
+    //    - Set Rings/Amulets ('rin'/'amu') stay visible (Tier A/B) even in Uber Strict
+    //    - Drop-only Warlord's Set bases ('ful') stay Tier S even in Uber Strict
+    const presetOrder: StrictnessId[] = ['soft', 'regular', 'semi-strict', 'strict', 'endgame'];
+    const normalSetVis = presetOrder.map(s =>
+      simulateItemDrop(compileV2Filter(createDefaultV2Config(s)), catalog, {
+        id: 'brs-set',
+        code: 'brs',
+        name: 'Breast Plate',
+        kind: 'armor',
+        tier: 'normal',
+        rarity: 'set',
+        sockets: 0,
+        ethereal: false,
+        identified: false,
+        itemLevel: 86,
+        quantity: 1
+      }).show
+    );
+    expect(normalSetVis).toEqual([true, true, true, true, false]);
+
+    const uberFilter = compileV2Filter(createDefaultV2Config('endgame'));
+    expect(
+      simulateItemDrop(uberFilter, catalog, {
+        id: 'uber-set-amu',
+        code: 'amu',
+        name: 'Amulet',
+        kind: 'misc',
+        rarity: 'set',
+        sockets: 0,
+        ethereal: false,
+        identified: false,
+        itemLevel: 88,
+        quantity: 1
+      }).show
+    ).toBe(true);
+    expect(
+      simulateItemDrop(uberFilter, catalog, {
+        id: 'uber-warlord-set',
+        code: 'ful',
+        name: 'Full Plate Mail',
+        kind: 'armor',
+        tier: 'normal',
+        rarity: 'set',
+        sockets: 0,
+        ethereal: false,
+        identified: false,
+        itemLevel: 88,
+        quantity: 1
+      }).show
+    ).toBe(true);
+
+    // 3. Individual rarityTierStyleOverrides customize Set independently of Unique (even on Tier S!) and round-trip cleanly
+    const customRarityCfg = createDefaultV2Config('strict', 'filterblade');
+    customRarityCfg.rarityTierStyleOverrides = {
+      set: {
+        S: {
+          backgroundColor: 'RGBA(4, 38, 16, 0.96)',
+          borderColor: 'RGBA(60, 255, 120, 1)',
+          textColor: 'RGBA(210, 255, 225, 1)'
+        }
+      }
+    };
+    const customCompiled = compileV2Filter(customRarityCfg);
+    expect(M.validateFilter(customCompiled, catalog).errors).toEqual([]);
+
+    const roundTripped = extractV2ConfigFromFilter(customCompiled)!;
+    expect(roundTripped.rarityTierStyleOverrides.set?.S).toEqual({
+      backgroundColor: 'RGBA(4, 38, 16, 0.96)',
+      borderColor: 'RGBA(60, 255, 120, 1)',
+      textColor: 'RGBA(210, 255, 225, 1)'
+    });
+
+    const customUniqueS = simulateItemDrop(customCompiled, catalog, {
+      id: 'cu-s',
+      code: '7gd',
+      name: 'Colossus Blade',
+      kind: 'weapon',
+      tier: 'elite',
+      rarity: 'unique',
+      sockets: 0,
+      ethereal: false,
+      identified: false,
+      itemLevel: 88,
+      quantity: 1
+    });
+    const customSetS = simulateItemDrop(customCompiled, catalog, {
+      id: 'cs-s',
+      code: 'ful',
+      name: 'Full Plate Mail',
+      kind: 'armor',
+      tier: 'normal',
+      rarity: 'set',
+      sockets: 0,
+      ethereal: false,
+      identified: false,
+      itemLevel: 88,
+      quantity: 1
+    });
+    expect(customSetS.backgroundColor).toBe('RGBA(4, 38, 16, 0.96)');
+    expect(customUniqueS.backgroundColor).toBe('RGBA(250, 250, 250, 0.95)');
+
+    // 4. Setting only backgroundColor on Set · Tier S on a light-plate theme automatically adapts default text contrast
+    const autoContrastCfg = createDefaultV2Config('strict', 'filterblade');
+    autoContrastCfg.rarityTierStyleOverrides = {
+      set: { S: { backgroundColor: 'RGBA(4, 38, 16, 0.96)' } }
+    };
+    const autoContrastSetS = simulateItemDrop(compileV2Filter(autoContrastCfg), catalog, {
+      id: 'auto-s',
+      code: 'ful',
+      name: 'Full Plate Mail',
+      kind: 'armor',
+      tier: 'normal',
+      rarity: 'set',
+      sockets: 0,
+      ethereal: false,
+      identified: false,
+      itemLevel: 88,
+      quantity: 1
+    });
+    expect(M.parseRgba(autoContrastSetS.textColor)!.g).toBeGreaterThan(220);
+
+    // 5. Unique campaign quest drops (e.g. Staff of Kings 'msf', Khalim's Will 'qf2') stay Tier A even if uniq-normal is HIDE
+    const hideNormUniqCfg = createDefaultV2Config('endgame', 'reimagined');
+    hideNormUniqCfg.itemOverrides['uniq-normal'] = 'HIDE';
+    const hideNormUniqFilter = compileV2Filter(hideNormUniqCfg);
+    for (const qCode of ['msf', 'hst', 'qf2', 'hfh', 'vip'] as const) {
+      const qSim = simulateItemDrop(hideNormUniqFilter, catalog, {
+        id: `q-${qCode}`,
+        code: qCode,
+        name: qCode,
+        kind: qCode === 'vip' ? 'misc' : 'weapon',
+        rarity: 'unique',
+        sockets: 0,
+        ethereal: false,
+        identified: true,
+        itemLevel: 25,
+        quantity: 1
+      });
+      expect(qSim.show, `Unique quest item ${qCode} must stay visible`).toBe(true);
+      expect(qSim.matchedCategory).toBe('misc');
+    }
+
+    // 6. baseSettings rules honor rarityTierStyleOverrides.base, and resolveTierableItemBases filters Set bases accurately
+    const baseStyleCfg = createDefaultV2Config('strict', 'reimagined');
+    baseStyleCfg.rarityTierStyleOverrides = {
+      base: { C: { textColor: 'RGBA(212, 234, 255, 1)' } }
+    };
+    const wireFleeceSim = simulateItemDrop(compileV2Filter(baseStyleCfg), catalog, {
+      id: 'sim-utu',
+      code: 'utu',
+      name: 'Wire Fleece',
+      kind: 'armor',
+      tier: 'elite',
+      rarity: 'normal',
+      sockets: 3,
+      ethereal: false,
+      identified: true,
+      itemLevel: 85,
+      quantity: 1
+    });
+    expect(wireFleeceSim.textColor).toBe('RGBA(212, 234, 255, 1)');
+
+    const setDropOnlyItem = TIERABLE_ITEMS.find(i => i.id === 'set-drop-only')!;
+    const setDropOnlyBases = resolveTierableItemBases(setDropOnlyItem, catalog);
+    expect(setDropOnlyBases.every(b => b.notableNames && !b.notableNames.includes('Goldskin') && !b.notableNames.includes('Frostburn'))).toBe(true);
+    const setJewelryItem = TIERABLE_ITEMS.find(i => i.id === 'set-jewelry')!;
+    const setJewelryCodes = resolveTierableItemBases(setJewelryItem, catalog).map(b => b.code);
+    expect(setJewelryCodes).not.toContain('vip');
+    expect(setJewelryCodes).not.toContain('cm1');
+
+    // 7. m:1 filter migration carries over split Amazon class overrides and pre-split uniq-* overrides
+    const m1Cfg = createDefaultV2Config('strict', 'reimagined');
+    selectClassForBuild(m1Cfg, 'Sorceress');
+    delete m1Cfg.itemOverrides['equip-class-amazon-bows'];
+    delete m1Cfg.itemOverrides['equip-class-amazon-spears'];
+    m1Cfg.itemOverrides['uniq-elite'] = 'S';
+    const m1Doc = compileV2Filter(m1Cfg);
+    const lastBlock = m1Doc.rules[m1Doc.rules.length - 1]!.show!;
+    const m1Obj = JSON.parse(
+      Buffer.from(lastBlock.ruleName!.slice('Keep everything else visible [PyreV2:'.length, -1), 'base64').toString('utf8')
+    );
+    m1Obj.m = 1;
+    delete m1Obj.io['set-elite'];
+    lastBlock.ruleName = `Keep everything else visible [PyreV2:${Buffer.from(JSON.stringify(m1Obj), 'utf8').toString('base64')}]`;
+
+    const migratedM1 = extractV2ConfigWithMeta(m1Doc)!;
+    expect(migratedM1.migrated).toBe(true);
+    expect(migratedM1.config.itemOverrides['equip-class-amazon-bows']).toBe('HIDE');
+    expect(migratedM1.config.itemOverrides['equip-class-amazon-spears']).toBe('HIDE');
+    expect(migratedM1.config.itemOverrides['set-elite']).toBe('S');
   });
 });

@@ -48,26 +48,33 @@ describe('conservative starter presets', () => {
     expect(filter.rules.at(-1)).toEqual({ show: { ruleName: 'Keep everything else visible' } });
   });
 
-  it('prioritizes drop-only lvl 107+ unique and lvl 100 set bases above general uniques and sets', () => {
-    const dropOnlyBases = [
+  it('prioritizes drop-only lvl 107+ unique and lvl 100 set bases above general uniques and sets with distinct gold vs emerald colors', () => {
+    const dropOnlyUniqueBases = [
       'cm1', 'cjw', '7gd', '7fb', '7gs', '7wa', 'obb', 'pae', 'paf', 'ned', 'nee', 'bae',
       'uul', 'uth', 'utp', 'upl', 'uhn', 'urs', 'aqv', 'cqv', 'ame', 'amf', 'amb', 'drb',
-      'drf', '7ar', '7cs', '7wb',
-      'hgl', 'ghm', 'ful', 'hbt', 'hbl'
+      'drf', '7ar', '7cs', '7wb'
     ];
+    const dropOnlySetBases = ['hgl', 'ghm', 'ful', 'hbt', 'hbl'];
     for (const id of presets.map(p => p.id)) {
-      for (const code of dropOnlyBases) {
+      for (const code of dropOnlyUniqueBases) {
         const uniqueRule = matchingRule(id, code, 'unique')!;
-        const setRule = matchingRule(id, code, 'set')!;
-        expect(blockOf(uniqueRule).ruleName).toBe('Drop-only unique and set bases');
-        expect(blockOf(setRule).ruleName).toBe('Drop-only unique and set bases');
+        expect(blockOf(uniqueRule).ruleName).toBe('Drop-only unique bases');
       }
-      // Non-drop-only unique/set bases match the general "Uniques and sets" rule (#2)
+      for (const code of dropOnlySetBases) {
+        const setRule = matchingRule(id, code, 'set')!;
+        expect(blockOf(setRule).ruleName).toBe('Drop-only set bases');
+        expect(blockOf(setRule).tooltip?.borderColor).not.toBe(blockOf(matchingRule(id, '7gd', 'unique')!).tooltip?.borderColor);
+      }
+      // Non-drop-only unique & set bases match separate Gold "Uniques" and Emerald "Sets" rules
       const shakoRule = matchingRule(id, 'uap', 'unique')!;
-      expect(blockOf(shakoRule).ruleName).toBe('Uniques and sets');
+      const talMaskRule = matchingRule(id, 'xsk', 'set')!;
+      expect(blockOf(shakoRule).ruleName).toBe('Uniques');
+      expect(blockOf(talMaskRule).ruleName).toBe('Sets');
+      expect(blockOf(shakoRule).tooltip?.borderColor).not.toBe(blockOf(talMaskRule).tooltip?.borderColor);
+      expect(blockOf(shakoRule).tooltip?.textColor).not.toBe(blockOf(talMaskRule).tooltip?.textColor);
       // Normal/magic drops of drop-only bases do not falsely trigger the drop-only unique/set callout
       const normalColossalSword = matchingRule(id, '7fb', 'normal')!;
-      expect(blockOf(normalColossalSword).ruleName).not.toBe('Drop-only unique and set bases');
+      expect(blockOf(normalColossalSword).ruleName).not.toBe('Drop-only unique bases');
     }
   });
 
@@ -81,8 +88,9 @@ describe('conservative starter presets', () => {
       for (const code of ['r01', 'r19', 's01', 's19']) {
         expect(blockOf(matchingRule(id, code)!).ruleName).toBe('Runes, gems and Reimagined currencies');
       }
-      // Colossal jewels, sunder charms, and torches match before general Charms, jewels and jewelry
+      // Colossal jewels, sunder charms, and torches match before general Uniques and general Charms
       expect(blockOf(matchingRule(id, 'cjw', 'magic')!).ruleName).toBe('Colossal jewels, sunder charms and torches');
+      expect(blockOf(matchingRule(id, 'cs2', 'unique')!).ruleName).toBe('Colossal jewels, sunder charms and torches');
       // Power orbs and Gem Clusters match their dedicated callout
       for (const code of ['ka3', 'oos', 'ooc', '1or', '1gc']) {
         expect(blockOf(matchingRule(id, code)!).ruleName).toBe('Power orbs and Gem Clusters');
@@ -124,7 +132,7 @@ describe('conservative starter presets', () => {
   it('creates independent copies without changing templates or another filter', () => {
     const first = createPreset('starter'), second = createPreset('starter');
     first.rules[0].show!.ruleName = 'Edited';
-    expect(second.rules[0].show!.ruleName).toBe('Drop-only unique and set bases');
+    expect(second.rules[0].show!.ruleName).toBe('Drop-only unique bases');
     expect(M.RARITIES).toContain('crafted');
     expect(M.validateFilter({ version: 3, rules: [{ show: { conditions: { rarity: 'crafted' } } }] }, catalog).errors).toEqual([]);
   });
