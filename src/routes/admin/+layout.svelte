@@ -13,7 +13,7 @@
     { href: '/admin/global-chat', label: 'Global chat', detail: 'Chat live with players in game' },
     { href: '/admin/feedback', label: 'Feedback', detail: 'Bug reports and suggestions' },
     { href: '/admin/chat-bans', label: 'Chat moderation', detail: 'Time out or ban players from global chat' },
-    { href: '/admin/portals', label: 'Portal rewards', detail: 'Individual grants and supporter packs' },
+    { href: '/admin/portals', label: 'Supporter rewards', detail: 'Portal grants, supporter packs and store products' },
     {
       href: '/admin/ladders',
       label: 'Ladders',

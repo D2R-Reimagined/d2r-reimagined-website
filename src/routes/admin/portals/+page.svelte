@@ -3,6 +3,7 @@
   import { apiRequest } from '#lib/auth.js';
   import { searchAdminUsers, type AdminUser } from '#lib/admin.js';
   import NormalCompletionRewards from '#lib/components/NormalCompletionRewards.svelte';
+  import { fetchSupportRewards, rewardChangeSummary, rewardKindLabel, saveSupportReward, type SupportRewardProduct } from '#lib/admin-support.js';
   type Pack = { id: string; name: string; isActive: boolean; portalIds: string[]; chatBadge?: string | null };
   // The global chat badges a pack can grant (API ChatBadges, lowest to highest).
   const chatBadges = [
@@ -17,6 +18,27 @@
   let portalIds = $state<string[]>([]), packIds = $state<string[]>([]);
   let editPackId = $state(''), packName = $state(''), packActive = $state(true), packPortals = $state<string[]>([]), packBadge = $state('');
   let busy = $state(false), loading = $state(true), error = $state(''), notice = $state('');
+  // Store products and the pack each grants; `rewardPicks` is each row's unsaved choice.
+  let rewards = $state<SupportRewardProduct[]>([]), rewardPicks = $state<Record<string, string>>({}), rewardsError = $state('');
+  async function loadRewards() {
+    try {
+      rewards = await fetchSupportRewards();
+      rewardPicks = Object.fromEntries(rewards.map(product => [product.productId, product.reward?.supporterPackId ?? '']));
+      rewardsError = '';
+    } catch (e) { rewardsError = problem(e); }
+  }
+  async function saveReward(product: SupportRewardProduct) {
+    const packId = rewardPicks[product.productId] ?? '';
+    const summary = rewardChangeSummary(product, packId, packs.find(pack => pack.id === packId)?.name ?? null);
+    if (!summary || busy || !confirm(summary.confirm)) return;
+    busy = true; error = ''; notice = '';
+    try {
+      await saveSupportReward(product.productId, packId);
+      await loadRewards();
+      if (userId) await loadAccess();
+      notice = summary.done;
+    } catch (e) { error = problem(e); } finally { busy = false; }
+  }
   let selectionVersion = 0, searchVersion = 0;
   const base = '/admin/portal-entitlements';
   const problem = (e: unknown) => e instanceof Error ? e.message : 'Could not save changes.';
@@ -71,6 +93,7 @@
         method: editPackId ? 'PUT' : 'POST', body: JSON.stringify({ name: packName, isActive: packActive, portalIds: packPortals, chatBadge: packBadge || null })
       }, true);
       packs = await apiRequest<Pack[]>(base + '/packs', {}, true);
+      await loadRewards();
       if (userId) await loadAccess();
       edit(); notice = 'Pack saved. Its active portal grants apply to every owner.';
     } catch (e) { error = problem(e); } finally { busy = false; }
@@ -78,12 +101,13 @@
   onMount(async () => {
     try { [packs, catalog] = await Promise.all([apiRequest<Pack[]>(base + '/packs', {}, true), apiRequest<string[]>(base + '/catalog', {}, true)]); }
     catch (e) { error = problem(e); } finally { loading = false; }
+    await loadRewards();
   });
 </script>
 
-<svelte:head><title>Portal rewards | D2R Reimagined</title></svelte:head>
-<h2 class="display-text text-3xl text-parchment-50">Portal rewards</h2>
-<p class="mt-2 mb-6 text-parchment-300">Supporter tier colors, individual rewards, and owned packs add together. Ember requires an individual reward or a pack.</p>
+<svelte:head><title>Supporter rewards | D2R Reimagined</title></svelte:head>
+<h2 class="display-text text-3xl text-parchment-50">Supporter rewards</h2>
+<p class="mt-2 mb-6 text-parchment-300">Supporter tier colors, individual rewards, and owned packs add together. Ember requires an individual reward or a pack. Store purchases grant the pack their product is mapped to below.</p>
 {#if error}<p role="alert" class="mb-4 text-requirement">{error}</p>{/if}
 {#if notice}<p role="status" class="mb-4 text-set">{notice}</p>{/if}
 {#if loading}<p>Loading portal rewards…</p>
@@ -164,5 +188,49 @@
       <button class="rounded border border-ember-400 px-4 py-2" type="submit">{editPackId ? 'Save pack' : 'Create pack'}</button>
     </fieldset>
   </form>
+</section>
+<section class="panel mt-6 rounded-lg p-6">
+  <h3 class="display-text text-xl mb-2">Store products</h3>
+  <p class="text-sm text-parchment-300 mb-4">
+    Each Stripe product grants the pack it is mapped to, to every buyer whose purchase is in good standing, past buyers included.
+    A product with no pack grants nothing.
+  </p>
+  {#if rewardsError}
+    <p role="alert" class="text-requirement">{rewardsError}</p>
+  {:else if rewards.length === 0}
+    <p class="text-parchment-300">No products are on sale or have been bought yet.</p>
+  {:else}
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[40rem] text-left text-sm">
+        <thead class="border-b border-parchment-300/15 text-xs uppercase tracking-wider text-parchment-300">
+          <tr><th class="px-3 py-2 font-normal">Product</th><th class="px-3 py-2 font-normal">Type</th><th class="px-3 py-2 font-normal">Owners</th><th class="px-3 py-2 font-normal">Grants pack</th><th class="px-3 py-2"></th></tr>
+        </thead>
+        <tbody>
+          {#each rewards as product (product.productId)}
+            {@const changed = (rewardPicks[product.productId] ?? '') !== (product.reward?.supporterPackId ?? '')}
+            <tr class="border-b border-parchment-300/10 last:border-0">
+              <td class="px-3 py-3">
+                <span class="text-parchment-50">{product.productName}</span>
+                <span class="block font-mono text-xs text-parchment-300">{product.productId}</span>
+              </td>
+              <td class="px-3 py-3 text-parchment-200">{rewardKindLabel(product.kind)}{product.onSale ? '' : ' · not on sale'}</td>
+              <td class="px-3 py-3 text-parchment-200">{product.currentOwners}</td>
+              <td class="px-3 py-3">
+                <select class="w-full rounded bg-black/40 p-2" bind:value={rewardPicks[product.productId]} disabled={busy} aria-label={`Pack for ${product.productName}`}>
+                  <option value="">None</option>
+                  {#each packs as pack (pack.id)}<option value={pack.id}>{pack.name}{pack.isActive ? '' : ' (inactive)'}</option>{/each}
+                </select>
+                {#if product.reward && !product.reward.isActive}<span class="mt-1 block text-xs text-requirement">Pack is inactive, so it grants nothing.</span>{/if}
+              </td>
+              <td class="px-3 py-3 text-right">
+                <button class="rounded border border-ember-400 px-3 py-2 disabled:opacity-40" disabled={busy || !changed} onclick={() => void saveReward(product)}>Save</button>
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
+    {#if packs.length === 0}<p class="mt-3 text-sm text-parchment-300">Create a pack above first, then map products to it.</p>{/if}
+  {/if}
 </section>
 {/if}
