@@ -49,7 +49,10 @@
     compileV2Filter,
     createDefaultV2Config,
     effectiveItemTier,
+    enableAllFamiliesForBuild,
     extractV2ConfigFromFilter,
+    extractV2ConfigWithMeta,
+    sanitizeFilterFilename,
     selectArchetypeForBuild,
     selectClassForBuild,
     toggleEquipmentFamily,
@@ -78,7 +81,8 @@
   let activeTab = $state<WorkspaceTab>('overview');
   let activeCategory = $state<CategoryId>('runes');
   let customizerSearch = $state('');
-  let showLibraryDrawer = $state(false);
+  let showLibraryDrawer = $state(true);
+  let customNamedIds = new Set<string>();
 
   // Library & persistence state
   let entries = $state<FilterDraft[]>([]);
@@ -97,6 +101,7 @@
   let timer: ReturnType<typeof setTimeout> | undefined;
   let pending: LocalLibrary | undefined;
   let writes = Promise.resolve();
+  const validDrafts = new Map<string, FilterDraft>();
   let importInput = $state<HTMLInputElement>();
 
   // Catalog state
@@ -106,7 +111,7 @@
   let catalogLoading = $state(true);
   let catalogReq = 0;
 
-  // Active FilterBlade V2 config state
+  // Active V2 config state
   let v2Config = $state<V2Config>(createDefaultV2Config('semi-strict', 'reimagined'));
   let isLegacyFilter = $state(false);
   let selectedCustomRuleIdx = $state(0);
@@ -116,9 +121,10 @@
   const activeStrictnessInfo = $derived(
     STRICTNESS_PRESETS.find(s => s.id === v2Config.strictness) ?? STRICTNESS_PRESETS[2]
   );
-  const validation = $derived(
-    active ? M.validateFilter(active.document, catalog) : { errors: [], warnings: [], bytes: 0, json: '{}' }
+  const compiledDocument = $derived(
+    viewingShared ? viewingShared.document : active ? active.document : compileV2Filter(v2Config)
   );
+  const validation = $derived(M.validateFilter(compiledDocument, catalog));
 
   const cards = $derived(
     [
@@ -154,7 +160,8 @@
     bases: v2Config.customBases.length,
     styles:
       Object.keys(v2Config.tierStyleOverrides).length +
-      Object.keys(v2Config.categoryTierStyleOverrides).length,
+      Object.keys(v2Config.categoryTierStyleOverrides).length +
+      Object.keys(v2Config.rarityTierStyleOverrides ?? {}).length,
     customRules: v2Config.customPriorityRules.length
   });
 
@@ -183,12 +190,36 @@
         : v2Path(pendingLink)
   );
 
-  function syncV2FromDraft(draft: FilterDraft | undefined) {
+  const AUTO_STRICTNESS_NAME_RE = /^My (Soft|Regular|Semi-Strict|Strict|Uber Strict) Filter$/i;
+
+  function defaultStrictnessFilterName(strictness: StrictnessId = v2Config.strictness): string {
+    const presetInfo = STRICTNESS_PRESETS.find(s => s.id === strictness) ?? STRICTNESS_PRESETS[2];
+    return `My ${presetInfo.shortLabel} Filter`;
+  }
+
+  const downloadFilename = $derived(
+    sanitizeFilterFilename(
+      viewingShared?.name ?? active?.name ?? defaultStrictnessFilterName(v2Config.strictness)
+    )
+  );
+
+  function isAutoFilterName(draft: FilterDraft): boolean {
+    if (draft.remoteId || customNamedIds.has(draft.id)) return false;
+    return AUTO_STRICTNESS_NAME_RE.test(draft.name.trim());
+  }
+
+  function syncV2FromDraft(draft: FilterDraft | undefined, recompile = true) {
     if (!draft) return;
-    const extracted = extractV2ConfigFromFilter(draft.document);
-    if (extracted) {
-      v2Config = extracted;
+    const meta = extractV2ConfigWithMeta(draft.document);
+    if (meta) {
+      v2Config = meta.config;
       isLegacyFilter = false;
+      if (recompile && !viewingShared && (!draft.remoteId || meta.migrated)) {
+        draft.document = compileV2Filter(v2Config);
+        if (draft.remoteId && meta.migrated && isDirty(draft)) {
+          notice = 'Updated filter to the latest v2 defaults — click Save to Account to sync.';
+        }
+      }
     } else {
       // Legacy v1 filter: preserve its rules in customPriorityRules or let user convert
       isLegacyFilter = true;
@@ -197,11 +228,57 @@
     selectedCustomRuleIdx = v2Config.customPriorityRules.length ? 0 : -1;
   }
 
+  function rejectSharedEdit(): boolean {
+    if (!viewingShared) return false;
+    const extracted = extractV2ConfigFromFilter(viewingShared.document);
+    if (extracted) v2Config = extracted;
+    notice = 'Click "Copy to My Filters & Edit" above to customize this shared filter.';
+    return true;
+  }
+
   function applyV2Changes() {
-    if (!active) return;
-    isLegacyFilter = false;
+    if (rejectSharedEdit()) return;
+    if (!active) {
+      if (entries.length >= 50) {
+        error = 'Your library holds up to 50 filters. Delete an old filter first.';
+        return;
+      }
+      const label = defaultStrictnessFilterName(v2Config.strictness);
+      const draft = newDraft(label, compileV2Filter(v2Config));
+      entries.push(draft);
+      lastId = draft.id;
+      pendingLink = null;
+      isLegacyFilter = false;
+      return;
+    }
+    if (isLegacyFilter) {
+      const preserved = M.clone(
+        active.document.rules.filter(r => {
+          const b = r.show ?? r.hide;
+          return b?.conditions && Object.keys(b.conditions).length > 0;
+        })
+      );
+      if (preserved.length > 0) {
+        v2Config.customPriorityRules = [...v2Config.customPriorityRules, ...preserved];
+      }
+      isLegacyFilter = false;
+      notice = 'Upgraded classic filter to the v2 Customizer and kept your existing rules in Custom Priority Rules.';
+    }
     active.document = compileV2Filter(v2Config);
     active.updatedAt = Date.now();
+  }
+
+  function selectStrictness(strictness: StrictnessId) {
+    if (rejectSharedEdit()) return;
+    if (!active && entries.length >= 50) {
+      error = 'Your library holds up to 50 filters. Delete an old filter first.';
+      return;
+    }
+    v2Config.strictness = strictness;
+    if (active && isAutoFilterName(active)) {
+      active.name = defaultStrictnessFilterName(strictness);
+    }
+    applyV2Changes();
   }
 
   function convertLegacyToV2(keepExistingRulesAsCustom: boolean) {
@@ -220,8 +297,8 @@
     active.document = compileV2Filter(v2Config);
     active.updatedAt = Date.now();
     notice = keepExistingRulesAsCustom
-      ? 'Converted to FilterBlade v2 and kept your existing rules in Custom Priority Rules.'
-      : 'Reset filter to FilterBlade v2 Semi-Strict preset.';
+      ? 'Converted to the v2 Customizer and kept your existing rules in Custom Priority Rules.'
+      : 'Reset filter to the v2 Semi-Strict preset.';
   }
 
   function flush() {
@@ -233,7 +310,9 @@
       .then(() => saveLibrary(snapshot))
       .then(() => {
         if (snapshot.key === `library:${owner}` && !pending) {
-          localStatus = 'Saved in this browser';
+          localStatus = entries.some(entry => M.validateFilter(entry.document).errors.length)
+            ? 'Fix filter errors — last valid browser copy retained'
+            : 'Saved in this browser';
         }
       })
       .catch(() => {
@@ -293,8 +372,21 @@
       entries: JSON.parse(JSON.stringify(entries)),
       lastId
     };
+    const invalid = snapshot.entries.some(entry => M.validateFilter(entry.document).errors.length > 0);
+    snapshot.entries = snapshot.entries.flatMap(entry => {
+      if (!M.validateFilter(entry.document).errors.length) {
+        validDrafts.set(entry.id, structuredClone(entry));
+        return [entry];
+      }
+      const previous = validDrafts.get(entry.id);
+      return previous ? [previous] : [];
+    });
     pending = snapshot;
-    untrack(() => (localStatus = 'Saving in this browser…'));
+    untrack(() => {
+      localStatus = invalid
+        ? 'Fix filter errors — last valid browser copy retained'
+        : 'Saving in this browser…';
+    });
     timer = setTimeout(() => void flush(), 300);
     return () => {
       if (timer) clearTimeout(timer);
@@ -332,6 +424,8 @@
     loaded = false;
     busy = false;
     viewingShared = null;
+    customNamedIds.clear();
+    validDrafts.clear();
     entries = [];
     remote = [];
     lastId = null;
@@ -342,11 +436,16 @@
       const saved = await loadLibrary(identity);
       if (req !== epoch) return;
       entries = saved.entries.filter(entry => !M.validateFilter(entry.document).errors.length);
-      lastId = entries.some(entry => entry.id === saved.lastId) ? saved.lastId : entries[0]?.id ?? null;
+      for (const entry of entries) validDrafts.set(entry.id, structuredClone(entry));
     } catch {
       if (req === epoch) localStatus = 'Browser save unavailable — download a backup';
     }
     if (req !== epoch) return;
+
+    const untouchedDefaultKey = contentKey(
+      'My Semi-Strict Filter',
+      compileV2Filter(createDefaultV2Config('semi-strict', 'reimagined'))
+    );
 
     if (identity !== 'guest') {
       try {
@@ -357,18 +456,15 @@
           if (!entry.remoteId) return entry;
           const row = remote.find(r => r.id === entry.remoteId);
           return row
-            ? { ...entry, isPublic: row.isPublic }
+            ? { ...entry, revision: row.revision, isPublic: row.isPublic }
             : { ...entry, remoteId: undefined, revision: 0, savedContent: undefined, isPublic: false };
         });
-        const localLast = entries.find(e => e.id === lastId);
-        const latest = remote.find(r => r.id === library.lastUsedId);
-        if (latest && (!localLast || Date.parse(latest.lastUsedAtUtc) >= localLast.lastUsedAt)) {
-          const details = await getFilter(latest.id);
-          if (req !== epoch) return;
-          const cached = entries.find(e => e.remoteId === latest.id);
-          const draft = cached && isDirty(cached) ? cached : fromRemote(details, cached);
-          entries = [...entries.filter(e => e.id !== draft.id), draft];
-          lastId = draft.id;
+        if (remote.length > 0) {
+          entries = entries.filter(
+            entry =>
+              entry.remoteId ||
+              contentKey(entry.name, entry.document) !== untouchedDefaultKey
+          );
         }
       } catch {
         // Offline or cloud unavailable: keep browser library active
@@ -378,49 +474,104 @@
     if (req !== epoch) return;
 
     // Resolve shared/private link if present
+    let openedFromLink = false;
     if (pendingLink) {
       const id = pendingLink;
       const cached = entries.find(e => e.remoteId === id);
       if (account && (cached || remote.some(r => r.id === id))) {
         await openFilter(cached?.id ?? id, !!cached, id, true);
-        pendingLink = null;
+        if (req !== epoch) return;
+        if (lastId !== null) {
+          pendingLink = null;
+          openedFromLink = true;
+        }
       } else if (shared?.id.toLowerCase() === id.toLowerCase()) {
         viewingShared = shared;
         const extracted = extractV2ConfigFromFilter(shared.document);
-        if (extracted) v2Config = extracted;
-      } else if (sharedError) {
-        error = sharedError;
+        if (extracted) {
+          v2Config = extracted;
+          isLegacyFilter = false;
+        } else {
+          isLegacyFilter = true;
+        }
+        openedFromLink = true;
+      } else {
+        error = sharedError || 'This loot filter is private or no longer available.';
       }
     }
 
-    // If no filter exists yet in browser/account, auto-create a FilterBlade Semi-Strict filter!
-    if (!entries.length && !viewingShared) {
-      const initialCfg = createDefaultV2Config('semi-strict', 'reimagined');
-      const draft = newDraft('My Semi-Strict Filter', compileV2Filter(initialCfg));
-      entries = [draft];
-      lastId = draft.id;
+    if (!openedFromLink && !viewingShared) {
+      const singleUntouchedStarter =
+        entries.length === 1 &&
+        !remote.length &&
+        !entries[0].remoteId &&
+        contentKey(entries[0].name, entries[0].document) === untouchedDefaultKey;
+
+      if (!entries.length && !remote.length) {
+        // First-time filter creation: start with a default Semi-Strict filter
+        const initialCfg = createDefaultV2Config('semi-strict', 'reimagined');
+        const draft = newDraft(defaultStrictnessFilterName('semi-strict'), compileV2Filter(initialCfg));
+        entries = [draft];
+        lastId = draft.id;
+        syncV2FromDraft(draft);
+      } else if (singleUntouchedStarter) {
+        // Reloading right after first-time starter creation: keep the starter filter active
+        lastId = entries[0].id;
+        syncV2FromDraft(entries[0]);
+      } else {
+        // Existing filters exist: do not pre-select or risk mutating a saved filter by default
+        lastId = null;
+        isLegacyFilter = false;
+        v2Config = createDefaultV2Config('semi-strict', 'reimagined');
+        selectedCustomRuleIdx = -1;
+      }
     }
 
-    syncV2FromDraft(entries.find(e => e.id === lastId));
     loaded = true;
     localStatus = 'Saved in this browser';
   }
 
-  async function createNewV2Filter(strictness: StrictnessId = v2Config.strictness, name?: string) {
+  async function createNewV2Filter(strictness: StrictnessId = 'semi-strict', name?: string) {
     if (entries.length >= 50) {
       error = 'Your library holds up to 50 filters. Delete an old filter first.';
       return;
     }
     const presetInfo = STRICTNESS_PRESETS.find(s => s.id === strictness) ?? STRICTNESS_PRESETS[2];
     const cfg = createDefaultV2Config(strictness, v2Config.theme);
-    const label = (name?.trim() || `My ${presetInfo.shortLabel} Filter`).slice(0, 80);
+    const trimmedCustom = name?.trim();
+    const label = (trimmedCustom || defaultStrictnessFilterName(strictness)).slice(0, 80);
     const draft = newDraft(label, compileV2Filter(cfg));
+    if (trimmedCustom) customNamedIds.add(draft.id);
     entries.push(draft);
     lastId = draft.id;
     pendingLink = null;
     viewingShared = null;
     syncV2FromDraft(draft);
     notice = `Created new ${presetInfo.name} filter.`;
+  }
+
+  async function revertAccountFilter() {
+    if (!active?.remoteId || busy) return;
+    const req = epoch;
+    const id = active.id;
+    const remoteId = active.remoteId;
+    busy = true;
+    error = '';
+    notice = '';
+    try {
+      const details = await getFilter(remoteId);
+      if (req !== epoch) return;
+      const draft = fromRemote(details, entries.find(e => e.id === id));
+      entries = [...entries.filter(e => e.id !== id), draft];
+      lastId = draft.id;
+      remote = [details, ...remote.filter(r => r.id !== remoteId)];
+      syncV2FromDraft(draft, false);
+      notice = 'Discarded unsaved edits and restored the saved account version.';
+    } catch (err) {
+      if (req === epoch) error = err instanceof Error ? err.message : 'Could not reload saved account version.';
+    } finally {
+      if (req === epoch) busy = false;
+    }
   }
 
   async function openFilter(id: string, local: boolean, remoteId?: string, fromLink = false) {
@@ -448,7 +599,7 @@
       viewingShared = null;
       syncV2FromDraft(draft);
     } catch (err) {
-      error = err instanceof Error ? err.message : 'Could not open filter.';
+      if (req === epoch) error = err instanceof Error ? err.message : 'Could not open filter.';
     } finally {
       if (req === epoch) busy = false;
     }
@@ -494,7 +645,7 @@
       remote = [details, ...remote.filter(r => r.id !== details.id)];
       notice = 'Saved to your account. Select it in the Reimagined Launcher to apply in game.';
     } catch (err) {
-      error = err instanceof Error ? err.message : 'Could not save to account.';
+      if (req === epoch) error = err instanceof Error ? err.message : 'Could not save to account.';
     } finally {
       if (req === epoch) busy = false;
     }
@@ -506,22 +657,32 @@
     busy = true;
     error = '';
     try {
-      if (card.remoteId) await deleteFilter(card.remoteId, card.revision);
+      if (card.remoteId) {
+        const rev = remote.find(r => r.id === card.remoteId)?.revision ?? card.revision;
+        await deleteFilter(card.remoteId, rev);
+      }
       if (req !== epoch) return;
+      customNamedIds.delete(card.id);
+      validDrafts.delete(card.id);
       entries = entries.filter(e => e.id !== card.id);
       remote = remote.filter(r => r.id !== card.remoteId);
       if (lastId === card.id) {
-        if (!entries.length) {
+        if (!entries.length && !remote.length) {
           const initialCfg = createDefaultV2Config('semi-strict', 'reimagined');
-          const draft = newDraft('My Semi-Strict Filter', compileV2Filter(initialCfg));
+          const draft = newDraft(defaultStrictnessFilterName('semi-strict'), compileV2Filter(initialCfg));
           entries = [draft];
+          lastId = draft.id;
+          syncV2FromDraft(draft);
+        } else {
+          lastId = null;
+          isLegacyFilter = false;
+          v2Config = createDefaultV2Config('semi-strict', 'reimagined');
+          selectedCustomRuleIdx = -1;
         }
-        lastId = entries[0]?.id ?? null;
-        syncV2FromDraft(entries.find(e => e.id === lastId));
       }
       notice = 'Filter deleted.';
     } catch (err) {
-      error = err instanceof Error ? err.message : 'Could not delete filter.';
+      if (req === epoch) error = err instanceof Error ? err.message : 'Could not delete filter.';
     } finally {
       if (req === epoch) busy = false;
     }
@@ -541,7 +702,7 @@
         ? 'Filter is now Public. Anyone with the link can view or copy it.'
         : 'Filter is now Private.';
     } catch (err) {
-      error = err instanceof Error ? err.message : 'Could not change visibility.';
+      if (req === epoch) error = err instanceof Error ? err.message : 'Could not change visibility.';
     } finally {
       if (req === epoch) busy = false;
     }
@@ -558,14 +719,15 @@
   }
 
   function downloadJson() {
-    if (!active || validation.errors.length > 0) return;
+    if (validation.errors.length > 0) return;
+    const filename = downloadFilename;
     const url = URL.createObjectURL(new Blob([validation.json], { type: 'application/json' }));
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'filter.json';
+    link.download = filename;
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    notice = 'Downloaded filter.json. Place it in mods/Reimagined/d2rloader/config (or apply via the Reimagined Launcher).';
+    notice = `Downloaded "${filename}". Place it in mods/Reimagined/d2rloader/config/filter/ (or apply via the Reimagined Launcher).`;
   }
 
   async function handleFileImport(event: Event) {
@@ -573,17 +735,23 @@
     const file = input.files?.[0];
     input.value = '';
     if (!file) return;
+    if (entries.length >= 50) {
+      error = 'Your library holds up to 50 filters. Delete an old filter first.';
+      return;
+    }
     try {
       if (file.size > M.MAX_BYTES) throw new Error('Filter exceeds the 4 MiB limit.');
       const parsed = JSON.parse(await file.text()) as Filter;
       const res = M.validateFilter(parsed, catalog);
       if (res.errors.length) throw new Error(res.errors.slice(0, 3).join(' '));
       const draft = newDraft(file.name.replace(/\.json$/i, '') || 'Imported Filter', parsed);
+      customNamedIds.add(draft.id);
       entries.push(draft);
       lastId = draft.id;
+      pendingLink = null;
       viewingShared = null;
       syncV2FromDraft(draft);
-      notice = 'Imported filter.json into your library.';
+      notice = `Imported "${draft.name}" into your library.`;
     } catch (err) {
       error = `Import failed: ${err instanceof Error ? err.message : 'Invalid file'}`;
     }
@@ -591,12 +759,14 @@
 
   // Custom Priority Rules helpers (Advanced tab)
   function addCustomPriorityRule(kind: Visibility) {
+    if (rejectSharedEdit()) return;
     v2Config.customPriorityRules = [M.makeRule(kind), ...v2Config.customPriorityRules];
     selectedCustomRuleIdx = 0;
     applyV2Changes();
   }
 
   function removeCustomPriorityRule(idx: number) {
+    if (rejectSharedEdit()) return;
     v2Config.customPriorityRules.splice(idx, 1);
     v2Config.customPriorityRules = [...v2Config.customPriorityRules];
     selectedCustomRuleIdx = v2Config.customPriorityRules.length
@@ -639,40 +809,51 @@
   }
 
   function chooseBuildClass(clsId: BuildClassId) {
+    if (rejectSharedEdit()) return;
     const nextClass = v2Config.buildProfile?.selectedClass === clsId ? null : clsId;
     selectClassForBuild(v2Config, nextClass);
+    if (nextClass && activeCategory !== 'bases' && activeCategory !== 'equipment') {
+      activeCategory = 'bases';
+    }
     applyV2Changes();
   }
 
   function chooseBuildArchetype(archId: BuildArchetypeId | null) {
+    if (rejectSharedEdit()) return;
     const nextArch = archId && v2Config.buildProfile?.archetype === archId && !v2Config.buildProfile?.selectedClass ? null : archId;
     selectArchetypeForBuild(v2Config, nextArch);
+    if (nextArch && activeCategory !== 'bases' && activeCategory !== 'equipment') {
+      activeCategory = 'bases';
+    }
     applyV2Changes();
   }
 
   function handleToggleEquipmentFamily(familyId: EquipmentFamilyId) {
+    if (rejectSharedEdit()) return;
     toggleEquipmentFamily(v2Config, familyId);
     applyV2Changes();
   }
 
   function enableAllEquipmentFamilies() {
-    applyBuildCuration(v2Config, {
-      ...v2Config.buildProfile,
-      disabledFamilies: [],
-      presetId: undefined
-    });
+    if (rejectSharedEdit()) return;
+    enableAllFamiliesForBuild(v2Config);
     applyV2Changes();
   }
 
   function selectCuratedPreset(presetId: string) {
+    if (rejectSharedEdit()) return;
     const preset = applyCuratedBuildPreset(v2Config, presetId);
     if (preset) {
+      if (activeCategory !== 'bases' && activeCategory !== 'equipment') {
+        activeCategory = 'bases';
+      }
       applyV2Changes();
       notice = `Auto-adjusted filter for ${preset.title}: selected ${preset.characterClass} (${preset.archetype}) weapon types and pinned ${preset.pinnedBases.length} chase bases to Tier S.`;
     }
   }
 
   function clearBuildCuration() {
+    if (rejectSharedEdit()) return;
     applyBuildCuration(v2Config, { ...DEFAULT_BUILD_PROFILE, disabledFamilies: [] });
     v2Config.customBases = v2Config.customBases.filter(cb => !cb.id.startsWith('build-'));
     applyV2Changes();
@@ -730,10 +911,13 @@
   }
 
   async function importSiteBuildById(buildId: string) {
+    if (rejectSharedEdit()) return;
+    const req = epoch;
     siteBuildLoading = true;
     siteBuildMessage = '';
     try {
       const details: BuildDetails = await fetchBuildDetailsWithFallback(buildId);
+      if (req !== epoch) return;
       const itemKeys: { catalog: string; key: string; name?: string }[] = [];
       const proseParts: string[] = [
         details.build.title || '',
@@ -831,7 +1015,9 @@
                 const runeCode = rune.NameKey?.trim().toLocaleLowerCase();
                 if (runeCode && /^r\d{2}$/.test(runeCode)) {
                   const tierItemId = `rune-${runeCode}`;
-                  if (!v2Config.itemOverrides[tierItemId]) {
+                  const runeItem = TIERABLE_ITEMS.find(i => i.id === tierItemId);
+                  const curTier = runeItem ? effectiveItemTier(runeItem, v2Config) : 'C';
+                  if (curTier !== 'S' && curTier !== 'A') {
                     v2Config.itemOverrides[tierItemId] = 'A';
                     promotedRunesCount++;
                   }
@@ -892,9 +1078,90 @@
       </div>
     </div>
 
+    <!-- My Filters Library Section (Shown by default with compact cards) -->
+    {#if showLibraryDrawer}
+      <div class="mt-3.5 space-y-2.5 border-t border-parchment-300/15 pt-3.5">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-parchment-100">My Filters ({cards.length})</h2>
+            {#if !active && !viewingShared && cards.length > 0}
+              <span class="text-xs text-parchment-300">· Select a filter to edit or create a new one</span>
+            {/if}
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              class="trade-primary-button !px-3 !py-1 text-xs"
+              disabled={busy || entries.length >= 50}
+              onclick={() => createNewV2Filter(v2Config.strictness)}
+            >
+              + New Filter
+            </button>
+            <button
+              type="button"
+              class="trade-secondary-button !px-3 !py-1 text-xs"
+              onclick={() => importInput?.click()}
+            >
+              Import JSON
+            </button>
+            <input
+              bind:this={importInput}
+              type="file"
+              accept=".json,application/json"
+              class="hidden"
+              onchange={handleFileImport}
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          {#each cards as card (card.id)}
+            {@const isSelectedCard = card.id === lastId}
+            <div
+              class={`inline-flex max-w-xs items-center gap-2.5 rounded-md border px-2.5 py-1.5 text-xs transition-colors ${
+                isSelectedCard
+                  ? 'border-ember-400 bg-ember-950/30 shadow-sm'
+                  : 'border-parchment-300/20 bg-abyss-950 hover:border-parchment-300/45'
+              }`}
+            >
+              <button
+                type="button"
+                class="min-w-0 text-left"
+                disabled={busy}
+                onclick={() => openFilter(card.id, card.local, card.remoteId)}
+              >
+                <span class="flex items-center gap-1.5">
+                  <span class="max-w-[170px] truncate font-semibold text-parchment-50">{card.name}</span>
+                  {#if isSelectedCard}
+                    <span class="shrink-0 rounded bg-emerald-500/20 px-1.5 py-0.2 text-[10px] font-semibold text-emerald-300">
+                      Active
+                    </span>
+                  {/if}
+                </span>
+                <span class="block text-[11px] text-parchment-300">
+                  {card.ruleCount} rules · {card.remoteId ? (card.dirty ? 'Edited draft' : 'Account') : 'Browser only'}
+                </span>
+              </button>
+
+              <button
+                type="button"
+                class="shrink-0 rounded px-1 py-0.5 text-[11px] text-parchment-300/75 hover:bg-red-950/50 hover:text-requirement"
+                disabled={busy}
+                title={`Delete ${card.name}`}
+                aria-label={`Delete ${card.name}`}
+                onclick={() => removeCard(card)}
+              >
+                Delete
+              </button>
+            </div>
+          {/each}
+        </div>
+      </div>
+    {/if}
+
     <!-- Active Filter Controls Bar -->
     {#if active && !viewingShared}
-      <div class="mt-4 flex flex-wrap items-end gap-3 border-t border-parchment-300/15 pt-4">
+      <div class="mt-3.5 flex flex-wrap items-end gap-3 border-t border-parchment-300/15 pt-3.5">
         <label class="min-w-[220px] flex-1 text-xs uppercase tracking-widest text-parchment-300">
           Active Filter Name
           <input
@@ -903,7 +1170,9 @@
             disabled={busy}
             bind:value={active.name}
             oninput={() => {
-              if (active) active.updatedAt = Date.now();
+              if (!active) return;
+              customNamedIds.add(active.id);
+              active.updatedAt = Date.now();
             }}
           />
         </label>
@@ -926,6 +1195,16 @@
             >
               Save Copy
             </button>
+            {#if active.remoteId && isDirty(active)}
+              <button
+                type="button"
+                class="trade-secondary-button"
+                disabled={busy}
+                onclick={revertAccountFilter}
+              >
+                Discard Edits
+              </button>
+            {/if}
           {:else}
             <a class="trade-secondary-button" href="/profile">Sign in for Launcher Sync</a>
           {/if}
@@ -934,25 +1213,11 @@
             type="button"
             class="trade-primary-button"
             disabled={validation.errors.length > 0}
+            title={`Download as ${downloadFilename}`}
             onclick={downloadJson}
           >
-            Download filter.json
+            Download Filter (.json)
           </button>
-
-          <button
-            type="button"
-            class="trade-secondary-button"
-            onclick={() => importInput?.click()}
-          >
-            Import JSON
-          </button>
-          <input
-            bind:this={importInput}
-            type="file"
-            accept=".json,application/json"
-            class="hidden"
-            onchange={handleFileImport}
-          />
         </div>
       </div>
 
@@ -990,59 +1255,29 @@
           </div>
         {/if}
       </div>
-    {/if}
-
-    <!-- Collapsible My Filters Library Drawer -->
-    {#if showLibraryDrawer}
-      <div class="mt-4 space-y-3 border-t border-parchment-300/20 pt-4">
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <h2 class="text-lg font-bold tracking-tight text-parchment-50">Saved Filters ({cards.length})</h2>
+    {:else if !viewingShared}
+      <div class="mt-3.5 flex flex-wrap items-center justify-between gap-3 border-t border-parchment-300/15 pt-3.5 text-xs text-parchment-300">
+        <p>
+          No filter selected — click one of your filters above to edit it, or click <strong class="text-parchment-100">+ New Filter</strong> (or choose a strictness below) to start a new filter.
+        </p>
+        <div class="flex flex-wrap items-center gap-2">
           <button
             type="button"
-            class="trade-primary-button !py-1.5 text-xs"
+            class="trade-primary-button !px-3 !py-1.5 text-xs"
             disabled={busy || entries.length >= 50}
             onclick={() => createNewV2Filter(v2Config.strictness)}
           >
-            + New FilterBlade Filter
+            + New Filter
           </button>
-        </div>
-        <div class="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {#each cards as card (card.id)}
-            <div
-              class={`flex items-center justify-between gap-2 rounded border p-3 text-xs ${
-                card.id === lastId ? 'border-ember-400 bg-ember-950/20' : 'border-parchment-300/20 bg-abyss-950'
-              }`}
-            >
-              <div class="min-w-0">
-                <p class="break-words font-semibold text-parchment-50">{card.name}</p>
-                <p class="mt-0.5 text-parchment-300">
-                  {card.ruleCount} rules · {card.remoteId ? (card.dirty ? 'Edited draft' : 'Account') : 'Browser only'}
-                </p>
-              </div>
-              <div class="flex shrink-0 items-center gap-2">
-                {#if card.id !== lastId}
-                  <button
-                    type="button"
-                    class="text-ember-400 hover:underline"
-                    disabled={busy}
-                    onclick={() => openFilter(card.id, card.local, card.remoteId)}
-                  >
-                    Open
-                  </button>
-                {:else}
-                  <span class="text-emerald-300">Active</span>
-                {/if}
-                <button
-                  type="button"
-                  class="text-parchment-300 hover:text-requirement"
-                  disabled={busy}
-                  onclick={() => removeCard(card)}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          {/each}
+          <button
+            type="button"
+            class="trade-secondary-button !px-3 !py-1.5 text-xs"
+            disabled={validation.errors.length > 0}
+            title={`Download as ${downloadFilename}`}
+            onclick={downloadJson}
+          >
+            Download Filter (.json)
+          </button>
         </div>
       </div>
     {/if}
@@ -1068,9 +1303,15 @@
         <button
           type="button"
           class="trade-primary-button text-xs"
+          disabled={busy || entries.length >= 50}
           onclick={() => {
             if (!viewingShared) return;
+            if (entries.length >= 50) {
+              error = 'Your library holds up to 50 filters. Delete an old filter first.';
+              return;
+            }
             const draft = newDraft(viewingShared.name, $state.snapshot(viewingShared.document) as Filter);
+            customNamedIds.add(draft.id);
             entries.push(draft);
             lastId = draft.id;
             viewingShared = null;
@@ -1081,6 +1322,15 @@
         >
           Copy to My Filters & Edit
         </button>
+        <button
+          type="button"
+          class="trade-secondary-button text-xs"
+          disabled={validation.errors.length > 0}
+          title={`Download as ${downloadFilename}`}
+          onclick={downloadJson}
+        >
+          Download Filter (.json)
+        </button>
       </div>
     </div>
   {/if}
@@ -1090,7 +1340,7 @@
       <div>
         <strong class="text-parchment-50">Opened a Classic Rule-List Filter (“{active.name}”)</strong>
         <p class="mt-0.5 text-xs text-parchment-300">
-          This filter was created in the classic rule editor. Upgrade it to FilterBlade v2 to unlock live Strictness switching and Tier Lists.
+          This filter was created in the classic rule editor. Upgrade it to the v2 Customizer to unlock live Strictness switching and Tier Lists.
         </p>
       </div>
       <div class="flex flex-wrap gap-2">
@@ -1112,17 +1362,17 @@
     </div>
   {/if}
 
-  <!-- FilterBlade Main Navigation Tabs -->
+  <!-- Customizer Main Navigation Tabs -->
   <nav
     class="mt-6 flex flex-wrap gap-2 border-b border-parchment-300/20 pb-3"
-    aria-label="FilterBlade sections"
+    aria-label="Loot filter customizer sections"
   >
     {#each [
       { id: 'overview', label: '1. Overview & Strictness', badge: activeStrictnessInfo.shortLabel },
       { id: 'customize', label: '2. Customize Tiers & Bases', badge: `${overrideCounts.items + overrideCounts.bases} edits` },
       { id: 'style', label: '3. Style & Sounds', badge: THEME_PRESETS[v2Config.theme]?.name.split(' ')[0] },
       { id: 'simulate', label: '4. Simulate & Test Loot', badge: 'Live' },
-      { id: 'advanced', label: '5. Advanced / Raw Rules', badge: `${active?.document.rules.length ?? 0} rules` }
+      { id: 'advanced', label: '5. Advanced / Raw Rules', badge: `${compiledDocument.rules.length} rules` }
     ] as tab}
       <button
         type="button"
@@ -1177,10 +1427,7 @@
                   : 'border-parchment-300/20 bg-abyss-950 hover:border-parchment-300/45'
               }`}
               aria-pressed={isCurrent}
-              onclick={() => {
-                v2Config.strictness = preset.id;
-                applyV2Changes();
-              }}
+              onclick={() => selectStrictness(preset.id)}
             >
               <div>
                 <div class="flex items-center justify-between gap-2">
@@ -1242,13 +1489,35 @@
             </p>
           </div>
           {#if v2Config.buildProfile?.selectedClass || v2Config.buildProfile?.archetype || (v2Config.buildProfile?.disabledFamilies?.length ?? 0) > 0 || v2Config.buildProfile?.presetId || v2Config.buildProfile?.linkedBuildId}
-            <button
-              type="button"
-              class="trade-secondary-button !py-1.5 text-xs"
-              onclick={clearBuildCuration}
-            >
-              Reset (Show All Weapon &amp; Class Types)
-            </button>
+            <div class="flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                class="trade-primary-button !py-1.5 text-xs"
+                onclick={() => {
+                  activeCategory = 'bases';
+                  activeTab = 'customize';
+                }}
+              >
+                Inspect Bases in Customizer →
+              </button>
+              <button
+                type="button"
+                class="trade-primary-button !py-1.5 text-xs"
+                onclick={() => {
+                  activeCategory = 'equipment';
+                  activeTab = 'customize';
+                }}
+              >
+                Inspect Rares &amp; Class Gear →
+              </button>
+              <button
+                type="button"
+                class="trade-secondary-button !py-1.5 text-xs"
+                onclick={clearBuildCuration}
+              >
+                Reset (Show All Weapon &amp; Class Types)
+              </button>
+            </div>
           {/if}
         </div>
 
@@ -1642,17 +1911,15 @@
   <!-- TAB 4: SIMULATE & TEST LOOT -->
   {:else if activeTab === 'simulate'}
     <div class="mt-6">
-      {#if active}
-        <SimulatorPanel
-          filter={active.document}
-          {catalog}
-          onjumpcategory={cat => {
-            activeCategory = cat;
-            customizerSearch = '';
-            activeTab = 'customize';
-          }}
-        />
-      {/if}
+      <SimulatorPanel
+        filter={compiledDocument}
+        {catalog}
+        onjumpcategory={cat => {
+          activeCategory = cat;
+          customizerSearch = '';
+          activeTab = 'customize';
+        }}
+      />
     </div>
 
   <!-- TAB 5: ADVANCED / RAW RULES & JSON -->
@@ -1735,7 +2002,10 @@
       <!-- Compiled Filter JSON Inspector -->
       <aside class="panel space-y-4 rounded-lg p-4 sm:p-5 lg:col-span-5" aria-label="Compiled JSON output">
         <div class="flex items-center justify-between gap-2">
-          <h2 class="text-xl font-bold tracking-tight text-parchment-50">Compiled filter.json</h2>
+          <div>
+            <h2 class="text-xl font-bold tracking-tight text-parchment-50">Compiled Filter JSON</h2>
+            <p class="font-mono text-xs text-parchment-300">{downloadFilename}</p>
+          </div>
           <span
             class="rounded border border-parchment-300/25 px-2 py-0.5 text-xs"
             class:text-emerald-300={validation.errors.length === 0}
@@ -1745,7 +2015,7 @@
           </span>
         </div>
         <div class="flex justify-between text-xs text-parchment-300">
-          <span>{active?.document.rules.length ?? 0} / 4,096 rules</span>
+          <span>{compiledDocument.rules.length} / 4,096 rules</span>
           <span>{validation.bytes.toLocaleString()} / 4 MiB</span>
         </div>
         {#if validation.errors.length > 0}
@@ -1764,9 +2034,10 @@
             type="button"
             class="trade-primary-button w-full justify-center"
             disabled={validation.errors.length > 0}
+            title={`Download as ${downloadFilename}`}
             onclick={downloadJson}
           >
-            Download filter.json
+            Download Filter (.json)
           </button>
           <button
             type="button"
@@ -1776,7 +2047,7 @@
                 await navigator.clipboard.writeText(validation.json);
                 notice = 'Copied compiled JSON to clipboard.';
               } catch {
-                notice = 'Clipboard blocked — use Download filter.json.';
+                notice = 'Clipboard blocked — use Download Filter (.json).';
               }
             }}
           >
@@ -1786,6 +2057,18 @@
       </aside>
     </div>
   {/if}
+
+  <footer class="mt-10 border-t border-parchment-300/15 pt-5 text-center text-xs text-parchment-300/80">
+    <p>
+      Customizer layout, strictness workflow, and tier-list design inspired by
+      <a
+        href="https://www.filterblade.xyz/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-medium text-ember-300 hover:text-ember-200 hover:underline"
+      >FilterBlade</a>.
+    </p>
+  </footer>
 </section>
 
 <style>

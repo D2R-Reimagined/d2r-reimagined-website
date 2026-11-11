@@ -29,13 +29,13 @@ export interface TierStyle {
   textColor?: string;
   borderColor?: string;
   backgroundColor?: string;
-  dropSound?: string;
+  dropSound?: string | null;
   minimapIcon?: {
     shape: string;
     size: number;
     borderColor: string;
     fillColor: string;
-  };
+  } | null;
   namePrefix?: string;
 }
 
@@ -51,6 +51,7 @@ export interface TierableItem {
   tiers?: ('normal' | 'exceptional' | 'elite')[];
   sockets?: NumberTest;
   ethereal?: boolean;
+  equipmentFamilies?: EquipmentFamilyId[];
   defaultTier: TierRank;
   strictnessTiers?: Partial<Record<StrictnessId, TierRank>>;
 }
@@ -129,6 +130,8 @@ export interface BuildProfile {
   linkedBuildTitle?: string;
 }
 
+export type ItemRarityStyleKind = 'base' | 'magic' | 'unique' | 'set' | 'rare' | 'crafted';
+
 export interface V2Config {
   version: 2;
   strictness: StrictnessId;
@@ -136,6 +139,7 @@ export interface V2Config {
   itemOverrides: Record<string, TierRank>;
   tierStyleOverrides: Partial<Record<TierRank, Partial<TierStyle>>>;
   categoryTierStyleOverrides: Partial<Record<CategoryId, Partial<Record<TierRank, Partial<TierStyle>>>>>;
+  rarityTierStyleOverrides: Partial<Record<ItemRarityStyleKind, Partial<Record<TierRank, Partial<TierStyle>>>>>;
   customBases: CustomBaseRule[];
   baseSettings: BaseFilterSettings;
   buildProfile: BuildProfile;
@@ -169,19 +173,19 @@ export const STRICTNESS_PRESETS: readonly StrictnessPresetInfo[] = [
     name: 'Regular',
     shortLabel: 'Regular',
     badge: 'Nightmare',
-    description: 'Cuts out broken/inferior trash and unsocketed Normal-tier white weapons/armor, plus tiny Act 1 healing/mana potions.',
-    hidesSummary: 'Inferior gear, unsocketed non-ethereal Normal white gear, and Minor/Light HP/MP potions.',
-    keepsSummary: 'All Exceptional/Elite bases, all socketed or ethereal items, all Magic/Rare/Set/Unique items, all gems and runes.',
-    recommendedFor: 'Nightmare progression once basic starter gear is established.'
+    description: 'Hides all blue Magic items (except Charms & Jewels), broken/inferior trash, unsocketed Normal-tier white gear, and tiny Act 1 HP/MP potions.',
+    hidesSummary: 'All Magic items except Charms & Jewels, inferior gear, unsocketed non-ethereal Normal white gear, and Minor/Light HP/MP potions.',
+    keepsSummary: 'All Exceptional/Elite bases, socketed or ethereal white bases, Charms & Jewels, all Rare/Set/Unique/Crafted items, all gems and runes.',
+    recommendedFor: 'Late Normal & Nightmare once you move past early starter blue items.'
   },
   {
     id: 'semi-strict',
     name: 'Semi-Strict',
     shortLabel: 'Semi-Strict',
     badge: 'Early Hell',
-    description: 'The sweet spot for entering Hell and early farming. Hides unsocketed white/magic clutter and low potions while keeping all gems visible for your Gem Bag.',
-    hidesSummary: 'Unsocketed white gear, Magic Normal/Exceptional weapons & armor, and standard HP/MP potions.',
-    keepsSummary: 'All Runes, all Gems & Gem Stacks (for the Gem Bag), all Rares/Uniques/Sets, Chase Runeword bases, and Ethereal/Socketed bases.',
+    description: 'The sweet spot for entering Hell and early farming. Hides unsocketed white gear, all Magic items (except Charms & Jewels), and low potions while keeping all gems visible for your Gem Bag.',
+    hidesSummary: 'All Magic items except Charms & Jewels, unsocketed white gear, ordinary Arrows/Bolts, and standard HP/MP potions.',
+    keepsSummary: 'All Runes, all Gems & Gem Stacks (for the Gem Bag), all Rares/Uniques/Sets/Crafted, Charms & Jewels, Chase Runeword bases, and Ethereal/Socketed bases.',
     recommendedFor: 'Hell campaign, Terror Zones, and early endgame gearing.'
   },
   {
@@ -189,9 +193,9 @@ export const STRICTNESS_PRESETS: readonly StrictnessPresetInfo[] = [
     name: 'Strict',
     shortLabel: 'Strict',
     badge: 'Hell Farming',
-    description: 'Streamlines your screen for fast Hell and early Map runs. Hides low runes (El–Ith), Magic ordinary gear, and Normal-tier Rares while keeping all gems visible.',
-    hidesSummary: 'El–Ith runes, Magic ordinary equipment, Normal-tier Rares, and Greater HP/MP potions.',
-    keepsSummary: 'Tal+ Runes, all Gems & Gem Stacks, Orbs, Maps, Exceptional/Elite Rares, Chase & Elite Runeword bases, Super/Rejuv potions.',
+    description: 'Streamlines your screen for fast Hell and early Map runs. Hides low runes (El–Ith), all Magic items (except Charms & Jewels), and Normal-tier Rares.',
+    hidesSummary: 'El–Ith runes, all Magic items except Charms & Jewels, Normal-tier Rares, and Greater HP/MP potions.',
+    keepsSummary: 'Tal+ Runes, all Gems & Gem Stacks, Orbs, Maps, Exceptional/Elite Rares, Charms & Jewels, Chase & Elite Runeword bases, Super/Rejuv potions.',
     recommendedFor: 'Established Hell builds farming bosses, Chaos/Baal, and Tier 1–3 Maps.'
   },
   {
@@ -199,9 +203,9 @@ export const STRICTNESS_PRESETS: readonly StrictnessPresetInfo[] = [
     name: 'Uber Strict (Endgame)',
     shortLabel: 'Uber Strict',
     badge: 'Endgame Maps',
-    description: 'Built for high-density Tier 4–6 Maps. Shows valuable runes/currencies, all Gems for your Gem Bag, Elite & Chase bases, high-tier Rares, Uniques/Sets, and Full Rejuvs.',
-    hidesSummary: 'El–Dol runes (keeps Ral/Amn/Sol/Shael/Hel+ for crafting), Normal/Exceptional Rares, non-Elite ordinary bases, and regular HP/MP potions.',
-    keepsSummary: 'Mid/High & Crafting Runes, Orbs, all Gems & Gem Stacks, Maps, Uniques/Sets, Elite Rares/Circlets/Jewelry/Gloves/Boots/Belts, Chase Runeword bases, Full Rejuvs & Buff potions.',
+    description: 'Built for high-density Tier 4–6 Maps. Shows valuable runes/currencies, all Gems for your Gem Bag, Elite & Chase bases, high-tier Rares, Charms & Jewels, Uniques/Sets, and Full Rejuvs.',
+    hidesSummary: 'El–Dol runes (keeps Ral/Amn/Sol/Shael/Hel+ for crafting), all Magic items except Charms & Jewels, Normal-tier non-jewelry Sets, Normal/Exceptional Rares, non-Elite ordinary bases, and regular HP/MP potions.',
+    keepsSummary: 'Mid/High & Crafting Runes, Orbs, all Gems & Gem Stacks, Maps, Uniques, Exceptional/Elite & Set Jewelry/Chase Sets, Charms & Jewels, Elite Rares/Circlets/Jewelry/Gloves/Boots/Belts, Chase Runeword bases, Full Rejuvs & Buff potions.',
     recommendedFor: 'Endgame characters blasting dense Maps where screen clarity is critical.'
   }
 ] as const;
@@ -217,7 +221,7 @@ export const THEME_PRESETS: Record<ThemeId, ThemePresetInfo> = {
   reimagined: {
     id: 'reimagined',
     name: 'Reimagined Classic',
-    description: 'Rich dark-fantasy gold, ember, royal purple, and arcane blue tuned for D2R Reimagined.',
+    description: 'Rich dark-fantasy royal purple, molten ember, sanctuary gold, and warm parchment tuned for D2R Reimagined.',
     tiers: {
       S: {
         backgroundColor: 'RGBA(42, 12, 58, 0.94)',
@@ -228,33 +232,33 @@ export const THEME_PRESETS: Record<ThemeId, ThemePresetInfo> = {
         namePrefix: '★ {name} ★'
       },
       A: {
-        backgroundColor: 'RGBA(48, 20, 6, 0.92)',
-        borderColor: 'RGBA(255, 150, 40, 1)',
-        textColor: 'RGBA(255, 210, 130, 1)',
+        backgroundColor: 'RGBA(48, 16, 4, 0.93)',
+        borderColor: 'RGBA(255, 120, 25, 1)',
+        textColor: 'RGBA(255, 188, 115, 1)',
         dropSound: 'Filter02',
-        minimapIcon: { shape: 'star', size: 20, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(255, 150, 40, 1)' }
+        minimapIcon: { shape: 'star', size: 20, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(255, 120, 25, 1)' }
       },
       B: {
-        backgroundColor: 'RGBA(16, 30, 48, 0.9)',
-        borderColor: 'RGBA(110, 200, 255, 1)',
-        textColor: 'RGBA(195, 235, 255, 1)',
+        backgroundColor: 'RGBA(36, 14, 6, 0.9)',
+        borderColor: 'RGBA(238, 105, 38, 0.95)',
+        textColor: 'RGBA(255, 172, 115, 1)',
         dropSound: 'Filter03',
-        minimapIcon: { shape: 'diamond', size: 18, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(110, 200, 255, 1)' }
+        minimapIcon: { shape: 'diamond', size: 18, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(238, 105, 38, 1)' }
       },
       C: {
         backgroundColor: 'RGBA(18, 18, 22, 0.85)',
-        borderColor: 'RGBA(180, 160, 120, 0.7)',
-        textColor: 'RGBA(235, 220, 185, 1)'
+        borderColor: 'RGBA(145, 150, 162, 0.72)',
+        textColor: 'RGBA(226, 226, 230, 1)'
       },
       D: {
-        textColor: 'RGBA(175, 170, 160, 0.9)'
+        textColor: 'RGBA(172, 174, 180, 0.9)'
       }
     }
   },
   filterblade: {
     id: 'filterblade',
-    name: 'FilterBlade / Maven',
-    description: 'Iconic white-and-crimson S-Tier callouts, bright orange A-Tier currency, and crisp gold B-Tier borders.',
+    name: 'High-Contrast Crimson',
+    description: 'Iconic white-and-crimson S-Tier callouts, fiery orange A/B-Tier currency, and clean crisp bases.',
     tiers: {
       S: {
         backgroundColor: 'RGBA(250, 250, 250, 0.95)',
@@ -272,19 +276,19 @@ export const THEME_PRESETS: Record<ThemeId, ThemePresetInfo> = {
         minimapIcon: { shape: 'star', size: 22, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(255, 130, 25, 1)' }
       },
       B: {
-        backgroundColor: 'RGBA(32, 26, 12, 0.9)',
-        borderColor: 'RGBA(240, 195, 70, 1)',
-        textColor: 'RGBA(250, 220, 115, 1)',
+        backgroundColor: 'RGBA(38, 16, 6, 0.9)',
+        borderColor: 'RGBA(245, 115, 35, 1)',
+        textColor: 'RGBA(255, 180, 110, 1)',
         dropSound: 'Filter04',
-        minimapIcon: { shape: 'circle', size: 18, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(240, 195, 70, 1)' }
+        minimapIcon: { shape: 'circle', size: 18, borderColor: 'RGBA(255, 255, 255, 1)', fillColor: 'RGBA(245, 115, 35, 1)' }
       },
       C: {
-        backgroundColor: 'RGBA(15, 18, 24, 0.85)',
-        borderColor: 'RGBA(130, 155, 185, 0.8)',
-        textColor: 'RGBA(210, 225, 240, 1)'
+        backgroundColor: 'RGBA(18, 18, 22, 0.85)',
+        borderColor: 'RGBA(148, 152, 164, 0.75)',
+        textColor: 'RGBA(228, 228, 232, 1)'
       },
       D: {
-        textColor: 'RGBA(155, 165, 175, 0.88)'
+        textColor: 'RGBA(168, 162, 155, 0.88)'
       }
     }
   },
@@ -447,7 +451,7 @@ export const CATEGORIES: readonly { id: CategoryId; name: string; subtitle: stri
   { id: 'currency', name: 'Orbs & Upgrade Materials', subtitle: 'Power Orbs, Gem Clusters, Pliers, Bags & Grabbers', icon: '◈' },
   { id: 'bosses', name: 'Boss Keys, Organs & Tokens', subtitle: 'Uber Keys, Boss Souls, Animus/Calamity/Ire, Worldstone Shards & Essences', icon: '☠' },
   { id: 'maps', name: 'Endgame Maps & Sextants', subtitle: 'Tier 1–6 Maps and Map Currency (Sextant, Astrolabe, Vizjerei Prism)', icon: '🗺' },
-  { id: 'gems', name: 'Gems & Gem Stacks', subtitle: 'Chaos Onyx, Gem Stacks, Reimagined Unstacked Gems, Perfect, Flawless, Standard & Flawed Gems (Always visible for Gem Bag)', icon: '❖' },
+  { id: 'gems', name: 'Gems & Gem Stacks', subtitle: 'Gem Stacks, Reimagined Unstacked Gems (incl. Chaos Onyx), Perfect, Flawless, Standard & Flawed Gems (Always visible for Gem Bag)', icon: '❖' },
   { id: 'uniques', name: 'Uniques, Sets, Charms & Jewelry', subtitle: 'Drop-Only Chase Bases, Uniques/Sets by Tier, Sunder/Colossal/Torches, Charms & Rings', icon: '♛' },
   { id: 'bases', name: 'Runeword & Crafting Bases', subtitle: 'Chase Weapon/Armor Bases, Ethereal Elite Bases, Superior Bases & Socket Thresholds', icon: '⚔' },
   { id: 'equipment', name: 'Rares, Crafted & Magic Gear', subtitle: 'Crafted Items, Rare Circlets/Class Gear/Gloves/Boots/Belts, and Rares/Magics by Tier', icon: '🛡' },
@@ -505,11 +509,14 @@ export const MAP_CODES_BY_TIER: Record<number, string[]> = {
   1: ['md1', 'mk1', 'mc1', 'mf1', 'mw1', 'ms1', 'mh1', 'mt1', 'me1', 'mi1', 'xd1', 'xk1', 'xc1', 'xf1', 'xw1', 'xs1', 'xh1', 'xt1', 'xe1', 'xi1']
 };
 
-export const DROP_ONLY_UNIQUE_SET_CODES = [
+export const DROP_ONLY_UNIQUE_CODES = [
   'cm1', 'cjw', '7gd', '7fb', '7gs', '7wa', 'obb', 'pae', 'paf', 'ned', 'nee', 'bae', 'uul', 'uth',
-  'utp', 'upl', 'uhn', 'urs', 'aqv', 'cqv', 'ame', 'amf', 'amb', 'drb', 'drf', '7ar', '7cs', '7wb',
-  'hgl', 'ghm', 'ful', 'hbt', 'hbl'
+  'utp', 'upl', 'uhn', 'urs', 'aqv', 'cqv', 'ame', 'amf', 'amb', 'drb', 'drf', '7ar', '7cs', '7wb'
 ];
+
+export const DROP_ONLY_SET_CODES = ['hgl', 'ghm', 'ful', 'hbt', 'hbl'];
+
+export const DROP_ONLY_UNIQUE_SET_CODES = [...DROP_ONLY_UNIQUE_CODES, ...DROP_ONLY_SET_CODES];
 
 export const TIERABLE_ITEMS: readonly TierableItem[] = [
   // 1. Runes
@@ -564,60 +571,105 @@ export const TIERABLE_ITEMS: readonly TierableItem[] = [
   { id: 'map-tier-1', label: 'Tier 1 Endgame Maps (All 10 Arenas)', subtitle: 'Starter endgame maps', category: 'maps', codes: MAP_CODES_BY_TIER[1], defaultTier: 'B' },
 
   // 5. Gems & Gem Stacks (Never hidden by default since the in-game Gem Bag stores all gem types)
-  { id: 'curr-chaos-onyx', label: 'Chaos Onyx & Stack', subtitle: 'gmo + 1so (Stack)', category: 'gems', codes: ['gmo', '1so'], defaultTier: 'S' },
-  { id: 'gem-stacks-all', label: 'Gem Stacks (Amethyst, Ruby, Sapphire, Emerald, Topaz, Diamond, Skull)', subtitle: '1am, 1rb, 1sa, 1em, 1tp, 1di, 1sk', category: 'gems', codes: ['1am', '1rb', '1sa', '1em', '1tp', '1di', '1sk'], defaultTier: 'B' },
-  { id: 'gem-reimagined-unstacked', label: 'Reimagined Unstacked Gems (Amethyst–Skull)', subtitle: 'gmm, gmr, gms, gme, gmt, gmd, gmk', category: 'gems', codes: ['gmm', 'gmr', 'gms', 'gme', 'gmt', 'gmd', 'gmk'], defaultTier: 'B' },
+
+  { id: 'gem-stacks-all', label: 'Gem Stacks (Amethyst, Ruby, Sapphire, Emerald, Topaz, Diamond, Skull, Chaos Onyx)', subtitle: '1am, 1rb, 1sa, 1em, 1tp, 1di, 1sk, 1so', category: 'gems', codes: ['1am', '1rb', '1sa', '1em', '1tp', '1di', '1sk', '1so'], defaultTier: 'B' },
+  { id: 'gem-reimagined-unstacked', label: 'Reimagined Unstacked Gems (Amethyst–Skull & Chaos Onyx)', subtitle: 'gmm, gmr, gms, gme, gmt, gmd, gmk, gmo', category: 'gems', codes: ['gmm', 'gmr', 'gms', 'gme', 'gmt', 'gmd', 'gmk', 'gmo'], defaultTier: 'B' },
   { id: 'gem-perfect', label: 'Perfect Gems (All 7 Types)', subtitle: 'gpv, gpr, gpb, gpg, gpy, gpw, skz', category: 'gems', codes: ['gpv', 'gpr', 'gpb', 'gpg', 'gpy', 'gpw', 'skz'], defaultTier: 'B' },
   { id: 'gem-flawless', label: 'Flawless Gems (All 7 Types)', subtitle: 'gzv, glr, glb, glg, gly, glw, skl', category: 'gems', codes: ['gzv', 'glr', 'glb', 'glg', 'gly', 'glw', 'skl'], defaultTier: 'C' },
   { id: 'gem-normal', label: 'Standard Gems (All 7 Types)', subtitle: 'gsv, gsr, gsb, gsg, gsy, gsw, sku', category: 'gems', codes: ['gsv', 'gsr', 'gsb', 'gsg', 'gsy', 'gsw', 'sku'], defaultTier: 'C', strictnessTiers: { strict: 'D', endgame: 'D' } },
   { id: 'gem-flawed', label: 'Flawed Gems (All 7 Types)', subtitle: 'gfv, gfr, gfb, gfg, gfy, gfw, skf', category: 'gems', codes: ['gfv', 'gfr', 'gfb', 'gfg', 'gfy', 'gfw', 'skf'], defaultTier: 'D' },
 
-  // 6. Uniques, Sets, Charms & Jewelry
-  { id: 'uniq-drop-only', label: 'Drop-Only & Chase Unique / Set Bases', subtitle: '33 pinnacle Reimagined unique/set bases', category: 'uniques', codes: DROP_ONLY_UNIQUE_SET_CODES, rarities: ['unique', 'set'], defaultTier: 'S' },
-  { id: 'uniq-pinnacle-charms', label: 'Colossal Jewels, Sunder Charms & Torches', subtitle: 'cjwl, csch, torc · All rarities', category: 'uniques', itemTypes: ['cjwl', 'csch', 'torc'], defaultTier: 'S' },
-  { id: 'uniq-jewelry-charms', label: 'Unique & Set Rings, Amulets, Charms & Jewels', subtitle: 'ring, amul, char, jewl, circ', category: 'uniques', itemTypes: ['ring', 'amul', 'char', 'jewl', 'circ'], rarities: ['unique', 'set'], defaultTier: 'S' },
-  { id: 'uniq-elite', label: 'Elite Uniques & Sets', subtitle: 'All Elite-tier unique and set equipment', category: 'uniques', tiers: ['elite'], rarities: ['unique', 'set'], defaultTier: 'A' },
-  { id: 'uniq-exceptional', label: 'Exceptional Uniques & Sets', subtitle: 'All Exceptional-tier unique and set equipment', category: 'uniques', tiers: ['exceptional'], rarities: ['unique', 'set'], defaultTier: 'B' },
-  { id: 'uniq-normal', label: 'Normal-Tier & Other Uniques / Sets', subtitle: 'All remaining unique and set equipment', category: 'uniques', rarities: ['unique', 'set'], defaultTier: 'B', strictnessTiers: { endgame: 'C' } },
-  { id: 'charm-small-grand', label: 'Small & Grand Charms (Magic/Rare)', subtitle: 'scha, lcha · Skillers & life/res charms', category: 'uniques', itemTypes: ['scha', 'lcha'], defaultTier: 'B' },
-  { id: 'charm-large', label: 'Large Charms (Magic/Rare)', subtitle: 'mcha · Medium charms', category: 'uniques', itemTypes: ['mcha'], defaultTier: 'C', strictnessTiers: { endgame: 'D' } },
-  { id: 'jewel-all', label: 'Jewels (Magic/Rare)', subtitle: 'jewl · Crafting & socket jewels', category: 'uniques', itemTypes: ['jewl'], defaultTier: 'B' },
+  // 6. Uniques, Sets, Charms & Jewelry (Unbundled Unique vs. Set cards across all presets)
+  { id: 'uniq-pinnacle-charms', label: 'Colossal Jewels, Sunder Charms & Torches', subtitle: 'cjw, cs1, cs2, tch, cm4, cm5 · All rarities', category: 'uniques', codes: ['cjw', 'cs1', 'cs2', 'tch', 'cm4', 'cm5'], defaultTier: 'S' },
+  { id: 'uniq-drop-only', label: 'Drop-Only Chase Uniques (lvl 100+)', subtitle: '27 pinnacle Reimagined drop-only unique equipment & charm bases', category: 'uniques', codes: DROP_ONLY_UNIQUE_CODES.filter(c => c !== 'cjw'), rarities: ['unique'], defaultTier: 'S' },
+  { id: 'set-drop-only', label: "Drop-Only Chase Sets (Warlord's Glory)", subtitle: 'hgl, ghm, ful, hbt, hbl (Set) · Protected Hell Herald set bases', category: 'uniques', codes: DROP_ONLY_SET_CODES, rarities: ['set'], defaultTier: 'S' },
+  { id: 'uniq-jewelry-charms', label: 'Unique Rings, Amulets, Circlets, Charms & Jewels', subtitle: 'ring, amul, circ, char, jewl (Unique)', category: 'uniques', itemTypes: ['ring', 'amul', 'char', 'jewl', 'circ'], rarities: ['unique'], defaultTier: 'S' },
+  { id: 'set-jewelry', label: 'Set Rings, Amulets, Circlets & Charms', subtitle: "ring, amul, circ, char, jewl (Set) · Tal Rasha's, Angelic & Reimagined set jewelry/charms", category: 'uniques', itemTypes: ['ring', 'amul', 'char', 'jewl', 'circ'], rarities: ['set'], defaultTier: 'A', strictnessTiers: { 'semi-strict': 'B', strict: 'B', endgame: 'B' } },
+  { id: 'uniq-elite', label: 'Elite Uniques', subtitle: 'All Elite-tier unique weapons, armor & offhands', category: 'uniques', tiers: ['elite'], rarities: ['unique'], defaultTier: 'A' },
+  { id: 'set-elite', label: 'Elite Sets', subtitle: "All Elite-tier set equipment (Tal's Armor, IK Soul Cage, M'avina's, Natalya's, etc.)", category: 'uniques', tiers: ['elite'], rarities: ['set'], defaultTier: 'A', strictnessTiers: { endgame: 'B' } },
+  { id: 'uniq-exceptional', label: 'Exceptional Uniques', subtitle: 'All Exceptional-tier unique weapons, armor & offhands', category: 'uniques', tiers: ['exceptional'], rarities: ['unique'], defaultTier: 'B', strictnessTiers: { endgame: 'C' } },
+  { id: 'set-exceptional', label: 'Exceptional Sets', subtitle: "All Exceptional-tier set equipment (Laying of Hands, Guillaume's Face, Trang's, etc.)", category: 'uniques', tiers: ['exceptional'], rarities: ['set'], defaultTier: 'B', strictnessTiers: { strict: 'C', endgame: 'C' } },
+  { id: 'uniq-normal', label: 'Normal-Tier & Other Uniques', subtitle: 'All remaining Normal-tier unique equipment', category: 'uniques', rarities: ['unique'], defaultTier: 'B', strictnessTiers: { 'semi-strict': 'C', strict: 'C', endgame: 'D' } },
+  { id: 'set-normal', label: 'Normal-Tier Sets', subtitle: "Early-game set equipment (Sigon's, Isenhart's, Arctic, Cathan's armor · Hidden in Uber Strict)", category: 'uniques', rarities: ['set'], defaultTier: 'B', strictnessTiers: { regular: 'C', 'semi-strict': 'C', strict: 'D', endgame: 'HIDE' } },
+  { id: 'charm-jewel-rare', label: 'Rare & Crafted Charms & Jewels', subtitle: 'scha, mcha, lcha, jewl (Rare/Crafted) · High-roll rare charms, crafted skillers & rare jewels', category: 'uniques', itemTypes: ['scha', 'mcha', 'lcha', 'jewl'], rarities: ['rare', 'crafted'], defaultTier: 'B' },
   { id: 'jewelry-rare-crafted', label: 'Rare & Crafted Rings, Amulets & Circlets', subtitle: 'ring, amul, circ (Rare/Crafted)', category: 'uniques', itemTypes: ['ring', 'amul', 'circ'], rarities: ['rare', 'crafted'], defaultTier: 'B' },
-  { id: 'jewelry-magic', label: 'Magic Rings, Amulets & Circlets', subtitle: 'ring, amul, circ (Magic)', category: 'uniques', itemTypes: ['ring', 'amul', 'circ'], rarities: ['magic'], defaultTier: 'C', strictnessTiers: { strict: 'D', endgame: 'HIDE' } },
+  { id: 'charm-small-grand', label: 'Magic Charms (Small, Large & Grand)', subtitle: 'scha, mcha, lcha (Magic) · All magic Small, Large & Grand charms', category: 'uniques', itemTypes: ['scha', 'mcha', 'lcha'], rarities: ['magic'], defaultTier: 'C' },
+  { id: 'jewel-all', label: 'Magic Jewels', subtitle: 'jewl (Magic) · Crafting & socket jewels', category: 'uniques', itemTypes: ['jewl'], rarities: ['magic'], defaultTier: 'C' },
 
-  // 7. Runeword & Crafting Bases (Normal/Superior rarity)
-  { id: 'base-monarch-shields', label: 'Monarch, Sacred Targe, Sacred Rondache & Vortex Shield', subtitle: 'uit, pab, pac, paf · Top Spirit/Exile/Phoenix shields', category: 'bases', codes: ['uit', 'pab', 'pac', 'paf'], rarities: ['normal', 'superior'], defaultTier: 'A' },
+  { id: 'jewelry-magic', label: 'Magic Rings, Amulets & Circlets', subtitle: 'ring, amul, circ (Magic · Starter only, hidden in Regular+)', category: 'uniques', itemTypes: ['ring', 'amul', 'circ'], rarities: ['magic'], defaultTier: 'D', strictnessTiers: { regular: 'HIDE', 'semi-strict': 'HIDE', strict: 'HIDE', endgame: 'HIDE' } },
+
+  // 7. Runeword & Crafting Bases (Normal/Superior rarity — mapped 1-to-1 with weapon & class families)
   { id: 'base-elite-body', label: 'Archon Plate, Mage Plate, Dusk Shroud & Sacred Armor', subtitle: 'utp, xtp, uui, uar · Top Enigma/Fortitude/CoH armors', category: 'bases', codes: ['utp', 'xtp', 'uui', 'uar'], rarities: ['normal', 'superior'], defaultTier: 'A' },
-  { id: 'base-phase-zerker', label: 'Phase Blade, Berserker Axe, Colossus Blade & Sword', subtitle: '7cr, 7wa, 7gd, 7fb · Grief/Beast/Death/BoTD bases', category: 'bases', codes: ['7cr', '7wa', '7gd', '7fb'], rarities: ['normal', 'superior'], defaultTier: 'A' },
-  { id: 'base-elite-polearms', label: 'Thresher, Giant Thresher, Great Poleaxe & Cryptic Axe', subtitle: '7s8, 7wc, 7h7, 7pa · Infinity/Insight/Pride polearms', category: 'bases', codes: ['7s8', '7wc', '7h7', '7pa'], rarities: ['normal', 'superior'], defaultTier: 'A' },
   { id: 'base-diadem-tiara', label: 'Diadem & Tiara (White/Socketed Bases)', subtitle: 'ci3, ci2 · Dream/Flickering Flame/Faith headgear', category: 'bases', codes: ['ci3', 'ci2'], rarities: ['normal', 'superior'], defaultTier: 'A' },
-  { id: 'base-ama-weapons', label: 'Matriarchal Bow, Grand Matron Bow, Mat. Javelin & Pike', subtitle: 'amb, amc, amf, ame · Elite Amazon bases', category: 'bases', codes: ['amb', 'amc', 'amf', 'ame'], rarities: ['normal', 'superior'], defaultTier: 'B' },
-  { id: 'base-warlock-grimoires', label: 'Blasphemous Grimoire, Compendium & Occult Codex', subtitle: 'waf, wae, wad · Elite Warlock offhands', category: 'bases', codes: ['waf', 'wae', 'wad'], rarities: ['normal', 'superior'], defaultTier: 'B' },
-  { id: 'base-sorc-necro', label: 'Dimensional Shard, Vortex Orb, Succubus & Bloodlord Skull', subtitle: 'obf, obe, nee, nef · Elite Sorceress & Necro bases', category: 'bases', codes: ['obf', 'obe', 'nee', 'nef'], rarities: ['normal', 'superior'], defaultTier: 'B' },
-  { id: 'base-sin-claws', label: 'Runic Talons, Greater Talons, Suwayyah & Feral Claws', subtitle: '7tw, 9tw, 7ar, 7lw · Mosaic/Chaos/Plague claws', category: 'bases', codes: ['7tw', '9tw', '7ar', '7lw'], rarities: ['normal', 'superior'], defaultTier: 'B' },
-  { id: 'base-druid-barb', label: 'Dream Spirit, Blood Spirit, Conqueror & Guardian Crown', subtitle: 'drf, drb, bae, baf · Elite Druid Pelts & Barb Helms', category: 'bases', codes: ['drf', 'drb', 'bae', 'baf'], rarities: ['normal', 'superior'], defaultTier: 'B' },
-  { id: 'base-caster-starters', label: 'Crystal Sword, Flail & Paladin Kurast/Zakarum Shields', subtitle: 'crs, fla, pad, pae · CTA/HOTO/Spirit bases', category: 'bases', codes: ['crs', 'fla', 'pad', 'pae'], rarities: ['normal', 'superior'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-monarch-shields', label: 'Monarch, Troll Nest, Ward & Aegis (Standard Shields)', subtitle: 'uit, ush, uts, uow · Spirit/Phoenix/Sanctuary shields', category: 'bases', codes: ['uit', 'ush', 'uts', 'uow'], rarities: ['normal', 'superior'], equipmentFamilies: ['standard-shield'], defaultTier: 'A' },
+  { id: 'base-paladin-shields', label: 'Sacred Targe, Sacred Rondache, Vortex, Ancient & Zakarum Shields', subtitle: 'pab, pac, paf, pad, pae · Paladin Spirit/Exile/Phoenix shields', category: 'bases', codes: ['pab', 'pac', 'paf', 'pad', 'pae'], rarities: ['normal', 'superior'], equipmentFamilies: ['paladin-shield'], defaultTier: 'A' },
+  { id: 'base-phase-zerker', label: 'Phase Blade, Colossus Blade, Colossal Sword & Crystal Sword', subtitle: '7cr, 7gd, 7fb, crs · Grief/Death/BoTD/CTA/Spirit swords', category: 'bases', codes: ['7cr', '7gd', '7fb', 'crs'], rarities: ['normal', 'superior'], equipmentFamilies: ['sword'], defaultTier: 'A' },
+  { id: 'base-zerker-axes', label: 'Berserker Axe, Ettin Axe & Glorious Axe', subtitle: '7wa, 72a, 7gi · Beast/Doom/Death/BoTD axes', category: 'bases', codes: ['7wa', '72a', '7gi'], rarities: ['normal', 'superior'], equipmentFamilies: ['axe'], defaultTier: 'A' },
+  { id: 'base-flails-maces', label: 'Flail, Scourge, Thunder Maul & Ogre Maul', subtitle: 'fla, 7fl, 7gm, 7m7 · HOTO/CTA flails & 2H mauls', category: 'bases', codes: ['fla', '7fl', '7gm', '7m7'], rarities: ['normal', 'superior'], equipmentFamilies: ['mace'], defaultTier: 'B' },
+  { id: 'base-elite-polearms', label: 'Thresher, Giant Thresher, Great Poleaxe & Cryptic Axe', subtitle: '7s8, 7wc, 7h7, 7pa · Infinity/Insight/Pride polearms', category: 'bases', codes: ['7s8', '7wc', '7h7', '7pa'], rarities: ['normal', 'superior'], equipmentFamilies: ['polearm'], defaultTier: 'A' },
+  { id: 'base-ama-weapons', label: 'Matriarchal Bow, Grand Matron Bow, Hydra Bow & Spider Bow', subtitle: 'amb, amc, 6lw, 6sb · Faith/Mist/Ice bow bases', category: 'bases', codes: ['amb', 'amc', '6lw', '6sb'], rarities: ['normal', 'superior'], equipmentFamilies: ['bow-quiver'], defaultTier: 'B' },
+  { id: 'base-crossbows', label: 'Colossus Crossbow, Demon Crossbow & Gorgon Crossbow', subtitle: '6hx, 6rx, 6mx · Elite crossbow bases', category: 'bases', codes: ['6hx', '6rx', '6mx'], rarities: ['normal', 'superior'], equipmentFamilies: ['xbow-quiver'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-javelins', label: 'Matriarchal Javelin, Ceremonial Javelin, Hyperion & Balrog Spear', subtitle: 'amf, ama, 7ja, 7s7 · Amazon & elite javelin crafting/imbue bases', category: 'bases', codes: ['amf', 'ama', '7ja', '7s7'], rarities: ['normal', 'superior'], equipmentFamilies: ['javelin'], defaultTier: 'B' },
+  { id: 'base-spears', label: 'Mancatcher, Matriarchal Pike, Ghost Spear, War Pike & Stygian Pike', subtitle: '7br, ame, 7st, 7p7, 7tr · Infinity/BoTD/Pride spear bases', category: 'bases', codes: ['7br', 'ame', '7st', '7p7', '7tr'], rarities: ['normal', 'superior'], equipmentFamilies: ['spear'], defaultTier: 'B' },
+  { id: 'base-throwing', label: 'Winged Knife, Flying Axe, War Dart & Francisca', subtitle: '7bk, 7ta, 9bk, 9ta · Throwing crafting/imbue bases', category: 'bases', codes: ['7bk', '7ta', '9bk', '9ta'], rarities: ['normal', 'superior'], equipmentFamilies: ['throwing'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-daggers', label: 'Bone Knife, Fanged Knife, Legend Spike & Mithral Point', subtitle: '7dg, 7kr, 7bl, 7di · Caster & melee dagger bases', category: 'bases', codes: ['7dg', '7kr', '7bl', '7di'], rarities: ['normal', 'superior'], equipmentFamilies: ['dagger'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-clubs', label: 'Tyrant Club, Truncheon & Barbed Club', subtitle: '7sp, 7cl, 9sp · Club runeword & crafting bases', category: 'bases', codes: ['7sp', '7cl', '9sp'], rarities: ['normal', 'superior'], equipmentFamilies: ['club'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-scepters', label: 'Caduceus, Divine Scepter & War Scepter', subtitle: '7ws, 9ws, wsp · Rift/Holy Thunder/CTA +skill scepters', category: 'bases', codes: ['7ws', '9ws', 'wsp'], rarities: ['normal', 'superior'], equipmentFamilies: ['scepter'], defaultTier: 'B' },
+  { id: 'base-wands', label: 'Lich Wand, Unearthed Wand, Polished Wand & Bone Wand', subtitle: '7bw, 7gw, 7wn, bwn · White/Bone/+3 Spear Necro wands', category: 'bases', codes: ['7bw', '7gw', '7wn', 'bwn'], rarities: ['normal', 'superior'], equipmentFamilies: ['wand'], defaultTier: 'B' },
+  { id: 'base-staves', label: 'Archon Staff, Elder Staff & Shillelagh', subtitle: '6ws, 6cs, 6bs · Obsession/Memory/Insight 2H staves', category: 'bases', codes: ['6ws', '6cs', '6bs'], rarities: ['normal', 'superior'], equipmentFamilies: ['staff'], defaultTier: 'B' },
+  { id: 'base-warlock-grimoires', label: 'Blasphemous Grimoire, Compendium & Occult Codex', subtitle: 'waf, wae, wad · Elite Warlock offhands', category: 'bases', codes: ['waf', 'wae', 'wad'], rarities: ['normal', 'superior'], equipmentFamilies: ['warlock-grimoire'], defaultTier: 'B' },
+  { id: 'base-sorc-orbs', label: 'Dimensional Shard, Vortex Orb & Demon Heart', subtitle: 'obf, obe, obd · Elite Sorceress orbs', category: 'bases', codes: ['obf', 'obe', 'obd'], rarities: ['normal', 'superior'], equipmentFamilies: ['sorc-orb'], defaultTier: 'B' },
+  { id: 'base-necro-heads', label: 'Succubus Skull, Bloodlord Skull & Overseer Skull', subtitle: 'nee, nef, ned · Splendor/Rhyme/+3 skill Necro heads', category: 'bases', codes: ['nee', 'nef', 'ned'], rarities: ['normal', 'superior'], equipmentFamilies: ['necro-head'], defaultTier: 'B' },
+  { id: 'base-sin-claws', label: 'Runic Talons, Greater Talons, Suwayyah & Feral Claws', subtitle: '7tw, 9tw, 7ar, 7lw · Mosaic/Chaos/Plague claws', category: 'bases', codes: ['7tw', '9tw', '7ar', '7lw'], rarities: ['normal', 'superior'], equipmentFamilies: ['claws'], defaultTier: 'B' },
+  { id: 'base-druid-pelts', label: 'Dream Spirit, Blood Spirit & Earth Spirit', subtitle: 'drf, drb, drd · Flickering Flame/Metamorphosis Druid pelts', category: 'bases', codes: ['drf', 'drb', 'drd'], rarities: ['normal', 'superior'], equipmentFamilies: ['druid-pelt'], defaultTier: 'B' },
+  { id: 'base-barb-helms', label: 'Conqueror Crown, Guardian Crown & Destroyer Helm', subtitle: 'bae, baf, bad · Bulwark/Delirium/+3 BO Barbarian helms', category: 'bases', codes: ['bae', 'baf', 'bad'], rarities: ['normal', 'superior'], equipmentFamilies: ['barb-helm'], defaultTier: 'B' },
 
-  // 8. Rares, Crafted & Magic Equipment
+  // 8. Rares, Crafted & Magic Equipment (mapped 1-to-1 with class & weapon families)
   { id: 'equip-crafted', label: 'Crafted Equipment (All Slots)', subtitle: 'All crafted weapons, armor, and accessories', category: 'equipment', rarities: ['crafted'], defaultTier: 'A' },
-  { id: 'equip-rare-class', label: 'Rare Class-Specific Items (Orbs, Claws, Pelts, Helms, Shields, Heads, Grimoires, Ama)', subtitle: 'Class-specific rare drops', category: 'equipment', itemTypes: ['orb', 'h2h', 'pelt', 'phlm', 'ashd', 'head', 'grim', 'abow', 'ajav', 'aspe'], rarities: ['rare'], defaultTier: 'B' },
   { id: 'equip-rare-gloves-boots-belts', label: 'Rare Gloves, Boots & Belts', subtitle: 'glov, boot, belt · Tri-res boots & 2/20 gloves', category: 'equipment', itemTypes: ['glov', 'boot', 'belt'], rarities: ['rare'], defaultTier: 'B' },
-  { id: 'equip-rare-elite', label: 'Rare Elite Weapons & Armor', subtitle: 'All Elite-tier rare gear', category: 'equipment', tiers: ['elite'], rarities: ['rare'], defaultTier: 'C' },
-  { id: 'equip-rare-exceptional', label: 'Rare Exceptional Weapons & Armor', subtitle: 'All Exceptional-tier rare gear', category: 'equipment', tiers: ['exceptional'], rarities: ['rare'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
-  { id: 'equip-rare-normal', label: 'Rare Normal-Tier Weapons & Armor', subtitle: 'All Normal-tier rare gear', category: 'equipment', tiers: ['normal'], rarities: ['rare'], defaultTier: 'D', strictnessTiers: { strict: 'HIDE', endgame: 'HIDE' } },
-  { id: 'equip-magic-class', label: 'Magic Class-Specific Gear (Orbs, Claws, Pelts, Javelins, Grimoires)', subtitle: '+6 skill magic chase items', category: 'equipment', itemTypes: ['orb', 'h2h', 'pelt', 'phlm', 'ashd', 'head', 'grim', 'ajav'], rarities: ['magic'], defaultTier: 'C', strictnessTiers: { strict: 'D', endgame: 'HIDE' } },
-  { id: 'equip-magic-elite', label: 'Magic Elite Weapons & Armor', subtitle: 'Ordinary magic elite gear', category: 'equipment', tiers: ['elite'], rarities: ['magic'], defaultTier: 'D', strictnessTiers: { 'semi-strict': 'HIDE', strict: 'HIDE', endgame: 'HIDE' } },
+  { id: 'equip-class-amazon', label: 'Rare Amazon Javelins', subtitle: 'ajav (Rare) · Class-specific Amazon javelin rare drops', category: 'equipment', itemTypes: ['ajav'], rarities: ['rare'], equipmentFamilies: ['javelin'], defaultTier: 'B' },
+  { id: 'equip-class-amazon-bows', label: 'Rare Amazon Bows', subtitle: 'abow (Rare) · Class-specific Amazon bow rare drops', category: 'equipment', itemTypes: ['abow'], rarities: ['rare'], equipmentFamilies: ['bow-quiver'], defaultTier: 'B' },
+  { id: 'equip-class-amazon-spears', label: 'Rare Amazon Spears & Pikes', subtitle: 'aspe (Rare) · Class-specific Amazon spear & pike rare drops', category: 'equipment', itemTypes: ['aspe'], rarities: ['rare'], equipmentFamilies: ['spear'], defaultTier: 'B' },
+  { id: 'equip-class-assassin', label: 'Rare Assassin Claws (Hand-to-Hand)', subtitle: 'h2h (Rare) · Katar & talon rare drops', category: 'equipment', itemTypes: ['h2h'], rarities: ['rare'], equipmentFamilies: ['claws'], defaultTier: 'B' },
+  { id: 'equip-class-barbarian', label: 'Rare Barbarian Primal Helms', subtitle: 'phlm (Rare) · Barbarian primal helm rare drops', category: 'equipment', itemTypes: ['phlm'], rarities: ['rare'], equipmentFamilies: ['barb-helm'], defaultTier: 'B' },
+  { id: 'equip-class-druid', label: 'Rare Druid Pelts', subtitle: 'pelt (Rare) · Druid spirit mask & pelt rare drops', category: 'equipment', itemTypes: ['pelt'], rarities: ['rare'], equipmentFamilies: ['druid-pelt'], defaultTier: 'B' },
+  { id: 'equip-class-necromancer', label: 'Rare Necromancer Shrunken Heads', subtitle: 'head (Rare) · Necromancer trophy offhand rare drops', category: 'equipment', itemTypes: ['head'], rarities: ['rare'], equipmentFamilies: ['necro-head'], defaultTier: 'B' },
+  { id: 'equip-class-paladin', label: 'Rare Paladin Auric Shields', subtitle: 'ashd (Rare) · Paladin targe & shield rare drops', category: 'equipment', itemTypes: ['ashd'], rarities: ['rare'], equipmentFamilies: ['paladin-shield'], defaultTier: 'B' },
+  { id: 'equip-class-sorceress', label: 'Rare Sorceress Orbs', subtitle: 'orb (Rare) · Sorceress orb rare drops', category: 'equipment', itemTypes: ['orb'], rarities: ['rare'], equipmentFamilies: ['sorc-orb'], defaultTier: 'B' },
+  { id: 'equip-class-warlock', label: 'Rare Warlock Grimoires', subtitle: 'grim (Rare) · Warlock tome & codex rare drops', category: 'equipment', itemTypes: ['grim'], rarities: ['rare'], equipmentFamilies: ['warlock-grimoire'], defaultTier: 'B' },
+  { id: 'equip-rare-quivers', label: 'Rare Bow & Crossbow Quivers', subtitle: 'bowq, xboq (Rare) · Rare arrows & bolts', category: 'equipment', itemTypes: ['bowq', 'xboq'], rarities: ['rare'], equipmentFamilies: ['bow-quiver', 'xbow-quiver'], defaultTier: 'B' },
+  { id: 'equip-weap-bows', label: 'Rare Bows', subtitle: 'bow (Rare) · Elite & Exceptional bow drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['bow'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['bow-quiver'], defaultTier: 'C' },
+  { id: 'equip-weap-xbows', label: 'Rare Crossbows', subtitle: 'xbow (Rare) · Elite & Exceptional crossbow drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['xbow'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['xbow-quiver'], defaultTier: 'C' },
+  { id: 'equip-weap-javelins', label: 'Rare Javelins', subtitle: 'jave (Rare) · Elite & Exceptional javelin drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['jave'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['javelin'], defaultTier: 'C' },
+  { id: 'equip-weap-spears', label: 'Rare Spears & Pikes', subtitle: 'spea (Rare) · Elite & Exceptional 2H spear drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['spea'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['spear'], defaultTier: 'C' },
+  { id: 'equip-weap-throwing', label: 'Rare Throwing Knives & Axes', subtitle: 'tkni, taxe (Rare) · Elite & Exceptional throwing weapon drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['tkni', 'taxe'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['throwing'], defaultTier: 'C' },
+  { id: 'equip-weap-swords', label: 'Rare Swords', subtitle: 'swor (Rare) · Elite & Exceptional sword drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['swor'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['sword'], defaultTier: 'C' },
+  { id: 'equip-weap-axes', label: 'Rare Axes', subtitle: 'axe (Rare) · Elite & Exceptional axe drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['axe'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['axe'], defaultTier: 'C' },
+  { id: 'equip-weap-maces', label: 'Rare Maces, Flails & Hammers', subtitle: 'mace, hamm (Rare) · Elite & Exceptional mace/hammer drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['mace', 'hamm'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['mace'], defaultTier: 'C' },
+  { id: 'equip-weap-clubs', label: 'Rare Clubs', subtitle: 'club (Rare) · Elite & Exceptional club drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['club'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['club'], defaultTier: 'C' },
+  { id: 'equip-weap-polearms', label: 'Rare Polearms', subtitle: 'pole (Rare) · Elite & Exceptional polearm drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['pole'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['polearm'], defaultTier: 'C' },
+  { id: 'equip-weap-daggers', label: 'Rare Daggers & Knives', subtitle: 'knif (Rare) · Elite & Exceptional dagger drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['knif'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['dagger'], defaultTier: 'C' },
+  { id: 'equip-weap-scepters', label: 'Rare Scepters', subtitle: 'scep (Rare) · Elite & Exceptional scepter drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['scep'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['scepter'], defaultTier: 'C' },
+  { id: 'equip-weap-wands', label: 'Rare Wands', subtitle: 'wand (Rare) · Elite & Exceptional wand drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['wand'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['wand'], defaultTier: 'C' },
+  { id: 'equip-weap-staves', label: 'Rare Staves', subtitle: 'staf (Rare) · Elite & Exceptional staff drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['staf'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['staff'], defaultTier: 'C' },
+  { id: 'equip-shields-standard', label: 'Rare Standard Shields (Monarch / Troll Nest)', subtitle: 'shie (Rare) · Elite & Exceptional shield drops (Elite only in Uber Strict)', category: 'equipment', itemTypes: ['shie'], tiers: ['elite', 'exceptional'], rarities: ['rare'], equipmentFamilies: ['standard-shield'], defaultTier: 'C' },
+  { id: 'equip-rare-elite', label: 'Rare Elite Body Armor & Helms', subtitle: 'tors, helm · All Elite-tier rare body armor & headgear', category: 'equipment', itemTypes: ['tors', 'helm'], tiers: ['elite'], rarities: ['rare'], defaultTier: 'C' },
+  { id: 'equip-rare-exceptional', label: 'Rare Exceptional Body Armor & Helms', subtitle: 'tors, helm · All Exceptional-tier rare body armor & headgear', category: 'equipment', itemTypes: ['tors', 'helm'], tiers: ['exceptional'], rarities: ['rare'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'equip-rare-normal', label: 'Rare Normal-Tier Equipment (Enabled Types)', subtitle: 'All Normal-tier rare gear for enabled weapon & armor types', category: 'equipment', tiers: ['normal'], rarities: ['rare'], defaultTier: 'D', strictnessTiers: { strict: 'HIDE', endgame: 'HIDE' } },
+  { id: 'equip-magic-elite', label: 'Magic Elite Equipment (Weapons, Armor & Class Gear)', subtitle: 'Magic elite gear (Starter only, hidden in Regular+)', category: 'equipment', tiers: ['elite'], rarities: ['magic'], defaultTier: 'D', strictnessTiers: { regular: 'HIDE', 'semi-strict': 'HIDE', strict: 'HIDE', endgame: 'HIDE' } },
+  { id: 'equip-magic-normal-exceptional', label: 'Magic Normal & Exceptional Equipment', subtitle: 'Early-game magic weapons, armor & class gear (Starter only, hidden in Regular+)', category: 'equipment', tiers: ['normal', 'exceptional'], rarities: ['magic'], defaultTier: 'D', strictnessTiers: { regular: 'HIDE', 'semi-strict': 'HIDE', strict: 'HIDE', endgame: 'HIDE' } },
 
   // 9. Potions, Scrolls, Quivers & Misc
   { id: 'misc-quest', label: 'Quest Items (Cube, Staff, Khalim, Malus, Scrolls)', subtitle: 'itemType: ques · Protected campaign items', category: 'misc', itemTypes: ['ques'], defaultTier: 'A' },
+  { id: 'misc-quest-weapons', label: "Campaign Quest Weapons & Viper Amulet (Wirt's Leg, Horadric Staff, Malus, Khalim, Hellforge)", subtitle: 'leg, hdm, hfh, hst, msf, qf1, qf2, g33, d33, vip · Always protected', category: 'misc', codes: ['leg', 'hdm', 'hfh', 'hst', 'msf', 'qf1', 'qf2', 'g33', 'd33', 'vip'], defaultTier: 'A' },
   { id: 'misc-buff-potions', label: 'Buff & Sunder Potions (MF, XP, Fire/Cold/Light/Poison/Magic/Phys Sunder)', subtitle: 'mfp, xpp, fsp, csp, lsp, psp, msp, php', category: 'misc', codes: ['mfp', 'xpp', 'fsp', 'csp', 'lsp', 'psp', 'msp', 'php'], defaultTier: 'B' },
   { id: 'misc-full-rejuv', label: 'Full Rejuvenation Potions', subtitle: 'rvl · 100% Instant Heal & Mana', category: 'misc', codes: ['rvl'], defaultTier: 'C' },
   { id: 'misc-small-rejuv', label: 'Regular Rejuvenation Potions (35%)', subtitle: 'rvs · Small purple potions', category: 'misc', codes: ['rvs'], defaultTier: 'D', strictnessTiers: { strict: 'HIDE', endgame: 'HIDE' } },
   { id: 'misc-super-pots', label: 'Super Healing & Super Mana Potions (HP5 / MP5)', subtitle: 'hp5, mp5, hpf, mpf', category: 'misc', codes: ['hp5', 'mp5', 'hpf', 'mpf'], defaultTier: 'D', strictnessTiers: { endgame: 'HIDE' } },
   { id: 'misc-greater-pots', label: 'Greater Healing & Greater Mana Potions (HP4 / MP4)', subtitle: 'hp4, mp4', category: 'misc', codes: ['hp4', 'mp4'], defaultTier: 'D', strictnessTiers: { strict: 'HIDE', endgame: 'HIDE' } },
   { id: 'misc-low-pots', label: 'Minor, Light & Standard HP/MP + Utility Potions', subtitle: 'hp1–hp3, mp1–mp3, vps, yps, wms', category: 'misc', codes: ['hp1', 'hp2', 'hp3', 'mp1', 'mp2', 'mp3', 'hpo', 'mpo', 'rps', 'rpl', 'bps', 'bpl', 'vps', 'yps', 'wms'], defaultTier: 'D', strictnessTiers: { regular: 'HIDE', 'semi-strict': 'HIDE', strict: 'HIDE', endgame: 'HIDE' } },
-  { id: 'misc-magic-quivers', label: 'Magic Bow & Crossbow Quivers', subtitle: 'z01, z02 · Magic arrows and bolts', category: 'misc', codes: ['z01', 'z02'], defaultTier: 'C' },
-  { id: 'misc-normal-quivers', label: 'Ordinary Arrows & Bolts', subtitle: 'aqv, cqv (Normal/Superior)', category: 'misc', codes: ['aqv', 'cqv'], rarities: ['inferior', 'normal', 'superior'], defaultTier: 'D', strictnessTiers: { 'semi-strict': 'HIDE', strict: 'HIDE', endgame: 'HIDE' } },
+  { id: 'misc-magic-quivers', label: 'Magic Bow & Crossbow Quivers', subtitle: 'bowq, xboq (Magic) · Starter only, hidden in Regular+', category: 'misc', itemTypes: ['bowq', 'xboq'], rarities: ['magic'], equipmentFamilies: ['bow-quiver', 'xbow-quiver'], defaultTier: 'D', strictnessTiers: { regular: 'HIDE', 'semi-strict': 'HIDE', strict: 'HIDE', endgame: 'HIDE' } },
+  { id: 'misc-normal-quivers', label: 'Ordinary Arrows & Bolts', subtitle: 'aqv, cqv (Normal/Superior)', category: 'misc', codes: ['aqv', 'cqv'], rarities: ['inferior', 'normal', 'superior'], equipmentFamilies: ['bow-quiver', 'xbow-quiver'], defaultTier: 'D', strictnessTiers: { 'semi-strict': 'HIDE', strict: 'HIDE', endgame: 'HIDE' } },
   { id: 'misc-scrolls-tomes', label: 'Town Portal & Identify Scrolls / Tomes', subtitle: 'tsc, isc, tbk, ibk', category: 'misc', codes: ['tsc', 'isc', 'tbk', 'ibk'], defaultTier: 'D', strictnessTiers: { strict: 'HIDE', endgame: 'HIDE' } },
   { id: 'misc-dyes', label: 'Armor Dyes & Dye Remover', subtitle: 'dwd, abd, bdd, ird, ngd, cyd, ryd, hod, drm', category: 'misc', codes: ['dwd', 'abd', 'bdd', 'ird', 'ngd', 'cyd', 'ryd', 'hod', 'drm'], defaultTier: 'C' },
   { id: 'misc-keys-body', label: 'Locked Chest Keys & Monster Body Parts', subtitle: 'key, hrt, brz, jaw, eyz, hrn, tal, flg, fng, qll, sol, scz, spe', category: 'misc', codes: ['key', 'hrt', 'brz', 'jaw', 'eyz', 'hrn', 'tal', 'flg', 'fng', 'qll', 'sol', 'scz', 'spe'], defaultTier: 'D', strictnessTiers: { strict: 'HIDE', endgame: 'HIDE' } },
@@ -653,17 +705,18 @@ export const EQUIPMENT_FAMILIES: readonly EquipmentFamilyMetadata[] = [
   {
     id: 'bow-quiver',
     name: 'Bows + Bow Quivers',
-    subtitle: 'Bows, Amazon Bows, Arrows & Magic Bow Quivers',
+    subtitle: 'Bows, Amazon Bows, Arrows & Rare/Unique Quivers',
     group: 'Ranged & Thrown',
     itemTypes: ['bow', 'abow', 'bowq', 'mboq'],
-    linkedTierableIds: ['misc-magic-quivers', 'misc-normal-quivers']
+    linkedTierableIds: ['equip-rare-quivers', 'misc-magic-quivers', 'misc-normal-quivers']
   },
   {
     id: 'xbow-quiver',
     name: 'Crossbows + Bolts',
-    subtitle: 'Crossbows, Bolts & Magic Crossbow Quivers',
+    subtitle: 'Crossbows, Bolts & Rare/Unique Crossbow Quivers',
     group: 'Ranged & Thrown',
-    itemTypes: ['xbow', 'xboq', 'mxbq']
+    itemTypes: ['xbow', 'xboq', 'mxbq'],
+    linkedTierableIds: ['equip-rare-quivers', 'misc-magic-quivers', 'misc-normal-quivers']
   },
   {
     id: 'javelin',
@@ -823,6 +876,7 @@ export interface BuildClassMetadata {
   defaultArchetype: BuildArchetypeId;
   enabledFamilies: EquipmentFamilyId[];
   promoteBaseIds: string[];
+  promoteTierBIds?: string[];
 }
 
 export const BUILD_CLASSES: readonly BuildClassMetadata[] = [
@@ -832,7 +886,20 @@ export const BUILD_CLASSES: readonly BuildClassMetadata[] = [
     subtitle: 'Selects Spear, Javelin, Bow + Quiver, Crossbow + Bolt, Shields & Merc Polearms',
     defaultArchetype: 'ranged',
     enabledFamilies: ['bow-quiver', 'xbow-quiver', 'javelin', 'spear', 'standard-shield', 'polearm'],
-    promoteBaseIds: ['base-ama-weapons', 'misc-magic-quivers', 'base-diadem-tiara', 'base-monarch-shields', 'base-elite-body']
+    promoteBaseIds: [
+      'base-ama-weapons',
+      'base-javelins',
+      'base-spears',
+      'equip-rare-quivers',
+      'base-diadem-tiara',
+      'base-monarch-shields',
+      'base-elite-polearms',
+      'base-elite-body',
+      'equip-class-amazon',
+      'equip-class-amazon-bows',
+      'equip-class-amazon-spears'
+    ],
+    promoteTierBIds: ['base-crossbows', 'equip-weap-bows', 'equip-weap-xbows', 'equip-weap-javelins', 'equip-weap-spears']
   },
   {
     id: 'Assassin',
@@ -840,7 +907,16 @@ export const BUILD_CLASSES: readonly BuildClassMetadata[] = [
     subtitle: 'Selects Claws, Daggers, Swords, Standard Shields & Merc Polearms',
     defaultArchetype: 'melee',
     enabledFamilies: ['claws', 'dagger', 'sword', 'mace', 'standard-shield', 'polearm'],
-    promoteBaseIds: ['base-sin-claws', 'base-diadem-tiara', 'base-monarch-shields', 'base-elite-body']
+    promoteBaseIds: [
+      'base-sin-claws',
+      'base-phase-zerker',
+      'base-diadem-tiara',
+      'base-monarch-shields',
+      'base-elite-polearms',
+      'base-elite-body',
+      'equip-class-assassin'
+    ],
+    promoteTierBIds: ['base-flails-maces', 'base-daggers', 'equip-weap-daggers', 'equip-weap-swords']
   },
   {
     id: 'Barbarian',
@@ -848,7 +924,28 @@ export const BUILD_CLASSES: readonly BuildClassMetadata[] = [
     subtitle: 'Selects Swords, Axes, Maces/Hammers, Clubs, Polearms, Spears, Throwing, Shields & Primal Helms',
     defaultArchetype: 'melee',
     enabledFamilies: ['sword', 'axe', 'mace', 'club', 'polearm', 'spear', 'throwing', 'standard-shield', 'barb-helm'],
-    promoteBaseIds: ['base-druid-barb', 'base-phase-zerker', 'base-elite-polearms', 'base-monarch-shields', 'base-elite-body']
+    promoteBaseIds: [
+      'base-barb-helms',
+      'base-phase-zerker',
+      'base-zerker-axes',
+      'base-elite-polearms',
+      'base-spears',
+      'base-monarch-shields',
+      'base-elite-body',
+      'equip-class-barbarian'
+    ],
+    promoteTierBIds: [
+      'base-flails-maces',
+      'base-throwing',
+      'base-clubs',
+      'equip-weap-swords',
+      'equip-weap-axes',
+      'equip-weap-maces',
+      'equip-weap-polearms',
+      'equip-weap-spears',
+      'equip-weap-throwing',
+      'equip-weap-clubs'
+    ]
   },
   {
     id: 'Druid',
@@ -856,7 +953,16 @@ export const BUILD_CLASSES: readonly BuildClassMetadata[] = [
     subtitle: 'Selects Druid Pelts, Clubs, Polearms, Axes, Staves, Swords & Standard Shields',
     defaultArchetype: 'caster',
     enabledFamilies: ['druid-pelt', 'club', 'polearm', 'axe', 'staff', 'sword', 'standard-shield'],
-    promoteBaseIds: ['base-druid-barb', 'base-monarch-shields', 'base-elite-polearms', 'base-elite-body']
+    promoteBaseIds: [
+      'base-druid-pelts',
+      'base-monarch-shields',
+      'base-elite-polearms',
+      'base-phase-zerker',
+      'base-zerker-axes',
+      'base-elite-body',
+      'equip-class-druid'
+    ],
+    promoteTierBIds: ['base-staves', 'base-clubs', 'equip-weap-staves', 'equip-weap-clubs', 'equip-weap-polearms', 'equip-weap-axes']
   },
   {
     id: 'Necromancer',
@@ -864,7 +970,17 @@ export const BUILD_CLASSES: readonly BuildClassMetadata[] = [
     subtitle: 'Selects Wands, Shrunken Heads, Daggers, Swords/Flails, Shields & Merc Polearms',
     defaultArchetype: 'caster',
     enabledFamilies: ['wand', 'necro-head', 'dagger', 'sword', 'mace', 'standard-shield', 'polearm'],
-    promoteBaseIds: ['base-sorc-necro', 'base-monarch-shields', 'base-caster-starters', 'base-elite-body']
+    promoteBaseIds: [
+      'base-necro-heads',
+      'base-wands',
+      'base-monarch-shields',
+      'base-phase-zerker',
+      'base-flails-maces',
+      'base-elite-polearms',
+      'base-elite-body',
+      'equip-class-necromancer'
+    ],
+    promoteTierBIds: ['base-daggers', 'equip-weap-wands', 'equip-weap-daggers']
   },
   {
     id: 'Paladin',
@@ -872,7 +988,17 @@ export const BUILD_CLASSES: readonly BuildClassMetadata[] = [
     subtitle: 'Selects Scepters, Paladin Shields, Swords, Maces/Flails, Axes & Merc Polearms',
     defaultArchetype: 'melee',
     enabledFamilies: ['scepter', 'paladin-shield', 'sword', 'mace', 'axe', 'polearm'],
-    promoteBaseIds: ['base-monarch-shields', 'base-phase-zerker', 'base-caster-starters', 'base-elite-body']
+    promoteBaseIds: [
+      'base-paladin-shields',
+      'base-scepters',
+      'base-phase-zerker',
+      'base-flails-maces',
+      'base-zerker-axes',
+      'base-elite-polearms',
+      'base-elite-body',
+      'equip-class-paladin'
+    ],
+    promoteTierBIds: ['equip-weap-scepters', 'equip-weap-swords', 'equip-weap-maces', 'equip-weap-axes']
   },
   {
     id: 'Sorceress',
@@ -880,7 +1006,18 @@ export const BUILD_CLASSES: readonly BuildClassMetadata[] = [
     subtitle: 'Selects Sorceress Orbs, Staves, Swords/Flails, Standard Shields & Merc Polearms',
     defaultArchetype: 'caster',
     enabledFamilies: ['sorc-orb', 'staff', 'sword', 'mace', 'standard-shield', 'polearm'],
-    promoteBaseIds: ['base-sorc-necro', 'base-diadem-tiara', 'base-monarch-shields', 'base-elite-polearms', 'base-elite-body']
+    promoteBaseIds: [
+      'base-sorc-orbs',
+      'base-staves',
+      'base-diadem-tiara',
+      'base-monarch-shields',
+      'base-phase-zerker',
+      'base-flails-maces',
+      'base-elite-polearms',
+      'base-elite-body',
+      'equip-class-sorceress'
+    ],
+    promoteTierBIds: ['equip-weap-staves']
   },
   {
     id: 'Warlock',
@@ -888,7 +1025,19 @@ export const BUILD_CLASSES: readonly BuildClassMetadata[] = [
     subtitle: 'Selects Warlock Grimoires, Daggers, Staves, Swords/Flails, Shields & Merc Polearms',
     defaultArchetype: 'caster',
     enabledFamilies: ['warlock-grimoire', 'dagger', 'staff', 'sword', 'mace', 'standard-shield', 'polearm'],
-    promoteBaseIds: ['base-warlock-grimoires', 'base-diadem-tiara', 'base-monarch-shields', 'base-caster-starters', 'base-elite-body']
+    promoteBaseIds: [
+      'base-warlock-grimoires',
+      'base-daggers',
+      'base-staves',
+      'base-diadem-tiara',
+      'base-monarch-shields',
+      'base-phase-zerker',
+      'base-flails-maces',
+      'base-elite-polearms',
+      'base-elite-body',
+      'equip-class-warlock'
+    ],
+    promoteTierBIds: ['equip-weap-daggers', 'equip-weap-staves']
   }
 ] as const;
 
@@ -898,6 +1047,7 @@ export const BUILD_ARCHETYPES: readonly {
   subtitle: string;
   enabledFamilies: EquipmentFamilyId[];
   promoteIds: string[];
+  promoteTierBIds?: string[];
 }[] = [
   {
     id: 'caster',
@@ -919,7 +1069,34 @@ export const BUILD_ARCHETYPES: readonly {
       'mace',
       'polearm'
     ],
-    promoteIds: ['base-monarch-shields', 'base-diadem-tiara', 'base-caster-starters', 'base-elite-polearms', 'base-elite-body']
+    promoteIds: [
+      'base-warlock-grimoires',
+      'base-sorc-orbs',
+      'base-necro-heads',
+      'base-druid-pelts',
+      'base-paladin-shields',
+      'base-monarch-shields',
+      'base-diadem-tiara',
+      'base-phase-zerker',
+      'base-flails-maces',
+      'base-elite-polearms',
+      'base-elite-body',
+      'equip-class-sorceress',
+      'equip-class-warlock',
+      'equip-class-necromancer',
+      'equip-class-druid',
+      'equip-class-paladin'
+    ],
+    promoteTierBIds: [
+      'base-wands',
+      'base-staves',
+      'base-scepters',
+      'base-daggers',
+      'equip-weap-wands',
+      'equip-weap-staves',
+      'equip-weap-scepters',
+      'equip-weap-daggers'
+    ]
   },
   {
     id: 'melee',
@@ -940,14 +1117,65 @@ export const BUILD_ARCHETYPES: readonly {
       'barb-helm',
       'druid-pelt'
     ],
-    promoteIds: ['base-phase-zerker', 'base-elite-body', 'base-elite-polearms', 'base-sin-claws', 'base-monarch-shields']
+    promoteIds: [
+      'base-phase-zerker',
+      'base-zerker-axes',
+      'base-flails-maces',
+      'base-elite-polearms',
+      'base-spears',
+      'base-sin-claws',
+      'base-barb-helms',
+      'base-druid-pelts',
+      'base-paladin-shields',
+      'base-monarch-shields',
+      'base-elite-body',
+      'equip-class-assassin',
+      'equip-class-barbarian',
+      'equip-class-druid',
+      'equip-class-paladin'
+    ],
+    promoteTierBIds: [
+      'base-scepters',
+      'base-clubs',
+      'base-daggers',
+      'equip-weap-swords',
+      'equip-weap-axes',
+      'equip-weap-maces',
+      'equip-weap-polearms',
+      'equip-weap-spears',
+      'equip-class-amazon-spears',
+      'equip-weap-scepters',
+      'equip-weap-clubs',
+      'equip-weap-daggers'
+    ]
   },
   {
     id: 'ranged',
     name: 'Ranged (Bow / Crossbow / Javelin / Throw)',
     subtitle: 'Bows + Quivers, Crossbows + Bolts, Javelins, Spears, Throwing Weapons, Shields & Merc Polearms',
     enabledFamilies: ['bow-quiver', 'xbow-quiver', 'javelin', 'spear', 'throwing', 'standard-shield', 'polearm'],
-    promoteIds: ['base-ama-weapons', 'misc-magic-quivers', 'base-diadem-tiara', 'base-elite-body']
+    promoteIds: [
+      'base-ama-weapons',
+      'base-javelins',
+      'base-spears',
+      'base-crossbows',
+      'base-throwing',
+      'equip-rare-quivers',
+      'base-diadem-tiara',
+      'base-monarch-shields',
+      'base-elite-polearms',
+      'base-elite-body',
+      'equip-class-amazon',
+      'equip-class-amazon-bows',
+      'equip-class-amazon-spears'
+    ],
+    promoteTierBIds: [
+      'equip-weap-bows',
+      'equip-weap-xbows',
+      'equip-weap-javelins',
+      'equip-weap-spears',
+      'equip-weap-throwing'
+    ]
   }
 ] as const;
 
@@ -1068,14 +1296,6 @@ export const CURATED_BUILD_PRESETS: readonly CuratedBuildPreset[] = [
   }
 ] as const;
 
-const CLASS_SPECIFIC_BASE_IDS = [
-  'base-ama-weapons',
-  'base-warlock-grimoires',
-  'base-sorc-necro',
-  'base-sin-claws',
-  'base-druid-barb'
-] as const;
-
 export function syncBuildProfileOverrides(config: V2Config): void {
   const profile = config.buildProfile;
   const disabledSet = new Set<EquipmentFamilyId>(profile.disabledFamilies ?? []);
@@ -1084,18 +1304,14 @@ export function syncBuildProfileOverrides(config: V2Config): void {
   );
 
   const nextOverrides = { ...config.itemOverrides };
-  for (const baseId of [
-    ...CLASS_SPECIFIC_BASE_IDS,
-    'base-monarch-shields',
-    'base-elite-body',
-    'base-phase-zerker',
-    'base-elite-polearms',
-    'base-diadem-tiara',
-    'base-caster-starters',
-    'misc-magic-quivers',
-    'misc-normal-quivers'
-  ]) {
-    delete nextOverrides[baseId];
+  for (const item of TIERABLE_ITEMS) {
+    if (
+      (item.equipmentFamilies && item.equipmentFamilies.length > 0) ||
+      item.id === 'base-elite-body' ||
+      item.id === 'base-diadem-tiara'
+    ) {
+      delete nextOverrides[item.id];
+    }
   }
 
   // If everything is enabled and no class/archetype is selected, leave defaults
@@ -1104,55 +1320,104 @@ export function syncBuildProfileOverrides(config: V2Config): void {
     return;
   }
 
-  // Promote bases for selected class or archetype
-  const promoted = new Set<string>();
+  // Promote primary bases & equipment for selected class or archetype
+  const promotedTierA = new Set<string>();
+  const promotedTierB = new Set<string>();
+
   if (profile.selectedClass) {
     const cls = BUILD_CLASSES.find(c => c.id === profile.selectedClass);
     if (cls) {
-      for (const id of cls.promoteBaseIds) promoted.add(id);
+      for (const id of cls.promoteBaseIds) promotedTierA.add(id);
+      for (const id of cls.promoteTierBIds ?? []) promotedTierB.add(id);
     }
-  }
-  if (profile.archetype) {
+  } else if (profile.archetype) {
     const arch = BUILD_ARCHETYPES.find(a => a.id === profile.archetype);
     if (arch) {
-      for (const id of arch.promoteIds) promoted.add(id);
+      for (const id of arch.promoteIds) promotedTierA.add(id);
+      for (const id of arch.promoteTierBIds ?? []) promotedTierB.add(id);
     }
   }
-  for (const id of promoted) {
-    nextOverrides[id] = 'A';
+
+  for (const id of promotedTierB) {
+    const item = TIERABLE_ITEMS.find(x => x.id === id);
+    if (!item) continue;
+    const defaultForStrictness = item.strictnessTiers?.[config.strictness] ?? item.defaultTier;
+    if (defaultForStrictness !== 'B') {
+      nextOverrides[id] = 'B';
+    }
   }
 
-  // Hide curated base groups whose underlying equipment families are all disabled
-  if (!enabledSet.has('bow-quiver') && !enabledSet.has('javelin') && !enabledSet.has('spear')) {
-    nextOverrides['base-ama-weapons'] = 'HIDE';
+  for (const id of promotedTierA) {
+    const item = TIERABLE_ITEMS.find(x => x.id === id);
+    if (!item) continue;
+    const defaultForStrictness = item.strictnessTiers?.[config.strictness] ?? item.defaultTier;
+    if (defaultForStrictness !== 'A') {
+      nextOverrides[id] = 'A';
+    }
   }
-  if (!enabledSet.has('bow-quiver') && !enabledSet.has('xbow-quiver')) {
-    nextOverrides['misc-magic-quivers'] = 'HIDE';
-    nextOverrides['misc-normal-quivers'] = 'HIDE';
-  }
-  if (!enabledSet.has('warlock-grimoire')) {
-    nextOverrides['base-warlock-grimoires'] = 'HIDE';
-  }
-  if (!enabledSet.has('sorc-orb') && !enabledSet.has('necro-head')) {
-    nextOverrides['base-sorc-necro'] = 'HIDE';
-  }
-  if (!enabledSet.has('claws')) {
-    nextOverrides['base-sin-claws'] = 'HIDE';
-  }
-  if (!enabledSet.has('druid-pelt') && !enabledSet.has('barb-helm')) {
-    nextOverrides['base-druid-barb'] = 'HIDE';
-  }
-  if (!enabledSet.has('sword') && !enabledSet.has('axe')) {
-    nextOverrides['base-phase-zerker'] = 'HIDE';
-  }
-  if (!enabledSet.has('polearm')) {
-    nextOverrides['base-elite-polearms'] = 'HIDE';
-  }
-  if (!enabledSet.has('standard-shield') && !enabledSet.has('paladin-shield')) {
-    nextOverrides['base-monarch-shields'] = 'HIDE';
+
+  // Move any base, equipment, or quiver group whose underlying equipment families are all disabled into HIDE
+  for (const item of TIERABLE_ITEMS) {
+    if (item.equipmentFamilies && item.equipmentFamilies.length > 0) {
+      const anyEnabled = item.equipmentFamilies.some(famId => enabledSet.has(famId));
+      if (!anyEnabled) {
+        nextOverrides[item.id] = 'HIDE';
+      }
+    }
   }
 
   config.itemOverrides = nextOverrides;
+}
+
+function promotedTierForBuildProfile(itemId: string, profile: BuildProfile): TierRank | undefined {
+  if (profile.selectedClass) {
+    const cls = BUILD_CLASSES.find(c => c.id === profile.selectedClass);
+    if (cls?.promoteBaseIds.includes(itemId)) return 'A';
+    if (cls?.promoteTierBIds?.includes(itemId)) return 'B';
+  } else if (profile.archetype) {
+    const arch = BUILD_ARCHETYPES.find(a => a.id === profile.archetype);
+    if (arch?.promoteIds.includes(itemId)) return 'A';
+    if (arch?.promoteTierBIds?.includes(itemId)) return 'B';
+  }
+  return undefined;
+}
+
+export function isFamilyExplicitlyHidden(item: TierableItem, config: V2Config): boolean {
+  if (!item.equipmentFamilies?.length) return false;
+  if (effectiveItemTier(item, config) !== 'HIDE') return false;
+  if (config.itemOverrides[item.id] === 'HIDE') return true;
+  const disabled = config.buildProfile?.disabledFamilies ?? [];
+  return item.equipmentFamilies.every(famId => disabled.includes(famId));
+}
+
+export function syncDisabledFamiliesFromOverrides(config: V2Config): void {
+  const prevDisabled = new Set<EquipmentFamilyId>(config.buildProfile?.disabledFamilies ?? []);
+  const nextDisabled: EquipmentFamilyId[] = [];
+  for (const famId of ALL_EQUIPMENT_FAMILY_IDS) {
+    const linkedItems = TIERABLE_ITEMS.filter(
+      item =>
+        (item.category === 'bases' || item.category === 'equipment') &&
+        item.equipmentFamilies?.includes(famId)
+    );
+    if (linkedItems.length > 0 && linkedItems.every(item => effectiveItemTier(item, config) === 'HIDE')) {
+      nextDisabled.push(famId);
+    }
+  }
+  const nextDisabledSet = new Set<EquipmentFamilyId>(nextDisabled);
+  // If a quiver family was re-enabled via Tab 2, lift any build-imposed HIDE on misc quivers
+  for (const qFam of ['bow-quiver', 'xbow-quiver'] as const) {
+    if (prevDisabled.has(qFam) && !nextDisabledSet.has(qFam)) {
+      for (const qId of ['misc-normal-quivers', 'misc-magic-quivers']) {
+        if (config.itemOverrides[qId] === 'HIDE') {
+          delete config.itemOverrides[qId];
+        }
+      }
+    }
+  }
+  config.buildProfile = {
+    ...config.buildProfile,
+    disabledFamilies: nextDisabled
+  };
 }
 
 export function selectClassForBuild(config: V2Config, clsId: BuildClassId | null): void {
@@ -1186,10 +1451,12 @@ export function selectClassForBuild(config: V2Config, clsId: BuildClassId | null
 export function selectArchetypeForBuild(config: V2Config, archId: BuildArchetypeId | null): void {
   if (!archId) {
     config.buildProfile = {
-      ...config.buildProfile,
+      selectedClass: null,
       archetype: null,
       disabledFamilies: [],
-      presetId: undefined
+      presetId: undefined,
+      linkedBuildId: undefined,
+      linkedBuildTitle: undefined
     };
     syncBuildProfileOverrides(config);
     return;
@@ -1216,11 +1483,53 @@ export function toggleEquipmentFamily(config: V2Config, familyId: EquipmentFamil
   } else {
     currentDisabled.add(familyId);
   }
+  const nextDisabled = ALL_EQUIPMENT_FAMILY_IDS.filter(id => currentDisabled.has(id));
+  const enabledSet = new Set<EquipmentFamilyId>(ALL_EQUIPMENT_FAMILY_IDS.filter(id => !currentDisabled.has(id)));
   config.buildProfile = {
     ...config.buildProfile,
-    disabledFamilies: ALL_EQUIPMENT_FAMILY_IDS.filter(id => currentDisabled.has(id))
+    disabledFamilies: nextDisabled,
+    presetId: undefined
   };
-  syncBuildProfileOverrides(config);
+
+  // Surgically update only items belonging to the toggled family so unrelated Tab 2 overrides stay intact
+  const nextOverrides = { ...config.itemOverrides };
+  for (const item of TIERABLE_ITEMS) {
+    if (!item.equipmentFamilies?.includes(familyId)) continue;
+    const anyEnabled = item.equipmentFamilies.some(f => enabledSet.has(f));
+    if (!anyEnabled) {
+      nextOverrides[item.id] = 'HIDE';
+    } else if (nextOverrides[item.id] === 'HIDE') {
+      const promoted = promotedTierForBuildProfile(item.id, config.buildProfile);
+      const defaultForStrictness = item.strictnessTiers?.[config.strictness] ?? item.defaultTier;
+      if (promoted && promoted !== defaultForStrictness) {
+        nextOverrides[item.id] = promoted;
+      } else {
+        delete nextOverrides[item.id];
+      }
+    }
+  }
+  config.itemOverrides = nextOverrides;
+}
+
+export function enableAllFamiliesForBuild(config: V2Config): void {
+  config.buildProfile = {
+    ...config.buildProfile,
+    disabledFamilies: [],
+    presetId: undefined
+  };
+  const nextOverrides = { ...config.itemOverrides };
+  for (const item of TIERABLE_ITEMS) {
+    if (item.equipmentFamilies?.length && nextOverrides[item.id] === 'HIDE') {
+      const promoted = promotedTierForBuildProfile(item.id, config.buildProfile);
+      const defaultForStrictness = item.strictnessTiers?.[config.strictness] ?? item.defaultTier;
+      if (promoted && promoted !== defaultForStrictness) {
+        nextOverrides[item.id] = promoted;
+      } else {
+        delete nextOverrides[item.id];
+      }
+    }
+  }
+  config.itemOverrides = nextOverrides;
 }
 
 export function applyBuildCuration(config: V2Config, profile: BuildProfile): void {
@@ -1478,6 +1787,7 @@ export function createDefaultV2Config(strictness: StrictnessId = 'semi-strict', 
     itemOverrides: {},
     tierStyleOverrides: {},
     categoryTierStyleOverrides: {},
+    rarityTierStyleOverrides: {},
     customBases: [],
     baseSettings: { ...DEFAULT_BASE_SETTINGS },
     buildProfile: { ...DEFAULT_BUILD_PROFILE, disabledFamilies: [] },
@@ -1494,6 +1804,29 @@ export function effectiveItemTier(item: TierableItem, config: V2Config): TierRan
 
 export function isItemOverridden(item: TierableItem, config: V2Config): boolean {
   return config.itemOverrides[item.id] !== undefined;
+}
+
+const WINDOWS_RESERVED_FILENAME_RE = /^(con|prn|aux|nul|com[1-9]|lpt[1-9])(\..*)?$/i;
+
+export function sanitizeFilterFilename(rawName?: string | null, fallbackStem = 'filter'): string {
+  let stem = (rawName ?? '')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+    .replace(/(?:\.json)+$/i, '')
+    .replace(/[/\\|:·•—–]+/g, ' - ')
+    .replace(/[^A-Za-z0-9 _().-]/g, '')
+    .replace(/\.{2,}/g, '.')
+    .replace(/(?:\s*-\s*){2,}/g, ' - ')
+    .replace(/\s+/g, ' ')
+    .replace(/^[.\s-]+|[.\s-]+$/g, '')
+    .slice(0, 80)
+    .replace(/[.\s-]+$/g, '');
+
+  if (!stem || WINDOWS_RESERVED_FILENAME_RE.test(stem)) {
+    stem = fallbackStem;
+  }
+  return `${stem}.json`;
 }
 
 export interface BaseSlotFilter {
@@ -1579,12 +1912,24 @@ export function modesMatchGroupMode(
   return false;
 }
 
+export function modeCoversGroupMode(
+  ruleMode: CustomBaseRule['mode'],
+  groupMode: CustomBaseRule['mode']
+): boolean {
+  return ruleMode === groupMode || ruleMode === 'any';
+}
+
 function cleanCatalogItemLabel(b: {
   code?: string;
   name: string;
   displayName?: string;
   kind: string;
 }): string {
+  if (b.code === 'cjw') return 'Colossal Jewel';
+  if (b.code === 'cs1') return 'Sunder Grand Charm';
+  if (b.code === 'cs2') return 'Renewed Sunder Charm';
+  if (b.code === 'cm4') return "Collin's Small Charm";
+  if (b.code === 'cm5') return "Collin's Destruction Charm";
   if (b.kind === 'weapon' || b.kind === 'armor') {
     return (b.displayName || b.name || b.code || '').split(/\r?\n/)[0]!.trim();
   }
@@ -1624,6 +1969,7 @@ export function resolveTierableItemBases(
   } else if (!item.codes?.length && (item.baseNames?.length || item.itemTypes?.length)) {
     for (const b of catalog.baseItems) {
       if (!b.code) continue;
+      if (b.code === 'cjw' || b.code === 'cs1' || b.code === 'cs2' || b.code === 'tch' || b.code === 'cm4' || b.code === 'cm5') continue;
       if (item.baseNames?.length) {
         const matchesName =
           item.baseNames.includes(b.name) || (b.displayName != null && item.baseNames.includes(b.displayName));
@@ -1636,6 +1982,11 @@ export function resolveTierableItemBases(
       if (item.tiers?.length) {
         if (!b.tier || !item.tiers.includes(b.tier)) continue;
       }
+      if (mode === 'set' && catalog.setItems.length > 0) {
+        if (!catalog.setItems.some(s => s.baseCode === b.code)) continue;
+      } else if (mode === 'unique' && catalog.uniqueItems.length > 0) {
+        if (!catalog.uniqueItems.some(u => u.baseCode === b.code)) continue;
+      }
       matchedBases.push(b);
     }
   }
@@ -1646,9 +1997,9 @@ export function resolveTierableItemBases(
     const code = b.code!;
     const label = cleanCatalogItemLabel(b) || code;
     let notableNames: string | undefined;
-    if (mode === 'unique' || mode === 'set' || mode === 'unique-set') {
-      const uNames = catalog.uniqueItems.filter(u => u.baseCode === code).map(u => u.name);
-      const sNames = catalog.setItems.filter(s => s.baseCode === code).map(s => s.name);
+    if (mode === 'unique' || mode === 'set' || mode === 'unique-set' || (mode === 'any' && item.category === 'uniques')) {
+      const uNames = mode !== 'set' ? catalog.uniqueItems.filter(u => u.baseCode === code).map(u => u.name) : [];
+      const sNames = mode !== 'unique' ? catalog.setItems.filter(s => s.baseCode === code).map(s => s.name) : [];
       const combined = [...new Set([...uNames, ...sNames])];
       if (combined.length > 0) {
         notableNames = combined.slice(0, 3).join(', ') + (combined.length > 3 ? ` +${combined.length - 3}` : '');
@@ -1726,9 +2077,9 @@ export function getGroupDisplayInfo(
     const matchingRule = config.customBases.find(
       cb =>
         cb.code === entry.code &&
+        modeCoversGroupMode(cb.mode, groupMode) &&
         (cb.parentItemId === item.id ||
           (!cb.parentItemId &&
-            modesMatchGroupMode(cb.mode, groupMode) &&
             findParentGroupForBase(cb.code, cb.mode, catalog)?.id === item.id))
     );
 
@@ -1809,9 +2160,9 @@ export function reconcileGroupSplits(config: V2Config, catalog: Catalog): void {
           cb.code === entry.code &&
           !cb.minSockets &&
           !cb.etherealOnly &&
+          modeCoversGroupMode(cb.mode, groupMode) &&
           (cb.parentItemId === item.id ||
             (!cb.parentItemId &&
-              modesMatchGroupMode(cb.mode, groupMode) &&
               findParentGroupForBase(cb.code, cb.mode, catalog)?.id === item.id))
       )
     );
@@ -1834,6 +2185,7 @@ export function reconcileGroupSplits(config: V2Config, catalog: Catalog): void {
     if (cb.minSockets || cb.etherealOnly) return true;
     const parentGroup = findParentGroupForBase(cb.code, cb.mode, catalog, cb.parentItemId);
     if (!parentGroup) return true;
+    if (!modeCoversGroupMode(cb.mode, defaultBaseModeForItem(parentGroup))) return true;
     const groupTier = effectiveItemTier(parentGroup, config);
     return cb.tier !== groupTier;
   });
@@ -1841,12 +2193,74 @@ export function reconcileGroupSplits(config: V2Config, catalog: Catalog): void {
   config.itemOverrides = { ...config.itemOverrides };
 }
 
+function defaultBaseCategoryTierStyle(
+  tier: Exclude<TierRank, 'HIDE'>,
+  themeBase: TierStyle
+): TierStyle {
+  // Runeword & Crafting Bases (Normal/Superior/Ethereal white & grey items) use crisp Pure White & Cool Steel-Silver
+  // on dark cool slate so they NEVER resemble warm Unique Gold, Rare Yellow, or Rune Orange on the ground.
+  if (tier === 'S') {
+    return {
+      backgroundColor: 'RGBA(12, 22, 38, 0.95)',
+      borderColor: 'RGBA(215, 240, 255, 1)',
+      textColor: 'RGBA(255, 255, 255, 1)',
+      dropSound: themeBase.dropSound ?? 'Filter01',
+      minimapIcon: {
+        shape: 'star',
+        size: 24,
+        borderColor: 'RGBA(45, 70, 100, 1)',
+        fillColor: 'RGBA(245, 250, 255, 1)'
+      },
+      namePrefix: themeBase.namePrefix ?? '★ {name} ★'
+    };
+  }
+  if (tier === 'A') {
+    return {
+      backgroundColor: 'RGBA(14, 20, 30, 0.93)',
+      borderColor: 'RGBA(240, 247, 255, 1)',
+      textColor: 'RGBA(255, 255, 255, 1)',
+      dropSound: themeBase.dropSound ?? 'Filter02',
+      minimapIcon: {
+        shape: 'diamond',
+        size: 20,
+        borderColor: 'RGBA(55, 75, 100, 1)',
+        fillColor: 'RGBA(240, 247, 255, 1)'
+      }
+    };
+  }
+  if (tier === 'B') {
+    return {
+      backgroundColor: 'RGBA(14, 18, 25, 0.89)',
+      borderColor: 'RGBA(180, 200, 224, 0.92)',
+      textColor: 'RGBA(236, 243, 252, 1)',
+      dropSound: themeBase.dropSound ?? 'Filter03',
+      minimapIcon: {
+        shape: 'circle',
+        size: 16,
+        borderColor: 'RGBA(50, 68, 90, 1)',
+        fillColor: 'RGBA(198, 214, 232, 1)'
+      }
+    };
+  }
+  if (tier === 'C') {
+    return {
+      backgroundColor: 'RGBA(12, 15, 20, 0.85)',
+      borderColor: 'RGBA(125, 142, 165, 0.75)',
+      textColor: 'RGBA(208, 218, 230, 1)'
+    };
+  }
+  return {
+    textColor: 'RGBA(168, 178, 190, 0.9)'
+  };
+}
+
 export function effectiveTierStyle(
   tier: Exclude<TierRank, 'HIDE'>,
   config: V2Config,
   category?: CategoryId
 ): TierStyle {
-  const base = THEME_PRESETS[config.theme]?.tiers[tier] ?? THEME_PRESETS.reimagined.tiers[tier];
+  const themeBase = THEME_PRESETS[config.theme]?.tiers[tier] ?? THEME_PRESETS.reimagined.tiers[tier];
+  const base = category === 'bases' ? defaultBaseCategoryTierStyle(tier, themeBase) : themeBase;
   const globalOverride = config.tierStyleOverrides[tier] ?? {};
   const catOverride = (category && config.categoryTierStyleOverrides[category]?.[tier]) ?? {};
   return {
@@ -1854,6 +2268,366 @@ export function effectiveTierStyle(
     ...globalOverride,
     ...catOverride
   };
+}
+
+export const EDITABLE_RARITY_STYLES: readonly {
+  id: ItemRarityStyleKind;
+  label: string;
+  shortLabel: string;
+  sampleDrop: string;
+  badgeClass: string;
+}[] = [
+  { id: 'unique', label: 'Uniques (Sanctuary Gold)', shortLabel: 'Unique', sampleDrop: 'Shako [E] (86)', badgeClass: 'border-amber-400/50 bg-amber-950/60 text-amber-200' },
+  { id: 'set', label: 'Sets (Emerald Green)', shortLabel: 'Set', sampleDrop: 'Lacquered Plate [E] (86)', badgeClass: 'border-emerald-400/50 bg-emerald-950/60 text-emerald-300' },
+  { id: 'base', label: 'Runeword & Crafting Bases', shortLabel: 'Base', sampleDrop: 'Monarch [E] (86)', badgeClass: 'border-slate-300/45 bg-slate-900/80 text-slate-100' },
+  { id: 'rare', label: 'Rares (Canary Yellow)', shortLabel: 'Rare', sampleDrop: 'Diadem [E] (86)', badgeClass: 'border-yellow-400/50 bg-yellow-950/60 text-yellow-200' },
+  { id: 'crafted', label: 'Crafted Gear (Blood-Orange)', shortLabel: 'Crafted', sampleDrop: 'Vampirebone Gloves [E] (88)', badgeClass: 'border-orange-400/50 bg-orange-950/60 text-orange-300' },
+  { id: 'magic', label: 'Magic Charms & Jewels (Cobalt Blue)', shortLabel: 'Magic', sampleDrop: 'Grand Charm (85)', badgeClass: 'border-blue-400/50 bg-blue-950/60 text-blue-300' }
+] as const;
+
+function isLightPlateColor(rgbaStr: string | undefined): boolean {
+  const parsed = M.parseRgba(rgbaStr);
+  if (!parsed) return false;
+  const lum = 0.299 * parsed.r + 0.587 * parsed.g + 0.114 * parsed.b;
+  return lum > 165 && parsed.a >= 0.5;
+}
+
+function defaultRarityTierStyleFromTheme(
+  tier: Exclude<TierRank, 'HIDE'>,
+  themeBase: TierStyle,
+  rarityKind?: ItemRarityStyleKind,
+  sharedTierSBackground?: string
+): TierStyle {
+  if (!rarityKind) return themeBase;
+  if (rarityKind === 'base') return defaultBaseCategoryTierStyle(tier, themeBase);
+  const base = themeBase;
+
+  // Magic items must NEVER use Unique gold, Rare yellow, Set green, Base white, or high-rune orange/purple colors
+  if (rarityKind === 'magic') {
+    if (tier === 'S') {
+      return {
+        ...base,
+        backgroundColor: 'RGBA(12, 26, 62, 0.94)',
+        borderColor: 'RGBA(110, 180, 255, 1)',
+        textColor: 'RGBA(205, 232, 255, 1)',
+        minimapIcon: base.minimapIcon
+          ? { ...base.minimapIcon, fillColor: 'RGBA(95, 165, 255, 1)' }
+          : undefined
+      };
+    }
+    if (tier === 'A') {
+      return {
+        backgroundColor: 'RGBA(12, 24, 54, 0.92)',
+        borderColor: 'RGBA(95, 160, 255, 1)',
+        textColor: 'RGBA(175, 212, 255, 1)',
+        dropSound: base.dropSound,
+        minimapIcon: base.minimapIcon
+          ? { ...base.minimapIcon, fillColor: 'RGBA(95, 160, 255, 1)' }
+          : undefined
+      };
+    }
+    if (tier === 'B') {
+      return {
+        backgroundColor: 'RGBA(12, 20, 42, 0.88)',
+        borderColor: 'RGBA(80, 140, 245, 0.9)',
+        textColor: 'RGBA(140, 185, 255, 1)',
+        minimapIcon: {
+          shape: 'circle',
+          size: 16,
+          borderColor: 'RGBA(255, 255, 255, 1)',
+          fillColor: 'RGBA(80, 140, 245, 1)'
+        }
+      };
+    }
+    if (tier === 'C') {
+      return {
+        backgroundColor: 'RGBA(12, 16, 30, 0.84)',
+        borderColor: 'RGBA(75, 120, 215, 0.7)',
+        textColor: 'RGBA(115, 155, 255, 1)'
+      };
+    }
+    return {
+      textColor: 'RGBA(105, 140, 235, 0.92)'
+    };
+  }
+
+  // Option 1B for Tier S Uniques & Sets: share the active Theme's (or global Tier S's) jackpot plate background,
+  // while keeping distinct Sanctuary Gold vs. Emerald Green borders, text hues, and minimap star symbols!
+  if (tier === 'S') {
+    const plateBg = sharedTierSBackground || base.backgroundColor || 'RGBA(34, 12, 48, 0.95)';
+    const lightPlate = isLightPlateColor(plateBg);
+    if (rarityKind === 'unique') {
+      return {
+        backgroundColor: plateBg,
+        borderColor: lightPlate ? 'RGBA(235, 170, 25, 1)' : 'RGBA(245, 190, 48, 1)',
+        textColor: lightPlate ? 'RGBA(155, 92, 8, 1)' : 'RGBA(255, 226, 142, 1)',
+        dropSound: base.dropSound ?? 'Filter01',
+        minimapIcon: {
+          shape: base.minimapIcon?.shape ?? 'star',
+          size: base.minimapIcon?.size ?? 24,
+          borderColor: 'RGBA(255, 255, 255, 1)',
+          fillColor: 'RGBA(255, 210, 75, 1)'
+        },
+        namePrefix: base.namePrefix
+      };
+    }
+    if (rarityKind === 'set') {
+      return {
+        backgroundColor: plateBg,
+        borderColor: lightPlate ? 'RGBA(18, 215, 78, 1)' : 'RGBA(45, 235, 95, 1)',
+        textColor: lightPlate ? 'RGBA(8, 120, 42, 1)' : 'RGBA(150, 255, 178, 1)',
+        dropSound: base.dropSound ?? 'Filter01',
+        minimapIcon: {
+          shape: base.minimapIcon?.shape ?? 'star',
+          size: base.minimapIcon?.size ?? 24,
+          borderColor: 'RGBA(255, 255, 255, 1)',
+          fillColor: 'RGBA(55, 255, 115, 1)'
+        },
+        namePrefix: base.namePrefix
+      };
+    }
+    if (rarityKind === 'rare') {
+      return {
+        backgroundColor: plateBg,
+        borderColor: lightPlate ? 'RGBA(215, 180, 15, 1)' : 'RGBA(255, 238, 75, 1)',
+        textColor: lightPlate ? 'RGBA(135, 105, 0, 1)' : 'RGBA(255, 248, 145, 1)',
+        dropSound: base.dropSound ?? 'Filter01',
+        minimapIcon: {
+          shape: base.minimapIcon?.shape ?? 'star',
+          size: base.minimapIcon?.size ?? 24,
+          borderColor: 'RGBA(255, 255, 255, 1)',
+          fillColor: 'RGBA(255, 238, 75, 1)'
+        },
+        namePrefix: base.namePrefix
+      };
+    }
+    if (rarityKind === 'crafted') {
+      return {
+        backgroundColor: plateBg,
+        borderColor: 'RGBA(255, 140, 25, 1)',
+        textColor: lightPlate ? 'RGBA(175, 72, 0, 1)' : 'RGBA(255, 200, 115, 1)',
+        dropSound: base.dropSound ?? 'Filter01',
+        minimapIcon: {
+          shape: base.minimapIcon?.shape ?? 'star',
+          size: base.minimapIcon?.size ?? 24,
+          borderColor: 'RGBA(255, 255, 255, 1)',
+          fillColor: 'RGBA(255, 140, 25, 1)'
+        },
+        namePrefix: base.namePrefix
+      };
+    }
+    return base;
+  }
+
+  if (rarityKind === 'unique') {
+    if (tier === 'A') {
+      return {
+        backgroundColor: 'RGBA(48, 28, 6, 0.94)',
+        borderColor: 'RGBA(242, 178, 58, 1)',
+        textColor: 'RGBA(255, 212, 118, 1)',
+        dropSound: base.dropSound ?? 'Filter02',
+        minimapIcon: {
+          shape: base.minimapIcon?.shape ?? 'star',
+          size: base.minimapIcon?.size ?? 21,
+          borderColor: 'RGBA(255, 255, 255, 1)',
+          fillColor: 'RGBA(242, 178, 58, 1)'
+        }
+      };
+    }
+    if (tier === 'B') {
+      return {
+        backgroundColor: 'RGBA(38, 22, 6, 0.91)',
+        borderColor: 'RGBA(214, 152, 48, 0.95)',
+        textColor: 'RGBA(238, 190, 98, 1)',
+        dropSound: base.dropSound ?? 'Filter03',
+        minimapIcon: {
+          shape: base.minimapIcon?.shape ?? 'diamond',
+          size: base.minimapIcon?.size ?? 18,
+          borderColor: 'RGBA(255, 255, 255, 1)',
+          fillColor: 'RGBA(214, 152, 48, 1)'
+        }
+      };
+    }
+    if (tier === 'C') {
+      return {
+        backgroundColor: 'RGBA(30, 18, 5, 0.88)',
+        borderColor: 'RGBA(190, 132, 42, 0.85)',
+        textColor: 'RGBA(224, 174, 86, 1)'
+      };
+    }
+    return {
+      textColor: 'RGBA(208, 160, 78, 0.94)'
+    };
+  }
+
+  if (rarityKind === 'set') {
+    if (tier === 'A') {
+      return {
+        backgroundColor: 'RGBA(8, 36, 16, 0.92)',
+        borderColor: 'RGBA(45, 230, 90, 1)',
+        textColor: 'RGBA(145, 255, 170, 1)',
+        dropSound: base.dropSound ?? 'Filter02',
+        minimapIcon: {
+          shape: base.minimapIcon?.shape ?? 'star',
+          size: base.minimapIcon?.size ?? 20,
+          borderColor: 'RGBA(255, 255, 255, 1)',
+          fillColor: 'RGBA(45, 230, 90, 1)'
+        }
+      };
+    }
+    if (tier === 'B') {
+      return {
+        backgroundColor: 'RGBA(8, 28, 12, 0.88)',
+        borderColor: 'RGBA(35, 200, 75, 0.9)',
+        textColor: 'RGBA(110, 240, 135, 1)',
+        dropSound: base.dropSound ?? 'Filter03',
+        minimapIcon: {
+          shape: base.minimapIcon?.shape ?? 'diamond',
+          size: base.minimapIcon?.size ?? 17,
+          borderColor: 'RGBA(255, 255, 255, 1)',
+          fillColor: 'RGBA(35, 200, 75, 1)'
+        }
+      };
+    }
+    if (tier === 'C') {
+      return {
+        backgroundColor: 'RGBA(8, 20, 10, 0.84)',
+        borderColor: 'RGBA(35, 165, 65, 0.72)',
+        textColor: 'RGBA(85, 220, 110, 1)'
+      };
+    }
+    return {
+      textColor: 'RGBA(0, 215, 60, 0.9)'
+    };
+  }
+
+  if (rarityKind === 'rare') {
+    if (tier === 'A') {
+      return {
+        backgroundColor: 'RGBA(36, 32, 6, 0.92)',
+        borderColor: 'RGBA(255, 235, 70, 1)',
+        textColor: 'RGBA(255, 248, 140, 1)',
+        dropSound: base.dropSound ?? 'Filter02',
+        minimapIcon: {
+          shape: base.minimapIcon?.shape ?? 'diamond',
+          size: base.minimapIcon?.size ?? 20,
+          borderColor: 'RGBA(255, 255, 255, 1)',
+          fillColor: 'RGBA(255, 235, 70, 1)'
+        }
+      };
+    }
+    if (tier === 'B') {
+      return {
+        backgroundColor: 'RGBA(26, 24, 8, 0.88)',
+        borderColor: 'RGBA(235, 215, 65, 0.88)',
+        textColor: 'RGBA(255, 238, 105, 1)',
+        dropSound: base.dropSound,
+        minimapIcon: base.minimapIcon
+          ? { ...base.minimapIcon, fillColor: 'RGBA(235, 215, 65, 1)' }
+          : undefined
+      };
+    }
+    if (tier === 'C') {
+      return {
+        backgroundColor: 'RGBA(18, 18, 10, 0.84)',
+        borderColor: 'RGBA(185, 170, 55, 0.65)',
+        textColor: 'RGBA(245, 228, 95, 1)'
+      };
+    }
+    return {
+      textColor: 'RGBA(230, 210, 85, 0.9)'
+    };
+  }
+
+  if (rarityKind === 'crafted') {
+    if (tier === 'A') {
+      return {
+        backgroundColor: 'RGBA(46, 18, 4, 0.92)',
+        borderColor: 'RGBA(255, 145, 30, 1)',
+        textColor: 'RGBA(255, 195, 110, 1)',
+        dropSound: base.dropSound ?? 'Filter02',
+        minimapIcon: {
+          shape: base.minimapIcon?.shape ?? 'diamond',
+          size: base.minimapIcon?.size ?? 20,
+          borderColor: 'RGBA(255, 255, 255, 1)',
+          fillColor: 'RGBA(255, 145, 30, 1)'
+        }
+      };
+    }
+    if (tier === 'B') {
+      return {
+        backgroundColor: 'RGBA(34, 14, 4, 0.88)',
+        borderColor: 'RGBA(230, 130, 30, 0.9)',
+        textColor: 'RGBA(255, 180, 95, 1)',
+        dropSound: base.dropSound
+      };
+    }
+    if (tier === 'C') {
+      return {
+        backgroundColor: 'RGBA(24, 12, 6, 0.84)',
+        borderColor: 'RGBA(190, 105, 25, 0.7)',
+        textColor: 'RGBA(240, 165, 80, 1)'
+      };
+    }
+    return {
+      textColor: 'RGBA(230, 150, 65, 0.9)'
+    };
+  }
+
+  return base;
+}
+
+export function effectiveRarityTierStyle(
+  tier: Exclude<TierRank, 'HIDE'>,
+  config: V2Config,
+  category: CategoryId | undefined,
+  rarityKind?: ItemRarityStyleKind
+): TierStyle {
+  const effectiveCategory = rarityKind === 'base' ? 'bases' : category;
+  if (!rarityKind) {
+    return effectiveTierStyle(tier, config, effectiveCategory);
+  }
+  const themeBase = THEME_PRESETS[config.theme]?.tiers[tier] ?? THEME_PRESETS.reimagined.tiers[tier];
+  const globalOverride = config.tierStyleOverrides[tier] ?? {};
+  const rarityOverride = config.rarityTierStyleOverrides?.[rarityKind]?.[tier];
+  const sharedSPlate = tier === 'S' ? (rarityOverride?.backgroundColor ?? globalOverride.backgroundColor) : undefined;
+  const rarityDefault = defaultRarityTierStyleFromTheme(tier, themeBase, rarityKind, sharedSPlate);
+
+  // Inherit shared tier urgency (sound, prefix, minimap icon shape/size/mute) without clobbering rarity colors
+  const merged: TierStyle = { ...rarityDefault };
+  if (globalOverride.dropSound !== undefined) merged.dropSound = globalOverride.dropSound;
+  if (globalOverride.namePrefix !== undefined) merged.namePrefix = globalOverride.namePrefix;
+  if (globalOverride.minimapIcon === null) {
+    merged.minimapIcon = null;
+  } else if (globalOverride.minimapIcon !== undefined) {
+    merged.minimapIcon = {
+      ...globalOverride.minimapIcon,
+      fillColor: rarityDefault.minimapIcon?.fillColor ?? globalOverride.minimapIcon.fillColor
+    };
+  }
+
+  // Category-level overrides: full style for single-rarity 'bases', urgency-only for multi-rarity categories
+  const catOverride = (effectiveCategory && config.categoryTierStyleOverrides[effectiveCategory]?.[tier]) ?? {};
+  if (effectiveCategory === 'bases') {
+    Object.assign(merged, catOverride);
+  } else {
+    if (catOverride.dropSound !== undefined) merged.dropSound = catOverride.dropSound;
+    if (catOverride.namePrefix !== undefined) merged.namePrefix = catOverride.namePrefix;
+    if (catOverride.minimapIcon === null) {
+      merged.minimapIcon = null;
+    } else if (catOverride.minimapIcon !== undefined) {
+      merged.minimapIcon = {
+        ...catOverride.minimapIcon,
+        fillColor: merged.minimapIcon?.fillColor ?? catOverride.minimapIcon.fillColor
+      };
+    }
+  }
+
+  // Individual Rarity Style Overrides (Unique, Set, Rare, Crafted, Magic, Base) layer cleanly on top!
+  if (rarityOverride) {
+    Object.assign(merged, rarityOverride);
+  }
+  return merged;
 }
 
 function chunkArray<T>(items: T[], maxLen = 64): T[][] {
@@ -1903,11 +2677,13 @@ function decodeBase64Utf8(b64: string): string {
 }
 
 interface CompactV2Diff {
+  m?: number;
   s: StrictnessId;
   t: ThemeId;
   io?: Record<string, TierRank>;
   tso?: V2Config['tierStyleOverrides'];
   ctso?: V2Config['categoryTierStyleOverrides'];
+  rtso?: V2Config['rarityTierStyleOverrides'];
   cb?: CustomBaseRule[];
   bs?: Partial<BaseFilterSettings>;
   bp?: BuildProfile;
@@ -1915,12 +2691,16 @@ interface CompactV2Diff {
 
 export function serializeV2StateTag(config: V2Config): string {
   const diff: CompactV2Diff = {
+    m: 3,
     s: config.strictness,
     t: config.theme
   };
   if (Object.keys(config.itemOverrides).length > 0) diff.io = config.itemOverrides;
   if (Object.keys(config.tierStyleOverrides).length > 0) diff.tso = config.tierStyleOverrides;
   if (Object.keys(config.categoryTierStyleOverrides).length > 0) diff.ctso = config.categoryTierStyleOverrides;
+  if (config.rarityTierStyleOverrides && Object.keys(config.rarityTierStyleOverrides).length > 0) {
+    diff.rtso = config.rarityTierStyleOverrides;
+  }
   if (config.customBases.length > 0) diff.cb = config.customBases;
   const bsDiff: Partial<BaseFilterSettings> = {};
   for (const k of Object.keys(DEFAULT_BASE_SETTINGS) as (keyof BaseFilterSettings)[]) {
@@ -1942,7 +2722,9 @@ export function serializeV2StateTag(config: V2Config): string {
   return `${V2_STATE_PREFIX}${encodeBase64Utf8(JSON.stringify(diff))}]`;
 }
 
-export function extractV2ConfigFromFilter(filter: Filter): V2Config | null {
+export function extractV2ConfigWithMeta(
+  filter: Filter
+): { config: V2Config; migrated: boolean } | null {
   if (!filter || !Array.isArray(filter.rules)) return null;
   for (let i = filter.rules.length - 1; i >= 0; i--) {
     const rule = filter.rules[i];
@@ -1962,13 +2744,14 @@ export function extractV2ConfigFromFilter(filter: Filter): V2Config | null {
             customPriorityRules.push(copy);
           }
         }
-        return {
+        const cfg: V2Config = {
           version: 2,
           strictness: parsed.s || 'semi-strict',
           theme: parsed.t || 'reimagined',
           itemOverrides: parsed.io ?? {},
           tierStyleOverrides: parsed.tso ?? {},
           categoryTierStyleOverrides: parsed.ctso ?? {},
+          rarityTierStyleOverrides: parsed.rtso ?? {},
           customBases: parsed.cb ?? [],
           baseSettings: { ...DEFAULT_BASE_SETTINGS, ...(parsed.bs ?? {}) },
           buildProfile: parsed.bp
@@ -1980,12 +2763,111 @@ export function extractV2ConfigFromFilter(filter: Filter): V2Config | null {
             : { ...DEFAULT_BUILD_PROFILE, disabledFamilies: [] },
           customPriorityRules
         };
+        const isPreSplitSchema = (parsed.m ?? 0) < 2;
+        const isPreChaosOnyxMerge = (parsed.m ?? 0) < 3;
+        if (!parsed.m) {
+          const hasBuildSelection =
+            Boolean(cfg.buildProfile.selectedClass) ||
+            Boolean(cfg.buildProfile.archetype) ||
+            cfg.buildProfile.disabledFamilies.length > 0;
+          const hasNewEquipOverrides = Object.keys(cfg.itemOverrides).some(
+            k => k.startsWith('equip-class-') || k.startsWith('equip-weap-')
+          );
+          // Migrate legacy build-promoted misc-magic-quivers ('A'/'B') to equip-rare-quivers so magic quivers stay hidden in Regular+
+          if (
+            hasBuildSelection &&
+            (cfg.itemOverrides['misc-magic-quivers'] === 'A' || cfg.itemOverrides['misc-magic-quivers'] === 'B')
+          ) {
+            const oldTier = cfg.itemOverrides['misc-magic-quivers'];
+            delete cfg.itemOverrides['misc-magic-quivers'];
+            const quiversEnabled =
+              !cfg.buildProfile.disabledFamilies.includes('bow-quiver') ||
+              !cfg.buildProfile.disabledFamilies.includes('xbow-quiver');
+            if (quiversEnabled && !cfg.itemOverrides['equip-rare-quivers']) {
+              cfg.itemOverrides['equip-rare-quivers'] = oldTier;
+            }
+          }
+          if (hasBuildSelection && !hasNewEquipOverrides) {
+            const userNonBuildOverrides: Record<string, TierRank> = {};
+            for (const [k, v] of Object.entries(cfg.itemOverrides)) {
+              const item = TIERABLE_ITEMS.find(x => x.id === k);
+              if (item && !item.equipmentFamilies?.length) {
+                userNonBuildOverrides[k] = v;
+              }
+            }
+            syncBuildProfileOverrides(cfg);
+            cfg.itemOverrides = { ...cfg.itemOverrides, ...userNonBuildOverrides };
+          }
+        }
+        if (isPreSplitSchema) {
+          // 1. Carry over pre-split Unique+Set card overrides onto their newly unbundled Set counterparts
+          const uniqToSetPairs: readonly [string, string][] = [
+            ['uniq-drop-only', 'set-drop-only'],
+            ['uniq-jewelry-charms', 'set-jewelry'],
+            ['uniq-elite', 'set-elite'],
+            ['uniq-exceptional', 'set-exceptional'],
+            ['uniq-normal', 'set-normal']
+          ];
+          for (const [uId, sId] of uniqToSetPairs) {
+            if (cfg.itemOverrides[uId] !== undefined && cfg.itemOverrides[sId] === undefined) {
+              cfg.itemOverrides[sId] = cfg.itemOverrides[uId];
+            }
+          }
+          // 2. Migrate split Amazon class items (equip-class-amazon-bows & equip-class-amazon-spears) on m:1 filters
+          const disabledSet = new Set(cfg.buildProfile.disabledFamilies ?? []);
+          if (cfg.itemOverrides['equip-class-amazon-bows'] === undefined) {
+            if (disabledSet.has('bow-quiver')) {
+              cfg.itemOverrides['equip-class-amazon-bows'] = 'HIDE';
+            } else if (cfg.itemOverrides['equip-class-amazon'] === 'A') {
+              cfg.itemOverrides['equip-class-amazon-bows'] = 'A';
+            }
+          }
+          if (cfg.itemOverrides['equip-class-amazon-spears'] === undefined) {
+            if (disabledSet.has('spear')) {
+              cfg.itemOverrides['equip-class-amazon-spears'] = 'HIDE';
+            } else if (cfg.itemOverrides['equip-class-amazon'] === 'A') {
+              cfg.itemOverrides['equip-class-amazon-spears'] = 'A';
+            }
+          }
+          // 3. Re-point any customBase split from uniq-drop-only on a Warlord's Set base to set-drop-only
+          cfg.customBases = cfg.customBases.map(cb =>
+            cb.parentItemId === 'uniq-drop-only' &&
+            DROP_ONLY_SET_CODES.includes(cb.code) &&
+            (cb.mode === 'set' || cb.mode === 'unique-set')
+              ? { ...cb, parentItemId: 'set-drop-only' }
+              : cb.parentItemId === 'charm-large' ? { ...cb, parentItemId: 'charm-small-grand' } : cb.parentItemId === 'charm-jewel-rare' && cb.mode === 'rare' ? { ...cb, mode: 'rare-crafted' } : cb
+          );
+        }
+        if (isPreChaosOnyxMerge) {
+          delete cfg.itemOverrides['curr-chaos-onyx'];
+          delete cfg.itemOverrides['charm-large'];
+          for (const id of ['charm-small-grand', 'jewel-all'] as const) {
+            const item = TIERABLE_ITEMS.find(x => x.id === id);
+            const defTier = item ? (item.strictnessTiers?.[cfg.strictness] ?? item.defaultTier) : undefined;
+            if (defTier && cfg.itemOverrides[id] === defTier) {
+              delete cfg.itemOverrides[id];
+            }
+          }
+          cfg.customBases = cfg.customBases.map(cb =>
+            cb.parentItemId === 'curr-chaos-onyx'
+              ? {
+                  ...cb,
+                  parentItemId: cb.code === '1so' ? 'gem-stacks-all' : 'gem-reimagined-unstacked'
+                }
+              : cb.parentItemId === 'charm-large' ? { ...cb, parentItemId: 'charm-small-grand' } : cb.parentItemId === 'charm-jewel-rare' && cb.mode === 'rare' ? { ...cb, mode: 'rare-crafted' } : cb
+          );
+        }
+        return { config: cfg, migrated: isPreChaosOnyxMerge };
       } catch {
         return null;
       }
     }
   }
   return null;
+}
+
+export function extractV2ConfigFromFilter(filter: Filter): V2Config | null {
+  return extractV2ConfigWithMeta(filter)?.config ?? null;
 }
 
 export function compileV2Filter(config: V2Config): Filter {
@@ -1995,57 +2877,14 @@ export function compileV2Filter(config: V2Config): Filter {
   for (const custom of config.customPriorityRules) {
     const copy = M.clone(custom) as Rule;
     const b = blockOf(copy);
+    if (!b.conditions || Object.keys(b.conditions).length === 0) continue;
     const baseLabel = (b.ruleName || 'Custom rule').replace(/^\[Custom\]\s*/, '');
     b.ruleName = `[Custom] ${baseLabel}`.slice(0, 120);
     rules.push(copy);
   }
 
-  // 0.5 Build Curation: Promote Selected Class Rare & Magic Class-Specific Gear
-  if (config.buildProfile?.selectedClass) {
-    const cls = BUILD_CLASSES.find(c => c.id === config.buildProfile.selectedClass);
-    const disabledSet = new Set<EquipmentFamilyId>(config.buildProfile.disabledFamilies ?? []);
-    const classSpecificFamilyIds: EquipmentFamilyId[] = [
-      'bow-quiver',
-      'xbow-quiver',
-      'javelin',
-      'spear',
-      'claws',
-      'barb-helm',
-      'druid-pelt',
-      'necro-head',
-      'paladin-shield',
-      'sorc-orb',
-      'warlock-grimoire'
-    ];
-    const activeClassFamilies = EQUIPMENT_FAMILIES.filter(
-      f =>
-        classSpecificFamilyIds.includes(f.id) &&
-        cls?.enabledFamilies.includes(f.id) &&
-        !disabledSet.has(f.id)
-    );
-    const selectedItemTypes = [...new Set(activeClassFamilies.flatMap(f => f.itemTypes))];
-    if (selectedItemTypes.length > 0) {
-      const rareBlock: RuleBlock = {
-        ruleName: `Build Curation (${config.buildProfile.selectedClass}) · Tier A Rare Class & Weapon Gear`,
-        conditions: {
-          itemType: selectedItemTypes.length === 1 ? selectedItemTypes[0] : selectedItemTypes,
-          rarity: 'rare'
-        }
-      };
-      applyStyleToBlock(rareBlock, effectiveTierStyle('A', config, 'equipment'), false);
-      rules.push({ show: rareBlock });
-
-      const magicBlock: RuleBlock = {
-        ruleName: `Build Curation (${config.buildProfile.selectedClass}) · Tier B Magic Class & Weapon Gear`,
-        conditions: {
-          itemType: selectedItemTypes.length === 1 ? selectedItemTypes[0] : selectedItemTypes,
-          rarity: 'magic'
-        }
-      };
-      applyStyleToBlock(magicBlock, effectiveTierStyle('B', config, 'equipment'), false);
-      rules.push({ show: magicBlock });
-    }
-  }
+  // Note: Class & Archetype curation now updates the Customize Tiers & Bases items directly
+  // so that every shown/hidden weapon, offhand, and class item group in the UI matches in-game behavior.
 
   // 1. Custom Base Overrides (Unique / Set / Rare / Magic / Crafted / Runeword bases added by user)
   for (const cb of config.customBases) {
@@ -2074,25 +2913,63 @@ export function compileV2Filter(config: V2Config): Filter {
               : cb.mode.charAt(0).toUpperCase() + cb.mode.slice(1);
     const ruleTitle = `[Base] ${cb.label} (${modeLabel}) · ${cb.tier === 'HIDE' ? 'Hide' : `Tier ${cb.tier}`}`;
     const parentGroup = findParentGroupForBase(cb.code, cb.mode, undefined, cb.parentItemId);
+    const cat: CategoryId =
+      parentGroup?.category ??
+      (cb.mode === 'runeword'
+        ? 'bases'
+        : cb.mode === 'rare' || cb.mode === 'rare-crafted' || cb.mode === 'magic' || cb.mode === 'crafted'
+          ? 'equipment'
+          : 'uniques');
     if (cb.tier === 'HIDE') {
       rules.push({ hide: { ruleName: ruleTitle, conditions } });
+    } else if (cb.mode === 'unique-set') {
+      const uniqueBlock: RuleBlock = { ruleName: `${ruleTitle} (Unique)`, conditions: { ...conditions, rarity: 'unique' } };
+      applyStyleToBlock(uniqueBlock, effectiveRarityTierStyle(cb.tier, config, cat, 'unique'), false);
+      rules.push({ show: uniqueBlock });
+
+      const setBlock: RuleBlock = { ruleName: `${ruleTitle} (Set)`, conditions: { ...conditions, rarity: 'set' } };
+      applyStyleToBlock(setBlock, effectiveRarityTierStyle(cb.tier, config, cat, 'set'), false);
+      rules.push({ show: setBlock });
+    } else if (cb.mode === 'rare-crafted') {
+      const craftedBlock: RuleBlock = { ruleName: `${ruleTitle} (Crafted)`, conditions: { ...conditions, rarity: 'crafted' } };
+      applyStyleToBlock(craftedBlock, effectiveRarityTierStyle(cb.tier, config, cat, 'crafted'), false);
+      rules.push({ show: craftedBlock });
+
+      const rareBlock: RuleBlock = { ruleName: `${ruleTitle} (Rare)`, conditions: { ...conditions, rarity: 'rare' } };
+      applyStyleToBlock(rareBlock, effectiveRarityTierStyle(cb.tier, config, cat, 'rare'), false);
+      rules.push({ show: rareBlock });
     } else {
       const block: RuleBlock = { ruleName: ruleTitle, conditions };
-      const cat: CategoryId =
-        parentGroup?.category ??
-        (cb.mode === 'runeword'
-          ? 'bases'
-          : cb.mode === 'rare' || cb.mode === 'rare-crafted' || cb.mode === 'magic' || cb.mode === 'crafted'
-            ? 'equipment'
-            : 'uniques');
-      applyStyleToBlock(block, effectiveTierStyle(cb.tier, config, cat), false);
+      const cbRarityKind: ItemRarityStyleKind | undefined =
+        cb.mode === 'runeword' || cat === 'bases'
+          ? 'base'
+          : cb.mode === 'magic'
+            ? 'magic'
+            : cb.mode === 'unique'
+              ? 'unique'
+              : cb.mode === 'set'
+                ? 'set'
+                : cb.mode === 'rare'
+                  ? 'rare'
+                  : cb.mode === 'crafted'
+                    ? 'crafted'
+                    : cat === 'uniques'
+                      ? 'unique'
+                      : undefined;
+      applyStyleToBlock(block, effectiveRarityTierStyle(cb.tier, config, cat, cbRarityKind), false);
       rules.push({ show: block });
     }
   }
 
   // Helper to emit rules for a category, merging pure-code items of the same tier into compact rules
-  const emitCategoryRules = (categoryId: CategoryId, categoryTitle: string) => {
-    const catItems = TIERABLE_ITEMS.filter(item => item.category === categoryId);
+  const emitCategoryRules = (
+    categoryId: CategoryId,
+    categoryTitle: string,
+    itemFilter?: (item: TierableItem) => boolean
+  ) => {
+    const catItems = TIERABLE_ITEMS.filter(
+      item => item.category === categoryId && (!itemFilter || itemFilter(item))
+    );
     const pureCodeBuckets = new Map<TierRank, { codes: string[]; labels: string[] }>();
     const complexItems: { item: TierableItem; tier: TierRank; activeCodes?: string[] }[] = [];
 
@@ -2108,8 +2985,8 @@ export function compileV2Filter(config: V2Config): Filter {
                 !cb.minSockets &&
                 !cb.etherealOnly &&
                 cb.tier !== tier &&
-                (cb.parentItemId === item.id ||
-                  (!cb.parentItemId && modesMatchGroupMode(cb.mode, groupMode)))
+                modeCoversGroupMode(cb.mode, groupMode) &&
+                (cb.parentItemId === item.id || !cb.parentItemId)
             );
             return !splitRule;
           })
@@ -2122,6 +2999,8 @@ export function compileV2Filter(config: V2Config): Filter {
       const isPureCode =
         activeCodes &&
         activeCodes.length > 0 &&
+        categoryId !== 'uniques' &&
+        item.id !== 'misc-magic-quivers' &&
         !item.baseNames &&
         !item.itemTypes &&
         !item.rarities &&
@@ -2164,67 +3043,154 @@ export function compileV2Filter(config: V2Config): Filter {
     for (const { item, tier, activeCodes } of complexItems) {
       const conditions: Conditions = {};
       const codesToUse = activeCodes ?? item.codes;
-      if (codesToUse?.length) conditions.code = codesToUse.length === 1 ? codesToUse[0] : codesToUse.slice(0, 64);
-      if (item.baseNames?.length) conditions.baseName = item.baseNames.length === 1 ? item.baseNames[0] : item.baseNames.slice(0, 64);
-      if (item.itemTypes?.length) conditions.itemType = item.itemTypes.length === 1 ? item.itemTypes[0] : item.itemTypes.slice(0, 64);
-      if (item.rarities?.length) conditions.rarity = item.rarities.length === 1 ? item.rarities[0] : item.rarities;
-      if (item.tiers?.length) conditions.tier = item.tiers.length === 1 ? item.tiers[0] : item.tiers;
-      if (item.sockets) conditions.sockets = { ...item.sockets };
-      if (item.ethereal !== undefined) conditions.ethereal = item.ethereal;
 
-      if (categoryId === 'bases') {
-        if (config.baseSettings.requireSocketsOnBases && config.baseSettings.minSocketsOnBases > 0 && !conditions.sockets) {
-          conditions.sockets = { gte: config.baseSettings.minSocketsOnBases };
+      if (
+        categoryId === 'bases' &&
+        tier === 'HIDE' &&
+        config.itemOverrides[item.id] !== 'HIDE' &&
+        !isFamilyExplicitlyHidden(item, config)
+      ) {
+        // Strictness-only non-chase base default (e.g. Uber Strict crossbows/daggers/clubs/throwing):
+        // skip emitting a pre-baseSettings hide so Ethereal Elite / 3+ Socket Elite base rules still apply,
+        // while ordinary white bases are hidden by the Strictness baseline rule below.
+        continue;
+      }
+
+      if (categoryId === 'bases' && tier === 'HIDE' && isFamilyExplicitlyHidden(item, config)) {
+        // When a weapon/class base family is explicitly disabled or moved to Hide, hide all white/superior
+        // items of that equipment family so generic fallback base rules do not re-show them.
+        const familyTypes = [
+          ...new Set(
+            EQUIPMENT_FAMILIES.filter(f => item.equipmentFamilies!.includes(f.id))
+              .flatMap(f => f.itemTypes)
+              .filter(t => t !== 'bowq' && t !== 'mboq' && t !== 'xboq' && t !== 'mxbq')
+          )
+        ];
+        if (familyTypes.length > 0) {
+          conditions.itemType = familyTypes.length === 1 ? familyTypes[0] : familyTypes.slice(0, 64);
+        } else if (codesToUse?.length) {
+          conditions.code = codesToUse.length === 1 ? codesToUse[0] : codesToUse.slice(0, 64);
         }
+        conditions.rarity = ['inferior', 'normal', 'superior'];
+      } else if (
+        categoryId === 'equipment' &&
+        tier === 'HIDE' &&
+        item.itemTypes?.length &&
+        isFamilyExplicitlyHidden(item, config)
+      ) {
+        // When a weapon/class equipment family is explicitly disabled or moved to Hide, hide both rare and magic
+        // drops across all quality tiers (normal, exceptional, elite).
+        conditions.itemType = item.itemTypes.length === 1 ? item.itemTypes[0] : item.itemTypes.slice(0, 64);
+        conditions.rarity = ['magic', 'rare'];
+      } else {
+        if (codesToUse?.length) conditions.code = codesToUse.length === 1 ? codesToUse[0] : codesToUse.slice(0, 64);
+        if (item.baseNames?.length) conditions.baseName = item.baseNames.length === 1 ? item.baseNames[0] : item.baseNames.slice(0, 64);
+        if (item.itemTypes?.length) conditions.itemType = item.itemTypes.length === 1 ? item.itemTypes[0] : item.itemTypes.slice(0, 64);
+        if (item.rarities?.length) conditions.rarity = item.rarities.length === 1 ? item.rarities[0] : item.rarities;
+        if (item.tiers?.length) {
+          const effectiveTiers =
+            categoryId === 'equipment' &&
+            config.strictness === 'endgame' &&
+            item.tiers.length === 2 &&
+            item.tiers.includes('elite') &&
+            item.tiers.includes('exceptional')
+              ? (['elite'] as const)
+              : item.tiers;
+          conditions.tier = effectiveTiers.length === 1 ? effectiveTiers[0] : [...effectiveTiers];
+        }
+        if (item.sockets) conditions.sockets = { ...item.sockets };
+        if (item.ethereal !== undefined) conditions.ethereal = item.ethereal;
+
+        if (categoryId === 'bases') {
+          if (config.baseSettings.requireSocketsOnBases && config.baseSettings.minSocketsOnBases > 0 && !conditions.sockets) {
+            conditions.sockets = { gte: config.baseSettings.minSocketsOnBases };
+          }
+        }
+      }
+
+      if ((item.id === 'set-normal' || item.id === 'uniq-normal') && tier === 'HIDE' && !conditions.tier) {
+        conditions.tier = 'normal';
       }
 
       const ruleName = `${categoryTitle} · ${ tier === 'HIDE' ? 'Hide' : `Tier ${tier}` }: ${item.label}`;
       if (tier === 'HIDE') {
         rules.push({ hide: { ruleName, conditions } });
+      } else if (
+        item.rarities?.length === 2 &&
+        item.rarities.includes('unique') &&
+        item.rarities.includes('set')
+      ) {
+        const uniqueBlock: RuleBlock = {
+          ruleName: `${ruleName} (Unique)`,
+          conditions: { ...conditions, rarity: 'unique' }
+        };
+        applyStyleToBlock(uniqueBlock, effectiveRarityTierStyle(tier, config, categoryId, 'unique'), false);
+        rules.push({ show: uniqueBlock });
+
+        const setBlock: RuleBlock = {
+          ruleName: `${ruleName} (Set)`,
+          conditions: { ...conditions, rarity: 'set' }
+        };
+        applyStyleToBlock(setBlock, effectiveRarityTierStyle(tier, config, categoryId, 'set'), false);
+        rules.push({ show: setBlock });
+      } else if (
+        item.rarities?.length === 2 &&
+        item.rarities.includes('rare') &&
+        item.rarities.includes('crafted')
+      ) {
+        const craftedBlock: RuleBlock = {
+          ruleName: `${ruleName} (Crafted)`,
+          conditions: { ...conditions, rarity: 'crafted' }
+        };
+        applyStyleToBlock(craftedBlock, effectiveRarityTierStyle(tier, config, categoryId, 'crafted'), false);
+        rules.push({ show: craftedBlock });
+
+        const rareBlock: RuleBlock = {
+          ruleName: `${ruleName} (Rare)`,
+          conditions: { ...conditions, rarity: 'rare' }
+        };
+        applyStyleToBlock(rareBlock, effectiveRarityTierStyle(tier, config, categoryId, 'rare'), false);
+        rules.push({ show: rareBlock });
       } else {
+        const rarityKind: ItemRarityStyleKind | undefined =
+          categoryId === 'bases'
+            ? 'base'
+            : item.id === 'misc-magic-quivers' || (item.rarities?.length === 1 && item.rarities[0] === 'magic')
+              ? 'magic'
+              : item.id === 'uniq-pinnacle-charms' || (item.rarities?.length === 1 && item.rarities[0] === 'unique')
+              ? 'unique'
+              : item.rarities?.length === 1 && item.rarities[0] === 'set'
+                ? 'set'
+                : item.rarities?.length === 1 && item.rarities[0] === 'rare'
+                  ? 'rare'
+                  : item.rarities?.length === 1 && item.rarities[0] === 'crafted'
+                    ? 'crafted'
+                    : undefined;
         const block: RuleBlock = { ruleName, conditions };
-        applyStyleToBlock(block, effectiveTierStyle(tier, config, categoryId), false);
+        applyStyleToBlock(block, effectiveRarityTierStyle(tier, config, categoryId, rarityKind), false);
         rules.push({ show: block });
       }
     }
   };
 
   // Emit categories in safe precedence order:
-  // 1. Uniques, Sets, Charms & Jewelry (protects Drop-Only bases, Uniques, Sets, Charms, Jewels, Rings/Amulets/Circlets first)
-  emitCategoryRules('uniques', 'Uniques & Charms');
-  // 2. Boss Keys, Organs & Tokens (before general `ques` rule so Uber Keys/Organs/Essences get their S/A tier alert!)
+  // 1. Boss Keys, Organs & Tokens (pure codes — before general `ques` rule)
   emitCategoryRules('bosses', 'Boss & Endgame');
-  // 3. Orbs & Upgrade Materials
+  // 2. Orbs, Storage & Upgrade Materials (pure codes — ensures Unique misc items like Gem Bag/Keychain/Pliers match Currency & Orbs)
   emitCategoryRules('currency', 'Currency & Orbs');
-  // 4. Runes & Rune Stacks
+  // 3. Runes & Rune Stacks (pure codes)
   emitCategoryRules('runes', 'Runes');
-  // 5. Maps & Map Currency
+  // 4. Maps & Map Currency (pure codes)
   emitCategoryRules('maps', 'Maps');
-  // 6. Gems & Gem Stacks
+  // 5. Gems & Gem Stacks (pure codes)
   emitCategoryRules('gems', 'Gems');
-  // 7. Potions, Scrolls, Quest & Misc (protects `ques` weapons like Wirt's Leg / Horadric Staff before weapon/base hiding!)
-  emitCategoryRules('misc', 'Misc & Potions');
-
-  // 7.5 Build & Archetype Filter: Hide disabled Weapon, Offhand, Quiver & Class-Specific Item Types (Non-Unique/Non-Set)
-  if (config.buildProfile?.disabledFamilies && config.buildProfile.disabledFamilies.length > 0) {
-    const disabledSet = new Set<EquipmentFamilyId>(config.buildProfile.disabledFamilies);
-    const disabledFamilies = EQUIPMENT_FAMILIES.filter(f => disabledSet.has(f.id));
-    const disabledItemTypes = [...new Set(disabledFamilies.flatMap(f => f.itemTypes))];
-    if (disabledItemTypes.length > 0) {
-      const previewLabels =
-        disabledFamilies.slice(0, 3).map(f => f.name).join(', ') +
-        (disabledFamilies.length > 3 ? ` +${disabledFamilies.length - 3}` : '');
-      rules.push({
-        hide: {
-          ruleName: `Build Curation · Hide Disabled Weapon & Class Types (${previewLabels})`,
-          conditions: {
-            itemType: disabledItemTypes.length === 1 ? disabledItemTypes[0] : disabledItemTypes,
-            rarity: ['inferior', 'normal', 'superior', 'magic', 'rare']
-          }
-        }
-      });
-    }
-  }
+  // 6. Campaign Quest Items & Weapons (emitted before Uniques so rarity:'unique' quest drops like Staff of Kings/Khalim's keep Tier A!)
+  const isQuestMisc = (item: TierableItem) => item.id === 'misc-quest' || item.id === 'misc-quest-weapons';
+  emitCategoryRules('misc', 'Misc & Potions', isQuestMisc);
+  // 7. Uniques, Sets, Charms & Jewelry (separate Gold Unique vs. Emerald Set rules across Tiers S–D)
+  emitCategoryRules('uniques', 'Uniques & Charms');
+  // 8. Remaining Potions, Scrolls, Quivers & Misc
+  emitCategoryRules('misc', 'Misc & Potions', item => !isQuestMisc(item));
 
   // 8. Rares, Crafted & Magic Equipment
   emitCategoryRules('equipment', 'Equipment');
@@ -2237,7 +3203,7 @@ export function compileV2Filter(config: V2Config): Filter {
       ruleName: 'Runeword Bases · Ethereal Elite Equipment',
       conditions: { itemType: ['weap', 'armo'], tier: 'elite', rarity: ['normal', 'superior'], ethereal: true }
     };
-    applyStyleToBlock(block, effectiveTierStyle('B', config, 'bases'), false);
+    applyStyleToBlock(block, effectiveRarityTierStyle('B', config, 'bases', 'base'), false);
     rules.push({ show: block });
   }
   if (config.baseSettings.highlightSupEliteBases) {
@@ -2245,7 +3211,7 @@ export function compileV2Filter(config: V2Config): Filter {
       ruleName: 'Runeword Bases · Superior Elite Equipment',
       conditions: { itemType: ['weap', 'armo'], tier: 'elite', rarity: 'superior', sockets: { gte: 3 } }
     };
-    applyStyleToBlock(block, effectiveTierStyle('B', config, 'bases'), false);
+    applyStyleToBlock(block, effectiveRarityTierStyle('B', config, 'bases', 'base'), false);
     rules.push({ show: block });
   }
   if (config.baseSettings.show3PlusSocketElite) {
@@ -2253,7 +3219,7 @@ export function compileV2Filter(config: V2Config): Filter {
       ruleName: 'Runeword Bases · 3+ Socket Elite Bases',
       conditions: { itemType: ['weap', 'armo'], tier: 'elite', rarity: ['normal', 'superior'], sockets: { gte: 3 } }
     };
-    applyStyleToBlock(block, effectiveTierStyle('C', config, 'bases'), false);
+    applyStyleToBlock(block, effectiveRarityTierStyle('C', config, 'bases', 'base'), false);
     rules.push({ show: block });
   }
   if (config.baseSettings.show4PlusSocketExceptional && config.strictness !== 'endgame') {
@@ -2261,26 +3227,38 @@ export function compileV2Filter(config: V2Config): Filter {
       ruleName: 'Runeword Bases · 4+ Socket Exceptional Bases',
       conditions: { itemType: ['weap', 'armo'], tier: 'exceptional', rarity: ['normal', 'superior'], sockets: { gte: 4 } }
     };
-    applyStyleToBlock(block, effectiveTierStyle('D', config, 'bases'), false);
+    applyStyleToBlock(block, effectiveRarityTierStyle('D', config, 'bases', 'base'), false);
     rules.push({ show: block });
   }
   if (config.strictness === 'soft' || config.strictness === 'regular' || config.strictness === 'semi-strict') {
-    // Keep any remaining socketed or ethereal items visible in Soft..Semi-Strict
+    // Keep any remaining socketed or ethereal non-magic bases visible in Soft..Semi-Strict
     rules.push({
       show: {
-        ruleName: 'Runeword Bases · Keep Ethereal Gear Visible',
-        conditions: { ethereal: true }
+        ruleName: 'Runeword Bases · Keep Ethereal White Bases Visible',
+        conditions: { rarity: ['inferior', 'normal', 'superior'], ethereal: true }
       }
     });
     rules.push({
       show: {
-        ruleName: 'Runeword Bases · Keep Socketed Gear Visible',
-        conditions: { sockets: { gte: 2 } }
+        ruleName: 'Runeword Bases · Keep Socketed White Bases Visible',
+        conditions: { rarity: ['normal', 'superior'], sockets: { gte: 2 } }
       }
     });
   }
 
   // Strictness Baseline Equipment Clutter Hiding
+  // In all filters beyond Soft (Starter), hide all remaining Magic items (Charms, Jewels & Quest items are already matched above)
+  if (config.strictness !== 'soft') {
+    rules.push({
+      hide: {
+        ruleName: 'Strictness · Hide Remaining Non-Charm / Non-Jewel Magic Items',
+        conditions: {
+          rarity: 'magic'
+        }
+      }
+    });
+  }
+
   if (config.strictness === 'regular') {
     rules.push({
       hide: {
@@ -2297,7 +3275,7 @@ export function compileV2Filter(config: V2Config): Filter {
   } else if (config.strictness === 'semi-strict') {
     rules.push({
       hide: {
-        ruleName: 'Strictness (Semi-Strict) · Hide Unsocketed White & Magic Normal/Exceptional Gear',
+        ruleName: 'Strictness (Semi-Strict) · Hide Unsocketed White Gear',
         conditions: {
           itemType: ['weap', 'armo'],
           rarity: ['inferior', 'normal', 'superior'],
@@ -2306,33 +3284,43 @@ export function compileV2Filter(config: V2Config): Filter {
         }
       }
     });
-    rules.push({
-      hide: {
-        ruleName: 'Strictness (Semi-Strict) · Hide Ordinary Magic Normal/Exceptional Gear',
-        conditions: {
-          itemType: ['weap', 'armo'],
-          tier: ['normal', 'exceptional'],
-          rarity: 'magic'
-        }
-      }
-    });
   } else if (config.strictness === 'strict') {
     rules.push({
       hide: {
-        ruleName: 'Strictness (Strict) · Hide Unentered Ordinary White & Magic Equipment',
+        ruleName: 'Strictness (Strict) · Hide Remaining Normal-Tier Rare Gear',
         conditions: {
           itemType: ['weap', 'armo'],
-          rarity: ['inferior', 'normal', 'superior', 'magic']
+          tier: 'normal',
+          rarity: 'rare'
+        }
+      }
+    });
+    rules.push({
+      hide: {
+        ruleName: 'Strictness (Strict) · Hide Unentered Ordinary White Equipment',
+        conditions: {
+          itemType: ['weap', 'armo'],
+          rarity: ['inferior', 'normal', 'superior']
         }
       }
     });
   } else if (config.strictness === 'endgame') {
     rules.push({
       hide: {
-        ruleName: 'Strictness (Uber Strict) · Hide All Non-Chase White & Magic Equipment',
+        ruleName: 'Strictness (Uber Strict) · Hide Remaining Normal & Exceptional Rare Gear',
         conditions: {
           itemType: ['weap', 'armo'],
-          rarity: ['inferior', 'normal', 'superior', 'magic']
+          tier: ['normal', 'exceptional'],
+          rarity: 'rare'
+        }
+      }
+    });
+    rules.push({
+      hide: {
+        ruleName: 'Strictness (Uber Strict) · Hide All Non-Chase White Equipment',
+        conditions: {
+          itemType: ['weap', 'armo'],
+          rarity: ['inferior', 'normal', 'superior']
         }
       }
     });
@@ -2477,7 +3465,12 @@ export function simulateItemDrop(
   else if (cleanRuleName.startsWith('Maps')) matchedCategory = 'maps';
   else if (cleanRuleName.startsWith('Gems')) matchedCategory = 'gems';
   else if (cleanRuleName.startsWith('Uniques & Charms')) matchedCategory = 'uniques';
-  else if (cleanRuleName.startsWith('Runeword Bases') || cleanRuleName.startsWith('[Base]')) matchedCategory = 'bases';
+  else if (cleanRuleName.startsWith('Runeword Bases')) matchedCategory = 'bases';
+  else if (cleanRuleName.startsWith('[Base]')) {
+    if (cleanRuleName.includes('(Runeword Base)')) matchedCategory = 'bases';
+    else if (cleanRuleName.includes('(Unique') || cleanRuleName.includes('(Set')) matchedCategory = 'uniques';
+    else matchedCategory = 'equipment';
+  }
   else if (cleanRuleName.startsWith('Equipment')) matchedCategory = 'equipment';
   else if (cleanRuleName.startsWith('Misc & Potions')) matchedCategory = 'misc';
 
@@ -2524,9 +3517,9 @@ export function generateLootsplosion(scenario: LootsplosionScenario, rollSeed = 
         { id: 'sim-3', code: '1ka', name: 'Stack: Orb of Corruption', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 2 }
       ],
       [
-        { id: 'sim-4', code: '1gc', name: 'Gem Cluster', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-        { id: 'sim-4', code: 'gmo', name: 'Chaos Onyx', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-        { id: 'sim-4', code: '1so', name: 'Stack: Chaos Onyx', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 2 }
+        { id: 'sim-4', code: '1gc', name: 'Gem Cluster', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+
+
       ],
       [
         { id: 'sim-5', code: 'r24', name: 'Ist Rune (#24)', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
@@ -2565,13 +3558,15 @@ export function generateLootsplosion(scenario: LootsplosionScenario, rollSeed = 
         { id: 'sim-11', code: '1am', name: 'Stack: Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 5 },
         { id: 'sim-11', code: '1rb', name: 'Stack: Ruby', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 4 },
         { id: 'sim-11', code: '1sa', name: 'Stack: Sapphire', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 6 },
-        { id: 'sim-11', code: '1di', name: 'Stack: Diamond', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 3 }
+        { id: 'sim-11', code: '1di', name: 'Stack: Diamond', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 3 },
+        { id: 'sim-11', code: '1so', name: 'Stack: Chaos Onyx', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 2 }
       ],
       [
         { id: 'sim-12', code: 'gpv', name: 'Perfect Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
         { id: 'sim-12', code: 'gpr', name: 'Perfect Ruby', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
         { id: 'sim-12', code: 'gpy', name: 'Perfect Topaz', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
-        { id: 'sim-12', code: 'skz', name: 'Perfect Skull', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
+        { id: 'sim-12', code: 'skz', name: 'Perfect Skull', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
+        { id: 'sim-12', code: 'gmo', name: 'Chaos Onyx', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 }
       ],
       [
         { id: 'sim-13', code: 'gzv', name: 'Flawless Amethyst', kind: 'misc', rarity: 'normal', sockets: 0, ethereal: false, identified: true, itemLevel: 85, quantity: 1 },
@@ -2680,6 +3675,7 @@ export function generateLootsplosion(scenario: LootsplosionScenario, rollSeed = 
       ],
       [
         { id: 'sim-c6', code: 'cm1', name: 'Small Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 },
+        { id: 'sim-c6', code: 'cm2', name: 'Large Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 },
         { id: 'sim-c6', code: 'cm3', name: 'Grand Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 },
         { id: 'sim-c6', code: 'jew', name: 'Jewel', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 25, quantity: 1 }
       ],
@@ -2753,6 +3749,7 @@ export function generateLootsplosion(scenario: LootsplosionScenario, rollSeed = 
     [
       { id: 'sim-m8', code: 'cm3', name: 'Grand Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
       { id: 'sim-m8', code: 'cm1', name: 'Small Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
+      { id: 'sim-m8', code: 'cm2', name: 'Large Charm', kind: 'misc', rarity: 'magic', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 },
       { id: 'sim-m8', code: 'jew', name: 'Jewel', kind: 'misc', rarity: 'rare', sockets: 0, ethereal: false, identified: false, itemLevel: 92, quantity: 1 }
     ],
     [
