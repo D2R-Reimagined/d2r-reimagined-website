@@ -5,7 +5,9 @@ vi.mock('$app/env', () => ({ browser: true }));
 vi.mock('$app/env/public', () => ({ PUBLIC_API_BASE_URL: 'https://api.example' }));
 import {
   authState,
+  cancelEmailChange,
   completeSteamSignIn,
+  confirmEmailChange,
   refreshProfile,
   requestPasswordReset,
   resetPassword,
@@ -47,6 +49,56 @@ describe('Steam username setup', () => {
     vi.stubGlobal('localStorage', { getItem: () => 'token' });
     await expect(updateProfile(undefined, 'Taken')).rejects.toThrow('already in use');
     expect(get(authState).user?.requiresUsername).toBe(true);
+  });
+});
+
+describe('email change', () => {
+  it('asks for a confirmation link and keeps the current address until it is opened', async () => {
+    const user = { id: 'u', displayName: 'Player', email: 'old@example.test', pendingEmail: 'new@example.test' };
+    const fetch = vi.fn().mockResolvedValue(Response.json(user));
+    vi.stubGlobal('fetch', fetch);
+    vi.stubGlobal('localStorage', { getItem: () => 'token' });
+    const result = await updateProfile('new@example.test', 'Player', {
+      confirmUrl: 'https://www.d2r-reimagined.com/confirm-email', currentPassword: 'Secret-password-1'
+    });
+    expect(JSON.parse(fetch.mock.calls[0][1].body)).toEqual({
+      email: 'new@example.test',
+      displayName: 'Player',
+      emailConfirmUrl: 'https://www.d2r-reimagined.com/confirm-email',
+      currentPassword: 'Secret-password-1'
+    });
+    expect(result.email).toBe('old@example.test');
+    expect(get(authState).user?.pendingEmail).toBe('new@example.test');
+  });
+
+  it('cancels a pending change', async () => {
+    const user = { id: 'u', displayName: 'Player', email: 'old@example.test', pendingEmail: null };
+    const fetch = vi.fn().mockResolvedValue(Response.json(user));
+    vi.stubGlobal('fetch', fetch);
+    vi.stubGlobal('localStorage', { getItem: () => 'token' });
+    await cancelEmailChange();
+    expect(fetch.mock.calls[0][0]).toBe('https://api.example/users/me/email-change');
+    expect(fetch.mock.calls[0][1].method).toBe('DELETE');
+    expect(get(authState).user?.pendingEmail).toBeNull();
+  });
+
+  it('confirms from the emailed link without needing a session', async () => {
+    const fetch = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
+    vi.stubGlobal('fetch', fetch);
+    vi.stubGlobal('localStorage', { getItem: () => null });
+    await confirmEmailChange('3f2504e0-4f89-11d3-9a0c-0305e82c3301', '123.abc');
+    expect(fetch).toHaveBeenCalledTimes(1);
+    const [url, init] = fetch.mock.calls[0];
+    expect(url).toBe('https://api.example/users/email/confirm');
+    expect(new Headers(init.headers).has('Authorization')).toBe(false);
+    expect(JSON.parse(init.body)).toEqual({ userId: '3f2504e0-4f89-11d3-9a0c-0305e82c3301', token: '123.abc' });
+  });
+
+  it('surfaces a dead link', async () => {
+    const detail = 'This confirmation link is invalid or has expired.';
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(Response.json({ detail }, { status: 400 })));
+    vi.stubGlobal('localStorage', { getItem: () => null });
+    await expect(confirmEmailChange('id', 'bad')).rejects.toThrow('expired');
   });
 });
 

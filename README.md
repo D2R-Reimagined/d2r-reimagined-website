@@ -8,11 +8,11 @@ Server-rendered SvelteKit website and searchable game-data reference for D2R Rei
 - Node SSR adapter
 - Tailwind CSS 4
 - Flowbite Svelte
-- pnpm 11
+- pnpm 12
 
 ## Local development
 
-Requires Node.js 24 and pnpm 11.
+Requires Node.js 24 and pnpm 12.
 
 ```powershell
 pnpm install

@@ -2,7 +2,7 @@ allowBuilds:
   '@parcel/watcher': true
   esbuild: true
 minimumReleaseAgeExclude:
-  - vite@8.3.3
+  - vite@8.3.3 || 8.3.8
   - svelte@5.57.3
   - '@sveltejs/adapter-node@6.0.2'
   - '@sveltejs/kit@3.2.0'

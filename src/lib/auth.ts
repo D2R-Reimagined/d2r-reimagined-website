@@ -7,6 +7,9 @@ const tokenStorageKey = 'd2r_reimagined_access_token';
 export interface UserProfile {
   id: string;
   email: string;
+  // An email change waiting on its confirmation link; `email` is still the sign-in address.
+  pendingEmail?: string | null;
+  hasPassword?: boolean;
   displayName: string;
   requiresUsername?: boolean;
   tradeBanned?: boolean;
@@ -326,17 +329,53 @@ export async function refreshProfile(): Promise<UserProfile> {
   return user;
 }
 
-export async function updateProfile(email: string | undefined, displayName: string): Promise<UserProfile> {
+// A new email address is not applied here: the API emails a link to it that
+// opens `confirmUrl`, and the account keeps its current address until then.
+export interface EmailChange { confirmUrl: string; currentPassword?: string }
+
+export async function updateProfile(
+  email: string | undefined,
+  displayName: string,
+  emailChange?: EmailChange
+): Promise<UserProfile> {
   const user = await apiRequest<UserProfile>(
     '/users/me',
     {
       method: 'PATCH',
-      body: JSON.stringify({ email, displayName })
+      body: JSON.stringify({
+        email,
+        displayName,
+        emailConfirmUrl: emailChange?.confirmUrl,
+        currentPassword: emailChange?.currentPassword || undefined
+      })
     },
     true
   );
   authState.set({ ready: true, user });
   return user;
+}
+
+export async function cancelEmailChange(): Promise<UserProfile> {
+  const user = await apiRequest<UserProfile>('/users/me/email-change', { method: 'DELETE' }, true);
+  authState.set({ ready: true, user });
+  return user;
+}
+
+// Works signed out: the emailed link may be opened in another browser.
+export async function confirmEmailChange(userId: string, token: string): Promise<void> {
+  try {
+    await apiRequest<void>('/users/email/confirm', {
+      method: 'POST',
+      body: JSON.stringify({ userId, token })
+    });
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 429) {
+      throw new Error('Too many attempts right now. Please wait a minute and try again.');
+    }
+    throw error;
+  }
+  // A browser signed in to this account shows the new address at once.
+  if (accessToken()) await refreshProfile().catch(() => undefined);
 }
 
 export async function signOut(): Promise<void> {

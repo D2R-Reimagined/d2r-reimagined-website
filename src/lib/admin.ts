@@ -281,6 +281,13 @@ export interface AdminUser {
   globalChatBanUpdatedAtUtc: string | null;
   id: string;
   email: string;
+  // An email change the player has not confirmed yet.
+  pendingEmail?: string | null;
+  hasPassword?: boolean;
+  battleTag?: string | null;
+  // Null with a BattleTag set means the tag was typed at registration, never verified.
+  battleNetId?: string | null;
+  steamId?: string | null;
   displayName: string;
   roles: string[];
   createdAtUtc: string;
@@ -456,6 +463,18 @@ export function updateChatBan(userId: string, banned: boolean, reason: string): 
   return apiRequest<ChatBanUser>(`/admin/chat/bans/${userId}`, {
     method: 'PUT', body: JSON.stringify({ banned, reason })
   }, true);
+}
+
+// Sets the sign-in address directly, with no confirmation link to the player.
+export function setUserEmail(id: string, email: string): Promise<AdminUser> {
+  return apiRequest<AdminUser>(`/admin/users/${id}/email`, {
+    method: 'PUT',
+    body: JSON.stringify({ email })
+  }, true);
+}
+
+export function unlinkUserBattleNet(id: string): Promise<AdminUser> {
+  return apiRequest<AdminUser>(`/admin/users/${id}/battlenet`, { method: 'DELETE' }, true);
 }
 
 export function updateUserRoles(id: string, roles: string[]): Promise<AdminUser> {

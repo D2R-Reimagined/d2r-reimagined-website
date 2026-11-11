@@ -6,6 +6,8 @@
     getLadders,
     grantLadderAccess,
     revokeLadderAccess,
+    setUserEmail,
+    unlinkUserBattleNet,
     updateUserRoles,
     type AdminUser,
     type Ladder,
@@ -41,6 +43,7 @@
   let loading = $state(true);
   let busy = $state(false);
   let editingBans = $state(false);
+  let newEmail = $state('');
   let error = $state('');
   let notice = $state('');
 
@@ -110,6 +113,25 @@
     });
   }
 
+  function changeEmail(current: AdminUser): Promise<void> {
+    const email = newEmail.trim();
+    if (!email) return Promise.resolve();
+    if (!confirm(`Set ${current.displayName}'s sign-in email to ${email}? No confirmation link is sent, so check the address with the player first.`)) return Promise.resolve();
+    return run(async () => {
+      user = await setUserEmail(current.id, email);
+      newEmail = '';
+      return `${current.displayName} now signs in with ${email}. They can set a new password from the Forgot password page.`;
+    });
+  }
+
+  function unlinkBattleNet(current: AdminUser): Promise<void> {
+    if (!confirm(`Unlink ${current.battleTag ?? 'Battle.net'} from ${current.displayName}? The BattleTag can then be linked to another account.`)) return Promise.resolve();
+    return run(async () => {
+      user = await unlinkUserBattleNet(current.id);
+      return `Battle.net was unlinked from ${current.displayName}.`;
+    });
+  }
+
   function addLadder(current: AdminUser, ladderId: string): Promise<void> {
     if (!ladderId) return Promise.resolve();
     return run(async () => {
@@ -175,6 +197,46 @@
 
   {#if error}<div role="alert" class="mb-5 rounded-lg border border-requirement/45 bg-requirement/10 p-4 text-requirement">{error}</div>{/if}
   {#if notice}<div role="status" class="mb-5 rounded-lg border border-set/40 bg-set/10 p-4 text-set">{notice}</div>{/if}
+
+  <section class="panel mb-6 rounded-lg p-5 sm:p-7">
+    <h3 class="display-text mb-4 text-xl text-parchment-50">Sign-in and linked accounts</h3>
+    <dl class="grid gap-x-8 gap-y-1 text-sm sm:grid-cols-[max-content_minmax(0,1fr)]">
+      <dt class="text-parchment-300">Signs in with</dt>
+      <dd class="break-all text-parchment-50">
+        {[current.hasPassword && 'Email and password', current.steamId && 'Steam'].filter(Boolean).join(' · ') || 'No sign-in method'}
+      </dd>
+      <dt class="text-parchment-300">Unconfirmed email change</dt>
+      <dd class="break-all text-parchment-50">{current.pendingEmail || 'None'}</dd>
+      <dt class="text-parchment-300">BattleTag</dt>
+      <dd class="break-all text-parchment-50">
+        {#if current.battleTag}
+          {current.battleTag}
+          <span class="text-parchment-300">({current.battleNetId ? `verified, Battle.net ID ${current.battleNetId}` : 'typed at registration, not verified'})</span>
+        {:else}
+          Not linked
+        {/if}
+      </dd>
+      <dt class="text-parchment-300">Steam</dt>
+      <dd class="break-all text-parchment-50">{current.steamId ? `SteamID64 ${current.steamId}` : 'Not linked'}</dd>
+    </dl>
+
+    <form class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-end" onsubmit={(event) => { event.preventDefault(); void changeEmail(current); }}>
+      <label class="block flex-1 text-sm text-parchment-300">
+        Set sign-in email
+        <input class="field mt-1" type="email" required maxlength="256" autocomplete="off" placeholder="player@example.com" bind:value={newEmail} />
+      </label>
+      <button type="submit" class="rounded border border-ember-400 px-4 py-2 text-parchment-50 disabled:opacity-50" disabled={busy || !newEmail.trim()}>Set email</button>
+    </form>
+    <p class="mt-2 text-sm text-parchment-300">
+      For a player who can no longer reach the address on the account. It applies at once with no confirmation link, and drops any unconfirmed change.
+    </p>
+
+    {#if current.battleTag || current.battleNetId}
+      <button type="button" class="mt-5 rounded border border-requirement/45 px-4 py-2 text-requirement disabled:opacity-50" disabled={busy} onclick={() => void unlinkBattleNet(current)}>
+        Unlink Battle.net
+      </button>
+    {/if}
+  </section>
 
   <section class="panel mb-6 rounded-lg p-5 sm:p-7">
     <h3 class="display-text mb-4 text-xl text-parchment-50">Supporter and Discord</h3>

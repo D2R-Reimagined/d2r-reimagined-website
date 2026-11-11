@@ -148,7 +148,7 @@
 
 <div class="mb-6">
   <h2 class="display-text mt-1 text-3xl text-parchment-50">Users</h2>
-  <p class="mt-2 text-parchment-300">Manage roles, individual hidden-ladder access, and account-wide trade, leaderboard, lobby hosting, or global chat bans. Search by display name, email, character name, or user ID.</p>
+  <p class="mt-2 text-parchment-300">Manage roles, individual hidden-ladder access, and account-wide trade, leaderboard, lobby hosting, or global chat bans. Search by display name, email, BattleTag, character name, or user ID.</p>
 </div>
 
 {#if error}<div class="mb-5 rounded-lg border border-requirement/45 bg-requirement/10 p-4 text-requirement">{error}</div>{/if}

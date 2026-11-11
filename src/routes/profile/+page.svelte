@@ -14,6 +14,7 @@
     refreshDiscordRoles,
     beginSteamLink,
     beginSteamSignIn,
+    cancelEmailChange,
     completeSteamSignIn,
     initializeAuth,
     refreshProfile,
@@ -34,10 +35,16 @@
   let editingProfile = $state(false);
   let editEmail = $state('');
   let editDisplayName = $state('');
+  let editCurrentPassword = $state('');
   let busy = $state(false);
   let error = $state('');
   let notice = $state('');
   let username = $state('');
+
+  // A different address is confirmed by an emailed link before it applies.
+  let emailChanged = $derived(
+    editingProfile && editEmail.trim().toLowerCase() !== ($authState.user?.email ?? '').toLowerCase()
+  );
 
   function profileUrl(): string {
     const url = new URL(window.location.href);
@@ -173,6 +180,7 @@
     if (!$authState.user) return;
     editEmail = $authState.user.email;
     editDisplayName = $authState.user.displayName;
+    editCurrentPassword = '';
     editingProfile = true;
     error = '';
     notice = '';
@@ -180,6 +188,7 @@
 
   function cancelEditingProfile(): void {
     editingProfile = false;
+    editCurrentPassword = '';
     error = '';
   }
 
@@ -190,9 +199,34 @@
     error = '';
     notice = '';
     try {
-      await updateProfile(editEmail.trim(), editDisplayName.trim());
+      const changingEmail = emailChanged;
+      const user = await updateProfile(
+        editEmail.trim(),
+        editDisplayName.trim(),
+        changingEmail
+          ? { confirmUrl: new URL('/confirm-email', window.location.origin).href, currentPassword: editCurrentPassword }
+          : undefined
+      );
       editingProfile = false;
-      notice = 'Your profile details have been updated.';
+      editCurrentPassword = '';
+      notice = changingEmail && user.pendingEmail
+        ? `We sent a confirmation link to ${user.pendingEmail}. Your email address changes once you open it; until then you still sign in with ${user.email || 'your current sign-in'}.`
+        : 'Your profile details have been updated.';
+    } catch (value) {
+      error = message(value);
+    } finally {
+      busy = false;
+    }
+  }
+
+  async function dropEmailChange(): Promise<void> {
+    if (busy) return;
+    busy = true;
+    error = '';
+    notice = '';
+    try {
+      await cancelEmailChange();
+      notice = 'The email change was cancelled. Your email address stays as it is.';
     } catch (value) {
       error = message(value);
     } finally {
@@ -254,6 +288,10 @@
           error = 'Discord could not be linked. It may already be linked to another account, or Discord may be unavailable. Please try again.';
         } else if (battleNetStatus === 'denied') {
           notice = 'Battle.net linking was cancelled.';
+        } else if (battleNetStatus === 'conflict') {
+          error = 'That Battle.net account is already linked to another D2R Reimagined account. Sign in to that account and unlink it there first, or ask the team on Discord for help if you can no longer reach it.';
+        } else if (steamStatus === 'conflict') {
+          error = 'That Steam account is already linked to another D2R Reimagined account. Sign in to that account and unlink it there first, or ask the team on Discord for help if you can no longer reach it.';
         }
       }
 
@@ -337,8 +375,19 @@
           <form class="mt-8 space-y-5 border-y border-parchment-300/15 py-6" onsubmit={saveProfile}>
             <div>
               <label for="profile-email" class="mb-2 block text-sm text-parchment-200">Email address</label>
-              <input class="field" id="profile-email" type="email" autocomplete="email" required maxlength="256" bind:value={editEmail} />
+              <input class="field" id="profile-email" type="email" autocomplete="email" required maxlength="256" aria-describedby={emailChanged ? 'profile-email-help' : undefined} bind:value={editEmail} />
+              {#if emailChanged}
+                <p id="profile-email-help" class="mt-2 text-sm text-parchment-300">
+                  We will email a confirmation link to this address. Your email address only changes once you open it.
+                </p>
+              {/if}
             </div>
+            {#if emailChanged && $authState.user.hasPassword}
+              <div>
+                <label for="profile-current-password" class="mb-2 block text-sm text-parchment-200">Current password</label>
+                <input class="field" id="profile-current-password" type="password" autocomplete="current-password" required maxlength="128" bind:value={editCurrentPassword} />
+              </div>
+            {/if}
             <div>
               <label for="profile-display-name" class="mb-2 block text-sm text-parchment-200">Display name</label>
               <input class="field" id="profile-display-name" autocomplete="nickname" required minlength="2" maxlength="50" bind:value={editDisplayName} />
@@ -363,7 +412,17 @@
           <dl class="mt-8 divide-y divide-parchment-300/15 border-y border-parchment-300/15">
             <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr]">
               <dt class="text-parchment-300">Email</dt>
-              <dd class="break-all text-parchment-50">{$authState.user.email || 'Not set'}</dd>
+              <dd class="break-all text-parchment-50">
+                {$authState.user.email || 'Not set'}
+                {#if $authState.user.pendingEmail}
+                  <span class="mt-2 block text-sm text-parchment-300">
+                    Waiting for you to confirm {$authState.user.pendingEmail}. Open the link we emailed to that address.
+                  </span>
+                  <button type="button" disabled={busy} onclick={dropEmailChange} class="mt-2 rounded border border-parchment-300/30 px-3 py-1 text-sm text-parchment-200 transition hover:border-parchment-200/60 hover:bg-white/5 hover:text-white disabled:opacity-60">
+                    Cancel email change
+                  </button>
+                {/if}
+              </dd>
             </div>
             <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr]">
               <dt class="text-parchment-300">Display name</dt>
@@ -425,6 +484,19 @@
             </div>
             <button type="button" disabled={busy} onclick={removeBattleNet} class="mt-4 rounded border border-red-500/35 px-4 py-2 text-red-200 transition hover:bg-red-950/40 disabled:cursor-wait disabled:opacity-60">
               {busy ? 'Working…' : 'Unlink Battle.net'}
+            </button>
+          {:else if $authState.user.battleTag}
+            <!-- Typed at registration and never verified: linking replaces it, or it can be removed. -->
+            <div class="mt-6 rounded border border-parchment-300/25 bg-white/5 p-4">
+              <p class="text-xs uppercase tracking-[0.18em] text-parchment-300">Not verified</p>
+              <p class="mt-2 break-all text-parchment-50">{$authState.user.battleTag}</p>
+            </div>
+            <button type="button" disabled={busy} onclick={linkBattleNet} class="mt-4 flex w-full items-center justify-center gap-3 rounded bg-[#148eff] px-5 py-3 font-semibold text-white transition hover:bg-[#0074e8] disabled:cursor-wait disabled:opacity-60">
+              <span aria-hidden="true" class="text-xl">◈</span>
+              {busy ? 'Opening Battle.net…' : 'Verify with Battle.net'}
+            </button>
+            <button type="button" disabled={busy} onclick={removeBattleNet} class="mt-3 rounded border border-red-500/35 px-4 py-2 text-red-200 transition hover:bg-red-950/40 disabled:cursor-wait disabled:opacity-60">
+              {busy ? 'Working…' : 'Remove BattleTag'}
             </button>
           {:else}
             <button type="button" disabled={busy} onclick={linkBattleNet} class="mt-6 flex w-full items-center justify-center gap-3 rounded bg-[#148eff] px-5 py-3 font-semibold text-white transition hover:bg-[#0074e8] disabled:cursor-wait disabled:opacity-60">
