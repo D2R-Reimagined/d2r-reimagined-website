@@ -67,10 +67,11 @@
   function toggleRegion(id: string, checked: boolean): void {
     draft.regionIds = checked ? [...draft.regionIds, id] : draft.regionIds.filter(value => value !== id);
   }
+  // Never awaited by a save: the form unlocks on the write, not on the monitoring reload behind it.
   async function changed(message: string): Promise<void> {
     notice = message;
     try { await onchange?.(); }
-    catch { if (mounted) notice = `${message} Monitoring will refresh when its connection resumes.`; }
+    catch { if (mounted && notice === message) notice = `${message} Monitoring will refresh when its connection resumes.`; }
   }
   async function saveServer(event: SubmitEvent): Promise<void> {
     event.preventDefault(); if (!allowed || saving) return;
@@ -85,7 +86,7 @@
       servers = [...servers.filter(s => s.id !== result.id), result];
       editingId = result.id; draft = serverDraft(result);
       formOpen = false;
-      await changed(moving
+      void changed(moving
         ? `${serverLabel(result)} moved to ${ladderName(result.ladderId)}. It restarts onto that ladder at its next check (about a minute).`
         : `${serverLabel(result)} saved. Changes take effect without restarting the API.`);
     } catch (e) { if (mounted) error = problem(e); }
@@ -100,7 +101,7 @@
       await deleteServerConfiguration(server.id); if (!mounted) return;
       servers = servers.filter(s => s.id !== server.id);
       if (editingId === server.id) { editingId = null; formOpen = false; draft = emptyServer(); }
-      await changed(`${serverLabel(server)} deleted.`);
+      void changed(`${serverLabel(server)} deleted.`);
     } catch (e) { if (mounted) error = problem(e); }
     finally { if (mounted) saving = false; }
   }
@@ -116,7 +117,8 @@
       const result = editingRegionId === null ? await createServerRegion(input) : await updateServerRegion(input);
       if (!mounted) return;
       regions = [...regions.filter(r => r.id !== result.id), result]; resetRegion();
-      await changed(`${result.name} saved.`);
+      // No monitoring reload: a region's name or existence changes no server's assignment.
+      notice = `${result.name} saved.`;
     } catch (e) { if (mounted) error = problem(e); }
     finally { if (mounted) saving = false; }
   }
@@ -128,7 +130,7 @@
       regions = regions.filter(r => r.id !== region.id);
       draft.regionIds = draft.regionIds.filter(id => id !== region.id);
       if (editingRegionId === region.id) resetRegion();
-      await changed(`${region.name} deleted.`);
+      notice = `${region.name} deleted.`;
     } catch (e) { if (mounted) error = problem(e); }
     finally { if (mounted) saving = false; }
   }

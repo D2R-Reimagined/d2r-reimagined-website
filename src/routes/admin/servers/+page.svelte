@@ -134,7 +134,9 @@
         if (!mounted) return;
         const frame = await getServers();
         if (!mounted) return;
-        servers = frame.servers;
+        // The list carries no snapshots (the stream sends the watched server's): keep the ones on screen until its next frame.
+        const snapshots = new Map(servers.map(s => [s.id, s.snapshot]));
+        servers = frame.servers.map(s => s.snapshot ? s : {...s, snapshot: snapshots.get(s.id) ?? null});
         clockOffset = Date.parse(frame.nowUtc) - Date.now();
         if (!selectedId && servers.length) choose(servers[0].id);
     }
@@ -371,6 +373,9 @@
                         </article>
                     {/each}
                 </section>
+            {:else if selected.receivedAtUtc}
+                <!-- It has reported: the list carries no snapshot, and the stream's first frame brings it. -->
+                <div class="panel rounded-lg p-6 text-parchment-300">Loading this host’s lobbies…</div>
             {:else}
                 <div class="panel rounded-lg p-6 text-parchment-300">No report received from this host yet. Check that
                     report_telemetry is enabled and the API URL and server key are configured.
