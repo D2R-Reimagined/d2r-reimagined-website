@@ -78,6 +78,11 @@
         return !!configured?.enabled && configured.acceptingGames === false;
     }
 
+    // Admin testing only: only an admin's launcher pin hosts on the box, and only admins join it.
+    function adminOnly(boxId: string): boolean {
+        return configuration(boxId)?.adminOnly === true;
+    }
+
     function toneClass(value: DeploymentLine['tone']): string {
         return value === 'ok' ? 'text-emerald-300' : value === 'warn' ? 'text-amber-300' : '';
     }
@@ -247,6 +252,7 @@
                         lobbies · {server.snapshot?.games.reduce((n, g) => n + g.connectedCount, 0) ?? server.connectionCount ?? 0}
                         connections</span>
                     {#if !inBox && draining(serverBoxId(server))}<span class="mt-1 block text-xs uppercase tracking-wider text-amber-300">Draining · no new games</span>{/if}
+                    {#if !inBox && adminOnly(serverBoxId(server))}<span class="mt-1 block text-xs uppercase tracking-wider text-sky-300">Admin testing only</span>{/if}
                     <span class="mt-1 block text-xs text-parchment-300">{server.receivedAtUtc ? `Last report ${duration(age(server))} ago` : 'Waiting for the first report'}</span>
                     {#if !inBox}{@render deployment(server)}{/if}
                 </button>
@@ -268,6 +274,7 @@
                         <span class="mt-1 block break-words text-xs text-parchment-300">{displayName(box.boxId) !== box.boxId ? `${box.boxId} · ` : ''}{head.address} · {box.servers.length} instances{head.regionIds?.length ? ` · ${head.regionIds.join(' · ')}` : ''}</span>
                         <span class="mt-2 block text-sm text-parchment-200">{lobbies}{maxGames ? ` / ${maxGames * box.servers.length}` : ''} lobbies · {connections} connections</span>
                         {#if draining(box.boxId)}<span class="mt-1 block text-xs uppercase tracking-wider text-amber-300">Draining · no new games</span>{/if}
+                        {#if adminOnly(box.boxId)}<span class="mt-1 block text-xs uppercase tracking-wider text-sky-300">Admin testing only</span>{/if}
                         {@render deployment(head)}
                         <div class="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
                             {#each box.servers as server (server.id)}{@render card(server, true)}{/each}

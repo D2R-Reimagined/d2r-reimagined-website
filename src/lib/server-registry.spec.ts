@@ -31,7 +31,7 @@ describe('server configuration requests', () => {
     expect(input.regionIds).not.toBe(value.regionIds);
     await updateServerConfiguration(input);
     expect(apiRequest).toHaveBeenCalledWith('/admin/servers/configuration/eu-1', {
-      method: 'PUT', body: JSON.stringify({ id: 'eu-1', name: '', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: false, acceptingGames: true, maxGames: 32, instances: 1, regionIds: ['eu-west', 'na-east'] })
+      method: 'PUT', body: JSON.stringify({ id: 'eu-1', name: '', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: false, acceptingGames: true, adminOnly: false, maxGames: 32, instances: 1, regionIds: ['eu-west', 'na-east'] })
     }, true);
   });
   it('always sends acceptingGames, so an edit never ends a drain, and reads an older API as accepting', () => {
@@ -42,6 +42,15 @@ describe('server configuration requests', () => {
     const configured: ServerConfiguration = { id: 'eu-1', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: true, maxGames: 32, regionIds: [] };
     expect(serverDraft(configured).acceptingGames).toBe(true);
     expect(serverDraft({ ...configured, acceptingGames: false }).acceptingGames).toBe(false);
+  });
+  it('always sends adminOnly, so an edit never opens an admin testing server, and reads an older API as open', () => {
+    const value = draft(); value.adminOnly = true;
+    expect(serverConfigurationInput(value, false)).toHaveProperty('adminOnly', true);
+    const older = draft(); delete older.adminOnly;
+    expect(serverConfigurationInput(older, false)).toHaveProperty('adminOnly', false);
+    const configured: ServerConfiguration = { id: 'eu-1', ladderId: 'ladder-id', publicAddress: '203.0.113.7', enabled: true, maxGames: 32, regionIds: [] };
+    expect(serverDraft(configured).adminOnly).toBe(false);
+    expect(serverDraft({ ...configured, adminOnly: true }).adminOnly).toBe(true);
   });
   it('requires a complete hash on creation and normalizes hex case without silently truncating input', async () => {
     expect(() => serverConfigurationInput(draft(), true)).toThrow('64-character');

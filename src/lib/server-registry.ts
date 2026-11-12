@@ -7,6 +7,11 @@ export interface ServerConfiguration {
   instances?: number;
   /** False drains the box: Hosts stop going to it while its running games list, join and save. Older APIs omit it (true). */
   acceptingGames?: boolean;
+  /**
+   * Admin testing only: automatic hosting never picks it (only an admin's launcher pin does), its games list and
+   * join for admins alone, and any other player's join is refused. Older APIs omit it (false).
+   */
+  adminOnly?: boolean;
 }
 export interface ServerConfigurationInput extends Omit<ServerConfiguration, 'name'> { name: string; keySha256?: string }
 export interface ServerDraft extends Omit<ServerConfiguration, 'name'> { name: string; keySha256: string }
@@ -25,7 +30,7 @@ export function serverLabel(server: { id: string; name?: string | null }): strin
 }
 export function serverDraft(server: ServerConfiguration): ServerDraft {
   return { ...server, name: server.name ?? '', maxGames: server.maxGames ?? DEFAULT_MAX_GAMES, instances: server.instances ?? 1,
-    acceptingGames: server.acceptingGames ?? true, regionIds: [...server.regionIds], keySha256: '' };
+    acceptingGames: server.acceptingGames ?? true, adminOnly: server.adminOnly ?? false, regionIds: [...server.regionIds], keySha256: '' };
 }
 
 export const getServerConfigurations = (signal?: AbortSignal) =>
@@ -64,9 +69,10 @@ export function serverConfigurationInput(draft: ServerDraft, creating: boolean):
     throw new Error(`Max games must be a whole number from 1 to ${MAX_GAMES_PER_SERVER}.`);
   if (typeof instances !== 'number' || !Number.isInteger(instances) || instances < 1 || instances > MAX_INSTANCES_PER_SERVER)
     throw new Error(`Instances must be a whole number from 1 to ${MAX_INSTANCES_PER_SERVER}.`);
-  // Always sent: the API reads an omitted acceptingGames as true, which would end a drain on any edit.
-  return { id, name, ladderId: draft.ladderId, publicAddress, enabled: draft.enabled, acceptingGames: draft.acceptingGames ?? true, maxGames,
-    instances, regionIds: [...draft.regionIds], ...(keySha256 ? { keySha256 } : {}) };
+  // Always sent: the API reads an omitted acceptingGames as true and an omitted adminOnly as false, which would end a
+  // drain or open an admin testing server to everyone on any edit.
+  return { id, name, ladderId: draft.ladderId, publicAddress, enabled: draft.enabled, acceptingGames: draft.acceptingGames ?? true,
+    adminOnly: draft.adminOnly ?? false, maxGames, instances, regionIds: [...draft.regionIds], ...(keySha256 ? { keySha256 } : {}) };
 }
 
 export function serverRegionInput(draft: ServerRegion): ServerRegion {
