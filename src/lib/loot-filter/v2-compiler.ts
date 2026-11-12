@@ -183,9 +183,9 @@ export const STRICTNESS_PRESETS: readonly StrictnessPresetInfo[] = [
     name: 'Semi-Strict',
     shortLabel: 'Semi-Strict',
     badge: 'Early Hell',
-    description: 'The sweet spot for entering Hell and early farming. Hides unsocketed white gear, all Magic items (except Charms & Jewels), and low potions while keeping all gems visible for your Gem Bag.',
-    hidesSummary: 'All Magic items except Charms & Jewels, unsocketed white gear, ordinary Arrows/Bolts, and standard HP/MP potions.',
-    keepsSummary: 'All Runes, all Gems & Gem Stacks (for the Gem Bag), all Rares/Uniques/Sets/Crafted, Charms & Jewels, Chase Runeword bases, and Ethereal/Socketed bases.',
+    description: 'The sweet spot for entering Hell and early farming. Hides unsocketed Normal/Exceptional white gear, all Magic items (except Charms & Jewels), and low potions while keeping all gems visible for your Gem Bag.',
+    hidesSummary: 'All Magic items except Charms & Jewels, unsocketed Normal/Exceptional white gear, ordinary Arrows/Bolts, and standard HP/MP potions.',
+    keepsSummary: 'All Runes, all Gems & Gem Stacks (for the Gem Bag), all Rares/Uniques/Sets/Crafted, Charms & Jewels, Chase & Elite Runeword bases, and Ethereal/Socketed bases.',
     recommendedFor: 'Hell campaign, Terror Zones, and early endgame gearing.'
   },
   {
@@ -598,31 +598,57 @@ export const TIERABLE_ITEMS: readonly TierableItem[] = [
 
   { id: 'jewelry-magic', label: 'Magic Rings, Amulets & Circlets', subtitle: 'ring, amul, circ (Magic · Starter only, hidden in Regular+)', category: 'uniques', itemTypes: ['ring', 'amul', 'circ'], rarities: ['magic'], defaultTier: 'D', strictnessTiers: { regular: 'HIDE', 'semi-strict': 'HIDE', strict: 'HIDE', endgame: 'HIDE' } },
 
-  // 7. Runeword & Crafting Bases (Normal/Superior rarity — mapped 1-to-1 with weapon & class families)
-  { id: 'base-elite-body', label: 'Archon Plate, Mage Plate, Dusk Shroud & Sacred Armor', subtitle: 'utp, xtp, uui, uar · Top Enigma/Fortitude/CoH armors', category: 'bases', codes: ['utp', 'xtp', 'uui', 'uar'], rarities: ['normal', 'superior'], defaultTier: 'A' },
-  { id: 'base-diadem-tiara', label: 'Diadem & Tiara (White/Socketed Bases)', subtitle: 'ci3, ci2 · Dream/Flickering Flame/Faith headgear', category: 'bases', codes: ['ci3', 'ci2'], rarities: ['normal', 'superior'], defaultTier: 'A' },
-  { id: 'base-monarch-shields', label: 'Monarch, Troll Nest, Ward & Aegis (Standard Shields)', subtitle: 'uit, ush, uts, uow · Spirit/Phoenix/Sanctuary shields', category: 'bases', codes: ['uit', 'ush', 'uts', 'uow'], rarities: ['normal', 'superior'], equipmentFamilies: ['standard-shield'], defaultTier: 'A' },
+  // 7. Runeword & Crafting Bases (Normal/Superior rarity — 100% Elite base coverage via Premier Chase + Secondary Elite groups)
+  // Universal Body Armor, Circlets & Helms
+  { id: 'base-elite-body', label: 'Archon Plate, Dusk Shroud, Wyrmhide, Scarab Husk, Sacred Armor & Mage Plate', subtitle: 'utp, uui, uea, ula, uar, xtp · Premier light & endgame Enigma/Fortitude/CoH armors', category: 'bases', codes: ['utp', 'uui', 'uea', 'ula', 'uar', 'xtp'], rarities: ['normal', 'superior'], defaultTier: 'A' },
+  { id: 'base-elite-body-secondary', label: 'Wire Fleece, Great Hauberk, Boneweave, Balrog Skin, Kraken Shell & Heavy Elite Armors', subtitle: 'utu, urs, uhn, upl, uld, uth, uul, ung, ucl, ult · Remaining 4os Elite body armors', category: 'bases', codes: ['utu', 'urs', 'uhn', 'upl', 'uld', 'uth', 'uul', 'ung', 'ucl', 'ult'], rarities: ['normal', 'superior'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-diadem-tiara', label: 'Diadem & Tiara (White/Socketed Bases)', subtitle: 'ci3, ci2 · 3–4os Dream/Flickering Flame/Faith & Imbue/Infusion headgear', category: 'bases', codes: ['ci3', 'ci2'], rarities: ['normal', 'superior'], defaultTier: 'A' },
+  { id: 'base-elite-helms', label: 'Bone Visage, Demonhead, Corona, Spired Helm & Shako (4os Elite Helms)', subtitle: 'uh9, usk, urn, uhm, uap · Premier 4os Dream/Cure/Flickering Flame/Metamorphosis helms', category: 'bases', codes: ['uh9', 'usk', 'urn', 'uhm', 'uap'], rarities: ['normal', 'superior'], defaultTier: 'B' },
+  { id: 'base-elite-helms-secondary', label: 'Hydraskull, Armet & Giant Conch (Secondary 4os Elite Helms)', subtitle: 'ukp, ulm, uhl · Remaining 4os Elite helms', category: 'bases', codes: ['ukp', 'ulm', 'uhl'], rarities: ['normal', 'superior'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+
+  // Shields & Class Offhands / Helms
+  { id: 'base-monarch-shields', label: 'Monarch, Hyperion, Troll Nest, Ward & Aegis (4os Standard Shields)', subtitle: 'uit, urg, ush, uts, uow · All 4os Reimagined Spirit/Phoenix/Dragon standard shields', category: 'bases', codes: ['uit', 'urg', 'ush', 'uts', 'uow'], rarities: ['normal', 'superior'], equipmentFamilies: ['standard-shield'], defaultTier: 'A' },
+  { id: 'base-shields-secondary', label: 'Blade Barrier, Heater & Luna (2–3os Elite Shields)', subtitle: 'upk, uuc, uml · Rhyme/Splendor/Sanctuary/Dream 2–3os Elite shields', category: 'bases', codes: ['upk', 'uuc', 'uml'], rarities: ['normal', 'superior'], equipmentFamilies: ['standard-shield'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
   { id: 'base-paladin-shields', label: 'Sacred Targe, Sacred Rondache, Vortex, Ancient & Zakarum Shields', subtitle: 'pab, pac, paf, pad, pae · Paladin Spirit/Exile/Phoenix shields', category: 'bases', codes: ['pab', 'pac', 'paf', 'pad', 'pae'], rarities: ['normal', 'superior'], equipmentFamilies: ['paladin-shield'], defaultTier: 'A' },
-  { id: 'base-phase-zerker', label: 'Phase Blade, Colossus Blade, Colossal Sword & Crystal Sword', subtitle: '7cr, 7gd, 7fb, crs · Grief/Death/BoTD/CTA/Spirit swords', category: 'bases', codes: ['7cr', '7gd', '7fb', 'crs'], rarities: ['normal', 'superior'], equipmentFamilies: ['sword'], defaultTier: 'A' },
-  { id: 'base-zerker-axes', label: 'Berserker Axe, Ettin Axe & Glorious Axe', subtitle: '7wa, 72a, 7gi · Beast/Doom/Death/BoTD axes', category: 'bases', codes: ['7wa', '72a', '7gi'], rarities: ['normal', 'superior'], equipmentFamilies: ['axe'], defaultTier: 'A' },
-  { id: 'base-flails-maces', label: 'Flail, Scourge, Thunder Maul & Ogre Maul', subtitle: 'fla, 7fl, 7gm, 7m7 · HOTO/CTA flails & 2H mauls', category: 'bases', codes: ['fla', '7fl', '7gm', '7m7'], rarities: ['normal', 'superior'], equipmentFamilies: ['mace'], defaultTier: 'B' },
-  { id: 'base-elite-polearms', label: 'Thresher, Giant Thresher, Great Poleaxe & Cryptic Axe', subtitle: '7s8, 7wc, 7h7, 7pa · Infinity/Insight/Pride polearms', category: 'bases', codes: ['7s8', '7wc', '7h7', '7pa'], rarities: ['normal', 'superior'], equipmentFamilies: ['polearm'], defaultTier: 'A' },
-  { id: 'base-ama-weapons', label: 'Matriarchal Bow, Grand Matron Bow, Hydra Bow & Spider Bow', subtitle: 'amb, amc, 6lw, 6sb · Faith/Mist/Ice bow bases', category: 'bases', codes: ['amb', 'amc', '6lw', '6sb'], rarities: ['normal', 'superior'], equipmentFamilies: ['bow-quiver'], defaultTier: 'B' },
-  { id: 'base-crossbows', label: 'Colossus Crossbow, Demon Crossbow & Gorgon Crossbow', subtitle: '6hx, 6rx, 6mx · Elite crossbow bases', category: 'bases', codes: ['6hx', '6rx', '6mx'], rarities: ['normal', 'superior'], equipmentFamilies: ['xbow-quiver'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
-  { id: 'base-javelins', label: 'Matriarchal Javelin, Ceremonial Javelin, Hyperion & Balrog Spear', subtitle: 'amf, ama, 7ja, 7s7 · Amazon & elite javelin crafting/imbue bases', category: 'bases', codes: ['amf', 'ama', '7ja', '7s7'], rarities: ['normal', 'superior'], equipmentFamilies: ['javelin'], defaultTier: 'B' },
-  { id: 'base-spears', label: 'Mancatcher, Matriarchal Pike, Ghost Spear, War Pike & Stygian Pike', subtitle: '7br, ame, 7st, 7p7, 7tr · Infinity/BoTD/Pride spear bases', category: 'bases', codes: ['7br', 'ame', '7st', '7p7', '7tr'], rarities: ['normal', 'superior'], equipmentFamilies: ['spear'], defaultTier: 'B' },
-  { id: 'base-throwing', label: 'Winged Knife, Flying Axe, War Dart & Francisca', subtitle: '7bk, 7ta, 9bk, 9ta · Throwing crafting/imbue bases', category: 'bases', codes: ['7bk', '7ta', '9bk', '9ta'], rarities: ['normal', 'superior'], equipmentFamilies: ['throwing'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-warlock-grimoires', label: 'Blasphemous Grimoire, Blasphemous Compendium & Occult Codex', subtitle: 'waf, wae, wad · Premier 3–4os +skill Elite Warlock grimoires', category: 'bases', codes: ['waf', 'wae', 'wad'], rarities: ['normal', 'superior'], equipmentFamilies: ['warlock-grimoire'], defaultTier: 'B' },
+  { id: 'base-warlock-grimoires-secondary', label: 'Occult Tome & Forgotten Volume (Secondary 3os Grimoires)', subtitle: 'wac, wab · Remaining 3os +skill Elite Warlock grimoires', category: 'bases', codes: ['wac', 'wab'], rarities: ['normal', 'superior'], equipmentFamilies: ['warlock-grimoire'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-sorc-orbs', label: 'Dimensional Shard, Vortex Orb & Demon Heart', subtitle: 'obf, obe, obd · Premier 2–3os +skill Elite Sorceress orbs', category: 'bases', codes: ['obf', 'obe', 'obd'], rarities: ['normal', 'superior'], equipmentFamilies: ['sorc-orb'], defaultTier: 'B' },
+  { id: 'base-sorc-orbs-secondary', label: 'Eldritch Orb & Heavenly Stone (Secondary 2os Sorceress Orbs)', subtitle: 'obc, obb · Remaining 2os +skill Elite Sorceress orbs', category: 'bases', codes: ['obc', 'obb'], rarities: ['normal', 'superior'], equipmentFamilies: ['sorc-orb'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-necro-heads', label: 'Succubus Skull, Bloodlord Skull & Overseer Skull', subtitle: 'nee, nef, ned · Premier 3–4os Splendor/Rhyme/+3 skill Necromancer heads', category: 'bases', codes: ['nee', 'nef', 'ned'], rarities: ['normal', 'superior'], equipmentFamilies: ['necro-head'], defaultTier: 'B' },
+  { id: 'base-necro-heads-secondary', label: 'Hellspawn Skull & Minion Skull (Secondary 3os Necromancer Heads)', subtitle: 'neg, neb · Remaining 3os +skill Elite Necromancer heads', category: 'bases', codes: ['neg', 'neb'], rarities: ['normal', 'superior'], equipmentFamilies: ['necro-head'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-druid-pelts', label: 'Dream Spirit, Blood Spirit & Earth Spirit', subtitle: 'drf, drb, drd · Premier 4os Flickering Flame/Metamorphosis/+3 Tornado pelts', category: 'bases', codes: ['drf', 'drb', 'drd'], rarities: ['normal', 'superior'], equipmentFamilies: ['druid-pelt'], defaultTier: 'B' },
+  { id: 'base-druid-pelts-secondary', label: 'Sky Spirit & Sun Spirit (Secondary 4os Druid Pelts)', subtitle: 'dre, drc · Remaining 4os +skill Elite Druid pelts', category: 'bases', codes: ['dre', 'drc'], rarities: ['normal', 'superior'], equipmentFamilies: ['druid-pelt'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-barb-helms', label: 'Conqueror Crown, Guardian Crown & Destroyer Helm', subtitle: 'bae, baf, bad · Premier 4os Bulwark/Cure/Delirium/+3 BO Barbarian helms', category: 'bases', codes: ['bae', 'baf', 'bad'], rarities: ['normal', 'superior'], equipmentFamilies: ['barb-helm'], defaultTier: 'B' },
+  { id: 'base-barb-helms-secondary', label: 'Fury Visor & Carnage Helm (Secondary 4os Barbarian Helms)', subtitle: 'bac, bab · Remaining 4os +skill Elite Barbarian primal helms', category: 'bases', codes: ['bac', 'bab'], rarities: ['normal', 'superior'], equipmentFamilies: ['barb-helm'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+
+  // Weapons (Melee, Ranged, Thrown & Caster)
+  { id: 'base-phase-zerker', label: 'Phase Blade, Colossus Blade, Colossal Sword, Balrog Blade, Cryptic & Crystal Sword', subtitle: '7cr, 7gd, 7fb, 7gs, 7ls, crs · Grief/Death/BoTD/Oath/CTA/Spirit swords', category: 'bases', codes: ['7cr', '7gd', '7fb', '7gs', '7ls', 'crs'], rarities: ['normal', 'superior'], equipmentFamilies: ['sword'], defaultTier: 'A' },
+  { id: 'base-swords-secondary', label: 'Legend, Champion, Highland, Conquest, Mythical & Secondary Elite Swords', subtitle: '72h, 7b7, 7cm, 7bs, 7wd, 7fc, 7sb, 7sm, 7ss · Remaining 2–4os Elite swords', category: 'bases', codes: ['72h', '7b7', '7cm', '7bs', '7wd', '7fc', '7sb', '7sm', '7ss'], rarities: ['normal', 'superior'], equipmentFamilies: ['sword'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-zerker-axes', label: 'Berserker Axe, Ettin Axe, Decapitator, Champion Axe & Glorious Axe', subtitle: '7wa, 72a, 7bt, 7ga, 7gi · Premier 5–6os Beast/Doom/Death/BoTD/Grief axes', category: 'bases', codes: ['7wa', '72a', '7bt', '7ga', '7gi'], rarities: ['normal', 'superior'], equipmentFamilies: ['axe'], defaultTier: 'A' },
+  { id: 'base-axes-secondary', label: 'Silver-Edged Axe, Feral Axe, Small Crescent, War Spike & Tomahawk', subtitle: '7ba, 7la, 7ax, 7mp, 7ha · Oath & secondary 2–6os Elite axes', category: 'bases', codes: ['7ba', '7la', '7ax', '7mp', '7ha'], rarities: ['normal', 'superior'], equipmentFamilies: ['axe'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-flails-maces', label: 'Flail, Scourge, Thunder Maul, Ogre Maul & Legendary Mallet', subtitle: 'fla, 7fl, 7gm, 7m7, 7wh · HOTO/CTA flails & 4–6os Elite hammers/mauls', category: 'bases', codes: ['fla', '7fl', '7gm', '7m7', '7wh'], rarities: ['normal', 'superior'], equipmentFamilies: ['mace'], defaultTier: 'B' },
+  { id: 'base-maces-secondary', label: 'Devil Star & Reinforced Mace (Secondary Elite Maces)', subtitle: '7mt, 7ma · Remaining 2–3os 1H Elite maces', category: 'bases', codes: ['7mt', '7ma'], rarities: ['normal', 'superior'], equipmentFamilies: ['mace'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-elite-polearms', label: 'Thresher, Giant Thresher, Great Poleaxe & Cryptic Axe', subtitle: '7s8, 7wc, 7h7, 7pa · Premier 5–6os Infinity/Insight/Pride/Doom polearms', category: 'bases', codes: ['7s8', '7wc', '7h7', '7pa'], rarities: ['normal', 'superior'], equipmentFamilies: ['polearm'], defaultTier: 'A' },
+  { id: 'base-polearms-secondary', label: 'Colossus Voulge & Ogre Axe (3–4os Elite Polearms)', subtitle: '7vo, 7o7 · 4os Insight/Infinity Colossus Voulge & 3os Hustle/Crescent Moon Ogre Axe', category: 'bases', codes: ['7vo', '7o7'], rarities: ['normal', 'superior'], equipmentFamilies: ['polearm'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-spears', label: 'Mancatcher, Matriarchal Pike, Matriarchal Spear, Ghost Spear & War Pike', subtitle: '7br, ame, amd, 7st, 7p7 · Premier 5–6os Infinity/BoTD/Pride & +skill spear bases', category: 'bases', codes: ['7br', 'ame', 'amd', '7st', '7p7'], rarities: ['normal', 'superior'], equipmentFamilies: ['spear'], defaultTier: 'B' },
+  { id: 'base-spears-secondary', label: 'Stygian Pike & Hyperion Spear (3–4os Elite Spears)', subtitle: '7tr, 7sr · 4os Stygian Pike & 3os Hyperion Spear bases', category: 'bases', codes: ['7tr', '7sr'], rarities: ['normal', 'superior'], equipmentFamilies: ['spear'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-ama-weapons', label: 'Matriarchal, Grand Matron, Shadow, Diamond, Great & Hydra Bows', subtitle: 'amb, amc, 6lb, 6s7, 6cb, 6lw · Premier Faith/Mist/Ice/Brand/Wrath bow bases', category: 'bases', codes: ['amb', 'amc', '6lb', '6s7', '6cb', '6lw'], rarities: ['normal', 'superior'], equipmentFamilies: ['bow-quiver'], defaultTier: 'B' },
+  { id: 'base-bows-secondary', label: 'Blade Bow, Spider Bow, Ward Bow & Crusader Bow', subtitle: '6hb, 6sb, 6sw, 6l7 · Remaining 3–6os Elite bow bases', category: 'bases', codes: ['6hb', '6sb', '6sw', '6l7'], rarities: ['normal', 'superior'], equipmentFamilies: ['bow-quiver'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-crossbows', label: 'Colossus, Demon, Gorgon & Pellet Crossbows', subtitle: '6hx, 6rx, 6mx, 6lx · All 3–6os Elite crossbow bases', category: 'bases', codes: ['6hx', '6rx', '6mx', '6lx'], rarities: ['normal', 'superior'], equipmentFamilies: ['xbow-quiver'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-javelins', label: 'Matriarchal Javelin, Ceremonial Javelin, Winged Harpoon & Ghost Glaive', subtitle: 'amf, ama, 7ts, 7gl · 3os Reimagined runeword, Imbue & Infusion javelin bases', category: 'bases', codes: ['amf', 'ama', '7ts', '7gl'], rarities: ['normal', 'superior'], equipmentFamilies: ['javelin'], defaultTier: 'B' },
+  { id: 'base-javelins-secondary', label: 'Balrog Spear, Hyperion Javelin & Stygian Pilum', subtitle: '7s7, 7ja, 7pi · Remaining 3os Elite javelin bases', category: 'bases', codes: ['7s7', '7ja', '7pi'], rarities: ['normal', 'superior'], equipmentFamilies: ['javelin'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-throwing', label: 'Winged Axe, Winged Knife, Flying Axe, Flying Knife, War Dart & Francisca', subtitle: '7b8, 7bk, 7ta, 7tk, 9bk, 9ta · 2–3os Reimagined throwing runeword, Imbue & Infusion bases', category: 'bases', codes: ['7b8', '7bk', '7ta', '7tk', '9bk', '9ta'], rarities: ['normal', 'superior'], equipmentFamilies: ['throwing'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
   { id: 'base-daggers', label: 'Bone Knife, Fanged Knife, Legend Spike & Mithral Point', subtitle: '7dg, 7kr, 7bl, 7di · Caster & melee dagger bases', category: 'bases', codes: ['7dg', '7kr', '7bl', '7di'], rarities: ['normal', 'superior'], equipmentFamilies: ['dagger'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
   { id: 'base-clubs', label: 'Tyrant Club, Truncheon & Barbed Club', subtitle: '7sp, 7cl, 9sp · Club runeword & crafting bases', category: 'bases', codes: ['7sp', '7cl', '9sp'], rarities: ['normal', 'superior'], equipmentFamilies: ['club'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
-  { id: 'base-scepters', label: 'Caduceus, Divine Scepter & War Scepter', subtitle: '7ws, 9ws, wsp · Rift/Holy Thunder/CTA +skill scepters', category: 'bases', codes: ['7ws', '9ws', 'wsp'], rarities: ['normal', 'superior'], equipmentFamilies: ['scepter'], defaultTier: 'B' },
-  { id: 'base-wands', label: 'Lich Wand, Unearthed Wand, Polished Wand & Bone Wand', subtitle: '7bw, 7gw, 7wn, bwn · White/Bone/+3 Spear Necro wands', category: 'bases', codes: ['7bw', '7gw', '7wn', 'bwn'], rarities: ['normal', 'superior'], equipmentFamilies: ['wand'], defaultTier: 'B' },
-  { id: 'base-staves', label: 'Archon Staff, Elder Staff & Shillelagh', subtitle: '6ws, 6cs, 6bs · Obsession/Memory/Insight 2H staves', category: 'bases', codes: ['6ws', '6cs', '6bs'], rarities: ['normal', 'superior'], equipmentFamilies: ['staff'], defaultTier: 'B' },
-  { id: 'base-warlock-grimoires', label: 'Blasphemous Grimoire, Compendium & Occult Codex', subtitle: 'waf, wae, wad · Elite Warlock offhands', category: 'bases', codes: ['waf', 'wae', 'wad'], rarities: ['normal', 'superior'], equipmentFamilies: ['warlock-grimoire'], defaultTier: 'B' },
-  { id: 'base-sorc-orbs', label: 'Dimensional Shard, Vortex Orb & Demon Heart', subtitle: 'obf, obe, obd · Elite Sorceress orbs', category: 'bases', codes: ['obf', 'obe', 'obd'], rarities: ['normal', 'superior'], equipmentFamilies: ['sorc-orb'], defaultTier: 'B' },
-  { id: 'base-necro-heads', label: 'Succubus Skull, Bloodlord Skull & Overseer Skull', subtitle: 'nee, nef, ned · Splendor/Rhyme/+3 skill Necro heads', category: 'bases', codes: ['nee', 'nef', 'ned'], rarities: ['normal', 'superior'], equipmentFamilies: ['necro-head'], defaultTier: 'B' },
-  { id: 'base-sin-claws', label: 'Runic Talons, Greater Talons, Suwayyah & Feral Claws', subtitle: '7tw, 9tw, 7ar, 7lw · Mosaic/Chaos/Plague claws', category: 'bases', codes: ['7tw', '9tw', '7ar', '7lw'], rarities: ['normal', 'superior'], equipmentFamilies: ['claws'], defaultTier: 'B' },
-  { id: 'base-druid-pelts', label: 'Dream Spirit, Blood Spirit & Earth Spirit', subtitle: 'drf, drb, drd · Flickering Flame/Metamorphosis Druid pelts', category: 'bases', codes: ['drf', 'drb', 'drd'], rarities: ['normal', 'superior'], equipmentFamilies: ['druid-pelt'], defaultTier: 'B' },
-  { id: 'base-barb-helms', label: 'Conqueror Crown, Guardian Crown & Destroyer Helm', subtitle: 'bae, baf, bad · Bulwark/Delirium/+3 BO Barbarian helms', category: 'bases', codes: ['bae', 'baf', 'bad'], rarities: ['normal', 'superior'], equipmentFamilies: ['barb-helm'], defaultTier: 'B' },
+  { id: 'base-scepters', label: 'Caduceus, Seraph Rod, Mighty Scepter, Divine Scepter & War Scepter', subtitle: '7ws, 7qs, 7sc, 9ws, wsp · Rift/Holy Thunder/CTA/Beast +skill Paladin scepters', category: 'bases', codes: ['7ws', '7qs', '7sc', '9ws', 'wsp'], rarities: ['normal', 'superior'], equipmentFamilies: ['scepter'], defaultTier: 'B' },
+  { id: 'base-wands', label: 'Lich Wand, Unearthed Wand, Polished Wand, Ghost Wand & Bone Wand', subtitle: '7bw, 7gw, 7wn, 7yw, bwn · White/+3 Spear/Spirit Necromancer wands', category: 'bases', codes: ['7bw', '7gw', '7wn', '7yw', 'bwn'], rarities: ['normal', 'superior'], equipmentFamilies: ['wand'], defaultTier: 'B' },
+  { id: 'base-staves', label: 'Archon Staff, Elder Staff & Shillelagh', subtitle: '6ws, 6cs, 6bs · 4–6os Obsession/Memory/Insight/BoTD +skill 2H staves', category: 'bases', codes: ['6ws', '6cs', '6bs'], rarities: ['normal', 'superior'], equipmentFamilies: ['staff'], defaultTier: 'B' },
+  { id: 'base-staves-secondary', label: 'Stalagmite & Walking Stick (2–3os Elite Staves)', subtitle: '6ls, 6ss · 2–3os Leaf/Plague/Splendor-tier +skill Elite staves', category: 'bases', codes: ['6ls', '6ss'], rarities: ['normal', 'superior'], equipmentFamilies: ['staff'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+  { id: 'base-sin-claws', label: 'Runic Talons, Greater Talons, Feral Claws, Suwayyah & Scissors Suwayyah', subtitle: '7tw, 9tw, 7lw, 7ar, 7qr · Premier 3os Mosaic/Chaos/Plague/+3 Trap claws', category: 'bases', codes: ['7tw', '9tw', '7lw', '7ar', '7qr'], rarities: ['normal', 'superior'], equipmentFamilies: ['claws'], defaultTier: 'B' },
+  { id: 'base-sin-claws-secondary', label: 'Wrist Sword, Scissors Quhab, Battle Cestus & War Fist', subtitle: '7wb, 9qr, 7cs, 7xf · Remaining 2–3os Assassin claw bases', category: 'bases', codes: ['7wb', '9qr', '7cs', '7xf'], rarities: ['normal', 'superior'], equipmentFamilies: ['claws'], defaultTier: 'C', strictnessTiers: { endgame: 'HIDE' } },
+
+  // Optional 0-Socket Elite Gloves, Boots & Belts (for Orb of Infusion -> Conversion / Assemblage)
+  { id: 'base-elite-gloves-boots-belts', label: 'White Elite Gloves, Boots & Belts (Infusion / Conversion Bases)', subtitle: '15 Elite glov, boot & belt bases (0 sockets · For Orb of Infusion -> Conversion/Assemblage; hidden in Strict+)', category: 'bases', codes: ['ulc', 'uvc', 'umc', 'utc', 'uhc', 'ulb', 'uvb', 'umb', 'utb', 'uhb', 'ulg', 'uvg', 'umg', 'utg', 'uhg'], rarities: ['normal', 'superior'], defaultTier: 'C', strictnessTiers: { strict: 'HIDE', endgame: 'HIDE' } },
 
   // 8. Rares, Crafted & Magic Equipment (mapped 1-to-1 with class & weapon families)
   { id: 'equip-crafted', label: 'Crafted Equipment (All Slots)', subtitle: 'All crafted weapons, armor, and accessories', category: 'equipment', rarities: ['crafted'], defaultTier: 'A' },
@@ -708,7 +734,15 @@ export const EQUIPMENT_FAMILIES: readonly EquipmentFamilyMetadata[] = [
     subtitle: 'Bows, Amazon Bows, Arrows & Rare/Unique Quivers',
     group: 'Ranged & Thrown',
     itemTypes: ['bow', 'abow', 'bowq', 'mboq'],
-    linkedTierableIds: ['equip-rare-quivers', 'misc-magic-quivers', 'misc-normal-quivers']
+    linkedTierableIds: [
+      'base-ama-weapons',
+      'base-bows-secondary',
+      'equip-class-amazon-bows',
+      'equip-rare-quivers',
+      'equip-weap-bows',
+      'misc-magic-quivers',
+      'misc-normal-quivers'
+    ]
   },
   {
     id: 'xbow-quiver',
@@ -716,28 +750,37 @@ export const EQUIPMENT_FAMILIES: readonly EquipmentFamilyMetadata[] = [
     subtitle: 'Crossbows, Bolts & Rare/Unique Crossbow Quivers',
     group: 'Ranged & Thrown',
     itemTypes: ['xbow', 'xboq', 'mxbq'],
-    linkedTierableIds: ['equip-rare-quivers', 'misc-magic-quivers', 'misc-normal-quivers']
+    linkedTierableIds: [
+      'base-crossbows',
+      'equip-rare-quivers',
+      'equip-weap-xbows',
+      'misc-magic-quivers',
+      'misc-normal-quivers'
+    ]
   },
   {
     id: 'javelin',
     name: 'Javelins',
     subtitle: 'Javelins & Amazon Javelins',
     group: 'Ranged & Thrown',
-    itemTypes: ['jave', 'ajav']
+    itemTypes: ['jave', 'ajav'],
+    linkedTierableIds: ['base-javelins', 'base-javelins-secondary', 'equip-class-amazon', 'equip-weap-javelins']
   },
   {
     id: 'spear',
     name: 'Spears & Pikes',
     subtitle: '2H Spears & Amazon Spears/Pikes',
     group: 'Ranged & Thrown',
-    itemTypes: ['spea', 'aspe']
+    itemTypes: ['spea', 'aspe'],
+    linkedTierableIds: ['base-spears', 'base-spears-secondary', 'equip-class-amazon-spears', 'equip-weap-spears']
   },
   {
     id: 'throwing',
     name: 'Throwing Knives & Axes',
-    subtitle: 'Balanced Knives, Winged Harpoons & Flying Axes',
+    subtitle: 'Winged Knives, Winged Axes & Flying Axes',
     group: 'Ranged & Thrown',
-    itemTypes: ['tkni', 'taxe']
+    itemTypes: ['tkni', 'taxe'],
+    linkedTierableIds: ['base-throwing', 'equip-weap-throwing']
   },
 
   // Melee Weapons
@@ -746,28 +789,32 @@ export const EQUIPMENT_FAMILIES: readonly EquipmentFamilyMetadata[] = [
     name: 'Swords',
     subtitle: 'Phase Blades, Crystal Swords & Colossus Blades',
     group: 'Melee Weapons',
-    itemTypes: ['swor']
+    itemTypes: ['swor'],
+    linkedTierableIds: ['base-phase-zerker', 'base-swords-secondary', 'equip-weap-swords']
   },
   {
     id: 'axe',
     name: 'Axes',
     subtitle: 'Berserker Axes, Ettin Axes & Glorious Axes',
     group: 'Melee Weapons',
-    itemTypes: ['axe']
+    itemTypes: ['axe'],
+    linkedTierableIds: ['base-zerker-axes', 'base-axes-secondary', 'equip-weap-axes']
   },
   {
     id: 'mace',
     name: 'Maces, Flails & Hammers',
     subtitle: 'Flails, Scourges, Ogre Mauls & Thunder Mauls',
     group: 'Melee Weapons',
-    itemTypes: ['mace', 'hamm']
+    itemTypes: ['mace', 'hamm'],
+    linkedTierableIds: ['base-flails-maces', 'base-maces-secondary', 'equip-weap-maces']
   },
   {
     id: 'club',
     name: 'Clubs',
     subtitle: 'Clubs, Spiked Clubs, Cudgels, Truncheons & Tyrant Clubs',
     group: 'Melee Weapons',
-    itemTypes: ['club']
+    itemTypes: ['club'],
+    linkedTierableIds: ['base-clubs', 'equip-weap-clubs']
   },
   {
     id: 'polearm',
@@ -775,14 +822,15 @@ export const EQUIPMENT_FAMILIES: readonly EquipmentFamilyMetadata[] = [
     subtitle: 'Threshers, Giant Threshers, Cryptic Axes & Great Poleaxes',
     group: 'Melee Weapons',
     itemTypes: ['pole'],
-    linkedTierableIds: ['base-elite-polearms']
+    linkedTierableIds: ['base-elite-polearms', 'base-polearms-secondary', 'equip-weap-polearms']
   },
   {
     id: 'dagger',
     name: 'Daggers & Knives',
     subtitle: 'Bone Knives, Fanged Knives & Poignards',
     group: 'Melee Weapons',
-    itemTypes: ['knif']
+    itemTypes: ['knif'],
+    linkedTierableIds: ['base-daggers', 'equip-weap-daggers']
   },
   {
     id: 'claws',
@@ -790,7 +838,7 @@ export const EQUIPMENT_FAMILIES: readonly EquipmentFamilyMetadata[] = [
     subtitle: 'Runic Talons, Greater Talons, Suwayyahs & Feral Claws',
     group: 'Melee Weapons',
     itemTypes: ['h2h'],
-    linkedTierableIds: ['base-sin-claws']
+    linkedTierableIds: ['base-sin-claws', 'base-sin-claws-secondary', 'equip-class-assassin']
   },
 
   // Caster, Shields & Class Gear
@@ -799,28 +847,32 @@ export const EQUIPMENT_FAMILIES: readonly EquipmentFamilyMetadata[] = [
     name: 'Scepters',
     subtitle: 'Caduceus, Divine Scepters & War Scepters',
     group: 'Caster, Shields & Class Gear',
-    itemTypes: ['scep']
+    itemTypes: ['scep'],
+    linkedTierableIds: ['base-scepters', 'equip-weap-scepters']
   },
   {
     id: 'wand',
     name: 'Wands',
     subtitle: 'Lich Wands, Unearthed Wands & Bone Wands',
     group: 'Caster, Shields & Class Gear',
-    itemTypes: ['wand']
+    itemTypes: ['wand'],
+    linkedTierableIds: ['base-wands', 'equip-weap-wands']
   },
   {
     id: 'staff',
     name: 'Staves',
     subtitle: 'Archon Staves, Elder Staves & Gnarled Staves',
     group: 'Caster, Shields & Class Gear',
-    itemTypes: ['staf']
+    itemTypes: ['staf'],
+    linkedTierableIds: ['base-staves', 'base-staves-secondary', 'equip-weap-staves']
   },
   {
     id: 'sorc-orb',
     name: 'Sorceress Orbs',
     subtitle: 'Dimensional Shards, Vortex Orbs & Eldritch Orbs',
     group: 'Caster, Shields & Class Gear',
-    itemTypes: ['orb']
+    itemTypes: ['orb'],
+    linkedTierableIds: ['base-sorc-orbs', 'base-sorc-orbs-secondary', 'equip-class-sorceress']
   },
   {
     id: 'warlock-grimoire',
@@ -828,42 +880,47 @@ export const EQUIPMENT_FAMILIES: readonly EquipmentFamilyMetadata[] = [
     subtitle: 'Blasphemous Grimoires, Compendiums & Occult Codices',
     group: 'Caster, Shields & Class Gear',
     itemTypes: ['grim'],
-    linkedTierableIds: ['base-warlock-grimoires']
+    linkedTierableIds: ['base-warlock-grimoires', 'base-warlock-grimoires-secondary', 'equip-class-warlock']
   },
   {
     id: 'necro-head',
     name: 'Necromancer Shrunken Heads',
     subtitle: 'Succubus Skulls, Bloodlord Skulls & Overseer Skulls',
     group: 'Caster, Shields & Class Gear',
-    itemTypes: ['head']
+    itemTypes: ['head'],
+    linkedTierableIds: ['base-necro-heads', 'base-necro-heads-secondary', 'equip-class-necromancer']
   },
   {
     id: 'paladin-shield',
     name: 'Paladin Auric Shields',
     subtitle: 'Sacred Targes, Sacred Rondaches & Vortex Shields',
     group: 'Caster, Shields & Class Gear',
-    itemTypes: ['ashd']
+    itemTypes: ['ashd'],
+    linkedTierableIds: ['base-paladin-shields', 'equip-class-paladin']
   },
   {
     id: 'standard-shield',
     name: 'Standard Shields (Monarch, etc.)',
     subtitle: 'Monarchs, Troll Nests, Aegis & Ward Shields',
     group: 'Caster, Shields & Class Gear',
-    itemTypes: ['shie']
+    itemTypes: ['shie'],
+    linkedTierableIds: ['base-monarch-shields', 'base-shields-secondary', 'equip-shields-standard']
   },
   {
     id: 'barb-helm',
     name: 'Barbarian Primal Helms',
-    subtitle: 'Conqueror Crowns, Guardian Crowns &Destroyer Helms',
+    subtitle: 'Conqueror Crowns, Guardian Crowns & Destroyer Helms',
     group: 'Caster, Shields & Class Gear',
-    itemTypes: ['phlm']
+    itemTypes: ['phlm'],
+    linkedTierableIds: ['base-barb-helms', 'base-barb-helms-secondary', 'equip-class-barbarian']
   },
   {
     id: 'druid-pelt',
     name: 'Druid Pelts',
     subtitle: 'Dream Spirits, Blood Spirits & Earth Spirits',
     group: 'Caster, Shields & Class Gear',
-    itemTypes: ['pelt']
+    itemTypes: ['pelt'],
+    linkedTierableIds: ['base-druid-pelts', 'base-druid-pelts-secondary', 'equip-class-druid']
   }
 ] as const;
 
@@ -1390,6 +1447,31 @@ export function isFamilyExplicitlyHidden(item: TierableItem, config: V2Config): 
   return item.equipmentFamilies.every(famId => disabled.includes(famId));
 }
 
+export function isBaseCardHardHidden(item: TierableItem, config: V2Config): boolean {
+  if (effectiveItemTier(item, config) !== 'HIDE') return false;
+  if (item.category !== 'bases' || item.id === 'base-elite-gloves-boots-belts') return true;
+  return config.itemOverrides[item.id] === 'HIDE' || isFamilyExplicitlyHidden(item, config);
+}
+
+export function isBaseCardSoftHiddenByStrictness(item: TierableItem, config: V2Config): boolean {
+  return (
+    item.category === 'bases' &&
+    effectiveItemTier(item, config) === 'HIDE' &&
+    !isBaseCardHardHidden(item, config)
+  );
+}
+
+export function isWholeBaseFamilyExplicitlyHidden(item: TierableItem, config: V2Config): boolean {
+  if (item.category !== 'bases' || !item.equipmentFamilies?.length) return false;
+  if (!isFamilyExplicitlyHidden(item, config)) return false;
+  return item.equipmentFamilies.every(famId => {
+    const famBaseItems = TIERABLE_ITEMS.filter(
+      x => x.category === 'bases' && x.equipmentFamilies?.includes(famId)
+    );
+    return famBaseItems.length > 0 && famBaseItems.every(x => isFamilyExplicitlyHidden(x, config));
+  });
+}
+
 export function syncDisabledFamiliesFromOverrides(config: V2Config): void {
   const prevDisabled = new Set<EquipmentFamilyId>(config.buildProfile?.disabledFamilies ?? []);
   const nextDisabled: EquipmentFamilyId[] = [];
@@ -1399,7 +1481,7 @@ export function syncDisabledFamiliesFromOverrides(config: V2Config): void {
         (item.category === 'bases' || item.category === 'equipment') &&
         item.equipmentFamilies?.includes(famId)
     );
-    if (linkedItems.length > 0 && linkedItems.every(item => effectiveItemTier(item, config) === 'HIDE')) {
+    if (linkedItems.length > 0 && linkedItems.every(item => config.itemOverrides[item.id] === 'HIDE')) {
       nextDisabled.push(famId);
     }
   }
@@ -2024,7 +2106,7 @@ export function findParentGroupForBase(
 ): TierableItem | undefined {
   if (parentItemId) {
     const byId = TIERABLE_ITEMS.find(i => i.id === parentItemId);
-    if (byId) return byId;
+    if (byId && (!byId.codes?.length || byId.codes.includes(code))) return byId;
   }
 
   // 1. Prioritize explicit multi-code groups (such as base-elite-body, base-monarch-shields, etc.)
@@ -2069,6 +2151,7 @@ export function getGroupDisplayInfo(
   }
 
   const groupTier = effectiveItemTier(item, config);
+  const parentSoftHidden = isBaseCardSoftHiddenByStrictness(item, config);
   const groupMode = defaultBaseModeForItem(item);
   const activeBases: ResolvedBaseEntry[] = [];
   const splitBases: { entry: ResolvedBaseEntry; rule: CustomBaseRule }[] = [];
@@ -2079,13 +2162,17 @@ export function getGroupDisplayInfo(
         cb.code === entry.code &&
         modeCoversGroupMode(cb.mode, groupMode) &&
         (cb.parentItemId === item.id ||
-          (!cb.parentItemId &&
+          ((!cb.parentItemId ||
+            !TIERABLE_ITEMS.find(x => x.id === cb.parentItemId)?.codes?.includes(cb.code)) &&
             findParentGroupForBase(cb.code, cb.mode, catalog)?.id === item.id))
     );
 
     if (
       matchingRule &&
-      (matchingRule.tier !== groupTier || matchingRule.minSockets || matchingRule.etherealOnly)
+      (matchingRule.tier !== groupTier ||
+        (matchingRule.tier === 'HIDE' && parentSoftHidden) ||
+        matchingRule.minSockets ||
+        matchingRule.etherealOnly)
     ) {
       splitBases.push({ entry, rule: matchingRule });
     } else {
@@ -2162,7 +2249,8 @@ export function reconcileGroupSplits(config: V2Config, catalog: Catalog): void {
           !cb.etherealOnly &&
           modeCoversGroupMode(cb.mode, groupMode) &&
           (cb.parentItemId === item.id ||
-            (!cb.parentItemId &&
+            ((!cb.parentItemId ||
+              !TIERABLE_ITEMS.find(x => x.id === cb.parentItemId)?.codes?.includes(cb.code)) &&
               findParentGroupForBase(cb.code, cb.mode, catalog)?.id === item.id))
       )
     );
@@ -2172,7 +2260,12 @@ export function reconcileGroupSplits(config: V2Config, catalog: Catalog): void {
       const firstMatch = config.customBases.find(cb => memberRules.includes(cb));
       const newGroupTier = firstMatch?.tier ?? memberRules[0]!.tier;
       const defaultForStrictness = item.strictnessTiers?.[config.strictness] ?? item.defaultTier;
-      if (newGroupTier === defaultForStrictness) {
+      const requiresExplicitHardHide =
+        newGroupTier === 'HIDE' &&
+        item.category === 'bases' &&
+        item.id !== 'base-elite-gloves-boots-belts' &&
+        defaultForStrictness === 'HIDE';
+      if (newGroupTier === defaultForStrictness && !requiresExplicitHardHide) {
         delete config.itemOverrides[item.id];
       } else {
         config.itemOverrides[item.id] = newGroupTier;
@@ -2186,6 +2279,9 @@ export function reconcileGroupSplits(config: V2Config, catalog: Catalog): void {
     const parentGroup = findParentGroupForBase(cb.code, cb.mode, catalog, cb.parentItemId);
     if (!parentGroup) return true;
     if (!modeCoversGroupMode(cb.mode, defaultBaseModeForItem(parentGroup))) return true;
+    if (cb.tier === 'HIDE' && isBaseCardSoftHiddenByStrictness(parentGroup, config)) {
+      return true;
+    }
     const groupTier = effectiveItemTier(parentGroup, config);
     return cb.tier !== groupTier;
   });
@@ -2691,7 +2787,7 @@ interface CompactV2Diff {
 
 export function serializeV2StateTag(config: V2Config): string {
   const diff: CompactV2Diff = {
-    m: 3,
+    m: 4,
     s: config.strictness,
     t: config.theme
   };
@@ -2765,6 +2861,7 @@ export function extractV2ConfigWithMeta(
         };
         const isPreSplitSchema = (parsed.m ?? 0) < 2;
         const isPreChaosOnyxMerge = (parsed.m ?? 0) < 3;
+        const isPreExpandedBases = (parsed.m ?? 0) < 4;
         if (!parsed.m) {
           const hasBuildSelection =
             Boolean(cfg.buildProfile.selectedClass) ||
@@ -2857,7 +2954,52 @@ export function extractV2ConfigWithMeta(
               : cb.parentItemId === 'charm-large' ? { ...cb, parentItemId: 'charm-small-grand' } : cb.parentItemId === 'charm-jewel-rare' && cb.mode === 'rare' ? { ...cb, mode: 'rare-crafted' } : cb
           );
         }
-        return { config: cfg, migrated: isPreChaosOnyxMerge };
+        if (isPreExpandedBases) {
+          if (
+            cfg.itemOverrides['base-elite-body'] === 'HIDE' &&
+            cfg.itemOverrides['base-elite-body-secondary'] === undefined
+          ) {
+            cfg.itemOverrides['base-elite-body-secondary'] = 'HIDE';
+          }
+          if (
+            cfg.itemOverrides['base-elite-helms'] === 'HIDE' &&
+            cfg.itemOverrides['base-elite-helms-secondary'] === undefined
+          ) {
+            cfg.itemOverrides['base-elite-helms-secondary'] = 'HIDE';
+          }
+          const disabledSet = new Set<EquipmentFamilyId>(cfg.buildProfile.disabledFamilies ?? []);
+          for (const item of TIERABLE_ITEMS) {
+            if (item.category !== 'bases' || !item.id.endsWith('-secondary') || !item.equipmentFamilies?.length) {
+              continue;
+            }
+            if (cfg.itemOverrides[item.id] !== undefined) continue;
+            const allDisabled = item.equipmentFamilies.every(f => disabledSet.has(f));
+            const siblingPrimaryHidden = TIERABLE_ITEMS.some(
+              other =>
+                other.category === 'bases' &&
+                !other.id.endsWith('-secondary') &&
+                other.equipmentFamilies?.some(f => item.equipmentFamilies!.includes(f)) &&
+                cfg.itemOverrides[other.id] === 'HIDE'
+            );
+            if (allDisabled || siblingPrimaryHidden) {
+              cfg.itemOverrides[item.id] = 'HIDE';
+            }
+          }
+          cfg.customBases = cfg.customBases.map(cb => {
+            if (!modeCoversGroupMode(cb.mode, 'runeword')) return cb;
+            if (cb.code === '6sb' && cb.parentItemId === 'base-ama-weapons') {
+              return { ...cb, parentItemId: 'base-bows-secondary' };
+            }
+            if ((cb.code === '7ja' || cb.code === '7s7') && cb.parentItemId === 'base-javelins') {
+              return { ...cb, parentItemId: 'base-javelins-secondary' };
+            }
+            if (cb.code === '7tr' && cb.parentItemId === 'base-spears') {
+              return { ...cb, parentItemId: 'base-spears-secondary' };
+            }
+            return cb;
+          });
+        }
+        return { config: cfg, migrated: isPreExpandedBases };
       } catch {
         return null;
       }
@@ -2961,6 +3103,8 @@ export function compileV2Filter(config: V2Config): Filter {
     }
   }
 
+  const emittedHiddenFamilyTypes = new Set<string>();
+
   // Helper to emit rules for a category, merging pure-code items of the same tier into compact rules
   const emitCategoryRules = (
     categoryId: CategoryId,
@@ -2975,6 +3119,7 @@ export function compileV2Filter(config: V2Config): Filter {
 
     for (const item of catItems) {
       const tier = effectiveItemTier(item, config);
+      const parentSoftHidden = isBaseCardSoftHiddenByStrictness(item, config);
       const groupMode = defaultBaseModeForItem(item);
       const activeCodes = item.codes
         ? item.codes.filter(code => {
@@ -2984,9 +3129,11 @@ export function compileV2Filter(config: V2Config): Filter {
                 cb.code === code &&
                 !cb.minSockets &&
                 !cb.etherealOnly &&
-                cb.tier !== tier &&
+                (cb.tier !== tier || (cb.tier === 'HIDE' && parentSoftHidden)) &&
                 modeCoversGroupMode(cb.mode, groupMode) &&
-                (cb.parentItemId === item.id || !cb.parentItemId)
+                (cb.parentItemId === item.id ||
+                  !cb.parentItemId ||
+                  !TIERABLE_ITEMS.find(x => x.id === cb.parentItemId)?.codes?.includes(code))
             );
             return !splitRule;
           })
@@ -3044,30 +3191,31 @@ export function compileV2Filter(config: V2Config): Filter {
       const conditions: Conditions = {};
       const codesToUse = activeCodes ?? item.codes;
 
-      if (
-        categoryId === 'bases' &&
-        tier === 'HIDE' &&
-        config.itemOverrides[item.id] !== 'HIDE' &&
-        !isFamilyExplicitlyHidden(item, config)
-      ) {
-        // Strictness-only non-chase base default (e.g. Uber Strict crossbows/daggers/clubs/throwing):
-        // skip emitting a pre-baseSettings hide so Ethereal Elite / 3+ Socket Elite base rules still apply,
-        // while ordinary white bases are hidden by the Strictness baseline rule below.
+      if (isBaseCardSoftHiddenByStrictness(item, config)) {
+        // Strictness-only non-chase base default (e.g. Uber Strict secondary/off-meta Elite bases):
+        // skip emitting a pre-baseSettings hide so Ethereal Elite / Superior Elite / 3+ Socket Elite rules still apply,
+        // while plain unsocketed white bases are hidden by the Strictness baseline rule below.
         continue;
       }
 
-      if (categoryId === 'bases' && tier === 'HIDE' && isFamilyExplicitlyHidden(item, config)) {
-        // When a weapon/class base family is explicitly disabled or moved to Hide, hide all white/superior
-        // items of that equipment family so generic fallback base rules do not re-show them.
-        const familyTypes = [
+      if (categoryId === 'bases' && tier === 'HIDE' && isWholeBaseFamilyExplicitlyHidden(item, config)) {
+        // When an entire weapon/class base family is disabled or moved to Hide, hide all white/superior
+        // items of that equipment family once so generic fallback base rules do not re-show them.
+        const allFamilyTypes = [
           ...new Set(
             EQUIPMENT_FAMILIES.filter(f => item.equipmentFamilies!.includes(f.id))
               .flatMap(f => f.itemTypes)
               .filter(t => t !== 'bowq' && t !== 'mboq' && t !== 'xboq' && t !== 'mxbq')
           )
         ];
-        if (familyTypes.length > 0) {
-          conditions.itemType = familyTypes.length === 1 ? familyTypes[0] : familyTypes.slice(0, 64);
+        const unemittedFamilyTypes = allFamilyTypes.filter(t => !emittedHiddenFamilyTypes.has(t));
+        if (allFamilyTypes.length > 0 && unemittedFamilyTypes.length === 0) {
+          continue;
+        }
+        for (const t of unemittedFamilyTypes) emittedHiddenFamilyTypes.add(t);
+        if (unemittedFamilyTypes.length > 0) {
+          conditions.itemType =
+            unemittedFamilyTypes.length === 1 ? unemittedFamilyTypes[0] : unemittedFamilyTypes.slice(0, 64);
         } else if (codesToUse?.length) {
           conditions.code = codesToUse.length === 1 ? codesToUse[0] : codesToUse.slice(0, 64);
         }
@@ -3086,7 +3234,11 @@ export function compileV2Filter(config: V2Config): Filter {
         if (codesToUse?.length) conditions.code = codesToUse.length === 1 ? codesToUse[0] : codesToUse.slice(0, 64);
         if (item.baseNames?.length) conditions.baseName = item.baseNames.length === 1 ? item.baseNames[0] : item.baseNames.slice(0, 64);
         if (item.itemTypes?.length) conditions.itemType = item.itemTypes.length === 1 ? item.itemTypes[0] : item.itemTypes.slice(0, 64);
-        if (item.rarities?.length) conditions.rarity = item.rarities.length === 1 ? item.rarities[0] : item.rarities;
+        if (categoryId === 'bases' && tier === 'HIDE') {
+          conditions.rarity = ['inferior', 'normal', 'superior'];
+        } else if (item.rarities?.length) {
+          conditions.rarity = item.rarities.length === 1 ? item.rarities[0] : item.rarities;
+        }
         if (item.tiers?.length) {
           const effectiveTiers =
             categoryId === 'equipment' &&
@@ -3102,7 +3254,13 @@ export function compileV2Filter(config: V2Config): Filter {
         if (item.ethereal !== undefined) conditions.ethereal = item.ethereal;
 
         if (categoryId === 'bases') {
-          if (config.baseSettings.requireSocketsOnBases && config.baseSettings.minSocketsOnBases > 0 && !conditions.sockets) {
+          if (
+            tier !== 'HIDE' &&
+            item.id !== 'base-elite-gloves-boots-belts' &&
+            config.baseSettings.requireSocketsOnBases &&
+            config.baseSettings.minSocketsOnBases > 0 &&
+            !conditions.sockets
+          ) {
             conditions.sockets = { gte: config.baseSettings.minSocketsOnBases };
           }
         }
@@ -3194,10 +3352,15 @@ export function compileV2Filter(config: V2Config): Filter {
 
   // 8. Rares, Crafted & Magic Equipment
   emitCategoryRules('equipment', 'Equipment');
-  // 9. Runeword & Crafting Bases
-  emitCategoryRules('bases', 'Runeword Bases');
+  // 9a. Runeword & Crafting Bases — Explicit Hides, Tier S/A/B Premier Bases & Infusion Gloves/Boots/Belts
+  const isPreFallbackBaseItem = (item: TierableItem): boolean => {
+    const tier = effectiveItemTier(item, config);
+    if (tier === 'HIDE' || tier === 'S' || tier === 'A' || tier === 'B') return true;
+    return item.id === 'base-elite-gloves-boots-belts';
+  };
+  emitCategoryRules('bases', 'Runeword Bases', isPreFallbackBaseItem);
 
-  // General Base Settings Rules (Ethereal Elite, Superior Elite, Socketed Elite/Exceptional)
+  // 9b. General Tier B Base Highlights (Ethereal Elite & Superior 0+ Socket Elite Equipment — promotes Secondary Elites to Tier B)
   if (config.baseSettings.highlightEthEliteBases) {
     const block: RuleBlock = {
       ruleName: 'Runeword Bases · Ethereal Elite Equipment',
@@ -3209,11 +3372,14 @@ export function compileV2Filter(config: V2Config): Filter {
   if (config.baseSettings.highlightSupEliteBases) {
     const block: RuleBlock = {
       ruleName: 'Runeword Bases · Superior Elite Equipment',
-      conditions: { itemType: ['weap', 'armo'], tier: 'elite', rarity: 'superior', sockets: { gte: 3 } }
+      conditions: { itemType: ['weap', 'armo'], tier: 'elite', rarity: 'superior' }
     };
     applyStyleToBlock(block, effectiveRarityTierStyle('B', config, 'bases', 'base'), false);
     rules.push({ show: block });
   }
+
+  // 9c. Secondary Elite Bases (Default Tier C/D — shown at 0+ sockets in Soft..Strict, skipped in Uber Strict)
+  emitCategoryRules('bases', 'Runeword Bases', item => !isPreFallbackBaseItem(item));
   if (config.baseSettings.show3PlusSocketElite) {
     const block: RuleBlock = {
       ruleName: 'Runeword Bases · 3+ Socket Elite Bases',
