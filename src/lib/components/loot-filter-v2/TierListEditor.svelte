@@ -16,7 +16,8 @@
     effectiveTierStyle,
     findParentGroupForBase,
     getGroupDisplayInfo,
-    isFamilyExplicitlyHidden,
+    isBaseCardSoftHiddenByStrictness,
+    isWholeBaseFamilyExplicitlyHidden,
     isItemOverridden,
     modesMatchGroupMode,
     reconcileGroupSplits,
@@ -242,11 +243,17 @@
           f => f.itemTypes
         );
         if (familyTypes.some(t => catalog.itemTypeMap.get(t)?.has(code))) {
-          if (isFamilyExplicitlyHidden(item, config)) return 'HIDE';
+          if (isWholeBaseFamilyExplicitlyHidden(item, config)) return 'HIDE';
         }
       }
     }
     return undefined;
+  }
+
+  function isInheritedBaseSoftHidden(code: string, mode: CustomBaseRule['mode']): boolean {
+    if (mode !== 'runeword') return false;
+    const parentGroup = findParentGroupForBase(code, mode, catalog);
+    return Boolean(parentGroup && isBaseCardSoftHiddenByStrictness(parentGroup, config));
   }
 
   const hasActiveBuildCuration = $derived(
@@ -294,12 +301,19 @@
     const parentGroup = findParentGroupForBase(code, mode, catalog, parentItemId);
     const effectiveParentTier =
       parentDefaultTier ?? (parentGroup ? effectiveItemTier(parentGroup, config) : undefined);
+    const parentIsSoftHidden = Boolean(
+      parentGroup && mode === 'runeword' && isBaseCardSoftHiddenByStrictness(parentGroup, config)
+    );
     const existing = getCustomBaseRule(code, mode, parentItemId ?? parentGroup?.id);
 
     const hasCustomSocketOrEth =
       !parentItemId && mode === 'runeword' && (newBaseMinSockets > 0 || newBaseEthOnly);
 
-    if (effectiveParentTier && targetTier === effectiveParentTier && !hasCustomSocketOrEth) {
+    const matchesParentBehavior =
+      Boolean(effectiveParentTier && targetTier === effectiveParentTier) &&
+      !(targetTier === 'HIDE' && parentIsSoftHidden);
+
+    if (matchesParentBehavior && !hasCustomSocketOrEth) {
       if (existing) {
         config.customBases = config.customBases.filter(cb => cb.id !== existing.id);
         reconcileGroupSplits(config, catalog);
@@ -309,8 +323,8 @@
     }
 
     if (existing) {
-      if (existing.tier === targetTier && !parentDefaultTier) {
-        // Clicking the active tier button again in the browser toggles the override off
+      if (existing.tier === targetTier && (!parentDefaultTier || (targetTier === 'HIDE' && parentIsSoftHidden))) {
+        // Clicking the active tier button again toggles the override off
         config.customBases = config.customBases.filter(cb => cb.id !== existing.id);
       } else {
         // Move to front so reconcileGroupSplits knows this was the most recently moved base
@@ -420,7 +434,11 @@
   function moveItemToTier(item: TierableItem, targetTier: TierRank) {
     const defaultForStrictness = item.strictnessTiers?.[config.strictness] ?? item.defaultTier;
     if (targetTier === defaultForStrictness) {
-      delete config.itemOverrides[item.id];
+      if (targetTier === 'HIDE' && isBaseCardSoftHiddenByStrictness(item, config)) {
+        config.itemOverrides[item.id] = 'HIDE';
+      } else {
+        delete config.itemOverrides[item.id];
+      }
     } else {
       config.itemOverrides[item.id] = targetTier;
     }
@@ -623,8 +641,8 @@
         <label class="flex items-start gap-2.5 rounded border border-parchment-300/15 bg-abyss-950 p-3 text-sm">
           <input type="checkbox" class="mt-0.5" bind:checked={config.baseSettings.highlightSupEliteBases} onchange={onchange} />
           <span>
-            <strong class="block text-parchment-50">Superior 3+ Socket Elite Bases (Tier B)</strong>
-            <span class="text-xs text-parchment-300">Highlights Superior Elite bases with 3 or more sockets.</span>
+            <strong class="block text-parchment-50">Superior Elite Bases (Tier B)</strong>
+            <span class="text-xs text-parchment-300">Highlights all Superior (+ED / +AR) Elite bases (0+ sockets, ready for Jewel Socket Punch or runewords).</span>
           </span>
         </label>
         <label class="flex items-start gap-2.5 rounded border border-parchment-300/15 bg-abyss-950 p-3 text-sm">
@@ -663,7 +681,7 @@
               {/each}
             </div>
           {:else}
-            <p class="mt-1 text-xs text-parchment-300">When unchecked, curated bases (like Monarch or Archon Plate) also show with 0 sockets for Larzuk/Orb of Socketing.</p>
+            <p class="mt-1 text-xs text-parchment-300">When unchecked, curated bases show even with 0 sockets (for Jewel Socket Punch, Orb of Socketing, Larzuk, or Orb of Infusion).</p>
           {/if}
         </div>
       </div>
@@ -804,20 +822,22 @@
           {#each browserMatchingBases as baseItem (baseItem.code)}
             {@const existingRule = getCustomBaseRule(baseItem.code!, newBaseMode)}
             {@const inheritedTier = !existingRule ? getInheritedBaseTier(baseItem.code!, newBaseMode) : undefined}
+            {@const inheritedSoftHide = !existingRule && isInheritedBaseSoftHidden(baseItem.code!, newBaseMode)}
             {@const effectiveBrowserTier = existingRule?.tier ?? inheritedTier}
+            {@const isHardHiddenInBrowser = effectiveBrowserTier === 'HIDE' && !inheritedSoftHide}
             {@const notables = notableNamesForBase(baseItem.code!)}
             <div
               class={`flex items-center justify-between gap-2 rounded border p-2.5 text-xs transition-colors ${
                 existingRule
                   ? 'border-ember-400/75 bg-ember-950/25'
-                  : effectiveBrowserTier === 'HIDE'
+                  : isHardHiddenInBrowser
                     ? 'border-red-900/35 bg-abyss-950/50 opacity-70 hover:opacity-100'
                     : 'border-parchment-300/15 bg-abyss-900/60 hover:border-parchment-300/35'
               }`}
             >
               <div class="min-w-0 flex-1">
                 <div class="flex flex-wrap items-center gap-1.5">
-                  <span class={`break-words font-semibold ${effectiveBrowserTier === 'HIDE' ? 'line-through text-parchment-300/70' : 'text-parchment-50'}`}>
+                  <span class={`break-words font-semibold ${isHardHiddenInBrowser ? 'line-through text-parchment-300/70' : 'text-parchment-50'}`}>
                     {baseItem.displayName || baseItem.name}
                   </span>
                   <span class="rounded bg-abyss-950 px-1.5 py-0.5 font-mono text-[10px] text-parchment-300">
@@ -828,7 +848,14 @@
                       {baseItem.tier}
                     </span>
                   {/if}
-                  {#if !existingRule && inheritedTier === 'HIDE'}
+                  {#if !existingRule && inheritedSoftHide}
+                    <span
+                      class="rounded bg-sky-950/70 px-1.5 py-0.5 text-[10px] font-semibold text-sky-200"
+                      title="0os white drops hidden in Uber Strict; Ethereal, Superior & 3+os still show. Click ✕ to hard-hide all drops."
+                    >
+                      0os Hidden
+                    </span>
+                  {:else if !existingRule && inheritedTier === 'HIDE'}
                     <span class="rounded bg-red-950/70 px-1.5 py-0.5 text-[10px] font-semibold text-red-300">
                       Hidden
                     </span>
@@ -844,7 +871,7 @@
               <div class="flex shrink-0 items-center gap-1">
                 {#each TIER_RANKS as targetRank}
                   {@const isAssigned = existingRule?.tier === targetRank.id}
-                  {@const isInherited = !existingRule && inheritedTier === targetRank.id}
+                  {@const isInherited = !existingRule && inheritedTier === targetRank.id && !(targetRank.id === 'HIDE' && inheritedSoftHide)}
                   <button
                     type="button"
                     class={`h-6 min-w-6 rounded border px-1 text-[11px] font-semibold transition-colors ${
@@ -856,7 +883,9 @@
                             : 'border-ember-400/45 bg-ember-950/40 text-ember-200'
                           : 'border-parchment-300/15 bg-abyss-950 text-parchment-300 hover:border-ember-400/60 hover:text-parchment-50'
                     }`}
-                    title={`Assign ${baseItem.displayName || baseItem.name} (${newBaseMode}) to ${targetRank.shortLabel}`}
+                    title={targetRank.id === 'HIDE' && inheritedSoftHide
+                      ? `Hard-hide all drops of ${baseItem.displayName || baseItem.name} (including Ethereal, Superior & 3+os)`
+                      : `Assign ${baseItem.displayName || baseItem.name} (${newBaseMode}) to ${targetRank.shortLabel}`}
                     onclick={() =>
                       setIndividualBaseTier(
                         baseItem.code!,
@@ -1186,8 +1215,13 @@
                         </span>
                       </div>
                       {#if parentGroup && parentTier}
+                        {@const parentSoftHidden = isBaseCardSoftHiddenByStrictness(parentGroup, config)}
                         <p class="mt-1 pl-4 text-[11px] text-parchment-300/85">
-                          Split from group · Move to <strong>{parentTier === 'HIDE' ? 'Hide' : `Tier ${parentTier}`}</strong> or click <strong>↺</strong> to rejoin group
+                          {#if cb.tier === 'HIDE' && parentSoftHidden}
+                            Hard-hidden (all drops incl. Eth/Sup/3+os) · Click <strong>↺</strong> to rejoin group
+                          {:else}
+                            Split from group · Move to <strong>{parentTier === 'HIDE' ? 'Hide' : `Tier ${parentTier}`}</strong> or click <strong>↺</strong> to rejoin group
+                          {/if}
                         </p>
                       {/if}
                       {#if cb.mode === 'runeword'}
@@ -1260,6 +1294,7 @@
               <!-- Standard Curated Item / Group Pills -->
               {#each tierItems as item (item.id)}
                 {@const modified = isItemOverridden(item, config)}
+                {@const isSoftHiddenCard = isBaseCardSoftHiddenByStrictness(item, config)}
                 {@const groupDisplay = getGroupDisplayInfo(item, config, catalog)}
                 {@const childBases = groupDisplay.allBases}
                 {@const isExpanded = !!expandedItemIds[item.id]}
@@ -1328,6 +1363,14 @@
                           <span class="shrink-0 rounded border border-slate-300/45 bg-slate-900/80 px-1.5 py-0.5 text-[10px] font-semibold text-slate-100">
                             Base
                           </span>
+                          {#if isSoftHiddenCard}
+                            <span
+                              class="shrink-0 rounded border border-sky-400/40 bg-sky-950/60 px-1.5 py-0.5 text-[10px] font-semibold text-sky-200"
+                              title="0-socket white drops are hidden in Uber Strict, while Ethereal, Superior & 3+os drops still show via Base Rules above. Click ✕ to hard-hide all drops."
+                            >
+                              0os Hidden · Eth/Sup/3+os Shown
+                            </span>
+                          {/if}
                         {/if}
                         {#if modified}
                           <span class="shrink-0 rounded bg-ember-500/20 px-1.5 py-0.5 text-[10px] font-semibold text-ember-300" title="Custom tier override">
@@ -1378,16 +1421,22 @@
                     <!-- Quick-Tier Selector Buttons -->
                     <div class="flex shrink-0 items-center gap-1 pt-0.5" aria-label={`Move ${groupDisplay.label} to tier`}>
                       {#each TIER_RANKS as targetRank}
-                        {@const isCurrent = rank.id === targetRank.id}
+                        {@const isCurrent = rank.id === targetRank.id && !(targetRank.id === 'HIDE' && isSoftHiddenCard)}
                         <button
                           type="button"
                           class={`h-6 min-w-6 rounded border px-1 text-[11px] font-semibold transition-colors ${
                             isCurrent
                               ? 'border-ember-400 bg-ember-600/40 text-parchment-50'
-                              : 'border-parchment-300/15 bg-abyss-900/80 text-parchment-300 hover:border-ember-400/60 hover:text-parchment-50'
+                              : targetRank.id === 'HIDE' && isSoftHiddenCard
+                                ? 'border-dashed border-sky-400/50 bg-sky-950/40 text-sky-200 hover:border-red-400/70 hover:text-red-200'
+                                : 'border-parchment-300/15 bg-abyss-900/80 text-parchment-300 hover:border-ember-400/60 hover:text-parchment-50'
                           }`}
-                          title={`Move ${groupDisplay.label} to ${targetRank.shortLabel}`}
-                          aria-label={`Move ${groupDisplay.label} to ${targetRank.shortLabel}`}
+                          title={targetRank.id === 'HIDE' && isSoftHiddenCard
+                            ? `Hard-hide all drops of ${groupDisplay.label} (including Ethereal, Superior & 3+os)`
+                            : `Move ${groupDisplay.label} to ${targetRank.shortLabel}`}
+                          aria-label={targetRank.id === 'HIDE' && isSoftHiddenCard
+                            ? `Hard-hide all drops of ${groupDisplay.label}`
+                            : `Move ${groupDisplay.label} to ${targetRank.shortLabel}`}
                           aria-pressed={isCurrent}
                           onclick={() => moveItemToTier(item, targetRank.id)}
                         >
@@ -1448,7 +1497,9 @@
 
                             <div class="flex shrink-0 items-center gap-1">
                               {#each TIER_RANKS as targetRank}
-                                {@const isChildCurrent = effectiveChildTier === targetRank.id}
+                                {@const isChildCurrent =
+                                  effectiveChildTier === targetRank.id &&
+                                  !(targetRank.id === 'HIDE' && !customRule && isSoftHiddenCard)}
                                 <button
                                   type="button"
                                   class={`h-6 min-w-6 rounded border px-1 text-[11px] font-semibold transition-colors ${
@@ -1458,9 +1509,11 @@
                                         : 'border-parchment-300/45 bg-abyss-800 text-parchment-100'
                                       : 'border-parchment-300/15 bg-abyss-950 text-parchment-300 hover:border-ember-400/60 hover:text-parchment-50'
                                   }`}
-                                  title={targetRank.id === rank.id
-                                    ? `Join ${entry.label} back into this group (${rank.shortLabel})`
-                                    : `Pull ${entry.label} out to ${targetRank.shortLabel}`}
+                                  title={targetRank.id === 'HIDE' && !customRule && isSoftHiddenCard
+                                    ? `Hard-hide all drops of ${entry.label} (including Ethereal, Superior & 3+os)`
+                                    : targetRank.id === rank.id
+                                      ? `Join ${entry.label} back into this group (${rank.shortLabel})`
+                                      : `Pull ${entry.label} out to ${targetRank.shortLabel}`}
                                   onclick={() =>
                                     setIndividualBaseTier(
                                       entry.code,

@@ -19,8 +19,11 @@ import {
   effectiveItemTier,
   extractV2ConfigFromFilter,
   extractV2ConfigWithMeta,
+  findParentGroupForBase,
   generateLootsplosion,
   getGroupDisplayInfo,
+  isBaseCardHardHidden,
+  isBaseCardSoftHiddenByStrictness,
   reconcileGroupSplits,
   resolveTierableItemBases,
   sanitizeFilterFilename,
@@ -570,7 +573,7 @@ describe('FilterBlade v2 compiler & customizer model', () => {
     // Verify dynamic group naming when pulling a base out and automatic rejoin when put back into the same tier
     const splitCfg = createDefaultV2Config('semi-strict', 'reimagined');
     expect(getGroupDisplayInfo(eliteBodyItem, splitCfg, catalog).label).toBe(
-      'Archon Plate, Mage Plate, Dusk Shroud & Sacred Armor'
+      'Archon Plate, Dusk Shroud, Wyrmhide, Scarab Husk, Sacred Armor & Mage Plate'
     );
 
     // Pull Archon Plate ('utp') out of Tier A into Tier S
@@ -586,16 +589,22 @@ describe('FilterBlade v2 compiler & customizer model', () => {
     ];
     reconcileGroupSplits(splitCfg, catalog);
     const afterPullInfo = getGroupDisplayInfo(eliteBodyItem, splitCfg, catalog);
-    expect(afterPullInfo.label).toBe('Mage Plate, Dusk Shroud & Sacred Armor');
-    expect(afterPullInfo.subtitle).toBe('xtp, uui, uar · Top Enigma/Fortitude/CoH armors');
+    expect(afterPullInfo.label).toBe('Dusk Shroud, Wyrmhide, Scarab Husk, Sacred Armor & Mage Plate');
+    expect(afterPullInfo.subtitle).toBe(
+      'uui, uea, ula, uar, xtp · Premier light & endgame Enigma/Fortitude/CoH armors'
+    );
 
     // Put Archon Plate ('utp') back into Tier A (where base-elite-body lives) -> rejoins group & restores group name
     splitCfg.customBases[0]!.tier = 'A';
     reconcileGroupSplits(splitCfg, catalog);
     expect(splitCfg.customBases).toHaveLength(0);
     const afterRejoinInfo = getGroupDisplayInfo(eliteBodyItem, splitCfg, catalog);
-    expect(afterRejoinInfo.label).toBe('Archon Plate, Mage Plate, Dusk Shroud & Sacred Armor');
-    expect(afterRejoinInfo.subtitle).toBe('utp, xtp, uui, uar · Top Enigma/Fortitude/CoH armors');
+    expect(afterRejoinInfo.label).toBe(
+      'Archon Plate, Dusk Shroud, Wyrmhide, Scarab Husk, Sacred Armor & Mage Plate'
+    );
+    expect(afterRejoinInfo.subtitle).toBe(
+      'utp, uui, uea, ula, uar, xtp · Premier light & endgame Enigma/Fortitude/CoH armors'
+    );
 
     // Pull Archon Plate to Tier S, then move the parent group itself to Tier S -> also rejoins & restores group name
     splitCfg.customBases = [
@@ -612,7 +621,7 @@ describe('FilterBlade v2 compiler & customizer model', () => {
     reconcileGroupSplits(splitCfg, catalog);
     expect(splitCfg.customBases).toHaveLength(0);
     expect(getGroupDisplayInfo(eliteBodyItem, splitCfg, catalog).label).toBe(
-      'Archon Plate, Mage Plate, Dusk Shroud & Sacred Armor'
+      'Archon Plate, Dusk Shroud, Wyrmhide, Scarab Husk, Sacred Armor & Mage Plate'
     );
   });
 
@@ -1518,5 +1527,380 @@ describe('FilterBlade v2 compiler & customizer model', () => {
     expect(migratedM1.config.itemOverrides['equip-class-amazon-bows']).toBe('HIDE');
     expect(migratedM1.config.itemOverrides['equip-class-amazon-spears']).toBe('HIDE');
     expect(migratedM1.config.itemOverrides['set-elite']).toBe('S');
+  });
+
+  it('covers 100% of Reimagined Elite bases at 0+ sockets, promotes 0-socket Superior/Ethereal Elites, and migrates m:3 disabled families', () => {
+    // 1. Every Elite base item in the exported Reimagined catalog (169/169) is covered by a category='bases' card with zero duplicates
+    const baseCategoryCards = TIERABLE_ITEMS.filter(i => i.category === 'bases');
+    const allAssignedBaseCodes = baseCategoryCards.flatMap(i => i.codes ?? []);
+    expect(new Set(allAssignedBaseCodes).size).toBe(allAssignedBaseCodes.length);
+
+    const assignedCodeSet = new Set(allAssignedBaseCodes);
+    const catalogEliteBases = catalog.baseItems.filter(b => b.tier === 'elite');
+    expect(catalogEliteBases.length).toBeGreaterThanOrEqual(169);
+    for (const eb of catalogEliteBases) {
+      expect(
+        assignedCodeSet.has(eb.code!),
+        `Elite catalog base "${eb.displayName ?? eb.name}" (${eb.code}) is missing from category='bases'`
+      ).toBe(true);
+    }
+
+    // 2. Unsocketed (0os) Premier Chase bases show across all 5 strictness presets (for Jewel Socket Punch / Orb of Socketing)
+    const presetOrder: StrictnessId[] = ['soft', 'regular', 'semi-strict', 'strict', 'endgame'];
+    const premierZeroSocketSamples: { code: string; name: string; kind: 'armor' | 'weapon' }[] = [
+      { code: 'uea', name: 'Wyrmhide', kind: 'armor' },
+      { code: 'uh9', name: 'Bone Visage', kind: 'armor' },
+      { code: 'urg', name: 'Hyperion', kind: 'armor' },
+      { code: '6lb', name: 'Shadow Bow', kind: 'weapon' },
+      { code: '7bt', name: 'Decapitator', kind: 'weapon' },
+      { code: '7gs', name: 'Balrog Blade', kind: 'weapon' },
+      { code: '7br', name: 'Mancatcher', kind: 'weapon' },
+      { code: 'amd', name: 'Matriarchal Spear', kind: 'weapon' },
+      { code: '7qs', name: 'Seraph Rod', kind: 'weapon' },
+      { code: '7qr', name: 'Scissors Suwayyah', kind: 'weapon' },
+      { code: '7ts', name: 'Winged Harpoon', kind: 'weapon' }
+    ];
+
+    for (const s of presetOrder) {
+      const compiled = compileV2Filter(createDefaultV2Config(s));
+      for (const sample of premierZeroSocketSamples) {
+        const sim = simulateItemDrop(compiled, catalog, {
+          id: `prem-${s}-${sample.code}`,
+          code: sample.code,
+          name: sample.name,
+          kind: sample.kind,
+          tier: 'elite',
+          rarity: 'normal',
+          sockets: 0,
+          ethereal: false,
+          identified: true,
+          itemLevel: 85,
+          quantity: 1
+        });
+        expect(sim.show, `Premier 0os base ${sample.name} (${sample.code}) should show in ${s}`).toBe(true);
+      }
+    }
+
+    // 3. Secondary Elite bases (e.g. Colossus Voulge '7vo', Boneweave 'uhn', Hydraskull 'ukp'):
+    //    - Plain white 0os shows in Soft..Strict (Tier C) and hides in Uber Strict ('endgame')
+    //    - 0-socket Superior (+ED) and 0-socket Ethereal promote to Tier B across ALL presets (including Uber Strict!)
+    for (const sample of [
+      { code: '7vo', name: 'Colossus Voulge', kind: 'weapon' as const },
+      { code: 'uhn', name: 'Boneweave', kind: 'armor' as const },
+      { code: 'ukp', name: 'Hydraskull', kind: 'armor' as const },
+      { code: '7b8', name: 'Winged Axe', kind: 'weapon' as const }
+    ]) {
+      const plainVis = presetOrder.map(s =>
+        simulateItemDrop(compileV2Filter(createDefaultV2Config(s)), catalog, {
+          id: `sec-plain-${s}-${sample.code}`,
+          code: sample.code,
+          name: sample.name,
+          kind: sample.kind,
+          tier: 'elite',
+          rarity: 'normal',
+          sockets: 0,
+          ethereal: false,
+          identified: true,
+          itemLevel: 85,
+          quantity: 1
+        }).show
+      );
+      expect(plainVis).toEqual([true, true, true, true, false]);
+
+      for (const s of ['semi-strict', 'strict', 'endgame'] as StrictnessId[]) {
+        const compiled = compileV2Filter(createDefaultV2Config(s));
+        const supZeroSock = simulateItemDrop(compiled, catalog, {
+          id: `sec-sup0-${s}-${sample.code}`,
+          code: sample.code,
+          name: sample.name,
+          kind: sample.kind,
+          tier: 'elite',
+          rarity: 'superior',
+          sockets: 0,
+          ethereal: false,
+          identified: true,
+          itemLevel: 85,
+          quantity: 1
+        });
+        expect(supZeroSock.show).toBe(true);
+        expect(supZeroSock.matchedRuleName).toContain('Superior Elite Equipment');
+        expect(supZeroSock.dropSound).toBe('Filter03'); // Tier B chime
+
+        const ethZeroSock = simulateItemDrop(compiled, catalog, {
+          id: `sec-eth0-${s}-${sample.code}`,
+          code: sample.code,
+          name: sample.name,
+          kind: sample.kind,
+          tier: 'elite',
+          rarity: 'normal',
+          sockets: 0,
+          ethereal: true,
+          identified: true,
+          itemLevel: 85,
+          quantity: 1
+        });
+        expect(ethZeroSock.show).toBe(true);
+        expect(ethZeroSock.matchedRuleName).toContain('Ethereal Elite Equipment');
+        expect(ethZeroSock.dropSound).toBe('Filter03'); // Tier B chime
+      }
+    }
+
+    // 4. White Elite Gloves, Boots & Belts (0 sockets, Infusion/Conversion bases):
+    //    - Show at Tier C in Soft..Semi-Strict (even if requireSocketsOnBases is true, and never false-promoted to Tier B)
+    //    - Hide in Strict & Uber Strict (even if Superior or Ethereal) unless overridden/pinned
+    for (const code of ['ulc', 'uhb', 'uvg'] as const) {
+      const gbbVis = presetOrder.map(s => {
+        const cfg = createDefaultV2Config(s);
+        cfg.baseSettings.requireSocketsOnBases = true;
+        cfg.baseSettings.minSocketsOnBases = 4;
+        return simulateItemDrop(compileV2Filter(cfg), catalog, {
+          id: `gbb-${s}-${code}`,
+          code,
+          name: code,
+          kind: 'armor',
+          tier: 'elite',
+          rarity: 'superior',
+          sockets: 0,
+          ethereal: true,
+          identified: true,
+          itemLevel: 85,
+          quantity: 1
+        });
+      });
+      expect(gbbVis.map(r => r.show)).toEqual([true, true, true, false, false]);
+      expect(gbbVis[2]!.dropSound).toBeUndefined(); // Tier C, not Tier B
+    }
+
+    // 5. Hiding only a Secondary family card hides its codes (even Ethereal/Superior) without hiding its Premier sibling
+    const partialHideCfg = createDefaultV2Config('semi-strict', 'reimagined');
+    partialHideCfg.itemOverrides['base-polearms-secondary'] = 'HIDE';
+    const partialHideFilter = compileV2Filter(partialHideCfg);
+    expect(
+      simulateItemDrop(partialHideFilter, catalog, {
+        id: 'cv-eth',
+        code: '7vo',
+        name: 'Colossus Voulge',
+        kind: 'weapon',
+        tier: 'elite',
+        rarity: 'superior',
+        sockets: 4,
+        ethereal: true,
+        identified: true,
+        itemLevel: 85,
+        quantity: 1
+      }).show
+    ).toBe(false);
+    expect(
+      simulateItemDrop(partialHideFilter, catalog, {
+        id: 'thresher-white',
+        code: '7s8',
+        name: 'Thresher',
+        kind: 'weapon',
+        tier: 'elite',
+        rarity: 'normal',
+        sockets: 0,
+        ethereal: false,
+        identified: true,
+        itemLevel: 85,
+        quantity: 1
+      }).show
+    ).toBe(true);
+
+    // 6. m:3 saved filters with disabledFamilies or hidden primary base cards migrate HIDE to newly added secondary cards
+    const m3Cfg = createDefaultV2Config('semi-strict', 'reimagined');
+    selectClassForBuild(m3Cfg, 'Amazon');
+    for (const k of Object.keys(m3Cfg.itemOverrides)) {
+      if (k.endsWith('-secondary')) delete m3Cfg.itemOverrides[k];
+    }
+    const m3Doc = compileV2Filter(m3Cfg);
+    const tailBlock = m3Doc.rules[m3Doc.rules.length - 1]!.show!;
+    const m3Payload = JSON.parse(
+      Buffer.from(tailBlock.ruleName!.slice('Keep everything else visible [PyreV2:'.length, -1), 'base64').toString('utf8')
+    );
+    m3Payload.m = 3;
+    for (const k of Object.keys(m3Payload.io ?? {})) {
+      if (k.endsWith('-secondary')) delete m3Payload.io[k];
+    }
+    tailBlock.ruleName = `Keep everything else visible [PyreV2:${Buffer.from(JSON.stringify(m3Payload), 'utf8').toString('base64')}]`;
+
+    const migratedM3 = extractV2ConfigWithMeta(m3Doc)!;
+    expect(migratedM3.migrated).toBe(true);
+    expect(migratedM3.config.itemOverrides['base-axes-secondary']).toBe('HIDE');
+    expect(migratedM3.config.itemOverrides['base-swords-secondary']).toBe('HIDE');
+    expect(migratedM3.config.itemOverrides['base-sin-claws-secondary']).toBe('HIDE');
+    expect(migratedM3.config.itemOverrides['base-bows-secondary']).toBeUndefined(); // bow-quiver is enabled for Amazon
+    expect(migratedM3.config.itemOverrides['base-polearms-secondary']).toBeUndefined(); // polearm is enabled for Amazon
+
+    // 7. EQUIPMENT_FAMILIES.linkedTierableIds stays 1-to-1 with TIERABLE_ITEMS.equipmentFamilies
+    for (const fam of EQUIPMENT_FAMILIES) {
+      const actualLinked = TIERABLE_ITEMS.filter(i => i.equipmentFamilies?.includes(fam.id))
+        .map(i => i.id)
+        .sort();
+      expect([...(fam.linkedTierableIds ?? [])].sort(), `linkedTierableIds mismatch on ${fam.id}`).toEqual(
+        actualLinked
+      );
+    }
+
+    // 8. Uber Strict ('endgame') partial family hides, soft-hide vs hard-hide splits, Tier C override ordering, and universal/moved-code m:3 migration
+    const uberPoleCfg = createDefaultV2Config('endgame', 'reimagined');
+    uberPoleCfg.itemOverrides['base-elite-polearms'] = 'HIDE';
+    uberPoleCfg.itemOverrides['equip-weap-polearms'] = 'HIDE';
+    syncDisabledFamiliesFromOverrides(uberPoleCfg);
+    expect(uberPoleCfg.buildProfile.disabledFamilies).not.toContain('polearm');
+
+    const uberPoleFilter = compileV2Filter(uberPoleCfg);
+    // Thresher ('7s8') is hard-hidden, while Colossus Voulge ('7vo') stays soft-hidden (4os/Eth/Sup still show!)
+    expect(
+      simulateItemDrop(uberPoleFilter, catalog, {
+        id: 'uber-thresher-4os',
+        code: '7s8',
+        name: 'Thresher',
+        kind: 'weapon',
+        tier: 'elite',
+        rarity: 'superior',
+        sockets: 4,
+        ethereal: true,
+        identified: true,
+        itemLevel: 88,
+        quantity: 1
+      }).show
+    ).toBe(false);
+    expect(
+      simulateItemDrop(uberPoleFilter, catalog, {
+        id: 'uber-cv-4os',
+        code: '7vo',
+        name: 'Colossus Voulge',
+        kind: 'weapon',
+        tier: 'elite',
+        rarity: 'superior',
+        sockets: 4,
+        ethereal: true,
+        identified: true,
+        itemLevel: 88,
+        quantity: 1
+      }).show
+    ).toBe(true);
+
+    // Individual hard-hide on '7vo' in Uber Strict survives reconcileGroupSplits and hides Ethereal/Superior/4os '7vo' while keeping '7o7'
+    const uberSplitHideCfg = createDefaultV2Config('endgame', 'reimagined');
+    const secPoleCard = TIERABLE_ITEMS.find(i => i.id === 'base-polearms-secondary')!;
+    expect(isBaseCardSoftHiddenByStrictness(secPoleCard, uberSplitHideCfg)).toBe(true);
+    expect(isBaseCardHardHidden(secPoleCard, uberSplitHideCfg)).toBe(false);
+
+    uberSplitHideCfg.customBases = [
+      {
+        id: 'base-7vo-runeword',
+        code: '7vo',
+        label: 'Colossus Voulge',
+        tier: 'HIDE',
+        mode: 'runeword',
+        parentItemId: 'base-polearms-secondary'
+      }
+    ];
+    reconcileGroupSplits(uberSplitHideCfg, catalog);
+    expect(uberSplitHideCfg.customBases).toHaveLength(1);
+    expect(getGroupDisplayInfo(secPoleCard, uberSplitHideCfg, catalog).splitBases).toHaveLength(1);
+
+    const uberSplitHideFilter = compileV2Filter(uberSplitHideCfg);
+    expect(
+      simulateItemDrop(uberSplitHideFilter, catalog, {
+        id: 'uber-cv-hard-hide',
+        code: '7vo',
+        name: 'Colossus Voulge',
+        kind: 'weapon',
+        tier: 'elite',
+        rarity: 'superior',
+        sockets: 4,
+        ethereal: true,
+        identified: true,
+        itemLevel: 88,
+        quantity: 1
+      }).show
+    ).toBe(false);
+    expect(
+      simulateItemDrop(uberSplitHideFilter, catalog, {
+        id: 'uber-ogre-axe-eth',
+        code: '7o7',
+        name: 'Ogre Axe',
+        kind: 'weapon',
+        tier: 'elite',
+        rarity: 'normal',
+        sockets: 3,
+        ethereal: true,
+        identified: true,
+        itemLevel: 88,
+        quantity: 1
+      }).show
+    ).toBe(true);
+
+    // Hard-hiding both members ('7vo' and '7o7') collapses into an explicit hard-hide override on the parent card
+    uberSplitHideCfg.customBases.unshift({
+      id: 'base-7o7-runeword',
+      code: '7o7',
+      label: 'Ogre Axe',
+      tier: 'HIDE',
+      mode: 'runeword',
+      parentItemId: 'base-polearms-secondary'
+    });
+    reconcileGroupSplits(uberSplitHideCfg, catalog);
+    expect(uberSplitHideCfg.itemOverrides['base-polearms-secondary']).toBe('HIDE');
+    expect(isBaseCardHardHidden(secPoleCard, uberSplitHideCfg)).toBe(true);
+    expect(uberSplitHideCfg.customBases).toHaveLength(0);
+
+    // Promoting a Secondary card to Tier C in Uber Strict shows 0os white at Tier C while still promoting Superior/Ethereal to Tier B
+    const uberPromoteCCfg = createDefaultV2Config('endgame', 'reimagined');
+    uberPromoteCCfg.itemOverrides['base-polearms-secondary'] = 'C';
+    const uberPromoteCFilter = compileV2Filter(uberPromoteCCfg);
+    const plainCvC = simulateItemDrop(uberPromoteCFilter, catalog, {
+      id: 'cv-plain-c',
+      code: '7vo',
+      name: 'Colossus Voulge',
+      kind: 'weapon',
+      tier: 'elite',
+      rarity: 'normal',
+      sockets: 0,
+      ethereal: false,
+      identified: true,
+      itemLevel: 88,
+      quantity: 1
+    });
+    const supCvB = simulateItemDrop(uberPromoteCFilter, catalog, {
+      id: 'cv-sup-b',
+      code: '7vo',
+      name: 'Colossus Voulge',
+      kind: 'weapon',
+      tier: 'elite',
+      rarity: 'superior',
+      sockets: 0,
+      ethereal: false,
+      identified: true,
+      itemLevel: 88,
+      quantity: 1
+    });
+    expect(plainCvC.show).toBe(true);
+    expect(plainCvC.dropSound).toBeUndefined(); // Tier C
+    expect(supCvB.show).toBe(true);
+    expect(supCvB.dropSound).toBe('Filter03'); // Promoted to Tier B by Superior Elite rule
+
+    // Universal body/helm hide & moved customBases parentItemId migration from m:3 -> m:4
+    expect(findParentGroupForBase('6sb', 'runeword', catalog, 'base-ama-weapons')?.id).toBe('base-bows-secondary');
+    m3Payload.io = {
+      'base-elite-body': 'HIDE',
+      'base-elite-helms': 'HIDE'
+    };
+    m3Payload.cb = [
+      { id: 'cb-6sb', code: '6sb', label: 'Spider Bow', tier: 'S', mode: 'runeword', parentItemId: 'base-ama-weapons' },
+      { id: 'cb-7ja', code: '7ja', label: 'Hyperion Javelin', tier: 'A', mode: 'runeword', parentItemId: 'base-javelins' },
+      { id: 'cb-7tr', code: '7tr', label: 'Stygian Pike', tier: 'A', mode: 'runeword', parentItemId: 'base-spears' }
+    ];
+    tailBlock.ruleName = `Keep everything else visible [PyreV2:${Buffer.from(JSON.stringify(m3Payload), 'utf8').toString('base64')}]`;
+    const migratedUniversalM3 = extractV2ConfigWithMeta(m3Doc)!;
+    expect(migratedUniversalM3.config.itemOverrides['base-elite-body-secondary']).toBe('HIDE');
+    expect(migratedUniversalM3.config.itemOverrides['base-elite-helms-secondary']).toBe('HIDE');
+    expect(migratedUniversalM3.config.customBases.map(cb => cb.parentItemId)).toEqual([
+      'base-bows-secondary',
+      'base-javelins-secondary',
+      'base-spears-secondary'
+    ]);
   });
 });
