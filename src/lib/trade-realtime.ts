@@ -11,7 +11,15 @@ export interface TradeEvent {
   preview?: string;
 }
 
-const eventTypes = new Set(['offer_created', 'offer_updated', 'offer_accepted', 'message_created', 'listing_updated', 'listing_deleted']);
+const eventTypes = new Set([
+  'offer_created',
+  'offer_updated',
+  'offer_accepted',
+  'message_created',
+  'listing_updated',
+  'listing_deleted',
+  'conversation_deleted'
+]);
 export const tradeEvent = writable<TradeEvent | null>(null);
 
 export function parseTradeEvent(data: string): TradeEvent | null {

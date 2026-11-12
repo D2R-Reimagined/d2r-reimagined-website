@@ -57,6 +57,7 @@
   );
   let label = $derived(itemDisplayLabel(item, identified ? identifiedName : null));
   let socketItems = $derived(item.sockets.filter((socket): socket is SaveItem => socket !== null));
+  let stackCount = $derived(item.advancedStashStackSize ?? item.quantity);
 
   function socketSprite(socket: SaveItem): string | null {
     return itemSprite(socket, itemPresentations.get(socket.codeText.toLowerCase()), itemPresentations, upgradeTiers);
@@ -177,8 +178,8 @@
       {/each}
     </div>
   {/if}
-  {#if item.quantity && item.quantity > 1}
-    <span class="absolute bottom-1 right-1 rounded-sm bg-black/80 px-1 text-[clamp(0.45rem,1.1vw,0.7rem)] text-white">{item.quantity}</span>
+  {#if stackCount && stackCount > 1}
+    <span class="absolute bottom-1 right-1 rounded-sm bg-black/80 px-1 text-[clamp(0.45rem,1.1vw,0.7rem)] text-white">{stackCount}</span>
   {/if}
   {#if open}
     <div

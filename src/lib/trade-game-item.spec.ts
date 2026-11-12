@@ -105,4 +105,51 @@ describe('matching a game item to synced saves', () => {
     // Two identical seedless candidates remain ambiguous rather than guessing.
     expect(findGameItemInInventory(inventory([saved, saved]), ladderGame)).toBeNull();
   });
+
+  it('never matches zero seeds blindly and ignores Chronicle tabs, empty currency slots, and multi-item currency stacks', () => {
+    const runeGame: GameItemPayload = {
+      ...game,
+      code: 'r30',
+      quality: 2,
+      qualityRecord: 0,
+      itemLevel: 1,
+      itemSeed: 0,
+      generationSeed: 0,
+      stats: []
+    };
+    const makeSavedRune = (advancedStashStackSize: number | null): SaveItem => ({
+      codeText: 'r30',
+      seed: 0,
+      qualityId: 2,
+      itemLevel: 1,
+      flags: { value: 0x10, names: ['Identified'] },
+      sockets: [],
+      stats: [],
+      advancedStashStackSize
+    } as unknown as SaveItem);
+
+    const inv: TradeInventory = {
+      ladderId: null,
+      characters: [],
+      sharedStashes: [{
+        profile: 'reimagined',
+        fileName: 'ModernSharedStashSoftCoreV2.d2i',
+        itemFormat: 2,
+        tabs: [
+          { index: 0, type: 'AdvancedStash', gold: 0, items: [makeSavedRune(0), makeSavedRune(12)] },
+          { index: 1, type: 'Chronicle', gold: 0, items: [makeSavedRune(null)] },
+          { index: 2, type: 'Normal', gold: 0, items: [makeSavedRune(null)] }
+        ]
+      }]
+    } as unknown as TradeInventory;
+
+    expect(findGameItemInInventory(inv, runeGame)).toMatchObject({
+      source: 'stash',
+      tabIndex: 2
+    });
+
+    // Multiple zero-seed compact candidates stay ambiguous rather than picking the first tab.
+    inv.sharedStashes[0].tabs.push({ index: 3, type: 'Normal', gold: 0, items: [makeSavedRune(null)] });
+    expect(findGameItemInInventory(inv, runeGame)).toBeNull();
+  });
 });

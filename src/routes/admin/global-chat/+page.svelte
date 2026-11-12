@@ -2,6 +2,7 @@
   import { onMount, tick } from 'svelte';
   import { apiWebSocketUrl, authState, refreshProfile } from '#lib/auth.js';
   import { createGlobalChatClient, roleLabel, roleNameClass, type GlobalChatState } from '#lib/global-chat.js';
+  import { formatChatTimestamp, formatLocalDateTime, formatUtcIso } from '#lib/utc-time.js';
 
   let chat = $state<GlobalChatState>({ status: 'connecting', messages: [], sending: false, error: '' });
   let draft = $state('');
@@ -50,7 +51,7 @@
         <div class="flex flex-wrap items-baseline gap-x-3 text-sm">
           <span class="font-semibold {roleNameClass(message.role)}">{message.displayName}</span>
           {#if roleLabel(message.role)}<span class="rounded-full border border-current px-2 text-xs {roleNameClass(message.role)}">{roleLabel(message.role)}</span>{/if}
-          <time datetime={message.sentAtUtc} title={new Date(message.sentAtUtc).toLocaleString()} class="text-xs text-parchment-300">{new Date(message.sentAtUtc).toLocaleTimeString()}</time>
+          <time datetime={formatUtcIso(message.sentAtUtc)} title={formatLocalDateTime(message.sentAtUtc)} class="text-xs text-parchment-300">{formatChatTimestamp(message.sentAtUtc)}</time>
         </div>
         <p class="mt-1 whitespace-pre-wrap text-parchment-50">{message.message}</p>
       </div>
