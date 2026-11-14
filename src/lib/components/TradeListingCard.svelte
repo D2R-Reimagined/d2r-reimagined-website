@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import SellerPresence from '#lib/components/SellerPresence.svelte';
   import TradeItemProperties from '#lib/components/TradeItemProperties.svelte';
+  import TradePriceDisplay from '#lib/components/TradePriceDisplay.svelte';
   import type { SaveItem } from '#lib/characters.js';
   import { itemSprite, loadItemPresentation, type ItemPresentation } from '#lib/item-presentation.js';
   import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
@@ -88,10 +89,11 @@
     </div>
   </a>
   <div class="flex items-center gap-2 rounded-b-lg border-t border-parchment-300/10 bg-black/20 py-1.5 pl-3 pr-1.5">
-    <p class="min-w-0 flex-1 truncate text-xs" title={listing.price || 'Offers'}>
-      <span class="text-parchment-300">Wants</span> <span class="text-parchment-50">{listing.price || 'Offers'}</span>
-      <span class="text-parchment-300"> · <SellerPresence lastSeenAtUtc={listing.sellerLastSeenAtUtc} /> {listing.sellerDisplayName}</span>
-    </p>
+    <div class="flex min-w-0 flex-1 flex-wrap items-center gap-x-1.5 gap-y-0.5 overflow-hidden text-xs" title={listing.price || 'Offers'}>
+      <span class="shrink-0 text-parchment-300">Wants</span>
+      <TradePriceDisplay price={listing.price} priceItems={listing.priceItems} priceCombine={listing.priceCombine} priceNote={listing.priceNote} compact />
+      <span class="truncate text-parchment-300">· <SellerPresence lastSeenAtUtc={listing.sellerLastSeenAtUtc} /> {listing.sellerDisplayName}</span>
+    </div>
     <button type="button" class="shrink-0 rounded px-2 py-1 text-xs text-parchment-200 hover:bg-white/[0.06] hover:text-white" onclick={() => onmessage?.(listing)}>Message</button>
     <button type="button" class="shrink-0 rounded border border-ember-500/40 px-2 py-1 text-xs text-ember-400 hover:bg-ember-700/25 hover:text-ember-300" onclick={() => onoffer?.(listing)}>Offer</button>
   </div>
@@ -112,7 +114,7 @@
       <TradeItemProperties {item} unidentified={!listing.isIdentified} {highlights} />
       <div class="mt-4 border-t border-parchment-300/10 pt-3">
         <p class="text-[0.68rem] uppercase tracking-[0.18em] text-parchment-300">Looking for</p>
-        <p class="mt-1 line-clamp-2 text-sm text-parchment-50">{listing.price || 'Offers'}</p>
+        <div class="mt-1.5"><TradePriceDisplay price={listing.price} priceItems={listing.priceItems} priceCombine={listing.priceCombine} priceNote={listing.priceNote} /></div>
       </div>
       <p class="mt-3 text-xs text-parchment-300"><SellerPresence lastSeenAtUtc={listing.sellerLastSeenAtUtc} /> {listing.sellerDisplayName}{listing.ladderName ? ` · ${listing.ladderName}` : ' · Standard'}</p>
     </div>

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   canEditTradeListing,
+  hasLegacyTradePrice,
   tradeListingEditForm,
   tradeListingEdits
 } from '#lib/trade-listing-edit.js';
@@ -56,5 +57,72 @@ describe('trade listing edits', () => {
     const unidentified = { ...listing, isIdentified: false, title: 'Unidentified Ring for trade' };
     const form = { ...tradeListingEditForm(unidentified), title: 'Changed', price: '1 Ber' };
     expect(tradeListingEdits(unidentified, form)).toEqual({ price: '1 Ber' });
+  });
+
+  it('tracks structured priceItems, priceCombine, and priceNote diffs without touching untouched listings', () => {
+    const structured = {
+      ...listing,
+      price: '2 OoA or Jah',
+      priceItems: [
+        { currencyCode: 'ooa', quantity: 2 },
+        { currencyCode: 'r31', quantity: 1 }
+      ],
+      priceCombine: 'Or' as const,
+      priceNote: null
+    } as TradeListing;
+
+    const form = tradeListingEditForm(structured);
+    expect(tradeListingEdits(structured, form)).toEqual({});
+
+    const updated = tradeListingEdits(structured, {
+      ...form,
+      priceItems: [
+        { currencyCode: 'r30', quantity: 1 },
+        { currencyCode: 'r24', quantity: 1 }
+      ],
+      priceCombine: 'And',
+      priceNote: '  or 3 Keysets '
+    });
+    expect(updated).toEqual({
+      priceItems: [
+        { currencyCode: 'r30', quantity: 1 },
+        { currencyCode: 'r24', quantity: 1 }
+      ],
+      priceCombine: 'And',
+      priceNote: 'or 3 Keysets'
+    });
+
+    const clearedToOffers = tradeListingEdits(structured, {
+      ...form,
+      priceItems: []
+    });
+    expect(clearedToOffers).toEqual({
+      priceItems: []
+    });
+  });
+
+  it('never sends price="" to wipe structured buyouts or offers-only barter notes when form.price is cleared', () => {
+    const structuredBuyout = {
+      ...listing,
+      price: 'OoC',
+      priceItems: [{ currencyCode: 'ka3', quantity: 1 }],
+      priceCombine: 'Or' as const,
+      priceNote: null
+    } as TradeListing;
+
+    const offersWithNote = {
+      ...listing,
+      price: 'ISO sorc torch',
+      priceItems: [],
+      priceCombine: 'Or' as const,
+      priceNote: 'ISO sorc torch'
+    } as TradeListing;
+
+    expect(hasLegacyTradePrice(listing)).toBe(true);
+    expect(hasLegacyTradePrice(structuredBuyout)).toBe(false);
+    expect(hasLegacyTradePrice(offersWithNote)).toBe(false);
+
+    expect(tradeListingEdits(structuredBuyout, { ...tradeListingEditForm(structuredBuyout), price: '' })).toEqual({});
+    expect(tradeListingEdits(offersWithNote, { ...tradeListingEditForm(offersWithNote), price: '' })).toEqual({});
   });
 });
