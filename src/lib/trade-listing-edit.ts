@@ -77,9 +77,16 @@ export function tradeListingEdits(listing: TradeListing, form: TradeListingEditF
   const nextNote = form.priceNote.trim();
 
   const hadStructuredPrice = prevItems.length > 0 || prevNote.length > 0;
+  // A legacy text buyout stays untouched until the seller either picks currency
+  // chips to convert it or clears `form.price` by switching to 'Offers only'.
+  const keepsLegacyBuyout =
+    hasLegacyTradePrice(listing) && nextItems.length === 0 && price.length > 0;
 
   if (listing.isIdentified && title !== listing.title) edits.title = title;
-  if (!samePriceItems(prevItems, nextItems) || form.priceCombine !== prevCombine || nextNote !== prevNote) {
+  if (
+    !keepsLegacyBuyout &&
+    (!samePriceItems(prevItems, nextItems) || form.priceCombine !== prevCombine || nextNote !== prevNote)
+  ) {
     edits.priceItems = nextItems;
     if (form.priceCombine !== prevCombine || nextItems.length > 1) {
       edits.priceCombine = form.priceCombine;

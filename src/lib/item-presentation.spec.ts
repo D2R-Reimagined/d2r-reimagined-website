@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import type { SaveItem } from '#lib/characters.js';
 import { buildItemUpgradeTiers } from './item-upgrade-tiers';
 import {
+  baseItemSprite,
   hasUnknownItemVariant,
   itemSprite,
   itemVariant,
@@ -236,5 +237,65 @@ describe('item presentation', () => {
     expect(hasUnknownItemVariant(item, diadem, presentations, circletTiers)).toBe(true);
     expect(itemSprite(item, diadem, presentations, circletTiers))
       .toBe('/data/sprites/items/armor-circlet-diadem.webp');
+  });
+
+  it('uses native D2R jewel graphics instead of diamond placeholders while keeping custom fragment art', () => {
+    for (let index = 1; index <= 6; index++) {
+      expect(existsSync(resolve('static/images/items', `jewels${index}.webp`))).toBe(true);
+    }
+
+    const jewelBase = presentation('jew', 392, 'Spring Facet', 'sprites/items/misc-gem-perfect_diamond.webp');
+    jewelBase.Sprite = 'sprites/items/misc-gem-jewels.webp';
+    const colossalBase = presentation('cjw', 420, "Defender's Bile", 'sprites/items/misc-body_part-fragment_poison.webp');
+    colossalBase.Sprite = 'sprites/items/misc-gem-jewels.webp';
+    const diamondBase = presentation('gpw');
+    diamondBase.Sprite = 'sprites/items/misc-gem-perfect_diamond.webp';
+    const presentations = new Map([jewelBase, colossalBase, diamondBase].map((entry) => [entry.Code, entry]));
+
+    // Saved magic/rare jewels map variableGraphicsId 0..5 -> jewels1..6.webp
+    for (let gfx = 0; gfx < 6; gfx++) {
+      const magicJewel = {
+        codeText: 'jew',
+        quality: 'Magic',
+        variableGraphicsId: gfx,
+        seed: 99
+      } as SaveItem;
+      expect(itemSprite(magicJewel, jewelBase, presentations)).toBe(`/images/items/jewels${gfx + 1}.webp`);
+    }
+
+    // Unique Rainbow Facets (perfect_diamond placeholder in item-presentation.json) also use jewel graphics
+    const facet = {
+      codeText: 'jew',
+      quality: 'Unique',
+      qualityData: { fileIndex: 392 },
+      variableGraphicsId: 3
+    } as SaveItem;
+    expect(itemSprite(facet, jewelBase, presentations)).toBe('/images/items/jewels4.webp');
+
+    // Missing variableGraphicsId still picks a deterministic native jewel graphic rather than the diamond
+    const legacySnapshotJewel = {
+      codeText: 'jew',
+      quality: 'Unique',
+      qualityData: { fileIndex: 392 },
+      variableGraphicsId: null
+    } as SaveItem;
+    expect(itemSprite(legacySnapshotJewel, jewelBase, presentations)).toBe('/images/items/jewels3.webp');
+    expect(baseItemSprite(jewelBase)).toBe('/images/items/jewels5.webp');
+    expect(baseItemSprite(colossalBase)).toBe('/images/items/jewels5.webp');
+
+    // Unique Colossal Jewels keep their custom fragment sprites, and actual Perfect Diamonds stay diamonds
+    const uniqueColossal = {
+      codeText: 'cjw',
+      quality: 'Unique',
+      qualityData: { fileIndex: 420 },
+      variableGraphicsId: 1
+    } as SaveItem;
+    expect(itemSprite(uniqueColossal, colossalBase, presentations))
+      .toBe('/data/sprites/items/misc-body_part-fragment_poison.webp');
+
+    const perfectDiamond = { codeText: 'gpw', quality: 'Normal' } as SaveItem;
+    expect(itemSprite(perfectDiamond, diamondBase, presentations))
+      .toBe('/data/sprites/items/misc-gem-perfect_diamond.webp');
+    expect(baseItemSprite(diamondBase)).toBe('/data/sprites/items/misc-gem-perfect_diamond.webp');
   });
 });

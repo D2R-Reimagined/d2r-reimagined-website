@@ -103,6 +103,38 @@ export function hasUnknownItemVariant(
     && itemVariantMatch(item, presentation, presentations, upgradeTiers) === null;
 }
 
+const JEWEL_CODES = new Set(['jew', 'cjw']);
+const JEWEL_PLACEHOLDER_SPRITES = new Set([
+  'sprites/items/misc-gem-jewels.webp',
+  'sprites/items/misc-gem-perfect_diamond.webp'
+]);
+const JEWEL_VARIANT_COUNT = 6;
+const DEFAULT_JEWEL_SPRITE = '/images/items/jewels5.webp';
+
+function jewelSpriteForItem(item: SaveItem): string {
+  const gfx = item.variableGraphicsId;
+  if (typeof gfx === 'number' && Number.isInteger(gfx) && gfx >= 0 && gfx < JEWEL_VARIANT_COUNT) {
+    return `/images/items/jewels${gfx + 1}.webp`;
+  }
+  const fallbackKey = item.qualityData?.fileIndex ?? item.seed;
+  if (typeof fallbackKey === 'number' && Number.isFinite(fallbackKey)) {
+    const index = (Math.abs(Math.trunc(fallbackKey)) % JEWEL_VARIANT_COUNT) + 1;
+    return `/images/items/jewels${index}.webp`;
+  }
+  return DEFAULT_JEWEL_SPRITE;
+}
+
+export function baseItemSprite(presentation?: ItemPresentation): string | null {
+  if (!presentation?.Sprite) return null;
+  if (
+    JEWEL_CODES.has(presentation.Code.toLowerCase()) &&
+    JEWEL_PLACEHOLDER_SPRITES.has(presentation.Sprite)
+  ) {
+    return DEFAULT_JEWEL_SPRITE;
+  }
+  return `/data/${presentation.Sprite}`;
+}
+
 export function itemSprite(
   item: SaveItem,
   presentation?: ItemPresentation,
@@ -116,5 +148,10 @@ export function itemSprite(
   // slot shows the item instead of an empty square.
   const inherited = match?.upgraded && match.variant.Sprite === match.base.Sprite;
   const path = (inherited ? undefined : match?.variant.Sprite) ?? presentation.Sprite;
-  return path ? `/data/${path}` : null;
+  if (!path) return null;
+  const code = (item.codeText?.trim() || presentation.Code).toLowerCase();
+  if (JEWEL_CODES.has(code) && JEWEL_PLACEHOLDER_SPRITES.has(path)) {
+    return jewelSpriteForItem(item);
+  }
+  return `/data/${path}`;
 }

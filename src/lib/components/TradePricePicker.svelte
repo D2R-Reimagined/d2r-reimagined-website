@@ -77,6 +77,9 @@
   let selectedCodes = $derived(new Set(activeItems.map((entry) => entry.currencyCode.toLowerCase())));
   let searchResults = $derived(searchTradeCurrencies(search).slice(0, 14));
   let atLimit = $derived(activeItems.length >= MAX_PRICE_ITEMS);
+  let holdingLegacyBuyout = $derived(
+    variant === 'listing' && mode === 'buyout' && items.length === 0 && Boolean(legacyPrice?.trim())
+  );
 
   function syncOfferValue(): void {
     if (variant !== 'offer') return;
@@ -117,7 +120,14 @@
   function removeCurrency(code: string): void {
     const normalized = code.toLowerCase();
     const current = variant === 'offer' ? offerItems : items;
-    setItems(current.filter((entry) => entry.currencyCode.toLowerCase() !== normalized));
+    const next = current.filter((entry) => entry.currencyCode.toLowerCase() !== normalized);
+    setItems(next);
+    if (variant === 'listing') {
+      if (next.length < 2) combine = 'Or';
+      if (mode === 'buyout' && next.length === 0 && Boolean(legacyPrice?.trim())) {
+        note = '';
+      }
+    }
   }
 
   function clampQty(qty: number): number {
@@ -142,6 +152,7 @@
       if (items.length > 0) {
         items = [];
       }
+      combine = 'Or';
       onclearlegacy?.();
     }
   }
@@ -153,6 +164,7 @@
       <div class="inline-flex rounded border border-parchment-300/20 bg-black/40 p-0.5 text-xs" role="group" aria-label="Pricing mode">
         <button
           type="button"
+          aria-pressed={mode === 'buyout'}
           class={`rounded px-3 py-1 transition ${mode === 'buyout' ? 'bg-ember-600/35 text-white' : 'text-parchment-300 hover:text-white'}`}
           onclick={() => switchListingMode('buyout')}
         >
@@ -160,6 +172,7 @@
         </button>
         <button
           type="button"
+          aria-pressed={mode === 'offers'}
           class={`rounded px-3 py-1 transition ${mode === 'offers' ? 'bg-ember-600/35 text-white' : 'text-parchment-300 hover:text-white'}`}
           onclick={() => switchListingMode('offers')}
         >
@@ -167,11 +180,16 @@
         </button>
       </div>
       <div class="text-xs text-parchment-300">
-        Preview: <TradePriceDisplay price={items.length === 0 && !note.trim() ? legacyPrice : null} priceItems={items} priceCombine={combine} priceNote={note} />
+        Preview: <TradePriceDisplay
+          price={holdingLegacyBuyout ? legacyPrice : null}
+          priceItems={items}
+          priceCombine={combine}
+          priceNote={holdingLegacyBuyout ? '' : note}
+        />
       </div>
     </div>
 
-    {#if legacyPrice && items.length === 0 && !note.trim()}
+    {#if holdingLegacyBuyout}
       <div class="mt-2 flex items-center justify-between gap-2 rounded border border-parchment-300/15 bg-white/[0.03] px-2.5 py-1.5 text-xs text-parchment-300">
         <span>Legacy price text: <span class="text-parchment-100">{legacyPrice}</span> — pick currencies below to convert it, or clear to set Offers only.</span>
         {#if onclearlegacy}
@@ -240,7 +258,10 @@
                 <button
                   type="button"
                   class="flex w-full items-center justify-between gap-2 border-b border-parchment-300/10 px-3 py-2 text-left text-xs text-parchment-100 hover:bg-white/5"
-                  onmousedown={(event) => { event.preventDefault(); addCurrency(currency.code); }}
+                  onmousedown={(event) => event.preventDefault()}
+                  onclick={() => addCurrency(currency.code)}
+                  onfocus={openDropdown}
+                  onblur={scheduleCloseDropdown}
                 >
                   <span class="flex items-center gap-2">
                     <img src={currency.sprite} alt="" class="h-4 w-4 shrink-0 object-contain" loading="lazy" />
@@ -329,6 +350,7 @@
         <div class="inline-flex rounded border border-parchment-300/20 bg-black/40 p-0.5" role="group" aria-label="Currency combine mode">
           <button
             type="button"
+            aria-pressed={combine === 'Or'}
             class={`rounded px-2.5 py-1 transition ${combine === 'Or' ? 'bg-ember-600/35 text-white' : 'text-parchment-300 hover:text-white'}`}
             onclick={() => combine = 'Or'}
           >
@@ -336,6 +358,7 @@
           </button>
           <button
             type="button"
+            aria-pressed={combine === 'And'}
             class={`rounded px-2.5 py-1 transition ${combine === 'And' ? 'bg-ember-600/35 text-white' : 'text-parchment-300 hover:text-white'}`}
             onclick={() => combine = 'And'}
           >
@@ -354,8 +377,15 @@
       <input
         type="text"
         maxlength={MAX_PRICE_NOTE_LENGTH}
-        class="field mt-1 !py-1.5 text-xs"
-        placeholder={mode === 'offers' ? 'Example: ISO cold skillers, Sorc torch, or currency offer' : 'Example: or cold skillers, firm, open to swaps'}
+        disabled={holdingLegacyBuyout}
+        class="field mt-1 !py-1.5 text-xs disabled:opacity-50"
+        placeholder={
+          holdingLegacyBuyout
+            ? "Pick currencies above or switch to 'Offers only' before adding a barter note"
+            : mode === 'offers'
+              ? 'Example: ISO cold skillers, Sorc torch, or currency offer'
+              : 'Example: or cold skillers, firm, open to swaps'
+        }
         bind:value={note}
       />
     </label>

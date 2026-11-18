@@ -125,4 +125,41 @@ describe('trade listing edits', () => {
     expect(tradeListingEdits(structuredBuyout, { ...tradeListingEditForm(structuredBuyout), price: '' })).toEqual({});
     expect(tradeListingEdits(offersWithNote, { ...tradeListingEditForm(offersWithNote), price: '' })).toEqual({});
   });
+
+  it('protects a legacy text buyout until currencies are picked or the seller explicitly clears to offers', () => {
+    const baseForm = tradeListingEditForm(listing);
+
+    // Accidental barter note or combine toggle while legacy price is still active must not wipe '2 Ber'
+    expect(
+      tradeListingEdits(listing, {
+        ...baseForm,
+        priceCombine: 'And',
+        priceNote: 'firm'
+      })
+    ).toEqual({});
+
+    // Explicitly clearing legacy price to Offers only with a barter note sends the structured offers note
+    expect(
+      tradeListingEdits(listing, {
+        ...baseForm,
+        price: '',
+        priceNote: 'ISO cold skillers'
+      })
+    ).toEqual({
+      priceItems: [],
+      priceNote: 'ISO cold skillers'
+    });
+
+    // Picking structured currencies converts the legacy listing cleanly
+    expect(
+      tradeListingEdits(listing, {
+        ...baseForm,
+        priceItems: [{ currencyCode: 'r30', quantity: 2 }],
+        priceNote: 'firm'
+      })
+    ).toEqual({
+      priceItems: [{ currencyCode: 'r30', quantity: 2 }],
+      priceNote: 'firm'
+    });
+  });
 });

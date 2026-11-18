@@ -4,7 +4,7 @@
   import TradeItemProperties from '#lib/components/TradeItemProperties.svelte';
   import TradePriceDisplay from '#lib/components/TradePriceDisplay.svelte';
   import type { SaveItem } from '#lib/characters.js';
-  import { itemSprite, loadItemPresentation, type ItemPresentation } from '#lib/item-presentation.js';
+  import { baseItemSprite, itemSprite, loadItemPresentation, type ItemPresentation } from '#lib/item-presentation.js';
   import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
   import type { TradeListing } from '#lib/trades.js';
   import { relativeAge as age } from '#lib/utc-time.js';
@@ -34,7 +34,7 @@
   let presentation = $derived(presentations.get((item?.codeText || listing.itemCode || '').toLowerCase()));
   let sprite = $derived.by(() => {
     if (item) return itemSprite(item, presentation, presentations, tiers);
-    return presentation?.Sprite ? `/data/${presentation.Sprite}` : null;
+    return baseItemSprite(presentation);
   });
 
   function qualityClass(): string {

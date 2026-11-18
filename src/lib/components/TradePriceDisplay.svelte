@@ -35,8 +35,8 @@
 </script>
 
 {#if effectiveItems.length > 0}
-  <span class={`inline-flex flex-wrap items-center gap-1 ${compact ? 'text-xs' : 'text-sm'}`}>
-    {#each effectiveItems as entry, index (entry.currencyCode)}
+  <span class={`inline-flex max-w-full flex-wrap items-center gap-1 ${compact ? 'text-xs' : 'text-sm'}`}>
+    {#each effectiveItems as entry, index (`${entry.currencyCode}-${index}`)}
       {@const currency = getTradeCurrency(entry.currencyCode)}
       {#if index > 0}
         <span class="px-0.5 text-[0.7rem] font-medium text-parchment-300">{connector}</span>
@@ -52,18 +52,18 @@
       </span>
     {/each}
     {#if effectiveNote}
-      <span class="text-xs text-parchment-300">({effectiveNote})</span>
+      <span class="break-words text-xs text-parchment-300">({effectiveNote})</span>
     {/if}
   </span>
 {:else if offerText}
-  <span class="text-sm text-parchment-200">{offerText}</span>
+  <span class={`break-words ${compact ? 'text-xs text-parchment-200' : 'text-sm text-parchment-200'}`}>{offerText}</span>
 {:else if effectiveNote}
-  <span class="inline-flex flex-wrap items-center gap-1.5 text-xs text-parchment-200">
+  <span class="inline-flex max-w-full flex-wrap items-center gap-1.5 text-xs text-parchment-200">
     <span class="rounded border border-parchment-300/20 bg-white/5 px-1.5 py-0.5 text-[0.65rem] uppercase tracking-wider text-parchment-300">Offers</span>
-    <span>{effectiveNote}</span>
+    <span class="break-words">{effectiveNote}</span>
   </span>
 {:else if price?.trim()}
-  <span class={compact ? 'text-xs text-parchment-100' : 'text-sm text-parchment-100'}>{price}</span>
+  <span class={`break-words ${compact ? 'text-xs text-parchment-100' : 'text-sm text-parchment-100'}`}>{price}</span>
 {:else if showOffersBadge}
   <span class="inline-flex items-center rounded border border-parchment-300/20 bg-white/5 px-1.5 py-0.5 text-xs text-parchment-300">Offers</span>
 {/if}

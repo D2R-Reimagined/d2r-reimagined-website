@@ -38,7 +38,7 @@
   </div>
 
   {#if error}<div role="alert" class="mt-6 rounded border border-red-500/35 bg-red-950/35 px-4 py-3 text-red-200">{error}</div>{/if}
-  <div class="mt-6 flex gap-2 overflow-x-auto pb-2">{#each ['All', 'Active', 'Reserved', 'Completed', 'Cancelled'] as option}<button type="button" class={`whitespace-nowrap rounded-full border px-4 py-2 text-sm ${status === option ? 'border-ember-400/55 bg-ember-700/25 text-white' : 'border-parchment-300/20 text-parchment-300'}`} onclick={() => status = option as typeof status}>{option === 'Reserved' ? 'Pending' : option}</button>{/each}</div>
+  <div class="mt-6 flex gap-2 overflow-x-auto pb-2">{#each ['All', 'Active', 'Reserved', 'Completed', 'Expired', 'Cancelled'] as option}<button type="button" class={`whitespace-nowrap rounded-full border px-4 py-2 text-sm ${status === option ? 'border-ember-400/55 bg-ember-700/25 text-white' : 'border-parchment-300/20 text-parchment-300'}`} onclick={() => status = option as typeof status}>{option === 'Reserved' ? 'Pending' : option}</button>{/each}</div>
 
   {#if loading}<div class="panel mt-5 rounded-lg p-12 text-center text-parchment-300">Loading your listings…</div>
   {:else if visible.length === 0}<div class="panel mt-5 rounded-lg p-12 text-center"><h2 class="display-text text-2xl text-parchment-50">No {status === 'All' ? '' : status.toLowerCase()} listings</h2><p class="mt-2 text-parchment-300">Your listings will appear here as soon as you publish them.</p></div>
