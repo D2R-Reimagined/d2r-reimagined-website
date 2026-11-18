@@ -28,6 +28,8 @@
     type TradeInventory
   } from '#lib/trades.js';
   import { decodeGameItemHash, findGameItemInInventory, type GameItemPayload } from '#lib/trade-game-item.js';
+  import { stashTabItems, stashTabLabel, visibleStashTabs } from '#lib/trade-stash.js';
+  import { parseUtc } from '#lib/utc-time.js';
 
   type ItemOrigin = 'character' | 'stash' | 'game';
 
@@ -39,6 +41,10 @@
   let selectedStashTab = $state(0);
   let source = $state<'character' | 'stash'>('character');
   let selectedItem = $state<SaveItem | null>(null);
+  let hasDefense = $state(false);
+  let hasMaximumDurability = $state(false);
+  let hasQuantity = $state(false);
+  let hasAdvancedStashStackSize = $state(false);
   let itemOrigin = $state<ItemOrigin | null>(null);
   // Sent by the trade-sell plugin's Sell button. The item's own record from the
   // game, so the listing never depends on the item being in a synced save.
@@ -80,7 +86,8 @@
   );
 
   let currentStash = $derived(inventory?.sharedStashes.find((stash) => stash.fileName === selectedStashFile) ?? null);
-  let currentStashTab = $derived(currentStash?.tabs[selectedStashTab] ?? null);
+  let visibleTabs = $derived(visibleStashTabs(currentStash));
+  let currentStashTab = $derived(visibleTabs.find((tab) => tab.index === selectedStashTab) ?? visibleTabs[0] ?? null);
   let selectedLadder = $derived(ladders.find((ladder) => ladder.id === selectedLadderId) ?? null);
   let selectedItemIdentified = $derived(selectedItem ? isItemIdentified(selectedItem) : false);
   let matchingNameOptions = $derived.by(() => {
@@ -102,8 +109,16 @@
 
   function chooseStash(fileName: string): void {
     selectedStashFile = fileName;
-    selectedStashTab = 0;
+    const nextStash = inventory?.sharedStashes.find((stash) => stash.fileName === fileName) ?? null;
+    selectedStashTab = visibleStashTabs(nextStash)[0]?.index ?? 0;
     clearPickedItem();
+  }
+
+  function resetPickedItemFlags(): void {
+    hasDefense = false;
+    hasMaximumDurability = false;
+    hasQuantity = false;
+    hasAdvancedStashStackSize = false;
   }
 
   // Browsing saves drops an item picked from them, but not the one sent from
@@ -111,6 +126,7 @@
   function clearPickedItem(): void {
     if (itemOrigin === 'game') return;
     selectedItem = null;
+    resetPickedItemFlags();
     itemOrigin = null;
   }
 
@@ -123,6 +139,10 @@
 
   function chooseItem(item: SaveItem, origin: ItemOrigin = source): void {
     selectedItem = structuredClone($state.snapshot(item));
+    hasDefense = item.defense != null;
+    hasMaximumDurability = item.maximumDurability != null;
+    hasQuantity = item.quantity != null;
+    hasAdvancedStashStackSize = item.advancedStashStackSize != null;
     itemOrigin = origin;
     itemName = itemLabel(item);
     const identified = isItemIdentified(item);
@@ -142,6 +162,7 @@
     inventoryLoading = true;
     error = '';
     selectedItem = null;
+    resetPickedItemFlags();
     itemOrigin = null;
     try {
       inventory = await getTradeInventory(selectedLadderQuery());
@@ -205,6 +226,10 @@
   async function publish(event: SubmitEvent): Promise<void> {
     event.preventDefault();
     if (!selectedItem || saving) return;
+    if (hasAdvancedStashStackSize && (selectedItem.advancedStashStackSize == null || selectedItem.advancedStashStackSize < 1 || selectedItem.advancedStashStackSize > 255)) {
+      error = 'Stack size must be between 1 and 255.';
+      return;
+    }
     saving = true;
     error = '';
     try {
@@ -262,7 +287,7 @@
       catalogItems = [...uniques, ...setItems];
       nameOptions = [...new Set(catalogItems.map((item) => String(item.Index || '')).filter(Boolean))].sort((a, b) => a.localeCompare(b));
       const now = Date.now();
-      const currentLadderId = ladders.find((ladder) => new Date(ladder.startDateUtc).getTime() <= now && new Date(ladder.endDateUtc).getTime() > now)?.id ?? '';
+      const currentLadderId = ladders.find((ladder) => parseUtc(ladder.startDateUtc).getTime() <= now && parseUtc(ladder.endDateUtc).getTime() > now)?.id ?? '';
       // A game link names the character's ladder when the launcher configured
       // one; otherwise the current ladder stays the default, as it always was.
       const linkedLadder = page.url.searchParams.get('ladder');
@@ -341,12 +366,12 @@
         {/if}
       {:else if source === 'character'}
         <div class="mb-4 flex flex-wrap gap-2">{#each inventory.characters as entry}<button type="button" class={`rounded border px-3 py-2 text-sm ${selectedCharacterId === entry.character.id ? 'border-ember-400/55 bg-ember-700/25 text-white' : 'border-parchment-300/20 text-parchment-300'}`} onclick={() => chooseCharacter(entry.character.id)}>{entry.character.name} · {entry.character.class} {entry.character.level}</button>{/each}</div>
-        {#if selectedCharacter}<div class="rounded-lg border border-parchment-300/15 bg-[#101014] p-3 sm:p-6"><CharacterViewer details={selectedCharacter} inventoryOnly selectedItemSeed={itemOrigin === 'character' ? selectedItem?.seed : undefined} onItemSelect={(item) => chooseItem(item, 'character')} /></div>{/if}
+        {#if selectedCharacter}<div class="rounded-lg border border-parchment-300/15 bg-[#101014] p-3 sm:p-6"><CharacterViewer details={selectedCharacter} inventoryOnly selectedItem={itemOrigin === 'character' ? selectedItem : null} selectedItemSeed={itemOrigin === 'character' ? selectedItem?.seed : undefined} onItemSelect={(item) => chooseItem(item, 'character')} /></div>{/if}
       {:else}
         <div class="mb-4 flex flex-wrap gap-2">{#each inventory.sharedStashes as stash}<button type="button" class={`rounded border px-3 py-2 text-sm ${selectedStashFile === stash.fileName ? 'border-ember-400/55 bg-ember-700/25 text-white' : 'border-parchment-300/20 text-parchment-300'}`} onclick={() => chooseStash(stash.fileName)}>{stash.fileName}</button>{/each}</div>
         {#if currentStash}
-          <div class="mb-5 flex gap-2 overflow-x-auto pb-2">{#each currentStash.tabs as tab}<button type="button" class={`whitespace-nowrap rounded border px-3 py-2 text-sm ${selectedStashTab === tab.index ? 'border-ember-400/55 bg-ember-700/25 text-white' : 'border-parchment-300/20 text-parchment-300'}`} onclick={() => { selectedStashTab = tab.index; clearPickedItem(); }}>Tab {tab.index + 1} · {tab.items.length} items</button>{/each}</div>
-          {#if currentStashTab}<TradeStashPicker items={currentStashTab.items} selectedItemSeed={itemOrigin === 'stash' ? selectedItem?.seed : undefined} onItemSelect={(item) => chooseItem(item, 'stash')} />{/if}
+          <div class="mb-5 flex gap-2 overflow-x-auto pb-2">{#each visibleTabs as tab (tab.index)}<button type="button" class={`whitespace-nowrap rounded border px-3 py-2 text-sm ${currentStashTab?.index === tab.index ? 'border-ember-400/55 bg-ember-700/25 text-white' : 'border-parchment-300/20 text-parchment-300'}`} onclick={() => { selectedStashTab = tab.index; clearPickedItem(); }}>{stashTabLabel(tab, visibleTabs)}</button>{/each}</div>
+          {#if currentStashTab}<TradeStashPicker items={stashTabItems(currentStashTab)} tabType={currentStashTab.type} selectedItem={itemOrigin === 'stash' ? selectedItem : null} selectedItemSeed={itemOrigin === 'stash' ? selectedItem?.seed : undefined} onItemSelect={(item) => chooseItem(item, 'stash')} />{/if}
         {/if}
       {/if}
     </section>
@@ -370,9 +395,10 @@
             {#if selectedItemIdentified}
               <label class="text-sm text-parchment-200">Item level<input type="number" min="1" max="100" class="field mt-2" bind:value={selectedItem.itemLevel} /></label>
               <label class="text-sm text-parchment-200">Required level<input type="number" min="0" max="100" class="field mt-2" bind:value={requiredLevel} /></label>
-              {#if selectedItem.defense != null}<label class="text-sm text-parchment-200">Defense<input type="number" min="0" class="field mt-2" bind:value={selectedItem.defense} /></label>{/if}
-              {#if selectedItem.maximumDurability != null}<label class="text-sm text-parchment-200">Maximum durability<input type="number" min="0" class="field mt-2" bind:value={selectedItem.maximumDurability} /></label>{/if}
-              {#if selectedItem.quantity != null}<label class="text-sm text-parchment-200">Quantity<input type="number" min="0" class="field mt-2" bind:value={selectedItem.quantity} /></label>{/if}
+              {#if hasDefense}<label class="text-sm text-parchment-200">Defense<input type="number" min="0" class="field mt-2" bind:value={selectedItem.defense} /></label>{/if}
+              {#if hasMaximumDurability}<label class="text-sm text-parchment-200">Maximum durability<input type="number" min="0" class="field mt-2" bind:value={selectedItem.maximumDurability} /></label>{/if}
+              {#if hasQuantity}<label class="text-sm text-parchment-200">Quantity<input type="number" min="0" class="field mt-2" bind:value={selectedItem.quantity} /></label>{/if}
+              {#if hasAdvancedStashStackSize}<label class="text-sm text-parchment-200">Stack size<input type="number" min="1" max="255" required class="field mt-2" bind:value={selectedItem.advancedStashStackSize} /></label>{/if}
             {/if}
             <label class="text-sm text-parchment-200 lg:col-span-2">Price / what you want <span class="text-parchment-300">(free text)</span><input maxlength="500" class="field mt-2" placeholder="Examples: 2 Ber, Jah + offer, similar Sorceress gear" bind:value={price} /></label>
             <label class="text-sm text-parchment-200 lg:col-span-2">Notes<textarea rows="3" maxlength="4000" class="field mt-2 resize-y" placeholder="Anything the buyer should know…" bind:value={description}></textarea></label>

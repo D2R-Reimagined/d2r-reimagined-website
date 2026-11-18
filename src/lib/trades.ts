@@ -152,6 +152,7 @@ export interface TradeConversationSummary {
   unreadCount: number;
   isAcceptedTrade: boolean;
   createdAtUtc: string;
+  listingStatus?: TradeListingStatus;
 }
 
 export interface TradeConversation {
@@ -282,5 +283,19 @@ export function sendTradeMessage(id: string, body: string): Promise<TradeMessage
   return apiRequest<TradeMessage>(`/trades/conversations/${encodeURIComponent(id)}/messages`, {
     method: 'POST',
     body: JSON.stringify({ body })
+  }, true);
+}
+
+export type TradeConversationDeleteScope = 'closed' | 'all';
+
+export function deleteTradeConversation(id: string): Promise<void> {
+  return apiRequest<void>(`/trades/conversations/${encodeURIComponent(id)}`, {
+    method: 'DELETE'
+  }, true);
+}
+
+export function deleteTradeConversations(scope: TradeConversationDeleteScope = 'closed'): Promise<void> {
+  return apiRequest<void>(`/trades/conversations?scope=${encodeURIComponent(scope)}`, {
+    method: 'DELETE'
   }, true);
 }

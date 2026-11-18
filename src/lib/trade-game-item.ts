@@ -1,4 +1,5 @@
 import type { CharacterDetailsResponse, SaveItem } from '#lib/characters.js';
+import { stashTabItems, visibleStashTabs } from '#lib/trade-stash.js';
 import type { TradeInventory } from '#lib/trades.js';
 
 /**
@@ -71,7 +72,9 @@ export type GameItemMatch =
 
 function sameItem(item: SaveItem, game: GameItemPayload): boolean {
   // Which of the two seeds a save reports as `seed` is not pinned down, so
-  // either counts; the code rules out a collision between different items.
+  // either counts; zero is never a unique seed (compact items and remote
+  // Ladder clients both report 0).
+  if (item.seed === 0) return false;
   return item.codeText.toLowerCase() === game.code.toLowerCase()
     && (item.seed === game.itemSeed || item.seed === game.generationSeed);
 }
@@ -83,6 +86,7 @@ function hasFlag(item: SaveItem, name: string): boolean {
 // Remote TCP/IP clients (Ladder) receive 0 for itemSeed and generationSeed.
 // Match a synced save item when its attributes agree and the match is unique.
 function sameSeedlessItem(item: SaveItem, game: GameItemPayload): boolean {
+  if ((item.advancedStashStackSize ?? 0) > 1) return false;
   if (item.codeText.toLowerCase() !== game.code.toLowerCase()) return false;
   if (item.qualityId !== game.quality || item.itemLevel !== game.itemLevel) return false;
   if ((game.quality === 5 || game.quality === 7) && (item.qualityData?.fileIndex ?? -1) !== game.qualityRecord) return false;
@@ -121,8 +125,8 @@ export function findGameItemInInventory(inventory: TradeInventory | null, game: 
     if (item) return { source: 'character', characterId: entry.character.id, item };
   }
   for (const stash of inventory.sharedStashes) {
-    for (const tab of stash.tabs) {
-      const item = tab.items.find((candidate) => sameItem(candidate, game));
+    for (const tab of visibleStashTabs(stash)) {
+      const item = stashTabItems(tab).find((candidate) => sameItem(candidate, game));
       if (item) return { source: 'stash', fileName: stash.fileName, tabIndex: tab.index, item };
     }
   }
@@ -136,8 +140,8 @@ export function findGameItemInInventory(inventory: TradeInventory | null, game: 
       }
     }
     for (const stash of inventory.sharedStashes) {
-      for (const tab of stash.tabs) {
-        for (const candidate of tab.items) {
+      for (const tab of visibleStashTabs(stash)) {
+        for (const candidate of stashTabItems(tab)) {
           if (sameSeedlessItem(candidate, game)) {
             matches.push({ source: 'stash', fileName: stash.fileName, tabIndex: tab.index, item: candidate });
           }

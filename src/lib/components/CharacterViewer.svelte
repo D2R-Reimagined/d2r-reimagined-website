@@ -15,6 +15,7 @@
   import { buildRunewordNameMap, runewordNameKey } from '#lib/runeword-presentation.js';
   import { loadRareNamePresentation, type RareNamePresentation } from '#lib/rare-name-presentation.js';
   import { loadSkillClasses } from '#lib/skills.js';
+  import { isSameSaveItem } from '#lib/trade-stash.js';
   import type { SkillClass } from '#lib/types.js';
   import { onMount } from 'svelte';
 
@@ -22,12 +23,14 @@
     details,
     inventoryOnly = false,
     embedded = false,
+    selectedItem = null,
     selectedItemSeed,
     onItemSelect
   }: {
     details: CharacterDetailsResponse;
     inventoryOnly?: boolean;
     embedded?: boolean;
+    selectedItem?: SaveItem | null;
     selectedItemSeed?: number | null;
     onItemSelect?: (item: SaveItem) => void;
   } = $props();
@@ -333,11 +336,11 @@
           {#each equipped as item}
             {@const style = equippedStyle(item)}
             {@const itemPresentation = presentation(item)}
-            {#if style}<CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} detailsLoading={tooltipDetailsLoading} {style} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />{/if}
+            {#if style}<CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} detailsLoading={tooltipDetailsLoading} {style} tooltipSide={tooltipSide(item, itemPresentation)} selected={isSameSaveItem(selectedItem, item, selectedItemSeed)} onselect={onItemSelect} />{/if}
           {/each}
           {#each inventory as item}
             {@const itemPresentation = presentation(item)}
-            <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} detailsLoading={tooltipDetailsLoading} style={inventoryStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />
+            <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} detailsLoading={tooltipDetailsLoading} style={inventoryStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} selected={isSameSaveItem(selectedItem, item, selectedItemSeed)} onselect={onItemSelect} />
           {/each}
         </div>
       </div>
@@ -360,7 +363,7 @@
           >
             {#each charmInventory as item}
               {@const itemPresentation = presentation(item)}
-              <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} detailsLoading={tooltipDetailsLoading} style={charmStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} selected={selectedItemSeed === item.seed} onselect={onItemSelect} />
+              <CharacterItem {item} presentation={itemPresentation} itemPresentations={presentations} {upgradeTiers} {statPresentation} {rareNames} characterLevel={details.character.level} runewordNameKey={runewordNameKey(item, runewordNames)} detailsLoading={tooltipDetailsLoading} style={charmStyle(item, itemPresentation)} tooltipSide={tooltipSide(item, itemPresentation)} selected={isSameSaveItem(selectedItem, item, selectedItemSeed)} onselect={onItemSelect} />
             {/each}
           </div>
         </div>

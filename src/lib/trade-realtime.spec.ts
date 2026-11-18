@@ -23,6 +23,11 @@ describe('trade notifications', () => {
     expect(parseTradeEvent('{"type":"offer_created","preview":123}')).toBeNull();
     expect(isTradeNotification(parseTradeEvent(JSON.stringify(notification))!)).toBe(true);
     expect(isTradeNotification({ type: 'offer_created', tradeListingId: 'listing' })).toBe(false);
+    expect(parseTradeEvent('{"type":"conversation_deleted","conversationId":"abc"}')).toEqual({
+      type: 'conversation_deleted',
+      conversationId: 'abc'
+    });
+    expect(isTradeNotification(parseTradeEvent('{"type":"conversation_deleted","conversationId":"abc"}')!)).toBe(false);
   });
 
   it('refreshes auth before reconnect, deduplicates events, and stops on cleanup', async () => {
