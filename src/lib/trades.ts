@@ -2,9 +2,11 @@ import { apiRequest } from '#lib/auth.js';
 import type { CharacterDetailsResponse, SaveItem } from '#lib/characters.js';
 import type { GameItemPayload } from '#lib/trade-game-item.js';
 import type { TradeGameMode } from '#lib/trade-game-mode.js';
+import type { TradePriceCombine, TradePriceItem } from '#lib/trade-pricing.js';
 
 export * from '#lib/trade-game-mode.js';
 export * from '#lib/trade-hardcore.js';
+export type { TradePriceCombine, TradePriceItem } from '#lib/trade-pricing.js';
 
 export type TradeListingStatus = 'Active' | 'Reserved' | 'Completed' | 'Cancelled' | 'Expired';
 export type TradeOfferStatus = 'Pending' | 'Accepted' | 'Declined' | 'Withdrawn';
@@ -39,6 +41,9 @@ export interface TradeListing {
   /** Null when nothing said which side the item is on. */
   isHardcore: boolean | null;
   price: string | null;
+  priceItems?: TradePriceItem[];
+  priceCombine?: TradePriceCombine;
+  priceNote?: string | null;
   isNegotiable: boolean;
   status: TradeListingStatus;
   expiresAtUtc: string | null;
@@ -85,6 +90,8 @@ export interface TradeFilters {
   isLadder?: boolean;
   gameMode?: TradeGameMode;
   isHardcore?: boolean;
+  hasBuyout?: boolean;
+  wantedCurrency?: string;
   isNegotiable?: boolean;
   isEthereal?: boolean;
   isCorrupted?: boolean;
@@ -116,6 +123,9 @@ export interface CreateTradeListing {
   gameMode: TradeGameMode | null;
   isHardcore: boolean | null;
   price: string | null;
+  priceItems?: TradePriceItem[];
+  priceCombine?: TradePriceCombine;
+  priceNote?: string | null;
   isNegotiable: boolean;
 }
 

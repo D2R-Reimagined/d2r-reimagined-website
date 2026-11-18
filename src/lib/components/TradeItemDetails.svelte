@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import ItemTooltip from '#lib/components/ItemTooltip.svelte';
   import type { SaveItem } from '#lib/characters.js';
-  import { itemSprite, loadItemPresentation, type ItemPresentation } from '#lib/item-presentation.js';
+  import { baseItemSprite, itemSprite, loadItemPresentation, type ItemPresentation } from '#lib/item-presentation.js';
   import { loadItemUpgradeTiers, type ItemUpgradeTiers } from '#lib/item-upgrade-tiers.js';
   import { loadItemStatPresentation, type ItemStatPresentationBundle } from '#lib/item-stat-presentation.js';
 
@@ -24,7 +24,7 @@
   let presentation = $derived(presentations.get(code.toLowerCase()));
   let sprite = $derived.by(() => {
     if (item) return itemSprite(item, presentation, presentations, upgradeTiers);
-    return presentation?.Sprite ? `/data/${presentation.Sprite}` : null;
+    return baseItemSprite(presentation);
   });
 
   onMount(async () => {

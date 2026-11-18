@@ -3,7 +3,10 @@
     import {goto} from '$app/navigation';
     import TradeItemSearch from '#lib/components/TradeItemSearch.svelte';
     import TradeListingCard from '#lib/components/TradeListingCard.svelte';
+    import TradePriceDisplay from '#lib/components/TradePriceDisplay.svelte';
+    import TradePricePicker from '#lib/components/TradePricePicker.svelte';
     import TradePropertyFilters from '#lib/components/TradePropertyFilters.svelte';
+    import {TRADE_CURRENCIES} from '#lib/trade-pricing.js';
     import {tradeStatHighlights} from '#lib/trade-stat-highlights.js';
     import {authState, initializeAuth} from '#lib/auth.js';
     import {openTradeChat} from '#lib/trade-chat.js';
@@ -53,6 +56,8 @@
     let search = $state('');
     let quality = $state('');
     let itemType = $state('');
+    let pricingMode = $state<'all' | 'buyout' | 'offers'>('all');
+    let wantedCurrency = $state('');
     let negotiable = $state(false);
     let minLevel = $state<number | string | null>('');
     let maxLevel = $state<number | string | null>('');
@@ -80,7 +85,8 @@
     let isHardcore = $state<boolean | null>(data.initialIsHardcore ?? null);
 
     let activeFilterCount = $derived(
-        [quality, itemType.trim()].filter(Boolean).length
+        [quality, itemType.trim(), wantedCurrency].filter(Boolean).length
+        + (pricingMode !== 'all' ? 1 : 0)
         + [minLevel, maxLevel, minItemLevel, minSockets, maxSockets].filter((value) => optionalNumber(value) !== undefined).length
         + [negotiable, ethereal, corrupted].filter(Boolean).length
         + activeTradePropertyCount(propertyGroups)
@@ -106,6 +112,8 @@
             isLadder: data.realm.kind === 'standard' ? false : undefined,
             gameMode: gameMode ?? undefined,
             isHardcore: isHardcore ?? undefined,
+            hasBuyout: pricingMode === 'buyout' ? true : pricingMode === 'offers' ? false : undefined,
+            wantedCurrency: wantedCurrency || undefined,
             isNegotiable: negotiable || undefined,
             isEthereal: ethereal || undefined,
             isCorrupted: corrupted || undefined,
@@ -139,6 +147,8 @@
     function clearFilters(): void {
         quality = '';
         itemType = '';
+        pricingMode = 'all';
+        wantedCurrency = '';
         negotiable = false;
         minLevel = '';
         maxLevel = '';
@@ -192,7 +202,7 @@
     function makeOffer(listing: TradeListing): void {
         if (!requireAccount(`/trade/${listing.id}`)) return;
         offerListing = listing;
-        offerText = listing.price || '';
+        offerText = '';
         notice = '';
     }
 
@@ -347,6 +357,47 @@
                                 <option>Unique</option><option>Set</option><option>Runeword</option><option>Rare</option><option>Crafted</option><option>Magic</option><option>Normal</option>
                             </select></label>
                             <label class="trade-filter-label">Item type<input class="field mt-1.5" placeholder="Sword, charm, armor…" bind:value={itemType}/></label>
+                            <label class="trade-filter-label">Pricing<select
+                                    class="field mt-1.5"
+                                    bind:value={pricingMode}
+                                    onchange={() => { if (pricingMode === 'offers') wantedCurrency = ''; }}
+                            >
+                                <option value="all">Any pricing</option>
+                                <option value="buyout">Has buyout price</option>
+                                <option value="offers">Offers only</option>
+                            </select></label>
+                            <label class="trade-filter-label">Wanted currency<select
+                                    class="field mt-1.5"
+                                    bind:value={wantedCurrency}
+                                    onchange={() => { if (wantedCurrency && pricingMode === 'offers') pricingMode = 'all'; }}
+                            >
+                                <option value="">Any currency</option>
+                                <optgroup label="Orbs & Gem Clusters">
+                                    {#each TRADE_CURRENCIES.filter((entry) => entry.category === 'Orb') as currency (currency.code)}
+                                        <option value={currency.code}>{currency.shortLabel === currency.name ? currency.name : `${currency.shortLabel} — ${currency.name}`}</option>
+                                    {/each}
+                                </optgroup>
+                                <optgroup label="Map Currency">
+                                    {#each TRADE_CURRENCIES.filter((entry) => entry.category === 'Map') as currency (currency.code)}
+                                        <option value={currency.code}>{currency.shortLabel} — {currency.name}</option>
+                                    {/each}
+                                </optgroup>
+                                <optgroup label="Mid & High Runes (Lem–Hev)">
+                                    {#each TRADE_CURRENCIES.filter((entry) => entry.category === 'Rune' && Number(entry.code.slice(1)) >= 20) as currency (currency.code)}
+                                        <option value={currency.code}>{currency.name}</option>
+                                    {/each}
+                                </optgroup>
+                                <optgroup label="Boss Keys, Shards & Relics">
+                                    {#each TRADE_CURRENCIES.filter((entry) => entry.category === 'Boss') as currency (currency.code)}
+                                        <option value={currency.code}>{currency.name}</option>
+                                    {/each}
+                                </optgroup>
+                                <optgroup label="Low Runes (El–Fal)">
+                                    {#each TRADE_CURRENCIES.filter((entry) => entry.category === 'Rune' && Number(entry.code.slice(1)) < 20) as currency (currency.code)}
+                                        <option value={currency.code}>{currency.name}</option>
+                                    {/each}
+                                </optgroup>
+                            </select></label>
                             <div class="trade-filter-label">Realm
                                 <div class="mt-1.5 flex min-h-11 items-center rounded border border-parchment-300/15 bg-black/20 px-3 text-sm text-parchment-200">{data.realm.label}</div>
                             </div>
@@ -444,14 +495,17 @@
 {#if offerListing}
     <div class="fixed inset-0 z-[80] grid place-items-center bg-black/75 p-4" role="presentation"
          onclick={(event) => { if (event.target === event.currentTarget) offerListing = null; }}>
-        <form class="panel w-full max-w-lg rounded-lg p-6 shadow-2xl" onsubmit={submitOffer}>
+        <form class="panel w-full max-w-xl rounded-lg p-6 shadow-2xl" onsubmit={submitOffer}>
             <p class="text-xs uppercase tracking-[0.2em] text-ember-400">Offer on</p>
             <h2 class="display-text mt-2 text-2xl text-parchment-50">{offerListing.itemName}</h2>
-            <p class="mt-2 text-sm text-parchment-300">Seller is looking for: <span
-                    class="text-parchment-50">{offerListing.price || 'Offers'}</span></p>
-            <label for="offer-text" class="mt-5 block text-sm text-parchment-200">Your offer</label>
-            <textarea id="offer-text" required maxlength="500" rows="4" class="field mt-2 resize-y"
-                      placeholder="Example: 2 Ber + 1 Jah" bind:value={offerText}></textarea>
+            <div class="mt-2 flex flex-wrap items-center gap-2 text-sm text-parchment-300">
+                <span>Seller is looking for:</span>
+                <TradePriceDisplay price={offerListing.price} priceItems={offerListing.priceItems} priceCombine={offerListing.priceCombine} priceNote={offerListing.priceNote} compact />
+            </div>
+            <div class="mt-5">
+                <span class="mb-2 block text-sm text-parchment-200">Your offer</span>
+                <TradePricePicker variant="offer" bind:value={offerText} />
+            </div>
             <p class="mt-2 text-xs text-parchment-300">The seller can accept this directly. Chat only opens when you
                 choose to message or the offer is accepted.</p>
             <div class="mt-6 flex justify-end gap-3">

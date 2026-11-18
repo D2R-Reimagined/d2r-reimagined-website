@@ -1,6 +1,8 @@
 <script lang="ts">
+  import TradePricePicker from '#lib/components/TradePricePicker.svelte';
   import {
     canEditTradeListing,
+    hasLegacyTradePrice,
     tradeListingEditForm,
     tradeListingEdits,
     type TradeListingEditForm
@@ -75,7 +77,18 @@
       {#if listing.isIdentified}
         <label class="block text-sm text-parchment-200">Listing title<input required minlength="3" maxlength="120" class="field mt-2" bind:value={form.title} /></label>
       {/if}
-      <label class="block text-sm text-parchment-200">Price / what you want <span class="text-parchment-300">(free text)</span><input maxlength="500" class="field mt-2" placeholder="Examples: 2 Ber, Jah + offer, similar Sorceress gear" bind:value={form.price} /></label>
+      <div>
+        <span class="mb-2 block text-sm text-parchment-200">Price / what you want</span>
+        <TradePricePicker
+          variant="listing"
+          bind:items={form.priceItems}
+          bind:combine={form.priceCombine}
+          bind:note={form.priceNote}
+          initialMode={(listing.priceItems?.length ?? 0) > 0 || hasLegacyTradePrice(listing) ? 'buyout' : 'offers'}
+          legacyPrice={hasLegacyTradePrice(listing) ? (form.price || null) : null}
+          onclearlegacy={hasLegacyTradePrice(listing) ? () => { if (form) form.price = ''; } : undefined}
+        />
+      </div>
       <label class="block text-sm text-parchment-200">Notes<textarea rows="3" maxlength="4000" class="field mt-2 resize-y" placeholder="Anything the buyer should know…" bind:value={form.description}></textarea></label>
       <label class="flex items-start gap-3 rounded border border-parchment-300/15 bg-black/20 p-4"><input type="checkbox" class="checkbox mt-0.5" bind:checked={form.isNegotiable} /><span><strong class="block text-parchment-50">Open to offers</strong><span class="mt-1 block text-sm text-parchment-300">Players can submit an offer without starting a conversation.</span></span></label>
       <p class="text-xs text-parchment-300">The item itself can't be changed here. List it again if this is the wrong item.</p>

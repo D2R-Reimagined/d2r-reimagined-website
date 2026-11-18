@@ -3,6 +3,7 @@
   import { page } from '$app/state';
   import { onMount } from 'svelte';
   import CharacterViewer from '#lib/components/CharacterViewer.svelte';
+  import TradePricePicker from '#lib/components/TradePricePicker.svelte';
   import TradeStashPicker from '#lib/components/TradeStashPicker.svelte';
   import { getLadders, type LadderSummary } from '#lib/ladders.js';
   import { authState, initializeAuth } from '#lib/auth.js';
@@ -25,7 +26,9 @@
     tradeHardcoreOptions,
     type SharedStash,
     type TradeGameMode,
-    type TradeInventory
+    type TradeInventory,
+    type TradePriceCombine,
+    type TradePriceItem
   } from '#lib/trades.js';
   import { decodeGameItemHash, findGameItemInInventory, type GameItemPayload } from '#lib/trade-game-item.js';
   import { stashTabItems, stashTabLabel, visibleStashTabs } from '#lib/trade-stash.js';
@@ -66,7 +69,9 @@
   let itemType = $state('');
   let quality = $state('');
   let requiredLevel = $state<number | null>(null);
-  let price = $state('');
+  let priceItems = $state<TradePriceItem[]>([]);
+  let priceCombine = $state<TradePriceCombine>('Or');
+  let priceNote = $state('');
   let description = $state('');
   let negotiable = $state(true);
   let gameMode = $state<TradeGameMode | ''>('');
@@ -252,7 +257,10 @@
         isLadder: Boolean(selectedLadderId),
         gameMode: gameMode || null,
         isHardcore,
-        price: price.trim() || null,
+        price: null,
+        priceItems: $state.snapshot(priceItems),
+        priceCombine,
+        priceNote: priceNote.trim() || null,
         isNegotiable: negotiable
       });
       await goto(`/trade/${listing.id}?listed=1`);
@@ -400,7 +408,10 @@
               {#if hasQuantity}<label class="text-sm text-parchment-200">Quantity<input type="number" min="0" class="field mt-2" bind:value={selectedItem.quantity} /></label>{/if}
               {#if hasAdvancedStashStackSize}<label class="text-sm text-parchment-200">Stack size<input type="number" min="1" max="255" required class="field mt-2" bind:value={selectedItem.advancedStashStackSize} /></label>{/if}
             {/if}
-            <label class="text-sm text-parchment-200 lg:col-span-2">Price / what you want <span class="text-parchment-300">(free text)</span><input maxlength="500" class="field mt-2" placeholder="Examples: 2 Ber, Jah + offer, similar Sorceress gear" bind:value={price} /></label>
+            <div class="lg:col-span-2">
+              <span class="mb-2 block text-sm text-parchment-200">Price / what you want</span>
+              <TradePricePicker variant="listing" bind:items={priceItems} bind:combine={priceCombine} bind:note={priceNote} initialMode="buyout" />
+            </div>
             <label class="text-sm text-parchment-200 lg:col-span-2">Notes<textarea rows="3" maxlength="4000" class="field mt-2 resize-y" placeholder="Anything the buyer should know…" bind:value={description}></textarea></label>
           </div>
 

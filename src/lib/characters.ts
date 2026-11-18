@@ -93,6 +93,7 @@ export interface SaveItem {
   qualityId: number;
   quality: string;
   qualityData: SaveQualityData | null;
+  variableGraphicsId?: number | null;
   runewordId: number | null;
   personalizedName: string;
   defense: number | null;
